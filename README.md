@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 > Extension SDK for the Meituan Open Platform: a multi-tenant wrapper on top of the
 > official `MtOpJavaSDK` with typed business facades, tenant-aware request execution
@@ -64,10 +64,10 @@ What it is **not**:
 
 | Dependency | Version |
 | :--- | :--- |
-| Java | 21+ |
-| Spring Boot | 4.x (auto-configuration API is Boot 2.7+ compatible) |
+| Java | 17+ |
+| Spring Boot | 3.x (auto-configuration API is Boot 2.7+ compatible) |
 | Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-SNAPSHOT` (proprietary, see below) |
-| Build | Maven 4 (`./mvnw` wrapper included) |
+| Build | Maven 3.9.16 (`./mvnw` wrapper included) |
 
 > **Official SDK availability** — `MtOpJavaSDK` is distributed by the Meituan
 > Technical Service Cooperation Center ([sdk-download](https://developer.meituan.com/sdk-download))
@@ -107,7 +107,7 @@ business service ──> MeituanRequestExecutor ──> MeituanTenantConfigStora
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>meituan-sdk-extension</artifactId>
-    <version>3.0.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -209,8 +209,8 @@ MeituanTenantConfigStorage cached = new CachedMeituanTenantConfigStorage(remoteS
 
 ## 10. Versioning & Branches
 
-- Current line: `3.0.x` — `3.0.x.20260630-SNAPSHOT`.
-- CI runs `./mvnw -B clean verify` on `feature/3.0.x` (JDK 21).
+- Current line: `2.0.x` — `2.0.x.20260630-SNAPSHOT`.
+- CI runs `./mvnw -B clean verify` on `feature/2.0.x` (JDK 17).
 
 ## 11. Contributing & License
 

@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 > 美团开放平台的 Java 扩展 SDK：基于官方 `MtOpJavaSDK` 的多租户封装，提供类型化
 > 业务门面、租户感知的请求执行与 Spring Boot 自动装配。
@@ -59,10 +59,10 @@
 
 | 依赖 | 版本 |
 | :--- | :--- |
-| Java | 21+ |
-| Spring Boot | 4.x（自动装配 API 兼容 Boot 2.7+） |
+| Java | 17+ |
+| Spring Boot | 3.x（自动装配 API 兼容 Boot 2.7+） |
 | 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-SNAPSHOT`（专有发行物，见下） |
-| 构建 | Maven 4（已含 `./mvnw` wrapper） |
+| 构建 | Maven 3.9.16（已含 `./mvnw` wrapper） |
 
 > **官方 SDK 获取** — `MtOpJavaSDK` 由美团技术服务合作中心发行
 > （[SDK 下载](https://developer.meituan.com/sdk-download)），**未发布到
@@ -101,7 +101,7 @@
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>meituan-sdk-extension</artifactId>
-    <version>3.0.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -202,8 +202,8 @@ MeituanTenantConfigStorage cached = new CachedMeituanTenantConfigStorage(remoteS
 
 ## 10. 版本与分支
 
-- 当前版本线：`3.0.x` — `3.0.x.20260630-SNAPSHOT`。
-- CI 在 `feature/3.0.x` 分支执行 `./mvnw -B clean verify`（JDK 21）。
+- 当前版本线：`2.0.x` — `2.0.x.20260630-SNAPSHOT`。
+- CI 在 `feature/2.0.x` 分支执行 `./mvnw -B clean verify`（JDK 17）。
 
 ## 11. 贡献与许可
 
