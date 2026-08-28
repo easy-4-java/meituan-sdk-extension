@@ -159,7 +159,7 @@ public class CachedMeituanTenantConfigStorage implements MeituanTenantConfigStor
     private Optional<MeituanTenantConfig> reload(String tenantId) {
         Optional<MeituanTenantConfig> tenantConfigOptional = tenantConfigLoader.load(tenantId);
         tenantConfigOptional.ifPresent(tenantConfig -> put(tenantId, tenantConfig));
-        if (tenantConfigOptional.isEmpty()) {
+        if (!tenantConfigOptional.isPresent()) {
             cachedTenants.remove(tenantId);
         }
         return tenantConfigOptional;
