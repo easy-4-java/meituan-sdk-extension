@@ -4,7 +4,7 @@ import com.meituan.sdk.DefaultMeituanClient;
 import com.meituan.sdk.MeituanClient;
 import io.github.easy4j.meituan.config.MeituanConfig;
 import io.github.easy4j.meituan.config.MeituanTenantConfig;
-import org.springframework.util.StringUtils;
+import io.github.easy4j.meituan.utils.StringUtils;
 
 import java.util.Objects;
 

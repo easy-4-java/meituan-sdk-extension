@@ -34,8 +34,10 @@
   `MeituanTenantConfigStorage` 解析租户凭据后委托官方 client 发起请求。
 - **类型化业务门面** — 14 个 service 接口（`MeituanWaimaiService`、
   `MeituanRetailService` 等），覆盖从官方 SDK 抽取的 1084 个强类型业务方法。
-- **Spring Boot 自动装配** — 一个入口类完成配置绑定、租户存储、client 工厂、
-  执行器与全部业务 service 的装配。
+- **可选 Spring Boot starter** — 配套的
+  [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
+  完成配置绑定、租户存储、client 工厂、执行器与全部业务 service 的装配；
+  本核心保持无框架依赖。
 
 它不是：
 
@@ -52,7 +54,7 @@
 | 租户存储 SPI + 内存实现 + 可缓存装饰器 | ✅ |
 | 租户上下文（ThreadLocal `tenantId`） | ✅ |
 | 业务门面：餐饮、到店餐饮、配送、分销、免费试、客满满、快驴、直播、支付、零售、门店、工具、酒旅、外卖 | ✅ |
-| Spring Boot 自动装配（`@ConditionalOnMissingBean` 可覆盖） | ✅ |
+| 可选 Spring Boot starter（`meituan-spring-boot-starter`，每个 Boot 2.3–4.1 版本线一条分支） | ✅ |
 | 异常转换保留官方错误码 | ✅ |
 
 ## 3. 环境要求与兼容性
@@ -79,7 +81,7 @@
 
 | Package | 职责 |
 | :--- | :--- |
-| `io.github.easy4j.meituan` | `MeituanProperties`（`meituan.*` 绑定）+ `MeituanSdkAutoConfiguration` 入口 |
+| `io.github.easy4j.meituan` | 无框架核心：配置对象、client 工厂、执行器、业务 service |
 | `io.github.easy4j.meituan.client` | 官方 client 工厂、租户感知的 `MeituanRequestExecutor` |
 | `io.github.easy4j.meituan.config` | `MeituanConfig`（平台级）/ `MeituanTenantConfig`（租户级） |
 | `io.github.easy4j.meituan.tenant` | 租户存储 SPI、内存实现、缓存装饰器、`MeituanTenantContextHolder`、加载器 |
@@ -105,9 +107,10 @@
 </dependency>
 ```
 
-Spring Boot 服务引入后会自动装配：`MeituanConfig`、
-`MeituanTenantConfigStorage`、`MeituanClientFactory`、
-`MeituanRequestExecutor` 与全部 `Meituan*Service`。
+Spring Boot 服务请搭配 starter 使用
+（[meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)），
+一个依赖即可自动装配 `MeituanConfig`、`MeituanTenantConfigStorage`、
+`MeituanClientFactory`、`MeituanRequestExecutor` 与全部 `Meituan*Service`。
 
 ## 6. 快速开始
 
