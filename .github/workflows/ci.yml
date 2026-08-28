@@ -34,6 +34,23 @@ jobs:
           java-version: '8'
           cache: maven
 
+      - name: Configure Aliyun packages credentials (MtOpJavaSDK snapshot repo)
+        env:
+          ALIYUN_USER: ${{ secrets.ALIYUN_PACKAGES_USERNAME }}
+          ALIYUN_PASS: ${{ secrets.ALIYUN_PACKAGES_PASSWORD }}
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<'SETTINGS'
+          <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+            <servers>
+              <server>
+                <id>2624322-snapshot-3EoOv3</id>
+                <username>${env.ALIYUN_USER}</username>
+                <password>${env.ALIYUN_PASS}</password>
+              </server>
+            </servers>
+          </settings>
+          SETTINGS
       - name: Build and verify with JaCoCo coverage gate
         run: ./mvnw -B --no-transfer-progress clean verify
 
