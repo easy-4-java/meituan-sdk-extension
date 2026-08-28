@@ -38,8 +38,10 @@ application serve many Meituan developer accounts / stores at the same time:
 - **Typed business facades** — 14 service interfaces (`MeituanWaimaiService`,
   `MeituanRetailService`, …) covering the strong-typed Request/Response models
   extracted from the official SDK (1084 typed methods).
-- **Spring Boot auto-configuration** — one entry class wires config binding,
-  tenant storage, client factory, executor and all business services.
+- **Optional Spring Boot starter** — the pairing starter
+  [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
+  wires config binding, tenant storage, client factory, executor and all
+  business services; this core stays framework-free.
 
 What it is **not**:
 
@@ -57,7 +59,7 @@ What it is **not**:
 | Tenant storage SPI + in-memory + cacheable decorator | ✅ |
 | Tenant context holder (thread-local `tenantId`) | ✅ |
 | Business facades: catering, daocan (到店餐饮), delivery, distribution, freetry, kemanman, kuailv, live, pay, retail, store, tools, travel, waimai | ✅ |
-| Spring Boot auto-configuration with `@ConditionalOnMissingBean` overrides | ✅ |
+| Optional Spring Boot starter (`meituan-spring-boot-starter`, one line per Boot 2.3–4.1) | ✅ |
 | Exception translation preserving official error codes | ✅ |
 
 ## 3. Requirements & Compatibility
@@ -86,7 +88,7 @@ What it is **not**:
 
 | Package | Responsibility |
 | :--- | :--- |
-| `io.github.easy4j.meituan` | `MeituanProperties` (`meituan.*` binding) + `MeituanSdkAutoConfiguration` entry |
+| `io.github.easy4j.meituan` | framework-free core: config objects, client factory, executor, services |
 | `io.github.easy4j.meituan.client` | Official client factory, tenant-aware `MeituanRequestExecutor` |
 | `io.github.easy4j.meituan.config` | `MeituanConfig` (platform) / `MeituanTenantConfig` (tenant) |
 | `io.github.easy4j.meituan.tenant` | Tenant storage SPI, in-memory impl, cacheable decorator, `MeituanTenantContextHolder`, loader |
@@ -112,9 +114,11 @@ business service ──> MeituanRequestExecutor ──> MeituanTenantConfigStora
 </dependency>
 ```
 
-Spring Boot services get auto-wired: `MeituanConfig`,
-`MeituanTenantConfigStorage`, `MeituanClientFactory`, `MeituanRequestExecutor`
-and all `Meituan*Service` beans.
+Spring Boot services should also add the starter
+([meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)),
+which auto-wires `MeituanConfig`, `MeituanTenantConfigStorage`,
+`MeituanClientFactory`, `MeituanRequestExecutor` and all `Meituan*Service`
+beans with one dependency.
 
 ## 6. Quick Start
 

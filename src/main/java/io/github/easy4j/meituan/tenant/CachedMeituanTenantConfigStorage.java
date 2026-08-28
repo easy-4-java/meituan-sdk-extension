@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.tenant;
 
 import io.github.easy4j.meituan.config.MeituanTenantConfig;
-import org.springframework.util.StringUtils;
+import io.github.easy4j.meituan.utils.StringUtils;
 
 import java.time.Clock;
 import java.time.Duration;
