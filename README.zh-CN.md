@@ -66,13 +66,13 @@
 
 > **官方 SDK 获取** — `MtOpJavaSDK` 由美团技术服务合作中心发行
 > （[SDK 下载](https://developer.meituan.com/sdk-download)），**未发布到
-> Maven Central**。本项目 POM 已声明私有快照仓库（需要在 `settings.xml`
-> 配置凭据），也可以手动下载 jar 后安装到本地仓库：
+> Maven Central**。官方 jar 连同其官方 POM 已随仓库附带在 `libs/` 下，CI 构建
+> 前会自动安装到本地仓库；本地开发也可通过 POM 声明的私有快照仓库解析（需白名单
+> 凭据），或手动安装：
 >
 > ```bash
-> mvn install:install-file -Dfile=MtOpJavaSDK-1.0.jar \
->     -DgroupId=com.sankuai.sjst -DartifactId=MtOpJavaSDK \
->     -Dversion=1.0-SNAPSHOT -Dpackaging=jar
+> mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
+>     -DpomFile=libs/MtOpJavaSDK-1.0-SNAPSHOT.pom
 > ```
 
 ## 4. 架构与模块
