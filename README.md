@@ -71,14 +71,15 @@ What it is **not**:
 
 > **Official SDK availability** — `MtOpJavaSDK` is distributed by the Meituan
 > Technical Service Cooperation Center ([sdk-download](https://developer.meituan.com/sdk-download))
-> and is **not published to Maven Central**. This project resolves it from a
-> private snapshot repository declared in the POM (requires credentials in your
-> `settings.xml`), or you can install a manually downloaded jar:
+> and is **not published to Maven Central**. A copy of the official jar (with
+> its official POM) is vendored under `libs/`, and CI installs it before
+> building. For local development it is resolved from the private snapshot
+> repository declared in the POM (requires whitelisted access), or install the
+> jar manually:
 >
 > ```bash
-> mvn install:install-file -Dfile=MtOpJavaSDK-1.0.jar \
->     -DgroupId=com.sankuai.sjst -DartifactId=MtOpJavaSDK \
->     -Dversion=1.0-SNAPSHOT -Dpackaging=jar
+> mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
+>     -DpomFile=libs/MtOpJavaSDK-1.0-SNAPSHOT.pom
 > ```
 
 ## 4. Architecture & Modules
