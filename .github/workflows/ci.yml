@@ -42,6 +42,31 @@ jobs:
           mkdir -p ~/.m2/repository/$R
           cp libs/MtOpJavaSDK-1.0-SNAPSHOT.jar ~/.m2/repository/$R/MtOpJavaSDK-$V.jar
           cp libs/MtOpJavaSDK-1.0-SNAPSHOT.pom ~/.m2/repository/$R/MtOpJavaSDK-$V.pom
+          echo "===== settings.xml ====="
+          cat ~/.m2/settings.xml || echo "no settings.xml"
+          echo "===== CI 内解析复现 ====="
+          cat > /tmp/resolve-pom.xml <<'XML'
+          <project xmlns="http://maven.apache.org/POM/4.0.0">
+            <modelVersion>4.0.0</modelVersion>
+            <groupId>test</groupId><artifactId>resolve-test</artifactId><version>1.0</version>
+            <dependencies>
+              <dependency>
+                <groupId>com.sankuai.sjst</groupId>
+                <artifactId>MtOpJavaSDK</artifactId>
+                <version>1.0-20260630.083612-1</version>
+              </dependency>
+            </dependencies>
+            <repositories>
+              <repository>
+                <id>snap</id>
+                <url>https://packages.aliyun.com/6927b116e6c3e0425dbdf60d/maven/2624322-snapshot-3eoov3</url>
+                <releases><enabled>false</enabled></releases>
+                <snapshots><enabled>true</enabled></snapshots>
+              </repository>
+            </repositories>
+          </project>
+          XML
+          mvn -B -f /tmp/resolve-pom.xml dependency:resolve || true
           ls -la ~/.m2/repository/$R
 
       - name: Build and verify with JaCoCo coverage gate
