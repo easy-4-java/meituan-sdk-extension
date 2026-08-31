@@ -100,6 +100,8 @@ import com.meituan.sdk.model.resv2.table.tableStatusPush.TableStatusPushRequest;
 import com.meituan.sdk.model.resv2.table.tableUpdate.TableUpdateRequest;
 import com.meituan.sdk.model.resv2.table.tablestatusUpdate.TablestatusUpdateRequest;
 import com.meituan.sdk.model.resv2.table.updateTableStatus.UpdateTableStatusRequest;
+import com.meituan.sdk.model.dcpd.queueOrder.orderCancelCallback.OrderCancelCallbackRequest;
+import com.meituan.sdk.model.dcpd.queueQuery.shopStateQuery.ShopStateQueryRequest;
 
 /**
  * 餐饮系统业务能力门面。
@@ -1106,4 +1108,24 @@ public interface MeituanCateringService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> userWxBind(UserWxBindRequest request, String tenantId);
+    /**
+     * 取消结果回调。
+     * <p>官方接口：{@code /dcpd/queue/order/cancel/callback}，API：{@code order_cancel_callback}，版本：{@code 10018}，businessId：{@code 49}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> orderCancelCallback(OrderCancelCallbackRequest request, String tenantId);
+
+    /**
+     * 门店排队情况查询。
+     * <p>官方接口：{@code /dcpd/queue/query/shop/state}，API：{@code shop_state_query}，版本：{@code 10000}，businessId：{@code 49}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> shopStateQuery(ShopStateQueryRequest request, String tenantId);
+
 }

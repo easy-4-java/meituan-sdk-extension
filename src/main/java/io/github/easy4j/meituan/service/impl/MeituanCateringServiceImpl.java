@@ -100,6 +100,8 @@ import com.meituan.sdk.model.resv2.table.tableStatusPush.TableStatusPushRequest;
 import com.meituan.sdk.model.resv2.table.tableUpdate.TableUpdateRequest;
 import com.meituan.sdk.model.resv2.table.tablestatusUpdate.TablestatusUpdateRequest;
 import com.meituan.sdk.model.resv2.table.updateTableStatus.UpdateTableStatusRequest;
+import com.meituan.sdk.model.dcpd.queueOrder.orderCancelCallback.OrderCancelCallbackRequest;
+import com.meituan.sdk.model.dcpd.queueQuery.shopStateQuery.ShopStateQueryRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanCateringService;
 
@@ -917,4 +919,24 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
     public MeituanResponse<?> userWxBind(UserWxBindRequest request, String tenantId) {
         return execute(request, tenantId);
     }
+    /**
+     * 取消结果回调。
+     * <p>官方接口：{@code /dcpd/queue/order/cancel/callback}，API：{@code order_cancel_callback}，版本：{@code 10018}，businessId：{@code 49}，需要授权：{@code true}。</p>
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> orderCancelCallback(OrderCancelCallbackRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    /**
+     * 门店排队情况查询。
+     * <p>官方接口：{@code /dcpd/queue/query/shop/state}，API：{@code shop_state_query}，版本：{@code 10000}，businessId：{@code 49}，需要授权：{@code true}。</p>
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> shopStateQuery(ShopStateQueryRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
 }

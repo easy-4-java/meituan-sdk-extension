@@ -251,6 +251,18 @@ import com.meituan.sdk.model.ddzhkh.xcxpw.prePay.PrePayRequest;
 import com.meituan.sdk.model.ddzhkh.xcxpw.queryPayInfo.QueryPayInfoRequest;
 import com.meituan.sdk.model.ddzhkh.xcxpw.queryRefundInfo.QueryRefundInfoRequest;
 import com.meituan.sdk.model.ddzhkh.xcxwy.submitFileTransfer.SubmitFileTransferRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderFeeSync.ChargeOrderFeeSyncRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderFulfill.ChargeOrderFulfillRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderInfoSync.ChargeOrderInfoSyncRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeReserveOrderRefund.ChargeReserveOrderRefundRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.reserveOrderFeeSync.ReserveOrderFeeSyncRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.startDeviceResultCallBack.StartDeviceResultCallBackRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.stopDeviceResultCallBack.StopDeviceResultCallBackRequest;
+import com.meituan.sdk.model.ddzh.print.printOrderInfoSync.PrintOrderInfoSyncRequest;
+import com.meituan.sdk.model.ddzh.print.printOrderResultSync.PrintOrderResultSyncRequest;
+import com.meituan.sdk.model.ddzh.yuding.thirdTechnicianSync.ThirdTechnicianSyncRequest;
+import com.meituan.sdk.model.ddzhkh.shangpin.showeventBatchQuickUpdateStock.ShoweventBatchQuickUpdateStockRequest;
+import com.meituan.sdk.model.ddzhkh.xcxbj.appendPay.AppendPayRequest;
 
 /**
  * 服务零售业务能力门面。
@@ -2957,4 +2969,174 @@ public interface MeituanRetailService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> ddzhkhSyncOrder(com.meituan.sdk.model.ddzhkh.xcxzc.syncOrder.SyncOrderRequest request, String tenantId);
+    /**
+     * 充电订单费用信息同步。
+     * <p>官方接口：{@code /ddzh/chargefulfill/orderfee/sync}，API：{@code charge_order_fee_sync}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> chargeOrderFeeSync(ChargeOrderFeeSyncRequest request, String tenantId);
+
+    /**
+     * 充电订单履约。
+     * <p>官方接口：{@code /ddzh/chargefulfill/order/fulfill}，API：{@code charge_order_fulfill}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> chargeOrderFulfill(ChargeOrderFulfillRequest request, String tenantId);
+
+    /**
+     * 充电订单信息同步。
+     * <p>官方接口：{@code /ddzh/chargefulfill/orderinfo/sync}，API：{@code charge_order_info_sync}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> chargeOrderInfoSync(ChargeOrderInfoSyncRequest request, String tenantId);
+
+    /**
+     * 充电占位费订单退款。
+     * <p>官方接口：{@code /ddzh/chargefulfill/reservefee/refund}，API：{@code charge_reserve_order_refund}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> chargeReserveOrderRefund(ChargeReserveOrderRefundRequest request, String tenantId);
+
+    /**
+     * 充电占位费订单同步。
+     * <p>官方接口：{@code /ddzh/chargefulfill/reservefee/sync}，API：{@code reserve_order_fee_sync}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> reserveOrderFeeSync(ReserveOrderFeeSyncRequest request, String tenantId);
+
+    /**
+     * 启动充电设备结果回调。
+     * <p>官方接口：{@code /ddzh/chargefulfill/startresult/callback}，API：{@code start_device_result_call_back}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> startDeviceResultCallBack(StartDeviceResultCallBackRequest request, String tenantId);
+
+    /**
+     * 停止充电设备结果回调。
+     * <p>官方接口：{@code /ddzh/chargefulfill/stopresult/callback}，API：{@code stop_device_result_call_back}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> stopDeviceResultCallBack(StopDeviceResultCallBackRequest request, String tenantId);
+
+    /**
+     * 文印订单信息及状态同步。
+     * <p>官方接口：{@code /ddzh/print/orderinfo/sync}，API：{@code print_order_info_sync}，版本：{@code 10003}，businessId：{@code 58}，需要授权：{@code false}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> printOrderInfoSync(PrintOrderInfoSyncRequest request, String tenantId);
+
+    /**
+     * 文印订单接单结果同步。
+     * <p>官方接口：{@code /ddzh/print/orderresult/sync}，API：{@code print_order_result_sync}，版本：{@code 10002}，businessId：{@code 58}，需要授权：{@code false}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> printOrderResultSync(PrintOrderResultSyncRequest request, String tenantId);
+
+    /**
+     * 三方手艺人信息同步。
+     * <p>官方接口：{@code /ddzh/yuding/resource/third-technician/sync}，API：{@code third_technician_sync}，版本：{@code 10084}，businessId：{@code 58}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> thirdTechnicianSync(ThirdTechnicianSyncRequest request, String tenantId);
+
+    /**
+     * 演出项目批量快速改库存。
+     * <p>官方接口：{@code /ddzhkh/shangpin/showevent/batch/quick/update/stock}，API：{@code showevent_batch_quick_update_stock}，版本：{@code 10211}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> showeventBatchQuickUpdateStock(ShoweventBatchQuickUpdateStockRequest request, String tenantId);
+
+    /**
+     * 追加支付。
+     * <p>官方接口：{@code /ddzhkh/xcxbj/append_pay}，API：{@code append_pay}，版本：{@code 10000}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> appendPay(AppendPayRequest request, String tenantId);
+
+    /**
+     * 下单不支付。
+     * <p>官方接口：{@code /ddzhkh/xcxbj/create_order}，API：{@code create_order}，版本：{@code 10002}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> createOrder(com.meituan.sdk.model.ddzhkh.xcxbj.createOrder.CreateOrderRequest request, String tenantId);
+
+    /**
+     * 申请退款接口。
+     * <p>官方接口：{@code /ddzhkh/xcxbj/refund_order}，API：{@code refund_order}，版本：{@code 10003}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> refundOrder(com.meituan.sdk.model.ddzhkh.xcxbj.refundOrder.RefundOrderRequest request, String tenantId);
+
+    /**
+     * 订单同步。
+     * <p>官方接口：{@code /ddzhkh/xcxbj/sync_status}，API：{@code sync_order}，版本：{@code 10004}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> syncOrder(com.meituan.sdk.model.ddzhkh.xcxbj.syncOrder.SyncOrderRequest request, String tenantId);
+
+    /**
+     * 订单查询。
+     * <p>官方接口：{@code /ddzhkh/xcxzc/query_order}，API：{@code query_order}，版本：{@code 10006}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> queryOrder(com.meituan.sdk.model.ddzhkh.xcxzc.queryOrder.QueryOrderRequest request, String tenantId);
+
+    /**
+     * 查询退款结果。
+     * <p>官方接口：{@code /ddzhkh/xcxzc/query_refund_info}，API：{@code query_refund_info}，版本：{@code 10007}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> ddzhkhQueryRefundInfo(com.meituan.sdk.model.ddzhkh.xcxzc.queryRefundInfo.QueryRefundInfoRequest request, String tenantId);
+
 }

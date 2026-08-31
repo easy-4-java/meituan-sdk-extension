@@ -33,6 +33,8 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiP
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefund.ZcmopenpayApiRefundRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefundQuery.ZcmopenpayApiRefundQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 
 /**
  * 美团收单业务能力门面。
@@ -359,4 +361,24 @@ public interface MeituanPayService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> zcmopenpayApiRefundQuery(ZcmopenpayApiRefundQueryRequest request, String tenantId);
+    /**
+     * [基础]生成授权第三方文件上传预签名URL。
+     * <p>官方接口：{@code /sdpt/acquiring/api/common/file/presigned/upload}，API：{@code zcmopen_api_common_file_presigned_upload}，版本：{@code 10124}，businessId：{@code 52}，需要授权：{@code false}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> zcmopenApiCommonFilePresignedUpload(ZcmopenApiCommonFilePresignedUploadRequest request, String tenantId);
+
+    /**
+     * [变更]修改银行卡结果查询。
+     * <p>官方接口：{@code /sdpt/acquiring/api/merchant/poi/change/flow}，API：{@code zcmopen_api_merchant_poi_change_flow}，版本：{@code 10131}，businessId：{@code 52}，需要授权：{@code false}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> zcmopenApiMerchantPoiChangeFlow(ZcmopenApiMerchantPoiChangeFlowRequest request, String tenantId);
+
 }
