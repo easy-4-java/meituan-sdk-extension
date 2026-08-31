@@ -34,11 +34,7 @@ jobs:
           java-version: '8'
           cache: maven
 
-      - name: Install vendored MtOpJavaSDK (libs/) into local repository
-        run: >-
-          ./mvnw -B --no-transfer-progress install:install-file -Dversion=1.0-20260630.083612-1
-          -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar
-          -DpomFile=libs/MtOpJavaSDK-1.0-SNAPSHOT.pom
+
       - name: Build and verify with JaCoCo coverage gate
         run: ./mvnw -B --no-transfer-progress clean verify
 
