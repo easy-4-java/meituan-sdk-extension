@@ -8,7 +8,6 @@ import com.meituan.sdk.model.mendianzhilian.test.updatePoi.UpdatePoiRequest;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetail.DcSrcollQueryTradeProfitDetailRequest;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetailForOppoiid.DcSrcollQueryTradeProfitDetailForOppoiidRequest;
 import com.meituan.sdk.model.solution2.dcpoidinfo.dcPageQueryTokenPoiList.DcPageQueryTokenPoiListRequest;
-import com.meituan.sdk.model.solution2.dcpoidinfo.obfuscateMtshop.ObfuscateMtshopRequest;
 import com.meituan.sdk.model.solution2.mtcompany.wechatOrderSqtInfoBatchQuery.WechatOrderSqtInfoBatchQueryRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanStoreService;
@@ -81,14 +80,6 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> dcPageQueryTokenPoiList(DcPageQueryTokenPoiListRequest request, String tenantId) {
-        return execute(request, tenantId);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public MeituanResponse<?> obfuscateMtshop(ObfuscateMtshopRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
