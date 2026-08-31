@@ -37,7 +37,7 @@ application serve many Meituan developer accounts / stores at the same time:
   and delegates to the official client.
 - **Typed business facades** — 14 service interfaces (`MeituanWaimaiService`,
   `MeituanRetailService`, …) covering the strong-typed Request/Response models
-  extracted from the official SDK (1084 typed methods).
+  extracted from the official SDK (1106 typed methods).
 - **Optional Spring Boot starter** — the pairing starter
   [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
   wires config binding, tenant storage, client factory, executor and all

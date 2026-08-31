@@ -9,6 +9,7 @@ import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetail.
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetailForOppoiid.DcSrcollQueryTradeProfitDetailForOppoiidRequest;
 import com.meituan.sdk.model.solution2.dcpoidinfo.dcPageQueryTokenPoiList.DcPageQueryTokenPoiListRequest;
 import com.meituan.sdk.model.solution2.mtcompany.wechatOrderSqtInfoBatchQuery.WechatOrderSqtInfoBatchQueryRequest;
+import com.meituan.sdk.model.solution2.csaccount.scrollQueryNonTradeProfitDetail.ScrollQueryNonTradeProfitDetailRequest;
 
 /**
  * 门店基础信息直连业务能力门面。
@@ -95,4 +96,14 @@ public interface MeituanStoreService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> wechatOrderSqtInfoBatchQuery(WechatOrderSqtInfoBatchQueryRequest request, String tenantId);
+    /**
+     * 游标查询非交易结算流水。
+     * <p>官方接口：{@code /solution2/csaccount/scrollQueryNonTradeProfitDetail}，API：{@code scroll_query_non_trade_profit_detail}，版本：{@code 10009}，businessId：{@code 86}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> scrollQueryNonTradeProfitDetail(ScrollQueryNonTradeProfitDetailRequest request, String tenantId);
+
 }

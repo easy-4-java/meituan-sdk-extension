@@ -94,6 +94,7 @@ import com.meituan.sdk.model.pms.tmc.bookingCheck.BookingCheckRequest;
 import com.meituan.sdk.model.pms.tmc.getPhysicalRoomtypes.GetPhysicalRoomtypesRequest;
 import com.meituan.sdk.model.pms.tmc.queryHotelProducts.QueryHotelProductsRequest;
 import com.meituan.sdk.model.pms.tmc.queryOrder.QueryOrderRequest;
+import com.meituan.sdk.model.pms.reservation.autoDispatchRoom.AutoDispatchRoomRequest;
 
 /**
  * 酒旅经营宝业务能力门面。
@@ -1080,4 +1081,14 @@ public interface MeituanTravelService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> queryOrder(QueryOrderRequest request, String tenantId);
+    /**
+     * 预订单自动排房。
+     * <p>官方接口：{@code /pms/reservation/autoDispatchRoom}，API：{@code auto_dispatch_room}，版本：{@code 10058}，businessId：{@code 57}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> autoDispatchRoom(AutoDispatchRoomRequest request, String tenantId);
+
 }

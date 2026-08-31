@@ -33,6 +33,8 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiP
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefund.ZcmopenpayApiRefundRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefundQuery.ZcmopenpayApiRefundQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanPayService;
 
@@ -306,4 +308,24 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
     public MeituanResponse<?> zcmopenpayApiRefundQuery(ZcmopenpayApiRefundQueryRequest request, String tenantId) {
         return execute(request, tenantId);
     }
+    /**
+     * [基础]生成授权第三方文件上传预签名URL。
+     * <p>官方接口：{@code /sdpt/acquiring/api/common/file/presigned/upload}，API：{@code zcmopen_api_common_file_presigned_upload}，版本：{@code 10124}，businessId：{@code 52}，需要授权：{@code false}。</p>
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> zcmopenApiCommonFilePresignedUpload(ZcmopenApiCommonFilePresignedUploadRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    /**
+     * [变更]修改银行卡结果查询。
+     * <p>官方接口：{@code /sdpt/acquiring/api/merchant/poi/change/flow}，API：{@code zcmopen_api_merchant_poi_change_flow}，版本：{@code 10131}，businessId：{@code 52}，需要授权：{@code false}。</p>
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> zcmopenApiMerchantPoiChangeFlow(ZcmopenApiMerchantPoiChangeFlowRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
 }
