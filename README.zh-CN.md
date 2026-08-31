@@ -33,7 +33,7 @@
 - **租户级执行** — 业务调用只需传 `tenantId`，执行器从可插拔的
   `MeituanTenantConfigStorage` 解析租户凭据后委托官方 client 发起请求。
 - **类型化业务门面** — 14 个 service 接口（`MeituanWaimaiService`、
-  `MeituanRetailService` 等），覆盖从官方 SDK 抽取的 1084 个强类型业务方法。
+  `MeituanRetailService` 等），覆盖从官方 SDK 抽取的 1106 个强类型业务方法。
 - **可选 Spring Boot starter** — 配套的
   [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
   完成配置绑定、租户存储、client 工厂、执行器与全部业务 service 的装配；

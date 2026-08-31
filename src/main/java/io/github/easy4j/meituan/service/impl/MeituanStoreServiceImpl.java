@@ -9,6 +9,7 @@ import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetail.
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetailForOppoiid.DcSrcollQueryTradeProfitDetailForOppoiidRequest;
 import com.meituan.sdk.model.solution2.dcpoidinfo.dcPageQueryTokenPoiList.DcPageQueryTokenPoiListRequest;
 import com.meituan.sdk.model.solution2.mtcompany.wechatOrderSqtInfoBatchQuery.WechatOrderSqtInfoBatchQueryRequest;
+import com.meituan.sdk.model.solution2.csaccount.scrollQueryNonTradeProfitDetail.ScrollQueryNonTradeProfitDetailRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanStoreService;
 
@@ -90,4 +91,14 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
     public MeituanResponse<?> wechatOrderSqtInfoBatchQuery(WechatOrderSqtInfoBatchQueryRequest request, String tenantId) {
         return execute(request, tenantId);
     }
+    /**
+     * 游标查询非交易结算流水。
+     * <p>官方接口：{@code /solution2/csaccount/scrollQueryNonTradeProfitDetail}，API：{@code scroll_query_non_trade_profit_detail}，版本：{@code 10009}，businessId：{@code 86}，需要授权：{@code true}。</p>
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> scrollQueryNonTradeProfitDetail(ScrollQueryNonTradeProfitDetailRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
 }
