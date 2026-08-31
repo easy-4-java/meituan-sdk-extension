@@ -8,7 +8,6 @@ import com.meituan.sdk.model.mendianzhilian.test.updatePoi.UpdatePoiRequest;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetail.DcSrcollQueryTradeProfitDetailRequest;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetailForOppoiid.DcSrcollQueryTradeProfitDetailForOppoiidRequest;
 import com.meituan.sdk.model.solution2.dcpoidinfo.dcPageQueryTokenPoiList.DcPageQueryTokenPoiListRequest;
-import com.meituan.sdk.model.solution2.dcpoidinfo.obfuscateMtshop.ObfuscateMtshopRequest;
 import com.meituan.sdk.model.solution2.mtcompany.wechatOrderSqtInfoBatchQuery.WechatOrderSqtInfoBatchQueryRequest;
 
 /**
@@ -86,16 +85,6 @@ public interface MeituanStoreService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> dcPageQueryTokenPoiList(DcPageQueryTokenPoiListRequest request, String tenantId);
-
-    /**
-     * 美团门店混淆。
-     * <p>官方接口：{@code /solution2/dcpoidinfo/obfuscate/poiid}，API：{@code obfuscate_mtshop}，版本：{@code 10003}，businessId：{@code 86}，需要授权：{@code 是}。</p>
-     *
-     * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
-     * @return 官方 SDK 反序列化后的响应
-     */
-    MeituanResponse<?> obfuscateMtshop(ObfuscateMtshopRequest request, String tenantId);
 
     /**
      * 批量查询微信支付订单商企通信息。
