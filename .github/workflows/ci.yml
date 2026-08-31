@@ -42,6 +42,7 @@ jobs:
           mkdir -p ~/.m2/repository/$R
           cp libs/MtOpJavaSDK-1.0-SNAPSHOT.jar ~/.m2/repository/$R/MtOpJavaSDK-$V.jar
           cp libs/MtOpJavaSDK-1.0-SNAPSHOT.pom ~/.m2/repository/$R/MtOpJavaSDK-$V.pom
+          rm -f ~/.m2/repository/$R/*.lastUpdated ~/.m2/repository/$R/resolver-status.properties
 
       - name: Build and verify with JaCoCo coverage gate
         run: ./mvnw -B --no-transfer-progress clean verify
