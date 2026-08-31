@@ -3139,4 +3139,35 @@ public interface MeituanRetailService extends MeituanService {
      */
     MeituanResponse<?> ddzhkhQueryRefundInfo(com.meituan.sdk.model.ddzhkh.xcxzc.queryRefundInfo.QueryRefundInfoRequest request, String tenantId);
 
+
+    /**
+     * 订单查询（配送商自提自配送 xcx3csmzl 渠道）。
+     * <p>官方接口：{@code /ddzhkh/xcx3csmzl/query_order}，API：{@code query_order}，版本：{@code 10028}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> xcx3csmzlQueryOrder(com.meituan.sdk.model.ddzhkh.xcx3csmzl.queryOrder.QueryOrderRequest request, String tenantId);
+
+    /**
+     * 查询退款结果（配送商自提自配送 xcx3csmzl 渠道）。
+     * <p>官方接口：{@code /ddzhkh/xcx3csmzl/query_refund_info}，API：{@code query_refund_info}，版本：{@code 10027}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> xcx3csmzlQueryRefundInfo(com.meituan.sdk.model.ddzhkh.xcx3csmzl.queryRefundInfo.QueryRefundInfoRequest request, String tenantId);
+
+    /**
+     * 订单查询（帮订小程序 xcxbj 渠道）。
+     * <p>官方接口：{@code /ddzhkh/xcxbj/query_order}，API：{@code query_order}，版本：{@code 10001}，businessId：{@code 59}，需要授权：{@code true}。</p>
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 官方 SDK 反序列化后的响应
+     */
+    MeituanResponse<?> xcxbjQueryOrder(com.meituan.sdk.model.ddzhkh.xcxbj.queryOrder.QueryOrderRequest request, String tenantId);
+
 }
