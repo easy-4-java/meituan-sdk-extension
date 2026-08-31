@@ -35,6 +35,14 @@ jobs:
           cache: maven
 
 
+      - name: Install vendored MtOpJavaSDK (libs/) into local repository
+        run: |
+          V=1.0-20260630.083612-1
+          R=com/sankuai/sjst/MtOpJavaSDK/$V
+          mkdir -p ~/.m2/repository/$R
+          cp libs/MtOpJavaSDK-1.0-SNAPSHOT.jar ~/.m2/repository/$R/MtOpJavaSDK-$V.jar
+          cp libs/MtOpJavaSDK-1.0-SNAPSHOT.pom ~/.m2/repository/$R/MtOpJavaSDK-$V.pom
+
       - name: Build and verify with JaCoCo coverage gate
         run: ./mvnw -B --no-transfer-progress clean verify
 
