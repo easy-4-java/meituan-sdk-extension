@@ -2610,4 +2610,29 @@ public class MeituanRetailServiceImpl extends AbstractMeituanService implements 
         return execute(request, tenantId);
     }
 
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> xcx3csmzlQueryOrder(com.meituan.sdk.model.ddzhkh.xcx3csmzl.queryOrder.QueryOrderRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> xcx3csmzlQueryRefundInfo(com.meituan.sdk.model.ddzhkh.xcx3csmzl.queryRefundInfo.QueryRefundInfoRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> xcxbjQueryOrder(com.meituan.sdk.model.ddzhkh.xcxbj.queryOrder.QueryOrderRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
 }
