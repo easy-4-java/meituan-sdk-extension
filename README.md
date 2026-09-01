@@ -195,11 +195,23 @@ MeituanTenantConfigStorage meituanTenantConfigStorage(TenantRepository repositor
 }
 ```
 
-Cacheable decorator for remote storage:
+Cacheable storage with TTL for remote/config-center-backed tenants:
 
 ```java
-MeituanTenantConfigStorage cached = new CachedMeituanTenantConfigStorage(remoteStorage);
+// TTL 10 minutes: entry reloads from the loader after expiry
+MeituanTenantConfigStorage cached = new CachedMeituanTenantConfigStorage(
+        tenantId -> repository.findByTenantId(tenantId), Duration.ofMinutes(10));
+
+// Push fresh credentials immediately after an authorization callback
+cachedStorage.put("tenant-a", freshConfig);   // overwrite cache
+cachedStorage.refresh("tenant-a");            // force reload from loader
+cachedStorage.evict("tenant-a");              // drop one entry
 ```
+
+> **Token lifecycle** — `appAuthToken` refresh is the caller's responsibility:
+> implement `MeituanTenantConfigLoader` to return the *current* token from your
+> store, pick a TTL shorter than the token lifetime, or call `put`/`refresh`
+> from your token-rotation job. The SDK never refreshes tokens itself.
 
 ## 9. Testing & Build
 
