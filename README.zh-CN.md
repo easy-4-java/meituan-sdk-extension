@@ -186,11 +186,23 @@ MeituanTenantConfigStorage meituanTenantConfigStorage(TenantRepository repositor
 }
 ```
 
-为远程存储叠加本地缓存：
+为远程/配置中心存储叠加带 TTL 的本地缓存：
 
 ```java
-MeituanTenantConfigStorage cached = new CachedMeituanTenantConfigStorage(remoteStorage);
+// TTL 10 分钟：过期后从加载器重新加载
+MeituanTenantConfigStorage cached = new CachedMeituanTenantConfigStorage(
+        tenantId -> repository.findByTenantId(tenantId), Duration.ofMinutes(10));
+
+// 授权回调后立即把最新凭据推入缓存
+cachedStorage.put("tenant-a", freshConfig);   // 覆盖缓存
+cachedStorage.refresh("tenant-a");            // 强制从加载器重载
+cachedStorage.evict("tenant-a");              // 清除单个条目
 ```
+
+> **token 生命周期责任** —— `appAuthToken` 的刷新由调用方负责：
+> 实现 `MeituanTenantConfigLoader` 从你的存储返回**当前有效** token，
+> 取一个短于 token 有效期的 TTL，或在 token 轮换任务里调用
+> `put`/`refresh`。SDK 自身不做 token 刷新。
 
 ## 9. 测试与构建
 

@@ -119,7 +119,14 @@ public class CachedMeituanTenantConfigStorage implements MeituanTenantConfigStor
         if (!StringUtils.hasText(tenantId)) {
             return Optional.empty();
         }
-        return reloadWithTenantLock(tenantId);
+        Object tenantLock = tenantLocks.computeIfAbsent(tenantId, key -> new Object());
+        synchronized (tenantLock) {
+            try {
+                return reload(tenantId);
+            } finally {
+                tenantLocks.remove(tenantId, tenantLock);
+            }
+        }
     }
 
     /**
