@@ -103,7 +103,7 @@
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>meituan-sdk-extension</artifactId>
-    <version>1.0.x.20260630-SNAPSHOT</version>
+    <version>1.0.x.20260831-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -217,7 +217,7 @@ cachedStorage.evict("tenant-a");              // 清除单个条目
 
 ## 10. 版本与分支
 
-- 当前版本线：`1.0.x` — `1.0.x.20260630-SNAPSHOT`。
+- 当前版本线：`1.0.x` — `1.0.x.20260831-SNAPSHOT`。
 - CI 在 `feature/1.0.x` 分支执行 `./mvnw -B clean verify`（JDK 8）。
 
 ## 11. 贡献与许可
