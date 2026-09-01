@@ -110,7 +110,7 @@ business service ──> MeituanRequestExecutor ──> MeituanTenantConfigStora
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>meituan-sdk-extension</artifactId>
-    <version>2.0.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260831-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -226,7 +226,7 @@ cachedStorage.evict("tenant-a");              // drop one entry
 
 ## 10. Versioning & Branches
 
-- Current line: `2.0.x` — `2.0.x.20260630-SNAPSHOT`.
+- Current line: `2.0.x` — `2.0.x.20260831-SNAPSHOT`.
 - CI runs `./mvnw -B clean verify` on `feature/2.0.x` (JDK 17).
 
 ## 11. Contributing & License
