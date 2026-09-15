@@ -7,7 +7,7 @@
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/easy-4-java/${project.artifactId}</url>
     <description>Meituan Open Platform SDK Extension: multi-tenant wrapper for the official MtOpJavaSDK</description>
-    <version>1.0.x.20260831-SNAPSHOT</version>
+    <version>1.0.x.20260630.1</version>
     <packaging>jar</packaging>
     <!-- 开源协议采用 Apache 2.0 协议 -->
     <licenses>
@@ -65,12 +65,12 @@
         <junit-jupiter.version>5.11.4</junit-jupiter.version>
         <junit.version>5.11.4</junit.version>
         <lombok.version>1.18.46</lombok.version>
-        <meituan-op-sdk.version>1.0-SNAPSHOT</meituan-op-sdk.version>
+        <meituan-op-sdk.version>1.0.20260831</meituan-op-sdk.version>
         <slf4j.version>2.0.18</slf4j.version>
         <!-- Maven Plugin versions -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
-        <maven-central-publishing-plugin.version>0.8.0</maven-central-publishing-plugin.version>
+        <maven-central-publishing-plugin.version>0.11.0</maven-central-publishing-plugin.version>
         <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
         <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
         <maven-enforcer-plugin.version>3.6.3</maven-enforcer-plugin.version>
@@ -517,7 +517,19 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-install-plugin</artifactId>
                     </plugin>
-                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+                                        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+                    <plugin>
+                        <!-- 源码插件：发布时自动将源码同时发布 -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                    </plugin>
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+                    <plugin>
+                        <!-- 文档插件：发布时自动生成 Javadoc 并发布 -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
+<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
                     <plugin>
                         <!-- 签名插件：对制品进行 PGP 签名 -->
                         <groupId>org.apache.maven.plugins</groupId>
@@ -548,6 +560,18 @@
             <id>central</id>
             <build>
                 <plugins>
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+                    <plugin>
+                        <!-- 源码插件：发布时自动将源码同时发布 -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                    </plugin>
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+                    <plugin>
+                        <!-- 文档插件：发布时自动生成 Javadoc 并发布 -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
                     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
                     <plugin>
                         <!-- 签名插件：对制品进行 PGP 签名 -->
