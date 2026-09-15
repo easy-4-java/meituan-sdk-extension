@@ -11,12 +11,11 @@ import com.meituan.sdk.model.ddzhkh.auth.queryPoiMapping.QueryPoiMappingResponse
  * <p>OAuth V2.0 账号级授权后，用 token 调用以下接口查询商家账号下可授权的 POI 列表与
  * 已绑定映射关系，用于云端自动批量绑定门店授权。</p>
  *
- * <p>API 路径（来自官方 SDK {@code @ApiMeta} 注解）：
+ * API 路径（来自官方 SDK {@code @ApiMeta} 注解）：
  * <ul>
  *   <li>{@code /ddzhkh/auth/token/pageQueryPoiList}（businessId=59，需要授权）</li>
  *   <li>{@code /ddzhkh/auth/token/queryPoiMapping}（businessId=59，需要授权）</li>
  * </ul>
- * </p>
  */
 public interface MeituanDdzhkhAuthService extends MeituanService {
 
