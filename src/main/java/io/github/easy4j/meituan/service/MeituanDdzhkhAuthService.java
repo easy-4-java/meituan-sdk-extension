@@ -16,7 +16,6 @@ import com.meituan.sdk.model.ddzhkh.auth.queryPoiMapping.QueryPoiMappingResponse
  *   <li>{@code /ddzhkh/auth/token/pageQueryPoiList}（businessId=59，需要授权）</li>
  *   <li>{@code /ddzhkh/auth/token/queryPoiMapping}（businessId=59，需要授权）</li>
  * </ul>
- * </p>
  */
 public interface MeituanDdzhkhAuthService extends MeituanService {
 

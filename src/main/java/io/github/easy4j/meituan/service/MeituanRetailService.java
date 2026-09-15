@@ -571,7 +571,7 @@ public interface MeituanRetailService extends MeituanService {
     MeituanResponse<?> poiqrcodeQuerydzcoupon(PoiqrcodeQuerydzcouponRequest request, String tenantId);
 
     /**
-     * 医院挂号-新增&更新科室。
+     * 医院挂号-新增&amp;更新科室。
      * <p>官方接口：{@code /ddzh/registration/department/addOrEdit}，API：{@code registration_department_add_edit}，版本：{@code 10004}，businessId：{@code 58}，需要授权：{@code 是}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
