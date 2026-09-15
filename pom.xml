@@ -7,7 +7,7 @@
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/easy-4-java/${project.artifactId}</url>
     <description>Meituan Open Platform SDK Extension: multi-tenant wrapper for the official MtOpJavaSDK</description>
-    <version>1.0.x.20260831-SNAPSHOT</version>
+    <version>1.0.x.20260630</version>
     <packaging>jar</packaging>
     <!-- 开源协议采用 Apache 2.0 协议 -->
     <licenses>
@@ -58,7 +58,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Dependency versions -->
-        <jackson-databind.version>2.18.9</jackson-databind.version>
+        <jackson-bom.version>2.18.9</jackson-bom.version>
         <assertj.version>3.24.2</assertj.version>
         <jspecify.version>1.0.0</jspecify.version>
         <mockito.version>4.11.0</mockito.version>
@@ -130,10 +130,11 @@
             </dependency>
             <!-- For Jackson (debug 测试直接反序列化官方 SDK 响应) -->
             <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-databind.version}</version>
-                <scope>test</scope>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
