@@ -144,6 +144,15 @@
         <dependency>
             <groupId>com.sankuai.sjst</groupId>
             <artifactId>MtOpJavaSDK</artifactId>
+            <exclusions>
+                <!-- SDK（Boot2 时代产物）传递的 javax.el 3.0.1-b11 命中 CVE-2021-28170
+                     （ELParserTokenManager 求值非法表达式）。Boot3 全 jakarta 命名空间下
+                     无人使用该 jar，校验链由 hibernate-validator + jakarta.el 承担，从源头排除 -->
+                <exclusion>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>javax.el</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- For Jspecify -->
         <dependency>
