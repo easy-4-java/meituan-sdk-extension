@@ -33,6 +33,10 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiP
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefund.ZcmopenpayApiRefundRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefundQuery.ZcmopenpayApiRefundQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeCreate.ZcmopenpayApiDynamicQrcodeCreateRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeQuery.ZcmopenpayApiDynamicQrcodeQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefund.ZcmopenpayApiDynamicQrcodeRefundRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefundQuery.ZcmopenpayApiDynamicQrcodeRefundQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 
@@ -380,5 +384,21 @@ public interface MeituanPayService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> zcmopenApiMerchantPoiChangeFlow(ZcmopenApiMerchantPoiChangeFlowRequest request, String tenantId);
+
+    /** 动态码支付创建。 */
+    MeituanResponse<?> zcmopenpayApiDynamicQrcodeCreate(
+            ZcmopenpayApiDynamicQrcodeCreateRequest request, String tenantId);
+
+    /** 动态码支付查询。 */
+    MeituanResponse<?> zcmopenpayApiDynamicQrcodeQuery(
+            ZcmopenpayApiDynamicQrcodeQueryRequest request, String tenantId);
+
+    /** 动态码支付退款。 */
+    MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefund(
+            ZcmopenpayApiDynamicQrcodeRefundRequest request, String tenantId);
+
+    /** 动态码支付退款查询。 */
+    MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefundQuery(
+            ZcmopenpayApiDynamicQrcodeRefundQueryRequest request, String tenantId);
 
 }

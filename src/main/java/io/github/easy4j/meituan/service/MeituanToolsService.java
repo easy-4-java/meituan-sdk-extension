@@ -60,10 +60,12 @@ import com.meituan.sdk.model.enterprise.bill.invoiceApplyCallback.InvoiceApplyCa
 import com.meituan.sdk.model.moses.dialog.trigger.TriggerRequest;
 import com.meituan.sdk.model.nlp.semantic.sentimentAnalysisCoarseGrained.SentimentAnalysisCoarseGrainedRequest;
 import com.meituan.sdk.model.nlp.semantic.sentimentAnalysisFineGrained.SentimentAnalysisFineGrainedRequest;
+import com.meituan.sdk.model.tuangouNg.mtem.enterpriseOrderInvoiceInfoQuery.EnterpriseOrderInvoiceInfoQueryRequest;
 
 /**
  * 工具型服务业务能力门面。
- * <p>方法参数保持官方 MtOpJavaSDK request 类型，SDK 负责按租户执行授权调用。</p>
+ * <p>方法参数保持官方 MtOpJavaSDK request 类型；其中到店广告（businessId=22）接口
+ * 按租户及官方 needAuth 元数据选择授权或免 appAuthToken 调用。</p>
  */
 public interface MeituanToolsService extends MeituanService {
 
@@ -232,7 +234,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/launch/batchCreateCpcLaunchs}，API：{@code batch_create_cpc_launchs}，版本：{@code 10030}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> batchCreateCpcLaunchs(BatchCreateCpcLaunchsRequest request, String tenantId);
@@ -242,7 +244,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/launch/batchEditCpcBidPrice}，API：{@code batch_edit_cpc_bidprice}，版本：{@code 10013}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> batchEditCpcBidprice(BatchEditCpcBidpriceRequest request, String tenantId);
@@ -252,7 +254,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/launch/batchEditCpcPlanBudget}，API：{@code batch_edit_cpc_planbudget}，版本：{@code 10006}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> batchEditCpcPlanbudget(BatchEditCpcPlanbudgetRequest request, String tenantId);
@@ -262,7 +264,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/launch/batchQueryCpcLaunchInfos}，API：{@code batch_query_cpc_launchinfos}，版本：{@code 10014}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> batchQueryCpcLaunchinfos(BatchQueryCpcLaunchinfosRequest request, String tenantId);
@@ -272,7 +274,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/launch/batchUpdateCpcLaunchStatus}，API：{@code batch_update_cpclaunch_status}，版本：{@code 10005}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> batchUpdateCpclaunchStatus(BatchUpdateCpclaunchStatusRequest request, String tenantId);
@@ -422,7 +424,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/launch/queryCpcLaunchIds}，API：{@code query_cpc_launchids}，版本：{@code 10008}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> queryCpcLaunchids(QueryCpcLaunchidsRequest request, String tenantId);
@@ -482,7 +484,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getCpcRtDataByAccount}，API：{@code cpc_rtdata_byaccount}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> cpcRtdataByaccount(CpcRtdataByaccountRequest request, String tenantId);
@@ -492,7 +494,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getCpcRtDataByLaunch}，API：{@code cpc_rtdata_bylaunch}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> cpcRtdataBylaunch(CpcRtdataBylaunchRequest request, String tenantId);
@@ -502,7 +504,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getCpcRtDataByShop}，API：{@code cpc_rtdata_byshop}，版本：{@code 10018}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> cpcRtdataByshop(CpcRtdataByshopRequest request, String tenantId);
@@ -512,7 +514,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getCpmRtData}，API：{@code cpm_rtdata}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> cpmRtdata(CpmRtdataRequest request, String tenantId);
@@ -522,7 +524,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getDailyDataByAccountOffline}，API：{@code daily_account_report_offline}，版本：{@code 10022}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> dailyAccountReportOffline(DailyAccountReportOfflineRequest request, String tenantId);
@@ -532,7 +534,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getDailyCpmData}，API：{@code daily_cpm_data}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> dailyCpmData(DailyCpmDataRequest request, String tenantId);
@@ -542,7 +544,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getDailyHourlyCpmData}，API：{@code daily_hourly_cpm_data}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> dailyHourlyCpmData(DailyHourlyCpmDataRequest request, String tenantId);
@@ -552,7 +554,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getDailyDataByLaunchOffline}，API：{@code daily_launch_report_offline}，版本：{@code 10016}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> dailyLaunchReportOffline(DailyLaunchReportOfflineRequest request, String tenantId);
@@ -562,7 +564,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getDailyDataByShopOffline}，API：{@code daily_shop_report_offline}，版本：{@code 10020}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> dailyShopReportOffline(DailyShopReportOfflineRequest request, String tenantId);
@@ -572,7 +574,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getHourlyDataByAccountOffline}，API：{@code hourly_account_report_offline}，版本：{@code 10014}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> hourlyAccountReportOffline(HourlyAccountReportOfflineRequest request, String tenantId);
@@ -582,7 +584,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getHourlyCpcRtDataByAccount}，API：{@code hourly_cpc_rt_data_byaccount}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> hourlyCpcRtDataByaccount(HourlyCpcRtDataByaccountRequest request, String tenantId);
@@ -592,7 +594,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getHourlyCpcRtDataByLaunch}，API：{@code hourly_cpc_rtdata_bylaunch}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> hourlyCpcRtdataBylaunch(HourlyCpcRtdataBylaunchRequest request, String tenantId);
@@ -602,7 +604,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getHourlyCpcRtDataByShop}，API：{@code hourly_cpc_rtdata_byshop}，版本：{@code 10017}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> hourlyCpcRtdataByshop(HourlyCpcRtdataByshopRequest request, String tenantId);
@@ -612,7 +614,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getHourlyCpmRtData}，API：{@code hourly_cpm_rtdata}，版本：{@code 10015}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> hourlyCpmRtdata(HourlyCpmRtdataRequest request, String tenantId);
@@ -622,7 +624,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getHourlyDataByLaunchOffline}，API：{@code hourly_launch_report_offline}，版本：{@code 10014}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> hourlyLaunchReportOffline(HourlyLaunchReportOfflineRequest request, String tenantId);
@@ -632,7 +634,7 @@ public interface MeituanToolsService extends MeituanService {
      * <p>官方接口：{@code /ad/report/getHourlyDataByShopOffline}，API：{@code hourly_shop_report_offline}，版本：{@code 10019}，businessId：{@code 22}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> hourlyShopReportOffline(HourlyShopReportOfflineRequest request, String tenantId);
@@ -656,4 +658,8 @@ public interface MeituanToolsService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> invoiceApplyCallback(InvoiceApplyCallbackRequest request, String tenantId);
+
+    /** 查询企业订单开票信息。 */
+    MeituanResponse<?> enterpriseOrderInvoiceInfoQuery(
+            EnterpriseOrderInvoiceInfoQueryRequest request, String tenantId);
 }

@@ -37,11 +37,11 @@ jobs:
 
       - name: Install vendored MtOpJavaSDK (libs/) into local repository
         run: |
-          V=1.0-SNAPSHOT
+          V=1.0-20260923
           R=com/sankuai/sjst/MtOpJavaSDK/$V
           mkdir -p ~/.m2/repository/$R
           cp libs/MtOpJavaSDK-1.0-SNAPSHOT.jar ~/.m2/repository/$R/MtOpJavaSDK-$V.jar
-          cp libs/MtOpJavaSDK-1.0-SNAPSHOT.pom ~/.m2/repository/$R/MtOpJavaSDK-$V.pom
+          cp libs/MtOpJavaSDK-1.0-20260923.pom ~/.m2/repository/$R/MtOpJavaSDK-$V.pom
           rm -f ~/.m2/repository/$R/*.lastUpdated ~/.m2/repository/$R/resolver-status.properties
           ls -la ~/.m2/repository/$R
 

@@ -6,7 +6,7 @@ import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.ReceiptQueryBaseResult;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.TuangouReceiptQuerylistbydateRequest;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.TuangouReceiptQuerylistbydateResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import io.github.easy4j.meituan.client.DefaultMeituanRequestExecutor;
 import io.github.easy4j.meituan.client.MeituanClientFactory;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;

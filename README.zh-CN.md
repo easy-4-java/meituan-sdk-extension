@@ -63,18 +63,17 @@
 | :--- | :--- |
 | Java | 21+ |
 | Spring Boot | 4.x（自动装配 API 兼容 Boot 2.7+） |
-| 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-SNAPSHOT`（专有发行物，见下） |
+| 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923`（专有发行物，见下） |
 | 构建 | Maven 4（已含 `./mvnw` wrapper） |
 
 > **官方 SDK 获取** — `MtOpJavaSDK` 由美团技术服务合作中心发行
 > （[SDK 下载](https://developer.meituan.com/sdk-download)），**未发布到
-> Maven Central**。官方 jar 连同其官方 POM 已随仓库附带在 `libs/` 下，CI 构建
-> 前会自动安装到本地仓库；本地开发也可通过 POM 声明的私有快照仓库解析（需白名单
-> 凭据），或手动安装：
+> Maven Central**。官方 jar 与不可变坐标 POM 已随仓库附带在 `libs/` 下，CI 构建
+> 前会自动安装到本地仓库；本地开发也需要执行一次相同的安装：
 >
 > ```bash
 > mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
->     -DpomFile=libs/MtOpJavaSDK-1.0-SNAPSHOT.pom
+>     -DpomFile=libs/MtOpJavaSDK-1.0-20260923.pom
 > ```
 
 ## 4. 架构与模块
@@ -204,13 +203,54 @@ cachedStorage.evict("tenant-a");              // 清除单个条目
 > 取一个短于 token 有效期的 TTL，或在 token 轮换任务里调用
 > `put`/`refresh`。SDK 自身不做 token 刷新。
 
+### 服务零售与门店建店直连消息回调
+
+businessId=58/59/71 的消息使用 URL-encoded 公共参数，并在 `message` 字段中携带业务 JSON。
+SDK 提供解析、验签、消息目录识别和标准响应模型，不绑定 Servlet 或具体 JSON 框架：
+
+```java
+MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(requestBody);
+if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
+    return MeituanCallbackResponse.failure(-2, "invalid signature");
+}
+
+return MeituanBusiness58MessageType.resolve(callback)
+        .map(messageType -> switch (messageType) {
+            case OPERATE_DEVICE -> MeituanCallbackResponse.successJson(
+                    handleOperateDevice(callback.getMessage()));
+            case START_DEVICE_AND_CONSUME_DEAL -> MeituanCallbackResponse.successJson(
+                    handleStartAndConsume(callback.getMessage())); // 例如 {"result":0}
+            case ORDER_REFUND_INFO_PUSHED -> {
+                handleRefundNotification(callback.getMessage());
+                yield MeituanCallbackResponse.success();
+            }
+        })
+        .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
+```
+
+`MeituanBusiness58MessageType` 收录官方文档已给出 `msgType` 的 3 项 businessId=58
+消息；“次月扣款查询”和“取消连续包月通知”因官方尚未公开协议编号，保持未解析状态。
+`MeituanBusiness59MessageType` 收录官方文档已给出 `msgType` 的 33 项 businessId=59
+消息，并在解析前校验 `businessId`。平台新增类型仍可通过原始回调读取；功能清单中的
+“消费流水变更”因官方尚未公开协议编号，保持未解析状态。
+`MeituanBusiness71MessageType` 收录门店建店直连的“审核结果通知”：能力名称
+`poi_openapi_msg_push`、`msgType=7110001`。四个 businessId=71 API 的官方元数据均为
+`needAuth=false`；`MeituanStoreService` 会按租户选择开发者凭据，但调用时不携带
+`appAuthToken`。
+自定义 `MeituanRequestExecutor` 必须覆盖 `executeWithoutAuth(request, tenantId)`
+以保证租户隔离；接口默认实现采用 fail-closed，不会静默忽略 `tenantId`。
+
+上述工具覆盖的是传输协议，不替代业务侧的投递语义保障。调用方必须在执行设备启动、
+核销、退款等副作用前持久化 `msgId` 并做幂等去重，同时按与美团约定的协议校验回调
+时间窗口；业务消息体校验、重试策略和领域动作仍由接入应用负责。
+
 ## 9. 测试与构建
 
 ```bash
 ./mvnw -B clean verify
 ```
 
-- 单元测试基于 JUnit 6 + Mockito（15 个用例）。
+- 单元测试基于 JUnit 6 + Mockito（38 个用例）。
 - 真实联调 debug 测试位于 `io.github.easy4j.meituan.debug`，标注
   `@Tag("integration")`，常规构建自动排除。启用前请替换为你自己的凭据 ——
   仓库中提交的均为占位符。

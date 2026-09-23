@@ -33,6 +33,10 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiP
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefund.ZcmopenpayApiRefundRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefundQuery.ZcmopenpayApiRefundQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeCreate.ZcmopenpayApiDynamicQrcodeCreateRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeQuery.ZcmopenpayApiDynamicQrcodeQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefund.ZcmopenpayApiDynamicQrcodeRefundRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefundQuery.ZcmopenpayApiDynamicQrcodeRefundQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
@@ -326,6 +330,30 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
     @Override
     public MeituanResponse<?> zcmopenApiMerchantPoiChangeFlow(ZcmopenApiMerchantPoiChangeFlowRequest request, String tenantId) {
         return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeCreate(
+            ZcmopenpayApiDynamicQrcodeCreateRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeQuery(
+            ZcmopenpayApiDynamicQrcodeQueryRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefund(
+            ZcmopenpayApiDynamicQrcodeRefundRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefundQuery(
+            ZcmopenpayApiDynamicQrcodeRefundQueryRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
     }
 
 }

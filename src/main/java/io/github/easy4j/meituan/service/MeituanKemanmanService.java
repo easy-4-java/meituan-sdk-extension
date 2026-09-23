@@ -4,10 +4,12 @@ import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.jmcard.cards.createOrUpdate.CreateOrUpdateRequest;
 import com.meituan.sdk.model.jmcard.members.memberQuery.MemberQueryRequest;
 import com.meituan.sdk.model.jmcard.members.memberUpdate.MemberUpdateRequest;
+import io.github.easy4j.meituan.model.jmcard.MeituanMemberClaimRequest;
 
 /**
  * 客满满业务能力门面。
- * <p>方法参数保持官方 MtOpJavaSDK request 类型，SDK 负责按租户执行授权调用。</p>
+ * <p>已生成接口保持官方 MtOpJavaSDK request 类型；官方 SDK 尚未生成的领取接口使用兼容请求类型。
+ * 所有方法均按租户执行授权调用。</p>
  */
 public interface MeituanKemanmanService extends MeituanService {
 
@@ -40,4 +42,14 @@ public interface MeituanKemanmanService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> memberUpdate(MemberUpdateRequest request, String tenantId);
+
+    /**
+     * 领取美团会员权益。
+     * <p>官方接口：{@code /jmcard/members/claim}，businessId：{@code 15}，需要授权：{@code 是}。</p>
+     *
+     * @param request  依据公开协议补充的请求对象
+     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @return 领取结果及美团会员实际等级
+     */
+    MeituanResponse<?> memberClaim(MeituanMemberClaimRequest request, String tenantId);
 }
