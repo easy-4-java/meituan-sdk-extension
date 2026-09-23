@@ -60,12 +60,14 @@ import com.meituan.sdk.model.enterprise.bill.invoiceApplyCallback.InvoiceApplyCa
 import com.meituan.sdk.model.moses.dialog.trigger.TriggerRequest;
 import com.meituan.sdk.model.nlp.semantic.sentimentAnalysisCoarseGrained.SentimentAnalysisCoarseGrainedRequest;
 import com.meituan.sdk.model.nlp.semantic.sentimentAnalysisFineGrained.SentimentAnalysisFineGrainedRequest;
+import com.meituan.sdk.model.tuangouNg.mtem.enterpriseOrderInvoiceInfoQuery.EnterpriseOrderInvoiceInfoQueryRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanToolsService;
 
 /**
  * 工具型服务默认实现。
- * <p>所有业务方法统一委托 {@link AbstractMeituanService} 执行官方 SDK request。</p>
+ * <p>业务方法统一委托 {@link AbstractMeituanService} 执行官方 SDK request；其中到店广告
+ * （businessId=22）接口按 needAuth 元数据选择授权或免 appAuthToken 调用路径。</p>
  */
 public class MeituanToolsServiceImpl extends AbstractMeituanService implements MeituanToolsService {
 
@@ -211,7 +213,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> batchCreateCpcLaunchs(BatchCreateCpcLaunchsRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -219,7 +221,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> batchEditCpcBidprice(BatchEditCpcBidpriceRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -227,7 +229,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> batchEditCpcPlanbudget(BatchEditCpcPlanbudgetRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -235,7 +237,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> batchQueryCpcLaunchinfos(BatchQueryCpcLaunchinfosRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -243,7 +245,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> batchUpdateCpclaunchStatus(BatchUpdateCpclaunchStatusRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -363,7 +365,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> queryCpcLaunchids(QueryCpcLaunchidsRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -411,7 +413,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> cpcRtdataByaccount(CpcRtdataByaccountRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -419,7 +421,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> cpcRtdataBylaunch(CpcRtdataBylaunchRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -427,7 +429,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> cpcRtdataByshop(CpcRtdataByshopRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -435,7 +437,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> cpmRtdata(CpmRtdataRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -443,7 +445,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> dailyAccountReportOffline(DailyAccountReportOfflineRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -451,7 +453,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> dailyCpmData(DailyCpmDataRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -459,7 +461,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> dailyHourlyCpmData(DailyHourlyCpmDataRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -467,7 +469,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> dailyLaunchReportOffline(DailyLaunchReportOfflineRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -475,7 +477,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> dailyShopReportOffline(DailyShopReportOfflineRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -483,7 +485,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> hourlyAccountReportOffline(HourlyAccountReportOfflineRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -491,7 +493,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> hourlyCpcRtDataByaccount(HourlyCpcRtDataByaccountRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -499,7 +501,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> hourlyCpcRtdataBylaunch(HourlyCpcRtdataBylaunchRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -507,7 +509,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> hourlyCpcRtdataByshop(HourlyCpcRtdataByshopRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -515,7 +517,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> hourlyCpmRtdata(HourlyCpmRtdataRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -523,7 +525,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> hourlyLaunchReportOffline(HourlyLaunchReportOfflineRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -531,7 +533,7 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> hourlyShopReportOffline(HourlyShopReportOfflineRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -547,6 +549,12 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> invoiceApplyCallback(InvoiceApplyCallbackRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> enterpriseOrderInvoiceInfoQuery(
+            EnterpriseOrderInvoiceInfoQueryRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 }

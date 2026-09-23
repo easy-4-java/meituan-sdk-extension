@@ -103,6 +103,26 @@ public class DefaultMeituanRequestExecutor implements MeituanRequestExecutor {
     }
 
     /**
+     * 使用指定租户的开发者凭据执行不需要 appAuthToken 的美团 OpenAPI。
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择开发者凭据
+     * @param <T>      官方 SDK response data 类型
+     * @return 官方 SDK 响应对象
+     */
+    @Override
+    public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> request, String tenantId) {
+        MeituanTenantConfig tenantConfig = tenantConfigStorage.findByTenantId(tenantId)
+                .orElseThrow(() -> new MeituanJavaException("Meituan tenant config not found: " + tenantId));
+        try {
+            MeituanClient meituanClient = resolveClient(tenantConfig);
+            return meituanClient.invokeApi(request);
+        } catch (MtSdkException e) {
+            throw new MeituanJavaException(buildRequestFailureMessage(tenantId, e), e);
+        }
+    }
+
+    /**
      * 根据租户密钥选择官方 client。
      */
     private MeituanClient resolveClient(MeituanTenantConfig tenantConfig) {

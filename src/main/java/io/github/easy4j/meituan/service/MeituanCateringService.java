@@ -102,6 +102,13 @@ import com.meituan.sdk.model.resv2.table.tablestatusUpdate.TablestatusUpdateRequ
 import com.meituan.sdk.model.resv2.table.updateTableStatus.UpdateTableStatusRequest;
 import com.meituan.sdk.model.dcpd.queueOrder.orderCancelCallback.OrderCancelCallbackRequest;
 import com.meituan.sdk.model.dcpd.queueQuery.shopStateQuery.ShopStateQueryRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookCancelResultSync.CybercafeBookCancelResultSyncRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookConsume.CybercafeBookConsumeRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookResultSync.CybercafeBookResultSyncRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookRuleSync.CybercafeBookRuleSyncRequest;
+import com.meituan.sdk.model.ddzh.technician.staffTechinfoQuery.StaffTechinfoQueryRequest;
+import com.meituan.sdk.model.ddzh.thirdresource.zoneInfoSync.ZoneInfoSyncRequest;
+import com.meituan.sdk.model.ddzh.yuding.orderMaxRefundAmountQuery.OrderMaxRefundAmountQueryRequest;
 
 /**
  * 餐饮系统业务能力门面。
@@ -954,7 +961,7 @@ public interface MeituanCateringService extends MeituanService {
      * <p>官方接口：{@code /dcpd/approval/batchAuthorize}，API：{@code batch_authorize_paidui}，版本：{@code 10000}，businessId：{@code 49}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> batchAuthorizePaidui(BatchAuthorizePaiduiRequest request, String tenantId);
@@ -1127,5 +1134,27 @@ public interface MeituanCateringService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> shopStateQuery(ShopStateQueryRequest request, String tenantId);
+
+    /** 查询技师信息。 */
+    MeituanResponse<?> staffTechinfoQuery(StaffTechinfoQueryRequest request, String tenantId);
+
+    /** 查询订单最大可退金额。 */
+    MeituanResponse<?> orderMaxRefundAmountQuery(OrderMaxRefundAmountQueryRequest request, String tenantId);
+
+    /** 同步网咖预订结果。 */
+    MeituanResponse<?> cybercafeBookResultSync(CybercafeBookResultSyncRequest request, String tenantId);
+
+    /** 同步网咖预订规则。 */
+    MeituanResponse<?> cybercafeBookRuleSync(CybercafeBookRuleSyncRequest request, String tenantId);
+
+    /** 网咖预订核销。 */
+    MeituanResponse<?> cybercafeBookConsume(CybercafeBookConsumeRequest request, String tenantId);
+
+    /** 同步网咖预订取消结果。 */
+    MeituanResponse<?> cybercafeBookCancelResultSync(
+            CybercafeBookCancelResultSyncRequest request, String tenantId);
+
+    /** 同步第三方资源区域信息。 */
+    MeituanResponse<?> zoneInfoSync(ZoneInfoSyncRequest request, String tenantId);
 
 }

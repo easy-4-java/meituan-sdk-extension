@@ -32,6 +32,7 @@ class MeituanApiCoverageTest {
             "io.github.easy4j.meituan.service.MeituanCateringService",
             "io.github.easy4j.meituan.service.MeituanDaocanService",
             "io.github.easy4j.meituan.service.MeituanDeliveryService",
+            "io.github.easy4j.meituan.service.MeituanDdzhkhAuthService",
             "io.github.easy4j.meituan.service.MeituanDistributionService",
             "io.github.easy4j.meituan.service.MeituanFreetryService",
             "io.github.easy4j.meituan.service.MeituanKemanmanService",

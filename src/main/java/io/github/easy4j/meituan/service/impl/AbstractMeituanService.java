@@ -41,4 +41,16 @@ public abstract class AbstractMeituanService implements MeituanService {
     public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> request) {
         return requestExecutor.executeWithoutAuth(request);
     }
+
+    /**
+     * 使用指定租户的开发者凭据执行不需要 appAuthToken 的请求。
+     *
+     * @param request  官方 MtOpJavaSDK 请求对象
+     * @param tenantId 租户标识，用于选择开发者凭据
+     * @param <T>      官方 SDK response data 类型
+     * @return 官方 SDK 响应对象
+     */
+    protected <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> request, String tenantId) {
+        return requestExecutor.executeWithoutAuth(request, tenantId);
+    }
 }

@@ -5,6 +5,10 @@ import com.meituan.sdk.model.ddzhkh.auth.pageQueryTokenPoiList.PageQueryTokenPoi
 import com.meituan.sdk.model.ddzhkh.auth.pageQueryTokenPoiList.PageQueryTokenPoiListResponse;
 import com.meituan.sdk.model.ddzhkh.auth.queryPoiMapping.QueryPoiMappingRequest;
 import com.meituan.sdk.model.ddzhkh.auth.queryPoiMapping.QueryPoiMappingResponse;
+import com.meituan.sdk.model.ddzhkh.dingdan.orderQueryInfoByGeneralconnect.OrderQueryInfoByGeneralconnectRequest;
+import com.meituan.sdk.model.ddzhkh.member.memberInfoAsyncCallback.MemberInfoAsyncCallbackRequest;
+import com.meituan.sdk.model.ddzhkh.xcxpw.searchPayInfoBill.SearchPayInfoBillRequest;
+import com.meituan.sdk.model.ddzhkh.xcxpw.searchRefundBill.SearchRefundBillRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanDdzhkhAuthService;
 
@@ -32,6 +36,28 @@ public class MeituanDdzhkhAuthServiceImpl extends AbstractMeituanService impleme
     @Override
     public MeituanResponse<QueryPoiMappingResponse> queryPoiMapping(
             QueryPoiMappingRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> orderQueryInfoByGeneralconnect(
+            OrderQueryInfoByGeneralconnectRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> memberInfoAsyncCallback(
+            MemberInfoAsyncCallbackRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> searchPayInfoBill(SearchPayInfoBillRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> searchRefundBill(SearchRefundBillRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 }
