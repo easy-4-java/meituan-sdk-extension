@@ -68,20 +68,18 @@ What it is **not**:
 | :--- | :--- |
 | Java | 17+ |
 | Spring Boot | 3.x (auto-configuration API is Boot 2.7+ compatible) |
-| Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-SNAPSHOT` (proprietary, see below) |
+| Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923` (proprietary, see below) |
 | Build | Maven 3.9.16 (`./mvnw` wrapper included) |
 
 > **Official SDK availability** — `MtOpJavaSDK` is distributed by the Meituan
 > Technical Service Cooperation Center ([sdk-download](https://developer.meituan.com/sdk-download))
-> and is **not published to Maven Central**. A copy of the official jar (with
-> its official POM) is vendored under `libs/`, and CI installs it before
-> building. For local development it is resolved from the private snapshot
-> repository declared in the POM (requires whitelisted access), or install the
-> jar manually:
+> and is **not published to Maven Central**. A copy of the official jar and an
+> immutable-coordinate POM are vendored under `libs/`; CI installs them before
+> building. Local development requires the same one-time installation:
 >
 > ```bash
 > mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
->     -DpomFile=libs/MtOpJavaSDK-1.0-SNAPSHOT.pom
+>     -DpomFile=libs/MtOpJavaSDK-1.0-20260923.pom
 > ```
 
 ## 4. Architecture & Modules
@@ -213,13 +211,61 @@ cachedStorage.evict("tenant-a");              // drop one entry
 > store, pick a TTL shorter than the token lifetime, or call `put`/`refresh`
 > from your token-rotation job. The SDK never refreshes tokens itself.
 
+### Business 58, 59, and 71 callback messages
+
+Meituan callbacks use URL-encoded common parameters and carry
+the business JSON in the `message` field. The SDK provides framework-neutral
+parsing, signature verification, message-type resolution, and response models:
+
+```java
+MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(requestBody);
+if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
+    return MeituanCallbackResponse.failure(-2, "invalid signature");
+}
+
+return MeituanBusiness58MessageType.resolve(callback)
+        .map(messageType -> switch (messageType) {
+            case OPERATE_DEVICE -> MeituanCallbackResponse.successJson(
+                    handleOperateDevice(callback.getMessage()));
+            case START_DEVICE_AND_CONSUME_DEAL -> MeituanCallbackResponse.successJson(
+                    handleStartAndConsume(callback.getMessage())); // e.g. {"result":0}
+            case ORDER_REFUND_INFO_PUSHED -> {
+                handleRefundNotification(callback.getMessage());
+                yield MeituanCallbackResponse.success();
+            }
+        })
+        .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
+```
+
+`MeituanBusiness58MessageType` contains the 3 documented business 58 messages;
+the enabled-list items “次月扣款查询” and “取消连续包月通知” remain unresolved
+because no protocol ID is published. `MeituanBusiness59MessageType` contains
+the 33 business 59 messages whose
+`msgType` is available in the official documentation. It verifies `businessId`
+before resolving. Unknown future types remain available through the raw callback;
+the enabled-list item “消费流水变更” remains unresolved because no protocol ID is published.
+`MeituanBusiness71MessageType` contains the documented Store Direct Connection
+audit-result callback: capability `poi_openapi_msg_push`, `msgType=7110001`.
+The four business 71 APIs are declared `needAuth=false`; `MeituanStoreService`
+selects the tenant's developer credentials while invoking them without an
+`appAuthToken`.
+Custom `MeituanRequestExecutor` implementations must override
+`executeWithoutAuth(request, tenantId)` to preserve tenant isolation; the
+default method fails closed instead of silently ignoring `tenantId`.
+
+The callback utilities cover the transport protocol, not business-side delivery
+semantics. Consumers must persist and deduplicate `msgId` before executing
+side effects, and enforce the callback timestamp window required by their
+Meituan agreement. Domain payload validation, retry policy, and business actions
+remain the application's responsibility.
+
 ## 9. Testing & Build
 
 ```bash
 ./mvnw -B clean verify
 ```
 
-- Unit tests run with JUnit 6 + Mockito (15 tests).
+- Unit tests run with JUnit 6 + Mockito (38 tests).
 - Live-API debug tests live in `io.github.easy4j.meituan.debug`, tagged
   `@Tag("integration")` and excluded from normal builds. Fill in your own
   credentials before enabling them — the committed values are placeholders.

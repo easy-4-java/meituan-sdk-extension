@@ -1032,7 +1032,7 @@ public class MeituanWaimaiServiceImpl extends AbstractMeituanService implements 
      */
     @Override
     public MeituanResponse<?> waimaiNgGetPoiImStatus(GetPoiImStatusRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -1048,7 +1048,7 @@ public class MeituanWaimaiServiceImpl extends AbstractMeituanService implements 
      */
     @Override
     public MeituanResponse<?> waimaiNgMsgRead(MsgReadRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -1152,7 +1152,7 @@ public class MeituanWaimaiServiceImpl extends AbstractMeituanService implements 
      */
     @Override
     public MeituanResponse<?> waimaiNgSetPoiImStatus(SetPoiImStatusRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**

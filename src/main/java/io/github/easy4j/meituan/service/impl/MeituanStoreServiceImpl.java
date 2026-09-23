@@ -33,7 +33,7 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> bind(BindRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -41,7 +41,7 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> createPoi(CreatePoiRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -49,7 +49,7 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> search(SearchRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -57,7 +57,7 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
      */
     @Override
     public MeituanResponse<?> updatePoi(UpdatePoiRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**

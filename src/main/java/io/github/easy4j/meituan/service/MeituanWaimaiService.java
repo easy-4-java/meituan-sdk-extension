@@ -1201,7 +1201,7 @@ public interface MeituanWaimaiService extends MeituanService {
      * <p>官方接口：{@code /waimai/ng/im/getPoiIMStatus}，API：{@code get_poi_im_status}，版本：{@code 10004}，businessId：{@code 2}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> waimaiNgGetPoiImStatus(GetPoiImStatusRequest request, String tenantId);
@@ -1221,7 +1221,7 @@ public interface MeituanWaimaiService extends MeituanService {
      * <p>官方接口：{@code /waimai/ng/im/msgRead}，API：{@code msg_read}，版本：{@code 10001}，businessId：{@code 2}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> waimaiNgMsgRead(MsgReadRequest request, String tenantId);
@@ -1351,7 +1351,7 @@ public interface MeituanWaimaiService extends MeituanService {
      * <p>官方接口：{@code /waimai/ng/im/setPoiIMStatus}，API：{@code set_poi_im_status}，版本：{@code 10001}，businessId：{@code 2}，需要授权：{@code 否}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
-     * @param tenantId 租户标识，用于选择对应的 appAuthToken
+     * @param tenantId 租户标识，用于选择对应的开发者凭据
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> waimaiNgSetPoiImStatus(SetPoiImStatusRequest request, String tenantId);

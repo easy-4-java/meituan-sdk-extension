@@ -102,6 +102,13 @@ import com.meituan.sdk.model.resv2.table.tablestatusUpdate.TablestatusUpdateRequ
 import com.meituan.sdk.model.resv2.table.updateTableStatus.UpdateTableStatusRequest;
 import com.meituan.sdk.model.dcpd.queueOrder.orderCancelCallback.OrderCancelCallbackRequest;
 import com.meituan.sdk.model.dcpd.queueQuery.shopStateQuery.ShopStateQueryRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookCancelResultSync.CybercafeBookCancelResultSyncRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookConsume.CybercafeBookConsumeRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookResultSync.CybercafeBookResultSyncRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookRuleSync.CybercafeBookRuleSyncRequest;
+import com.meituan.sdk.model.ddzh.technician.staffTechinfoQuery.StaffTechinfoQueryRequest;
+import com.meituan.sdk.model.ddzh.thirdresource.zoneInfoSync.ZoneInfoSyncRequest;
+import com.meituan.sdk.model.ddzh.yuding.orderMaxRefundAmountQuery.OrderMaxRefundAmountQueryRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanCateringService;
 
@@ -797,7 +804,7 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
      */
     @Override
     public MeituanResponse<?> batchAuthorizePaidui(BatchAuthorizePaiduiRequest request, String tenantId) {
-        return execute(request, tenantId);
+        return executeWithoutAuth(request, tenantId);
     }
 
     /**
@@ -936,6 +943,45 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
      */
     @Override
     public MeituanResponse<?> shopStateQuery(ShopStateQueryRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> staffTechinfoQuery(StaffTechinfoQueryRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> orderMaxRefundAmountQuery(
+            OrderMaxRefundAmountQueryRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> cybercafeBookResultSync(
+            CybercafeBookResultSyncRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> cybercafeBookRuleSync(
+            CybercafeBookRuleSyncRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> cybercafeBookConsume(CybercafeBookConsumeRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> cybercafeBookCancelResultSync(
+            CybercafeBookCancelResultSyncRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<?> zoneInfoSync(ZoneInfoSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 

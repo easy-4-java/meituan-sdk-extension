@@ -5,6 +5,10 @@ import com.meituan.sdk.model.ddzhkh.auth.pageQueryTokenPoiList.PageQueryTokenPoi
 import com.meituan.sdk.model.ddzhkh.auth.pageQueryTokenPoiList.PageQueryTokenPoiListResponse;
 import com.meituan.sdk.model.ddzhkh.auth.queryPoiMapping.QueryPoiMappingRequest;
 import com.meituan.sdk.model.ddzhkh.auth.queryPoiMapping.QueryPoiMappingResponse;
+import com.meituan.sdk.model.ddzhkh.dingdan.orderQueryInfoByGeneralconnect.OrderQueryInfoByGeneralconnectRequest;
+import com.meituan.sdk.model.ddzhkh.member.memberInfoAsyncCallback.MemberInfoAsyncCallbackRequest;
+import com.meituan.sdk.model.ddzhkh.xcxpw.searchPayInfoBill.SearchPayInfoBillRequest;
+import com.meituan.sdk.model.ddzhkh.xcxpw.searchRefundBill.SearchRefundBillRequest;
 
 /**
  * 美团客户端授权（业务 59 ddzhkh）门面。
@@ -38,4 +42,17 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
      */
     MeituanResponse<QueryPoiMappingResponse> queryPoiMapping(
             QueryPoiMappingRequest request, String tenantId);
+
+    /** 查询通用接单订单详情。 */
+    MeituanResponse<?> orderQueryInfoByGeneralconnect(
+            OrderQueryInfoByGeneralconnectRequest request, String tenantId);
+
+    /** 异步回传会员信息。 */
+    MeituanResponse<?> memberInfoAsyncCallback(MemberInfoAsyncCallbackRequest request, String tenantId);
+
+    /** 查询小程序支付账单。 */
+    MeituanResponse<?> searchPayInfoBill(SearchPayInfoBillRequest request, String tenantId);
+
+    /** 查询小程序退款账单。 */
+    MeituanResponse<?> searchRefundBill(SearchRefundBillRequest request, String tenantId);
 }

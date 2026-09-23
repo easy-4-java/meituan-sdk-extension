@@ -5,6 +5,7 @@ import com.meituan.sdk.model.jmcard.cards.createOrUpdate.CreateOrUpdateRequest;
 import com.meituan.sdk.model.jmcard.members.memberQuery.MemberQueryRequest;
 import com.meituan.sdk.model.jmcard.members.memberUpdate.MemberUpdateRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
+import io.github.easy4j.meituan.model.jmcard.MeituanMemberClaimRequest;
 import io.github.easy4j.meituan.service.MeituanKemanmanService;
 
 /**
@@ -43,6 +44,14 @@ public class MeituanKemanmanServiceImpl extends AbstractMeituanService implement
      */
     @Override
     public MeituanResponse<?> memberUpdate(MemberUpdateRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public MeituanResponse<?> memberClaim(MeituanMemberClaimRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 }
