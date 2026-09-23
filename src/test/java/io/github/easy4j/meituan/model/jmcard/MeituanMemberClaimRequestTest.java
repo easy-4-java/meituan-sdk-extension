@@ -1,17 +1,15 @@
 package io.github.easy4j.meituan.model.jmcard;
 
 import com.meituan.sdk.MeituanResponse;
-import com.meituan.sdk.internal.exceptions.MtSdkException;
-import com.meituan.sdk.internal.utils.ValidationUtil;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 import org.junit.jupiter.api.Test;
 
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * 领取美团会员权益请求与响应协议测试。
@@ -23,11 +21,11 @@ class MeituanMemberClaimRequestTest {
         MeituanMemberClaimRequest request = new MeituanMemberClaimRequest();
         request.setUserRightInfo(new MeituanMemberClaimUserRight());
 
-        assertThatThrownBy(() -> ValidationUtil.validate(request))
-                .isInstanceOf(MtSdkException.class)
-                .hasMessageContaining("eventId不能为空")
-                .hasMessageContaining("phoneNo不能为空")
-                .hasMessageContaining("isPureNewUser不能为空");
+        try (ValidatorFactory validatorFactory = validatorFactory()) {
+            assertThat(validatorFactory.getValidator().validate(request))
+                    .extracting(violation -> violation.getPropertyPath().toString())
+                    .contains("userRightInfo.eventId", "userRightInfo.phoneNo", "userRightInfo.pureNewUser");
+        }
     }
 
     @Test
@@ -39,11 +37,18 @@ class MeituanMemberClaimRequestTest {
         MeituanMemberClaimRequest request = new MeituanMemberClaimRequest();
         request.setUserRightInfo(userRight);
 
-        try (ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory()) {
+        try (ValidatorFactory validatorFactory = validatorFactory()) {
             assertThat(validatorFactory.getValidator().validate(request))
                     .extracting(violation -> violation.getPropertyPath().toString())
                     .contains("userRightInfo.brandOriginLevel.brandLevel", "userRightInfo.brandLevel.brandLevel");
         }
+    }
+
+    private ValidatorFactory validatorFactory() {
+        return Validation.byDefaultProvider()
+                .configure()
+                .messageInterpolator(new ParameterMessageInterpolator())
+                .buildValidatorFactory();
     }
 
     @Test
