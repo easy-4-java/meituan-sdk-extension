@@ -8,8 +8,8 @@ import com.meituan.sdk.annotations.ApiMeta;
 import com.meituan.sdk.internal.utils.JsonUtil;
 import lombok.Data;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import java.lang.reflect.Type;
 
 /**

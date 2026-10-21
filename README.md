@@ -282,3 +282,26 @@ The underlying `MtOpJavaSDK` remains proprietary to Meituan (三快科技) — y
 obtain it and your developer credentials from the Meituan Open Platform yourself.
 Issues and PRs are welcome at
 [github.com/easy-4-java/meituan-sdk-extension](https://github.com/easy-4-java/meituan-sdk-extension).
+
+
+### Jakarta compatibility (2.0.x, 2026-10-21)
+
+`2.0.x.20261021-SNAPSHOT` is the Java 17 / Jackson 2 / Jakarta Validation line,
+consumed by `meituan-spring-boot-starter:3.5.x.20261021-SNAPSHOT`.
+The existing extension artifact packages the official SDK after converting only
+`javax.validation` references to `jakarta.validation`; its own DTOs also use Jakarta.
+No additional business-service compatibility module is required. The 1.0.x extension
+and 2.7.x starter retain javax; the separate 3.0.x / Jackson 3 line is unchanged.
+
+The immutable build input is `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923`
+(SHA-256 `a23b63c537ca3526cf3625a994eec0d40a55273babf4cb3815bf64698a55a7b9`).
+Builds reject a mismatched input. Provenance is recorded in
+`META-INF/easy4j/meituan-sdk-origin.properties`. Do not also depend on the raw SDK
+or add javax Validation/Hibernate Validator 6 to a Jakarta application's runtime.
+API coverage tests enumerate the original reference SDK and execute the transformed
+classes; signature implementation and all original classes are preserved.
+
+Run `mvn clean verify -DskipTests=false -Dmaven.test.skip=false` with JDK 17+.
+`tools/verify_jakarta_artifact.py` accepts `--original-sdk`, `--sdk-artifact`
+(the built extension JAR) and `--application-jar` (a consumer Boot JAR), and checks
+class preservation, minimal conversion, signature bytes and a single runtime SDK.

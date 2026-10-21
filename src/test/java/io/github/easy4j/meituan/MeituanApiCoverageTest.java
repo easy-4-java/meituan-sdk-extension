@@ -97,9 +97,7 @@ class MeituanApiCoverageTest {
     }
 
     private File findOfficialSdkJar() throws Exception {
-        java.net.URL location = com.meituan.sdk.MeituanClient.class
-                .getProtectionDomain().getCodeSource().getLocation();
-        File file = new File(location.toURI());
+        File file = OfficialSdkTestInput.jar();
         assertTrue(file.getName().endsWith(".jar"),
                 "官方 SDK 应以 jar 形式存在: " + file);
         return file;

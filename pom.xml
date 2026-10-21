@@ -7,7 +7,7 @@
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/easy-4-java/${project.artifactId}</url>
     <description>Meituan Open Platform SDK Extension: multi-tenant wrapper for the official MtOpJavaSDK</description>
-    <version>2.0.x.20260730-SNAPSHOT</version>
+    <version>2.0.x.20261021-SNAPSHOT</version>
     <packaging>jar</packaging>
     <!-- 开源协议采用 Apache 2.0 协议 -->
     <licenses>
@@ -66,6 +66,7 @@
         <junit.version>5.11.4</junit.version>
         <lombok.version>1.18.46</lombok.version>
         <meituan-op-sdk.version>1.0-20260923</meituan-op-sdk.version>
+        <official.sdk.sha256>a23b63c537ca3526cf3625a994eec0d40a55273babf4cb3815bf64698a55a7b9</official.sdk.sha256>
         <slf4j.version>2.0.18</slf4j.version>
         <!-- Maven Plugin versions -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
@@ -140,19 +141,31 @@
     </dependencyManagement>
     <!-- 项目依赖（dependencies） -->
     <dependencies>
-        <!-- For Meituan -->
         <dependency>
-            <groupId>com.sankuai.sjst</groupId>
-            <artifactId>MtOpJavaSDK</artifactId>
-            <exclusions>
-                <!-- SDK（Boot2 时代产物）传递的 javax.el 3.0.1-b11 命中 CVE-2021-28170
-                     （ELParserTokenManager 求值非法表达式）。Boot3 全 jakarta 命名空间下
-                     无人使用该 jar，校验链由 hibernate-validator + jakarta.el 承担，从源头排除 -->
-                <exclusion>
-                    <groupId>org.glassfish</groupId>
-                    <artifactId>javax.el</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!-- 2.x 线在本构件内承接官方 SDK 的 Jakarta 兼容，不传递旧 javax 运行库。 -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.13.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.4.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.expressly</groupId>
+            <artifactId>expressly</artifactId>
+            <version>5.0.0</version>
         </dependency>
         <!-- For Jspecify -->
         <dependency>
@@ -326,7 +339,10 @@
                     <configuration>
                         <skip>false</skip>
                         <skipTests>false</skipTests>
-                        <argLine>-Xmx1024m -Dfile.encoding=UTF-8</argLine>
+                        <systemPropertyVariables>
+                            <meituan.sdk.reference>${project.build.directory}/official-input/MtOpJavaSDK.jar</meituan.sdk.reference>
+                        </systemPropertyVariables>
+                        <argLine>@{argLine} -Xmx1024m -Dfile.encoding=UTF-8</argLine>
                         <excludedGroups>integration</excludedGroups>
                         <additionalClasspathElements>
                             <additionalClasspathElement>${basedir}/target/test-classes</additionalClasspathElement>
@@ -397,12 +413,99 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-official-sdk-for-provenance</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.sankuai.sjst</groupId>
+                                    <artifactId>MtOpJavaSDK</artifactId>
+                                    <version>${meituan-op-sdk.version}</version>
+                                    <outputDirectory>${project.build.directory}/official-input</outputDirectory>
+                                    <destFileName>MtOpJavaSDK.jar</destFileName>
+                                    <overWrite>true</overWrite>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>unpack-official-sdk</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>unpack</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.sankuai.sjst</groupId>
+                                    <artifactId>MtOpJavaSDK</artifactId>
+                                    <version>${meituan-op-sdk.version}</version>
+                                    <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                                    <excludes>META-INF/maven/**,META-INF/*.SF,META-INF/*.RSA,META-INF/*.DSA</excludes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>verify-and-record-official-input</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>run</goal></goals>
+                        <configuration>
+                            <target>
+                                <checksum file="${project.build.directory}/official-input/MtOpJavaSDK.jar"
+                                          algorithm="SHA-256" property="official.input.sha256"/>
+                                <fail message="官方 SDK 输入哈希不符，禁止转换或回退旧快照">
+                                    <condition><not><equals arg1="${official.input.sha256}" arg2="${official.sdk.sha256}"/></not></condition>
+                                </fail>
+                                <mkdir dir="${project.build.outputDirectory}/META-INF/easy4j"/>
+                                <echo file="${project.build.outputDirectory}/META-INF/easy4j/meituan-sdk-origin.properties">original.coordinates=com.sankuai.sjst:MtOpJavaSDK:${meituan-op-sdk.version}
+original.sha256=${official.sdk.sha256}
+validation.namespace=jakarta.validation
+</echo>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.transformer</groupId>
+                <artifactId>transformer-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>adapt-official-sdk-validation</id>
+                        <phase>process-resources</phase>
+                        <goals><goal>transform</goal></goals>
+                        <configuration>
+                            <rules>
+                                <renames><rename>transform/validation-renames.properties</rename></renames>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
             <plugin>
                 <!-- 覆盖率插件：生成覆盖率报告并校验测试覆盖率（目标 90%） -->
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${maven-jacoco-plugin.version}</version>
+                <configuration>
+                    <!-- 官方 SDK 字节码随包分发，仅统计本项目自有实现。 -->
+                    <excludes><exclude>com/meituan/**</exclude></excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>

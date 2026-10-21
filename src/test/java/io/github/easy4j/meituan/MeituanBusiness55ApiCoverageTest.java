@@ -11,6 +11,7 @@ import io.github.easy4j.meituan.service.MeituanFreetryService;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -53,7 +54,8 @@ class MeituanBusiness55ApiCoverageTest {
                 .collect(Collectors.toSet());
 
         assertThat(facadeRequestTypes).containsExactlyInAnyOrderElementsOf(DOCUMENTED_REQUESTS.keySet());
-        assertThat(MeituanFreetryService.class.getDeclaredMethods())
+        assertThat(Arrays.stream(MeituanFreetryService.class.getDeclaredMethods())
+                .filter(method -> !method.isSynthetic()).toList())
                 .extracting(Method::getName)
                 .containsExactlyInAnyOrder(
                         "loadActivityRestriction",

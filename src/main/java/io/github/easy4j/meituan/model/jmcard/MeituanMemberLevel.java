@@ -3,7 +3,7 @@ package io.github.easy4j.meituan.model.jmcard;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * 品牌会员等级及有效期。
