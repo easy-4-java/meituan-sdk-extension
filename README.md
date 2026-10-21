@@ -286,8 +286,8 @@ Issues and PRs are welcome at
 
 ### Jakarta compatibility (2.0.x, 2026-10-21)
 
-`2.0.x.20261021-SNAPSHOT` is the Java 17 / Jackson 2 / Jakarta Validation line,
-consumed by `meituan-spring-boot-starter:3.5.x.20261021-SNAPSHOT`.
+`2.0.x.20260630-SNAPSHOT` is the Java 17 / Jackson 2 / Jakarta Validation line,
+consumed by `meituan-spring-boot-starter:3.5.x.20260630-SNAPSHOT`.
 The existing extension artifact packages the official SDK after converting only
 `javax.validation` references to `jakarta.validation`; its own DTOs also use Jakarta.
 No additional business-service compatibility module is required. The 1.0.x extension
