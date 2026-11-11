@@ -211,14 +211,31 @@ cachedStorage.evict("tenant-a");              // drop one entry
 > store, pick a TTL shorter than the token lifetime, or call `put`/`refresh`
 > from your token-rotation job. The SDK never refreshes tokens itself.
 
-### Business 58, 59, and 71 callback messages
+### Callback messages and payload models
 
 Meituan callbacks use URL-encoded common parameters and carry
 the business JSON in the `message` field. The SDK provides framework-neutral
 parsing, signature verification, message-type resolution, and response models:
 
+The message rows in [the interface lists](docs/) link to their Java payload classes.
+For member creation, pass `io.github.easy4j.meituan.callback.business59.model.MemberCreatedMessage.class`.
+`MeituanCallbackModels.find(businessId, msgType)` returns the registered class when available.
+Reservation payloads expose nested JSON strings as typed objects. Some legacy formats use
+`param`, `params`, or named form fields instead of `message`.
+
+`CallbackUtil.parse(request, Payload.class)` accepts a Jakarta Servlet request.
+`CallbackUtil.parse(query, body, Payload.class)` accepts a query string and a form string,
+JSON envelope, decoded map, or envelope object. Both return `MeituanCallbackMessage<Payload>`
+and map the business message with Jackson 3. Body parameters take precedence over query parameters.
+Unknown payload properties are ignored. Invalid or missing payloads throw `IllegalArgumentException`.
+Use `getParameters()` for signature verification and `getRawMessage()` to access the original message.
+Object-valued JSON messages are serialized into parameter values, so their original JSON formatting
+is unavailable. Verify signatures against the actual form parameters sent by the platform.
+The existing parser returns `MeituanCallbackMessage<String>`.
+Raw-type callers should add `<String>` or their payload type and recompile after this API change.
+
 ```java
-MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(requestBody);
+MeituanCallbackMessage<String> callback = MeituanCallbackParser.parseForm(requestBody);
 if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
     return MeituanCallbackResponse.failure(-2, "invalid signature");
 }
@@ -237,9 +254,7 @@ return MeituanBusiness58MessageType.resolve(callback)
         .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
 ```
 
-`MeituanBusiness58MessageType` contains the 3 documented business 58 messages;
-the enabled-list items “次月扣款查询” and “取消连续包月通知” remain unresolved
-because no protocol ID is published. `MeituanBusiness59MessageType` contains
+`MeituanBusiness58MessageType` retains its original three constants. Use `MeituanCallbackModels` for other registered callbacks, including 5810239 and 5810241. `MeituanBusiness59MessageType` contains
 the 33 business 59 messages whose
 `msgType` is available in the official documentation. It verifies `businessId`
 before resolving. Unknown future types remain available through the raw callback;

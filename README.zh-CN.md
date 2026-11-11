@@ -203,13 +203,37 @@ cachedStorage.evict("tenant-a");              // 清除单个条目
 > 取一个短于 token 有效期的 TTL，或在 token 轮换任务里调用
 > `put`/`refresh`。SDK 自身不做 token 刷新。
 
-### 服务零售与门店建店直连消息回调
+### 消息回调与业务模型
 
 businessId=58/59/71 的消息使用 URL-encoded 公共参数，并在 `message` 字段中携带业务 JSON。
-SDK 提供解析、验签、消息目录识别和标准响应模型，不绑定 Servlet 或具体 JSON 框架：
+SDK 使用 Jackson 3 将业务 JSON 转为 `MeituanCallbackMessage<T>`，通过 `CallbackUtil` 提供两个入口。
+Servlet 入口使用 `jakarta.servlet.http.HttpServletRequest`，由宿主 Web 容器提供 Servlet API。
 
 ```java
-MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(requestBody);
+import io.github.easy4j.meituan.callback.business59.model.MemberCreatedMessage;
+
+MeituanCallbackMessage<MemberCreatedMessage> callback =
+        CallbackUtil.parse(request, MemberCreatedMessage.class);
+// 或将查询串与正文分别传入。正文支持表单字符串、JSON 信封、Map 和信封对象。
+MeituanCallbackMessage<MemberCreatedMessage> parsed =
+        CallbackUtil.parse(query, body, MemberCreatedMessage.class);
+MemberCreatedMessage member = parsed.getMessage();
+```
+
+各业务的接口清单在消息行提供“消息模型”源码链接。已知类型可直接传入对应的 class；
+通用入口可用 `MeituanCallbackModels.find(businessId, msgType)` 查找类型，未登记时返回空。
+标准消息从 `message` 读取，历史会员卡从 `param` 读取。闪惠订单使用 `params`，部分外卖旧协议直接使用表单字段。
+正文同名字段优先于查询串，未知业务字段会被忽略。
+原始表单参数保留在 `getParameters()` 中，原始业务 JSON 可通过 `getRawMessage()` 获取，验签使用原始参数。
+JSON 对象型 `message` 会被序列化为参数值，无法保留其输入 JSON 的空白与格式，应按平台实际发送的表单验签。
+缺少消息、无效 JSON、类型转换失败或请求读取失败会抛出 `IllegalArgumentException`。
+预订新订单模型将字符串形式的 `data` 和 `requirements` 映射为嵌套对象，可调用 `getData().getRequirements().getRemark()` 读取备注。使用自定义模型并声明为 `String` 时仍保留原文。
+
+现有 `MeituanCallbackParser` 返回 `MeituanCallbackMessage<String>`，继续支持原始字符串处理方式。
+`MeituanCallbackMessage` 已泛型化，显式声明为原始类型的调用方应补上 `<String>` 或业务类型，并重新编译。
+
+```java
+MeituanCallbackMessage<String> callback = MeituanCallbackParser.parseForm(requestBody);
 if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
     return MeituanCallbackResponse.failure(-2, "invalid signature");
 }
@@ -228,8 +252,7 @@ return MeituanBusiness58MessageType.resolve(callback)
         .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
 ```
 
-`MeituanBusiness58MessageType` 收录官方文档已给出 `msgType` 的 3 项 businessId=58
-消息；“次月扣款查询”和“取消连续包月通知”因官方尚未公开协议编号，保持未解析状态。
+`MeituanBusiness58MessageType` 保留原有 3 项枚举。其他已登记消息可通过 `MeituanCallbackModels` 查询，包括次月扣款查询（5810239）和取消连续包月通知（5810241）。
 `MeituanBusiness59MessageType` 收录官方文档已给出 `msgType` 的 33 项 businessId=59
 消息，并在解析前校验 `businessId`。平台新增类型仍可通过原始回调读取；功能清单中的
 “消费流水变更”因官方尚未公开协议编号，保持未解析状态。

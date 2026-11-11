@@ -32,7 +32,7 @@ class MeituanCallbackSupportTest {
                 + "&timestamp=1711592316026"
                 + "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8.name());
 
-        MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(body);
+        MeituanCallbackMessage<String> callback = MeituanCallbackParser.parseForm(body);
 
         assertThat(callback.getMsgType()).isEqualTo("5910003");
         assertThat(callback.getBusinessId()).isEqualTo("59");
@@ -79,11 +79,11 @@ class MeituanCallbackSupportTest {
         assertThat(MeituanBusiness59MessageType.fromMsgType("5910149"))
                 .contains(MeituanBusiness59MessageType.MEMBER_UNREGISTERED);
 
-        MeituanCallbackMessage otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "58", "msgType", "5910003", "message", "{}"));
         assertThat(MeituanBusiness59MessageType.resolve(otherBusiness)).isEmpty();
 
-        MeituanCallbackMessage unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "59", "msgType", "5999999", "message", "{}"));
         assertThat(MeituanBusiness59MessageType.resolve(unknownMessage)).isEmpty();
         assertThat(unknownMessage.getMsgType()).isEqualTo("5999999");

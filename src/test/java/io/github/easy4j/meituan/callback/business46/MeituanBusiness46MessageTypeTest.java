@@ -42,7 +42,7 @@ class MeituanBusiness46MessageTypeTest {
 
     @Test
     void shouldResolveDocumentedMessageForBusiness46() {
-        MeituanCallbackMessage message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "46",
                 "msgType", "4610012",
                 "message", "{\"orderId\":1000}"
@@ -55,10 +55,10 @@ class MeituanBusiness46MessageTypeTest {
 
     @Test
     void shouldRejectOtherBusinessesAndKeepUnknownMessagesAvailable() {
-        MeituanCallbackMessage otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "27", "msgType", "4610012", "message", "{}"
         ));
-        MeituanCallbackMessage unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "46", "msgType", "4699999", "message", "{\"raw\":true}"
         ));
 

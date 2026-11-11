@@ -28,16 +28,16 @@ class MeituanBusiness71MessageTypeTest {
 
     @Test
     void shouldResolveOnlyBusiness71MessagesAndPreserveUnknownType() {
-        MeituanCallbackMessage auditResult = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> auditResult = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "71", "msgType", "7110001", "message", "{}"));
         assertThat(MeituanBusiness71MessageType.resolve(auditResult))
                 .contains(MeituanBusiness71MessageType.POI_OPENAPI_MSG_PUSH);
 
-        MeituanCallbackMessage otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "58", "msgType", "7110001", "message", "{}"));
         assertThat(MeituanBusiness71MessageType.resolve(otherBusiness)).isEmpty();
 
-        MeituanCallbackMessage unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "71", "msgType", "7199999", "message", "{}"));
         assertThat(MeituanBusiness71MessageType.resolve(unknownMessage)).isEmpty();
         assertThat(unknownMessage.getMsgType()).isEqualTo("7199999");

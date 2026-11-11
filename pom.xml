@@ -58,7 +58,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Dependency versions -->
-        <jackson-bom.version>3.2.1</jackson-bom.version>
+        <jackson-bom.version>3.2.4</jackson-bom.version>
+        <hutool.version>5.8.48</hutool.version>
         <assertj.version>3.27.7</assertj.version>
         <jspecify.version>1.0.0</jspecify.version>
         <mockito.version>5.23.0</mockito.version>
@@ -128,7 +129,7 @@
                 <version>${mockito.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- For Jackson (debug 测试直接反序列化官方 SDK 响应) -->
+            <!-- Jackson 用于回调业务消息转换及响应反序列化 -->
             <dependency>
                 <groupId>tools.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
@@ -178,7 +179,24 @@
         <dependency>
             <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <scope>test</scope>
+        </dependency>
+        <!-- 复用 Jakarta Servlet 请求读取工具 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-extra</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-http</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <!-- Servlet 由宿主 Web 容器提供，纯 Java 调用方使用 query/body 入口 -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <!-- 制品发布仓库配置（distributionManagement） -->

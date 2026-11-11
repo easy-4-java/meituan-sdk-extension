@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.business55;
 
+import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.utils.StringUtils;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -13,13 +13,16 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * 大众点评免费试（businessId=55）公开消息类型目录。
+ * 大众点评免费试（{@code businessId=55}）公开消息类型目录。
+ *
  * <p>该目录描述平台消息协议，不代表开发者账号已经获得对应业务授权。</p>
  */
 @Getter
 public enum MeituanBusiness55MessageType {
 
-    /** 免费试活动发生变更。 */
+    /**
+     * 免费试活动发生变更。
+     */
     ACTIVITY_CHANGE_NOTICE(
             "活动变更通知",
             "5510001",
@@ -33,8 +36,19 @@ public enum MeituanBusiness55MessageType {
                     .collect(Collectors.toMap(MeituanBusiness55MessageType::getMsgType, Function.identity()))
     );
 
+    /**
+     * 美团文档中的消息名称。
+     */
     private final String displayName;
+
+    /**
+     * 平台用来标识此消息的类型编号。
+     */
     private final String msgType;
+
+    /**
+     * 美团官网上此消息的文档地址。
+     */
     private final String documentUrl;
 
     MeituanBusiness55MessageType(String displayName, String msgType, String documentKey) {
@@ -44,12 +58,12 @@ public enum MeituanBusiness55MessageType {
     }
 
     /**
-     * 在确认回调属于 businessId=55 后解析消息类型。
+     * 在确认回调属于 {@code businessId=55} 后解析消息类型。
      *
      * @param callback 通用回调信封
-     * @return 已知免费试消息；其他业务或未知类型返回 empty
+     * @return 已知免费试消息；其他业务或未知类型返回空的 {@link Optional}
      */
-    public static Optional<MeituanBusiness55MessageType> resolve(MeituanCallbackMessage callback) {
+    public static Optional<MeituanBusiness55MessageType> resolve(MeituanCallbackMessage<?> callback) {
         if (Objects.isNull(callback) || !BUSINESS_ID.equals(callback.getBusinessId())) {
             return Optional.empty();
         }
@@ -63,7 +77,7 @@ public enum MeituanBusiness55MessageType {
      * @return 已知消息定义
      */
     public static Optional<MeituanBusiness55MessageType> fromMsgType(String msgType) {
-        if (!StringUtils.hasText(msgType)) {
+        if (StrUtil.isBlank(msgType)) {
             return Optional.empty();
         }
         return Optional.ofNullable(BY_MSG_TYPE.get(msgType));

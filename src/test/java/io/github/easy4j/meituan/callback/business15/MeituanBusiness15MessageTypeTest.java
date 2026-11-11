@@ -32,7 +32,7 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldResolveModernMessageEnvelope() {
-        MeituanCallbackMessage message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "msgType", "15201",
                 "message", "{\"eventType\":\"USER_GET_CARD_EVENT\"}"
@@ -45,7 +45,7 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldNormalizeLegacyInvokeTypeAndParamEnvelope() {
-        MeituanCallbackMessage message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "invokeType", "15101",
                 "param", "{\"phoneNo\":\"19288387287\",\"platformType\":\"MEI_TUAN\"}"
@@ -59,7 +59,7 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldPreferModernEnvelopeWhenModernAndLegacyFieldsCollide() {
-        MeituanCallbackMessage message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "msgType", "15201",
                 "invokeType", "15101",
@@ -75,7 +75,7 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldKeepUndocumentedLevelChangeAvailableToGenericCallbackConsumers() {
-        MeituanCallbackMessage message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "msgType", "1599999",
                 "message", "{\"mtLevel\":\"L6\"}"

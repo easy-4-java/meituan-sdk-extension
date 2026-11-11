@@ -43,16 +43,16 @@ class MeituanBusiness58MessageTypeTest {
 
     @Test
     void shouldResolveOnlyBusiness58MessagesAndKeepUnknownTypeAvailable() {
-        MeituanCallbackMessage operateDevice = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> operateDevice = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "58", "msgType", "5810149", "message", "{}"));
         assertThat(MeituanBusiness58MessageType.resolve(operateDevice))
                 .contains(MeituanBusiness58MessageType.OPERATE_DEVICE);
 
-        MeituanCallbackMessage otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "59", "msgType", "5810149", "message", "{}"));
         assertThat(MeituanBusiness58MessageType.resolve(otherBusiness)).isEmpty();
 
-        MeituanCallbackMessage unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "58", "msgType", "5899999", "message", "{}"));
         assertThat(MeituanBusiness58MessageType.resolve(unknownMessage)).isEmpty();
         assertThat(unknownMessage.getMsgType()).isEqualTo("5899999");

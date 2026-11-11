@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.business2;
 
+import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.utils.StringUtils;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -13,13 +13,16 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * 餐饮客户解决方案涉及的外卖品牌（businessId=2）公开消息类型目录。
+ * 餐饮客户解决方案涉及的外卖品牌（{@code businessId=2}）公开消息类型目录。
+ *
  * <p>只收录当前官方文档能够确认类型号的消息；通用回调对象仍会保留未知消息的原始内容。</p>
  */
 @Getter
 public enum MeituanBusiness2MessageType {
 
-    /** 品牌接收用户与商家的两方会话消息。 */
+    /**
+     * 品牌接收用户与商家的两方会话消息。
+     */
     TWO_PARTY_IM_MESSAGE(
             "接收IM两方会话消息",
             "210069",
@@ -33,8 +36,19 @@ public enum MeituanBusiness2MessageType {
                     .collect(Collectors.toMap(MeituanBusiness2MessageType::getMsgType, Function.identity()))
     );
 
+    /**
+     * 美团文档中的消息名称。
+     */
     private final String displayName;
+
+    /**
+     * 平台用来标识此消息的类型编号。
+     */
     private final String msgType;
+
+    /**
+     * 美团官网上此消息的文档地址。
+     */
     private final String documentUrl;
 
     MeituanBusiness2MessageType(String displayName, String msgType, String documentKey) {
@@ -44,12 +58,12 @@ public enum MeituanBusiness2MessageType {
     }
 
     /**
-     * 在确认回调属于 businessId=2 后解析消息类型。
+     * 在确认回调属于 {@code businessId=2} 后解析消息类型。
      *
      * @param callback 通用回调信封
-     * @return 已知品牌 IM 消息；其他业务或未知类型返回 empty
+     * @return 已知品牌 IM 消息；其他业务或未知类型返回空的 {@link Optional}
      */
-    public static Optional<MeituanBusiness2MessageType> resolve(MeituanCallbackMessage callback) {
+    public static Optional<MeituanBusiness2MessageType> resolve(MeituanCallbackMessage<?> callback) {
         if (Objects.isNull(callback) || !BUSINESS_ID.equals(callback.getBusinessId())) {
             return Optional.empty();
         }
@@ -63,7 +77,7 @@ public enum MeituanBusiness2MessageType {
      * @return 已知消息定义
      */
     public static Optional<MeituanBusiness2MessageType> fromMsgType(String msgType) {
-        if (!StringUtils.hasText(msgType)) {
+        if (StrUtil.isBlank(msgType)) {
             return Optional.empty();
         }
         return Optional.ofNullable(BY_MSG_TYPE.get(msgType));

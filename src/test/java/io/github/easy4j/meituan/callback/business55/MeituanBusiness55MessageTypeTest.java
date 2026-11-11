@@ -24,7 +24,7 @@ class MeituanBusiness55MessageTypeTest {
         assertThat(MeituanBusiness55MessageType.ACTIVITY_CHANGE_NOTICE.getDocumentUrl())
                 .endsWith("msg_freetryopen_da0cca39-5099-452f-9d9b-c9bb632c0a81");
 
-        MeituanCallbackMessage message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "55",
                 "msgType", "5510001",
                 "message", "{\"activityId\":1000}"
@@ -37,10 +37,10 @@ class MeituanBusiness55MessageTypeTest {
 
     @Test
     void shouldRejectOtherBusinessesAndUnknownMessages() {
-        MeituanCallbackMessage otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "58", "msgType", "5510001", "message", "{}"
         ));
-        MeituanCallbackMessage unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "55", "msgType", "5599999", "message", "{}"
         ));
 
