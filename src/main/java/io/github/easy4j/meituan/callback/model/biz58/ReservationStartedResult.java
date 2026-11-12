@@ -18,27 +18,24 @@ import lombok.Setter;
 public class ReservationStartedResult {
 
     /**
-     * 创建美团「开始预订」回调的业务响应。的空实例。
-     */
-    public ReservationStartedResult() {
-    }
-
-
-    /**
      * 订单ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 第三方的订单号。
      */
     @JsonProperty("appOrderId")
     private String appOrderId;
-
     /**
      * 预订手机号。
      */
     @JsonProperty("mobile")
     private String mobile;
+
+    /**
+     * 创建美团「开始预订」回调的业务响应。的空实例。
+     */
+    public ReservationStartedResult() {
+    }
 }

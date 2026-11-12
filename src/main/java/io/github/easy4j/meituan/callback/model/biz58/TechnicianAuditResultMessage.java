@@ -20,33 +20,29 @@ import lombok.Setter;
 public class TechnicianAuditResultMessage {
 
     /**
-     * 创建美团「手艺人审核结果通知」回调的业务内容。的空实例。
-     */
-    public TechnicianAuditResultMessage() {
-    }
-
-
-    /**
      * 手艺人Id。必填。
      */
     @JsonProperty("technicianId")
     private Integer technicianId;
-
     /**
      * 审核结果。必填。
      */
     @JsonProperty("auditPass")
     private Boolean auditPass;
-
     /**
      * 失败原因。
      */
     @JsonProperty("failDetail")
     private String failDetail;
-
     /**
      * 美团门店Id(混淆)。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
+
+    /**
+     * 创建美团「手艺人审核结果通知」回调的业务内容。的空实例。
+     */
+    public TechnicianAuditResultMessage() {
+    }
 }

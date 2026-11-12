@@ -18,21 +18,19 @@ import lombok.Setter;
 public class RentalPreAuthResult {
 
     /**
-     * 创建美团「报价详情查询」回调的业务数据（PreAuth）。的空实例。
-     */
-    public RentalPreAuthResult() {
-    }
-
-
-    /**
      * 是否支持使用免压。必填。
      */
     @JsonProperty("support")
     private Boolean support;
-
     /**
      * 详情见授权渠道枚举 DepositChannel。必填。
      */
     @JsonProperty("channel")
     private String channel;
+
+    /**
+     * 创建美团「报价详情查询」回调的业务数据（PreAuth）。的空实例。
+     */
+    public RentalPreAuthResult() {
+    }
 }

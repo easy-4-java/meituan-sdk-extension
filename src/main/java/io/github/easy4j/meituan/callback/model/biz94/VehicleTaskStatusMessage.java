@@ -20,39 +20,34 @@ import lombok.Setter;
 public class VehicleTaskStatusMessage {
 
     /**
-     * 创建美团「车辆任务状态推送」回调的业务内容。的空实例。
-     */
-    public VehicleTaskStatusMessage() {
-    }
-
-
-    /**
      * 车架号。必填。
      */
     @JsonProperty("vin")
     private String vin;
-
     /**
      * 行程任务 ID。必填。
      */
     @JsonProperty("taskId")
     private String taskId;
-
     /**
      * 状态值. 含义如下: 0: 已创建 100: 驶入中 200: 已到达 300: 已离开 400: 已取消 500: 已终止。必填。
      */
     @JsonProperty("status")
     private Integer status;
-
     /**
      * 行程任务项目标点位 ID。必填。
      */
     @JsonProperty("parkingStationId")
     private String parkingStationId;
-
     /**
      * 毫秒时间戳。必填。
      */
     @JsonProperty("timestamp")
     private Long timestamp;
+
+    /**
+     * 创建美团「车辆任务状态推送」回调的业务内容。的空实例。
+     */
+    public VehicleTaskStatusMessage() {
+    }
 }

@@ -20,15 +20,15 @@ import lombok.Setter;
 public class OrderCloseMessage {
 
     /**
-     * 创建美团「ORDER_CLOSE」回调的业务内容。的空实例。
-     */
-    public OrderCloseMessage() {
-    }
-
-
-    /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
     private Long orderId;
+
+
+    /**
+     * 创建美团「ORDER_CLOSE」回调的业务内容。的空实例。
+     */
+    public OrderCloseMessage() {
+    }
 }

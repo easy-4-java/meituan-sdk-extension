@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「团购三方项目Id关联关系查询」回调的业务内容。
@@ -21,15 +22,15 @@ import lombok.Setter;
 public class GroupDealProjectMappingQueryMessage {
 
     /**
-     * 创建美团「团购三方项目Id关联关系查询」回调的业务内容。的空实例。
-     */
-    public GroupDealProjectMappingQueryMessage() {
-    }
-
-
-    /**
      * 美团团购Id列表。必填。
      */
     @JsonProperty("mtDealGroupIds")
     private List<Long> mtDealGroupIds;
+
+
+    /**
+     * 创建美团「团购三方项目Id关联关系查询」回调的业务内容。的空实例。
+     */
+    public GroupDealProjectMappingQueryMessage() {
+    }
 }

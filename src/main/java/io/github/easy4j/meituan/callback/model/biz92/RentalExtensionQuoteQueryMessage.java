@@ -20,27 +20,24 @@ import lombok.Setter;
 public class RentalExtensionQuoteQueryMessage {
 
     /**
-     * 创建美团「订单续租报价查询」回调的业务内容。的空实例。
-     */
-    public RentalExtensionQuoteQueryMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 期望续租截止时间。必填。
      */
     @JsonProperty("newDropOffTime")
     private String newDropOffTime;
+
+    /**
+     * 创建美团「订单续租报价查询」回调的业务内容。的空实例。
+     */
+    public RentalExtensionQuoteQueryMessage() {
+    }
 }

@@ -20,39 +20,34 @@ import lombok.Setter;
 public class PosOrderDeliveredMessage {
 
     /**
-     * 创建美团「POS接单-接单页商家点击已送达」回调的业务内容。的空实例。
-     */
-    public PosOrderDeliveredMessage() {
-    }
-
-
-    /**
      * 机构 ID。必填。
      */
     @JsonProperty("orgId")
     private Long orgId;
-
     /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 订单编号。必填。
      */
     @JsonProperty("orderNo")
     private String orderNo;
-
     /**
      * 美团操作人 ID。必填。
      */
     @JsonProperty("mtOperatorId")
     private Long mtOperatorId;
-
     /**
      * 美团设备 ID。必填。
      */
     @JsonProperty("mtDeviceId")
     private Long mtDeviceId;
+
+    /**
+     * 创建美团「POS接单-接单页商家点击已送达」回调的业务内容。的空实例。
+     */
+    public PosOrderDeliveredMessage() {
+    }
 }

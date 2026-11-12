@@ -20,15 +20,15 @@ import lombok.Setter;
 public class MonthlySubscriptionCancelledMessage {
 
     /**
-     * 创建美团「取消连续包月通知」回调的业务内容。的空实例。
-     */
-    public MonthlySubscriptionCancelledMessage() {
-    }
-
-
-    /**
      * 首单订单号。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
+
+
+    /**
+     * 创建美团「取消连续包月通知」回调的业务内容。的空实例。
+     */
+    public MonthlySubscriptionCancelledMessage() {
+    }
 }

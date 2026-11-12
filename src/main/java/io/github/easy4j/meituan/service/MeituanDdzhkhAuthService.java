@@ -44,7 +44,7 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
     /**
      * 查询通用接单订单详情。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -53,7 +53,7 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
     /**
      * 异步回传会员信息。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -62,7 +62,7 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
     /**
      * 查询小程序支付账单。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -71,7 +71,7 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
     /**
      * 查询小程序退款账单。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */

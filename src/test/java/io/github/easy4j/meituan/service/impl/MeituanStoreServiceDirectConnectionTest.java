@@ -16,15 +16,10 @@ import io.github.easy4j.meituan.tenant.InMemoryMeituanTenantConfigStorage;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.same;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * 门店建店直连 API 的免 appAuthToken 调用路径测试。
@@ -32,19 +27,20 @@ import static org.mockito.Mockito.when;
 class MeituanStoreServiceDirectConnectionTest {
 
     /**
+     * 测试使用的租户标识。
+     */
+    private static final String TENANT_ID = "tenant-71";
+
+
+    /**
      * 创建门店建店直连 API 的免 appAuthToken 调用路径测试。的空实例。
      */
     MeituanStoreServiceDirectConnectionTest() {
     }
 
-
-    /**
-     * 测试使用的租户标识。
-     */
-    private static final String TENANT_ID = "tenant-71";
-
     /**
      * 验证门店直连接口使用所选租户凭据且不携带授权 token。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -69,6 +65,7 @@ class MeituanStoreServiceDirectConnectionTest {
 
     /**
      * 验证免授权调用按租户选择客户端。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -102,6 +99,7 @@ class MeituanStoreServiceDirectConnectionTest {
 
     /**
      * 验证不同租户的免授权请求使用各自客户端。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -135,6 +133,7 @@ class MeituanStoreServiceDirectConnectionTest {
 
     /**
      * 验证自定义执行器缺少租户感知免授权入口时明确失败。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -165,8 +164,8 @@ class MeituanStoreServiceDirectConnectionTest {
     /**
      * 创建包含指定开发者凭据与授权 token 的租户配置。
      *
-     * @param developerId 美团开发者编号
-     * @param signKey 开发者签名密钥
+     * @param developerId  美团开发者编号
+     * @param signKey      开发者签名密钥
      * @param appAuthToken 租户的应用授权 token
      * @return 创建包含指定开发者凭据与授权 token 的租户配置的结果
      */

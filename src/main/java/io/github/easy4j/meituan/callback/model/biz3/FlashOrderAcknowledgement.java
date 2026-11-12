@@ -1,7 +1,6 @@
 package io.github.easy4j.meituan.callback.model.biz3;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 闪惠接收订单推送的回执。

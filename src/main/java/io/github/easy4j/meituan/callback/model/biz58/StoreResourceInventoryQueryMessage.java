@@ -20,15 +20,15 @@ import lombok.Setter;
 public class StoreResourceInventoryQueryMessage {
 
     /**
-     * 创建美团「查询指定门店资源库存」回调的业务内容。的空实例。
-     */
-    public StoreResourceInventoryQueryMessage() {
-    }
-
-
-    /**
      * 美团门店 ID（混淆）。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
+
+
+    /**
+     * 创建美团「查询指定门店资源库存」回调的业务内容。的空实例。
+     */
+    public StoreResourceInventoryQueryMessage() {
+    }
 }

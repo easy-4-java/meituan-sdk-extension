@@ -20,35 +20,31 @@ import lombok.Setter;
 public class MemberPriceQueryMessage {
 
     /**
-     * 创建美团「查询商品会员价」回调的业务内容。的空实例。
-     */
-    public MemberPriceQueryMessage() {
-    }
-
-
-    /**
      * 会员 ID。必填。
      */
     @JsonProperty("memberId")
     private String memberId;
-
     /**
      * 卡 ID。必填。
      */
     @JsonProperty("cardId")
     private String cardId;
-
     /**
      * 卡号。
      */
     @JsonProperty("cardNo")
     private String cardNo;
-
     /**
      * 商品规格列表。必填。
      */
     @JsonProperty("skus")
     private StandardLoyaltySkus skus;
+
+    /**
+     * 创建美团「查询商品会员价」回调的业务内容。的空实例。
+     */
+    public MemberPriceQueryMessage() {
+    }
 
     /**
      * skus。
@@ -59,28 +55,25 @@ public class MemberPriceQueryMessage {
     public static class StandardLoyaltySkus {
 
         /**
-         * 创建skus。的空实例。
-         */
-        public StandardLoyaltySkus() {
-        }
-
-
-        /**
          * 菜品skuId。必填。
          */
         @JsonProperty("skuId")
         private Integer skuId;
-
         /**
          * 菜品使用优惠后单价(分)。必填。
          */
         @JsonProperty("priceAfterDiscount")
         private Long priceAfterDiscount;
-
         /**
          * 菜品原价（不受优惠影响）(分)。必填。
          */
         @JsonProperty("price")
         private Long price;
+
+        /**
+         * 创建skus。的空实例。
+         */
+        public StandardLoyaltySkus() {
+        }
     }
 }

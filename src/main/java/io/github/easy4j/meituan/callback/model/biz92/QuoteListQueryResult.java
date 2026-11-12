@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz92;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「报价列表查询」回调的业务响应。
@@ -19,29 +20,26 @@ import lombok.Setter;
 public class QuoteListQueryResult {
 
     /**
-     * 创建美团「报价列表查询」回调的业务响应。的空实例。
-     */
-    public QuoteListQueryResult() {
-    }
-
-
-    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")
     private Integer bizCode;
-
     /**
      * 错误描述。必填。
      */
     @JsonProperty("bizMessage")
     private String bizMessage;
-
     /**
      * 报价信息列表。必填。
      */
     @JsonProperty("quotations")
     private List<Quotation> quotations;
+
+    /**
+     * 创建美团「报价列表查询」回调的业务响应。的空实例。
+     */
+    public QuoteListQueryResult() {
+    }
 
     /**
      * 报价信息列表。必填。
@@ -53,64 +51,55 @@ public class QuoteListQueryResult {
     public static class Quotation {
 
         /**
-         * 创建报价信息列表。必填。的空实例。
-         */
-        public Quotation() {
-        }
-
-
-        /**
          * 报价Id。必填。
          */
         @JsonProperty("quoteId")
         private String quoteId;
-
         /**
          * 取车门店code。必填。
          */
         @JsonProperty("pickUpThirdStoreCode")
         private String pickUpThirdStoreCode;
-
         /**
          * 取车方式，详情见取还方式枚举： PickupDropoffType。必填。
          */
         @JsonProperty("pickUpType")
         private String pickUpType;
-
         /**
          * 还车门店code。必填。
          */
         @JsonProperty("dropOffThirdStoreCode")
         private String dropOffThirdStoreCode;
-
         /**
          * 还车方式，详情见取还方式枚举： PickupDropoffType。必填。
          */
         @JsonProperty("dropOffType")
         private String dropOffType;
-
         /**
          * 门店配置信息。必填。
          */
         @JsonProperty("storeInfo")
         private RentalStoreInfoResult storeInfo;
-
         /**
          * 车辆信息。必填。
          */
         @JsonProperty("vehicleInfo")
         private RentalVehicleInfoResult vehicleInfo;
-
         /**
          * 价格信息。必填。
          */
         @JsonProperty("priceInfo")
         private RentalPriceInfoResult priceInfo;
-
         /**
          * 优惠信息，商家如果有优惠信息则必须传。
          */
         @JsonProperty("promotions")
         private List<RentalPromotionResult> promotions;
+
+        /**
+         * 创建报价信息列表。必填。的空实例。
+         */
+        public Quotation() {
+        }
     }
 }

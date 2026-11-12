@@ -20,99 +20,84 @@ import lombok.Setter;
 public class SurchargeOrderRedeemedMessage {
 
     /**
-     * 创建美团「加价尾单核销通知」回调的业务内容。的空实例。
-     */
-    public SurchargeOrderRedeemedMessage() {
-    }
-
-
-    /**
      * 用户手机号。必填。
      */
     @JsonProperty("phone")
     private String phone;
-
     /**
      * 团购 ID。必填。
      */
     @JsonProperty("dealGroupId")
     private Long dealGroupId;
-
     /**
      * 团购标题。必填。
      */
     @JsonProperty("dealName")
     private String dealName;
-
     /**
      * 订单总金额，金额=首单金额+尾单金额。必填。
      */
     @JsonProperty("amount")
     private String amount;
-
     /**
      * 首单订单 ID。必填。
      */
     @JsonProperty("firstOrderId")
     private String firstOrderId;
-
     /**
      * 首单券码，多个用“,”分割。必填。
      */
     @JsonProperty("firstOrderCode")
     private String firstOrderCode;
-
     /**
      * 首单实付金额。必填。
      */
     @JsonProperty("firstOrderActualPrice")
     private String firstOrderActualPrice;
-
     /**
      * 尾单订单 ID。必填。
      */
     @JsonProperty("finalOrderId")
     private String finalOrderId;
-
     /**
      * 尾单券码，多个用“,”分割。必填。
      */
     @JsonProperty("finalOrderCode")
     private String finalOrderCode;
-
     /**
      * 尾单实付金额。必填。
      */
     @JsonProperty("finalOrderActualPrice")
     private String finalOrderActualPrice;
-
     /**
      * 首单商家优惠金额。
      */
     @JsonProperty("firstOrderDiscountAmount")
     private String firstOrderDiscountAmount;
-
     /**
      * 尾单商家优惠金额。
      */
     @JsonProperty("finalOrderDiscountAmount")
     private String finalOrderDiscountAmount;
-
     /**
      * 团单价。
      */
     @JsonProperty("dealUnitAmount")
     private String dealUnitAmount;
-
     /**
      * 首单金额。必填。
      */
     @JsonProperty("firstOrderPrice")
     private String firstOrderPrice;
-
     /**
      * 尾单金额。必填。
      */
     @JsonProperty("finalOrderPrice")
     private String finalOrderPrice;
+
+    /**
+     * 创建美团「加价尾单核销通知」回调的业务内容。的空实例。
+     */
+    public SurchargeOrderRedeemedMessage() {
+    }
 }

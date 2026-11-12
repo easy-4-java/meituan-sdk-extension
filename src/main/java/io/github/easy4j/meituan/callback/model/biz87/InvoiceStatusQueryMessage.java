@@ -20,27 +20,24 @@ import lombok.Setter;
 public class InvoiceStatusQueryMessage {
 
     /**
-     * 创建美团「开票状态结果查询接口」回调的业务内容。的空实例。
-     */
-    public InvoiceStatusQueryMessage() {
-    }
-
-
-    /**
      * 开票申请 id。必填。
      */
     @JsonProperty("applyId")
     private String applyId;
-
     /**
      * 商家门店唯一键。
      */
     @JsonProperty("shopUniqueKey")
     private String shopUniqueKey;
-
     /**
      * 门店类型 0到餐，1外卖。
      */
     @JsonProperty("bizType")
     private String bizType;
+
+    /**
+     * 创建美团「开票状态结果查询接口」回调的业务内容。的空实例。
+     */
+    public InvoiceStatusQueryMessage() {
+    }
 }

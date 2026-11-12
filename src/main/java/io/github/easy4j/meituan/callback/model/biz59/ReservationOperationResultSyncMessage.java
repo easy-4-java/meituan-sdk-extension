@@ -20,18 +20,10 @@ import lombok.Setter;
 public class ReservationOperationResultSyncMessage {
 
     /**
-     * 创建美团「预约单操作结果同步」回调的业务内容。的空实例。
-     */
-    public ReservationOperationResultSyncMessage() {
-    }
-
-
-    /**
      * 预约单 ID。必填。
      */
     @JsonProperty("leadsId")
     private Integer leadsId;
-
     /**
      * 消息类型1：预约下单（针对预约同步第三方消息，包含自动确认，标识该同步流程是否成功） 5：拒单（需要手动确认接单时，
      * 拒单时或超时系统自动拒单时的处理结果） 6：接单 （需要手动确认接单时，同意接单时的处理结果） 3：改约 （针对用户改约同步第三方，包含自动确认，
@@ -43,16 +35,20 @@ public class ReservationOperationResultSyncMessage {
      */
     @JsonProperty("messageType")
     private Integer messageType;
-
     /**
      * 处理结果： 0：成功 1：失败。必填。
      */
     @JsonProperty("result")
     private Integer result;
-
     /**
      * 混淆的预约门店 ID。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
+
+    /**
+     * 创建美团「预约单操作结果同步」回调的业务内容。的空实例。
+     */
+    public ReservationOperationResultSyncMessage() {
+    }
 }

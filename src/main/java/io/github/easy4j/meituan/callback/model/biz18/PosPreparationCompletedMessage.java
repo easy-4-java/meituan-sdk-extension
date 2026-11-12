@@ -20,39 +20,34 @@ import lombok.Setter;
 public class PosPreparationCompletedMessage {
 
     /**
-     * 创建美团「POS接单-接单页商家点击制作完成」回调的业务内容。的空实例。
-     */
-    public PosPreparationCompletedMessage() {
-    }
-
-
-    /**
      * 门店机构 ID。
      */
     @JsonProperty("orgId")
     private Integer orgId;
-
     /**
      * 美团订单Id。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 制作状态，固定3-制作完成。
      */
     @JsonProperty("makeStatus")
     private Integer makeStatus;
-
     /**
      * 订单状态，固定300-已结账。
      */
     @JsonProperty("orderStatus")
     private Integer orderStatus;
-
     /**
      * 取餐状态，固定0-待取餐。
      */
     @JsonProperty("pickupStatus")
     private Integer pickupStatus;
+
+    /**
+     * 创建美团「POS接单-接单页商家点击制作完成」回调的业务内容。的空实例。
+     */
+    public PosPreparationCompletedMessage() {
+    }
 }

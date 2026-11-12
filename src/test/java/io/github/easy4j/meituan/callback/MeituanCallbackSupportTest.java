@@ -1,10 +1,10 @@
 package io.github.easy4j.meituan.callback;
 
-import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
-import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
+import org.junit.jupiter.api.Test;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -29,6 +29,7 @@ class MeituanCallbackSupportTest {
 
     /**
      * 验证官网表单示例的公共字段和业务消息类型可以解析。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -55,6 +56,7 @@ class MeituanCallbackSupportTest {
 
     /**
      * 验证正确签名通过，参数被篡改后验签失败。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -83,6 +85,7 @@ class MeituanCallbackSupportTest {
 
     /**
      * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -110,6 +113,7 @@ class MeituanCallbackSupportTest {
 
     /**
      * 验证标准成功与失败回执的状态、说明及数据格式。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

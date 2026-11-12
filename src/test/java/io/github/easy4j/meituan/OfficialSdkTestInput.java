@@ -1,11 +1,17 @@
 package io.github.easy4j.meituan;
+
 import java.io.File;
-/** 官方 SDK 覆盖测试的输入构件。 */
+
+/**
+ * 官方 SDK 覆盖测试的输入构件。
+ */
 final class OfficialSdkTestInput {
     /**
      * 创建当前类的实例。
      */
-    private OfficialSdkTestInput() {}
+    private OfficialSdkTestInput() {
+    }
+
     /**
      * 返回覆盖测试所使用的官方 SDK 参考 JAR。
      *

@@ -5,11 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -28,13 +24,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MeituanApiCoverageTest {
 
     /**
-     * 创建门面覆盖度测试：扫描官方 MtOpJavaSDK jar，确保所有带  元数据的的空实例。
+     * 全部业务门面接口。
      */
-    MeituanApiCoverageTest() {
-    }
-
-
-    /** 全部业务门面接口。 */
     private static final String[] FACADES = {
             "io.github.easy4j.meituan.service.MeituanCateringService",
             "io.github.easy4j.meituan.service.MeituanDaocanService",
@@ -53,8 +44,16 @@ class MeituanApiCoverageTest {
             "io.github.easy4j.meituan.service.MeituanWaimaiService",
     };
 
+
+    /**
+     * 创建门面覆盖度测试：扫描官方 MtOpJavaSDK jar，确保所有带  元数据的的空实例。
+     */
+    MeituanApiCoverageTest() {
+    }
+
     /**
      * 验证所有正式官方请求均具有业务门面入口。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

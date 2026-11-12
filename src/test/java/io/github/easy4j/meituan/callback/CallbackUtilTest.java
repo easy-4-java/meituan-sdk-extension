@@ -1,8 +1,8 @@
 package io.github.easy4j.meituan.callback;
 
-import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.StringReader;
 import java.net.URLEncoder;
@@ -12,19 +12,12 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-/** 泛型回调解析入口的行为与验签回归测试。 */
+/**
+ * 泛型回调解析入口的行为与验签回归测试。
+ */
 class CallbackUtilTest {
-
-    /**
-     * 创建泛型回调解析入口的行为与验签回归测试。的空实例。
-     */
-    CallbackUtilTest() {
-    }
-
 
     /**
      * 测试回调的公共查询参数。
@@ -34,9 +27,26 @@ class CallbackUtilTest {
      * 测试回调的业务 JSON 文本。
      */
     private static final String MESSAGE = " {\"opUserId\":\"user+1\",\"name\":\"张三 & 李四\",\"futureField\":true} ";
+    /**
+     * 创建泛型回调解析入口的行为与验签回归测试。的空实例。
+     */
+    CallbackUtilTest() {
+    }
+
+    /**
+     * 按 UTF-8 将测试业务文本编码为表单参数。
+     *
+     * @param value 待进行 UTF-8 表单编码的文本
+     * @return 按 UTF-8 将测试业务文本编码为表单参数的结果
+     * @throws java.io.UnsupportedEncodingException 当请求读取、数据转换或接口检查失败时
+     */
+    private static String encode(String value) throws java.io.UnsupportedEncodingException {
+        return URLEncoder.encode(value, StandardCharsets.UTF_8.name());
+    }
 
     /**
      * 验证表单可解析为指定消息模型，并保留原始验签参数。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -60,6 +70,7 @@ class CallbackUtilTest {
 
     /**
      * 验证 JSON 正文可解析且其参数优先于查询串。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -74,6 +85,7 @@ class CallbackUtilTest {
 
     /**
      * 验证入口接受已解码映射和已类型化的回调信封。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -90,6 +102,7 @@ class CallbackUtilTest {
 
     /**
      * 验证仅查询串输入及旧协议 param 信封。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -103,6 +116,7 @@ class CallbackUtilTest {
 
     /**
      * 验证嵌套 JSON 字符串和原始字符串消息均可读取。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -117,6 +131,7 @@ class CallbackUtilTest {
 
     /**
      * 验证表单请求直接读取容器参数且不再次读取正文。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -134,6 +149,7 @@ class CallbackUtilTest {
 
     /**
      * 验证 Servlet 的 JSON 正文和查询参数可以合并。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -149,6 +165,7 @@ class CallbackUtilTest {
 
     /**
      * 验证多值表单采用最后值，避免拼接破坏业务文本。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -167,6 +184,7 @@ class CallbackUtilTest {
 
     /**
      * 验证表单只解码一次，并保留同名参数的最后值用于验签。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -181,6 +199,7 @@ class CallbackUtilTest {
 
     /**
      * 验证格式错误、空内容和缺失的业务消息被拒绝。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -195,6 +214,7 @@ class CallbackUtilTest {
 
     /**
      * 验证对象信封可解析，数组型外层信封被拒绝。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -209,6 +229,7 @@ class CallbackUtilTest {
 
     /**
      * 验证 Servlet 读取失败会保留原始原因并包装为参数异常。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -222,6 +243,7 @@ class CallbackUtilTest {
 
     /**
      * 验证标准消息字段为空白时保留旧协议参数原文。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -232,7 +254,9 @@ class CallbackUtilTest {
         assertThat(callback.getMessage().opUserId()).isEqualTo("user+1");
     }
 
-    /** 使用 Java 对象传入回调信封。 */
+    /**
+     * 使用 Java 对象传入回调信封。
+     */
     @lombok.EqualsAndHashCode
     static final class Envelope {
         /**
@@ -278,17 +302,8 @@ class CallbackUtilTest {
     }
 
     /**
-     * 按 UTF-8 将测试业务文本编码为表单参数。
-     *
-     * @param value 待进行 UTF-8 表单编码的文本
-     * @return 按 UTF-8 将测试业务文本编码为表单参数的结果
-     * @throws java.io.UnsupportedEncodingException 当请求读取、数据转换或接口检查失败时
+     * 创建会员消息的最小业务模型。
      */
-    private static String encode(String value) throws java.io.UnsupportedEncodingException {
-        return URLEncoder.encode(value, StandardCharsets.UTF_8.name());
-    }
-
-    /** 创建会员消息的最小业务模型。 */
     @lombok.EqualsAndHashCode
     static final class Member {
         /**
@@ -306,7 +321,7 @@ class CallbackUtilTest {
          * 创建当前类的实例。
          *
          * @param opUserId 平台用户的开放标识
-         * @param name 官网接口名称
+         * @param name     官网接口名称
          */
         @com.fasterxml.jackson.annotation.JsonCreator
         public Member(@com.fasterxml.jackson.annotation.JsonProperty("opUserId") String opUserId, @com.fasterxml.jackson.annotation.JsonProperty("name") String name) {
@@ -333,7 +348,9 @@ class CallbackUtilTest {
         }
     }
 
-    /** 预订消息保留协议中二次编码的 data 字符串。 */
+    /**
+     * 预订消息保留协议中二次编码的 data 字符串。
+     */
     @lombok.EqualsAndHashCode
     static final class Reservation {
         /**
@@ -351,7 +368,7 @@ class CallbackUtilTest {
          * 创建当前类的实例。
          *
          * @param ePoiId 开发者系统中的门店编号
-         * @param data 按接口协议编码的业务数据
+         * @param data   按接口协议编码的业务数据
          */
         @com.fasterxml.jackson.annotation.JsonCreator
         public Reservation(@com.fasterxml.jackson.annotation.JsonProperty("ePoiId") String ePoiId, @com.fasterxml.jackson.annotation.JsonProperty("data") String data) {

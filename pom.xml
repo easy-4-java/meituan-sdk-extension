@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.easy4j</groupId>
@@ -40,8 +40,12 @@
         <repository>
             <id>2624322-release-6F6h6R</id>
             <url>https://packages.aliyun.com/6927b116e6c3e0425dbdf60d/maven/2624322-release-6f6h6r</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>false</enabled></snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
     <!-- 版本属性定义：Java 版本、依赖版本与 Maven 插件版本统一管理 -->
@@ -243,13 +247,15 @@
                             <configuration>
                                 <rules>
                                     <requireMavenVersion>
-                                        <message><![CDATA[You are running an older version of Maven. This application requires at least Maven ${maven.version}.]]></message>
+                                        <message>
+                                            <![CDATA[You are running an older version of Maven. This application requires at least Maven ${maven.version}.]]></message>
                                         <version>[${maven.version},)</version>
                                     </requireMavenVersion>
                                     <requireJavaVersion>
                                         <message>
-                                                                                        You are running an older version of Java. This application requires at least JDK ${java.version}.
-                                                                                </message>
+                                            You are running an older version of Java. This application requires at least
+                                            JDK ${java.version}.
+                                        </message>
                                         <version>[${java.version}.0,)</version>
                                     </requireJavaVersion>
                                 </rules>
@@ -530,7 +536,7 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-install-plugin</artifactId>
                     </plugin>
-                                        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
                     <plugin>
                         <!-- 源码插件：发布时自动将源码同时发布 -->
                         <groupId>org.apache.maven.plugins</groupId>
@@ -542,7 +548,7 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                     </plugin>
-<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
                     <plugin>
                         <!-- 签名插件：对制品进行 PGP 签名 -->
                         <groupId>org.apache.maven.plugins</groupId>

@@ -18,21 +18,19 @@ import lombok.Setter;
 public class OperateDeviceResult {
 
     /**
-     * 创建美团「操作设备」回调的业务响应。的空实例。
-     */
-    public OperateDeviceResult() {
-    }
-
-
-    /**
      * 三方侧设备ID。必填。
      */
     @JsonProperty("thirdPartyDeviceItemId")
     private String thirdPartyDeviceItemId;
-
     /**
      * 0 正常 1异常。必填。
      */
     @JsonProperty("operateResult")
     private Integer operateResult;
+
+    /**
+     * 创建美团「操作设备」回调的业务响应。的空实例。
+     */
+    public OperateDeviceResult() {
+    }
 }

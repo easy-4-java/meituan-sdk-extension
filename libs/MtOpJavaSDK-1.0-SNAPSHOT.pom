@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -10,7 +10,9 @@
     <packaging>jar</packaging>
 
     <name>MtOpJavaSDK</name>
-    <description>美团技术服务合作中心 Java SDK（含外卖、团购、配送、到店、餐饮等业务强类型 Request/Response 模型与 MeituanClient 客户端）</description>
+    <description>美团技术服务合作中心 Java SDK（含外卖、团购、配送、到店、餐饮等业务强类型 Request/Response 模型与
+        MeituanClient 客户端）
+    </description>
     <url>https://developer.meituan.com/sdk-download</url>
 
     <licenses>

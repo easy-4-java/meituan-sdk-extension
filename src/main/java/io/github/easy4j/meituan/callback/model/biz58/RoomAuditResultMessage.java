@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「包型包间审核结果通知」回调的业务内容。
@@ -21,39 +22,34 @@ import lombok.Setter;
 public class RoomAuditResultMessage {
 
     /**
-     * 创建美团「包型包间审核结果通知」回调的业务内容。的空实例。
-     */
-    public RoomAuditResultMessage() {
-    }
-
-
-    /**
      * 三方包型 ID。必填。
      */
     @JsonProperty("roomTypeCode")
     private String roomTypeCode;
-
     /**
      * 三方包间 ID 列表。必填。
      */
     @JsonProperty("roomCodes")
     private List<Long> roomCodes;
-
     /**
      * 审核结果 1通过/2驳回。必填。
      */
     @JsonProperty("auditStatus")
     private Integer auditStatus;
-
     /**
      * 原因。
      */
     @JsonProperty("reason")
     private String reason;
-
     /**
      * 审核时间, 格式yyyy-MM-dd HH:mm:ss。必填。
      */
     @JsonProperty("auditTime")
     private String auditTime;
+
+    /**
+     * 创建美团「包型包间审核结果通知」回调的业务内容。的空实例。
+     */
+    public RoomAuditResultMessage() {
+    }
 }

@@ -20,75 +20,64 @@ import lombok.Setter;
 public class MemberCreatedMessage {
 
     /**
-     * 创建美团「创建会员」回调的业务内容。的空实例。
-     */
-    public MemberCreatedMessage() {
-    }
-
-
-    /**
      * 平台用户 ID。必填。
      */
     @JsonProperty("opUserId")
     private String opUserId;
-
     /**
      * 用户手机号。必填。
      */
     @JsonProperty("phone")
     private String phone;
-
     /**
      * 美团门店混淆 ID。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
-
     /**
      * 所属平台。{@code MT} 表示美团，{@code DP} 表示大众点评。必填。
      */
     @JsonProperty("source")
     private String source;
-
     /**
      * 会员姓名。
      */
     @JsonProperty("name")
     private String name;
-
     /**
      * 性别。{@code "1"} 表示女，{@code "2"} 表示男。
      */
     @JsonProperty("gender")
     private String gender;
-
     /**
      * 生日,格式yyyy-MM-dd。
      */
     @JsonProperty("birthday")
     private String birthday;
-
     /**
      * 开卡时间，{@code yyyy-MM-dd HH:mm:ss}。
      */
     @JsonProperty("registerTime")
     private String registerTime;
-
     /**
      * 会员卡过期时间，{@code yyyy-MM-dd HH:mm:ss}。
      */
     @JsonProperty("expireDate")
     private String expireDate;
-
     /**
      * 加密的身份证号。
      */
     @JsonProperty("opIdentityNum")
     private String opIdentityNum;
-
     /**
      * 请求序列号，异步注册回调时必传。
      */
     @JsonProperty("requestSeq")
     private String requestSeq;
+
+    /**
+     * 创建美团「创建会员」回调的业务内容。的空实例。
+     */
+    public MemberCreatedMessage() {
+    }
 }

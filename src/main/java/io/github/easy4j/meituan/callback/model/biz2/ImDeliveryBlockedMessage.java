@@ -2,11 +2,11 @@ package io.github.easy4j.meituan.callback.model.biz2;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.github.easy4j.meituan.callback.CallbackPayload;
 import io.github.easy4j.meituan.callback.EmbeddedJsonDeserializer;
 import lombok.Getter;
 import lombok.Setter;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * 美团「接收IM发送消息被风控拦截的信息」回调的业务内容。
@@ -22,24 +22,22 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class ImDeliveryBlockedMessage {
 
     /**
-     * 创建美团「接收IM发送消息被风控拦截的信息」回调的业务内容。的空实例。
-     */
-    public ImDeliveryBlockedMessage() {
-    }
-
-
-    /**
      * 方法名。
      */
     @JsonProperty("method")
     private String method;
-
     /**
      * 敏感信息。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
     @JsonProperty("bizContent")
     private BizContent bizContent;
+
+    /**
+     * 创建美团「接收IM发送消息被风控拦截的信息」回调的业务内容。的空实例。
+     */
+    public ImDeliveryBlockedMessage() {
+    }
 
     /**
      * 敏感信息。
@@ -50,34 +48,30 @@ public class ImDeliveryBlockedMessage {
     public static class BizContent {
 
         /**
-         * 创建敏感信息。的空实例。
-         */
-        public BizContent() {
-        }
-
-
-        /**
          * 类型。
          */
         @JsonProperty("type")
         private Long type;
-
         /**
          * 透传的消息 ID。
          */
         @JsonProperty("msgId")
         private Long msgId;
-
         /**
          * 原因。
          */
         @JsonProperty("riskReason")
         private String riskReason;
-
         /**
          * 风控拦截的时间戳ms。
          */
         @JsonProperty("riskCts")
         private String riskCts;
+
+        /**
+         * 创建敏感信息。的空实例。
+         */
+        public BizContent() {
+        }
     }
 }

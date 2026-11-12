@@ -1,8 +1,8 @@
 package io.github.easy4j.meituan.model.jmcard;
 
-import com.meituan.sdk.MeituanResponse;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.meituan.sdk.MeituanResponse;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 import org.junit.jupiter.api.Test;
 
@@ -25,6 +25,7 @@ class MeituanMemberClaimRequestTest {
 
     /**
      * 验证会员权益对象的必填字段参与级联校验。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -41,6 +42,7 @@ class MeituanMemberClaimRequestTest {
 
     /**
      * 验证两个会员等级对象均执行级联校验。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -73,6 +75,7 @@ class MeituanMemberClaimRequestTest {
 
     /**
      * 验证会员领取请求的字段名称和业务响应的反序列化。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

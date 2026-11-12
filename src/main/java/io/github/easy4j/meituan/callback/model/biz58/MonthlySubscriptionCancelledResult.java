@@ -18,21 +18,19 @@ import lombok.Setter;
 public class MonthlySubscriptionCancelledResult {
 
     /**
-     * 创建美团「取消连续包月通知」回调的业务响应。的空实例。
-     */
-    public MonthlySubscriptionCancelledResult() {
-    }
-
-
-    /**
      * 取消结果：1-取消成功，2-取消失败。
      */
     @JsonProperty("cancelResult")
     private Integer cancelResult;
-
     /**
      * 错误原因。
      */
     @JsonProperty("bizErrorReason")
     private String bizErrorReason;
+
+    /**
+     * 创建美团「取消连续包月通知」回调的业务响应。的空实例。
+     */
+    public MonthlySubscriptionCancelledResult() {
+    }
 }

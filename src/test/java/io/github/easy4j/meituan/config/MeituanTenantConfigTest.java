@@ -21,6 +21,7 @@ class MeituanTenantConfigTest {
 
     /**
      * 验证新建租户配置的各字段初始值为空。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -36,6 +37,7 @@ class MeituanTenantConfigTest {
 
     /**
      * 验证租户配置能够保存并返回各属性的设置值。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

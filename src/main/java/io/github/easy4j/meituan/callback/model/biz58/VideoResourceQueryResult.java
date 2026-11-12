@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「查询视频资源」回调的业务响应。
@@ -19,17 +20,17 @@ import lombok.Setter;
 public class VideoResourceQueryResult {
 
     /**
-     * 创建美团「查询视频资源」回调的业务响应。的空实例。
-     */
-    public VideoResourceQueryResult() {
-    }
-
-
-    /**
      * 视频资源列表。必填。
      */
     @JsonProperty("data")
     private List<PoiShowVideoBO> data;
+
+
+    /**
+     * 创建美团「查询视频资源」回调的业务响应。的空实例。
+     */
+    public VideoResourceQueryResult() {
+    }
 
     /**
      * 视频资源列表。必填。
@@ -41,35 +42,31 @@ public class VideoResourceQueryResult {
     public static class PoiShowVideoBO {
 
         /**
-         * 创建视频资源列表。必填。的空实例。
-         */
-        public PoiShowVideoBO() {
-        }
-
-
-        /**
          * 美团门店id（混淆）。必填。
          */
         @JsonProperty("opPoiId")
         private String opPoiId;
-
         /**
          * 门店地址。必填。
          */
         @JsonProperty("address")
         private String address;
-
         /**
          * 开台时间，毫秒级时间戳。必填。
          */
         @JsonProperty("startTime")
         private Long startTime;
-
         /**
          * 精彩视频列表。必填。
          */
         @JsonProperty("showVideos")
         private List<ShowVideoBO> showVideos;
+
+        /**
+         * 创建视频资源列表。必填。的空实例。
+         */
+        public PoiShowVideoBO() {
+        }
     }
 
     /**
@@ -82,28 +79,25 @@ public class VideoResourceQueryResult {
     public static class ShowVideoBO {
 
         /**
-         * 创建精彩视频列表。必填。的空实例。
-         */
-        public ShowVideoBO() {
-        }
-
-
-        /**
          * 视频id。必填。
          */
         @JsonProperty("id")
         private Long id;
-
         /**
          * 时长，单位：秒。必填。
          */
         @JsonProperty("duration")
         private Long duration;
-
         /**
          * 视频流地址。必填。
          */
         @JsonProperty("streamUrl")
         private String streamUrl;
+
+        /**
+         * 创建精彩视频列表。必填。的空实例。
+         */
+        public ShowVideoBO() {
+        }
     }
 }

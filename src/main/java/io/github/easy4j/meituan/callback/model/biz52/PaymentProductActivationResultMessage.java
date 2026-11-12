@@ -20,39 +20,34 @@ import lombok.Setter;
 public class PaymentProductActivationResultMessage {
 
     /**
-     * 创建美团「收单开放平台支付产品开通结果通知」回调的业务内容。的空实例。
-     */
-    public PaymentProductActivationResultMessage() {
-    }
-
-
-    /**
      * 商户 ID。必填。
      */
     @JsonProperty("merchantId")
     private Long merchantId;
-
     /**
      * 商户编号。
      */
     @JsonProperty("merchantNo")
     private Long merchantNo;
-
     /**
      * 开通产品类型。必填。
      */
     @JsonProperty("productType")
     private Integer productType;
-
     /**
      * 开通状态：32开通成功，64开通失败。必填。
      */
     @JsonProperty("openStatus")
     private Integer openStatus;
-
     /**
      * 开通失败原因。
      */
     @JsonProperty("failReason")
     private String failReason;
+
+    /**
+     * 创建美团「收单开放平台支付产品开通结果通知」回调的业务内容。的空实例。
+     */
+    public PaymentProductActivationResultMessage() {
+    }
 }

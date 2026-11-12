@@ -20,39 +20,34 @@ import lombok.Setter;
 public class RefundResultMessage {
 
     /**
-     * 创建美团「退款结果回调」回调的业务内容。的空实例。
-     */
-    public RefundResultMessage() {
-    }
-
-
-    /**
      * 美团订单号。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 供应商订单号。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 商家退款流水Id。必填。
      */
     @JsonProperty("thirdRefundId")
     private String thirdRefundId;
-
     /**
      * 退款审核结果，详情见枚举RefundResult。必填。
      */
     @JsonProperty("refundResult")
     private String refundResult;
-
     /**
      * 退款金额。必填。
      */
     @JsonProperty("amount")
     private Integer amount;
+
+    /**
+     * 创建美团「退款结果回调」回调的业务内容。的空实例。
+     */
+    public RefundResultMessage() {
+    }
 }

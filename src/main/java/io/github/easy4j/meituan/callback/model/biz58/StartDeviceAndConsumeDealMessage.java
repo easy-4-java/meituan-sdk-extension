@@ -20,33 +20,29 @@ import lombok.Setter;
 public class StartDeviceAndConsumeDealMessage {
 
     /**
-     * 创建美团「启动设备并核销团单」回调的业务内容。的空实例。
-     */
-    public StartDeviceAndConsumeDealMessage() {
-    }
-
-
-    /**
      * 请求唯一标识。必填。
      */
     @JsonProperty("requestId")
     private String requestId;
-
     /**
      * 三方设备 ID。必填。
      */
     @JsonProperty("thirdPartyDeviceItemId")
     private String thirdPartyDeviceItemId;
-
     /**
      * 美团券 ID。必填。
      */
     @JsonProperty("couponId")
     private String couponId;
-
     /**
      * 用户手机号。
      */
     @JsonProperty("phone")
     private String phone;
+
+    /**
+     * 创建美团「启动设备并核销团单」回调的业务内容。的空实例。
+     */
+    public StartDeviceAndConsumeDealMessage() {
+    }
 }

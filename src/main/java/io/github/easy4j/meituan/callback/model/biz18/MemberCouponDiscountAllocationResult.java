@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「会员券优惠分摊」回调的业务响应。
@@ -21,23 +22,21 @@ import lombok.Setter;
 public class MemberCouponDiscountAllocationResult {
 
     /**
-     * 创建美团「会员券优惠分摊」回调的业务响应。的空实例。
-     */
-    public MemberCouponDiscountAllocationResult() {
-    }
-
-
-    /**
      * 优惠金额（分）。
      */
     @JsonProperty("discountAmount")
     private Long discountAmount;
-
     /**
      * 菜品优惠分摊。
      */
     @JsonProperty("goodsApportions")
     private List<GoodsApportion> goodsApportions;
+
+    /**
+     * 创建美团「会员券优惠分摊」回调的业务响应。的空实例。
+     */
+    public MemberCouponDiscountAllocationResult() {
+    }
 
     /**
      * 菜品优惠分摊。
@@ -49,28 +48,25 @@ public class MemberCouponDiscountAllocationResult {
     public static class GoodsApportion {
 
         /**
-         * 创建菜品优惠分摊。的空实例。
-         */
-        public GoodsApportion() {
-        }
-
-
-        /**
          * 商品编号。必填。
          */
         @JsonProperty("goodsNo")
         private String goodsNo;
-
         /**
          * 商品本身优惠金额/分。必填。
          */
         @JsonProperty("goodsDiscountAmount")
         private Long goodsDiscountAmount;
-
         /**
          * 商品id。必填。
          */
         @JsonProperty("skuId")
         private String skuId;
+
+        /**
+         * 创建菜品优惠分摊。的空实例。
+         */
+        public GoodsApportion() {
+        }
     }
 }

@@ -20,15 +20,15 @@ import lombok.Setter;
 public class StoreQrOrderingSettingsChangedMessage {
 
     /**
-     * 创建美团「门店扫码点餐配置变动通知」回调的业务内容。的空实例。
-     */
-    public StoreQrOrderingSettingsChangedMessage() {
-    }
-
-
-    /**
      * 发生配置变更的门店组织机构 ID。
      */
     @JsonProperty("orgId")
     private Long orgId;
+
+
+    /**
+     * 创建美团「门店扫码点餐配置变动通知」回调的业务内容。的空实例。
+     */
+    public StoreQrOrderingSettingsChangedMessage() {
+    }
 }

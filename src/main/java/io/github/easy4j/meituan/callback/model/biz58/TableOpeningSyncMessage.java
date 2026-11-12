@@ -20,27 +20,24 @@ import lombok.Setter;
 public class TableOpeningSyncMessage {
 
     /**
-     * 创建美团「开台信息同步」回调的业务内容。的空实例。
-     */
-    public TableOpeningSyncMessage() {
-    }
-
-
-    /**
      * 用户手机号。必填。
      */
     @JsonProperty("phone")
     private String phone;
-
     /**
      * 球桌 ID。必填。
      */
     @JsonProperty("ballTableId")
     private Long ballTableId;
-
     /**
      * 券码。必填。
      */
     @JsonProperty("couponCode")
     private String couponCode;
+
+    /**
+     * 创建美团「开台信息同步」回调的业务内容。的空实例。
+     */
+    public TableOpeningSyncMessage() {
+    }
 }

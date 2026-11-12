@@ -22,7 +22,9 @@ import java.lang.reflect.Type;
 )
 public class FreetryQueryActivitiesByPoiRequest implements MeituanRequest<FreetryQueryActivitiesByPoiResponse> {
 
-    /** 创建门店活动映射查询请求。 */
+    /**
+     * 创建门店活动映射查询请求。
+     */
     public FreetryQueryActivitiesByPoiRequest() {
     }
 
@@ -34,7 +36,8 @@ public class FreetryQueryActivitiesByPoiRequest implements MeituanRequest<Freetr
      */
     @Override
     public MeituanResponse<FreetryQueryActivitiesByPoiResponse> deserializeResponse(String response) {
-        Type type = new TypeToken<MeituanResponse<FreetryQueryActivitiesByPoiResponse>>() { }.getType();
+        Type type = new TypeToken<MeituanResponse<FreetryQueryActivitiesByPoiResponse>>() {
+        }.getType();
         return JsonUtil.fromJson(response, type);
     }
 

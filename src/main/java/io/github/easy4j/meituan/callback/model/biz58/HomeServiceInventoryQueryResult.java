@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「到家行业库存查询」回调的业务响应。
@@ -19,17 +20,17 @@ import lombok.Setter;
 public class HomeServiceInventoryQueryResult {
 
     /**
-     * 创建美团「到家行业库存查询」回调的业务响应。的空实例。
-     */
-    public HomeServiceInventoryQueryResult() {
-    }
-
-
-    /**
      * 库存详情 注：类型为对象列表类型，详见扩展参数detail。必填。
      */
     @JsonProperty("detail")
     private List<Detail> detail;
+
+
+    /**
+     * 创建美团「到家行业库存查询」回调的业务响应。的空实例。
+     */
+    public HomeServiceInventoryQueryResult() {
+    }
 
     /**
      * 库存详情 注：类型为对象列表类型，详见扩展参数detail。必填。
@@ -41,23 +42,21 @@ public class HomeServiceInventoryQueryResult {
     public static class Detail {
 
         /**
-         * 创建库存详情 注：类型为对象列表类型，详见扩展参数detail。必填。的空实例。
-         */
-        public Detail() {
-        }
-
-
-        /**
          * 预订时间。必填。
          */
         @JsonProperty("bookdate")
         private String bookdate;
-
         /**
          * 时间段（1、统一使用24小时制 2、时间段为当天的营业时间，无论是否有库存都需要返回 3、无库存的时间段也需要返回，使用remian_count表示是否有库存） 注：类型为对象列表类型，详见扩展参数period。必填。
          */
         @JsonProperty("period")
         private List<Period> period;
+
+        /**
+         * 创建库存详情 注：类型为对象列表类型，详见扩展参数detail。必填。的空实例。
+         */
+        public Detail() {
+        }
     }
 
     /**
@@ -70,28 +69,25 @@ public class HomeServiceInventoryQueryResult {
     public static class Period {
 
         /**
-         * 创建时间段（1、统一使用24小时制 2、时间段为当天的营业时间，无论是否有库存都需要返回 3、无库存的时间段也需要返回，使用remian_count表示是否有库存） 注：类型为对象列表类型，详见扩展参数period。必填。的空实例。
-         */
-        public Period() {
-        }
-
-
-        /**
          * 开始时间段，必须是整点，24小时制，比如“8:00”。必填。
          */
         @JsonProperty("begin")
         private String begin;
-
         /**
          * 结束时间段，必须是整点，24小时制，比如“9:00”。
          */
         @JsonProperty("end")
         private String end;
-
         /**
          * 库存剩余量,0-表示无库存 大于0表示有库存，无限库存返回999。必填。
          */
         @JsonProperty("remainCount")
         private Integer remainCount;
+
+        /**
+         * 创建时间段（1、统一使用24小时制 2、时间段为当天的营业时间，无论是否有库存都需要返回 3、无库存的时间段也需要返回，使用remian_count表示是否有库存） 注：类型为对象列表类型，详见扩展参数period。必填。的空实例。
+         */
+        public Period() {
+        }
     }
 }

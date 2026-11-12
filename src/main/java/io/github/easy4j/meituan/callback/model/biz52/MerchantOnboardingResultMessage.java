@@ -20,34 +20,30 @@ import lombok.Setter;
 public class MerchantOnboardingResultMessage {
 
     /**
-     * 创建美团「收单开放平台商户入驻结果通知」回调的业务内容。的空实例。
-     */
-    public MerchantOnboardingResultMessage() {
-    }
-
-
-    /**
      * 商户 ID。必填。
      */
     @JsonProperty("merchantId")
     private Long merchantId;
-
     /**
      * 商户编号。
      */
     @JsonProperty("merchantNo")
     private Long merchantNo;
-
     /**
      * 资质审核状态 1：待提审 8：待总部审核 32：总部审核通过 64：总部审核驳回 128： 等待签署异名授权书 129： 等待签署收单协议 256：签署异名授权书失败 257：签署收单协议失败 512：签署异名授权书成功 513：签署收单协议成功。
      * 必填。
      */
     @JsonProperty("auditStatus")
     private Integer auditStatus;
-
     /**
      * 驳回理由。
      */
     @JsonProperty("rejectReason")
     private String rejectReason;
+
+    /**
+     * 创建美团「收单开放平台商户入驻结果通知」回调的业务内容。的空实例。
+     */
+    public MerchantOnboardingResultMessage() {
+    }
 }

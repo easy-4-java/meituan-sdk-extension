@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「【供应链】差异单消息」回调的业务内容。
@@ -21,47 +22,41 @@ import lombok.Setter;
 public class StockDiscrepancyMessage {
 
     /**
-     * 创建美团「【供应链】差异单消息」回调的业务内容。的空实例。
-     */
-    public StockDiscrepancyMessage() {
-    }
-
-
-    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 推送事件Id。必填。
      */
     @JsonProperty("pushEventId")
     private String pushEventId;
-
     /**
      * 操作类型。必填。
      */
     @JsonProperty("opType")
     private Integer opType;
-
     /**
      * 消息时序Id。必填。
      */
     @JsonProperty("seqId")
     private Long seqId;
-
     /**
      * 大消息体标识。
      */
     @JsonProperty("largeMessageTag")
     private Boolean largeMessageTag;
-
     /**
      * 差异单信息。必填。
      */
     @JsonProperty("bizData")
     private DiffOrderDTO bizData;
+
+    /**
+     * 创建美团「【供应链】差异单消息」回调的业务内容。的空实例。
+     */
+    public StockDiscrepancyMessage() {
+    }
 
     /**
      * 差异单信息。
@@ -72,23 +67,21 @@ public class StockDiscrepancyMessage {
     public static class DiffOrderDTO {
 
         /**
-         * 创建差异单信息。的空实例。
-         */
-        public DiffOrderDTO() {
-        }
-
-
-        /**
          * 差异单主单。必填。
          */
         @JsonProperty("item")
         private DiffOrderItemDTO item;
-
         /**
          * 差异单明细。必填。
          */
         @JsonProperty("details")
         private List<DiffOrderItemDetailDTO> details;
+
+        /**
+         * 创建差异单信息。的空实例。
+         */
+        public DiffOrderDTO() {
+        }
 
         /**
          * 差异单主单。
@@ -99,161 +92,136 @@ public class StockDiscrepancyMessage {
         public static class DiffOrderItemDTO {
 
             /**
-             * 创建差异单主单。的空实例。
-             */
-            public DiffOrderItemDTO() {
-            }
-
-
-            /**
              * 总部机构。
              */
             @JsonProperty("rootOrgId")
             private Long rootOrgId;
-
             /**
              * 归属机构。
              */
             @JsonProperty("belongOrg")
             private OrgOpenDTO belongOrg;
-
             /**
              * 供货机构。
              */
             @JsonProperty("distributionOrg")
             private DistributionOrgDetails distributionOrg;
-
             /**
              * 差异单号。
              */
             @JsonProperty("diffOrderSn")
             private String diffOrderSn;
-
             /**
              * 配送申请单号。
              */
             @JsonProperty("distributionApplyOrderSns")
             private List<String> distributionApplyOrderSns;
-
             /**
              * 上游发货单号。
              */
             @JsonProperty("deliveryOrderSn")
             private String deliveryOrderSn;
-
             /**
              * 上游收货单号。
              */
             @JsonProperty("acceptanceOrderSn")
             private String acceptanceOrderSn;
-
             /**
              * 差异申请金额。
              */
             @JsonProperty("money")
             private String money;
-
             /**
              * 状态。
              */
             @JsonProperty("status")
             private PairDTO status;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
-
             /**
              * 差异原因。
              */
             @JsonProperty("reason")
             private ReasonOpenDTO reason;
-
             /**
              * 下游单据。
              */
             @JsonProperty("downstreamSn")
             private List<String> downstreamSn;
-
             /**
              * 订单时间。
              */
             @JsonProperty("orderTime")
             private Long orderTime;
-
             /**
              * 差异处理时间。
              */
             @JsonProperty("dealTime")
             private Long dealTime;
-
             /**
              * 更新时间。
              */
             @JsonProperty("modifyTime")
             private Long modifyTime;
-
             /**
              * 版本号。
              */
             @JsonProperty("version")
             private Integer version;
-
             /**
              * 删除状态。
              */
             @JsonProperty("deleteStatus")
             private Integer deleteStatus;
-
             /**
              * 送货机构。
              */
             @JsonProperty("deliveryOrg")
             private OpenOppositeOrgDTO deliveryOrg;
-
             /**
              * 供货机构NEW。
              */
             @JsonProperty("distributionOrgNew")
             private DistributionOrgNewDetails distributionOrgNew;
-
             /**
              * 处理机构。
              */
             @JsonProperty("dealOrg")
             private DealOrgDetails dealOrg;
-
             /**
              * 退费金额-退货机构收。
              */
             @JsonProperty("feeRefundMoneySum")
             private String feeRefundMoneySum;
-
             /**
              * 退费金额-供货机构收。
              */
             @JsonProperty("supplyOrgFeeRefundMoneySum")
             private String supplyOrgFeeRefundMoneySum;
-
             /**
              * 集团承担金额。
              */
             @JsonProperty("actualDiffMoney")
             private String actualDiffMoney;
-
             /**
              * 差异单处理前优惠信息汇总。
              */
             @JsonProperty("promotionInfo")
             private DistributionOrderPromotionInfoOpenDTO promotionInfo;
-
             /**
              * 差异单处理后优惠信息汇总（多收场景包含出库、少收场景包含报损和回库）。
              */
             @JsonProperty("actualDealPromotionInfo")
             private ActualDealPromotionInfoDetails actualDealPromotionInfo;
+
+            /**
+             * 创建差异单主单。的空实例。
+             */
+            public DiffOrderItemDTO() {
+            }
 
             /**
              * 归属机构。
@@ -264,35 +232,31 @@ public class StockDiscrepancyMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建归属机构。的空实例。
-                 */
-                public OrgOpenDTO() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点ID,即总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建归属机构。的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
             }
 
             /**
@@ -304,35 +268,31 @@ public class StockDiscrepancyMessage {
             public static class OpenOppositeOrgDTO {
 
                 /**
-                 * 创建送货机构。的空实例。
-                 */
-                public OpenOppositeOrgDTO() {
-                }
-
-
-                /**
                  * 机构类型。
                  */
                 @JsonProperty("type")
                 private PairDTO type;
-
                 /**
                  * 编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * id。
                  */
                 @JsonProperty("id")
                 private String id;
+
+                /**
+                 * 创建送货机构。的空实例。
+                 */
+                public OpenOppositeOrgDTO() {
+                }
 
                 /**
                  * 机构类型。
@@ -343,23 +303,21 @@ public class StockDiscrepancyMessage {
                 public static class PairDTO {
 
                     /**
-                     * 创建机构类型。的空实例。
-                     */
-                    public PairDTO() {
-                    }
-
-
-                    /**
                      * 类型 ID。
                      */
                     @JsonProperty("id")
                     private Integer id;
-
                     /**
                      * 类型名称。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建机构类型。的空实例。
+                     */
+                    public PairDTO() {
+                    }
                 }
             }
 
@@ -372,35 +330,31 @@ public class StockDiscrepancyMessage {
             public static class DistributionOrgNewDetails {
 
                 /**
-                 * 创建供货机构NEW。的空实例。
-                 */
-                public DistributionOrgNewDetails() {
-                }
-
-
-                /**
                  * 机构类型。
                  */
                 @JsonProperty("type")
                 private PairDTO type;
-
                 /**
                  * 名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * id。
                  */
                 @JsonProperty("id")
                 private String id;
+
+                /**
+                 * 创建供货机构NEW。的空实例。
+                 */
+                public DistributionOrgNewDetails() {
+                }
 
                 /**
                  * 机构类型。
@@ -411,23 +365,21 @@ public class StockDiscrepancyMessage {
                 public static class PairDTO {
 
                     /**
-                     * 创建机构类型。的空实例。
-                     */
-                    public PairDTO() {
-                    }
-
-
-                    /**
                      * 类型 ID。
                      */
                     @JsonProperty("id")
                     private Integer id;
-
                     /**
                      * 类型名称。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建机构类型。的空实例。
+                     */
+                    public PairDTO() {
+                    }
                 }
             }
 
@@ -440,35 +392,31 @@ public class StockDiscrepancyMessage {
             public static class DealOrgDetails {
 
                 /**
-                 * 创建处理机构。的空实例。
-                 */
-                public DealOrgDetails() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建处理机构。的空实例。
+                 */
+                public DealOrgDetails() {
+                }
             }
 
             /**
@@ -480,47 +428,41 @@ public class StockDiscrepancyMessage {
             public static class DistributionOrderPromotionInfoOpenDTO {
 
                 /**
-                 * 创建差异单处理前优惠信息汇总。的空实例。
-                 */
-                public DistributionOrderPromotionInfoOpenDTO() {
-                }
-
-
-                /**
                  * 折前金额。
                  */
                 @JsonProperty("originalMoney")
                 private String originalMoney;
-
                 /**
                  * 促销折扣。
                  */
                 @JsonProperty("campaignPromotionMoney")
                 private String campaignPromotionMoney;
-
                 /**
                  * 手动折扣。
                  */
                 @JsonProperty("manualPromotionMoney")
                 private String manualPromotionMoney;
-
                 /**
                  * 支付折扣-优惠券。
                  */
                 @JsonProperty("couponPromotionMoney")
                 private String couponPromotionMoney;
-
                 /**
                  * 支付折扣-赠送金额。
                  */
                 @JsonProperty("grantPaymentPromotionMoney")
                 private String grantPaymentPromotionMoney;
-
                 /**
                  * 折后金额。
                  */
                 @JsonProperty("promotedMoney")
                 private String promotedMoney;
+
+                /**
+                 * 创建差异单处理前优惠信息汇总。的空实例。
+                 */
+                public DistributionOrderPromotionInfoOpenDTO() {
+                }
             }
 
             /**
@@ -532,47 +474,41 @@ public class StockDiscrepancyMessage {
             public static class ActualDealPromotionInfoDetails {
 
                 /**
-                 * 创建差异单处理后优惠信息汇总（多收场景包含出库、少收场景包含报损和回库）。的空实例。
-                 */
-                public ActualDealPromotionInfoDetails() {
-                }
-
-
-                /**
                  * 折前金额。
                  */
                 @JsonProperty("originalMoney")
                 private String originalMoney;
-
                 /**
                  * 促销折扣。
                  */
                 @JsonProperty("campaignPromotionMoney")
                 private String campaignPromotionMoney;
-
                 /**
                  * 手动折扣。
                  */
                 @JsonProperty("manualPromotionMoney")
                 private String manualPromotionMoney;
-
                 /**
                  * 支付折扣-优惠券。
                  */
                 @JsonProperty("couponPromotionMoney")
                 private String couponPromotionMoney;
-
                 /**
                  * 支付折扣-赠送金额。
                  */
                 @JsonProperty("grantPaymentPromotionMoney")
                 private String grantPaymentPromotionMoney;
-
                 /**
                  * 折后金额。
                  */
                 @JsonProperty("promotedMoney")
                 private String promotedMoney;
+
+                /**
+                 * 创建差异单处理后优惠信息汇总（多收场景包含出库、少收场景包含报损和回库）。的空实例。
+                 */
+                public ActualDealPromotionInfoDetails() {
+                }
             }
         }
 
@@ -585,227 +521,191 @@ public class StockDiscrepancyMessage {
         public static class DiffOrderItemDetailDTO {
 
             /**
-             * 创建差异单明细。的空实例。
-             */
-            public DiffOrderItemDetailDTO() {
-            }
-
-
-            /**
              * 明细 ID。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 行号。
              */
             @JsonProperty("seqId")
             private Integer seqId;
-
             /**
              * 物品明细。
              */
             @JsonProperty("goods")
             private GoodsOpenDTO goods;
-
             /**
              * 价格。
              */
             @JsonProperty("price")
             private String price;
-
             /**
              * 价格（不含税）。
              */
             @JsonProperty("noTaxPrice")
             private String noTaxPrice;
-
             /**
              * 差异申请数量。
              */
             @JsonProperty("diffAmount")
             private String diffAmount;
-
             /**
              * 差异申请基准单位数量。
              */
             @JsonProperty("diffBaseUnitAmount")
             private String diffBaseUnitAmount;
-
             /**
              * 发货数量。
              */
             @JsonProperty("deliveryAmount")
             private String deliveryAmount;
-
             /**
              * 发货基准单位数量。
              */
             @JsonProperty("deliveryBaseUnitAmount")
             private String deliveryBaseUnitAmount;
-
             /**
              * 收货数量。
              */
             @JsonProperty("receiveAmount")
             private String receiveAmount;
-
             /**
              * 收货基准单位数量。
              */
             @JsonProperty("receiveBaseUnitAmount")
             private String receiveBaseUnitAmount;
-
             /**
              * 差异申请金额。
              */
             @JsonProperty("diffMoney")
             private String diffMoney;
-
             /**
              * 差异申请金额（不含税）。
              */
             @JsonProperty("diffNoTaxMoney")
             private String diffNoTaxMoney;
-
             /**
              * 差异金额。
              */
             @JsonProperty("actualDiffMoney")
             private String actualDiffMoney;
-
             /**
              * 差异金额（不含税）。
              */
             @JsonProperty("actualDiffNoTaxMoney")
             private String actualDiffNoTaxMoney;
-
             /**
              * 送货机构-出库数量。
              */
             @JsonProperty("supplierStockOutAmount")
             private String supplierStockOutAmount;
-
             /**
              * 送货机构-出库基准单位数量。
              */
             @JsonProperty("supplierStockOutBaseUnitAmount")
             private String supplierStockOutBaseUnitAmount;
-
             /**
              * 订货机构-入库数量。
              */
             @JsonProperty("stockInAmount")
             private String stockInAmount;
-
             /**
              * 订货机构-入库基准单位数量。
              */
             @JsonProperty("stockInBaseUnitAmount")
             private String stockInBaseUnitAmount;
-
             /**
              * 供货机构-入库数量。
              */
             @JsonProperty("supplierStockInAmount")
             private String supplierStockInAmount;
-
             /**
              * 供货机构-入库基准单位数量。
              */
             @JsonProperty("supplierStockInBaseUnitAmount")
             private String supplierStockInBaseUnitAmount;
-
             /**
              * 供货机构-报损数量。
              */
             @JsonProperty("damageAmount")
             private String damageAmount;
-
             /**
              * 供货机构-报损基准单位数量。
              */
             @JsonProperty("damageBaseUnitAmount")
             private String damageBaseUnitAmount;
-
             /**
              * 物品报损原因。
              */
             @JsonProperty("damageReason")
             private ReasonOpenDTO damageReason;
-
             /**
              * 税率。
              */
             @JsonProperty("taxRate")
             private String taxRate;
-
             /**
              * 税额。
              */
             @JsonProperty("tax")
             private String tax;
-
             /**
              * 业务单位。
              */
             @JsonProperty("bizUnit")
             private UnitOpenDTO bizUnit;
-
             /**
              * 是否为赠品（1-手动赠品 2-非赠品 3-促销赠品）。
              */
             @JsonProperty("giftType")
             private Integer giftType;
-
             /**
              * 收货仓库。
              */
             @JsonProperty("receiveWarehouse")
             private WarehouseOpenDTO receiveWarehouse;
-
             /**
              * 门店收货仓库。
              */
             @JsonProperty("applyReceiveWarehouse")
             private ApplyReceiveWarehouseDetails applyReceiveWarehouse;
-
             /**
              * 批次号。
              */
             @JsonProperty("physicalBatchNum")
             private String physicalBatchNum;
-
             /**
              * 生产日期。
              */
             @JsonProperty("productionDate")
             private Long productionDate;
-
             /**
              * 保质期(天)。
              */
             @JsonProperty("shelfLife")
             private Integer shelfLife;
-
             /**
              * 到期日期。
              */
             @JsonProperty("expirationDate")
             private Long expirationDate;
-
             /**
              * 差异单处理前优惠信息。
              */
             @JsonProperty("promotionInfo")
             private DistributionOrderDetailPromotionInfoOpenDTO promotionInfo;
-
             /**
              * 差异单处理后优惠信息（多收场景包含出库、少收场景包含报损和回库）。
              */
             @JsonProperty("actualDealPromotionInfo")
             private ActualDealPromotionInfoDetails actualDealPromotionInfo;
+
+            /**
+             * 创建差异单明细。的空实例。
+             */
+            public DiffOrderItemDetailDTO() {
+            }
 
             /**
              * 物品明细。
@@ -816,65 +716,56 @@ public class StockDiscrepancyMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建物品明细。的空实例。
-                 */
-                public GoodsOpenDTO() {
-                }
-
-
-                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 物品编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 物品名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 分类信息。
                  */
                 @JsonProperty("category")
                 private CategoryOpenDTO category;
-
                 /**
                  * 品牌。
                  */
                 @JsonProperty("brand")
                 private String brand;
-
                 /**
                  * 规格。
                  */
                 @JsonProperty("spec")
                 private String spec;
-
                 /**
                  * 基准单位名称。
                  */
                 @JsonProperty("baseUnit")
                 private UnitOpenDTO baseUnit;
-
                 /**
                  * 支持的单位名称列表。
                  */
                 @JsonProperty("units")
                 private List<UnitsItem> units;
-
                 /**
                  * 物品版本号。
                  */
                 @JsonProperty("version")
                 private Integer version;
+
+                /**
+                 * 创建物品明细。的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
 
                 /**
                  * 基准单位名称。
@@ -885,23 +776,21 @@ public class StockDiscrepancyMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建基准单位名称。的空实例。
-                     */
-                    public UnitOpenDTO() {
-                    }
-
-
-                    /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
                     private String name;
-
                     /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
                     private String id;
+
+                    /**
+                     * 创建基准单位名称。的空实例。
+                     */
+                    public UnitOpenDTO() {
+                    }
                 }
 
                 /**
@@ -913,23 +802,21 @@ public class StockDiscrepancyMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建支持的单位名称列表。的空实例。
-                     */
-                    public UnitsItem() {
-                    }
-
-
-                    /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
                     private String name;
-
                     /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
                     private String id;
+
+                    /**
+                     * 创建支持的单位名称列表。的空实例。
+                     */
+                    public UnitsItem() {
+                    }
                 }
             }
 
@@ -942,23 +829,21 @@ public class StockDiscrepancyMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建业务单位。的空实例。
-                 */
-                public UnitOpenDTO() {
-                }
-
-
-                /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
+
+                /**
+                 * 创建业务单位。的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
             }
 
             /**
@@ -970,29 +855,26 @@ public class StockDiscrepancyMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建收货仓库。的空实例。
-                 */
-                public WarehouseOpenDTO() {
-                }
-
-
-                /**
                  * 仓库 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 仓库编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 仓库名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建收货仓库。的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
             }
 
             /**
@@ -1004,29 +886,26 @@ public class StockDiscrepancyMessage {
             public static class ApplyReceiveWarehouseDetails {
 
                 /**
-                 * 创建门店收货仓库。的空实例。
-                 */
-                public ApplyReceiveWarehouseDetails() {
-                }
-
-
-                /**
                  * 仓库 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 仓库编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 仓库名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建门店收货仓库。的空实例。
+                 */
+                public ApplyReceiveWarehouseDetails() {
+                }
             }
 
             /**
@@ -1038,83 +917,71 @@ public class StockDiscrepancyMessage {
             public static class DistributionOrderDetailPromotionInfoOpenDTO {
 
                 /**
-                 * 创建差异单处理前优惠信息。的空实例。
-                 */
-                public DistributionOrderDetailPromotionInfoOpenDTO() {
-                }
-
-
-                /**
                  * 促销折扣金额。
                  */
                 @JsonProperty("campaignPromotionMoney")
                 private String campaignPromotionMoney;
-
                 /**
                  * 手动折扣金额。
                  */
                 @JsonProperty("manualPromotionMoney")
                 private String manualPromotionMoney;
-
                 /**
                  * 支付折扣-优惠券。
                  */
                 @JsonProperty("couponPromotionMoney")
                 private String couponPromotionMoney;
-
                 /**
                  * 支付折扣-赠送金额。
                  */
                 @JsonProperty("grantPaymentPromotionMoney")
                 private String grantPaymentPromotionMoney;
-
                 /**
                  * 折前单价（含税）。
                  */
                 @JsonProperty("originalPrice")
                 private String originalPrice;
-
                 /**
                  * 折前金额（含税）。
                  */
                 @JsonProperty("originalMoney")
                 private String originalMoney;
-
                 /**
                  * 折前单价（不含税）。
                  */
                 @JsonProperty("noTaxOriginalPrice")
                 private String noTaxOriginalPrice;
-
                 /**
                  * 折前金额（不含税）。
                  */
                 @JsonProperty("noTaxOriginalMoney")
                 private String noTaxOriginalMoney;
-
                 /**
                  * 折后单价(含税）。
                  */
                 @JsonProperty("promotedPrice")
                 private String promotedPrice;
-
                 /**
                  * 折后金额(含税)。
                  */
                 @JsonProperty("promotedMoney")
                 private String promotedMoney;
-
                 /**
                  * 折后单价(不含税)。
                  */
                 @JsonProperty("noTaxPromotedPrice")
                 private String noTaxPromotedPrice;
-
                 /**
                  * 折后金额(不含税)。
                  */
                 @JsonProperty("noTaxPromotedMoney")
                 private String noTaxPromotedMoney;
+
+                /**
+                 * 创建差异单处理前优惠信息。的空实例。
+                 */
+                public DistributionOrderDetailPromotionInfoOpenDTO() {
+                }
             }
 
             /**
@@ -1126,83 +993,71 @@ public class StockDiscrepancyMessage {
             public static class ActualDealPromotionInfoDetails {
 
                 /**
-                 * 创建差异单处理后优惠信息（多收场景包含出库、少收场景包含报损和回库）。的空实例。
-                 */
-                public ActualDealPromotionInfoDetails() {
-                }
-
-
-                /**
                  * 促销折扣金额。
                  */
                 @JsonProperty("campaignPromotionMoney")
                 private String campaignPromotionMoney;
-
                 /**
                  * 手动折扣金额。
                  */
                 @JsonProperty("manualPromotionMoney")
                 private String manualPromotionMoney;
-
                 /**
                  * 支付折扣-优惠券。
                  */
                 @JsonProperty("couponPromotionMoney")
                 private String couponPromotionMoney;
-
                 /**
                  * 支付折扣-赠送金额。
                  */
                 @JsonProperty("grantPaymentPromotionMoney")
                 private String grantPaymentPromotionMoney;
-
                 /**
                  * 折前单价（含税）。
                  */
                 @JsonProperty("originalPrice")
                 private String originalPrice;
-
                 /**
                  * 折前金额（含税）。
                  */
                 @JsonProperty("originalMoney")
                 private String originalMoney;
-
                 /**
                  * 折前单价（不含税）。
                  */
                 @JsonProperty("noTaxOriginalPrice")
                 private String noTaxOriginalPrice;
-
                 /**
                  * 折前金额（不含税）。
                  */
                 @JsonProperty("noTaxOriginalMoney")
                 private String noTaxOriginalMoney;
-
                 /**
                  * 折后单价(含税）。
                  */
                 @JsonProperty("promotedPrice")
                 private String promotedPrice;
-
                 /**
                  * 折后金额(含税)。
                  */
                 @JsonProperty("promotedMoney")
                 private String promotedMoney;
-
                 /**
                  * 折后单价(不含税)。
                  */
                 @JsonProperty("noTaxPromotedPrice")
                 private String noTaxPromotedPrice;
-
                 /**
                  * 折后金额(不含税)。
                  */
                 @JsonProperty("noTaxPromotedMoney")
                 private String noTaxPromotedMoney;
+
+                /**
+                 * 创建差异单处理后优惠信息（多收场景包含出库、少收场景包含报损和回库）。的空实例。
+                 */
+                public ActualDealPromotionInfoDetails() {
+                }
             }
         }
     }

@@ -17,6 +17,7 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonBankAll.ZcmopenApiCo
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonBankBranch.ZcmopenApiCommonBankBranchRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonCatelist.ZcmopenApiCommonCatelistRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonCitylist.ZcmopenApiCommonCitylistRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonImageUpload.ZcmopenApiCommonImageUploadRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonLocation.ZcmopenApiCommonLocationRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinancePaychannelQuery.ZcmopenApiFinancePaychannelQueryRequest;
@@ -31,6 +32,7 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantContractSign.Zcmop
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreate.ZcmopenApiMerchantCreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreateQuery.ZcmopenApiMerchantCreateQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeCard.ZcmopenApiMerchantPoiChangeCardRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeName.ZcmopenApiMerchantPoiChangeNameRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangePhone.ZcmopenApiMerchantPoiChangePhoneRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeQualification.ZcmopenApiMerchantPoiChangeQualificationRequest;
@@ -42,6 +44,10 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantVerifyCustomer.Zcm
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalBoundasync.ZcmopenApiTerminalBoundasyncRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalUnbind.ZcmopenApiTerminalUnbindRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiClose.ZcmopenpayApiCloseRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeCreate.ZcmopenpayApiDynamicQrcodeCreateRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeQuery.ZcmopenpayApiDynamicQrcodeQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefund.ZcmopenpayApiDynamicQrcodeRefundRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefundQuery.ZcmopenpayApiDynamicQrcodeRefundQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayMicropay.ZcmopenpayApiPayMicropayRequest;
@@ -49,12 +55,6 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiP
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefund.ZcmopenpayApiRefundRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefundQuery.ZcmopenpayApiRefundQueryRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeCreate.ZcmopenpayApiDynamicQrcodeCreateRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeQuery.ZcmopenpayApiDynamicQrcodeQueryRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefund.ZcmopenpayApiDynamicQrcodeRefundRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefundQuery.ZcmopenpayApiDynamicQrcodeRefundQueryRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 
 /**
  * 美团收单业务能力门面。
@@ -381,6 +381,7 @@ public interface MeituanPayService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> zcmopenpayApiRefundQuery(ZcmopenpayApiRefundQueryRequest request, String tenantId);
+
     /**
      * [基础]生成授权第三方文件上传预签名URL。
      * <p>官方接口：{@code /sdpt/acquiring/api/common/file/presigned/upload}，API：{@code zcmopen_api_common_file_presigned_upload}，版本：{@code 10124}，businessId：{@code 52}，需要授权：{@code false}。</p>
@@ -404,7 +405,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 动态码支付创建。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -413,7 +414,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 动态码支付查询。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -422,7 +423,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 动态码支付退款。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -431,7 +432,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 动态码支付退款查询。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -440,7 +441,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 【青春版】注销激活码。接口路径为 {@code /sdpt/acquiring/erp/api/act/code/invalid}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -449,7 +450,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 【青春版】创建钱多多激活码。接口路径为 {@code /sdpt/acquiring/erp/api/qdd/actCode/create}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -458,7 +459,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 【青春版】查询门店钱多多售卖产品。接口路径为 {@code /sdpt/acquiring/erp/api/qdd/merchant/product/query}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -467,7 +468,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 【青春版】批量查询门店钱多多售卖产品。接口路径为 {@code /sdpt/acquiring/erp/api/qdd/merchant/product/query/batch}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -476,7 +477,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * 【青春版】更新服务员app开关。接口路径为 {@code /sdpt/acquiring/erp/api/waiter/app/grant/update}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -485,7 +486,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * [入件]微信/支付宝子商户号认证。接口路径为 {@code /sdpt/acquiring/api/merchant/bizuser/authentication/apply}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -494,7 +495,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * [入件]微信/支付宝子商户号认证结果查询。接口路径为 {@code /sdpt/acquiring/api/merchant/bizuser/authentication/query}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -503,7 +504,7 @@ public interface MeituanPayService extends MeituanService {
     /**
      * [结算]结算账单明细查询v2。接口路径为 {@code /sdpt/acquiring/api/finance/walletSettle/query}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */

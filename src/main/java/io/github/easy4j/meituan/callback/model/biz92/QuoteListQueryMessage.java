@@ -23,47 +23,41 @@ import lombok.Setter;
 public class QuoteListQueryMessage {
 
     /**
-     * 创建美团「报价列表查询」回调的业务内容。的空实例。
-     */
-    public QuoteListQueryMessage() {
-    }
-
-
-    /**
      * 供应商门店编码。
      */
     @JsonProperty("thirdStoreCode")
     private String thirdStoreCode;
-
     /**
      * 取车时间。必填。
      */
     @JsonProperty("pickUpTime")
     private String pickUpTime;
-
     /**
      * 还车时间。必填。
      */
     @JsonProperty("dropOffTime")
     private String dropOffTime;
-
     /**
      * 取车地址。必填。
      */
     @JsonProperty("pickUpAddress")
     private Address pickUpAddress;
-
     /**
      * 还车地址。必填。
      */
     @JsonProperty("dropOffAddress")
     private DropOffAddressDetails dropOffAddress;
-
     /**
      * 是否测试账户，不传表示非测试账户。
      */
     @JsonProperty("isTest")
     private Boolean isTest;
+
+    /**
+     * 创建美团「报价列表查询」回调的业务内容。的空实例。
+     */
+    public QuoteListQueryMessage() {
+    }
 
     /**
      * 还车地址。
@@ -74,34 +68,30 @@ public class QuoteListQueryMessage {
     public static class DropOffAddressDetails {
 
         /**
-         * 创建还车地址。的空实例。
-         */
-        public DropOffAddressDetails() {
-        }
-
-
-        /**
          * 纬度（GCJ-02 坐标系）。必填。
          */
         @JsonProperty("latitude")
         private String latitude;
-
         /**
          * 经度（GCJ-02 坐标系）。必填。
          */
         @JsonProperty("longitude")
         private String longitude;
-
         /**
          * 地址。必填。
          */
         @JsonProperty("locationName")
         private String locationName;
-
         /**
          * 城市编码。必填。
          */
         @JsonProperty("cityCode")
         private String cityCode;
+
+        /**
+         * 创建还车地址。的空实例。
+         */
+        public DropOffAddressDetails() {
+        }
     }
 }

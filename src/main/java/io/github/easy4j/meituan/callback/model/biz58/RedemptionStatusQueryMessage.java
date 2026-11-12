@@ -20,15 +20,15 @@ import lombok.Setter;
 public class RedemptionStatusQueryMessage {
 
     /**
-     * 创建美团「核销状态查询」回调的业务内容。的空实例。
-     */
-    public RedemptionStatusQueryMessage() {
-    }
-
-
-    /**
      * 订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
+
+
+    /**
+     * 创建美团「核销状态查询」回调的业务内容。的空实例。
+     */
+    public RedemptionStatusQueryMessage() {
+    }
 }

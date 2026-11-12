@@ -20,51 +20,44 @@ import lombok.Setter;
 public class VehicleExceptionMessage {
 
     /**
-     * 创建美团「车辆异常推送」回调的业务内容。的空实例。
-     */
-    public VehicleExceptionMessage() {
-    }
-
-
-    /**
      * 车辆vin码。必填。
      */
     @JsonProperty("vin")
     private String vin;
-
     /**
      * 异常告警事件 ID，目前可能为空。
      */
     @JsonProperty("alertEventId")
     private String alertEventId;
-
     /**
      * 异常告警类型：ACCIDENT、FAULT、RESCUE、MAINTENANCE。必填。
      */
     @JsonProperty("alertType")
     private String alertType;
-
     /**
      * 异常告警事件状态，1异常发生；2异常恢复。必填。
      */
     @JsonProperty("alertStatus")
     private Integer alertStatus;
-
     /**
      * 异常告警详细描述。必填。
      */
     @JsonProperty("message")
     private String message;
-
     /**
      * 异常事件发生/恢复的毫秒时间戳。必填。
      */
     @JsonProperty("timestamp")
     private Long timestamp;
-
     /**
      * 其他附加信息，JSON字符串格式。
      */
     @JsonProperty("extendInfo")
     private String extendInfo;
+
+    /**
+     * 创建美团「车辆异常推送」回调的业务内容。的空实例。
+     */
+    public VehicleExceptionMessage() {
+    }
 }

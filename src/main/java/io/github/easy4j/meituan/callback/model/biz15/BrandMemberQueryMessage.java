@@ -20,15 +20,15 @@ import lombok.Setter;
 public class BrandMemberQueryMessage {
 
     /**
-     * 创建美团「查询品牌会员信息」回调的业务内容。的空实例。
-     */
-    public BrandMemberQueryMessage() {
-    }
-
-
-    /**
      * 用户手机号。必填。
      */
     @JsonProperty("phoneNo")
     private String phoneNo;
+
+
+    /**
+     * 创建美团「查询品牌会员信息」回调的业务内容。的空实例。
+     */
+    public BrandMemberQueryMessage() {
+    }
 }

@@ -20,39 +20,34 @@ import lombok.Setter;
 public class OperateDeviceMessage {
 
     /**
-     * 创建美团「操作设备」回调的业务内容。的空实例。
-     */
-    public OperateDeviceMessage() {
-    }
-
-
-    /**
      * 请求唯一标识。必填。
      */
     @JsonProperty("requestId")
     private String requestId;
-
     /**
      * 13位毫秒级时间戳，为美团侧发起请求的时间。必填。
      */
     @JsonProperty("timestamp")
     private Long timestamp;
-
     /**
      * 美团券 ID。必填。
      */
     @JsonProperty("couponId")
     private String couponId;
-
     /**
      * 三方侧设备唯一标识（用于系统内部处理）。必填。
      */
     @JsonProperty("thirdPartyDeviceItemId")
     private String thirdPartyDeviceItemId;
-
     /**
      * 期望进行的操作：1 继续/resume 2 暂停/pause。必填。
      */
     @JsonProperty("operationkey")
     private Integer operationkey;
+
+    /**
+     * 创建美团「操作设备」回调的业务内容。的空实例。
+     */
+    public OperateDeviceMessage() {
+    }
 }

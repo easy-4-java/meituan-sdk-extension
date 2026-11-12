@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz51;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「门店预计备餐时间查询（非必接）」回调的业务内容。
@@ -21,15 +22,15 @@ import lombok.Setter;
 public class PreparationTimeQueryMessage {
 
     /**
-     * 创建美团「门店预计备餐时间查询（非必接）」回调的业务内容。的空实例。
-     */
-    public PreparationTimeQueryMessage() {
-    }
-
-
-    /**
      * 厂商门店 ID，批量限制500。
      */
     @JsonProperty("vendorShopIds")
     private List<String> vendorShopIds;
+
+
+    /**
+     * 创建美团「门店预计备餐时间查询（非必接）」回调的业务内容。的空实例。
+     */
+    public PreparationTimeQueryMessage() {
+    }
 }

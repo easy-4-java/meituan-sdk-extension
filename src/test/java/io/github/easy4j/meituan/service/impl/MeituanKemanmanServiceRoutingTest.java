@@ -20,19 +20,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanKemanmanServiceRoutingTest {
 
     /**
+     * 测试使用的租户标识。
+     */
+    private static final String TENANT_ID = "tenant-15";
+
+
+    /**
      * 创建到店餐饮品牌会员卡 API 租户授权路由测试。的空实例。
      */
     MeituanKemanmanServiceRoutingTest() {
     }
 
-
-    /**
-     * 测试使用的租户标识。
-     */
-    private static final String TENANT_ID = "tenant-15";
-
     /**
      * 验证当前业务的接口按官方授权要求传递请求和租户信息。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -76,13 +77,6 @@ class MeituanKemanmanServiceRoutingTest {
     private static final class RecordingRequestExecutor implements MeituanRequestExecutor {
 
         /**
-         * 创建RecordingRequestExecutor的空实例。
-         */
-        private RecordingRequestExecutor() {
-        }
-
-
-        /**
          * 官方 SDK 请求对象。
          */
         private MeituanRequest<?> request;
@@ -94,6 +88,11 @@ class MeituanKemanmanServiceRoutingTest {
          * 记录本次调用是否使用授权入口。
          */
         private boolean authorized;
+        /**
+         * 创建RecordingRequestExecutor的空实例。
+         */
+        private RecordingRequestExecutor() {
+        }
 
         /**
          * {@inheritDoc}

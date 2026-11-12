@@ -662,7 +662,7 @@ public interface MeituanToolsService extends MeituanService {
     /**
      * 查询企业订单开票信息。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */

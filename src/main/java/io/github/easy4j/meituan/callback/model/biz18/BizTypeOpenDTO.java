@@ -14,45 +14,39 @@ import lombok.Setter;
 public class BizTypeOpenDTO {
 
     /**
-     * 创建BizTypeOpenDTO，用于【供应链】入库单消息等回调的业务字段。的空实例。
-     */
-    public BizTypeOpenDTO() {
-    }
-
-
-    /**
      * 业务类型编码。
      */
     @JsonProperty("bizTypeCode")
     private String bizTypeCode;
-
     /**
      * 业务类型名字。
      */
     @JsonProperty("bizTypeName")
     private String bizTypeName;
-
     /**
      * 系统内置名称。
      */
     @JsonProperty("systemName")
     private String systemName;
-
     /**
      * 业务类型状态。
      */
     @JsonProperty("status")
     private PairDTO status;
-
     /**
      * 单据类型。
      */
     @JsonProperty("ioType")
     private IoTypeDetails ioType;
-
     /**
      * 原因编码。
      */
     @JsonProperty("reasonCode")
     private String reasonCode;
+
+    /**
+     * 创建BizTypeOpenDTO，用于【供应链】入库单消息等回调的业务字段。的空实例。
+     */
+    public BizTypeOpenDTO() {
+    }
 }

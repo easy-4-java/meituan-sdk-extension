@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「包型包间推送结果通知」回调的业务内容。
@@ -21,17 +22,17 @@ import lombok.Setter;
 public class RoomPushResultMessage {
 
     /**
-     * 创建美团「包型包间推送结果通知」回调的业务内容。的空实例。
-     */
-    public RoomPushResultMessage() {
-    }
-
-
-    /**
      * 包间同步结果列表。必填。
      */
     @JsonProperty("roomSyncResultList")
     private List<RoomSyncResultDTO> roomSyncResultList;
+
+
+    /**
+     * 创建美团「包型包间推送结果通知」回调的业务内容。的空实例。
+     */
+    public RoomPushResultMessage() {
+    }
 
     /**
      * roomSyncResultList。
@@ -42,34 +43,30 @@ public class RoomPushResultMessage {
     public static class RoomSyncResultDTO {
 
         /**
-         * 创建roomSyncResultList。的空实例。
-         */
-        public RoomSyncResultDTO() {
-        }
-
-
-        /**
          * 三方房型 ID。必填。
          */
         @JsonProperty("roomTypeCode")
         private String roomTypeCode;
-
         /**
          * 三方房间 ID 列表。必填。
          */
         @JsonProperty("roomCodeList")
         private List<String> roomCodeList;
-
         /**
          * 是否推送成功：true-是，false-否。必填。
          */
         @JsonProperty("success")
         private Boolean success;
-
         /**
          * 失败信息。
          */
         @JsonProperty("errMsg")
         private String errMsg;
+
+        /**
+         * 创建roomSyncResultList。的空实例。
+         */
+        public RoomSyncResultDTO() {
+        }
     }
 }

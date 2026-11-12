@@ -18,15 +18,15 @@ import lombok.Setter;
 public class CoBrandedNewUserQueryResult {
 
     /**
-     * 创建美团「会员联名卡查询新客」回调的业务响应。的空实例。
-     */
-    public CoBrandedNewUserQueryResult() {
-    }
-
-
-    /**
      * 是否为品牌会员卡的纯新会员。是否品牌纯新会员 如果该手机号已经是品牌会员，则返回false。 如果该手机号从未在任何渠道注册过品牌会员，则返回true。必填。
      */
     @JsonProperty("isPureNewUser")
     private Boolean isPureNewUser;
+
+
+    /**
+     * 创建美团「会员联名卡查询新客」回调的业务响应。的空实例。
+     */
+    public CoBrandedNewUserQueryResult() {
+    }
 }

@@ -20,33 +20,29 @@ import lombok.Setter;
 public class ShowEventStatusUpdatedMessage {
 
     /**
-     * 创建美团「演出项目状态更新通知」回调的业务内容。的空实例。
-     */
-    public ShowEventStatusUpdatedMessage() {
-    }
-
-
-    /**
      * 演出项目 ID。
      */
     @JsonProperty("showEventId")
     private Long showEventId;
-
     /**
      * 商家演出项目 ID。必填。
      */
     @JsonProperty("thirdPartyShowEventId")
     private String thirdPartyShowEventId;
-
     /**
      * 1-演出项目上架，2-演出项目下架，3-演出项目已提交，4-演出项目提交失败。必填。
      */
     @JsonProperty("messageType")
     private Integer messageType;
-
     /**
      * 失败原因，提交失败时才有。
      */
     @JsonProperty("failReason")
     private String failReason;
+
+    /**
+     * 创建美团「演出项目状态更新通知」回调的业务内容。的空实例。
+     */
+    public ShowEventStatusUpdatedMessage() {
+    }
 }

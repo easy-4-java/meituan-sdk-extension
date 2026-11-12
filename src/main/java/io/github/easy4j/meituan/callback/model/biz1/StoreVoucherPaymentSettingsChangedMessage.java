@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz1;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「门店代金券买单设置变更」回调的业务内容。
@@ -21,27 +22,24 @@ import lombok.Setter;
 public class StoreVoucherPaymentSettingsChangedMessage {
 
     /**
-     * 创建美团「门店代金券买单设置变更」回调的业务内容。的空实例。
-     */
-    public StoreVoucherPaymentSettingsChangedMessage() {
-    }
-
-
-    /**
      * 门店 ID。必填。
      */
     @JsonProperty("poiId")
     private Long poiId;
-
     /**
      * 变更内容。必填。
      */
     @JsonProperty("changes")
     private List<String> changes;
-
     /**
      * 变更时间。必填。
      */
     @JsonProperty("operateTime")
     private Long operateTime;
+
+    /**
+     * 创建美团「门店代金券买单设置变更」回调的业务内容。的空实例。
+     */
+    public StoreVoucherPaymentSettingsChangedMessage() {
+    }
 }

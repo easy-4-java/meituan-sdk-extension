@@ -16,21 +16,12 @@ import org.mockito.ArgumentCaptor;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * 验证Meituan Retail Service Order Queryorder的行为与接口契约。
  */
 class MeituanRetailServiceOrderQueryorderTest {
-
-    /**
-     * 创建MeituanRetailServiceOrderQueryorderTest的空实例。
-     */
-    MeituanRetailServiceOrderQueryorderTest() {
-    }
-
 
     /**
      * 测试使用的租户标识。
@@ -48,9 +39,15 @@ class MeituanRetailServiceOrderQueryorderTest {
      * 本地联调使用的开发者签名密钥。
      */
     private static final String SIGN_KEY = "sign-key";
+    /**
+     * 创建MeituanRetailServiceOrderQueryorderTest的空实例。
+     */
+    MeituanRetailServiceOrderQueryorderTest() {
+    }
 
     /**
      * 验证订单查询将租户 token 传给官方客户端。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -79,6 +76,7 @@ class MeituanRetailServiceOrderQueryorderTest {
 
     /**
      * 验证订单查询使用所选租户的开发者凭据创建客户端。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -107,6 +105,7 @@ class MeituanRetailServiceOrderQueryorderTest {
 
     /**
      * 验证订单查询成功示例能够完整反序列化。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -160,6 +159,7 @@ class MeituanRetailServiceOrderQueryorderTest {
 
     /**
      * 验证订单查询失败示例能够读取错误码及说明。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

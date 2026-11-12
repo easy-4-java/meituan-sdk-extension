@@ -18,21 +18,19 @@ import lombok.Setter;
 public class RentalBusinessResult {
 
     /**
-     * 创建租车回调的通用业务状态，适用于仅返回业务码与说明的操作。的空实例。
-     */
-    public RentalBusinessResult() {
-    }
-
-
-    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")
     private Integer bizCode;
-
     /**
      * 错误描述。必填。
      */
     @JsonProperty("bizMessage")
     private String bizMessage;
+
+    /**
+     * 创建租车回调的通用业务状态，适用于仅返回业务码与说明的操作。的空实例。
+     */
+    public RentalBusinessResult() {
+    }
 }

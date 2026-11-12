@@ -14,21 +14,19 @@ import lombok.Setter;
 public class StatusDetails {
 
     /**
-     * 创建StatusDetails，用于【供应链】配送收货单消息等回调的业务字段。的空实例。
-     */
-    public StatusDetails() {
-    }
-
-
-    /**
      * id。
      */
     @JsonProperty("id")
     private Integer id;
-
     /**
      * 描述。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建StatusDetails，用于【供应链】配送收货单消息等回调的业务字段。的空实例。
+     */
+    public StatusDetails() {
+    }
 }

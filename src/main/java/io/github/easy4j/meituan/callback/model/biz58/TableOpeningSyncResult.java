@@ -18,15 +18,15 @@ import lombok.Setter;
 public class TableOpeningSyncResult {
 
     /**
-     * 创建美团「开台信息同步」回调的业务响应。的空实例。
-     */
-    public TableOpeningSyncResult() {
-    }
-
-
-    /**
      * 开台是否成功：true-成功、false-失败。必填。
      */
     @JsonProperty("success")
     private Boolean success;
+
+
+    /**
+     * 创建美团「开台信息同步」回调的业务响应。的空实例。
+     */
+    public TableOpeningSyncResult() {
+    }
 }

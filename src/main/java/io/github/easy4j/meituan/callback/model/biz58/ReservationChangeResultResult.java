@@ -18,21 +18,19 @@ import lombok.Setter;
 public class ReservationChangeResultResult {
 
     /**
-     * 创建美团「改约结果通知三方」回调的业务响应。的空实例。
-     */
-    public ReservationChangeResultResult() {
-    }
-
-
-    /**
      * 平台订单id。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 三方订单id。
      */
     @JsonProperty("appOrderId")
     private String appOrderId;
+
+    /**
+     * 创建美团「改约结果通知三方」回调的业务响应。的空实例。
+     */
+    public ReservationChangeResultResult() {
+    }
 }

@@ -4,7 +4,8 @@
 
 [![CI](https://github.com/easy-4-java/meituan-sdk-extension/actions/workflows/ci.yml/badge.svg?branch=feature%2F1.0.x)](https://github.com/easy-4-java/meituan-sdk-extension/actions/workflows/ci.yml) [![Java](https://img.shields.io/badge/Java-8%2B-orange)](#compatibility) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
-A Java extension to the official Meituan `MtOpJavaSDK`, providing tenant-aware requests, business facades and callback models for server-side applications. It reuses official request types and works independently of Spring.
+A Java extension to the official Meituan `MtOpJavaSDK`, providing tenant-aware requests, business facades and callback
+models for server-side applications. It reuses official request types and works independently of Spring.
 
 **Branch** `feature/1.0.x` · **Version** `1.0.x.20260730-SNAPSHOT` · **Official SDK** `1.0-20261112`
 
@@ -14,7 +15,10 @@ A Java extension to the official Meituan `MtOpJavaSDK`, providing tenant-aware r
 
 ## 1. Overview
 
-Use this library when one application integrates multiple developer accounts, authorized stores or business lines. A call supplies `tenantId`; the executor selects that tenant's developer credentials and token, invokes Meituan and returns the official `MeituanResponse<T>`. Callback utilities expose a `MeituanCallbackMessage<T>`, separate signature verification and protocol response objects.
+Use this library when one application integrates multiple developer accounts, authorized stores or business lines. A
+call supplies `tenantId`; the executor selects that tenant's developer credentials and token, invokes Meituan and
+returns the official `MeituanResponse<T>`. Callback utilities expose a `MeituanCallbackMessage<T>`, separate signature
+verification and protocol response objects.
 
 ```text
 Business request + tenantId
@@ -26,50 +30,60 @@ Meituan callback (query / body / Servlet request)
   → Application verification, deduplication and business logic → ACK
 ```
 
-The library handles invocation and protocol mapping. The application owns the HTTP endpoint, persistent configuration, token update scheduling, callback deduplication and transactions. Spring Boot applications can use the separate [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter); consult that repository for its versions and configuration.
+The library handles invocation and protocol mapping. The application owns the HTTP endpoint, persistent configuration,
+token update scheduling, callback deduplication and transactions. Spring Boot applications can use the
+separate [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter); consult that
+repository for its versions and configuration.
 
 <a id="architecture"></a>
 
 ## 2. Capabilities and architecture
 
-| Capability | Implementation and boundary |
-|---|---|
-| Official SDK request coverage | 15 business facades cover 1,148 production `@ApiMeta` requests in the pinned SDK; official `corgiTest` requests are excluded |
-| Tenant-aware calls | In-memory or custom storage, clients cached by developer credentials, token selected for each call |
-| Platform APIs | OAuth exchange and refresh, unified authorization, per-call timeouts and `commonInvokeApi` |
-| Callbacks | 282 registered `businessId + msgType` combinations across 27 businesses, automatic or explicit parsing, verification and synchronous responses |
-| Verification | SDK coverage tests, enum/registry consistency tests, JUnit regression, JaCoCo and strict Javadoc checks |
+| Capability                    | Implementation and boundary                                                                                                                    |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Official SDK request coverage | 15 business facades cover 1,148 production `@ApiMeta` requests in the pinned SDK; official `corgiTest` requests are excluded                   |
+| Tenant-aware calls            | In-memory or custom storage, clients cached by developer credentials, token selected for each call                                             |
+| Platform APIs                 | OAuth exchange and refresh, unified authorization, per-call timeouts and `commonInvokeApi`                                                     |
+| Callbacks                     | 282 registered `businessId + msgType` combinations across 27 businesses, automatic or explicit parsing, verification and synchronous responses |
+| Verification                  | SDK coverage tests, enum/registry consistency tests, JUnit regression, JaCoCo and strict Javadoc checks                                        |
 
 This project builds one Maven JAR with the following packages.
 
-| Package | Responsibility |
-|---|---|
-| [`config`](src/main/java/io/github/easy4j/meituan/config) | Shared client defaults and tenant credentials |
-| [`client`](src/main/java/io/github/easy4j/meituan/client) | Official client factory and request executors |
-| [`tenant`](src/main/java/io/github/easy4j/meituan/tenant) | Storage SPI, loader, in-memory/TTL cache and ThreadLocal context |
-| [`service`](src/main/java/io/github/easy4j/meituan/service) | Business facades and separate MeituanPlatformService |
-| [`callback`](src/main/java/io/github/easy4j/meituan/callback) | Parsing, verification, envelopes, responses and model index |
-| [`callback/model`](src/main/java/io/github/easy4j/meituan/callback/model) | Business payloads grouped by `biz<businessId>` |
-| [`callback/type`](src/main/java/io/github/easy4j/meituan/callback/type) | Single message definition source linking IDs, models and official documentation |
-| [`exception`](src/main/java/io/github/easy4j/meituan/exception) | MeituanJavaException invocation errors |
+| Package                                                                   | Responsibility                                                                  |
+|---------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| [`config`](src/main/java/io/github/easy4j/meituan/config)                 | Shared client defaults and tenant credentials                                   |
+| [`client`](src/main/java/io/github/easy4j/meituan/client)                 | Official client factory and request executors                                   |
+| [`tenant`](src/main/java/io/github/easy4j/meituan/tenant)                 | Storage SPI, loader, in-memory/TTL cache and ThreadLocal context                |
+| [`service`](src/main/java/io/github/easy4j/meituan/service)               | Business facades and separate MeituanPlatformService                            |
+| [`callback`](src/main/java/io/github/easy4j/meituan/callback)             | Parsing, verification, envelopes, responses and model index                     |
+| [`callback/model`](src/main/java/io/github/easy4j/meituan/callback/model) | Business payloads grouped by `biz<businessId>`                                  |
+| [`callback/type`](src/main/java/io/github/easy4j/meituan/callback/type)   | Single message definition source linking IDs, models and official documentation |
+| [`exception`](src/main/java/io/github/easy4j/meituan/exception)           | MeituanJavaException invocation errors                                          |
 
 <a id="compatibility"></a>
 
 ## 3. Versions and compatibility
 
-Source targets and CI toolchains are listed separately. The current branch compiles for Java 8 and runs CI on JDK 8. Use the same JDK to reproduce the build.
+Source targets and CI toolchains are listed separately. The current branch compiles for Java 8 and runs CI on JDK 8. Use
+the same JDK to reproduce the build.
 
-| Branch | POM version | Compile target / CI JDK | JSON / Servlet | Maven Wrapper |
-|---|---|---|---|---|
-| `feature/1.0.x` | `1.0.x.20260730-SNAPSHOT` | 8 / 8 | Jackson 2.18.9 · `javax.servlet` | 3.9.16 |
-| `feature/2.0.x` | `2.0.x.20260630-SNAPSHOT` | 17 / 17 | Jackson 2.22.1 · `jakarta.servlet` | 3.9.16 |
-| `feature/3.0.x` | `3.0.x.20260730-SNAPSHOT` | 17 / 21 | Jackson 3.2.4 · `jakarta.servlet` | 4.0.0-rc-5 |
+| Branch          | POM version               | Compile target / CI JDK | JSON / Servlet                     | Maven Wrapper |
+|-----------------|---------------------------|-------------------------|------------------------------------|---------------|
+| `feature/1.0.x` | `1.0.x.20260730-SNAPSHOT` | 8 / 8                   | Jackson 2.18.9 · `javax.servlet`   | 3.9.16        |
+| `feature/2.0.x` | `2.0.x.20260630-SNAPSHOT` | 17 / 17                 | Jackson 2.22.1 · `jakarta.servlet` | 3.9.16        |
+| `feature/3.0.x` | `3.0.x.20260730-SNAPSHOT` | 17 / 21                 | Jackson 3.2.4 · `jakarta.servlet`  | 4.0.0-rc-5    |
 
-Values come from each branch’s `pom.xml` and CI configuration. The current `1.0.x` line uses Jackson 2 APIs under `com.fasterxml.jackson.*`. Servlet API is `provided`; applications using the Servlet entry point supply javax Servlet 4.0.1.
+Values come from each branch’s `pom.xml` and CI configuration. The current `1.0.x` line uses Jackson 2 APIs under
+`com.fasterxml.jackson.*`. Servlet API is `provided`; applications using the Servlet entry point supply javax Servlet
+4.0.1.
 
-The `2.0.x` build verifies the original official SDK, transforms its Validation references to Jakarta and embeds it in the extension JAR. The `1.0.x` and `3.0.x` lines depend directly on the official SDK, whose internals still include `javax.validation` dependencies. Check the host dependency tree when selecting a line. Cross-line upgrades require Jackson/Servlet import changes; legacy callback packages must also move to `callback.model.biz<businessId>`.
+The `2.0.x` build verifies the original official SDK, transforms its Validation references to Jakarta and embeds it in
+the extension JAR. The `1.0.x` and `3.0.x` lines depend directly on the official SDK, whose internals still include
+`javax.validation` dependencies. Check the host dependency tree when selecting a line. Cross-line upgrades require
+Jackson/Servlet import changes; legacy callback packages must also move to `callback.model.biz<businessId>`.
 
-This line implements callback responses and other data carriers as Java 8 classes. Examples use explicit declarations and require no `var`, records, pattern matching or switch expressions.
+This line implements callback responses and other data carriers as Java 8 classes. Examples use explicit declarations
+and require no `var`, records, pattern matching or switch expressions.
 
 <a id="installation"></a>
 
@@ -77,7 +91,8 @@ This line implements callback responses and other data carriers as Java 8 classe
 
 ### 4.1 Maven dependency
 
-Choose a line matching your JDK, Jackson and Servlet stack. The following SNAPSHOT coordinate comes from the current [pom.xml](pom.xml).
+Choose a line matching your JDK, Jackson and Servlet stack. The following SNAPSHOT coordinate comes from the
+current [pom.xml](pom.xml).
 
 ```xml
 <dependency>
@@ -87,7 +102,9 @@ Choose a line matching your JDK, Jackson and Servlet stack. The following SNAPSH
 </dependency>
 ```
 
-Reading the current SNAPSHOT and official SDK requires repository access. Configure repositories in the application POM and matching server IDs in Maven settings. Merge these entries into existing configuration and supply credentials through environment variables.
+Reading the current SNAPSHOT and official SDK requires repository access. Configure repositories in the application POM
+and matching server IDs in Maven settings. Merge these entries into existing configuration and supply credentials
+through environment variables.
 
 ```xml
 <repositories>
@@ -125,7 +142,8 @@ Reading the current SNAPSHOT and official SDK requires repository access. Config
 
 ### 4.2 Install from source
 
-Run in the repository root. With repository access, use `./mvnw install` directly. To install the official SDK locally, use the root [20261112 distribution](sdk_java_20261112.zip) and matching [POM](libs/MtOpJavaSDK-1.0-20261112.pom).
+Run in the repository root. With repository access, use `./mvnw install` directly. To install the official SDK locally,
+use the root [20261112 distribution](sdk_java_20261112.zip) and matching [POM](libs/MtOpJavaSDK-1.0-20261112.pom).
 
 ```bash
 unzip sdk_java_20261112.zip -d target/official-sdk
@@ -136,13 +154,18 @@ unzip sdk_java_20261112.zip -d target/official-sdk
 ./mvnw -B --no-transfer-progress install
 ```
 
-Although extracted filenames contain `1.0-SNAPSHOT`, the POM installs them as `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`. Older dated JARs under `libs/` are not substitutes. A successful build produces the extension JAR under `target/` and installs it in the local Maven repository. Other dependencies still require network access on the first build.
+Although extracted filenames contain `1.0-SNAPSHOT`, the POM installs them as
+`com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`. Older dated JARs under `libs/` are not substitutes. A successful build
+produces the extension JAR under `target/` and installs it in the local Maven repository. Other dependencies still
+require network access on the first build.
 
 <a id="quick-start"></a>
 
 ## 5. Quick start
 
-This example initializes the standalone library and queries a food-delivery order. Supply authorized credentials, a token and a real order ID through `MEITUAN_DEVELOPER_ID`, `MEITUAN_SIGN_KEY`, `MEITUAN_APP_AUTH_TOKEN` and `MEITUAN_ORDER_ID`, then run it in an application with the dependency installed.
+This example initializes the standalone library and queries a food-delivery order. Supply authorized credentials, a
+token and a real order ID through `MEITUAN_DEVELOPER_ID`, `MEITUAN_SIGN_KEY`, `MEITUAN_APP_AUTH_TOKEN` and
+`MEITUAN_ORDER_ID`, then run it in an application with the dependency installed.
 
 ```java
 import com.meituan.sdk.MeituanResponse;
@@ -182,7 +205,10 @@ public class MeituanQuickStart {
 }
 ```
 
-The example makes a real request and prints the official response. The order must be within the token’s authorization scope. Facades take official request objects directly; most facade methods retain a `MeituanResponse<?>` return type. For an inferred response type, use `executor.execute(request, "tenant-a")`, which obtains `T` from the request’s `MeituanRequest<T>`.
+The example makes a real request and prints the official response. The order must be within the token’s authorization
+scope. Facades take official request objects directly; most facade methods retain a `MeituanResponse<?>` return type.
+For an inferred response type, use `executor.execute(request, "tenant-a")`, which obtains `T` from the request’s
+`MeituanRequest<T>`.
 
 <a id="configuration"></a>
 
@@ -190,23 +216,28 @@ The example makes a real request and prints the official response. The order mus
 
 ### 6.1 Shared and tenant configuration
 
-The core is configured through Java objects and defines no YAML binding or `meituan.*` prefix. Defaults below come from [MeituanConfig.java](src/main/java/io/github/easy4j/meituan/config/MeituanConfig.java).
+The core is configured through Java objects and defines no YAML binding or `meituan.*` prefix. Defaults below come
+from [MeituanConfig.java](src/main/java/io/github/easy4j/meituan/config/MeituanConfig.java).
 
-| Setting | Default | Meaning |
-|---|---|---|
-| `serverUrl` | `https://api-open-cater.meituan.com` | Official endpoint |
-| `charset` | `UTF-8` | Request encoding |
-| `version` | `2` | Protocol version |
-| `connectTimeout` / `readTimeout` | `null` | Milliseconds; unset values use official builder defaults |
-| `needSslCheck` | `null` | Unset values use the official builder default |
+| Setting                          | Default                              | Meaning                                                  |
+|----------------------------------|--------------------------------------|----------------------------------------------------------|
+| `serverUrl`                      | `https://api-open-cater.meituan.com` | Official endpoint                                        |
+| `charset`                        | `UTF-8`                              | Request encoding                                         |
+| `version`                        | `2`                                  | Protocol version                                         |
+| `connectTimeout` / `readTimeout` | `null`                               | Milliseconds; unset values use official builder defaults |
+| `needSslCheck`                   | `null`                               | Unset values use the official builder default            |
 
-[MeituanTenantConfig](src/main/java/io/github/easy4j/meituan/config/MeituanTenantConfig.java) holds `tenantId`, `appId`, `developerId`, `signKey`, `appAuthToken` and `businessId`. The factory requires a non-null `developerId` and a nonblank `signKey`. Request business IDs come from official request metadata; the tenant’s `businessId` does not override them.
+[MeituanTenantConfig](src/main/java/io/github/easy4j/meituan/config/MeituanTenantConfig.java) holds `tenantId`, `appId`,
+`developerId`, `signKey`, `appAuthToken` and `businessId`. The factory requires a non-null `developerId` and a nonblank
+`signKey`. Request business IDs come from official request metadata; the tenant’s `businessId` does not override them.
 
 ### 6.2 Pluggable storage and TTL caching
 
-Implement `MeituanTenantConfigStorage.findByTenantId(String)` returning `Optional<MeituanTenantConfig>` to integrate a database or configuration center. `MeituanTenantConfigLoader.load(String)` uses the same return type.
+Implement `MeituanTenantConfigStorage.findByTenantId(String)` returning `Optional<MeituanTenantConfig>` to integrate a
+database or configuration center. `MeituanTenantConfigLoader.load(String)` uses the same return type.
 
-This fragment reuses `storage`, `factory` and `tenant` from the quick start. Replace the loader with a persistent query to cache remote configuration.
+This fragment reuses `storage`, `factory` and `tenant` from the quick start. Replace the loader with a persistent query
+to cache remote configuration.
 
 ```java
 import io.github.easy4j.meituan.tenant.CachedMeituanTenantConfigStorage;
@@ -221,9 +252,13 @@ cached.evict("tenant-a");
 cached.clear();
 ```
 
-The default TTL is `Duration.ZERO`, meaning no automatic expiration. `put` updates immediately, `refresh` reloads from the loader, `evict` removes one tenant and `clear` removes all entries. This is a process-local view; persist refreshed tokens before updating or refreshing the cache. The in-memory storage suits static initialization; use an appropriate storage implementation for concurrent runtime updates.
+The default TTL is `Duration.ZERO`, meaning no automatic expiration. `put` updates immediately, `refresh` reloads from
+the loader, `evict` removes one tenant and `clear` removes all entries. This is a process-local view; persist refreshed
+tokens before updating or refreshing the cache. The in-memory storage suits static initialization; use an appropriate
+storage implementation for concurrent runtime updates.
 
-`MeituanTenantContextHolder` is an explicit ThreadLocal helper. Facades still require `tenantId`; the application handles propagation across threads and calls `clear()` at request completion.
+`MeituanTenantContextHolder` is an explicit ThreadLocal helper. Facades still require `tenantId`; the application
+handles propagation across threads and calls `clear()` at request completion.
 
 <a id="api"></a>
 
@@ -231,29 +266,34 @@ The default TTL is `Duration.ZERO`, meaning no automatic expiration. `put` updat
 
 ### 7.1 Business facades
 
-| Interface | Main scope |
-|---|---|
-| [`MeituanCateringService`](src/main/java/io/github/easy4j/meituan/service/MeituanCateringService.java) | Reservations, ordering, queues and brand membership |
-| [`MeituanDaocanService`](src/main/java/io/github/easy4j/meituan/service/MeituanDaocanService.java) | In-store catering, group buying and Flash Deals |
-| [`MeituanDdzhkhAuthService`](src/main/java/io/github/easy4j/meituan/service/MeituanDdzhkhAuthService.java) | Business 59 account authorization, POI mapping and related APIs |
-| [`MeituanDeliveryService`](src/main/java/io/github/easy4j/meituan/service/MeituanDeliveryService.java) | Delivery and group-buy delivery |
-| [`MeituanDistributionService`](src/main/java/io/github/easy4j/meituan/service/MeituanDistributionService.java) | Off-platform distribution |
-| [`MeituanFreetryService`](src/main/java/io/github/easy4j/meituan/service/MeituanFreetryService.java) | Free trials |
-| [`MeituanKemanmanService`](src/main/java/io/github/easy4j/meituan/service/MeituanKemanmanService.java) | Kemanman |
-| [`MeituanKuailvService`](src/main/java/io/github/easy4j/meituan/service/MeituanKuailvService.java) | Kuailv |
-| [`MeituanLiveService`](src/main/java/io/github/easy4j/meituan/service/MeituanLiveService.java) | Meituan live streaming |
-| [`MeituanPayService`](src/main/java/io/github/easy4j/meituan/service/MeituanPayService.java) | Payment acquiring |
-| [`MeituanRetailService`](src/main/java/io/github/easy4j/meituan/service/MeituanRetailService.java) | Service retail |
-| [`MeituanStoreService`](src/main/java/io/github/easy4j/meituan/service/MeituanStoreService.java) | POI information and direct connections |
-| [`MeituanToolsService`](src/main/java/io/github/easy4j/meituan/service/MeituanToolsService.java) | Utility services and in-store advertising |
-| [`MeituanTravelService`](src/main/java/io/github/easy4j/meituan/service/MeituanTravelService.java) | Hotel and travel operations |
-| [`MeituanWaimaiService`](src/main/java/io/github/easy4j/meituan/service/MeituanWaimaiService.java) | Food delivery |
+| Interface                                                                                                      | Main scope                                                      |
+|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| [`MeituanCateringService`](src/main/java/io/github/easy4j/meituan/service/MeituanCateringService.java)         | Reservations, ordering, queues and brand membership             |
+| [`MeituanDaocanService`](src/main/java/io/github/easy4j/meituan/service/MeituanDaocanService.java)             | In-store catering, group buying and Flash Deals                 |
+| [`MeituanDdzhkhAuthService`](src/main/java/io/github/easy4j/meituan/service/MeituanDdzhkhAuthService.java)     | Business 59 account authorization, POI mapping and related APIs |
+| [`MeituanDeliveryService`](src/main/java/io/github/easy4j/meituan/service/MeituanDeliveryService.java)         | Delivery and group-buy delivery                                 |
+| [`MeituanDistributionService`](src/main/java/io/github/easy4j/meituan/service/MeituanDistributionService.java) | Off-platform distribution                                       |
+| [`MeituanFreetryService`](src/main/java/io/github/easy4j/meituan/service/MeituanFreetryService.java)           | Free trials                                                     |
+| [`MeituanKemanmanService`](src/main/java/io/github/easy4j/meituan/service/MeituanKemanmanService.java)         | Kemanman                                                        |
+| [`MeituanKuailvService`](src/main/java/io/github/easy4j/meituan/service/MeituanKuailvService.java)             | Kuailv                                                          |
+| [`MeituanLiveService`](src/main/java/io/github/easy4j/meituan/service/MeituanLiveService.java)                 | Meituan live streaming                                          |
+| [`MeituanPayService`](src/main/java/io/github/easy4j/meituan/service/MeituanPayService.java)                   | Payment acquiring                                               |
+| [`MeituanRetailService`](src/main/java/io/github/easy4j/meituan/service/MeituanRetailService.java)             | Service retail                                                  |
+| [`MeituanStoreService`](src/main/java/io/github/easy4j/meituan/service/MeituanStoreService.java)               | POI information and direct connections                          |
+| [`MeituanToolsService`](src/main/java/io/github/easy4j/meituan/service/MeituanToolsService.java)               | Utility services and in-store advertising                       |
+| [`MeituanTravelService`](src/main/java/io/github/easy4j/meituan/service/MeituanTravelService.java)             | Hotel and travel operations                                     |
+| [`MeituanWaimaiService`](src/main/java/io/github/easy4j/meituan/service/MeituanWaimaiService.java)             | Food delivery                                                   |
 
-Consult interface source and official documentation for each method’s parameters and routing. `execute(request, tenantId)` uses the tenant’s `appAuthToken`; `executeWithoutAuth(request, tenantId)` selects only its developer credentials. Both still sign requests. The overload without `tenantId` requires a fixed-client executor; a factory-backed executor rejects it. Custom executors should override the tenant-aware no-token method; its default implementation rejects invocation to preserve tenant isolation.
+Consult interface source and official documentation for each method’s parameters and routing.
+`execute(request, tenantId)` uses the tenant’s `appAuthToken`; `executeWithoutAuth(request, tenantId)` selects only its
+developer credentials. Both still sign requests. The overload without `tenantId` requires a fixed-client executor; a
+factory-backed executor rejects it. Custom executors should override the tenant-aware no-token method; its default
+implementation rejects invocation to preserve tenant isolation.
 
 ### 7.2 Platform APIs
 
-In this fragment, `authorizationCode` comes from the authorization flow and `refreshToken` from a previously saved token response. Other objects come from the quick start.
+In this fragment, `authorizationCode` comes from the authorization flow and `refreshToken` from a previously saved token
+response. Other objects come from the quick start.
 
 ```java
 import com.meituan.sdk.MeituanResponse;
@@ -266,9 +306,14 @@ MeituanTokenResponse renewedToken = platform.refreshToken(2, refreshToken, "tena
 MeituanResponse<?> response = platform.execute(request, "tenant-a", 3000, 8000);
 ```
 
-`MeituanPlatformService` also provides `execute(request, tenantId, realOpBizCode)` and `commonInvokeApi(request, responseType, tenantId)`. Populate the common request’s token, `realOpBizCode` and other authorization fields as required; `tenantId` selects developer credentials. Platform methods create a client per call so per-call timeouts do not modify cached clients.
+`MeituanPlatformService` also provides `execute(request, tenantId, realOpBizCode)` and
+`commonInvokeApi(request, responseType, tenantId)`. Populate the common request’s token, `realOpBizCode` and other
+authorization fields as required; `tenantId` selects developer credentials. Platform methods create a client per call so
+per-call timeouts do not modify cached clients.
 
-Persist OAuth results and update tenant configuration in the application; there is no background refresh task. Official `MtSdkException` failures are wrapped in `MeituanJavaException` with the cause retained. Callers must also inspect business-level failures returned as normal responses.
+Persist OAuth results and update tenant configuration in the application; there is no background refresh task. Official
+`MtSdkException` failures are wrapped in `MeituanJavaException` with the cause retained. Callers must also inspect
+business-level failures returned as normal responses.
 
 <a id="callbacks"></a>
 
@@ -276,9 +321,13 @@ Persist OAuth results and update tenant configuration in the application; there 
 
 ### 8.1 Parsing, verification and business handling
 
-`CallbackUtil` accepts either a Servlet request or `query + body`, with automatic and explicit `Class<T>` overloads for each. Automatic parsing selects a model by `businessId + msgType`; some legacy protocols use `invokeType`. Payloads live in `callback.model.biz<businessId>`.
+`CallbackUtil` accepts either a Servlet request or `query + body`, with automatic and explicit `Class<T>` overloads for
+each. Automatic parsing selects a model by `businessId + msgType`; some legacy protocols use `invokeType`. Payloads live
+in `callback.model.biz<businessId>`.
 
-This is an integration skeleton for member creation, `businessId=59`, `msgType=5910019`. Resolve `signKey` through trusted application configuration. Implement the member workflow in `createOrFindMember` and return all fields required by the official response contract.
+This is an integration skeleton for member creation, `businessId=59`, `msgType=5910019`. Resolve `signKey` through
+trusted application configuration. Implement the member workflow in `createOrFindMember` and return all fields required
+by the official response contract.
 
 ```java
 import io.github.easy4j.meituan.callback.CallbackUtil;
@@ -307,7 +356,11 @@ public abstract class MemberCallbackHandler {
 }
 ```
 
-The HTTP layer serializes the returned object as JSON. The example uses application-defined `-1` and `-2`; choose actual failure replies according to the message’s official protocol. Produce no business side effects before verification succeeds. Persist deduplication state using `msgId` and business rules before member creation, redemption or refunds, and check the agreed timestamp window. Parsing itself does not verify signatures, deduplicate messages or validate business fields.
+The HTTP layer serializes the returned object as JSON. The example uses application-defined `-1` and `-2`; choose actual
+failure replies according to the message’s official protocol. Produce no business side effects before verification
+succeeds. Persist deduplication state using `msgId` and business rules before member creation, redemption or refunds,
+and check the agreed timestamp window. Parsing itself does not verify signatures, deduplicate messages or validate
+business fields.
 
 ```mermaid
 sequenceDiagram
@@ -328,7 +381,8 @@ sequenceDiagram
 
 ### 8.2 Input and original parameter handling
 
-These are alternative parsing forms within a handler. `query` is the raw query string and `body` is a request body or decoded parameter object. Choose one form and read the request once.
+These are alternative parsing forms within a handler. `query` is the raw query string and `body` is a request body or
+decoded parameter object. Choose one form and read the request once.
 
 ```java
 MeituanCallbackMessage<?> automatic = CallbackUtil.parse(query, body);
@@ -337,87 +391,123 @@ MeituanCallbackMessage<MemberCreatedMessage> servlet = CallbackUtil.parse(reques
 MeituanCallbackMessage<String> raw = CallbackUtil.parse(query, body, String.class);
 ```
 
-- `body` accepts a form string, JSON envelope string, decoded map or envelope object. Body values override query values, and repeated parameters within one source use the last value.
-- Standard messages use `message`; some legacy formats use `param`, `params` or named form fields. Do not URL-decode an already decoded map again. Servlet form parsing uses the container’s parameters; JSON parsing reads the body, so coordinate body consumption with application filters.
-- `getParameters()` exposes the signature parameter snapshot and `getRawMessage()` retains decoded message text. Object-valued JSON messages are reserialized, so original formatting cannot be recovered. Verify the parameters actually signed by the platform.
-- Missing or invalid messages for registered typed models throw `IllegalArgumentException`. Automatic parsing preserves unknown message text and returns a null payload when neither `message` nor `param` exists. Explicit `String.class` preserves whitespace but rejects absent or blank messages.
-- Jackson ignores unknown fields and supports embedded JSON strings declared by the models. Mapping does not validate required business fields, value ranges or permissions.
+- `body` accepts a form string, JSON envelope string, decoded map or envelope object. Body values override query values,
+  and repeated parameters within one source use the last value.
+- Standard messages use `message`; some legacy formats use `param`, `params` or named form fields. Do not URL-decode an
+  already decoded map again. Servlet form parsing uses the container’s parameters; JSON parsing reads the body, so
+  coordinate body consumption with application filters.
+- `getParameters()` exposes the signature parameter snapshot and `getRawMessage()` retains decoded message text.
+  Object-valued JSON messages are reserialized, so original formatting cannot be recovered. Verify the parameters
+  actually signed by the platform.
+- Missing or invalid messages for registered typed models throw `IllegalArgumentException`. Automatic parsing preserves
+  unknown message text and returns a null payload when neither `message` nor `param` exists. Explicit `String.class`
+  preserves whitespace but rejects absent or blank messages.
+- Jackson ignores unknown fields and supports embedded JSON strings declared by the models. Mapping does not validate
+  required business fields, value ranges or permissions.
 
 ### 8.3 Response formats
 
-| Factory / type | Output semantics |
-|---|---|
-| `success()` | `code=0`, `message=success`, `data=null` |
-| `successData(result)` | Serializes an object or list once; outer `data` is a JSON string |
-| `successJson(json)` | Uses already serialized JSON as string `data`, avoiding another encoding pass |
-| `of(0, "ok", result)` | Embeds `data` with its supplied type for protocols requiring an object |
-| `failure(code, message)` | Nonzero error code, selected according to the message protocol |
-| `withTraceId(traceId)` | Returns a response copy with a trace ID; null values are omitted |
-| `flashOrderSuccess()` | Dedicated `{"data":"ok"}` response for Flash Order `310001` |
-| `InventoryQueryResponse` | Service-retail inventory replies with string `code`, `msg` and string `data` |
+| Factory / type           | Output semantics                                                              |
+|--------------------------|-------------------------------------------------------------------------------|
+| `success()`              | `code=0`, `message=success`, `data=null`                                      |
+| `successData(result)`    | Serializes an object or list once; outer `data` is a JSON string              |
+| `successJson(json)`      | Uses already serialized JSON as string `data`, avoiding another encoding pass |
+| `of(0, "ok", result)`    | Embeds `data` with its supplied type for protocols requiring an object        |
+| `failure(code, message)` | Nonzero error code, selected according to the message protocol                |
+| `withTraceId(traceId)`   | Returns a response copy with a trace ID; null values are omitted              |
+| `flashOrderSuccess()`    | Dedicated `{"data":"ok"}` response for Flash Order `310001`                   |
+| `InventoryQueryResponse` | Service-retail inventory replies with string `code`, `msg` and string `data`  |
 
-The inventories link to result models such as `MemberCreatedResult`, `ReservationOrderDecision` and `MerchantCouponIssueResult`. Member creation responses use a millisecond timestamp for `expireDate`; the inbound field is a date string and requires conversion.
+The inventories link to result models such as `MemberCreatedResult`, `ReservationOrderDecision` and
+`MerchantCouponIssueResult`. Member creation responses use a millisecond timestamp for `expireDate`; the inbound field
+is a date string and requires conversion.
 
 ### 8.4 One definition source for callbacks
 
-Add an entry to the appropriate `MeituanBusiness<businessId>MessageType` enum with its identifier, name, official URL and `messageClass`. `MeituanCallbackModels` builds an immutable index from these entries; `all()` exposes definitions and `find(businessId, msgType)` looks up the model. A new business also requires connecting its enum to the registry’s business catalogue.
+Add an entry to the appropriate `MeituanBusiness<businessId>MessageType` enum with its identifier, name, official URL
+and `messageClass`. `MeituanCallbackModels` builds an immutable index from these entries; `all()` exposes definitions
+and `find(businessId, msgType)` looks up the model. A new business also requires connecting its enum to the registry’s
+business catalogue.
 
-`resolve(callback)` checks both identifiers; `fromMsgType(msgType)` searches within its own business. Enums represent identifiable inbound messages, while `model` also contains response DTOs and nested structures, so their file counts differ.
+`resolve(callback)` checks both identifiers; `fromMsgType(msgType)` searches within its own business. Enums represent
+identifiable inbound messages, while `model` also contains response DTOs and nested structures, so their file counts
+differ.
 
-Business 18 identifiers `1810057`, `1810061` and `1810257` support automatic dispatch. Business 59 identifier `5910023` is confirmed, but its official page provides no field definitions, so its payload remains a `String`. Other unverified entries state their reasons in the corresponding inventories. Business 71 registers audit-result notifications as `7110001`, capability `poi_openapi_msg_push`; its five direct-connection APIs select developer credentials by tenant and send no `appAuthToken`.
+Business 18 identifiers `1810057`, `1810061` and `1810257` support automatic dispatch. Business 59 identifier `5910023`
+is confirmed, but its official page provides no field definitions, so its payload remains a `String`. Other unverified
+entries state their reasons in the corresponding inventories. Business 71 registers audit-result notifications as
+`7110001`, capability `poi_openapi_msg_push`; its five direct-connection APIs select developer credentials by tenant and
+send no `appAuthToken`.
 
 <a id="inventories"></a>
 
 ## 9. API inventories
 
-[`docs/`](docs/) contains 19 API inventories grouped by the official top-level businesses. Tables include descriptions, business IDs, message identifiers, example `opBizCode`, API type, official links and applicable model links. Example `opBizCode` values come from official samples; use your own business parameters in actual requests.
+[`docs/`](docs/) contains 19 API inventories grouped by the official top-level businesses. Tables include descriptions,
+business IDs, message identifiers, example `opBizCode`, API type, official links and applicable model links. Example
+`opBizCode` values come from official samples; use your own business parameters in actual requests.
 
-| Category | Inventories |
-|---|---|
-| Catering | [到店餐饮](docs/到店餐饮-接口清单.md) · [外卖餐饮](docs/外卖餐饮-接口清单.md) · [餐饮系统-智能版](docs/餐饮系统-智能版-接口清单.md) |
-| Retail and POIs | [服务零售](docs/服务零售-接口清单.md) · [门店基础信息直连](docs/门店基础信息直连-接口清单.md) |
-| Delivery and distribution | [配送服务](docs/配送服务-接口清单.md) · [站外分销](docs/站外分销-接口清单.md) · [自动物流车](docs/自动物流车-接口清单.md) |
-| Marketing and operations | [免费试](docs/免费试-接口清单.md) · [客满满](docs/客满满-接口清单.md) · [快驴](docs/快驴-接口清单.md) · [美团平台直播](docs/美团平台直播-接口清单.md) · [工具型服务](docs/工具型服务-接口清单.md) |
-| Other businesses | [充电宝](docs/充电宝-接口清单.md) · [企业版](docs/企业版-接口清单.md) · [美团收单](docs/美团收单-接口清单.md) · [美团租车](docs/美团租车-接口清单.md) · [酒旅经营宝](docs/酒旅经营宝-接口清单.md) · [游戏实物履约系统](docs/游戏实物履约系统-接口清单.md) |
+| Category                  | Inventories                                                                                                                                                                                                                                               |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Catering                  | [到店餐饮](docs/到店餐饮-接口清单.md) · [外卖餐饮](docs/外卖餐饮-接口清单.md) · [餐饮系统-智能版](docs/餐饮系统-智能版-接口清单.md)                                                                                                                       |
+| Retail and POIs           | [服务零售](docs/服务零售-接口清单.md) · [门店基础信息直连](docs/门店基础信息直连-接口清单.md)                                                                                                                                                             |
+| Delivery and distribution | [配送服务](docs/配送服务-接口清单.md) · [站外分销](docs/站外分销-接口清单.md) · [自动物流车](docs/自动物流车-接口清单.md)                                                                                                                                 |
+| Marketing and operations  | [免费试](docs/免费试-接口清单.md) · [客满满](docs/客满满-接口清单.md) · [快驴](docs/快驴-接口清单.md) · [美团平台直播](docs/美团平台直播-接口清单.md) · [工具型服务](docs/工具型服务-接口清单.md)                                                         |
+| Other businesses          | [充电宝](docs/充电宝-接口清单.md) · [企业版](docs/企业版-接口清单.md) · [美团收单](docs/美团收单-接口清单.md) · [美团租车](docs/美团租车-接口清单.md) · [酒旅经营宝](docs/酒旅经营宝-接口清单.md) · [游戏实物履约系统](docs/游戏实物履约系统-接口清单.md) |
 
-Inventories cover both APIs and messages, including official entries whose details remain unverified. [MeituanApiCoverageTest](src/test/java/io/github/easy4j/meituan/MeituanApiCoverageTest.java) checks the pinned SDK’s requests; [MeituanMessageTypeCoverageTest](src/test/java/io/github/easy4j/meituan/callback/type/MeituanMessageTypeCoverageTest.java) checks enum/model mappings. Coverage applies to the pinned SDK and registered definitions, not future platform APIs.
+Inventories cover both APIs and messages, including official entries whose details remain
+unverified. [MeituanApiCoverageTest](src/test/java/io/github/easy4j/meituan/MeituanApiCoverageTest.java) checks the
+pinned SDK’s
+requests; [MeituanMessageTypeCoverageTest](src/test/java/io/github/easy4j/meituan/callback/type/MeituanMessageTypeCoverageTest.java)
+checks enum/model mappings. Coverage applies to the pinned SDK and registered definitions, not future platform APIs.
 
 <a id="verification"></a>
 
 ## 10. Build and verification
 
-With repository access or the official SDK installed locally, run the branch’s Wrapper on JDK 8 using the same checks as [CI](.github/workflows/ci.yml).
+With repository access or the official SDK installed locally, run the branch’s Wrapper on JDK 8 using the same checks
+as [CI](.github/workflows/ci.yml).
 
 ```bash
 ./mvnw -B --no-transfer-progress clean verify javadoc:javadoc javadoc:test-javadoc
 ```
 
-| Artifact | Path |
-|---|---|
-| Extension JAR | `target/meituan-sdk-extension-1.0.x.20260730-SNAPSHOT.jar` |
-| Test results | `target/surefire-reports/` |
-| JaCoCo HTML / XML / CSV | `target/site/jacoco/` |
-| Main-source Javadoc | `target/reports/apidocs/index.html` |
-| Test-source Javadoc | `target/reports/testapidocs/index.html` |
+| Artifact                | Path                                                       |
+|-------------------------|------------------------------------------------------------|
+| Extension JAR           | `target/meituan-sdk-extension-1.0.x.20260730-SNAPSHOT.jar` |
+| Test results            | `target/surefire-reports/`                                 |
+| JaCoCo HTML / XML / CSV | `target/site/jacoco/`                                      |
+| Main-source Javadoc     | `target/reports/apidocs/index.html`                        |
+| Test-source Javadoc     | `target/reports/testapidocs/index.html`                    |
 
-Local unit tests use JUnit 5.11.4 and Mockito 4.11.0. Regular builds exclude the `integration` tag. Live-API debug classes are under `src/test/java/io/github/easy4j/meituan/debug/` and require your own authorization configuration and business data.
+Local unit tests use JUnit 5.11.4 and Mockito 4.11.0. Regular builds exclude the `integration` tag. Live-API debug
+classes are under `src/test/java/io/github/easy4j/meituan/debug/` and require your own authorization configuration and
+business data.
 
-Javadoc enables `doclint=all`, private-member checks and failure on warnings. JaCoCo defines a 90% line-coverage threshold with `haltOnFailure=false`, so falling below it produces a warning; a successful build does not prove 90% coverage. CI uploads `jacoco-coverage`, `surefire-reports` and `javadoc-reports`. Local or CI success does not establish real authorization, callback or production acceptance.
+Javadoc enables `doclint=all`, private-member checks and failure on warnings. JaCoCo defines a 90% line-coverage
+threshold with `haltOnFailure=false`, so falling below it produces a warning; a successful build does not prove 90%
+coverage. CI uploads `jacoco-coverage`, `surefire-reports` and `javadoc-reports`. Local or CI success does not establish
+real authorization, callback or production acceptance.
 
 <a id="support"></a>
 
 ## 11. Troubleshooting, contributing and license
 
-| Symptom | What to check |
-|---|---|
-| Dependency 401 / missing SNAPSHOT | Check both repository URLs, case-sensitive server IDs and access rights, or install from source |
-| `Meituan tenant config not found` | Check the supplied `tenantId` and storage result |
-| `tenantId is required` | Use the tenant-aware `executeWithoutAuth` overload with a factory-backed executor |
-| Callback verification fails | Check the developer-to-trusted-key mapping, original parameters, repeated decoding and JSON reformatting |
-| String payload / no automatic match | Check `businessId + msgType`; use an explicit model for legacy protocols |
-| Incorrect response data type | Distinguish JSON strings, nested objects and protocol-specific response types |
-| Javadoc fails | Fix missing comments, parameter tags or invalid HTML while retaining readable UTF-8 text |
+| Symptom                             | What to check                                                                                            |
+|-------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Dependency 401 / missing SNAPSHOT   | Check both repository URLs, case-sensitive server IDs and access rights, or install from source          |
+| `Meituan tenant config not found`   | Check the supplied `tenantId` and storage result                                                         |
+| `tenantId is required`              | Use the tenant-aware `executeWithoutAuth` overload with a factory-backed executor                        |
+| Callback verification fails         | Check the developer-to-trusted-key mapping, original parameters, repeated decoding and JSON reformatting |
+| String payload / no automatic match | Check `businessId + msgType`; use an explicit model for legacy protocols                                 |
+| Incorrect response data type        | Distinguish JSON strings, nested objects and protocol-specific response types                            |
+| Javadoc fails                       | Fix missing comments, parameter tags or invalid HTML while retaining readable UTF-8 text                 |
 
-Include the version line, JDK, sanitized request and a minimal reproduction in Issues. Keep PRs focused, update applicable tests and both READMEs, and run the verification command above. Keep credentials, member phone numbers, tokens and complete business records out of public logs and Issues.
+Include the version line, JDK, sanitized request and a minimal reproduction in Issues. Keep PRs focused, update
+applicable tests and both READMEs, and run the verification command above. Keep credentials, member phone numbers,
+tokens and complete business records out of public logs and Issues.
 
-The extension is licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). Use and distribution of the official Meituan `MtOpJavaSDK` remain subject to its own terms. Report issues through [Issues](https://github.com/easy-4-java/meituan-sdk-extension/issues) and contribute through [Pull requests](https://github.com/easy-4-java/meituan-sdk-extension/pulls).
+The extension is licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt). Use and
+distribution of the official Meituan `MtOpJavaSDK` remain subject to its own terms. Report issues
+through [Issues](https://github.com/easy-4-java/meituan-sdk-extension/issues) and contribute
+through [Pull requests](https://github.com/easy-4-java/meituan-sdk-extension/pulls).

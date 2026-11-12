@@ -20,27 +20,24 @@ import lombok.Setter;
 public class EarlyReturnCheckMessage {
 
     /**
-     * 创建美团「提前还车检查」回调的业务内容。的空实例。
-     */
-    public EarlyReturnCheckMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 新还车时间。必填。
      */
     @JsonProperty("newDropOffTime")
     private String newDropOffTime;
+
+    /**
+     * 创建美团「提前还车检查」回调的业务内容。的空实例。
+     */
+    public EarlyReturnCheckMessage() {
+    }
 }

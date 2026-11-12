@@ -2,6 +2,7 @@ package io.github.easy4j.meituan.service.impl;
 
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.dcpd.approval.batchAuthorizePaidui.BatchAuthorizePaiduiRequest;
+import com.meituan.sdk.model.dcpd.queueOrder.orderCancelCallback.OrderCancelCallbackRequest;
 import com.meituan.sdk.model.dcpd.queueOrder.orderClear.OrderClearRequest;
 import com.meituan.sdk.model.dcpd.queueOrder.orderCreateBatchsync.OrderCreateBatchsyncRequest;
 import com.meituan.sdk.model.dcpd.queueOrder.orderCreateCallback.OrderCreateCallbackRequest;
@@ -10,6 +11,7 @@ import com.meituan.sdk.model.dcpd.queueOrder.orderIndexSync.OrderIndexSyncReques
 import com.meituan.sdk.model.dcpd.queueOrder.orderQuery.OrderQueryRequest;
 import com.meituan.sdk.model.dcpd.queueOrder.orderReset.OrderResetRequest;
 import com.meituan.sdk.model.dcpd.queueOrder.orderStatusUpdate.OrderStatusUpdateRequest;
+import com.meituan.sdk.model.dcpd.queueQuery.shopStateQuery.ShopStateQueryRequest;
 import com.meituan.sdk.model.dcpd.queueShop.displayWaitTimeUpdate.DisplayWaitTimeUpdateRequest;
 import com.meituan.sdk.model.dcpd.queueShop.heartbeatSync.HeartbeatSyncRequest;
 import com.meituan.sdk.model.dcpd.queueShop.onlineQueueConfigUpdate.OnlineQueueConfigUpdateRequest;
@@ -17,6 +19,13 @@ import com.meituan.sdk.model.dcpd.queueShop.tableTypeClear.TableTypeClearRequest
 import com.meituan.sdk.model.dcpd.queueShop.tableTypeSync.TableTypeSyncRequest;
 import com.meituan.sdk.model.dcpd.queueShop.tipsUpdate.TipsUpdateRequest;
 import com.meituan.sdk.model.dcpd.queueShop.userWxBind.UserWxBindRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookCancelResultSync.CybercafeBookCancelResultSyncRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookConsume.CybercafeBookConsumeRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookResultSync.CybercafeBookResultSyncRequest;
+import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookRuleSync.CybercafeBookRuleSyncRequest;
+import com.meituan.sdk.model.ddzh.technician.staffTechinfoQuery.StaffTechinfoQueryRequest;
+import com.meituan.sdk.model.ddzh.thirdresource.zoneInfoSync.ZoneInfoSyncRequest;
+import com.meituan.sdk.model.ddzh.yuding.orderMaxRefundAmountQuery.OrderMaxRefundAmountQueryRequest;
 import com.meituan.sdk.model.dishconnect.tuangou.couponBatchConsume.CouponBatchConsumeRequest;
 import com.meituan.sdk.model.dishconnect.tuangou.couponBatchPrepare.CouponBatchPrepareRequest;
 import com.meituan.sdk.model.dishconnect.tuangou.couponBatchUnlock.CouponBatchUnlockRequest;
@@ -101,15 +110,6 @@ import com.meituan.sdk.model.resv2.table.tableStatusPush.TableStatusPushRequest;
 import com.meituan.sdk.model.resv2.table.tableUpdate.TableUpdateRequest;
 import com.meituan.sdk.model.resv2.table.tablestatusUpdate.TablestatusUpdateRequest;
 import com.meituan.sdk.model.resv2.table.updateTableStatus.UpdateTableStatusRequest;
-import com.meituan.sdk.model.dcpd.queueOrder.orderCancelCallback.OrderCancelCallbackRequest;
-import com.meituan.sdk.model.dcpd.queueQuery.shopStateQuery.ShopStateQueryRequest;
-import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookCancelResultSync.CybercafeBookCancelResultSyncRequest;
-import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookConsume.CybercafeBookConsumeRequest;
-import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookResultSync.CybercafeBookResultSyncRequest;
-import com.meituan.sdk.model.ddzh.cafebook.cybercafeBookRuleSync.CybercafeBookRuleSyncRequest;
-import com.meituan.sdk.model.ddzh.technician.staffTechinfoQuery.StaffTechinfoQueryRequest;
-import com.meituan.sdk.model.ddzh.thirdresource.zoneInfoSync.ZoneInfoSyncRequest;
-import com.meituan.sdk.model.ddzh.yuding.orderMaxRefundAmountQuery.OrderMaxRefundAmountQueryRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanCateringService;
 
@@ -927,6 +927,7 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
     public MeituanResponse<?> userWxBind(UserWxBindRequest request, String tenantId) {
         return execute(request, tenantId);
     }
+
     /**
      * 取消结果回调。
      * <p>官方接口：{@code /dcpd/queue/order/cancel/callback}，API：{@code order_cancel_callback}，版本：{@code 10018}，businessId：{@code 49}，需要授权：{@code true}。</p>

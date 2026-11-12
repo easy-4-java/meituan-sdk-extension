@@ -20,21 +20,19 @@ import lombok.Setter;
 public class CoBrandedNewUserQueryMessage {
 
     /**
-     * 创建美团「会员联名卡查询新客」回调的业务内容。的空实例。
-     */
-    public CoBrandedNewUserQueryMessage() {
-    }
-
-
-    /**
      * 用户注册手机号。必填。
      */
     @JsonProperty("phoneNo")
     private String phoneNo;
-
     /**
      * 注册平台。必填。
      */
     @JsonProperty("platformType")
     private String platformType;
+
+    /**
+     * 创建美团「会员联名卡查询新客」回调的业务内容。的空实例。
+     */
+    public CoBrandedNewUserQueryMessage() {
+    }
 }

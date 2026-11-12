@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「【供应链】配送收货单消息」回调的业务内容。
@@ -21,47 +22,41 @@ import lombok.Setter;
 public class DeliveryReceiptMessage {
 
     /**
-     * 创建美团「【供应链】配送收货单消息」回调的业务内容。的空实例。
-     */
-    public DeliveryReceiptMessage() {
-    }
-
-
-    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 推送事件Id。必填。
      */
     @JsonProperty("pushEventId")
     private String pushEventId;
-
     /**
      * 操作类型。必填。
      */
     @JsonProperty("opType")
     private Integer opType;
-
     /**
      * 消息时序Id。必填。
      */
     @JsonProperty("seqId")
     private Long seqId;
-
     /**
      * 大消息体标识。
      */
     @JsonProperty("largeMessageTag")
     private Boolean largeMessageTag;
-
     /**
      * 配送收货单信息。必填。
      */
     @JsonProperty("bizData")
     private AcceptanceOrderOpenDTO bizData;
+
+    /**
+     * 创建美团「【供应链】配送收货单消息」回调的业务内容。的空实例。
+     */
+    public DeliveryReceiptMessage() {
+    }
 
     /**
      * 配送收货单信息。
@@ -72,23 +67,21 @@ public class DeliveryReceiptMessage {
     public static class AcceptanceOrderOpenDTO {
 
         /**
-         * 创建配送收货单信息。的空实例。
-         */
-        public AcceptanceOrderOpenDTO() {
-        }
-
-
-        /**
          * 配送收货单主单。必填。
          */
         @JsonProperty("item")
         private AcceptanceOrderItemDTO item;
-
         /**
          * 配送收货单明细。必填。
          */
         @JsonProperty("details")
         private List<AcceptanceOrderItemDetailDTO> details;
+
+        /**
+         * 创建配送收货单信息。的空实例。
+         */
+        public AcceptanceOrderOpenDTO() {
+        }
 
         /**
          * 配送收货单主单。
@@ -99,155 +92,131 @@ public class DeliveryReceiptMessage {
         public static class AcceptanceOrderItemDTO {
 
             /**
-             * 创建配送收货单主单。的空实例。
-             */
-            public AcceptanceOrderItemDTO() {
-            }
-
-
-            /**
              * 机构Id。
              */
             @JsonProperty("rootOrgId")
             private Long rootOrgId;
-
             /**
              * 收货单号。
              */
             @JsonProperty("itemSn")
             private String itemSn;
-
             /**
              * 订货机构信息。
              */
             @JsonProperty("demandOrgInfo")
             private OrgOpenDTO demandOrgInfo;
-
             /**
              * 供货机构信息。
              */
             @JsonProperty("distributionOrg")
             private OpenOppositeOrgDTO distributionOrg;
-
             /**
              * 送货机构信息。
              */
             @JsonProperty("supplyOrgInfo")
             private SupplyOrgInfoDetails supplyOrgInfo;
-
             /**
              * 来源配送单号。
              */
             @JsonProperty("deliveryOrderSn")
             private String deliveryOrderSn;
-
             /**
              * 来源采购订单号。
              */
             @JsonProperty("purchaseOrderSn")
             private String purchaseOrderSn;
-
             /**
              * 来源订货单号。
              */
             @JsonProperty("applyOrderSns")
             private List<String> applyOrderSns;
-
             /**
              * 订单日期。
              */
             @JsonProperty("demandTime")
             private Long demandTime;
-
             /**
              * 期望到货日期。
              */
             @JsonProperty("expectReceiveTime")
             private Long expectReceiveTime;
-
             /**
              * 收货日期。
              */
             @JsonProperty("acceptTime")
             private Long acceptTime;
-
             /**
              * 创建时间。
              */
             @JsonProperty("createTime")
             private Long createTime;
-
             /**
              * 最后操作时间。
              */
             @JsonProperty("lastModifyTime")
             private Long lastModifyTime;
-
             /**
              * 收货金额。
              */
             @JsonProperty("acceptMoney")
             private String acceptMoney;
-
             /**
              * 配送运费。
              */
             @JsonProperty("freightFee")
             private String freightFee;
-
             /**
              * 业务模式。
              */
             @JsonProperty("bizModel")
             private PairDTO bizModel;
-
             /**
              * 收货类型。
              */
             @JsonProperty("receiveType")
             private ReceiveTypeDetails receiveType;
-
             /**
              * 单据状态。
              */
             @JsonProperty("status")
             private StatusDetails status;
-
             /**
              * 关联入库单。
              */
             @JsonProperty("generateStockInItemSns")
             private List<String> generateStockInItemSns;
-
             /**
              * 创建人。
              */
             @JsonProperty("cteator")
             private Long cteator;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
-
             /**
              * 版本号。
              */
             @JsonProperty("version")
             private Integer version;
-
             /**
              * 删除状态。
              */
             @JsonProperty("deleteStatus")
             private Integer deleteStatus;
-
             /**
              * 配送机构信息。
              */
             @JsonProperty("deliverOrgInfo")
             private DeliverOrgInfoDetails deliverOrgInfo;
+
+            /**
+             * 创建配送收货单主单。的空实例。
+             */
+            public AcceptanceOrderItemDTO() {
+            }
 
             /**
              * 订货机构信息。
@@ -258,35 +227,31 @@ public class DeliveryReceiptMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建订货机构信息。的空实例。
-                 */
-                public OrgOpenDTO() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点ID,即总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建订货机构信息。的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
             }
 
             /**
@@ -298,29 +263,26 @@ public class DeliveryReceiptMessage {
             public static class OpenOppositeOrgDTO {
 
                 /**
-                 * 创建供货机构信息。的空实例。
-                 */
-                public OpenOppositeOrgDTO() {
-                }
-
-
-                /**
                  * 对方机构类型,1.供应商,2.组织机构,3.外销客户。
                  */
                 @JsonProperty("type")
                 private PairDTO type;
-
                 /**
                  * 编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建供货机构信息。的空实例。
+                 */
+                public OpenOppositeOrgDTO() {
+                }
             }
 
             /**
@@ -332,29 +294,26 @@ public class DeliveryReceiptMessage {
             public static class SupplyOrgInfoDetails {
 
                 /**
-                 * 创建送货机构信息。的空实例。
-                 */
-                public SupplyOrgInfoDetails() {
-                }
-
-
-                /**
                  * 对方机构类型,1.供应商,2.组织机构,3.外销客户。
                  */
                 @JsonProperty("type")
                 private PairDTO type;
-
                 /**
                  * 编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建送货机构信息。的空实例。
+                 */
+                public SupplyOrgInfoDetails() {
+                }
             }
 
             /**
@@ -366,23 +325,21 @@ public class DeliveryReceiptMessage {
             public static class ReceiveTypeDetails {
 
                 /**
-                 * 创建收货类型。的空实例。
-                 */
-                public ReceiveTypeDetails() {
-                }
-
-
-                /**
                  * id。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建收货类型。的空实例。
+                 */
+                public ReceiveTypeDetails() {
+                }
             }
 
             /**
@@ -394,29 +351,26 @@ public class DeliveryReceiptMessage {
             public static class DeliverOrgInfoDetails {
 
                 /**
-                 * 创建配送机构信息。的空实例。
-                 */
-                public DeliverOrgInfoDetails() {
-                }
-
-
-                /**
                  * 类型。
                  */
                 @JsonProperty("type")
                 private TypeDetails type;
-
                 /**
                  * 编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建配送机构信息。的空实例。
+                 */
+                public DeliverOrgInfoDetails() {
+                }
 
                 /**
                  * 类型。
@@ -427,23 +381,21 @@ public class DeliveryReceiptMessage {
                 public static class TypeDetails {
 
                     /**
-                     * 创建类型。的空实例。
-                     */
-                    public TypeDetails() {
-                    }
-
-
-                    /**
                      * 标识符。
                      */
                     @JsonProperty("id")
                     private Long id;
-
                     /**
                      * 名称。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建类型。的空实例。
+                     */
+                    public TypeDetails() {
+                    }
                 }
             }
         }
@@ -457,149 +409,126 @@ public class DeliveryReceiptMessage {
         public static class AcceptanceOrderItemDetailDTO {
 
             /**
-             * 创建配送收货单明细。的空实例。
-             */
-            public AcceptanceOrderItemDetailDTO() {
-            }
-
-
-            /**
              * 明细 ID。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 行号。
              */
             @JsonProperty("seqId")
             private Integer seqId;
-
             /**
              * 物品信息。
              */
             @JsonProperty("goodsInfo")
             private GoodsOpenDTO goodsInfo;
-
             /**
              * 收货仓库信息。
              */
             @JsonProperty("acceptWarehouseInfo")
             private WarehouseOpenDTO acceptWarehouseInfo;
-
             /**
              * 订货单位。
              */
             @JsonProperty("bizUnit")
             private UnitOpenDTO bizUnit;
-
             /**
              * 基准单位。
              */
             @JsonProperty("baseUnit")
             private BaseUnitDetails baseUnit;
-
             /**
              * 收货数量和基准单位数量。
              */
             @JsonProperty("acceptAmount")
             private MultiUnitAmountOpenDTO acceptAmount;
-
             /**
              * 订货数量和基准单位数量。
              */
             @JsonProperty("demandAmount")
             private DemandAmountDetails demandAmount;
-
             /**
              * 接单数量和基准单位数量。
              */
             @JsonProperty("applyAuditAmount")
             private ApplyAuditAmountDetails applyAuditAmount;
-
             /**
              * 发货数量和基准单位数量。
              */
             @JsonProperty("deliverAmpunt")
             private DeliverAmpuntDetails deliverAmpunt;
-
             /**
              * 订发差异数量和基准单位数量。
              */
             @JsonProperty("demandDeliverDiffAmount")
             private DemandDeliverDiffAmountDetails demandDeliverDiffAmount;
-
             /**
              * 收货金额(不含税)。
              */
             @JsonProperty("acceptNoTaxMoney")
             private String acceptNoTaxMoney;
-
             /**
              * 收货金额(含税)。
              */
             @JsonProperty("acceptMoney")
             private String acceptMoney;
-
             /**
              * 订发差异金额(含税)。
              */
             @JsonProperty("demandDeliverDiffMoney")
             private String demandDeliverDiffMoney;
-
             /**
              * 订货单价(含税)。
              */
             @JsonProperty("demandPrice")
             private String demandPrice;
-
             /**
              * 订货单价(不含税)。
              */
             @JsonProperty("demandNoTaxPrice")
             private String demandNoTaxPrice;
-
             /**
              * 税率。
              */
             @JsonProperty("taxRate")
             private String taxRate;
-
             /**
              * 税额。
              */
             @JsonProperty("tax")
             private String tax;
-
             /**
              * 实物批次号。
              */
             @JsonProperty("batchNum")
             private String batchNum;
-
             /**
              * 生产日期。
              */
             @JsonProperty("productionDate")
             private Long productionDate;
-
             /**
              * 过期日期。
              */
             @JsonProperty("expirationDate")
             private Long expirationDate;
-
             /**
              * 保质期。
              */
             @JsonProperty("shelfLife")
             private Integer shelfLife;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
+
+            /**
+             * 创建配送收货单明细。的空实例。
+             */
+            public AcceptanceOrderItemDetailDTO() {
+            }
 
             /**
              * 物品信息。
@@ -610,47 +539,41 @@ public class DeliveryReceiptMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建物品信息。的空实例。
-                 */
-                public GoodsOpenDTO() {
-                }
-
-
-                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 物品编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 物品名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 物品分类。
                  */
                 @JsonProperty("category")
                 private CategoryOpenDTO category;
-
                 /**
                  * 品牌。
                  */
                 @JsonProperty("brand")
                 private String brand;
-
                 /**
                  * 规格。
                  */
                 @JsonProperty("spec")
                 private String spec;
+
+                /**
+                 * 创建物品信息。的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
             }
 
             /**
@@ -662,29 +585,26 @@ public class DeliveryReceiptMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建收货仓库信息。的空实例。
-                 */
-                public WarehouseOpenDTO() {
-                }
-
-
-                /**
                  * 仓库编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 仓库名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 仓库 ID。
                  */
                 @JsonProperty("id")
                 private String id;
+
+                /**
+                 * 创建收货仓库信息。的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
             }
 
             /**
@@ -696,23 +616,21 @@ public class DeliveryReceiptMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建订货单位。的空实例。
-                 */
-                public UnitOpenDTO() {
-                }
-
-
-                /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
+
+                /**
+                 * 创建订货单位。的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
             }
 
             /**
@@ -724,23 +642,21 @@ public class DeliveryReceiptMessage {
             public static class BaseUnitDetails {
 
                 /**
-                 * 创建基准单位。的空实例。
-                 */
-                public BaseUnitDetails() {
-                }
-
-
-                /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
+
+                /**
+                 * 创建基准单位。的空实例。
+                 */
+                public BaseUnitDetails() {
+                }
             }
 
             /**
@@ -752,23 +668,21 @@ public class DeliveryReceiptMessage {
             public static class MultiUnitAmountOpenDTO {
 
                 /**
-                 * 创建收货数量和基准单位数量。的空实例。
-                 */
-                public MultiUnitAmountOpenDTO() {
-                }
-
-
-                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
                 private String baseUnitAmount;
-
                 /**
                  * 业务数量。
                  */
                 @JsonProperty("bizUnitAmount")
                 private String bizUnitAmount;
+
+                /**
+                 * 创建收货数量和基准单位数量。的空实例。
+                 */
+                public MultiUnitAmountOpenDTO() {
+                }
             }
 
             /**
@@ -780,23 +694,21 @@ public class DeliveryReceiptMessage {
             public static class DemandAmountDetails {
 
                 /**
-                 * 创建订货数量和基准单位数量。的空实例。
-                 */
-                public DemandAmountDetails() {
-                }
-
-
-                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
                 private String baseUnitAmount;
-
                 /**
                  * 业务数量。
                  */
                 @JsonProperty("bizUnitAmount")
                 private String bizUnitAmount;
+
+                /**
+                 * 创建订货数量和基准单位数量。的空实例。
+                 */
+                public DemandAmountDetails() {
+                }
             }
 
             /**
@@ -808,23 +720,21 @@ public class DeliveryReceiptMessage {
             public static class ApplyAuditAmountDetails {
 
                 /**
-                 * 创建接单数量和基准单位数量。的空实例。
-                 */
-                public ApplyAuditAmountDetails() {
-                }
-
-
-                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
                 private String baseUnitAmount;
-
                 /**
                  * 业务数量。
                  */
                 @JsonProperty("bizUnitAmount")
                 private String bizUnitAmount;
+
+                /**
+                 * 创建接单数量和基准单位数量。的空实例。
+                 */
+                public ApplyAuditAmountDetails() {
+                }
             }
 
             /**
@@ -836,23 +746,21 @@ public class DeliveryReceiptMessage {
             public static class DeliverAmpuntDetails {
 
                 /**
-                 * 创建发货数量和基准单位数量。的空实例。
-                 */
-                public DeliverAmpuntDetails() {
-                }
-
-
-                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
                 private String baseUnitAmount;
-
                 /**
                  * 业务数量。
                  */
                 @JsonProperty("bizUnitAmount")
                 private String bizUnitAmount;
+
+                /**
+                 * 创建发货数量和基准单位数量。的空实例。
+                 */
+                public DeliverAmpuntDetails() {
+                }
             }
 
             /**
@@ -864,23 +772,21 @@ public class DeliveryReceiptMessage {
             public static class DemandDeliverDiffAmountDetails {
 
                 /**
-                 * 创建订发差异数量和基准单位数量。的空实例。
-                 */
-                public DemandDeliverDiffAmountDetails() {
-                }
-
-
-                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
                 private String baseUnitAmount;
-
                 /**
                  * 业务数量。
                  */
                 @JsonProperty("bizUnitAmount")
                 private String bizUnitAmount;
+
+                /**
+                 * 创建订发差异数量和基准单位数量。的空实例。
+                 */
+                public DemandDeliverDiffAmountDetails() {
+                }
             }
         }
     }

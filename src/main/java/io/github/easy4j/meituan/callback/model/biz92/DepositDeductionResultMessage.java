@@ -20,45 +20,39 @@ import lombok.Setter;
 public class DepositDeductionResultMessage {
 
     /**
-     * 创建美团「押金扣款结果回调」回调的业务内容。的空实例。
-     */
-    public DepositDeductionResultMessage() {
-    }
-
-
-    /**
      * 美团订单号。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商订单号。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 三方扣款流水号。必填。
      */
     @JsonProperty("thirdDeductId")
     private String thirdDeductId;
-
     /**
      * 美团扣款流水。必填。
      */
     @JsonProperty("mtDeductId")
     private String mtDeductId;
-
     /**
      * 状态见枚举DeductResult。必填。
      */
     @JsonProperty("deductResult")
     private String deductResult;
-
     /**
      * 扣款金额。必填。
      */
     @JsonProperty("amount")
     private Integer amount;
+
+    /**
+     * 创建美团「押金扣款结果回调」回调的业务内容。的空实例。
+     */
+    public DepositDeductionResultMessage() {
+    }
 }

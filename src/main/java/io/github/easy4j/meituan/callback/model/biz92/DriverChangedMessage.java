@@ -20,35 +20,31 @@ import lombok.Setter;
 public class DriverChangedMessage {
 
     /**
-     * 创建美团「驾驶员修改」回调的业务内容。的空实例。
-     */
-    public DriverChangedMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 原驾驶员。必填。
      */
     @JsonProperty("originDriver")
     private Driver originDriver;
-
     /**
      * 新驾驶员。必填。
      */
     @JsonProperty("newDriver")
     private NewDriverDetails newDriver;
+
+    /**
+     * 创建美团「驾驶员修改」回调的业务内容。的空实例。
+     */
+    public DriverChangedMessage() {
+    }
 
     /**
      * 新驾驶员。
@@ -59,34 +55,30 @@ public class DriverChangedMessage {
     public static class NewDriverDetails {
 
         /**
-         * 创建新驾驶员。的空实例。
-         */
-        public NewDriverDetails() {
-        }
-
-
-        /**
          * 姓名。必填。
          */
         @JsonProperty("name")
         private String name;
-
         /**
          * 证件类型，详情可见证件类型枚举。必填。
          */
         @JsonProperty("idType")
         private String idType;
-
         /**
          * 证件号码。必填。
          */
         @JsonProperty("idNumber")
         private String idNumber;
-
         /**
          * 手机号码。必填。
          */
         @JsonProperty("phone")
         private String phone;
+
+        /**
+         * 创建新驾驶员。的空实例。
+         */
+        public NewDriverDetails() {
+        }
     }
 }

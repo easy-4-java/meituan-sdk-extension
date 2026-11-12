@@ -18,21 +18,19 @@ import lombok.Setter;
 public class RedemptionStatusQueryResult {
 
     /**
-     * 创建美团「核销状态查询」回调的业务响应。的空实例。
-     */
-    public RedemptionStatusQueryResult() {
-    }
-
-
-    /**
      * 是否核销。1.未核销 2.已核销 3.未知状态 注1：如果返回3（未知状态），美团侧会一直轮询直到返回终态（1或2），体检预订业务除外。 注2：体检预订业务发起退款后，轮询72小时仍返回consume_status=3，平台会发起自动退款。必填。
      */
     @JsonProperty("consumeStatus")
     private Integer consumeStatus;
-
     /**
      * 订单Id。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
+
+    /**
+     * 创建美团「核销状态查询」回调的业务响应。的空实例。
+     */
+    public RedemptionStatusQueryResult() {
+    }
 }

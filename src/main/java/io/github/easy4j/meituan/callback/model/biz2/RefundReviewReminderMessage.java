@@ -23,39 +23,34 @@ import lombok.Setter;
 public class RefundReviewReminderMessage {
 
     /**
-     * 创建美团「接收用户催商家审核退款消息」回调的业务内容。的空实例。
-     */
-    public RefundReviewReminderMessage() {
-    }
-
-
-    /**
      * 订单 ID。
      */
     @JsonProperty("order_id")
     private String orderId;
-
     /**
      * 退款单唯一标识。
      */
     @JsonProperty("refund_id")
     private String refundId;
-
     /**
      * 用户催促审核时间点。
      */
     @JsonProperty("urge_time")
     private String urgeTime;
-
     /**
      * 审核截止时间点。
      */
     @JsonProperty("left_time")
     private String leftTime;
-
     /**
      * 时间戳。
      */
     @JsonProperty("timestamp")
     private String timestamp;
+
+    /**
+     * 创建美团「接收用户催商家审核退款消息」回调的业务内容。的空实例。
+     */
+    public RefundReviewReminderMessage() {
+    }
 }

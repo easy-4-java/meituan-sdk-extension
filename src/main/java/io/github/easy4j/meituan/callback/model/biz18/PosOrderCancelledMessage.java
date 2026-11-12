@@ -20,33 +20,29 @@ import lombok.Setter;
 public class PosOrderCancelledMessage {
 
     /**
-     * 创建美团「POS接单-接单页商家主动取消订单(退单)」回调的业务内容。的空实例。
-     */
-    public PosOrderCancelledMessage() {
-    }
-
-
-    /**
      * 门店的组织 ID。
      */
     @JsonProperty("orgId")
     private Integer orgId;
-
     /**
      * 美团订单 ID。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 美团退单 ID。
      */
     @JsonProperty("mtRefundId")
     private Long mtRefundId;
-
     /**
      * 操作人 ID。
      */
     @JsonProperty("mtOperatorId")
     private Integer mtOperatorId;
+
+    /**
+     * 创建美团「POS接单-接单页商家主动取消订单(退单)」回调的业务内容。的空实例。
+     */
+    public PosOrderCancelledMessage() {
+    }
 }

@@ -35,38 +35,12 @@ public final class EmbeddedJsonDeserializer extends JsonDeserializer<Object> imp
     }
 
     /**
-     * 为当前属性绑定目标类型，以便按声明的对象或集合类型解码。
-     *
-     * @param context Jackson 的反序列化上下文
-     * @param property 声明了内嵌 JSON 的属性
-     * @return 绑定该属性类型的反序列化器
-     */
-    @Override
-    public JsonDeserializer<?> createContextual(DeserializationContext context, BeanProperty property) {
-        return new EmbeddedJsonDeserializer(property.getType());
-    }
-
-    /**
-     * 将 JSON 值或经过字符串编码的 JSON 读为当前属性的类型。
-     *
-     * @param parser 定位在属性值上的解析器
-     * @param context Jackson 的反序列化上下文
-     * @return 解码后的属性值；容器字段收到空字符串时返回 {@code null}
-     * @throws java.io.IOException 当请求读取、数据转换或接口检查失败时
-     */
-    @Override
-    public Object deserialize(JsonParser parser, DeserializationContext context) throws java.io.IOException {
-        return read(parser, context, fieldType, 0);
-    }
-
-    // 部分示例对同一字段连续编码两次。限制解包层数，同时支持平台直接推送 JSON 对象。
-    /**
      * 按字段目标类型解包内嵌 JSON，并限制连续解包层数。
      *
-     * @param parser 定位在业务字段上的 JSON 解析器
+     * @param parser  定位在业务字段上的 JSON 解析器
      * @param context 当前 JSON 反序列化上下文
-     * @param type 声明的目标类型
-     * @param depth 当前内嵌 JSON 解包层数
+     * @param type    声明的目标类型
+     * @param depth   当前内嵌 JSON 解包层数
      * @return 按字段目标类型解包内嵌 JSON，并限制连续解包层数的结果
      * @throws java.io.IOException 当请求读取、数据转换或接口检查失败时
      */
@@ -82,5 +56,32 @@ public final class EmbeddedJsonDeserializer extends JsonDeserializer<Object> imp
             }
         }
         return context.readValue(parser, type);
+    }
+
+    /**
+     * 为当前属性绑定目标类型，以便按声明的对象或集合类型解码。
+     *
+     * @param context  Jackson 的反序列化上下文
+     * @param property 声明了内嵌 JSON 的属性
+     * @return 绑定该属性类型的反序列化器
+     */
+    @Override
+    public JsonDeserializer<?> createContextual(DeserializationContext context, BeanProperty property) {
+        return new EmbeddedJsonDeserializer(property.getType());
+    }
+
+    // 部分示例对同一字段连续编码两次。限制解包层数，同时支持平台直接推送 JSON 对象。
+
+    /**
+     * 将 JSON 值或经过字符串编码的 JSON 读为当前属性的类型。
+     *
+     * @param parser  定位在属性值上的解析器
+     * @param context Jackson 的反序列化上下文
+     * @return 解码后的属性值；容器字段收到空字符串时返回 {@code null}
+     * @throws java.io.IOException 当请求读取、数据转换或接口检查失败时
+     */
+    @Override
+    public Object deserialize(JsonParser parser, DeserializationContext context) throws java.io.IOException {
+        return read(parser, context, fieldType, 0);
     }
 }

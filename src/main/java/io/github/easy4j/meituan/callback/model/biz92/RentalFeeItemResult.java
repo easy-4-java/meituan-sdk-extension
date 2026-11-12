@@ -18,27 +18,24 @@ import lombok.Setter;
 public class RentalFeeItemResult {
 
     /**
-     * 创建美团「报价详情查询」回调的业务数据（FeeItem）。的空实例。
-     */
-    public RentalFeeItemResult() {
-    }
-
-
-    /**
      * 费用code，费用明细枚举: FeeItemType。必填。
      */
     @JsonProperty("code")
     private Integer code;
-
     /**
      * 费用名称。必填。
      */
     @JsonProperty("name")
     private String name;
-
     /**
      * 费用值 (单位分)。必填。
      */
     @JsonProperty("amount")
     private Integer amount;
+
+    /**
+     * 创建美团「报价详情查询」回调的业务数据（FeeItem）。的空实例。
+     */
+    public RentalFeeItemResult() {
+    }
 }

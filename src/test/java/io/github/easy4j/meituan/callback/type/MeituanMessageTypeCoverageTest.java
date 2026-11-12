@@ -11,10 +11,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,6 +32,7 @@ class MeituanMessageTypeCoverageTest {
 
     /**
      * 验证所有枚举进入只读注册表，并按业务编号隔离解析。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

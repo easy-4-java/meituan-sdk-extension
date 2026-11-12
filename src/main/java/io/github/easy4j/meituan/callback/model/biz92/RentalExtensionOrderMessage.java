@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz92;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「订单续租下单」回调的业务内容。
@@ -21,51 +22,44 @@ import lombok.Setter;
 public class RentalExtensionOrderMessage {
 
     /**
-     * 创建美团「订单续租下单」回调的业务内容。的空实例。
-     */
-    public RentalExtensionOrderMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 美团续租单订单Id。必填。
      */
     @JsonProperty("mtRenewalOrderId")
     private Long mtRenewalOrderId;
-
     /**
      * 续租报价 ID。必填。
      */
     @JsonProperty("quoteId")
     private String quoteId;
-
     /**
      * 续租总金额。必填。
      */
     @JsonProperty("totalAmount")
     private Integer totalAmount;
-
     /**
      * 期望续租截止时间。必填。
      */
     @JsonProperty("newDropOffTime")
     private String newDropOffTime;
-
     /**
      * 共担优惠信息。
      */
     @JsonProperty("coCouponInfo")
     private List<CoCouponInfo> coCouponInfo;
+
+    /**
+     * 创建美团「订单续租下单」回调的业务内容。的空实例。
+     */
+    public RentalExtensionOrderMessage() {
+    }
 }

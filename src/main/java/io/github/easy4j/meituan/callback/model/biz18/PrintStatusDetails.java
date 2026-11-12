@@ -14,21 +14,19 @@ import lombok.Setter;
 public class PrintStatusDetails {
 
     /**
-     * 创建PrintStatusDetails，用于【供应链】组合加工单消息等回调的业务字段。的空实例。
-     */
-    public PrintStatusDetails() {
-    }
-
-
-    /**
      * id。
      */
     @JsonProperty("id")
     private Integer id;
-
     /**
      * 描述。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建PrintStatusDetails，用于【供应链】组合加工单消息等回调的业务字段。的空实例。
+     */
+    public PrintStatusDetails() {
+    }
 }

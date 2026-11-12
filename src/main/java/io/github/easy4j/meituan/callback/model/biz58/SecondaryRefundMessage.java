@@ -20,27 +20,24 @@ import lombok.Setter;
 public class SecondaryRefundMessage {
 
     /**
-     * 创建美团「二次退款通知」回调的业务内容。的空实例。
-     */
-    public SecondaryRefundMessage() {
-    }
-
-
-    /**
      * 订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 退款金额, 以分为单位。必填。
      */
     @JsonProperty("refundAmount")
     private Long refundAmount;
-
     /**
      * 退款原因。必填。
      */
     @JsonProperty("refundReason")
     private String refundReason;
+
+    /**
+     * 创建美团「二次退款通知」回调的业务内容。的空实例。
+     */
+    public SecondaryRefundMessage() {
+    }
 }

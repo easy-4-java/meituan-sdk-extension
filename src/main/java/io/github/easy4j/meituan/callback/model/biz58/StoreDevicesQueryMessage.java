@@ -20,27 +20,24 @@ import lombok.Setter;
 public class StoreDevicesQueryMessage {
 
     /**
-     * 创建美团「查询指定门店下全量设备信息」回调的业务内容。的空实例。
-     */
-    public StoreDevicesQueryMessage() {
-    }
-
-
-    /**
      * 美团门店 ID（混淆）。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
-
     /**
      * 每页条数。必填。
      */
     @JsonProperty("pageSize")
     private Integer pageSize;
-
     /**
      * 查询页数。必填。
      */
     @JsonProperty("pageNo")
     private Integer pageNo;
+
+    /**
+     * 创建美团「查询指定门店下全量设备信息」回调的业务内容。的空实例。
+     */
+    public StoreDevicesQueryMessage() {
+    }
 }

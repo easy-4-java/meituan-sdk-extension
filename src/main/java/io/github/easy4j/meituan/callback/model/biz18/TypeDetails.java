@@ -14,21 +14,19 @@ import lombok.Setter;
 public class TypeDetails {
 
     /**
-     * 创建TypeDetails，用于【供应链】入库单消息等回调的业务字段。的空实例。
-     */
-    public TypeDetails() {
-    }
-
-
-    /**
      * id。
      */
     @JsonProperty("id")
     private Integer id;
-
     /**
      * 描述。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建TypeDetails，用于【供应链】入库单消息等回调的业务字段。的空实例。
+     */
+    public TypeDetails() {
+    }
 }

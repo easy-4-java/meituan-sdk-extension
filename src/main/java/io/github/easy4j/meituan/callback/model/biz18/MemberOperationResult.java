@@ -20,15 +20,15 @@ import lombok.Setter;
 public class MemberOperationResult {
 
     /**
-     * 创建智能版会员券、储值和积分核销或冲正的布尔结果。的空实例。
-     */
-    public MemberOperationResult() {
-    }
-
-
-    /**
      * 业务处理结果，成功为 true。
      */
     @JsonProperty("result")
     private Boolean result;
+
+
+    /**
+     * 创建智能版会员券、储值和积分核销或冲正的布尔结果。的空实例。
+     */
+    public MemberOperationResult() {
+    }
 }

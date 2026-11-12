@@ -30,6 +30,7 @@ public final class MeituanPlatformService {
 
     /**
      * 创建平台服务。
+     *
      * @param clientFactory 按租户开发者凭据创建官方客户端的工厂
      * @param tenantStorage 租户授权配置来源
      */
@@ -40,9 +41,10 @@ public final class MeituanPlatformService {
 
     /**
      * 用授权码换取 token，由调用方保存响应中的授权信息。
+     *
      * @param businessId 官方业务编号
-     * @param code 美团授权码
-     * @param tenantId 开发者所属租户
+     * @param code       美团授权码
+     * @param tenantId   开发者所属租户
      * @return 官方授权响应
      */
     public MeituanTokenResponse getOAuthToken(Integer businessId, String code, String tenantId) {
@@ -51,9 +53,10 @@ public final class MeituanPlatformService {
 
     /**
      * 使用刷新凭证换取新的 token，由调用方保存新的凭证。
-     * @param businessId 官方业务编号
+     *
+     * @param businessId   官方业务编号
      * @param refreshToken 上次授权返回的刷新凭证
-     * @param tenantId 开发者所属租户
+     * @param tenantId     开发者所属租户
      * @return 官方刷新响应
      */
     public MeituanTokenResponse refreshToken(Integer businessId, String refreshToken, String tenantId) {
@@ -62,10 +65,11 @@ public final class MeituanPlatformService {
 
     /**
      * 使用租户 token 执行统一授权请求。
-     * @param request 官方请求
-     * @param tenantId 开发者所属租户
+     *
+     * @param request       官方请求
+     * @param tenantId      开发者所属租户
      * @param realOpBizCode 本次操作的授权实体 ID
-     * @param <T> 响应数据类型
+     * @param <T>           响应数据类型
      * @return 官方响应
      */
     public <T> MeituanResponse<T> execute(MeituanRequest<T> request, String tenantId, String realOpBizCode) {
@@ -74,11 +78,12 @@ public final class MeituanPlatformService {
 
     /**
      * 使用租户 token 和本次调用的超时设置执行请求。
-     * @param request 官方请求
-     * @param tenantId 开发者所属租户
+     *
+     * @param request        官方请求
+     * @param tenantId       开发者所属租户
      * @param connectTimeout 连接超时（毫秒），null 沿用客户端配置
-     * @param readTimeout 读取超时（毫秒），null 沿用客户端配置
-     * @param <T> 响应数据类型
+     * @param readTimeout    读取超时（毫秒），null 沿用客户端配置
+     * @param <T>            响应数据类型
      * @return 官方响应
      */
     public <T> MeituanResponse<T> execute(MeituanRequest<T> request, String tenantId, Integer connectTimeout, Integer readTimeout) {
@@ -88,11 +93,12 @@ public final class MeituanPlatformService {
 
     /**
      * 使用开发者凭据和本次调用的超时设置执行免 token 请求。
-     * @param request 官方请求
-     * @param tenantId 开发者所属租户
+     *
+     * @param request        官方请求
+     * @param tenantId       开发者所属租户
      * @param connectTimeout 连接超时（毫秒），null 沿用客户端配置
-     * @param readTimeout 读取超时（毫秒），null 沿用客户端配置
-     * @param <T> 响应数据类型
+     * @param readTimeout    读取超时（毫秒），null 沿用客户端配置
+     * @param <T>            响应数据类型
      * @return 官方响应
      */
     public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> request, String tenantId, Integer connectTimeout, Integer readTimeout) {
@@ -101,10 +107,11 @@ public final class MeituanPlatformService {
 
     /**
      * 使用租户开发者凭据执行通用请求，授权 token 和实体 ID 按原请求发送。
-     * @param request 官方通用请求，由调用方按接口要求填写授权字段
+     *
+     * @param request      官方通用请求，由调用方按接口要求填写授权字段
      * @param responseType 完整的 MeituanResponse 泛型类型
-     * @param tenantId 开发者所属租户
-     * @param <T> 响应数据类型
+     * @param tenantId     开发者所属租户
+     * @param <T>          响应数据类型
      * @return 官方响应
      */
     public <T> MeituanResponse<T> commonInvokeApi(CommonRequest request, Type responseType, String tenantId) {
@@ -114,9 +121,9 @@ public final class MeituanPlatformService {
     /**
      * 使用所选租户的客户端执行操作，并统一包装官方 SDK 异常。
      *
-     * @param <R> 本次操作返回的数据类型
+     * @param <R>      本次操作返回的数据类型
      * @param tenantId 选择开发者凭据与授权信息的租户标识
-     * @param call 使用所选租户客户端执行的操作
+     * @param call     使用所选租户客户端执行的操作
      * @return 当前调用的业务结果
      */
     private <R> R invoke(String tenantId, ClientCall<R> call) {

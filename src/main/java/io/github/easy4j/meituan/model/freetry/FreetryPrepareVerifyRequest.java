@@ -25,15 +25,19 @@ import java.lang.reflect.Type;
 )
 public class FreetryPrepareVerifyRequest implements MeituanRequest<FreetryPrepareVerifyResponse> {
 
-    /** 创建验券准备请求。 */
-    public FreetryPrepareVerifyRequest() {
-    }
-
-    /** 13 位券码。 */
+    /**
+     * 13 位券码。
+     */
     @NotNull(message = "couponCode不能为空")
     @Size(min = 13, max = 13, message = "couponCode长度必须为13")
     @SerializedName("couponCode")
     private String couponCode;
+
+    /**
+     * 创建验券准备请求。
+     */
+    public FreetryPrepareVerifyRequest() {
+    }
 
     /**
      * 将官方 JSON 响应反序列化为当前接口的业务类型。
@@ -43,7 +47,8 @@ public class FreetryPrepareVerifyRequest implements MeituanRequest<FreetryPrepar
      */
     @Override
     public MeituanResponse<FreetryPrepareVerifyResponse> deserializeResponse(String response) {
-        Type type = new TypeToken<MeituanResponse<FreetryPrepareVerifyResponse>>() { }.getType();
+        Type type = new TypeToken<MeituanResponse<FreetryPrepareVerifyResponse>>() {
+        }.getType();
         return JsonUtil.fromJson(response, type);
     }
 

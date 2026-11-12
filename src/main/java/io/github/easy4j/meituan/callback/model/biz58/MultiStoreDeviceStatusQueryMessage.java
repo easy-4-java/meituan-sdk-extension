@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「多门店三方设备号批量查询设备状态」回调的业务内容。
@@ -21,15 +22,15 @@ import lombok.Setter;
 public class MultiStoreDeviceStatusQueryMessage {
 
     /**
-     * 创建美团「多门店三方设备号批量查询设备状态」回调的业务内容。的空实例。
-     */
-    public MultiStoreDeviceStatusQueryMessage() {
-    }
-
-
-    /**
      * 三方设备 ID 列表。必填。
      */
     @JsonProperty("thirdPartyDeviceItemIds")
     private List<String> thirdPartyDeviceItemIds;
+
+
+    /**
+     * 创建美团「多门店三方设备号批量查询设备状态」回调的业务内容。的空实例。
+     */
+    public MultiStoreDeviceStatusQueryMessage() {
+    }
 }

@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz92;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「报价详情查询」回调的业务数据（StoreInfo）。
@@ -19,33 +20,29 @@ import lombok.Setter;
 public class RentalStoreInfoResult {
 
     /**
-     * 创建美团「报价详情查询」回调的业务数据（StoreInfo）。的空实例。
-     */
-    public RentalStoreInfoResult() {
-    }
-
-
-    /**
      * 商家评分。必填。
      */
     @JsonProperty("score")
     private String score;
-
     /**
      * 所属车商名称：如开心车行。必填。
      */
     @JsonProperty("supplierName")
     private String supplierName;
-
     /**
      * 预授权信息。必填。
      */
     @JsonProperty("preAuth")
     private RentalPreAuthResult preAuth;
-
     /**
      * 门店分层标签，详情看分层标签枚举 StoreLevelTag。必填。
      */
     @JsonProperty("levelTags")
     private List<String> levelTags;
+
+    /**
+     * 创建美团「报价详情查询」回调的业务数据（StoreInfo）。的空实例。
+     */
+    public RentalStoreInfoResult() {
+    }
 }

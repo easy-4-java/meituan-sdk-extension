@@ -20,21 +20,19 @@ import lombok.Setter;
 public class ReservationRefundFailedMessage {
 
     /**
-     * 创建美团「预订退款失败通知」回调的业务内容。的空实例。
-     */
-    public ReservationRefundFailedMessage() {
-    }
-
-
-    /**
      * 订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 原因。必填。
      */
     @JsonProperty("reason")
     private String reason;
+
+    /**
+     * 创建美团「预订退款失败通知」回调的业务内容。的空实例。
+     */
+    public ReservationRefundFailedMessage() {
+    }
 }

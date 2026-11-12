@@ -1,18 +1,7 @@
 package io.github.easy4j.meituan.service;
 
 import com.meituan.sdk.MeituanResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadActivityRestrictionRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadActivityRestrictionResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadCouponResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryPrepareVerifyRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryPrepareVerifyResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryActivitiesByPoiRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryActivitiesByPoiResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryPoiCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryPoiCouponResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryVerifyCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryVerifyCouponResponse;
+import io.github.easy4j.meituan.model.freetry.*;
 
 /**
  * 免费试业务能力门面。
@@ -24,7 +13,7 @@ public interface MeituanFreetryService extends MeituanService {
     /**
      * 查询活动限制。
      *
-     * @param request 查询请求
+     * @param request  查询请求
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
@@ -35,7 +24,7 @@ public interface MeituanFreetryService extends MeituanService {
     /**
      * 查询已验券码。
      *
-     * @param request 查询请求
+     * @param request  查询请求
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
@@ -46,7 +35,7 @@ public interface MeituanFreetryService extends MeituanService {
     /**
      * 查询门店验券历史。
      *
-     * @param request 查询请求
+     * @param request  查询请求
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
@@ -57,7 +46,7 @@ public interface MeituanFreetryService extends MeituanService {
     /**
      * 执行验券。
      *
-     * @param request 验券请求
+     * @param request  验券请求
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
@@ -68,7 +57,7 @@ public interface MeituanFreetryService extends MeituanService {
     /**
      * 查询门店活动映射。
      *
-     * @param request 查询请求
+     * @param request  查询请求
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
@@ -79,7 +68,7 @@ public interface MeituanFreetryService extends MeituanService {
     /**
      * 获取验券准备信息。
      *
-     * @param request 验券准备请求
+     * @param request  验券准备请求
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */

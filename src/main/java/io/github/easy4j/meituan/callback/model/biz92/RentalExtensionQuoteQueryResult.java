@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz92;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「订单续租报价查询」回调的业务响应。
@@ -19,63 +20,54 @@ import lombok.Setter;
 public class RentalExtensionQuoteQueryResult {
 
     /**
-     * 创建美团「订单续租报价查询」回调的业务响应。的空实例。
-     */
-    public RentalExtensionQuoteQueryResult() {
-    }
-
-
-    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")
     private Integer bizCode;
-
     /**
      * 错误描述。必填。
      */
     @JsonProperty("bizMessage")
     private String bizMessage;
-
     /**
      * 报价Id。必填。
      */
     @JsonProperty("quoteId")
     private String quoteId;
-
     /**
      * 需要补交总价钱 单位分。必填。
      */
     @JsonProperty("totalAmount")
     private Integer totalAmount;
-
     /**
      * 报价时效时间。必填。
      */
     @JsonProperty("quoteExpiresAt")
     private String quoteExpiresAt;
-
     /**
      * 续租后还车时间。必填。
      */
     @JsonProperty("renewalReturnTime")
     private String renewalReturnTime;
-
     /**
      * 续租取消规则信息。必填。
      */
     @JsonProperty("cancelRule")
     private RentalCancelRuleResult cancelRule;
-
     /**
      * 续租费用明细。必填。
      */
     @JsonProperty("fee")
     private RentalFeeResult fee;
-
     /**
      * 商家优惠信息。
      */
     @JsonProperty("promotions")
     private List<RentalPromotionResult> promotions;
+
+    /**
+     * 创建美团「订单续租报价查询」回调的业务响应。的空实例。
+     */
+    public RentalExtensionQuoteQueryResult() {
+    }
 }

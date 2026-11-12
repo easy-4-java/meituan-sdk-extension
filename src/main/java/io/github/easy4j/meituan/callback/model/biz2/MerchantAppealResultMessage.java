@@ -20,33 +20,29 @@ import lombok.Setter;
 public class MerchantAppealResultMessage {
 
     /**
-     * 创建美团「接收商家申诉结果消息」回调的业务内容。的空实例。
-     */
-    public MerchantAppealResultMessage() {
-    }
-
-
-    /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
     private Long orderId;
-
     /**
      * 通知类型 1发起申诉 2申诉处理完成。
      */
     @JsonProperty("msgType")
     private Integer msgType;
-
     /**
      * 退款单 ID。
      */
     @JsonProperty("refundId")
     private Long refundId;
-
     /**
      * 商家申诉结果1通过：平台审核通过商家申诉 2通过：平台审核通过商家申诉 3拒绝：平台审核拒绝商家申诉 0默认值，发起时为0。
      */
     @JsonProperty("poiResult")
     private Integer poiResult;
+
+    /**
+     * 创建美团「接收商家申诉结果消息」回调的业务内容。的空实例。
+     */
+    public MerchantAppealResultMessage() {
+    }
 }

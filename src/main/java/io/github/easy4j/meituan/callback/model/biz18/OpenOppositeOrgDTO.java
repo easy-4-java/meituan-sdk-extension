@@ -14,27 +14,24 @@ import lombok.Setter;
 public class OpenOppositeOrgDTO {
 
     /**
-     * 创建OpenOppositeOrgDTO，用于【供应链】入库单消息等回调的业务字段。的空实例。
-     */
-    public OpenOppositeOrgDTO() {
-    }
-
-
-    /**
      * 对方机构类型,1.供应商,2.组织机构,3.外销客户。
      */
     @JsonProperty("type")
     private PairDTO type;
-
     /**
      * 编码。
      */
     @JsonProperty("code")
     private String code;
-
     /**
      * 名称。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建OpenOppositeOrgDTO，用于【供应链】入库单消息等回调的业务字段。的空实例。
+     */
+    public OpenOppositeOrgDTO() {
+    }
 }

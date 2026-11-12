@@ -20,27 +20,24 @@ import lombok.Setter;
 public class ClubActivityParticipantsQueriedMessage {
 
     /**
-     * 创建美团「查询活动场次参与人接口」回调的业务内容。的空实例。
-     */
-    public ClubActivityParticipantsQueriedMessage() {
-    }
-
-
-    /**
      * 三方活动Id。必填。
      */
     @JsonProperty("activityId")
     private String activityId;
-
     /**
      * 三方商品Id。必填。
      */
     @JsonProperty("productId")
     private String productId;
-
     /**
      * 三方SkuId。必填。
      */
     @JsonProperty("skuId")
     private String skuId;
+
+    /**
+     * 创建美团「查询活动场次参与人接口」回调的业务内容。的空实例。
+     */
+    public ClubActivityParticipantsQueriedMessage() {
+    }
 }

@@ -20,27 +20,24 @@ import lombok.Setter;
 public class MerchantCouponDynamicCodeMessage {
 
     /**
-     * 创建美团「商家券获取动态核销码」回调的业务内容。的空实例。
-     */
-    public MerchantCouponDynamicCodeMessage() {
-    }
-
-
-    /**
      * 订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 三方团单 ID。必填。
      */
     @JsonProperty("appDealId")
     private String appDealId;
-
     /**
      * 券码。必填。
      */
     @JsonProperty("serialNumber")
     private String serialNumber;
+
+    /**
+     * 创建美团「商家券获取动态核销码」回调的业务内容。的空实例。
+     */
+    public MerchantCouponDynamicCodeMessage() {
+    }
 }

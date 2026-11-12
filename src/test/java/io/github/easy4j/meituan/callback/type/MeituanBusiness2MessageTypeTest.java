@@ -1,10 +1,8 @@
 package io.github.easy4j.meituan.callback.type;
 
-import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import io.github.easy4j.meituan.callback.CallbackUtil;
+import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import org.junit.jupiter.api.Test;
-
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,6 +20,7 @@ class MeituanBusiness2MessageTypeTest {
 
     /**
      * 验证业务 2 包含已公开的品牌 IM 消息定义。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -39,6 +38,7 @@ class MeituanBusiness2MessageTypeTest {
 
     /**
      * 验证当前业务的已登记消息可解析，其他业务及未知编号保持隔离。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -56,6 +56,7 @@ class MeituanBusiness2MessageTypeTest {
 
     /**
      * 验证跨业务消息被拒绝，并按通用回调契约处理未知编号。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

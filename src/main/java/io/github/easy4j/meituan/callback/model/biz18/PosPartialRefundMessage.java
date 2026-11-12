@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「POS部分退-接单页商家主动退菜退款(部分退)」回调的业务内容。
@@ -21,35 +22,31 @@ import lombok.Setter;
 public class PosPartialRefundMessage {
 
     /**
-     * 创建美团「POS部分退-接单页商家主动退菜退款(部分退)」回调的业务内容。的空实例。
-     */
-    public PosPartialRefundMessage() {
-    }
-
-
-    /**
      * 第三方订单的唯一标识，与正向交易单的orderNo对应。必填。
      */
     @JsonProperty("orderNo")
     private String orderNo;
-
     /**
      * 退款金额。必填。
      */
     @JsonProperty("amount")
     private Long amount;
-
     /**
      * 退款原因。必填。
      */
     @JsonProperty("refundReason")
     private String refundReason;
-
     /**
      * 退菜列表。必填。
      */
     @JsonProperty("refundDishes")
     private List<RefundDish> refundDishes;
+
+    /**
+     * 创建美团「POS部分退-接单页商家主动退菜退款(部分退)」回调的业务内容。的空实例。
+     */
+    public PosPartialRefundMessage() {
+    }
 
     /**
      * 退菜列表。
@@ -60,22 +57,20 @@ public class PosPartialRefundMessage {
     public static class RefundDish {
 
         /**
-         * 创建退菜列表。的空实例。
-         */
-        public RefundDish() {
-        }
-
-
-        /**
          * 菜品编码，与正向交易单的skuId对应。必填。
          */
         @JsonProperty("skuId")
         private Long skuId;
-
         /**
          * 退菜数量。必填。
          */
         @JsonProperty("count")
         private Integer count;
+
+        /**
+         * 创建退菜列表。的空实例。
+         */
+        public RefundDish() {
+        }
     }
 }

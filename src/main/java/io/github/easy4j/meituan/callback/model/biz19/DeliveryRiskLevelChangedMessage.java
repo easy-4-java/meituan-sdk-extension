@@ -23,21 +23,19 @@ import lombok.Setter;
 public class DeliveryRiskLevelChangedMessage {
 
     /**
-     * 创建美团「配送风险等级变更」回调的业务内容。的空实例。
-     */
-    public DeliveryRiskLevelChangedMessage() {
-    }
-
-
-    /**
      * 取货门店 ID。必填。
      */
     @JsonProperty("shop_id")
     private String shopId;
-
     /**
      * 配送风险等级。必填。
      */
     @JsonProperty("delivery_risk_level")
     private Integer deliveryRiskLevel;
+
+    /**
+     * 创建美团「配送风险等级变更」回调的业务内容。的空实例。
+     */
+    public DeliveryRiskLevelChangedMessage() {
+    }
 }
