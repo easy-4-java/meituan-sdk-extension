@@ -20,7 +20,7 @@ import lombok.Setter;
 public class QuoteDetailQueryMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u62a5\u4ef7\u8be6\u60c5\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「报价详情查询」回调的业务内容。的空实例。
      */
     public QuoteDetailQueryMessage() {
     }
@@ -59,7 +59,7 @@ public class QuoteDetailQueryMessage {
     public static class RentalInfo {
 
         /**
-         * 创建\u53d6\u8f66\u4fe1\u606f\u3002的空实例。
+         * 创建取车信息。的空实例。
          */
         public RentalInfo() {
         }
@@ -99,7 +99,7 @@ public class QuoteDetailQueryMessage {
     public static class DropOffInfoDetails {
 
         /**
-         * 创建\u8fd8\u8f66\u4fe1\u606f\u3002的空实例。
+         * 创建还车信息。的空实例。
          */
         public DropOffInfoDetails() {
         }

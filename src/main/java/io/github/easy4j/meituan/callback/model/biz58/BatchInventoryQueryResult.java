@@ -20,7 +20,7 @@ import lombok.Setter;
 public class BatchInventoryQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u6279\u91cf\u83b7\u53d6\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「批量获取库存」回调的业务响应。的空实例。
      */
     public BatchInventoryQueryResult() {
     }
@@ -78,7 +78,7 @@ public class BatchInventoryQueryResult {
     public static class Period {
 
         /**
-         * 创建\u65f6\u6bb5\u4fe1\u606f\uff0c\u8be6\u7ec6\u5b57\u6bb5\u89c1\u4e0b\u8868 \u6ce8\uff1a\u5206\u65f6\u6bb5\u5e93\u5b58\u7c7b\u578b\u4e3a\u5fc5\u586b\u3002的空实例。
+         * 创建时段信息，详细字段见下表 注：分时段库存类型为必填。的空实例。
          */
         public Period() {
         }

@@ -20,7 +20,7 @@ import lombok.Setter;
 public class BrandMemberRegistrationAndRightsMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u54c1\u724c\u4f1a\u5458\u6ce8\u518c\u548c\u6743\u76ca\u53d1\u653e\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「品牌会员注册和权益发放」回调的业务内容。的空实例。
      */
     public BrandMemberRegistrationAndRightsMessage() {
     }
@@ -83,7 +83,7 @@ public class BrandMemberRegistrationAndRightsMessage {
     public static class RightDetail {
 
         /**
-         * 创建rightDetail\u3002的空实例。
+         * 创建rightDetail。的空实例。
          */
         public RightDetail() {
         }
@@ -111,7 +111,7 @@ public class BrandMemberRegistrationAndRightsMessage {
     public static class RegistParam {
 
         /**
-         * 创建registParam\u3002的空实例。
+         * 创建registParam。的空实例。
          */
         public RegistParam() {
         }

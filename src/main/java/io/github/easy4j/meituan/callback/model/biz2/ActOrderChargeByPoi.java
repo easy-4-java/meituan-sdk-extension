@@ -14,7 +14,7 @@ import lombok.Setter;
 public class ActOrderChargeByPoi {
 
     /**
-     * 创建ActOrderChargeByPoi\uff0c\u7528\u4e8e\u63a5\u6536\u8ba2\u5355\u6570\u636e\u63a5\u53e3\u3010\u5fc5\u987b\u3011\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     * 创建ActOrderChargeByPoi，用于接收订单数据接口【必须】等回调的业务字段。的空实例。
      */
     public ActOrderChargeByPoi() {
     }

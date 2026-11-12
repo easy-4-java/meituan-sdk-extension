@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class ReservationCreateSyncMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u521b\u5355\u540c\u6b65\u4e09\u65b9\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「创单同步三方接口」回调的业务内容。的空实例。
      */
     public ReservationCreateSyncMessage() {
     }
@@ -138,7 +138,7 @@ public class ReservationCreateSyncMessage {
     public static class LeadsReferListDetails {
 
         /**
-         * 创建\u8ba2\u5355\u5173\u8054 ID \u5217\u8868\uff08jsonarray \u5b57\u7b26\u4e32\uff09\u3002的空实例。
+         * 创建订单关联 ID 列表（jsonarray 字符串）。的空实例。
          */
         public LeadsReferListDetails() {
         }
@@ -169,7 +169,7 @@ public class ReservationCreateSyncMessage {
     public static class HashMap {
 
         /**
-         * 创建\u8ba2\u5355\u5c5e\u6027map\u3002的空实例。
+         * 创建订单属性map。的空实例。
          */
         public HashMap() {
         }

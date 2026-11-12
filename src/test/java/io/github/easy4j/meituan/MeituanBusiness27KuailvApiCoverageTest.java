@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness27KuailvApiCoverageTest {
 
     /**
-     * 创建\u5feb\u9a74\u6e05\u5355\uff08businessId=27\uff09API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建快驴清单（businessId=27）API 覆盖回归测试。的空实例。
      */
     MeituanBusiness27KuailvApiCoverageTest() {
     }

@@ -11,7 +11,7 @@ import lombok.Data;
 public class MeituanConfig {
 
     /**
-     * 创建\u7f8e\u56e2\u5f00\u653e\u5e73\u53f0\u5171\u4eab\u914d\u7f6e\u3002的空实例。
+     * 创建美团开放平台共享配置。的空实例。
      */
     public MeituanConfig() {
     }

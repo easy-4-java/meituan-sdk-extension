@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class MeituanMessageTypeCoverageTest {
 
     /**
-     * 创建\u6821\u9a8c\u6d88\u606f\u679a\u4e3e\u548c\u89e3\u6790\u6ce8\u518c\u8868\u7684\u53cc\u5411\u8986\u76d6\u53ca\u4e1a\u52a1\u9694\u79bb\u3002的空实例。
+     * 创建校验消息枚举和解析注册表的双向覆盖及业务隔离。的空实例。
      */
     MeituanMessageTypeCoverageTest() {
     }

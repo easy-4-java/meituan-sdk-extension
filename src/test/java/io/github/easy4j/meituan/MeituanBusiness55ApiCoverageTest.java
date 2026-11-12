@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness55ApiCoverageTest {
 
     /**
-     * 创建\u5927\u4f17\u70b9\u8bc4\u514d\u8d39\u8bd5\uff08businessId=55\uff09\u516c\u5f00 API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建大众点评免费试（businessId=55）公开 API 覆盖回归测试。的空实例。
      */
     MeituanBusiness55ApiCoverageTest() {
     }

@@ -20,7 +20,7 @@ public final class TestCollections {
     }
 
     /**
-     * \u521b\u5efa\u4fdd\u6301\u53c2\u6570\u987a\u5e8f\u7684\u53ef\u53d8\u5217\u8868\u3002
+     * 创建保持参数顺序的可变列表。
      *
      * @param <T> 本次调用使用的业务数据类型
      * @param values 构造测试列表或集合的元素
@@ -32,7 +32,7 @@ public final class TestCollections {
     }
 
     /**
-     * \u521b\u5efa\u4fdd\u6301\u53c2\u6570\u987a\u5e8f\u7684\u53ef\u53d8\u96c6\u5408\u3002
+     * 创建保持参数顺序的可变集合。
      *
      * @param <T> 本次调用使用的业务数据类型
      * @param values 构造测试列表或集合的元素

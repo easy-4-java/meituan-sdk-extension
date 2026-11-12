@@ -18,7 +18,7 @@ import lombok.Setter;
 public class OrderPlacedResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u4e0b\u5355\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「下单」回调的业务响应。的空实例。
      */
     public OrderPlacedResult() {
     }

@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 class CallbackUtilTest {
 
     /**
-     * 创建\u6cdb\u578b\u56de\u8c03\u89e3\u6790\u5165\u53e3\u7684\u884c\u4e3a\u4e0e\u9a8c\u7b7e\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建泛型回调解析入口的行为与验签回归测试。的空实例。
      */
     CallbackUtilTest() {
     }

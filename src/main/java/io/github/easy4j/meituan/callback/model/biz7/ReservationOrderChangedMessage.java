@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class ReservationOrderChangedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u53d8\u66f4\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「订单变更」回调的业务内容。的空实例。
      */
     public ReservationOrderChangedMessage() {
     }
@@ -55,7 +55,7 @@ public class ReservationOrderChangedMessage {
     public static class Order {
 
         /**
-         * 创建\u4e1a\u52a1\u53c2\u6570\u3002的空实例。
+         * 创建业务参数。的空实例。
          */
         public Order() {
         }
@@ -137,7 +137,7 @@ public class ReservationOrderChangedMessage {
         public static class ErbUserModifyOrderPushParam {
 
             /**
-             * 创建\u7528\u6237\u4fee\u6539\u4fe1\u606f\u3002的空实例。
+             * 创建用户修改信息。的空实例。
              */
             public ErbUserModifyOrderPushParam() {
             }

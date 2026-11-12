@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class MeituanTenantConfigTest {
 
     /**
-     * 创建 \u5355\u5143\u6d4b\u8bd5\uff1a\u8986\u76d6\u6240\u6709\u5b57\u6bb5\u7684\u9ed8\u8ba4/\u8bbe\u7f6e\u53d6\u503c\u3002的空实例。
+     * 创建 单元测试：覆盖所有字段的默认/设置取值。的空实例。
      */
     MeituanTenantConfigTest() {
     }

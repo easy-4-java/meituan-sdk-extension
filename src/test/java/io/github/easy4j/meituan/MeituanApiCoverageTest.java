@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MeituanApiCoverageTest {
 
     /**
-     * 创建\u95e8\u9762\u8986\u76d6\u5ea6\u6d4b\u8bd5\uff1a\u626b\u63cf\u5b98\u65b9 MtOpJavaSDK jar\uff0c\u786e\u4fdd\u6240\u6709\u5e26  \u5143\u6570\u636e\u7684的空实例。
+     * 创建门面覆盖度测试：扫描官方 MtOpJavaSDK jar，确保所有带  元数据的的空实例。
      */
     MeituanApiCoverageTest() {
     }

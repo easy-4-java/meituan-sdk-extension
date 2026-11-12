@@ -64,8 +64,7 @@ public final class MeituanCallbackResponse<T> {
      * @param traceId 本次回调的追踪标识
      */
     @JsonCreator
-    private MeituanCallbackResponse(@JsonProperty("code") int code, @JsonProperty("message") String message,
-                                    @JsonProperty("data") T data, @JsonProperty("traceId") String traceId) {
+    private MeituanCallbackResponse(@JsonProperty("code") int code, @JsonProperty("message") String message, @JsonProperty("data") T data, @JsonProperty("traceId") String traceId) {
         this.code = code;
         this.message = message;
         this.data = data;

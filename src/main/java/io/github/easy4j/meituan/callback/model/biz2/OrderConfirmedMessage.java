@@ -28,7 +28,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class OrderConfirmedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u5df2\u786e\u8ba4\u6d88\u606f\u63a5\u53e3\u3010\u6307\u5546\u5bb6\u5df2\u786e\u8ba4\u3011\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「接收订单已确认消息接口【指商家已确认】」回调的业务内容。的空实例。
      */
     public OrderConfirmedMessage() {
     }
@@ -449,7 +449,7 @@ public class OrderConfirmedMessage {
     public static class PoiReceiveDetail {
 
         /**
-         * 创建\u5546\u5bb6\u5bf9\u8d26\u8be6\u60c5\u3002的空实例。
+         * 创建商家对账详情。的空实例。
          */
         public PoiReceiveDetail() {
         }
@@ -495,7 +495,7 @@ public class OrderConfirmedMessage {
         public static class ActOrderChargeByPoi {
 
             /**
-             * 创建\u5546\u5bb6\u627f\u62c5\u660e\u7ec6\u3002的空实例。
+             * 创建商家承担明细。的空实例。
              */
             public ActOrderChargeByPoi() {
             }
@@ -538,7 +538,7 @@ public class OrderConfirmedMessage {
     public static class Detail {
 
         /**
-         * 创建\u53c2\u8003\u30107.3.1 \u6839\u636e\u8ba2\u5355Id\u67e5\u8be2\u8ba2\u5355\u3011\u4e2d\u7684detail\u3002的空实例。
+         * 创建参考【7.3.1 根据订单Id查询订单】中的detail。的空实例。
          */
         public Detail() {
         }

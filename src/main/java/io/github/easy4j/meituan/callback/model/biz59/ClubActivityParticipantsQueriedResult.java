@@ -19,7 +19,7 @@ import lombok.Setter;
 public class ClubActivityParticipantsQueriedResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u6d3b\u52a8\u573a\u6b21\u53c2\u4e0e\u4eba\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「查询活动场次参与人接口」回调的业务响应。的空实例。
      */
     public ClubActivityParticipantsQueriedResult() {
     }
@@ -41,7 +41,7 @@ public class ClubActivityParticipantsQueriedResult {
     public static class ParticipantObj {
 
         /**
-         * 创建\u53c2\u4e0e\u4eba\u5bf9\u8c61\u3002\u53c2\u4e0e\u4eba\u4fe1\u606f\u5bf9\u8c61\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建参与人对象。参与人信息对象。必填。的空实例。
          */
         public ParticipantObj() {
         }
@@ -64,7 +64,7 @@ public class ClubActivityParticipantsQueriedResult {
     public static class Participant {
 
         /**
-         * 创建\u53c2\u4e0e\u4eba\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建参与人信息列表。必填。的空实例。
          */
         public Participant() {
         }

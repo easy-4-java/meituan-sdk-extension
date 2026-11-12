@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class ReceivableExpenseMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u5e94\u6536\u8d39\u7528\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】应收费用单消息」回调的业务内容。的空实例。
      */
     public ReceivableExpenseMessage() {
     }
@@ -71,7 +71,7 @@ public class ReceivableExpenseMessage {
     public static class DeliveryFeeOpenDTO {
 
         /**
-         * 创建\u914d\u9001\u8d39\u7528\u5355\u3002的空实例。
+         * 创建配送费用单。的空实例。
          */
         public DeliveryFeeOpenDTO() {
         }
@@ -194,7 +194,7 @@ public class ReceivableExpenseMessage {
         public static class OrgOpenDTO {
 
             /**
-             * 创建\u4f9b\u8d27\u673a\u6784\u3002的空实例。
+             * 创建供货机构。的空实例。
              */
             public OrgOpenDTO() {
             }
@@ -233,7 +233,7 @@ public class ReceivableExpenseMessage {
             public static class PairDTO {
 
                 /**
-                 * 创建\u673a\u6784\u540d\u79f0\u3002的空实例。
+                 * 创建机构名称。的空实例。
                  */
                 public PairDTO() {
                 }
@@ -262,7 +262,7 @@ public class ReceivableExpenseMessage {
         public static class OrderingOrgInfoDetails {
 
             /**
-             * 创建\u8ba2\u8d27\u673a\u6784\u3002的空实例。
+             * 创建订货机构。的空实例。
              */
             public OrderingOrgInfoDetails() {
             }
@@ -301,7 +301,7 @@ public class ReceivableExpenseMessage {
             public static class PairDTO {
 
                 /**
-                 * 创建\u673a\u6784\u540d\u79f0\u3002的空实例。
+                 * 创建机构名称。的空实例。
                  */
                 public PairDTO() {
                 }
@@ -330,7 +330,7 @@ public class ReceivableExpenseMessage {
         public static class PairDTO {
 
             /**
-             * 创建\u5355\u636e\u7c7b\u578b\u3002的空实例。
+             * 创建单据类型。的空实例。
              */
             public PairDTO() {
             }
@@ -358,7 +358,7 @@ public class ReceivableExpenseMessage {
         public static class FeeArchiveOpenDTO {
 
             /**
-             * 创建\u8d39\u7528\u7c7b\u578b\u3002的空实例。
+             * 创建费用类型。的空实例。
              */
             public FeeArchiveOpenDTO() {
             }
@@ -392,7 +392,7 @@ public class ReceivableExpenseMessage {
         public static class StatusDetails {
 
             /**
-             * 创建\u5355\u636e\u72b6\u6001\u3002的空实例。
+             * 创建单据状态。的空实例。
              */
             public StatusDetails() {
             }

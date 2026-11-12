@@ -19,7 +19,7 @@ import lombok.Setter;
 public class InvoiceStatusQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5f00\u7968\u72b6\u6001\u7ed3\u679c\u67e5\u8be2\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「开票状态结果查询接口」回调的业务响应。的空实例。
      */
     public InvoiceStatusQueryResult() {
     }
@@ -71,7 +71,7 @@ public class InvoiceStatusQueryResult {
     public static class Invoice {
 
         /**
-         * 创建\u53d1\u7968\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建发票列表。必填。的空实例。
          */
         public Invoice() {
         }
@@ -256,7 +256,7 @@ public class InvoiceStatusQueryResult {
     public static class InvoiceItem {
 
         /**
-         * 创建\u53d1\u7968\u63cf\u8ff0\u4fe1\u606f\uff0c InvoiceItem\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建发票描述信息， InvoiceItem。必填。的空实例。
          */
         public InvoiceItem() {
         }
@@ -321,7 +321,7 @@ public class InvoiceStatusQueryResult {
     public static class FileInfo {
 
         /**
-         * 创建\u53d1\u7968\u6587\u4ef6\uff08\u81f3\u5c11\u63d0\u4f9bPDF\u3001XML\u548cOFD\u6587\u4ef6\uff09\u3002的空实例。
+         * 创建发票文件（至少提供PDF、XML和OFD文件）。的空实例。
          */
         public FileInfo() {
         }

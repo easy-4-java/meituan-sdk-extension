@@ -21,7 +21,7 @@ import lombok.Setter;
 public class ItemMasterMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u7269\u54c1\u6863\u6848\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】物品档案消息」回调的业务内容。的空实例。
      */
     public ItemMasterMessage() {
     }
@@ -66,7 +66,7 @@ public class ItemMasterMessage {
     public static class CompleteGoodsOpenDTO {
 
         /**
-         * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+         * 创建物品信息。的空实例。
          */
         public CompleteGoodsOpenDTO() {
         }
@@ -411,7 +411,7 @@ public class ItemMasterMessage {
         public static class OrgOpenDTO {
 
             /**
-             * 创建\u6240\u5c5e\u673a\u6784\u3002的空实例。
+             * 创建所属机构。的空实例。
              */
             public OrgOpenDTO() {
             }
@@ -451,7 +451,7 @@ public class ItemMasterMessage {
         public static class CompleteUnitOpenDTO {
 
             /**
-             * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+             * 创建基准单位。的空实例。
              */
             public CompleteUnitOpenDTO() {
             }
@@ -514,7 +514,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -543,7 +543,7 @@ public class ItemMasterMessage {
         public static class UnitsItem {
 
             /**
-             * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+             * 创建支持的单位名称列表。的空实例。
              */
             public UnitsItem() {
             }
@@ -606,7 +606,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -635,7 +635,7 @@ public class ItemMasterMessage {
         public static class GoodsStatisticsTypeDTO {
 
             /**
-             * 创建\u7edf\u8ba1\u7c7b\u578b\u3002的空实例。
+             * 创建统计类型。的空实例。
              */
             public GoodsStatisticsTypeDTO() {
             }
@@ -669,7 +669,7 @@ public class ItemMasterMessage {
         public static class DefaultPurchaseUnitDetails {
 
             /**
-             * 创建\u91c7\u8d2d\u5355\u4f4d\u3002的空实例。
+             * 创建采购单位。的空实例。
              */
             public DefaultPurchaseUnitDetails() {
             }
@@ -732,7 +732,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -761,7 +761,7 @@ public class ItemMasterMessage {
         public static class DefaultOrderUnitDetails {
 
             /**
-             * 创建\u8ba2\u8d27\u5355\u4f4d\u3002的空实例。
+             * 创建订货单位。的空实例。
              */
             public DefaultOrderUnitDetails() {
             }
@@ -824,7 +824,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -853,7 +853,7 @@ public class ItemMasterMessage {
         public static class DefaultStockUnitDetails {
 
             /**
-             * 创建\u5e93\u5b58\u5355\u4f4d\u3002的空实例。
+             * 创建库存单位。的空实例。
              */
             public DefaultStockUnitDetails() {
             }
@@ -916,7 +916,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -945,7 +945,7 @@ public class ItemMasterMessage {
         public static class DefaultCostUnitDetails {
 
             /**
-             * 创建\u6210\u672c\u5355\u4f4d\u3002的空实例。
+             * 创建成本单位。的空实例。
              */
             public DefaultCostUnitDetails() {
             }
@@ -1008,7 +1008,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -1037,7 +1037,7 @@ public class ItemMasterMessage {
         public static class CheckUnitListItem {
 
             /**
-             * 创建\u76d8\u70b9\u5355\u4f4d\u3002的空实例。
+             * 创建盘点单位。的空实例。
              */
             public CheckUnitListItem() {
             }
@@ -1100,7 +1100,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -1129,7 +1129,7 @@ public class ItemMasterMessage {
         public static class SupplementaryUnitDetails {
 
             /**
-             * 创建\u8f85\u52a9\u5355\u4f4d\u3002的空实例。
+             * 创建辅助单位。的空实例。
              */
             public SupplementaryUnitDetails() {
             }
@@ -1192,7 +1192,7 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
-                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 * 创建重量单位类型。的空实例。
                  */
                 public WeightUnitTypeDetails() {
                 }
@@ -1221,7 +1221,7 @@ public class ItemMasterMessage {
         public static class CanOrderDetails {
 
             /**
-             * 创建\u662f\u5426\u53ef\u8ba2\u8d27\u3002的空实例。
+             * 创建是否可订货。的空实例。
              */
             public CanOrderDetails() {
             }
@@ -1249,7 +1249,7 @@ public class ItemMasterMessage {
         public static class GoodsMultiSpecImageOpenDTO {
 
             /**
-             * 创建\u56fe\u7247Urls\u3002的空实例。
+             * 创建图片Urls。的空实例。
              */
             public GoodsMultiSpecImageOpenDTO() {
             }

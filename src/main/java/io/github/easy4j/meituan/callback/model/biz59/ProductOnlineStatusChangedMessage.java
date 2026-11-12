@@ -20,7 +20,7 @@ import lombok.Setter;
 public class ProductOnlineStatusChangedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5546\u54c1\u4e0a\u4e0b\u67b6\u72b6\u6001\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「商品上下架状态通知」回调的业务内容。的空实例。
      */
     public ProductOnlineStatusChangedMessage() {
     }

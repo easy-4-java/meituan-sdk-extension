@@ -19,7 +19,7 @@ import lombok.Setter;
 public class StaffTimeSlotInventoryQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u6279\u91cf\u67e5\u8be2\u5546\u5bb6\u56fa\u5b9a\u65f6\u95f4\u70b9\u670d\u52a1\u4eba\u5458\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「批量查询商家固定时间点服务人员库存」回调的业务响应。的空实例。
      */
     public StaffTimeSlotInventoryQueryResult() {
     }
@@ -41,7 +41,7 @@ public class StaffTimeSlotInventoryQueryResult {
     public static class BookStock {
 
         /**
-         * 创建\u5e93\u5b58\u7ed3\u679c\u8be6\u60c5 \u6ce8\uff1a\u7c7b\u578b\u4e3a\u5bf9\u8c61\u7c7b\u578b\uff0c\u8be6\u89c1\u6269\u5c55\u53c2\u6570BookStock\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建库存结果详情 注：类型为对象类型，详见扩展参数BookStock。必填。的空实例。
          */
         public BookStock() {
         }

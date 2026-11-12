@@ -18,7 +18,7 @@ import lombok.Setter;
 public class BrandOrderCancelResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u54c1\u724c\u63d0\u4f9b\u53d6\u6d88\u8ba2\u5355\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「品牌提供取消订单」回调的业务响应。的空实例。
      */
     public BrandOrderCancelResult() {
     }
@@ -49,7 +49,7 @@ public class BrandOrderCancelResult {
     public static class ConfirmParameters {
 
         /**
-         * 创建resultType ==2\uff08\u4e0d\u53ef\u53d6\u6d88\uff09\u7684\u65f6\u5019\u53ef\u4f20\uff0c3\uff08\u7acb\u523b\u63a5\u5355\uff09\u7684\u65f6\u5019\u5fc5\u4f20\uff0c\u4f20\u9012\u63a5\u5355\u53c2\u6570\u3002的空实例。
+         * 创建resultType ==2（不可取消）的时候可传，3（立刻接单）的时候必传，传递接单参数。的空实例。
          */
         public ConfirmParameters() {
         }

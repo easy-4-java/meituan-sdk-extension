@@ -18,7 +18,7 @@ import lombok.Setter;
 public class ReservationChangeResultResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u6539\u7ea6\u7ed3\u679c\u901a\u77e5\u4e09\u65b9\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「改约结果通知三方」回调的业务响应。的空实例。
      */
     public ReservationChangeResultResult() {
     }

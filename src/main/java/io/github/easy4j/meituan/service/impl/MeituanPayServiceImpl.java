@@ -352,8 +352,7 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeCreate(
-            ZcmopenpayApiDynamicQrcodeCreateRequest request, String tenantId) {
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeCreate(ZcmopenpayApiDynamicQrcodeCreateRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
@@ -361,8 +360,7 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeQuery(
-            ZcmopenpayApiDynamicQrcodeQueryRequest request, String tenantId) {
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeQuery(ZcmopenpayApiDynamicQrcodeQueryRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
@@ -370,8 +368,7 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefund(
-            ZcmopenpayApiDynamicQrcodeRefundRequest request, String tenantId) {
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefund(ZcmopenpayApiDynamicQrcodeRefundRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
@@ -379,8 +376,7 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefundQuery(
-            ZcmopenpayApiDynamicQrcodeRefundQueryRequest request, String tenantId) {
+    public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefundQuery(ZcmopenpayApiDynamicQrcodeRefundQueryRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 

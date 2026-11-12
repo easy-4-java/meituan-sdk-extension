@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class StaffTimeSlotInventoryQueryMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u6279\u91cf\u67e5\u8be2\u5546\u5bb6\u56fa\u5b9a\u65f6\u95f4\u70b9\u670d\u52a1\u4eba\u5458\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「批量查询商家固定时间点服务人员库存」回调的业务内容。的空实例。
      */
     public StaffTimeSlotInventoryQueryMessage() {
     }
@@ -71,7 +71,7 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class ServiceAddressDetails {
 
         /**
-         * 创建\u4e0a\u95e8\u670d\u52a1\u5730\u5740\u3002的空实例。
+         * 创建上门服务地址。的空实例。
          */
         public ServiceAddressDetails() {
         }
@@ -111,7 +111,7 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class BookTimeListItem {
 
         /**
-         * 创建\u9884\u7ea6\u65f6\u95f4\u5217\u8868 \u6ce8\uff1a\u7c7b\u578b\u4e3a\u5bf9\u8c61\u7c7b\u578b\uff0c\u8be6\u89c1\u6269\u5c55\u53c2\u6570book_time_list\u3002的空实例。
+         * 创建预约时间列表 注：类型为对象类型，详见扩展参数book_time_list。的空实例。
          */
         public BookTimeListItem() {
         }
@@ -141,7 +141,7 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class Product {
 
         /**
-         * 创建\u4e09\u65b9\u9879\u76ee\u4fe1\u606f\u3002的空实例。
+         * 创建三方项目信息。的空实例。
          */
         public Product() {
         }

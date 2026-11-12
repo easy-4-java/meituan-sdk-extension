@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class SupplyPaymentMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\uff08\u9884\uff09\u4ed8\u6b3e\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】（预）付款单消息」回调的业务内容。的空实例。
      */
     public SupplyPaymentMessage() {
     }
@@ -74,7 +74,7 @@ public class SupplyPaymentMessage {
     public static class PaymentOrderOpenDTO {
 
         /**
-         * 创建\u5165\u5e93\u5355\u4fe1\u606f\u3002的空实例。
+         * 创建入库单信息。的空实例。
          */
         public PaymentOrderOpenDTO() {
         }
@@ -113,7 +113,7 @@ public class SupplyPaymentMessage {
         public static class PaymentOrderOpenItemDTO {
 
             /**
-             * 创建\u5355\u636e\u57fa\u672c\u4fe1\u606f\u3002的空实例。
+             * 创建单据基本信息。的空实例。
              */
             public PaymentOrderOpenItemDTO() {
             }
@@ -254,7 +254,7 @@ public class SupplyPaymentMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u4ed8\u6b3e\u673a\u6784\u3002的空实例。
+                 * 创建付款机构。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -294,7 +294,7 @@ public class SupplyPaymentMessage {
             public static class SupplierOpenDTO {
 
                 /**
-                 * 创建\u4f9b\u8d27\u673a\u6784\u3002的空实例。
+                 * 创建供货机构。的空实例。
                  */
                 public SupplierOpenDTO() {
                 }
@@ -328,7 +328,7 @@ public class SupplyPaymentMessage {
             public static class SpecialPurposeDetails {
 
                 /**
-                 * 创建\u662f\u5426\u4e13\u6b3e\u4e13\u7528\u3002的空实例。
+                 * 创建是否专款专用。的空实例。
                  */
                 public SpecialPurposeDetails() {
                 }
@@ -356,7 +356,7 @@ public class SupplyPaymentMessage {
             public static class PaymentAttachmentOpenDTO {
 
                 /**
-                 * 创建\u9644\u4ef6\u3002的空实例。
+                 * 创建附件。的空实例。
                  */
                 public PaymentAttachmentOpenDTO() {
                 }
@@ -384,7 +384,7 @@ public class SupplyPaymentMessage {
             public static class OrderStatusDetails {
 
                 /**
-                 * 创建\u5355\u636e\u72b6\u6001\u3002的空实例。
+                 * 创建单据状态。的空实例。
                  */
                 public OrderStatusDetails() {
                 }
@@ -412,7 +412,7 @@ public class SupplyPaymentMessage {
             public static class VerifiedStatusDetails {
 
                 /**
-                 * 创建\u6838\u9500\u72b6\u6001\u3002的空实例。
+                 * 创建核销状态。的空实例。
                  */
                 public VerifiedStatusDetails() {
                 }
@@ -443,7 +443,7 @@ public class SupplyPaymentMessage {
         public static class PaymentOrderItemDetailOpenDTO {
 
             /**
-             * 创建\u5bf9\u8d26\u5355\u660e\u7ec6\uff08\u666e\u901a\u4ed8\u6b3e\uff09\u3002的空实例。
+             * 创建对账单明细（普通付款）。的空实例。
              */
             public PaymentOrderItemDetailOpenDTO() {
             }
@@ -554,7 +554,7 @@ public class SupplyPaymentMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u5bf9\u8d26\u673a\u6784\u3002的空实例。
+                 * 创建对账机构。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -594,7 +594,7 @@ public class SupplyPaymentMessage {
             public static class InvoiceOrderStatusDetails {
 
                 /**
-                 * 创建\u53d1\u7968\u72b6\u6001\u3002的空实例。
+                 * 创建发票状态。的空实例。
                  */
                 public InvoiceOrderStatusDetails() {
                 }
@@ -623,7 +623,7 @@ public class SupplyPaymentMessage {
         public static class PaymentOrderVerifyPlanOpenDTO {
 
             /**
-             * 创建\u5355\u636e\u660e\u7ec6\uff08\u9884\u4ed8\u6b3e\uff09\u3002的空实例。
+             * 创建单据明细（预付款）。的空实例。
              */
             public PaymentOrderVerifyPlanOpenDTO() {
             }
@@ -704,7 +704,7 @@ public class SupplyPaymentMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u673a\u6784\u3002的空实例。
+                 * 创建收货机构。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -745,7 +745,7 @@ public class SupplyPaymentMessage {
         public static class PaymentOrderGoodsDetailOpenDTO {
 
             /**
-             * 创建\u7269\u54c1\u660e\u7ec6\uff08\u9884\u4ed8\u6b3e\uff09\u3002的空实例。
+             * 创建物品明细（预付款）。的空实例。
              */
             public PaymentOrderGoodsDetailOpenDTO() {
             }
@@ -856,7 +856,7 @@ public class SupplyPaymentMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建\u91c7\u8d2d\u5355\u4f4d\u3002的空实例。
+                 * 创建采购单位。的空实例。
                  */
                 public UnitOpenDTO() {
                 }

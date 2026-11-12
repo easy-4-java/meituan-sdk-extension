@@ -21,7 +21,7 @@ import lombok.Setter;
 public class StoreDevicesQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u6307\u5b9a\u95e8\u5e97\u4e0b\u5168\u91cf\u8bbe\u5907\u4fe1\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「查询指定门店下全量设备信息」回调的业务响应。的空实例。
      */
     public StoreDevicesQueryResult() {
     }
@@ -115,7 +115,7 @@ public class StoreDevicesQueryResult {
     public static class DeviceStatusInfo {
 
         /**
-         * 创建\u72b6\u6001\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建状态信息。必填。的空实例。
          */
         public DeviceStatusInfo() {
         }
@@ -156,7 +156,7 @@ public class StoreDevicesQueryResult {
     public static class DeviceMaintenanceLog {
 
         /**
-         * 创建\u6700\u8fd1\u4e00\u6b21\u7ef4\u62a4\u65e5\u5fd7\u3002的空实例。
+         * 创建最近一次维护日志。的空实例。
          */
         public DeviceMaintenanceLog() {
         }
@@ -191,7 +191,7 @@ public class StoreDevicesQueryResult {
     public static class DevicePricingInfo {
 
         /**
-         * 创建\u8ba1\u8d39\u89c4\u5219\u3002的空实例。
+         * 创建计费规则。的空实例。
          */
         public DevicePricingInfo() {
         }
@@ -250,7 +250,7 @@ public class StoreDevicesQueryResult {
     public static class Attribute {
 
         /**
-         * 创建\u6269\u5c55\u4fe1\u606f\u5217\u8868\u3002的空实例。
+         * 创建扩展信息列表。的空实例。
          */
         public Attribute() {
         }

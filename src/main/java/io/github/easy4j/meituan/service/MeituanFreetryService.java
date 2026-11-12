@@ -28,8 +28,7 @@ public interface MeituanFreetryService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
-    default MeituanResponse<FreetryLoadActivityRestrictionResponse> loadActivityRestriction(
-            FreetryLoadActivityRestrictionRequest request, String tenantId) {
+    default MeituanResponse<FreetryLoadActivityRestrictionResponse> loadActivityRestriction(FreetryLoadActivityRestrictionRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -40,8 +39,7 @@ public interface MeituanFreetryService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
-    default MeituanResponse<FreetryLoadCouponResponse> loadCoupon(
-            FreetryLoadCouponRequest request, String tenantId) {
+    default MeituanResponse<FreetryLoadCouponResponse> loadCoupon(FreetryLoadCouponRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -52,8 +50,7 @@ public interface MeituanFreetryService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
-    default MeituanResponse<FreetryQueryPoiCouponResponse> queryPoiCoupon(
-            FreetryQueryPoiCouponRequest request, String tenantId) {
+    default MeituanResponse<FreetryQueryPoiCouponResponse> queryPoiCoupon(FreetryQueryPoiCouponRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -64,8 +61,7 @@ public interface MeituanFreetryService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
-    default MeituanResponse<FreetryVerifyCouponResponse> verifyCoupon(
-            FreetryVerifyCouponRequest request, String tenantId) {
+    default MeituanResponse<FreetryVerifyCouponResponse> verifyCoupon(FreetryVerifyCouponRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -76,8 +72,7 @@ public interface MeituanFreetryService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
-    default MeituanResponse<FreetryQueryActivitiesByPoiResponse> queryActivitiesByPoi(
-            FreetryQueryActivitiesByPoiRequest request, String tenantId) {
+    default MeituanResponse<FreetryQueryActivitiesByPoiResponse> queryActivitiesByPoi(FreetryQueryActivitiesByPoiRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -88,8 +83,7 @@ public interface MeituanFreetryService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应
      */
-    default MeituanResponse<FreetryPrepareVerifyResponse> prepareVerify(
-            FreetryPrepareVerifyRequest request, String tenantId) {
+    default MeituanResponse<FreetryPrepareVerifyResponse> prepareVerify(FreetryPrepareVerifyRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 }

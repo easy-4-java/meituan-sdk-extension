@@ -21,7 +21,7 @@ import lombok.Setter;
 public class StoreTransferOrderMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u95e8\u5e97\u8c03\u62e8\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】门店调拨单消息」回调的业务内容。的空实例。
      */
     public StoreTransferOrderMessage() {
     }
@@ -72,7 +72,7 @@ public class StoreTransferOrderMessage {
     public static class StockAllotOpenDTO {
 
         /**
-         * 创建\u4e1a\u52a1\u6570\u636e\u3002的空实例。
+         * 创建业务数据。的空实例。
          */
         public StockAllotOpenDTO() {
         }
@@ -225,7 +225,7 @@ public class StoreTransferOrderMessage {
         public static class OrgOpenDTO {
 
             /**
-             * 创建\u8c03\u51fa\u95e8\u5e97\u3002的空实例。
+             * 创建调出门店。的空实例。
              */
             public OrgOpenDTO() {
             }
@@ -265,7 +265,7 @@ public class StoreTransferOrderMessage {
         public static class WarehouseOpenDTO {
 
             /**
-             * 创建\u8c03\u51fa\u4ed3\u5e93\u3002的空实例。
+             * 创建调出仓库。的空实例。
              */
             public WarehouseOpenDTO() {
             }
@@ -299,7 +299,7 @@ public class StoreTransferOrderMessage {
         public static class AllotInOrgDetails {
 
             /**
-             * 创建\u8c03\u5165\u95e8\u5e97\u3002的空实例。
+             * 创建调入门店。的空实例。
              */
             public AllotInOrgDetails() {
             }
@@ -339,7 +339,7 @@ public class StoreTransferOrderMessage {
         public static class AllotInWarehouseDetails {
 
             /**
-             * 创建\u8c03\u5165\u4ed3\u5e93\u3002的空实例。
+             * 创建调入仓库。的空实例。
              */
             public AllotInWarehouseDetails() {
             }
@@ -373,7 +373,7 @@ public class StoreTransferOrderMessage {
         public static class ResponsiblePersonOpenDTO {
 
             /**
-             * 创建\u4e1a\u52a1\u5458\u3002的空实例。
+             * 创建业务员。的空实例。
              */
             public ResponsiblePersonOpenDTO() {
             }
@@ -430,7 +430,7 @@ public class StoreTransferOrderMessage {
             public static class UserOpenDTO {
 
                 /**
-                 * 创建\u7ed1\u5b9a\u5458\u5de5\u3002的空实例。
+                 * 创建绑定员工。的空实例。
                  */
                 public UserOpenDTO() {
                 }
@@ -488,7 +488,7 @@ public class StoreTransferOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u9002\u7528\u673a\u6784\u5217\u8868\u3002的空实例。
+                 * 创建适用机构列表。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -529,7 +529,7 @@ public class StoreTransferOrderMessage {
         public static class CreatedOrgDetails {
 
             /**
-             * 创建\u521b\u5efa\u673a\u6784\u3002的空实例。
+             * 创建创建机构。的空实例。
              */
             public CreatedOrgDetails() {
             }
@@ -569,7 +569,7 @@ public class StoreTransferOrderMessage {
         public static class UserOpenDTO {
 
             /**
-             * 创建\u521b\u5efa\u4eba\u3002的空实例。
+             * 创建创建人。的空实例。
              */
             public UserOpenDTO() {
             }
@@ -627,7 +627,7 @@ public class StoreTransferOrderMessage {
         public static class SubmitterDetails {
 
             /**
-             * 创建\u63d0\u4ea4\u4eba\u3002的空实例。
+             * 创建提交人。的空实例。
              */
             public SubmitterDetails() {
             }
@@ -685,7 +685,7 @@ public class StoreTransferOrderMessage {
         public static class AuditorDetails {
 
             /**
-             * 创建\u5ba1\u6838\u4eba\u3002的空实例。
+             * 创建审核人。的空实例。
              */
             public AuditorDetails() {
             }
@@ -743,7 +743,7 @@ public class StoreTransferOrderMessage {
         public static class DelivererDetails {
 
             /**
-             * 创建\u53d1\u8d27\u4eba\u3002的空实例。
+             * 创建发货人。的空实例。
              */
             public DelivererDetails() {
             }
@@ -801,7 +801,7 @@ public class StoreTransferOrderMessage {
         public static class StockAllotDetailOpenDTO {
 
             /**
-             * 创建\u660e\u7ec6\u4fe1\u606f\u3002的空实例。
+             * 创建明细信息。的空实例。
              */
             public StockAllotDetailOpenDTO() {
             }
@@ -936,7 +936,7 @@ public class StoreTransferOrderMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建\u7269\u54c1\u8be6\u60c5\u4fe1\u606f\u3002的空实例。
+                 * 创建物品详情信息。的空实例。
                  */
                 public GoodsOpenDTO() {
                 }
@@ -1011,7 +1011,7 @@ public class StoreTransferOrderMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                     * 创建基准单位。的空实例。
                      */
                     public UnitOpenDTO() {
                     }
@@ -1045,7 +1045,7 @@ public class StoreTransferOrderMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建\u5355\u4f4d\u4fe1\u606f\u3002的空实例。
+                     * 创建单位信息。的空实例。
                      */
                     public UnitsItem() {
                     }
@@ -1080,7 +1080,7 @@ public class StoreTransferOrderMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                 * 创建基准单位。的空实例。
                  */
                 public UnitOpenDTO() {
                 }
@@ -1114,7 +1114,7 @@ public class StoreTransferOrderMessage {
             public static class BizUnitDetails {
 
                 /**
-                 * 创建\u5e93\u5b58\u5355\u4f4d\u3002的空实例。
+                 * 创建库存单位。的空实例。
                  */
                 public BizUnitDetails() {
                 }
@@ -1148,7 +1148,7 @@ public class StoreTransferOrderMessage {
             public static class SupplementaryUnitDetails {
 
                 /**
-                 * 创建\u8f85\u52a9\u5355\u4f4d\u3002的空实例。
+                 * 创建辅助单位。的空实例。
                  */
                 public SupplementaryUnitDetails() {
                 }

@@ -20,7 +20,7 @@ import lombok.Setter;
 public class InventoryQueriedResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「查询库存」回调的业务响应。的空实例。
      */
     public InventoryQueriedResult() {
     }
@@ -48,7 +48,7 @@ public class InventoryQueriedResult {
     public static class StockSubject {
 
         /**
-         * 创建\u5e93\u5b58\u4e3b\u4f53\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建库存主体。必填。的空实例。
          */
         public StockSubject() {
         }
@@ -77,7 +77,7 @@ public class InventoryQueriedResult {
     public static class Stock {
 
         /**
-         * 创建\u5e93\u5b58\u5b9e\u4f8b\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建库存实例。必填。的空实例。
          */
         public Stock() {
         }
@@ -124,7 +124,7 @@ public class InventoryQueriedResult {
     public static class StandardStock {
 
         /**
-         * 创建\u6807\u51c6\u5e93\u5b58\u3002的空实例。
+         * 创建标准库存。的空实例。
          */
         public StandardStock() {
         }
@@ -147,7 +147,7 @@ public class InventoryQueriedResult {
     public static class PeriodStocks {
 
         /**
-         * 创建\u533a\u95f4\u5e93\u5b58\u3002的空实例。
+         * 创建区间库存。的空实例。
          */
         public PeriodStocks() {
         }
@@ -188,7 +188,7 @@ public class InventoryQueriedResult {
     public static class DailyStocks {
 
         /**
-         * 创建\u65e5\u671f\u5e93\u5b58\u3002的空实例。
+         * 创建日期库存。的空实例。
          */
         public DailyStocks() {
         }
@@ -217,7 +217,7 @@ public class InventoryQueriedResult {
     public static class DailyTimeStocks {
 
         /**
-         * 创建\u65e5\u65f6\u6bb5\u5e93\u5b58\u3002的空实例。
+         * 创建日时段库存。的空实例。
          */
         public DailyTimeStocks() {
         }
@@ -252,7 +252,7 @@ public class InventoryQueriedResult {
     public static class StockUnit {
 
         /**
-         * 创建\u5e93\u5b58\u5355\u5143\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建库存单元。必填。的空实例。
          */
         public StockUnit() {
         }
@@ -317,7 +317,7 @@ public class InventoryQueriedResult {
     public static class DateTimeRange {
 
         /**
-         * 创建\u65e5\u671f\u65f6\u95f4\u8303\u56f4\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建日期时间范围。必填。的空实例。
          */
         public DateTimeRange() {
         }
@@ -346,7 +346,7 @@ public class InventoryQueriedResult {
     public static class TimeRange {
 
         /**
-         * 创建\u65f6\u95f4\u8303\u56f4\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建时间范围。必填。的空实例。
          */
         public TimeRange() {
         }

@@ -20,7 +20,7 @@ import lombok.Setter;
 public class QueueTicketIssuedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u7528\u6237\u53d6\u53f7\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「用户取号」回调的业务内容。的空实例。
      */
     public QueueTicketIssuedMessage() {
     }

@@ -20,7 +20,7 @@ import lombok.Setter;
 public class JointMemberRegistrationMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u8054\u5408\u4f1a\u5458-\u6ce8\u518c\u4f1a\u5458\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「联合会员-注册会员」回调的业务内容。的空实例。
      */
     public JointMemberRegistrationMessage() {
     }

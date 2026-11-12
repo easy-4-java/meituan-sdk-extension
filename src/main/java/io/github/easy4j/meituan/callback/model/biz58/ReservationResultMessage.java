@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class ReservationResultMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u9884\u8ba2\u7ed3\u679c\u540c\u6b65\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「预订结果同步」回调的业务内容。的空实例。
      */
     public ReservationResultMessage() {
     }
@@ -211,7 +211,7 @@ public class ReservationResultMessage {
     public static class Product {
 
         /**
-         * 创建\u9884\u8ba2\u5546\u54c1\u4fe1\u606f(\u4e0d\u5305\u542b\u670d\u52a1\u9879\u76ee)\u3002的空实例。
+         * 创建预订商品信息(不包含服务项目)。的空实例。
          */
         public Product() {
         }
@@ -301,7 +301,7 @@ public class ReservationResultMessage {
     public static class OrderShoppromoDetails {
 
         /**
-         * 创建\u6240\u5728\u8ba2\u5355\u5546\u5bb6\u8425\u9500\u8be6\u60c5\u3002的空实例。
+         * 创建所在订单商家营销详情。的空实例。
          */
         public OrderShoppromoDetails() {
         }

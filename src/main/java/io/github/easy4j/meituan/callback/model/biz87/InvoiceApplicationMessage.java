@@ -20,7 +20,7 @@ import lombok.Setter;
 public class InvoiceApplicationMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5f00\u7968\u7533\u8bf7\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「开票申请接口」回调的业务内容。的空实例。
      */
     public InvoiceApplicationMessage() {
     }
@@ -101,7 +101,7 @@ public class InvoiceApplicationMessage {
     public static class BuyerInfo {
 
         /**
-         * 创建buyerInfo\u3002的空实例。
+         * 创建buyerInfo。的空实例。
          */
         public BuyerInfo() {
         }
@@ -159,7 +159,7 @@ public class InvoiceApplicationMessage {
     public static class RedInvoiceInfo {
 
         /**
-         * 创建redInvoiceInfo\u3002的空实例。
+         * 创建redInvoiceInfo。的空实例。
          */
         public RedInvoiceInfo() {
         }

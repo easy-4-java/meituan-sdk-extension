@@ -21,7 +21,7 @@ import lombok.Setter;
 public class MemberPriceQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u5546\u54c1\u4f1a\u5458\u4ef7\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「查询商品会员价」回调的业务响应。的空实例。
      */
     public MemberPriceQueryResult() {
     }
@@ -43,7 +43,7 @@ public class MemberPriceQueryResult {
     public static class MemberSku {
 
         /**
-         * 创建\u83dc\u54c1\u4f1a\u5458\u4ef7\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建菜品会员价信息。必填。的空实例。
          */
         public MemberSku() {
         }

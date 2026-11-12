@@ -30,8 +30,7 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应对象，data 为 POI 列表
      */
-    MeituanResponse<PageQueryTokenPoiListResponse> pageQueryTokenPoiList(
-            PageQueryTokenPoiListRequest request, String tenantId);
+    MeituanResponse<PageQueryTokenPoiListResponse> pageQueryTokenPoiList(PageQueryTokenPoiListRequest request, String tenantId);
 
     /**
      * 查询一批 POI 与开发商门店的绑定映射关系。
@@ -40,21 +39,19 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
      * @param tenantId 租户标识
      * @return 官方 SDK 响应对象，data 为映射信息
      */
-    MeituanResponse<QueryPoiMappingResponse> queryPoiMapping(
-            QueryPoiMappingRequest request, String tenantId);
+    MeituanResponse<QueryPoiMappingResponse> queryPoiMapping(QueryPoiMappingRequest request, String tenantId);
 
     /**
-     * \u67e5\u8be2\u901a\u7528\u63a5\u5355\u8ba2\u5355\u8be6\u60c5\u3002
+     * 查询通用接单订单详情。
      *
      * @param request 官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
-    MeituanResponse<?> orderQueryInfoByGeneralconnect(
-            OrderQueryInfoByGeneralconnectRequest request, String tenantId);
+    MeituanResponse<?> orderQueryInfoByGeneralconnect(OrderQueryInfoByGeneralconnectRequest request, String tenantId);
 
     /**
-     * \u5f02\u6b65\u56de\u4f20\u4f1a\u5458\u4fe1\u606f\u3002
+     * 异步回传会员信息。
      *
      * @param request 官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
@@ -63,7 +60,7 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
     MeituanResponse<?> memberInfoAsyncCallback(MemberInfoAsyncCallbackRequest request, String tenantId);
 
     /**
-     * \u67e5\u8be2\u5c0f\u7a0b\u5e8f\u652f\u4ed8\u8d26\u5355\u3002
+     * 查询小程序支付账单。
      *
      * @param request 官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
@@ -72,7 +69,7 @@ public interface MeituanDdzhkhAuthService extends MeituanService {
     MeituanResponse<?> searchPayInfoBill(SearchPayInfoBillRequest request, String tenantId);
 
     /**
-     * \u67e5\u8be2\u5c0f\u7a0b\u5e8f\u9000\u6b3e\u8d26\u5355\u3002
+     * 查询小程序退款账单。
      *
      * @param request 官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识

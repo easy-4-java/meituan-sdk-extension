@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness51OnlineOrderingApiCoverageTest {
 
     /**
-     * 创建\u5230\u5e97\u9910\u996e\u5728\u7ebf\u70b9\uff08businessId=51\uff09\u516c\u5f00 API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建到店餐饮在线点（businessId=51）公开 API 覆盖回归测试。的空实例。
      */
     MeituanBusiness51OnlineOrderingApiCoverageTest() {
     }

@@ -20,7 +20,7 @@ import lombok.Setter;
 public class MemberCouponDiscountReversedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u4f1a\u5458\u5238\u4f18\u60e0\u51b2\u6b63\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「会员券优惠冲正」回调的业务内容。的空实例。
      */
     public MemberCouponDiscountReversedMessage() {
     }

@@ -21,7 +21,7 @@ import lombok.Setter;
 public class ReverseOrderMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u9006\u5411\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「逆向单消息」回调的业务内容。的空实例。
      */
     public ReverseOrderMessage() {
     }
@@ -66,7 +66,7 @@ public class ReverseOrderMessage {
     public static class RefundOrderBase {
 
         /**
-         * 创建\u9000\u6b3e\u5355\u57fa\u672c\u4fe1\u606f\u3002的空实例。
+         * 创建退款单基本信息。的空实例。
          */
         public RefundOrderBase() {
         }
@@ -394,7 +394,7 @@ public class ReverseOrderMessage {
     public static class DiscountItem {
 
         /**
-         * 创建\u4f18\u60e0\u9879\u3002的空实例。
+         * 创建优惠项。的空实例。
          */
         public DiscountItem() {
         }
@@ -422,7 +422,7 @@ public class ReverseOrderMessage {
     public static class AttributeValue {
 
         /**
-         * 创建\u5c5e\u6027\u503c\u5217\u8868\u3002的空实例。
+         * 创建属性值列表。的空实例。
          */
         public AttributeValue() {
         }
@@ -522,7 +522,7 @@ public class ReverseOrderMessage {
     public static class ItemAttribute {
 
         /**
-         * 创建\u9000\u6b3e\u5546\u54c1\u5c5e\u6027\u5217\u8868\u3002的空实例。
+         * 创建退款商品属性列表。的空实例。
          */
         public ItemAttribute() {
         }
@@ -556,7 +556,7 @@ public class ReverseOrderMessage {
     public static class RefundItem {
 
         /**
-         * 创建\u9000\u6b3e\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+         * 创建退款商品信息。的空实例。
          */
         public RefundItem() {
         }
@@ -806,7 +806,7 @@ public class ReverseOrderMessage {
     public static class RefundPayment {
 
         /**
-         * 创建\u9000\u6b3e\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+         * 创建退款支付信息。的空实例。
          */
         public RefundPayment() {
         }
@@ -942,7 +942,7 @@ public class ReverseOrderMessage {
     public static class RefundDiscount {
 
         /**
-         * 创建\u9000\u6b3e\u5355\u6298\u6263\u4fe1\u606f\u3002的空实例。
+         * 创建退款单折扣信息。的空实例。
          */
         public RefundDiscount() {
         }
@@ -1078,7 +1078,7 @@ public class ReverseOrderMessage {
     public static class RefundServiceFee {
 
         /**
-         * 创建\u9000\u6b3e\u8d39\u7528\u4fe1\u606f\u3002的空实例。
+         * 创建退款费用信息。的空实例。
          */
         public RefundServiceFee() {
         }
