@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 > 美团开放平台的 Java 扩展 SDK：基于官方 `MtOpJavaSDK` 的多租户封装，提供类型化
 > 业务门面、租户感知的请求执行与 Spring Boot 自动装配。
@@ -61,7 +61,7 @@
 
 | 依赖 | 版本 |
 | :--- | :--- |
-| Java | 21+ |
+| Java | 17+ |
 | Spring Boot | 3.x |
 | 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`（专有发行物，见下） |
 | 构建 | Maven 3.9（已含 `./mvnw` wrapper） |

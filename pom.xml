@@ -139,13 +139,20 @@
     <!-- 项目依赖（dependencies） -->
     <dependencies>
         <dependency>
-            <groupId>cn.hutool</groupId><artifactId>hutool-extra</artifactId><version>${hutool.version}</version>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-extra</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
         <dependency>
-            <groupId>cn.hutool</groupId><artifactId>hutool-http</artifactId><version>${hutool.version}</version>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-http</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
         <dependency>
-            <groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId><version>6.0.0</version><scope>provided</scope>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>jakarta.validation</groupId>

@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 > Extension SDK for the Meituan Open Platform: a multi-tenant wrapper on top of the
 > official `MtOpJavaSDK` with typed business facades, tenant-aware request execution
@@ -66,8 +66,8 @@ What it is **not**:
 
 | Dependency | Version |
 | :--- | :--- |
-| Java | 21+ |
-| Spring Boot | 4.x (auto-configuration API is Boot 2.7+ compatible) |
+| Java | 17+ |
+| Spring Boot | 3.x |
 | Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112` (proprietary, see below) |
 | Build | Maven 3.9 (`./mvnw` wrapper included) |
 
