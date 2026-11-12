@@ -243,7 +243,7 @@ class CallbackUtilTest {
     /**
      * 按 UTF-8 将测试业务文本编码为表单参数。
      *
-     * @param value value
+     * @param value 待进行 UTF-8 表单编码的文本
      * @return 按 UTF-8 将测试业务文本编码为表单参数的结果
      */
     private static String encode(String value) {
