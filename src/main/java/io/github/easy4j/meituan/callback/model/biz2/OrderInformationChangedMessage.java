@@ -20,59 +20,51 @@ import lombok.Setter;
 public class OrderInformationChangedMessage {
 
     /**
-     * 创建美团「接收用户修改订单信息消息」回调的业务内容。的空实例。
-     */
-    public OrderInformationChangedMessage() {
-    }
-
-
-    /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 用户发起ETA修改申请时间。
      */
     @JsonProperty("uetaCtime")
     private Integer uetaCtime;
-
     /**
      * 申请修改的ETA时间。
      */
     @JsonProperty("uetaTime")
     private Integer uetaTime;
-
     /**
      * 截止时间（秒级时间戳），目前限制30分钟。
      */
     @JsonProperty("uetaExpire")
     private Integer uetaExpire;
-
     /**
      * eta修改结果状态。1.申请，2.通过，3.商家拒绝，4.超时未处理，5.订单完成或取消自动拒绝， 6.订单处于退款中自动拒绝，
-     *  7.商家点击平台原因拒绝（骑手已接单、骑手已到店、骑手已取餐、骑手已送达），8.商家点击平台原因拒绝（跑腿自动锁单状态），
+     * 7.商家点击平台原因拒绝（骑手已接单、骑手已到店、骑手已取餐、骑手已送达），8.商家点击平台原因拒绝（跑腿自动锁单状态），
      * 9.商家点击平台原因拒绝（专人直送）。
      */
     @JsonProperty("uetaStatus")
     private Integer uetaStatus;
-
     /**
      * 修改前订单流水号。
      */
     @JsonProperty("historyDaySeq")
     private Integer historyDaySeq;
-
     /**
      * 修改后订单流水号。
      */
     @JsonProperty("daySeq")
     private Integer daySeq;
-
     /**
      * 修改信息内容，1-修改预计送达时间、2-修改顾客信息（地址、姓名、电话）；修改地址时，可能会带着修改预计送达时一起修改，则接口返回1,2。
      */
     @JsonProperty("opType")
     private String opType;
+
+    /**
+     * 创建美团「接收用户修改订单信息消息」回调的业务内容。的空实例。
+     */
+    public OrderInformationChangedMessage() {
+    }
 }

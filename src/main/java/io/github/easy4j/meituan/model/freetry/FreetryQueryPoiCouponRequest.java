@@ -6,10 +6,10 @@ import com.meituan.sdk.MeituanRequest;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.annotations.ApiMeta;
 import com.meituan.sdk.internal.utils.JsonUtil;
-import lombok.Data;
-
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
 import java.lang.reflect.Type;
 
 /**
@@ -25,29 +25,36 @@ import java.lang.reflect.Type;
 )
 public class FreetryQueryPoiCouponRequest implements MeituanRequest<FreetryQueryPoiCouponResponse> {
 
-    /** 创建门店验券历史查询请求。 */
-    public FreetryQueryPoiCouponRequest() {
-    }
-
-    /** 查询日期，格式为 yyyy-MM-dd；不传时由平台采用默认范围。 */
+    /**
+     * 查询日期，格式为 yyyy-MM-dd；不传时由平台采用默认范围。
+     */
     @SerializedName("date")
     private String date;
-
-    /** 活动 ID；不传时查询门店全部活动。 */
+    /**
+     * 活动 ID；不传时查询门店全部活动。
+     */
     @SerializedName("activityId")
     private Long activityId;
-
-    /** 页码，从 1 开始。 */
+    /**
+     * 页码，从 1 开始。
+     */
     @NotNull(message = "page不能为空")
     @Min(value = 1, message = "page必须大于等于1")
     @SerializedName("page")
     private Integer page;
-
-    /** 每页数量。 */
+    /**
+     * 每页数量。
+     */
     @NotNull(message = "pageSize不能为空")
     @Min(value = 1, message = "pageSize必须大于等于1")
     @SerializedName("pageSize")
     private Integer pageSize;
+
+    /**
+     * 创建门店验券历史查询请求。
+     */
+    public FreetryQueryPoiCouponRequest() {
+    }
 
     /**
      * 将官方 JSON 响应反序列化为当前接口的业务类型。
@@ -57,7 +64,8 @@ public class FreetryQueryPoiCouponRequest implements MeituanRequest<FreetryQuery
      */
     @Override
     public MeituanResponse<FreetryQueryPoiCouponResponse> deserializeResponse(String response) {
-        Type type = new TypeToken<MeituanResponse<FreetryQueryPoiCouponResponse>>() { }.getType();
+        Type type = new TypeToken<MeituanResponse<FreetryQueryPoiCouponResponse>>() {
+        }.getType();
         return JsonUtil.fromJson(response, type);
     }
 

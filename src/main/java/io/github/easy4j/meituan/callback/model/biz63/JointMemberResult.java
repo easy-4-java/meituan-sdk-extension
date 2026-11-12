@@ -18,39 +18,34 @@ import lombok.Setter;
 public class JointMemberResult {
 
     /**
-     * 创建联合会员查询和注册返回的会员信息。的空实例。
-     */
-    public JointMemberResult() {
-    }
-
-
-    /**
      * 手机号。必填。
      */
     @JsonProperty("mobile")
     private String mobile;
-
     /**
      * 会员等级。必填。
      */
     @JsonProperty("level")
     private Integer level;
-
     /**
      * 积分。必填。
      */
     @JsonProperty("credit")
     private Integer credit;
-
     /**
      * 用户标识。必填。
      */
     @JsonProperty("userId")
     private String userId;
-
     /**
      * 商场或者门店标识。
      */
     @JsonProperty("poiId")
     private String poiId;
+
+    /**
+     * 创建联合会员查询和注册返回的会员信息。的空实例。
+     */
+    public JointMemberResult() {
+    }
 }

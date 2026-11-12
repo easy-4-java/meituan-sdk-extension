@@ -1,7 +1,5 @@
 package io.github.easy4j.meituan.debug;
 
-import org.junit.jupiter.api.Tag;
-
 import com.meituan.sdk.DefaultMeituanClient;
 import com.meituan.sdk.MeituanClient;
 import com.meituan.sdk.MeituanResponse;
@@ -11,6 +9,7 @@ import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptConsume.TuangouReceiptCo
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptPrepare.TuangouReceiptPrepareRequest;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptPrepare.TuangouReceiptPrepareResponse;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -55,40 +54,40 @@ import java.util.UUID;
 public class MeituanReceiptPrepareAndConsumeDebugTest {
 
     /**
-     * 创建美团购券准备 + 核销调试测试。的空实例。
+     * 本地联调使用的美团开发者编号。
      */
-    public MeituanReceiptPrepareAndConsumeDebugTest() {
-    }
+    private static final Long DEVELOPER_ID = 100000L;
 
 
     // ==================== 配置区 ====================
     // 替换为真实凭证
     /**
-     * 本地联调使用的美团开发者编号。
-     */
-    private static final Long DEVELOPER_ID   = 100000L;
-    /**
      * 本地联调使用的开发者签名密钥。
      */
-    private static final String SIGN_KEY      = "your-sign-key";
+    private static final String SIGN_KEY = "your-sign-key";
     /**
      * 本地联调使用的应用授权 token。
      */
     private static final String APP_AUTH_TOKEN = "xxxx";
-    // 要验券的券码（必填）
     /**
      * 本地联调使用的券码。
      */
-    private static final String RECEIPT_CODE  = "替换为真实券码";
-    // 操作员信息（仅记录用，不影响验券逻辑）
+    private static final String RECEIPT_CODE = "替换为真实券码";
+    // 要验券的券码（必填）
     /**
      * 本地联调使用的 ERP 标识。
      */
-    private static final String ERP_ID   = "admin";
+    private static final String ERP_ID = "admin";
+    // 操作员信息（仅记录用，不影响验券逻辑）
     /**
      * 本地联调使用的 ERP 名称。
      */
-    private static final String ERP_NAME  = "管理员";
+    private static final String ERP_NAME = "管理员";
+    /**
+     * 创建美团购券准备 + 核销调试测试。的空实例。
+     */
+    public MeituanReceiptPrepareAndConsumeDebugTest() {
+    }
     // ==================== 配置区结束 ====================
 
     /**
@@ -103,6 +102,7 @@ public class MeituanReceiptPrepareAndConsumeDebugTest {
 
     /**
      * 完整验券流程：prepare → consume。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -198,7 +198,7 @@ public class MeituanReceiptPrepareAndConsumeDebugTest {
     /**
      * 使用验券准备返回的请求标识发起正式验券。
      *
-     * @param client 为当前开发者创建的官方客户端
+     * @param client    为当前开发者创建的官方客户端
      * @param requestId 验券准备接口返回的请求标识
      */
     private void doConsume(MeituanClient client, String requestId) {

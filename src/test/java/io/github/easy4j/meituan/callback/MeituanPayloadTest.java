@@ -1,15 +1,15 @@
 package io.github.easy4j.meituan.callback;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import io.github.easy4j.meituan.callback.model.biz1000.MigrationCompletedMessage;
 import io.github.easy4j.meituan.callback.model.biz2.OrderCancelledMessage;
 import io.github.easy4j.meituan.callback.model.biz3.PaymentOrderMessage;
 import io.github.easy4j.meituan.callback.model.biz46.PoiInfoChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderCreatedMessage;
 import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage;
+import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderCreatedMessage;
 import org.junit.jupiter.api.Test;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import java.util.List;
 import java.util.Map;
@@ -30,6 +30,7 @@ class MeituanPayloadTest {
 
     /**
      * 验证独立映射器启用下划线策略后仍采用官网字段名称。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -51,6 +52,7 @@ class MeituanPayloadTest {
 
     /**
      * 验证会员标识反序列化后保留前导零。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -67,6 +69,7 @@ class MeituanPayloadTest {
 
     /**
      * 验证预订及编码需求字段被类型化，原始验签文本保持完整。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -84,6 +87,7 @@ class MeituanPayloadTest {
 
     /**
      * 验证消息模型按业务编号和消息编号共同选择。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -96,6 +100,7 @@ class MeituanPayloadTest {
 
     /**
      * 验证数组型消息可以直接映射为集合模型。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -111,6 +116,7 @@ class MeituanPayloadTest {
 
     /**
      * 验证历史表单协议可以读取且保留其验签参数。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -129,6 +135,7 @@ class MeituanPayloadTest {
 
     /**
      * 验证门店变更消息兼容官网对象和字符串两种形态。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

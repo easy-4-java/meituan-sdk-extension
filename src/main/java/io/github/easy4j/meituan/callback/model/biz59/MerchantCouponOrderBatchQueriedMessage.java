@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz59;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「商家券批量查询三方订单信息」回调的业务内容。
@@ -21,15 +22,15 @@ import lombok.Setter;
 public class MerchantCouponOrderBatchQueriedMessage {
 
     /**
-     * 创建美团「商家券批量查询三方订单信息」回调的业务内容。的空实例。
-     */
-    public MerchantCouponOrderBatchQueriedMessage() {
-    }
-
-
-    /**
      * 美团订单 ID 列表。必填。
      */
     @JsonProperty("orderIdList")
     private List<Long> orderIdList;
+
+
+    /**
+     * 创建美团「商家券批量查询三方订单信息」回调的业务内容。的空实例。
+     */
+    public MerchantCouponOrderBatchQueriedMessage() {
+    }
 }

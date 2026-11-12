@@ -23,13 +23,6 @@ import static org.mockito.Mockito.*;
 class MeituanPlatformServiceTest {
 
     /**
-     * 创建MeituanPlatformServiceTest的空实例。
-     */
-    MeituanPlatformServiceTest() {
-    }
-
-
-    /**
      * 创建测试客户端的工厂。
      */
     private final MeituanClientFactory factory = mock(MeituanClientFactory.class);
@@ -42,9 +35,15 @@ class MeituanPlatformServiceTest {
      */
     private final MeituanPlatformService service = new MeituanPlatformService(factory,
             new InMemoryMeituanTenantConfigStorage(Map.of("shop", tenant)));
+    /**
+     * 创建MeituanPlatformServiceTest的空实例。
+     */
+    MeituanPlatformServiceTest() {
+    }
 
     /**
      * 验证授权码换取与刷新 token 使用所选开发者客户端。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -62,6 +61,7 @@ class MeituanPlatformServiceTest {
 
     /**
      * 验证调用间超时隔离，并转发对应授权模式与参数。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

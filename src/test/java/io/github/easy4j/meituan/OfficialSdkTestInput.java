@@ -3,7 +3,9 @@ package io.github.easy4j.meituan;
 import java.io.File;
 import java.util.Objects;
 
-/** API 覆盖断言以固定原始 SDK 为清单基线，执行类仍来自当前扩展构件。 */
+/**
+ * API 覆盖断言以固定原始 SDK 为清单基线，执行类仍来自当前扩展构件。
+ */
 final class OfficialSdkTestInput {
     /**
      * 创建当前类的实例。

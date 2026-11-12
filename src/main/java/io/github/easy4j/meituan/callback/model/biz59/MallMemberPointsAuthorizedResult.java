@@ -18,15 +18,15 @@ import lombok.Setter;
 public class MallMemberPointsAuthorizedResult {
 
     /**
-     * 创建美团「商场会员无感积分授权通知」回调的业务响应。的空实例。
-     */
-    public MallMemberPointsAuthorizedResult() {
-    }
-
-
-    /**
      * 会员积分总数。支持小数(按double解析)。必填。
      */
     @JsonProperty("points")
     private String points;
+
+
+    /**
+     * 创建美团「商场会员无感积分授权通知」回调的业务响应。的空实例。
+     */
+    public MallMemberPointsAuthorizedResult() {
+    }
 }

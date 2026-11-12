@@ -2,11 +2,11 @@ package io.github.easy4j.meituan.callback.model.biz15;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.github.easy4j.meituan.callback.CallbackPayload;
 import io.github.easy4j.meituan.callback.EmbeddedJsonDeserializer;
 import lombok.Getter;
 import lombok.Setter;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * 美团「会员卡消息」回调的业务内容。
@@ -22,24 +22,22 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class MembershipCardEventMessage {
 
     /**
-     * 创建美团「会员卡消息」回调的业务内容。的空实例。
-     */
-    public MembershipCardEventMessage() {
-    }
-
-
-    /**
      * 事件类型。必填。
      */
     @JsonProperty("eventType")
     private String eventType;
-
     /**
      * 具体信息。必填。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
     @JsonProperty("eventDetail")
     private Detail eventDetail;
+
+    /**
+     * 创建美团「会员卡消息」回调的业务内容。的空实例。
+     */
+    public MembershipCardEventMessage() {
+    }
 
     /**
      * 具体信息。
@@ -50,28 +48,25 @@ public class MembershipCardEventMessage {
     public static class Detail {
 
         /**
-         * 创建具体信息。的空实例。
-         */
-        public Detail() {
-        }
-
-
-        /**
          * 会员卡号。必填。
          */
         @JsonProperty("cardNo")
         private String cardNo;
-
         /**
          * 用户 ID。必填。
          */
         @JsonProperty("userOpenId")
         private String userOpenId;
-
         /**
          * 平台。必填。
          */
         @JsonProperty("platformType")
         private String platformType;
+
+        /**
+         * 创建具体信息。的空实例。
+         */
+        public Detail() {
+        }
     }
 }

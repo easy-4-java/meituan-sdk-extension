@@ -14,21 +14,19 @@ import lombok.Setter;
 public class PayStatusDetails {
 
     /**
-     * 创建PayStatusDetails，用于【供应链】在线交易流水等回调的业务字段。的空实例。
-     */
-    public PayStatusDetails() {
-    }
-
-
-    /**
      * id。
      */
     @JsonProperty("id")
     private Integer id;
-
     /**
      * 描述。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建PayStatusDetails，用于【供应链】在线交易流水等回调的业务字段。的空实例。
+     */
+    public PayStatusDetails() {
+    }
 }

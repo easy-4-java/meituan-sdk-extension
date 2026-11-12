@@ -18,15 +18,15 @@ import lombok.Setter;
 public class ReservationRedemptionResult {
 
     /**
-     * 创建美团「预订核销同步」回调的业务响应。的空实例。
-     */
-    public ReservationRedemptionResult() {
-    }
-
-
-    /**
      * 订单ID。
      */
     @JsonProperty("orderId")
     private String orderId;
+
+
+    /**
+     * 创建美团「预订核销同步」回调的业务响应。的空实例。
+     */
+    public ReservationRedemptionResult() {
+    }
 }

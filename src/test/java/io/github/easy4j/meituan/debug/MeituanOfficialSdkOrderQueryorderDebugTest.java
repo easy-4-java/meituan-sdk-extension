@@ -1,13 +1,12 @@
 package io.github.easy4j.meituan.debug;
 
-import org.junit.jupiter.api.Tag;
-
 import com.meituan.sdk.DefaultMeituanClient;
 import com.meituan.sdk.MeituanClient;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.ddzhkh.dingdan.orderQueryorder.OrderQueryorderRequest;
 import com.meituan.sdk.model.ddzhkh.dingdan.orderQueryorder.OrderQueryorderResponse;
 import com.meituan.sdk.model.ddzhkh.dingdan.orderQueryorder.ResultSub;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -21,13 +20,6 @@ import java.util.Objects;
 public class MeituanOfficialSdkOrderQueryorderDebugTest {
 
     /**
-     * 创建官方 MtOpJavaSDK 原始调用调试。的空实例。
-     */
-    public MeituanOfficialSdkOrderQueryorderDebugTest() {
-    }
-
-
-    /**
      * 本地联调使用的美团开发者编号。
      */
     private static final Long DEVELOPER_ID = 100000L;
@@ -39,6 +31,11 @@ public class MeituanOfficialSdkOrderQueryorderDebugTest {
      * 本地联调使用的应用授权 token。
      */
     private static final String APP_AUTH_TOKEN = "xxxx";
+    /**
+     * 创建官方 MtOpJavaSDK 原始调用调试。的空实例。
+     */
+    public MeituanOfficialSdkOrderQueryorderDebugTest() {
+    }
 
     /**
      * 运行当前调试类的官方接口联调流程。
@@ -52,6 +49,7 @@ public class MeituanOfficialSdkOrderQueryorderDebugTest {
 
     /**
      * 按调试配置查询官方订单，并输出返回结果。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

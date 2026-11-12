@@ -20,21 +20,19 @@ import lombok.Setter;
 public class OrderDetailQueryMessage {
 
     /**
-     * 创建美团「订单详情查询」回调的业务内容。的空实例。
-     */
-    public OrderDetailQueryMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID （当由超时等原因不确定下单结果时，美团无法传商家订单号）。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
+
+    /**
+     * 创建美团「订单详情查询」回调的业务内容。的空实例。
+     */
+    public OrderDetailQueryMessage() {
+    }
 }

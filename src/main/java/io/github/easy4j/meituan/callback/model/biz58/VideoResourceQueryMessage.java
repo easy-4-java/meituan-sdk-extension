@@ -20,21 +20,19 @@ import lombok.Setter;
 public class VideoResourceQueryMessage {
 
     /**
-     * 创建美团「查询视频资源」回调的业务内容。的空实例。
-     */
-    public VideoResourceQueryMessage() {
-    }
-
-
-    /**
      * 美团门店 ID（混淆）。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
-
     /**
      * 用户手机号。必填。
      */
     @JsonProperty("phone")
     private String phone;
+
+    /**
+     * 创建美团「查询视频资源」回调的业务内容。的空实例。
+     */
+    public VideoResourceQueryMessage() {
+    }
 }

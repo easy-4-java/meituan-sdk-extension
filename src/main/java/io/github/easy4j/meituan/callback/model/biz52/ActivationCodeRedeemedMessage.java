@@ -20,27 +20,24 @@ import lombok.Setter;
 public class ActivationCodeRedeemedMessage {
 
     /**
-     * 创建美团「激活码核销的通知」回调的业务内容。的空实例。
-     */
-    public ActivationCodeRedeemedMessage() {
-    }
-
-
-    /**
      * 激活码。必填。
      */
     @JsonProperty("actCode")
     private String actCode;
-
     /**
      * 商户号，登录使用。必填。
      */
     @JsonProperty("tenantNo")
     private String tenantNo;
-
     /**
      * 激活状态，1未激活 2已激活。必填。
      */
     @JsonProperty("status")
     private Integer status;
+
+    /**
+     * 创建美团「激活码核销的通知」回调的业务内容。的空实例。
+     */
+    public ActivationCodeRedeemedMessage() {
+    }
 }

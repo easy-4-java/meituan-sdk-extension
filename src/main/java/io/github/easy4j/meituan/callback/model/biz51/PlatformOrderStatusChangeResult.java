@@ -18,21 +18,19 @@ import lombok.Setter;
 public class PlatformOrderStatusChangeResult {
 
     /**
-     * 创建美团「美团平台订单状态变更通知（必接）」回调的业务响应。的空实例。
-     */
-    public PlatformOrderStatusChangeResult() {
-    }
-
-
-    /**
      * 取消订单的业务处理码。
      */
     @JsonProperty("code")
     private Integer code;
-
     /**
      * 取消订单的处理结果说明。
      */
     @JsonProperty("reasonMessage")
     private String reasonMessage;
+
+    /**
+     * 创建美团「美团平台订单状态变更通知（必接）」回调的业务响应。的空实例。
+     */
+    public PlatformOrderStatusChangeResult() {
+    }
 }

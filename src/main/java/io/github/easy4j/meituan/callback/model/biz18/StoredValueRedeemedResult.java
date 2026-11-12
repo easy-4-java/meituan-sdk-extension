@@ -20,21 +20,19 @@ import lombok.Setter;
 public class StoredValueRedeemedResult {
 
     /**
-     * 创建美团「会员储值核销」回调的业务响应。的空实例。
-     */
-    public StoredValueRedeemedResult() {
-    }
-
-
-    /**
      * 储值账户核销金额（分）。必填。
      */
     @JsonProperty("changeRechargeAmount")
     private Long changeRechargeAmount;
-
     /**
      * 赠送账户核销金额（分）。必填。
      */
     @JsonProperty("changeGiftAmount")
     private Long changeGiftAmount;
+
+    /**
+     * 创建美团「会员储值核销」回调的业务响应。的空实例。
+     */
+    public StoredValueRedeemedResult() {
+    }
 }

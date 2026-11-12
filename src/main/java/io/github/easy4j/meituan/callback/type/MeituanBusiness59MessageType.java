@@ -2,47 +2,11 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.model.biz59.AvailableTechnicianQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.CallRecordsQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ClubActivityAuditResultMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ClubActivityParticipantsQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.DealGroupPublishedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.DealGroupRoomRelationResultMessage;
-import io.github.easy4j.meituan.callback.model.biz59.FulfillmentStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.GroupBuyProductChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.InventoryBatchQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.InventoryQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MallMemberPointsAuthorizedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MallPointsTransactionPushedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MemberLevelQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MemberUnregisteredMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponConsumedRefundNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponDegradedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponDynamicCodeMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponForcedRefundNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponIssueMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponOrderBatchQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz59.PaymentResultNotifiedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ProductOnlineStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ProductStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.RefundResultNotifiedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationCancelResultSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationCancelSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationCreateSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationModifyResultSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationOperationResultSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationUserModifiedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ShowEventStatusUpdatedMessage;
+import io.github.easy4j.meituan.callback.model.biz59.*;
 import lombok.Getter;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -234,9 +198,9 @@ public enum MeituanBusiness59MessageType implements MeituanMessageType {
     /**
      * 登记消息的名称、编号、官网文档和模型类型。
      *
-     * @param displayName 官网消息名称
-     * @param msgType 平台消息类型编号
-     * @param documentKey 官网文档标识或完整文档地址
+     * @param displayName  官网消息名称
+     * @param msgType      平台消息类型编号
+     * @param documentKey  官网文档标识或完整文档地址
      * @param messageClass 业务消息的反序列化目标类型
      */
     MeituanBusiness59MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
@@ -244,16 +208,6 @@ public enum MeituanBusiness59MessageType implements MeituanMessageType {
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
         this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
-    }
-
-    /**
-     * 返回此枚举所属的美团业务编号。
-     *
-     * @return 官方 businessId
-     */
-    @Override
-    public String getBusinessId() {
-        return BUSINESS_ID;
     }
 
     /**
@@ -280,5 +234,15 @@ public enum MeituanBusiness59MessageType implements MeituanMessageType {
             return Optional.empty();
         }
         return Optional.ofNullable(BY_MSG_TYPE.get(msgType));
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 }

@@ -12,19 +12,12 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-/** 泛型回调解析入口的行为与验签回归测试。 */
+/**
+ * 泛型回调解析入口的行为与验签回归测试。
+ */
 class CallbackUtilTest {
-
-    /**
-     * 创建泛型回调解析入口的行为与验签回归测试。的空实例。
-     */
-    CallbackUtilTest() {
-    }
-
 
     /**
      * 测试回调的公共查询参数。
@@ -34,9 +27,25 @@ class CallbackUtilTest {
      * 测试回调的业务 JSON 文本。
      */
     private static final String MESSAGE = " {\"opUserId\":\"user+1\",\"name\":\"张三 & 李四\",\"futureField\":true} ";
+    /**
+     * 创建泛型回调解析入口的行为与验签回归测试。的空实例。
+     */
+    CallbackUtilTest() {
+    }
+
+    /**
+     * 按 UTF-8 将测试业务文本编码为表单参数。
+     *
+     * @param value 待进行 UTF-8 表单编码的文本
+     * @return 按 UTF-8 将测试业务文本编码为表单参数的结果
+     */
+    private static String encode(String value) {
+        return URLEncoder.encode(value, StandardCharsets.UTF_8);
+    }
 
     /**
      * 验证表单可解析为指定消息模型，并保留原始验签参数。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -60,6 +69,7 @@ class CallbackUtilTest {
 
     /**
      * 验证 JSON 正文可解析且其参数优先于查询串。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -74,6 +84,7 @@ class CallbackUtilTest {
 
     /**
      * 验证入口接受已解码映射和已类型化的回调信封。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -90,6 +101,7 @@ class CallbackUtilTest {
 
     /**
      * 验证仅查询串输入及旧协议 param 信封。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -103,6 +115,7 @@ class CallbackUtilTest {
 
     /**
      * 验证嵌套 JSON 字符串和原始字符串消息均可读取。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -117,6 +130,7 @@ class CallbackUtilTest {
 
     /**
      * 验证表单请求直接读取容器参数且不再次读取正文。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -134,6 +148,7 @@ class CallbackUtilTest {
 
     /**
      * 验证 Servlet 的 JSON 正文和查询参数可以合并。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -149,6 +164,7 @@ class CallbackUtilTest {
 
     /**
      * 验证多值表单采用最后值，避免拼接破坏业务文本。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -167,6 +183,7 @@ class CallbackUtilTest {
 
     /**
      * 验证表单只解码一次，并保留同名参数的最后值用于验签。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -181,6 +198,7 @@ class CallbackUtilTest {
 
     /**
      * 验证格式错误、空内容和缺失的业务消息被拒绝。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -195,6 +213,7 @@ class CallbackUtilTest {
 
     /**
      * 验证对象信封可解析，数组型外层信封被拒绝。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -209,6 +228,7 @@ class CallbackUtilTest {
 
     /**
      * 验证 Servlet 读取失败会保留原始原因并包装为参数异常。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -222,6 +242,7 @@ class CallbackUtilTest {
 
     /**
      * 验证标准消息字段为空白时保留旧协议参数原文。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -232,7 +253,8 @@ class CallbackUtilTest {
         assertThat(callback.getMessage().opUserId()).isEqualTo("user+1");
     }
 
-    /** 使用 Java 对象传入回调信封。
+    /**
+     * 使用 Java 对象传入回调信封。
      *
      * @param msgType 测试消息编号
      * @param message 测试业务消息
@@ -241,27 +263,19 @@ class CallbackUtilTest {
     }
 
     /**
-     * 按 UTF-8 将测试业务文本编码为表单参数。
-     *
-     * @param value 待进行 UTF-8 表单编码的文本
-     * @return 按 UTF-8 将测试业务文本编码为表单参数的结果
-     */
-    private static String encode(String value) {
-        return URLEncoder.encode(value, StandardCharsets.UTF_8);
-    }
-
-    /** 创建会员消息的最小业务模型。
+     * 创建会员消息的最小业务模型。
      *
      * @param opUserId 测试用户开放标识
-     * @param name 测试会员姓名
+     * @param name     测试会员姓名
      */
     record Member(String opUserId, String name) {
     }
 
-    /** 预订消息保留协议中二次编码的 data 字符串。
+    /**
+     * 预订消息保留协议中二次编码的 data 字符串。
      *
      * @param ePoiId 测试门店标识
-     * @param data 保持字符串形式的预订明细
+     * @param data   保持字符串形式的预订明细
      */
     record Reservation(String ePoiId, String data) {
     }

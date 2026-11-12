@@ -20,33 +20,29 @@ import lombok.Setter;
 public class PosOrderRejectedMessage {
 
     /**
-     * 创建美团「POS接单-接单页商家手动拒绝接单」回调的业务内容。的空实例。
-     */
-    public PosOrderRejectedMessage() {
-    }
-
-
-    /**
      * 门店机构 ID。
      */
     @JsonProperty("orgId")
     private Integer orgId;
-
     /**
      * 美团订单 ID。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方订单 ID。
      */
     @JsonProperty("orderNo")
     private String orderNo;
-
     /**
      * 拒单原因。
      */
     @JsonProperty("reason")
     private String reason;
+
+    /**
+     * 创建美团「POS接单-接单页商家手动拒绝接单」回调的业务内容。的空实例。
+     */
+    public PosOrderRejectedMessage() {
+    }
 }

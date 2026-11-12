@@ -6,12 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.lang.reflect.Method;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -24,13 +19,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 不混入 16/16 的清单覆盖结论。</p>
  */
 class MeituanBusiness49QueueApiCoverageTest {
-
-    /**
-     * 创建到店餐饮排队清单（businessId=49）API 覆盖回归测试。的空实例。
-     */
-    MeituanBusiness49QueueApiCoverageTest() {
-    }
-
 
     /**
      * 排队业务的官方接口路径。
@@ -55,7 +43,6 @@ class MeituanBusiness49QueueApiCoverageTest {
             "/dcpd/queue/order/query",
             "/dcpd/queue/order/cancel/callback"
     );
-
     /**
      * 排队业务接口清单需要覆盖的路径。
      */
@@ -79,7 +66,14 @@ class MeituanBusiness49QueueApiCoverageTest {
     );
 
     /**
+     * 创建到店餐饮排队清单（businessId=49）API 覆盖回归测试。的空实例。
+     */
+    MeituanBusiness49QueueApiCoverageTest() {
+    }
+
+    /**
      * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -128,7 +122,7 @@ class MeituanBusiness49QueueApiCoverageTest {
     /**
      * 将当前业务的官方请求按接口路径加入覆盖检查索引。
      *
-     * @param entry 待检查的官方 SDK JAR 条目
+     * @param entry          待检查的官方 SDK JAR 条目
      * @param requestsByPath 以官方接口路径为键的请求类型索引
      */
     private void collectBusiness49Request(JarEntry entry, Map<String, Class<?>> requestsByPath) {

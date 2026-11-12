@@ -20,33 +20,29 @@ import lombok.Setter;
 public class PrintOrderMessage {
 
     /**
-     * 创建美团「指定打印机打印订单」回调的业务内容。的空实例。
-     */
-    public PrintOrderMessage() {
-    }
-
-
-    /**
      * 打印机服务商类型。
      */
     @JsonProperty("printerMerchantType")
     private Integer printerMerchantType;
-
     /**
      * 不同服务商设备唯一 ID（sn码），用于指定打印机器不同服务商设备唯一 ID（sn码），用于指定打印机器。必填。
      */
     @JsonProperty("deviceNumber")
     private String deviceNumber;
-
     /**
      * 预约单Id。必填。
      */
     @JsonProperty("bookingOrderId")
     private Long bookingOrderId;
-
     /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
     private String orderId;
+
+    /**
+     * 创建美团「指定打印机打印订单」回调的业务内容。的空实例。
+     */
+    public PrintOrderMessage() {
+    }
 }

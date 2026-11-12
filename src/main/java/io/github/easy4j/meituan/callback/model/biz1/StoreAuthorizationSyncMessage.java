@@ -20,27 +20,24 @@ import lombok.Setter;
 public class StoreAuthorizationSyncMessage {
 
     /**
-     * 创建美团「门店授权信息同步」回调的业务内容。的空实例。
-     */
-    public StoreAuthorizationSyncMessage() {
-    }
-
-
-    /**
      * 门店code。必填。
      */
     @JsonProperty("vendorShopId")
     private String vendorShopId;
-
     /**
      * 操作类型：1-门店授权。必填。
      */
     @JsonProperty("type")
     private Integer type;
-
     /**
      * yyyy-mm-dd hh:mm:ss。
      */
     @JsonProperty("time")
     private String time;
+
+    /**
+     * 创建美团「门店授权信息同步」回调的业务内容。的空实例。
+     */
+    public StoreAuthorizationSyncMessage() {
+    }
 }

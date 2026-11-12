@@ -18,15 +18,15 @@ import lombok.Setter;
 public class ReservationCancelledResult {
 
     /**
-     * 创建美团「取消预订」回调的业务响应。的空实例。
-     */
-    public ReservationCancelledResult() {
-    }
-
-
-    /**
      * 订单id。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
+
+
+    /**
+     * 创建美团「取消预订」回调的业务响应。的空实例。
+     */
+    public ReservationCancelledResult() {
+    }
 }

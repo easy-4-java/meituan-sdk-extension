@@ -20,27 +20,24 @@ import lombok.Setter;
 public class ClubActivityAuditResultMessage {
 
     /**
-     * 创建美团「俱乐部活动审核结果通知」回调的业务内容。的空实例。
-     */
-    public ClubActivityAuditResultMessage() {
-    }
-
-
-    /**
      * 三方平台活动 ID。必填。
      */
     @JsonProperty("activityId")
     private String activityId;
-
     /**
      * 是否审核通过。必填。
      */
     @JsonProperty("success")
     private Boolean success;
-
     /**
      * 不通过原因。
      */
     @JsonProperty("failReason")
     private String failReason;
+
+    /**
+     * 创建美团「俱乐部活动审核结果通知」回调的业务内容。的空实例。
+     */
+    public ClubActivityAuditResultMessage() {
+    }
 }

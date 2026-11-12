@@ -1,10 +1,8 @@
 package io.github.easy4j.meituan.callback.type;
 
-import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import io.github.easy4j.meituan.callback.CallbackUtil;
+import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import org.junit.jupiter.api.Test;
-
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,6 +20,7 @@ class MeituanBusiness15MessageTypeTest {
 
     /**
      * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -44,6 +43,7 @@ class MeituanBusiness15MessageTypeTest {
 
     /**
      * 验证标准回调信封可解析为会员卡事件。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -61,6 +61,7 @@ class MeituanBusiness15MessageTypeTest {
 
     /**
      * 验证旧版 invokeType 和 param 字段可以归一化读取。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -79,6 +80,7 @@ class MeituanBusiness15MessageTypeTest {
 
     /**
      * 验证标准字段与旧协议字段并存时优先使用标准字段。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -99,6 +101,7 @@ class MeituanBusiness15MessageTypeTest {
 
     /**
      * 验证未知消息编号仍可通过通用回调读取原文。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

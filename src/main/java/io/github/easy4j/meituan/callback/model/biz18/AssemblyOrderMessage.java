@@ -20,45 +20,39 @@ import lombok.Setter;
 public class AssemblyOrderMessage {
 
     /**
-     * 创建美团「【供应链】组合加工单消息」回调的业务内容。的空实例。
-     */
-    public AssemblyOrderMessage() {
-    }
-
-
-    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 推送事件Id。必填。
      */
     @JsonProperty("pushEventId")
     private String pushEventId;
-
     /**
      * 操作类型。必填。
      */
     @JsonProperty("opType")
     private Integer opType;
-
     /**
      * 消息时序Id。必填。
      */
     @JsonProperty("seqId")
     private Long seqId;
-
     /**
      * 大消息体标识。
      */
     @JsonProperty("largeMessageTag")
     private Boolean largeMessageTag;
-
     /**
      * 业务数据。必填。
      */
     @JsonProperty("bizData")
     private ProduceProcessDetailOpenDTO bizData;
+
+    /**
+     * 创建美团「【供应链】组合加工单消息」回调的业务内容。的空实例。
+     */
+    public AssemblyOrderMessage() {
+    }
 }

@@ -20,57 +20,49 @@ import lombok.Setter;
 public class OrderStatusMessage {
 
     /**
-     * 创建美团「订单状态回调消息」回调的业务内容。的空实例。
-     */
-    public OrderStatusMessage() {
-    }
-
-
-    /**
      * 美团配送内部订单 ID。必填。
      */
     @JsonProperty("pkgId")
     private Long pkgId;
-
     /**
      * 商家订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 原平台商家订单号。
      */
     @JsonProperty("orderSourceNo")
     private String orderSourceNo;
-
     /**
      * 订单状态。必填。
      */
     @JsonProperty("status")
     private Integer status;
-
     /**
      * 骑手姓名。
      */
     @JsonProperty("courierName")
     private String courierName;
-
     /**
      * 骑手手机号。
      */
     @JsonProperty("courierPhone")
     private String courierPhone;
-
     /**
      * 取消原因 ID。
      */
     @JsonProperty("cancelReasonId")
     private Integer cancelReasonId;
-
     /**
      * 取消原因。
      */
     @JsonProperty("cancelReason")
     private String cancelReason;
+
+    /**
+     * 创建美团「订单状态回调消息」回调的业务内容。的空实例。
+     */
+    public OrderStatusMessage() {
+    }
 }

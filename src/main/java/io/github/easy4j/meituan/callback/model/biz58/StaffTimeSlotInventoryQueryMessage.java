@@ -3,12 +3,13 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.github.easy4j.meituan.callback.CallbackPayload;
 import io.github.easy4j.meituan.callback.EmbeddedJsonDeserializer;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.util.List;
 
 /**
  * 美团「批量查询商家固定时间点服务人员库存」回调的业务内容。
@@ -24,43 +25,38 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class StaffTimeSlotInventoryQueryMessage {
 
     /**
-     * 创建美团「批量查询商家固定时间点服务人员库存」回调的业务内容。的空实例。
-     */
-    public StaffTimeSlotInventoryQueryMessage() {
-    }
-
-
-    /**
      * 上门服务地址。必填。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
     @JsonProperty("serviceAddress")
     private ServiceAddressDetails serviceAddress;
-
     /**
      * 优先服务人员 ID，在美团侧通过接口生成的服务人员 ID 无指定人员时为0。必填。
      */
     @JsonProperty("serviceTechId")
     private String serviceTechId;
-
     /**
      * 预约时间列表 注：类型为对象类型，详见扩展参数book_time_list。必填。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
     @JsonProperty("bookTimeList")
     private List<BookTimeListItem> bookTimeList;
-
     /**
      * 扩展字段。
      */
     @JsonProperty("extFields")
     private String extFields;
-
     /**
      * 三方项目信息。必填。
      */
     @JsonProperty("products")
     private Product products;
+
+    /**
+     * 创建美团「批量查询商家固定时间点服务人员库存」回调的业务内容。的空实例。
+     */
+    public StaffTimeSlotInventoryQueryMessage() {
+    }
 
     /**
      * 上门服务地址。
@@ -71,35 +67,31 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class ServiceAddressDetails {
 
         /**
-         * 创建上门服务地址。的空实例。
-         */
-        public ServiceAddressDetails() {
-        }
-
-
-        /**
          * 上门地址。必填。
          */
         @JsonProperty("address")
         private String address;
-
         /**
          * 地址备注。必填。
          */
         @JsonProperty("remark")
         private String remark;
-
         /**
          * 经纬度。必填。
          */
         @JsonProperty("longitude")
         private String longitude;
-
         /**
          * 经纬度。必填。
          */
         @JsonProperty("latitude")
         private String latitude;
+
+        /**
+         * 创建上门服务地址。的空实例。
+         */
+        public ServiceAddressDetails() {
+        }
     }
 
     /**
@@ -111,23 +103,21 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class BookTimeListItem {
 
         /**
-         * 创建预约时间列表 注：类型为对象类型，详见扩展参数book_time_list。的空实例。
-         */
-        public BookTimeListItem() {
-        }
-
-
-        /**
          * 开始时间点，格式如 2016-05-24 12:00 ，数据精确到分钟，只支持整点和半点。必填。
          */
         @JsonProperty("begin")
         private String begin;
-
         /**
          * 结束时间点，格式如 2016-05-24 12:00 ，数据精确到分钟，只支持整点和半点。
          */
         @JsonProperty("end")
         private String end;
+
+        /**
+         * 创建预约时间列表 注：类型为对象类型，详见扩展参数book_time_list。的空实例。
+         */
+        public BookTimeListItem() {
+        }
     }
 
     /**
@@ -141,28 +131,25 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class Product {
 
         /**
-         * 创建三方项目信息。的空实例。
-         */
-        public Product() {
-        }
-
-
-        /**
          * 三方的项目 ID。必填。
          */
         @JsonProperty("app_product_id")
         private String appProductId;
-
         /**
          * 三方sku_id。必填。
          */
         @JsonProperty("app_sku_id")
         private String appSkuId;
-
         /**
          * sku数量。必填。
          */
         @JsonProperty("sku_quantity")
         private String skuQuantity;
+
+        /**
+         * 创建三方项目信息。的空实例。
+         */
+        public Product() {
+        }
     }
 }

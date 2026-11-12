@@ -3,6 +3,7 @@
 
 ##二、引入方式
 下载jar包，添加到项目依赖中。SDK运行时需要依赖几个第三方库，如果您使用maven的话，直接添加以下依赖到pom.xml即可:
+
 ```xml
 <dependency>
     <groupId>com.google.code.gson</groupId>
@@ -30,11 +31,13 @@
     <version>1.7.25</version>
 </dependency>
 ```
+
 > 若您的项目中已包含上面的依赖，则忽略。
 
 ## 三、调用示例
 
-以接口[门店本地验券历史](https://developer.meituan.com/docs/api/tuangou-coupon-queryLocalListByDate) 为例， DK提供了类***CouponQueryLocalListByDateRequest***来封装请求，您调用此接口的代码可以参考：
+以接口[门店本地验券历史](https://developer.meituan.com/docs/api/tuangou-coupon-queryLocalListByDate) 为例， DK提供了类 *
+**CouponQueryLocalListByDateRequest***来封装请求，您调用此接口的代码可以参考：
 
 ```java
 Long developerId = 1111L;

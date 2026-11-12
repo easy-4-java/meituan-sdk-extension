@@ -20,33 +20,29 @@ import lombok.Setter;
 public class PreparationTimeAndQueueQueryResult {
 
     /**
-     * 创建美团「门店预计备餐时间和排队信息（必接）」回调的业务响应。的空实例。
-     */
-    public PreparationTimeAndQueueQueryResult() {
-    }
-
-
-    /**
      * 厂商门店id。必填。
      */
     @JsonProperty("app_poi_code")
     private String appPoiCode;
-
     /**
      * 预计等候最短时间(单位分钟）。必填。
      */
     @JsonProperty("predicatedMinMinutes")
     private Integer predicatedMinMinutes;
-
     /**
      * 预计等候最长时间(单位分钟）。必填。
      */
     @JsonProperty("predicatedMaxMinutes")
     private Integer predicatedMaxMinutes;
-
     /**
      * 预计等候杯数。
      */
     @JsonProperty("predicatedCount")
     private Integer predicatedCount;
+
+    /**
+     * 创建美团「门店预计备餐时间和排队信息（必接）」回调的业务响应。的空实例。
+     */
+    public PreparationTimeAndQueueQueryResult() {
+    }
 }

@@ -18,21 +18,19 @@ import lombok.Setter;
 public class RoomInformationQueryResult {
 
     /**
-     * 创建美团「查询三方房间信息」回调的业务响应。的空实例。
-     */
-    public RoomInformationQueryResult() {
-    }
-
-
-    /**
      * 房间ID。必填。
      */
     @JsonProperty("roomId")
     private String roomId;
-
     /**
      * 房间名称。必填。
      */
     @JsonProperty("roomName")
     private String roomName;
+
+    /**
+     * 创建美团「查询三方房间信息」回调的业务响应。的空实例。
+     */
+    public RoomInformationQueryResult() {
+    }
 }

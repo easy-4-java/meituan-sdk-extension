@@ -18,15 +18,15 @@ import lombok.Setter;
 public class ReservationUserModifiedResult {
 
     /**
-     * 创建美团「用户改约」回调的业务响应。的空实例。
-     */
-    public ReservationUserModifiedResult() {
-    }
-
-
-    /**
      * 处理结果。true/false。必填。
      */
     @JsonProperty("result")
     private String result;
+
+
+    /**
+     * 创建美团「用户改约」回调的业务响应。的空实例。
+     */
+    public ReservationUserModifiedResult() {
+    }
 }

@@ -6,11 +6,11 @@ import com.meituan.sdk.MeituanRequest;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.annotations.ApiMeta;
 import com.meituan.sdk.internal.utils.JsonUtil;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import java.lang.reflect.Type;
 
 /**
@@ -29,15 +29,19 @@ import java.lang.reflect.Type;
 )
 public class MeituanMemberClaimRequest implements MeituanRequest<MeituanMemberClaimResponse> {
 
-    /** 创建空的权益领取请求。 */
-    public MeituanMemberClaimRequest() {
-    }
-
-    /** 用户权益领取信息。 */
+    /**
+     * 用户权益领取信息。
+     */
     @Valid
     @NotNull(message = "userRightInfo不能为空")
     @SerializedName("userRightInfo")
     private MeituanMemberClaimUserRight userRightInfo;
+
+    /**
+     * 创建空的权益领取请求。
+     */
+    public MeituanMemberClaimRequest() {
+    }
 
     /**
      * 将官方 JSON 响应反序列化为当前接口的业务类型。
@@ -47,7 +51,8 @@ public class MeituanMemberClaimRequest implements MeituanRequest<MeituanMemberCl
      */
     @Override
     public MeituanResponse<MeituanMemberClaimResponse> deserializeResponse(String response) {
-        Type type = new TypeToken<MeituanResponse<MeituanMemberClaimResponse>>() { }.getType();
+        Type type = new TypeToken<MeituanResponse<MeituanMemberClaimResponse>>() {
+        }.getType();
         return JsonUtil.fromJson(response, type);
     }
 

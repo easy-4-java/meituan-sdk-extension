@@ -20,21 +20,19 @@ import lombok.Setter;
 public class JointMemberQueryMessage {
 
     /**
-     * 创建美团「联合会员-查询会员」回调的业务内容。的空实例。
-     */
-    public JointMemberQueryMessage() {
-    }
-
-
-    /**
      * 手机号。必填。
      */
     @JsonProperty("mobile")
     private String mobile;
-
     /**
      * 商场或者门店标识。
      */
     @JsonProperty("poiId")
     private String poiId;
+
+    /**
+     * 创建美团「联合会员-查询会员」回调的业务内容。的空实例。
+     */
+    public JointMemberQueryMessage() {
+    }
 }

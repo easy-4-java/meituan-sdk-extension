@@ -23,15 +23,15 @@ import lombok.Setter;
 public class VoucherPaymentEnabledMessage {
 
     /**
-     * 创建美团「开通代金券买单消息」回调的业务内容。的空实例。
-     */
-    public VoucherPaymentEnabledMessage() {
-    }
-
-
-    /**
      * 是否开通代金券买单，true开通false不开通。必填。
      */
     @JsonProperty("isOpen")
     private Boolean isOpen;
+
+
+    /**
+     * 创建美团「开通代金券买单消息」回调的业务内容。的空实例。
+     */
+    public VoucherPaymentEnabledMessage() {
+    }
 }

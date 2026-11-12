@@ -6,10 +6,10 @@ import com.meituan.sdk.MeituanRequest;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.annotations.ApiMeta;
 import com.meituan.sdk.internal.utils.JsonUtil;
-import lombok.Data;
-
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+
 import java.lang.reflect.Type;
 
 /**
@@ -25,22 +25,25 @@ import java.lang.reflect.Type;
 )
 public class FreetryVerifyCouponRequest implements MeituanRequest<FreetryVerifyCouponResponse> {
 
-    /** 创建执行验券请求。 */
-    public FreetryVerifyCouponRequest() {
-    }
-
-    /** 13 位券码。 */
+    /**
+     * 13 位券码。
+     */
     @NotNull(message = "couponCode不能为空")
     @Size(min = 13, max = 13, message = "couponCode长度必须为13")
     @SerializedName("couponCode")
     private String couponCode;
-
     /**
      * 幂等键。
      * <p>官方请求示例会随执行验券请求传递该字段，用于区分同一次业务操作的重复提交。</p>
      */
     @SerializedName("idempotent")
     private String idempotent;
+
+    /**
+     * 创建执行验券请求。
+     */
+    public FreetryVerifyCouponRequest() {
+    }
 
     /**
      * 将官方 JSON 响应反序列化为当前接口的业务类型。
@@ -50,7 +53,8 @@ public class FreetryVerifyCouponRequest implements MeituanRequest<FreetryVerifyC
      */
     @Override
     public MeituanResponse<FreetryVerifyCouponResponse> deserializeResponse(String response) {
-        Type type = new TypeToken<MeituanResponse<FreetryVerifyCouponResponse>>() { }.getType();
+        Type type = new TypeToken<MeituanResponse<FreetryVerifyCouponResponse>>() {
+        }.getType();
         return JsonUtil.fromJson(response, type);
     }
 

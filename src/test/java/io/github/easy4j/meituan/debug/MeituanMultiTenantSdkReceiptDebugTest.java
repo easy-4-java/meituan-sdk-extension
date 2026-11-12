@@ -1,12 +1,10 @@
 package io.github.easy4j.meituan.debug;
 
-import org.junit.jupiter.api.Tag;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.ReceiptQueryBaseResult;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.TuangouReceiptQuerylistbydateRequest;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.TuangouReceiptQuerylistbydateResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.easy4j.meituan.client.DefaultMeituanRequestExecutor;
 import io.github.easy4j.meituan.client.MeituanClientFactory;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
@@ -15,7 +13,7 @@ import io.github.easy4j.meituan.config.MeituanTenantConfig;
 import io.github.easy4j.meituan.service.MeituanRetailService;
 import io.github.easy4j.meituan.service.impl.MeituanRetailServiceImpl;
 import io.github.easy4j.meituan.tenant.InMemoryMeituanTenantConfigStorage;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -47,43 +45,43 @@ import java.util.Objects;
 public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
-     * 创建使用多租户 SDK 封装拉取美团验券记录。的空实例。
+     * 测试使用的租户标识。
      */
-    public MeituanMultiTenantSdkReceiptDebugTest() {
-    }
+    private static final String TENANT_ID = "debug-tenant";
 
 
     // ==================== 配置区 ====================
     /**
-     * 测试使用的租户标识。
-     */
-    private static final String TENANT_ID      = "debug-tenant";
-    /**
      * 本地联调使用的美团开发者编号。
      */
-    private static final Long DEVELOPER_ID     = 100000L;
+    private static final Long DEVELOPER_ID = 100000L;
     /**
      * 本地联调使用的开发者签名密钥。
      */
-    private static final String SIGN_KEY        = "your-sign-key";
+    private static final String SIGN_KEY = "your-sign-key";
     /**
      * 本地联调使用的应用授权 token。
      */
-    private static final String APP_AUTH_TOKEN  = "xxxx";
+    private static final String APP_AUTH_TOKEN = "xxxx";
     /**
      * 本地联调查询的业务日期。
      */
-    private static final String QUERY_DATE      = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+    private static final String QUERY_DATE = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
     /**
      * 本地联调每次请求的分页大小。
      */
-    private static final int PAGE_SIZE          = 300;
-    // ==================== 配置区结束 ====================
-
+    private static final int PAGE_SIZE = 300;
     /**
      * 处理业务 JSON 的线程安全映射器。
      */
     private static final ObjectMapper MAPPER = new ObjectMapper();
+    // ==================== 配置区结束 ====================
+
+    /**
+     * 创建使用多租户 SDK 封装拉取美团验券记录。的空实例。
+     */
+    public MeituanMultiTenantSdkReceiptDebugTest() {
+    }
 
     /**
      * 运行当前调试类的官方接口联调流程。
@@ -97,6 +95,7 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
      * 通过多租户 SDK 封装拉取验券记录。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -152,6 +151,7 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
      * 演示：将一条验券记录转为 JSON Map（模拟 MeituanOrderPullJobHandler 的处理流程）。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -224,6 +224,7 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
      * 解析订单号（与 MeituanOrderPullJobHandler.resolveOrderNo 一致）。
+     *
      * @param order 官方订单查询返回的单条订单明细
      * @return 与请求参数对应的处理结果
      */

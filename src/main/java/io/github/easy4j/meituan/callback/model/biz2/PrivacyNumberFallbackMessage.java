@@ -20,27 +20,24 @@ import lombok.Setter;
 public class PrivacyNumberFallbackMessage {
 
     /**
-     * 创建美团「隐私号-降级回调接口【必须】」回调的业务内容。的空实例。
-     */
-    public PrivacyNumberFallbackMessage() {
-    }
-
-
-    /**
      * 开发者 ID。
      */
     @JsonProperty("developerId")
     private String developerId;
-
     /**
      * 隐私号消息推送时间戳。
      */
     @JsonProperty("timestamp")
     private String timestamp;
-
     /**
      * 签名。
      */
     @JsonProperty("sign")
     private String sign;
+
+    /**
+     * 创建美团「隐私号-降级回调接口【必须】」回调的业务内容。的空实例。
+     */
+    public PrivacyNumberFallbackMessage() {
+    }
 }

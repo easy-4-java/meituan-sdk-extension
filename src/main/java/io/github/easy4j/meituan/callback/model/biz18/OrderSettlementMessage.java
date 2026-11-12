@@ -20,15 +20,15 @@ import lombok.Setter;
 public class OrderSettlementMessage {
 
     /**
-     * 创建美团「订单结算消息」回调的业务内容。的空实例。
-     */
-    public OrderSettlementMessage() {
-    }
-
-
-    /**
      * 已经同步的结账时间,时间戳（单位：毫秒） 代表POS将订单结账时间在该时间点之前的订单数据已经全部上传到云端。必填。
      */
     @JsonProperty("syncedCheckoutTime")
     private Long syncedCheckoutTime;
+
+
+    /**
+     * 创建美团「订单结算消息」回调的业务内容。的空实例。
+     */
+    public OrderSettlementMessage() {
+    }
 }

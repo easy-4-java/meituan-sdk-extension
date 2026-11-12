@@ -20,33 +20,29 @@ import lombok.Setter;
 public class MerchantCouponDegradedMessage {
 
     /**
-     * 创建美团「商家券降级消息推送」回调的业务内容。的空实例。
-     */
-    public MerchantCouponDegradedMessage() {
-    }
-
-
-    /**
      * 三方套餐 ID。必填。
      */
     @JsonProperty("appDealId")
     private String appDealId;
-
     /**
      * 套餐 ID。必填。
      */
     @JsonProperty("dealId")
     private Long dealId;
-
     /**
      * 团单 ID。必填。
      */
     @JsonProperty("dealGroupId")
     private Long dealGroupId;
-
     /**
      * 降级时间 {@code yyyy-MM-dd} hh:mm:ss。必填。
      */
     @JsonProperty("downgradeTime")
     private String downgradeTime;
+
+    /**
+     * 创建美团「商家券降级消息推送」回调的业务内容。的空实例。
+     */
+    public MerchantCouponDegradedMessage() {
+    }
 }

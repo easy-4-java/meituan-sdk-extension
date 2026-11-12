@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「配置消息」回调的业务内容。
@@ -21,35 +22,31 @@ import lombok.Setter;
 public class ConfigurationChangedMessage {
 
     /**
-     * 创建美团「配置消息」回调的业务内容。的空实例。
-     */
-    public ConfigurationChangedMessage() {
-    }
-
-
-    /**
      * 结算时间。
      */
     @JsonProperty("clearingTime")
     private Integer clearingTime;
-
     /**
      * 餐段信息。
      */
     @JsonProperty("mealInfos")
     private List<MealInfoTO> mealInfos;
-
     /**
      * 班次信息。
      */
     @JsonProperty("shiftInfos")
     private List<ShiftInfoTO> shiftInfos;
-
     /**
      * 营业时间。
      */
     @JsonProperty("openingHours")
     private OpeningHoursTO openingHours;
+
+    /**
+     * 创建美团「配置消息」回调的业务内容。的空实例。
+     */
+    public ConfigurationChangedMessage() {
+    }
 
     /**
      * 餐段信息。
@@ -60,35 +57,31 @@ public class ConfigurationChangedMessage {
     public static class MealInfoTO {
 
         /**
-         * 创建餐段信息。的空实例。
-         */
-        public MealInfoTO() {
-        }
-
-
-        /**
          * 餐段编号。必填。
          */
         @JsonProperty("mealNO")
         private Integer mealNO;
-
         /**
          * 餐段名称。必填。
          */
         @JsonProperty("mealName")
         private String mealName;
-
         /**
          * 餐段开始时间。必填。
          */
         @JsonProperty("startTime")
         private String startTime;
-
         /**
          * 餐段结束时间。必填。
          */
         @JsonProperty("endTime")
         private String endTime;
+
+        /**
+         * 创建餐段信息。的空实例。
+         */
+        public MealInfoTO() {
+        }
     }
 
     /**
@@ -100,35 +93,31 @@ public class ConfigurationChangedMessage {
     public static class ShiftInfoTO {
 
         /**
-         * 创建班次信息。的空实例。
-         */
-        public ShiftInfoTO() {
-        }
-
-
-        /**
          * 班次编号。必填。
          */
         @JsonProperty("shiftNO")
         private Integer shiftNO;
-
         /**
          * 班次名称。必填。
          */
         @JsonProperty("shiftName")
         private String shiftName;
-
         /**
          * 班次开始时间。必填。
          */
         @JsonProperty("startTime")
         private String startTime;
-
         /**
          * 班次结束时间。必填。
          */
         @JsonProperty("endTime")
         private String endTime;
+
+        /**
+         * 创建班次信息。的空实例。
+         */
+        public ShiftInfoTO() {
+        }
     }
 
     /**
@@ -140,22 +129,20 @@ public class ConfigurationChangedMessage {
     public static class OpeningHoursTO {
 
         /**
-         * 创建营业时间。的空实例。
-         */
-        public OpeningHoursTO() {
-        }
-
-
-        /**
          * 营业开始时间。必填。
          */
         @JsonProperty("startTime")
         private String startTime;
-
         /**
          * 营业结束时间。必填。
          */
         @JsonProperty("endTime")
         private String endTime;
+
+        /**
+         * 创建营业时间。的空实例。
+         */
+        public OpeningHoursTO() {
+        }
     }
 }

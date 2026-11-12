@@ -20,33 +20,29 @@ import lombok.Setter;
 public class MonthlyChargeQueryMessage {
 
     /**
-     * 创建美团「次月扣款查询」回调的业务内容。的空实例。
-     */
-    public MonthlyChargeQueryMessage() {
-    }
-
-
-    /**
      * 首单订单号。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 下月扣费期数。
      */
     @JsonProperty("nextMonth")
     private Integer nextMonth;
-
     /**
      * 下次消费日期，yyyy-MM-dd格式。
      */
     @JsonProperty("nextConsumeDate")
     private String nextConsumeDate;
-
     /**
      * 下月最多扣费金额，单位：分。
      */
     @JsonProperty("nextMaxPrice")
     private Long nextMaxPrice;
+
+    /**
+     * 创建美团「次月扣款查询」回调的业务内容。的空实例。
+     */
+    public MonthlyChargeQueryMessage() {
+    }
 }

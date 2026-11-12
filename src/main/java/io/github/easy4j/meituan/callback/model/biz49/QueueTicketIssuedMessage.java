@@ -20,39 +20,34 @@ import lombok.Setter;
 public class QueueTicketIssuedMessage {
 
     /**
-     * 创建美团「用户取号」回调的业务内容。的空实例。
-     */
-    public QueueTicketIssuedMessage() {
-    }
-
-
-    /**
      * 美团排队订单 ID。必填。
      */
     @JsonProperty("orderViewId")
     private String orderViewId;
-
     /**
      * 桌型 ID。必填。
      */
     @JsonProperty("tableTypeId")
     private Integer tableTypeId;
-
     /**
      * 人数。必填。
      */
     @JsonProperty("peopleCount")
     private Integer peopleCount;
-
     /**
      * 备注。
      */
     @JsonProperty("remark")
     private String remark;
-
     /**
      * 手机号(加密)。已加密，请通过合作中心获取解密密钥。
      */
     @JsonProperty("mobile")
     private String mobile;
+
+    /**
+     * 创建美团「用户取号」回调的业务内容。的空实例。
+     */
+    public QueueTicketIssuedMessage() {
+    }
 }

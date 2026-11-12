@@ -23,27 +23,24 @@ import lombok.Setter;
 public class DispatchEligibilityMessage {
 
     /**
-     * 创建美团「推送是否可发配送」回调的业务内容。的空实例。
-     */
-    public DispatchEligibilityMessage() {
-    }
-
-
-    /**
      * 订单 ID。必填。
      */
     @JsonProperty("order_id")
     private Long orderId;
-
     /**
      * 门店编码。必填。
      */
     @JsonProperty("app_poi_code")
     private String appPoiCode;
-
     /**
      * 美团跑腿订单聚合平台可发配送状态，当前返回值只有0，收到此推送时商家可对当前订单发起配送。 0：可发配送。必填。
      */
     @JsonProperty("delivery_available")
     private Integer deliveryAvailable;
+
+    /**
+     * 创建美团「推送是否可发配送」回调的业务内容。的空实例。
+     */
+    public DispatchEligibilityMessage() {
+    }
 }

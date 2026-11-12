@@ -18,15 +18,15 @@ import lombok.Setter;
 public class ClubActivityAuditResultResult {
 
     /**
-     * 创建美团「俱乐部活动审核结果通知」回调的业务响应。的空实例。
-     */
-    public ClubActivityAuditResultResult() {
-    }
-
-
-    /**
      * 是否成功接收。必填。
      */
     @JsonProperty("success")
     private Boolean success;
+
+
+    /**
+     * 创建美团「俱乐部活动审核结果通知」回调的业务响应。的空实例。
+     */
+    public ClubActivityAuditResultResult() {
+    }
 }

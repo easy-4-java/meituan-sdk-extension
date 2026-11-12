@@ -20,39 +20,34 @@ import lombok.Setter;
 public class OrderCancelledMessage {
 
     /**
-     * 创建美团「订单取消」回调的业务内容。的空实例。
-     */
-    public OrderCancelledMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID（当兜底给用户退款时，可能无商家订单号）。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 取消时间。必填。
      */
     @JsonProperty("cancelTime")
     private String cancelTime;
-
     /**
      * 取消类型，详情可见枚举。必填。
      */
     @JsonProperty("cancelType")
     private String cancelType;
-
     /**
      * 取消原因。
      */
     @JsonProperty("cancelReason")
     private String cancelReason;
+
+    /**
+     * 创建美团「订单取消」回调的业务内容。的空实例。
+     */
+    public OrderCancelledMessage() {
+    }
 }

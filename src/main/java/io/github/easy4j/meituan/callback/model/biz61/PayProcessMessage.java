@@ -20,59 +20,51 @@ import lombok.Setter;
 public class PayProcessMessage {
 
     /**
-     * 创建美团「PAY_PROCESS」回调的业务内容。的空实例。
-     */
-    public PayProcessMessage() {
-    }
-
-
-    /**
      * 唯一Key。
      */
     @JsonProperty("uniqueId")
     private String uniqueId;
-
     /**
      * 渠道编码。
      */
     @JsonProperty("channelId")
     private Integer channelId;
-
     /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
     private Long orderId;
-
     /**
      * 支付时间(ms)。
      */
     @JsonProperty("payTime")
     private Long payTime;
-
     /**
      * 20：支付处理失败 30：支付处理成功。
      */
     @JsonProperty("status")
     private Integer status;
-
     /**
      * 拓展信息。
      */
     @JsonProperty("orderExtend")
     private OrderExtendDTO orderExtend;
-
     /**
      * 支付金额(分)。
      */
     @JsonProperty("payAmount")
     private Long payAmount;
-
     /**
      * 卷详情。
      */
     @JsonProperty("receiptDetail")
     private ReceiptDetailDto receiptDetail;
+
+    /**
+     * 创建美团「PAY_PROCESS」回调的业务内容。的空实例。
+     */
+    public PayProcessMessage() {
+    }
 
     /**
      * 卷详情。
@@ -83,23 +75,21 @@ public class PayProcessMessage {
     public static class ReceiptDetailDto {
 
         /**
-         * 创建卷详情。的空实例。
-         */
-        public ReceiptDetailDto() {
-        }
-
-
-        /**
          * 券码类型 1：1码1验 2：1码多验 3：无需券码。
          */
         @JsonProperty("receiptType")
         private Integer receiptType;
-
         /**
          * 券码信息。
          */
         @JsonProperty("receipts")
         private ReceiptDto receipts;
+
+        /**
+         * 创建卷详情。的空实例。
+         */
+        public ReceiptDetailDto() {
+        }
 
         /**
          * 券码信息。
@@ -110,35 +100,31 @@ public class PayProcessMessage {
         public static class ReceiptDto {
 
             /**
-             * 创建券码信息。的空实例。
-             */
-            public ReceiptDto() {
-            }
-
-
-            /**
              * 券 ID。
              */
             @JsonProperty("id")
             private Long id;
-
             /**
              * 总数。
              */
             @JsonProperty("totalQuantity")
             private Integer totalQuantity;
-
             /**
              * 实付金额(分)。
              */
             @JsonProperty("payAmount")
             private Long payAmount;
-
             /**
              * 应付金额(分)。
              */
             @JsonProperty("totalAmount")
             private Long totalAmount;
+
+            /**
+             * 创建券码信息。的空实例。
+             */
+            public ReceiptDto() {
+            }
         }
     }
 }

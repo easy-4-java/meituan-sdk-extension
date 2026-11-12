@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz58;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「查询指定门店资源库存」回调的业务响应。
@@ -19,41 +20,36 @@ import lombok.Setter;
 public class StoreResourceInventoryQueryResult {
 
     /**
-     * 创建美团「查询指定门店资源库存」回调的业务响应。的空实例。
-     */
-    public StoreResourceInventoryQueryResult() {
-    }
-
-
-    /**
      * 三方门店id。必填。
      */
     @JsonProperty("thirdPartPoiId")
     private Long thirdPartPoiId;
-
     /**
      * 美团门店id（混淆）。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
-
     /**
      * 当前门店球桌总数。必填。
      */
     @JsonProperty("totalBallTableNum")
     private Integer totalBallTableNum;
-
     /**
      * 当前门店可用球桌数。必填。
      */
     @JsonProperty("availableBallTableNum")
     private Integer availableBallTableNum;
-
     /**
      * 桌信息列表。必填。
      */
     @JsonProperty("ballTableInfoBOS")
     private List<BallTableInfoBO> ballTableInfoBOS;
+
+    /**
+     * 创建美团「查询指定门店资源库存」回调的业务响应。的空实例。
+     */
+    public StoreResourceInventoryQueryResult() {
+    }
 
     /**
      * 桌信息列表。必填。
@@ -65,34 +61,30 @@ public class StoreResourceInventoryQueryResult {
     public static class BallTableInfoBO {
 
         /**
-         * 创建桌信息列表。必填。的空实例。
-         */
-        public BallTableInfoBO() {
-        }
-
-
-        /**
          * 球桌id。必填。
          */
         @JsonProperty("id")
         private Long id;
-
         /**
          * 球桌名称。必填。
          */
         @JsonProperty("name")
         private String name;
-
         /**
          * 球桌状态：1-空闲、2-占用、3-清理、4-维修。必填。
          */
         @JsonProperty("status")
         private Integer status;
-
         /**
          * 秒级时间戳。必填。
          */
         @JsonProperty("endTime")
         private Long endTime;
+
+        /**
+         * 创建桌信息列表。必填。的空实例。
+         */
+        public BallTableInfoBO() {
+        }
     }
 }

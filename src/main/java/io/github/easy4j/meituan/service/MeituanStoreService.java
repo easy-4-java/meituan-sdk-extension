@@ -11,6 +11,7 @@ import com.meituan.sdk.model.solution2.csaccount.dcQueryMopTuangouDetail.DcQuery
 import com.meituan.sdk.model.solution2.csaccount.dcQueryMopTuangouDetail.DcQueryMopTuangouDetailResponse;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetail.DcSrcollQueryTradeProfitDetailRequest;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetailForOppoiid.DcSrcollQueryTradeProfitDetailForOppoiidRequest;
+import com.meituan.sdk.model.solution2.csaccount.scrollQueryNonTradeProfitDetail.ScrollQueryNonTradeProfitDetailRequest;
 import com.meituan.sdk.model.solution2.dcpoidinfo.dcPageQueryTokenPoiList.DcPageQueryTokenPoiListRequest;
 import com.meituan.sdk.model.solution2.mtcompany.invoiceResultCallback.InvoiceResultCallbackRequest;
 import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceClose.ManageInvoiceCloseRequest;
@@ -18,7 +19,6 @@ import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceClose.ManageInvoic
 import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceOpen.ManageInvoiceOpenRequest;
 import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceOpen.ManageInvoiceOpenResponse;
 import com.meituan.sdk.model.solution2.mtcompany.wechatOrderSqtInfoBatchQuery.WechatOrderSqtInfoBatchQueryRequest;
-import com.meituan.sdk.model.solution2.csaccount.scrollQueryNonTradeProfitDetail.ScrollQueryNonTradeProfitDetailRequest;
 
 /**
  * 门店基础信息直连业务能力门面。
@@ -105,6 +105,7 @@ public interface MeituanStoreService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> wechatOrderSqtInfoBatchQuery(WechatOrderSqtInfoBatchQueryRequest request, String tenantId);
+
     /**
      * 游标查询非交易结算流水。
      * <p>官方接口：{@code /solution2/csaccount/scrollQueryNonTradeProfitDetail}，API：{@code scroll_query_non_trade_profit_detail}，版本：{@code 10009}，businessId：{@code 86}，需要授权：{@code true}。</p>
@@ -118,7 +119,7 @@ public interface MeituanStoreService extends MeituanService {
     /**
      * 分页查询门店信息。接口路径为 {@code /mendianzhilian/test/map/poi/page/search}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -127,7 +128,7 @@ public interface MeituanStoreService extends MeituanService {
     /**
      * 秒提团购对账接口。接口路径为 {@code /solution2/csaccount/queryMopCouponBill}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -136,7 +137,7 @@ public interface MeituanStoreService extends MeituanService {
     /**
      * 发票结果通知回调。接口路径为 {@code /solution2/mtcompany/invoice/result/callback}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -145,7 +146,7 @@ public interface MeituanStoreService extends MeituanService {
     /**
      * 关闭直连开票服务。接口路径为 {@code /solution2/mtcompany/manage/invoice/close}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -154,7 +155,7 @@ public interface MeituanStoreService extends MeituanService {
     /**
      * 开通直连开票服务。接口路径为 {@code /solution2/mtcompany/manage/invoice/open}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */

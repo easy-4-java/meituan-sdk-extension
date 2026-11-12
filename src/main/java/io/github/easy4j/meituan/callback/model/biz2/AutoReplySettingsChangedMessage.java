@@ -2,11 +2,11 @@ package io.github.easy4j.meituan.callback.model.biz2;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.github.easy4j.meituan.callback.CallbackPayload;
 import io.github.easy4j.meituan.callback.EmbeddedJsonDeserializer;
 import lombok.Getter;
 import lombok.Setter;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * 美团「接收门店智能回复机器人开关变更消息」回调的业务内容。
@@ -22,24 +22,22 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class AutoReplySettingsChangedMessage {
 
     /**
-     * 创建美团「接收门店智能回复机器人开关变更消息」回调的业务内容。的空实例。
-     */
-    public AutoReplySettingsChangedMessage() {
-    }
-
-
-    /**
      * 推送的方法。
      */
     @JsonProperty("method")
     private String method;
-
     /**
      * 业务内容。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
     @JsonProperty("bizContent")
     private BizContent bizContent;
+
+    /**
+     * 创建美团「接收门店智能回复机器人开关变更消息」回调的业务内容。的空实例。
+     */
+    public AutoReplySettingsChangedMessage() {
+    }
 
     /**
      * bizContent。
@@ -50,34 +48,30 @@ public class AutoReplySettingsChangedMessage {
     public static class BizContent {
 
         /**
-         * 创建bizContent。的空实例。
-         */
-        public BizContent() {
-        }
-
-
-        /**
          * 开关类型。与查询接口type一致。
          */
         @JsonProperty("switchType")
         private Integer switchType;
-
         /**
          * 原开关状态。0关闭，1开启。
          */
         @JsonProperty("oldStatus")
         private Integer oldStatus;
-
         /**
          * 更新后的开关状态。0关闭，1开启。
          */
         @JsonProperty("newStatus")
         private Integer newStatus;
-
         /**
          * 变更时间戳。
          */
         @JsonProperty("utime")
         private Long utime;
+
+        /**
+         * 创建bizContent。的空实例。
+         */
+        public BizContent() {
+        }
     }
 }

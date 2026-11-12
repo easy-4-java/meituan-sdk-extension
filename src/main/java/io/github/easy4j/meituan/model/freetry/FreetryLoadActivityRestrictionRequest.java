@@ -6,9 +6,9 @@ import com.meituan.sdk.MeituanRequest;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.annotations.ApiMeta;
 import com.meituan.sdk.internal.utils.JsonUtil;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import jakarta.validation.constraints.NotNull;
 import java.lang.reflect.Type;
 
 /**
@@ -25,14 +25,18 @@ import java.lang.reflect.Type;
 public class FreetryLoadActivityRestrictionRequest
         implements MeituanRequest<FreetryLoadActivityRestrictionResponse> {
 
-    /** 创建查询活动限制请求。 */
-    public FreetryLoadActivityRestrictionRequest() {
-    }
-
-    /** 活动 ID。 */
+    /**
+     * 活动 ID。
+     */
     @NotNull(message = "activityId不能为空")
     @SerializedName("activityId")
     private Long activityId;
+
+    /**
+     * 创建查询活动限制请求。
+     */
+    public FreetryLoadActivityRestrictionRequest() {
+    }
 
     /**
      * 将官方 JSON 响应反序列化为当前接口的业务类型。
@@ -42,7 +46,8 @@ public class FreetryLoadActivityRestrictionRequest
      */
     @Override
     public MeituanResponse<FreetryLoadActivityRestrictionResponse> deserializeResponse(String response) {
-        Type type = new TypeToken<MeituanResponse<FreetryLoadActivityRestrictionResponse>>() { }.getType();
+        Type type = new TypeToken<MeituanResponse<FreetryLoadActivityRestrictionResponse>>() {
+        }.getType();
         return JsonUtil.fromJson(response, type);
     }
 

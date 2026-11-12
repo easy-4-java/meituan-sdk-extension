@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「桌台区域变更通知」回调的业务内容。
@@ -21,29 +22,26 @@ import lombok.Setter;
 public class TableAreaChangedMessage {
 
     /**
-     * 创建美团「桌台区域变更通知」回调的业务内容。的空实例。
-     */
-    public TableAreaChangedMessage() {
-    }
-
-
-    /**
      * 门店组织 ID。必填。
      */
     @JsonProperty("orgId")
     private Integer orgId;
-
     /**
      * 操作类型 1-创建，2-删除，3-修改。必填。
      */
     @JsonProperty("operateType")
     private Integer operateType;
-
     /**
      * 变更区域详情。必填。
      */
     @JsonProperty("tableAreas")
     private List<TableAreaInfo> tableAreas;
+
+    /**
+     * 创建美团「桌台区域变更通知」回调的业务内容。的空实例。
+     */
+    public TableAreaChangedMessage() {
+    }
 
     /**
      * 变更区域详情。
@@ -54,22 +52,20 @@ public class TableAreaChangedMessage {
     public static class TableAreaInfo {
 
         /**
-         * 创建变更区域详情。的空实例。
-         */
-        public TableAreaInfo() {
-        }
-
-
-        /**
          * 区域 ID。必填。
          */
         @JsonProperty("areaId")
         private Integer areaId;
-
         /**
          * 名称。必填。
          */
         @JsonProperty("name")
         private String name;
+
+        /**
+         * 创建变更区域详情。的空实例。
+         */
+        public TableAreaInfo() {
+        }
     }
 }

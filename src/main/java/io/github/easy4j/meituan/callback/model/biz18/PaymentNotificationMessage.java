@@ -23,63 +23,54 @@ import lombok.Setter;
 public class PaymentNotificationMessage {
 
     /**
-     * 创建美团「支付回调消息」回调的业务内容。的空实例。
-     */
-    public PaymentNotificationMessage() {
-    }
-
-
-    /**
      * 组织机构 ID。必填。
      */
     @JsonProperty("orgId")
     private Integer orgId;
-
     /**
      * 支付流水号。必填。
      */
     @JsonProperty("tradeno")
     private Long tradeno;
-
     /**
      * 支付金额。必填。
      */
     @JsonProperty("totalFee")
     private Integer totalFee;
-
     /**
      * 支付状态。2：支付成功 3：支付失败 13：交易全退 14：支付关单 16：交易半退。必填。
      */
     @JsonProperty("payStatus")
     private Integer payStatus;
-
     /**
      * 对外订单编号，外部订单号。
      */
     @JsonProperty("outOrderId")
     private String outOrderId;
-
     /**
      * 交易时间，支付成功的时间。必填。
      */
     @JsonProperty("payTime")
     private String payTime;
-
     /**
      * 渠道单号，支付宝微信的支付单号。
      */
     @JsonProperty("pTradeno")
     private String pTradeno;
-
     /**
      * 用户信息，支付宝微信的用户 ID。必填。
      */
     @JsonProperty("openId")
     private String openId;
-
     /**
      * 渠道优惠信息，channelSettleDiscount 平台支付优惠 channelDiscountAmount 商家支付优惠。
      */
     @JsonProperty("discountDetailBO")
     private String discountDetailBO;
+
+    /**
+     * 创建美团「支付回调消息」回调的业务内容。的空实例。
+     */
+    public PaymentNotificationMessage() {
+    }
 }

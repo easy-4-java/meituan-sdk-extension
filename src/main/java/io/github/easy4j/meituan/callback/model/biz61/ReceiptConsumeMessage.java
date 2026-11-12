@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz61;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「RECEIPT_CONSUME」回调的业务内容。
@@ -21,29 +22,26 @@ import lombok.Setter;
 public class ReceiptConsumeMessage {
 
     /**
-     * 创建美团「RECEIPT_CONSUME」回调的业务内容。的空实例。
-     */
-    public ReceiptConsumeMessage() {
-    }
-
-
-    /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
     private Long orderId;
-
     /**
      * 唯一 ID。
      */
     @JsonProperty("uniqueId")
     private String uniqueId;
-
     /**
      * 核销的券码信息。
      */
     @JsonProperty("receipts")
     private List<ReceiptDto> receipts;
+
+    /**
+     * 创建美团「RECEIPT_CONSUME」回调的业务内容。的空实例。
+     */
+    public ReceiptConsumeMessage() {
+    }
 
     /**
      * 核销的券码信息。
@@ -54,40 +52,35 @@ public class ReceiptConsumeMessage {
     public static class ReceiptDto {
 
         /**
-         * 创建核销的券码信息。的空实例。
-         */
-        public ReceiptDto() {
-        }
-
-
-        /**
          * 券Id。
          */
         @JsonProperty("id")
         private Long id;
-
         /**
          * 本次核销数量。
          */
         @JsonProperty("usedQuantity")
         private Integer usedQuantity;
-
         /**
          * 核销时间。
          */
         @JsonProperty("consumeTime")
         private Long consumeTime;
-
         /**
          * 美团商品Id。
          */
         @JsonProperty("productId")
         private Long productId;
-
         /**
          * 美团套餐Id。
          */
         @JsonProperty("skuId")
         private Long skuId;
+
+        /**
+         * 创建核销的券码信息。的空实例。
+         */
+        public ReceiptDto() {
+        }
     }
 }

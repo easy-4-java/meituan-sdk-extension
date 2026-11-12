@@ -20,51 +20,44 @@ import lombok.Setter;
 public class MemberCouponDiscountReversedMessage {
 
     /**
-     * 创建美团「会员券优惠冲正」回调的业务内容。的空实例。
-     */
-    public MemberCouponDiscountReversedMessage() {
-    }
-
-
-    /**
      * 核销凭证。
      */
     @JsonProperty("bizId")
     private String bizId;
-
     /**
      * 会员 ID。
      */
     @JsonProperty("memberId")
     private String memberId;
-
     /**
      * 卡 ID。
      */
     @JsonProperty("cardId")
     private String cardId;
-
     /**
      * 卡号。
      */
     @JsonProperty("cardNo")
     private String cardNo;
-
     /**
      * 券码。
      */
     @JsonProperty("code")
     private String code;
-
     /**
      * localserver订单 ID。
      */
     @JsonProperty("localId")
     private String localId;
-
     /**
      * 冲正原因。
      */
     @JsonProperty("reason")
     private String reason;
+
+    /**
+     * 创建美团「会员券优惠冲正」回调的业务内容。的空实例。
+     */
+    public MemberCouponDiscountReversedMessage() {
+    }
 }

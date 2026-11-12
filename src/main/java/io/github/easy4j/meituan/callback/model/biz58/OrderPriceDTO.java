@@ -14,27 +14,24 @@ import lombok.Setter;
 public class OrderPriceDTO {
 
     /**
-     * 创建OrderPriceDTO，用于订单信息推送等回调的业务字段。的空实例。
-     */
-    public OrderPriceDTO() {
-    }
-
-
-    /**
      * 订单金额。必填。
      */
     @JsonProperty("orderTotalPrice")
     private String orderTotalPrice;
-
     /**
      * 订单商家优惠金额。必填。
      */
     @JsonProperty("orderMerchantDiscountPrice")
     private String orderMerchantDiscountPrice;
-
     /**
      * 订单用户实付金额。必填。
      */
     @JsonProperty("orderActualPayPrice")
     private String orderActualPayPrice;
+
+    /**
+     * 创建OrderPriceDTO，用于订单信息推送等回调的业务字段。的空实例。
+     */
+    public OrderPriceDTO() {
+    }
 }

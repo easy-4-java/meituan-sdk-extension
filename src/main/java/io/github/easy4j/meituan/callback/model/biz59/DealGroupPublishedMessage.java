@@ -20,27 +20,24 @@ import lombok.Setter;
 public class DealGroupPublishedMessage {
 
     /**
-     * 创建美团「团单发布通知」回调的业务内容。的空实例。
-     */
-    public DealGroupPublishedMessage() {
-    }
-
-
-    /**
      * 团单 ID。必填。
      */
     @JsonProperty("dealGroupId")
     private Long dealGroupId;
-
     /**
      * 是否发布成功。必填。
      */
     @JsonProperty("publishStatus")
     private Boolean publishStatus;
-
     /**
      * 商品上下架状态。
      */
     @JsonProperty("displayStatus")
     private String displayStatus;
+
+    /**
+     * 创建美团「团单发布通知」回调的业务内容。的空实例。
+     */
+    public DealGroupPublishedMessage() {
+    }
 }

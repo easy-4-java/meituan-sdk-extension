@@ -7,9 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * {@link InMemoryMeituanTenantConfigStorage} 单元测试。
@@ -27,6 +25,7 @@ class InMemoryMeituanTenantConfigStorageTest {
 
     /**
      * 验证未配置租户时返回空结果。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -38,6 +37,7 @@ class InMemoryMeituanTenantConfigStorageTest {
 
     /**
      * 验证已配置租户时返回对应配置。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -59,6 +59,7 @@ class InMemoryMeituanTenantConfigStorageTest {
 
     /**
      * 验证空白租户标识返回空结果。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

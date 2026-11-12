@@ -20,27 +20,24 @@ import lombok.Setter;
 public class TableRulesAndInventoryChangedMessage {
 
     /**
-     * 创建美团「推送桌型桌位&amp;规则&amp;库存变更通知」回调的业务内容。的空实例。
-     */
-    public TableRulesAndInventoryChangedMessage() {
-    }
-
-
-    /**
      * true-需要拉数据。必填。
      */
     @JsonProperty("needPull")
     private Boolean needPull;
-
     /**
      * 1-桌型桌位 2-库存 3-规则。必填。
      */
     @JsonProperty("type")
     private Integer type;
-
     /**
      * type为2时必填。
      */
     @JsonProperty("day")
     private Integer day;
+
+    /**
+     * 创建美团「推送桌型桌位&amp;规则&amp;库存变更通知」回调的业务内容。的空实例。
+     */
+    public TableRulesAndInventoryChangedMessage() {
+    }
 }

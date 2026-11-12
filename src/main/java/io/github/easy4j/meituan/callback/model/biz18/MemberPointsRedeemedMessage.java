@@ -20,57 +20,49 @@ import lombok.Setter;
 public class MemberPointsRedeemedMessage {
 
     /**
-     * 创建美团「会员积分核销」回调的业务内容。的空实例。
-     */
-    public MemberPointsRedeemedMessage() {
-    }
-
-
-    /**
      * 会员 ID。
      */
     @JsonProperty("memberId")
     private String memberId;
-
     /**
      * 卡 ID。
      */
     @JsonProperty("cardId")
     private String cardId;
-
     /**
      * 卡号。
      */
     @JsonProperty("cardNo")
     private String cardNo;
-
     /**
      * localserver订单 ID。
      */
     @JsonProperty("localId")
     private String localId;
-
     /**
      * 本次核销前，订单待支付金额/分。
      */
     @JsonProperty("receivable")
     private Long receivable;
-
     /**
      * 核销凭证。
      */
     @JsonProperty("bizId")
     private String bizId;
-
     /**
      * 期望使用资产的数量。
      */
     @JsonProperty("expectedUseCount")
     private Long expectedUseCount;
-
     /**
      * 期望资产抵扣的金额。
      */
     @JsonProperty("expectedUseAmount")
     private Long expectedUseAmount;
+
+    /**
+     * 创建美团「会员积分核销」回调的业务内容。的空实例。
+     */
+    public MemberPointsRedeemedMessage() {
+    }
 }

@@ -20,21 +20,19 @@ import lombok.Setter;
 public class ProductOnlineStatusChangedMessage {
 
     /**
-     * 创建美团「商品上下架状态通知」回调的业务内容。的空实例。
-     */
-    public ProductOnlineStatusChangedMessage() {
-    }
-
-
-    /**
      * 商品 ID。必填。
      */
     @JsonProperty("productId")
     private Long productId;
-
     /**
      * 0-无效状态 1-上架状态 2-下架状态。必填。
      */
     @JsonProperty("status")
     private Integer status;
+
+    /**
+     * 创建美团「商品上下架状态通知」回调的业务内容。的空实例。
+     */
+    public ProductOnlineStatusChangedMessage() {
+    }
 }

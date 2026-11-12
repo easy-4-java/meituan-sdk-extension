@@ -14,27 +14,24 @@ import lombok.Setter;
 public class CategoryOpenDTO {
 
     /**
-     * 创建CategoryOpenDTO，用于【供应链】入库单消息等回调的业务字段。的空实例。
-     */
-    public CategoryOpenDTO() {
-    }
-
-
-    /**
      * 分类编码。
      */
     @JsonProperty("code")
     private String code;
-
     /**
      * 分类名称。
      */
     @JsonProperty("name")
     private String name;
-
     /**
      * 分类 ID。
      */
     @JsonProperty("id")
     private String id;
+
+    /**
+     * 创建CategoryOpenDTO，用于【供应链】入库单消息等回调的业务字段。的空实例。
+     */
+    public CategoryOpenDTO() {
+    }
 }

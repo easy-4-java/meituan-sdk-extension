@@ -23,33 +23,29 @@ import lombok.Setter;
 public class StoreStatusMessage {
 
     /**
-     * 创建美团「门店状态回调」回调的业务内容。的空实例。
-     */
-    public StoreStatusMessage() {
-    }
-
-
-    /**
      * 门店名称。必填。
      */
     @JsonProperty("shop_name")
     private String shopName;
-
     /**
      * 取货门店 ID。必填。
      */
     @JsonProperty("shop_id")
     private String shopId;
-
     /**
      * 门店状态。必填。
      */
     @JsonProperty("status")
     private Integer status;
-
     /**
      * 驳回原因。
      */
     @JsonProperty("reject_message")
     private String rejectMessage;
+
+    /**
+     * 创建美团「门店状态回调」回调的业务内容。的空实例。
+     */
+    public StoreStatusMessage() {
+    }
 }

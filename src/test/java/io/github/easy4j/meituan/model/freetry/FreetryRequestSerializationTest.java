@@ -19,6 +19,7 @@ class FreetryRequestSerializationTest {
 
     /**
      * 验证免费试请求按官网字段名称序列化。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -48,6 +49,7 @@ class FreetryRequestSerializationTest {
 
     /**
      * 验证直接业务响应和外层封装响应均能反序列化。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -75,6 +77,7 @@ class FreetryRequestSerializationTest {
 
     /**
      * 验证嵌套业务响应保留完整字段和长整型精度。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

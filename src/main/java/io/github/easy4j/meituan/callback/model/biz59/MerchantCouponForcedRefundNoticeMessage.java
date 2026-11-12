@@ -20,45 +20,39 @@ import lombok.Setter;
 public class MerchantCouponForcedRefundNoticeMessage {
 
     /**
-     * 创建美团「商家券强制退券」回调的业务内容。的空实例。
-     */
-    public MerchantCouponForcedRefundNoticeMessage() {
-    }
-
-
-    /**
      * 第三方团单 ID。必填。
      */
     @JsonProperty("appDealId")
     private String appDealId;
-
     /**
      * 开放平台上的订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 退款 ID。必填。
      */
     @JsonProperty("refundId")
     private String refundId;
-
     /**
      * 券码,以逗号隔开。必填。
      */
     @JsonProperty("serialNumberList")
     private String serialNumberList;
-
     /**
      * 退券数目。必填。
      */
     @JsonProperty("refundCount")
     private String refundCount;
-
     /**
      * 是否快速退，默认不推送，若需要可联系行业侧运营订阅。
      */
     @JsonProperty("quickRefundFlag")
     private Boolean quickRefundFlag;
+
+    /**
+     * 创建美团「商家券强制退券」回调的业务内容。的空实例。
+     */
+    public MerchantCouponForcedRefundNoticeMessage() {
+    }
 }

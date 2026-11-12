@@ -23,27 +23,24 @@ import lombok.Setter;
 public class DeliveryRangeChangedMessage {
 
     /**
-     * 创建美团「配送范围变更」回调的业务内容。的空实例。
-     */
-    public DeliveryRangeChangedMessage() {
-    }
-
-
-    /**
      * 配送服务代码。必填。
      */
     @JsonProperty("delivery_service_code")
     private Integer deliveryServiceCode;
-
     /**
      * 取货门店 ID。必填。
      */
     @JsonProperty("shop_id")
     private String shopId;
-
     /**
      * 门店配送范围。必填。
      */
     @JsonProperty("scope")
     private String scope;
+
+    /**
+     * 创建美团「配送范围变更」回调的业务内容。的空实例。
+     */
+    public DeliveryRangeChangedMessage() {
+    }
 }

@@ -20,21 +20,19 @@ import lombok.Setter;
 public class MemberSearchMessage {
 
     /**
-     * 创建美团「会员搜索」回调的业务内容。的空实例。
-     */
-    public MemberSearchMessage() {
-    }
-
-
-    /**
      * 搜索关键字。必填。
      */
     @JsonProperty("identity")
     private String identity;
-
     /**
      * 搜索类型。必填。
      */
     @JsonProperty("type")
     private Integer type;
+
+    /**
+     * 创建美团「会员搜索」回调的业务内容。的空实例。
+     */
+    public MemberSearchMessage() {
+    }
 }

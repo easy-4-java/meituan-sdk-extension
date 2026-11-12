@@ -20,33 +20,29 @@ import lombok.Setter;
 public class RentalExtensionCancellationCheckMessage {
 
     /**
-     * 创建美团「续租取消检查」回调的业务内容。的空实例。
-     */
-    public RentalExtensionCancellationCheckMessage() {
-    }
-
-
-    /**
      * 美团主订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 美团续租订单Id。必填。
      */
     @JsonProperty("mtRenewalOrderId")
     private Long mtRenewalOrderId;
-
     /**
      * 三方主订单Id。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 三方续租单订单号。必填。
      */
     @JsonProperty("thirdRenewalOrderId")
     private String thirdRenewalOrderId;
+
+    /**
+     * 创建美团「续租取消检查」回调的业务内容。的空实例。
+     */
+    public RentalExtensionCancellationCheckMessage() {
+    }
 }

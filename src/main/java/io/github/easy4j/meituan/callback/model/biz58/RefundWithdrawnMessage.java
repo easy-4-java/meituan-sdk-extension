@@ -20,15 +20,15 @@ import lombok.Setter;
 public class RefundWithdrawnMessage {
 
     /**
-     * 创建美团「用户撤销退款通知」回调的业务内容。的空实例。
-     */
-    public RefundWithdrawnMessage() {
-    }
-
-
-    /**
      * 订单编号。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
+
+
+    /**
+     * 创建美团「用户撤销退款通知」回调的业务内容。的空实例。
+     */
+    public RefundWithdrawnMessage() {
+    }
 }

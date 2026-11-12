@@ -2,9 +2,7 @@ package io.github.easy4j.meituan.config;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * {@link MeituanConfig} 单元测试：覆盖默认值与 setter/getter。
@@ -22,6 +20,7 @@ class MeituanConfigTest {
 
     /**
      * 验证平台配置提供默认地址、字符集和协议版本。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -36,6 +35,7 @@ class MeituanConfigTest {
 
     /**
      * 验证平台配置的各字段可以被显式覆盖。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

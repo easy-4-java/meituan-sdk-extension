@@ -18,45 +18,39 @@ import lombok.Setter;
 public class MallPointsTransactionPushedResult {
 
     /**
-     * 创建美团「商场积分交易事件推送」回调的业务响应。的空实例。
-     */
-    public MallPointsTransactionPushedResult() {
-    }
-
-
-    /**
      * 积分事务是否成功。必填。
      */
     @JsonProperty("transactionSuccess")
     private Boolean transactionSuccess;
-
     /**
      * 积分事务失败原因。
      */
     @JsonProperty("transactionFailReason")
     private String transactionFailReason;
-
     /**
      * 积分事务时间（毫秒时间戳）。必填。
      */
     @JsonProperty("transactionTime")
     private Long transactionTime;
-
     /**
      * 积分事务类型（1-增加 2-扣减)。必填。
      */
     @JsonProperty("transactionType")
     private Integer transactionType;
-
     /**
      * 积分数（正数）。支持小数，按double解析。必填。
      */
     @JsonProperty("points")
     private String points;
-
     /**
      * 积分过期时间(毫秒时间戳)。
      */
     @JsonProperty("expiryDate")
     private Long expiryDate;
+
+    /**
+     * 创建美团「商场积分交易事件推送」回调的业务响应。的空实例。
+     */
+    public MallPointsTransactionPushedResult() {
+    }
 }

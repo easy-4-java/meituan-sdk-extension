@@ -20,33 +20,29 @@ import lombok.Setter;
 public class InventoryQueryResult {
 
     /**
-     * 创建美团「单个查询库存」回调的业务响应。的空实例。
-     */
-    public InventoryQueryResult() {
-    }
-
-
-    /**
      * 预订服务项目id。必填。
      */
     @JsonProperty("appProductName")
     private String appProductName;
-
     /**
      * 美团侧服务项目id，适用于使用美团侧服务项目id通信的业务。
      */
     @JsonProperty("productId")
     private String productId;
-
     /**
      * 预订服务名称。
      */
     @JsonProperty("productName")
     private String productName;
-
     /**
      * 剩余库存数，可返回实际可用库存数，&gt;0代表可下单。必填。
      */
     @JsonProperty("remainCount")
     private Integer remainCount;
+
+    /**
+     * 创建美团「单个查询库存」回调的业务响应。的空实例。
+     */
+    public InventoryQueryResult() {
+    }
 }

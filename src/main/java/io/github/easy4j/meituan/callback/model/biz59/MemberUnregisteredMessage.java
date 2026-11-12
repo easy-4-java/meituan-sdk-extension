@@ -20,27 +20,24 @@ import lombok.Setter;
 public class MemberUnregisteredMessage {
 
     /**
-     * 创建美团「会员注销」回调的业务内容。的空实例。
-     */
-    public MemberUnregisteredMessage() {
-    }
-
-
-    /**
      * 用户Id。必填。
      */
     @JsonProperty("opUserId")
     private String opUserId;
-
     /**
      * 平台来源，MT_SOURCE="MT" 或 DP_SOURCE="DP"。必填。
      */
     @JsonProperty("source")
     private String source;
-
     /**
      * 三方卡号。必填。
      */
     @JsonProperty("memberCard")
     private String memberCard;
+
+    /**
+     * 创建美团「会员注销」回调的业务内容。的空实例。
+     */
+    public MemberUnregisteredMessage() {
+    }
 }

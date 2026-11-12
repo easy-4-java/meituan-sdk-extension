@@ -20,15 +20,15 @@ import lombok.Setter;
 public class MerchantIdentificationMessage {
 
     /**
-     * 创建美团「商户识别」回调的业务内容。的空实例。
-     */
-    public MerchantIdentificationMessage() {
-    }
-
-
-    /**
      * 美团店铺 ID（混淆）。必填。
      */
     @JsonProperty("mtStoreCode")
     private String mtStoreCode;
+
+
+    /**
+     * 创建美团「商户识别」回调的业务内容。的空实例。
+     */
+    public MerchantIdentificationMessage() {
+    }
 }

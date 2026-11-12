@@ -18,33 +18,29 @@ import lombok.Setter;
 public class RentalExtensionCancelledResult {
 
     /**
-     * 创建美团「续租取消」回调的业务响应。的空实例。
-     */
-    public RentalExtensionCancelledResult() {
-    }
-
-
-    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")
     private Integer bizCode;
-
     /**
      * 错误描述。必填。
      */
     @JsonProperty("bizMessage")
     private String bizMessage;
-
     /**
      * 取消实际扣款金额 单位分。
      */
     @JsonProperty("deductAmount")
     private Integer deductAmount;
-
     /**
      * 扣款描述。
      */
     @JsonProperty("reason")
     private Integer reason;
+
+    /**
+     * 创建美团「续租取消」回调的业务响应。的空实例。
+     */
+    public RentalExtensionCancelledResult() {
+    }
 }

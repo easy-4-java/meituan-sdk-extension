@@ -14,33 +14,29 @@ import lombok.Setter;
 public class Product {
 
     /**
-     * 创建Product，用于订单信息推送等回调的业务字段。的空实例。
-     */
-    public Product() {
-    }
-
-
-    /**
      * 美团商品 ID。必填。
      */
     @JsonProperty("productId")
     private Long productId;
-
     /**
      * 商品名称。必填。
      */
     @JsonProperty("title")
     private String title;
-
     /**
      * skuId。必填。
      */
     @JsonProperty("skuId")
     private Long skuId;
-
     /**
      * 购买数量。必填。
      */
     @JsonProperty("quantity")
     private Long quantity;
+
+    /**
+     * 创建Product，用于订单信息推送等回调的业务字段。的空实例。
+     */
+    public Product() {
+    }
 }

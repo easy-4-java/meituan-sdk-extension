@@ -20,33 +20,29 @@ import lombok.Setter;
 public class ProductStatusChangedMessage {
 
     /**
-     * 创建美团「商品状态变更」回调的业务内容。的空实例。
-     */
-    public ProductStatusChangedMessage() {
-    }
-
-
-    /**
      * 商品 ID。
      */
     @JsonProperty("productId")
     private Long productId;
-
     /**
      * ISV商品 ID。
      */
     @JsonProperty("appProductId")
     private String appProductId;
-
     /**
      * 商品流转状态 24：审核驳回, 30：已发布。
      */
     @JsonProperty("flowStatus")
     private Integer flowStatus;
-
     /**
      * 商品流程相关信息，如驳回理由等。
      */
     @JsonProperty("memo")
     private String memo;
+
+    /**
+     * 创建美团「商品状态变更」回调的业务内容。的空实例。
+     */
+    public ProductStatusChangedMessage() {
+    }
 }

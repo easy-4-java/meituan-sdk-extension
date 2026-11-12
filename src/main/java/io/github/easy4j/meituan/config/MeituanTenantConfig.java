@@ -10,40 +10,34 @@ import lombok.Data;
 public class MeituanTenantConfig {
 
     /**
-     * 创建租户级美团授权配置。的空实例。
-     */
-    public MeituanTenantConfig() {
-    }
-
-
-    /**
      * 业务侧租户标识。
      */
     private String tenantId;
-
     /**
      * 美团应用 ID。
      */
     private String appId;
-
     /**
      * 美团开放平台开发者 ID。
      */
     private Long developerId;
-
     /**
      * 美团开放平台签名密钥。
      */
     private String signKey;
-
     /**
      * 美团应用授权 token。
      */
     private String appAuthToken;
-
     /**
      * 美团业务线 ID。
      */
     private Integer businessId;
+
+    /**
+     * 创建租户级美团授权配置。的空实例。
+     */
+    public MeituanTenantConfig() {
+    }
 
 }

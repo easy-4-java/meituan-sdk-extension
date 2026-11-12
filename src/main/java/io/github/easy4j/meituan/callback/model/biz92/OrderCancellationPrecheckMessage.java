@@ -20,21 +20,19 @@ import lombok.Setter;
 public class OrderCancellationPrecheckMessage {
 
     /**
-     * 创建美团「订单预取消」回调的业务内容。的空实例。
-     */
-    public OrderCancellationPrecheckMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
+
+    /**
+     * 创建美团「订单预取消」回调的业务内容。的空实例。
+     */
+    public OrderCancellationPrecheckMessage() {
+    }
 }

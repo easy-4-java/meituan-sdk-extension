@@ -14,27 +14,24 @@ import lombok.Setter;
 public class SupplementaryUnitInfoDetails {
 
     /**
-     * 创建SupplementaryUnitInfoDetails，用于【供应链】组合加工单消息等回调的业务字段。的空实例。
-     */
-    public SupplementaryUnitInfoDetails() {
-    }
-
-
-    /**
      * 单位 ID。
      */
     @JsonProperty("id")
     private String id;
-
     /**
      * 单位编码。
      */
     @JsonProperty("code")
     private String code;
-
     /**
      * 单位名称。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建SupplementaryUnitInfoDetails，用于【供应链】组合加工单消息等回调的业务字段。的空实例。
+     */
+    public SupplementaryUnitInfoDetails() {
+    }
 }

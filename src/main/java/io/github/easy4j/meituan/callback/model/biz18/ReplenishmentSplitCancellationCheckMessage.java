@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「【供应链】门店订货单撤销分单三方校验」回调的业务内容。
@@ -21,23 +22,21 @@ import lombok.Setter;
 public class ReplenishmentSplitCancellationCheckMessage {
 
     /**
-     * 创建美团「【供应链】门店订货单撤销分单三方校验」回调的业务内容。的空实例。
-     */
-    public ReplenishmentSplitCancellationCheckMessage() {
-    }
-
-
-    /**
      * 订货单号。必填。
      */
     @JsonProperty("demandOrderSn")
     private String demandOrderSn;
-
     /**
      * 机构信息。
      */
     @JsonProperty("orgInfo")
     private List<ValidateOrgInfo> orgInfo;
+
+    /**
+     * 创建美团「【供应链】门店订货单撤销分单三方校验」回调的业务内容。的空实例。
+     */
+    public ReplenishmentSplitCancellationCheckMessage() {
+    }
 
     /**
      * orgInfo。
@@ -48,34 +47,30 @@ public class ReplenishmentSplitCancellationCheckMessage {
     public static class ValidateOrgInfo {
 
         /**
-         * 创建orgInfo。的空实例。
-         */
-        public ValidateOrgInfo() {
-        }
-
-
-        /**
          * 机构类型。
          */
         @JsonProperty("type")
         private String type;
-
         /**
          * 机构 ID。
          */
         @JsonProperty("orgId")
         private String orgId;
-
         /**
          * 机构名字。
          */
         @JsonProperty("orgName")
         private String orgName;
-
         /**
          * 机构编码。
          */
         @JsonProperty("orgCode")
         private String orgCode;
+
+        /**
+         * 创建orgInfo。的空实例。
+         */
+        public ValidateOrgInfo() {
+        }
     }
 }

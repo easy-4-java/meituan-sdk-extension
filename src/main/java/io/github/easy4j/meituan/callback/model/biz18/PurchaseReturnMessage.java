@@ -2,11 +2,12 @@ package io.github.easy4j.meituan.callback.model.biz18;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-import com.fasterxml.jackson.databind.JsonNode;
+
+import java.util.List;
 
 /**
  * 美团「【供应链】采购退货单消息」回调的业务内容。
@@ -22,47 +23,41 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class PurchaseReturnMessage {
 
     /**
-     * 创建美团「【供应链】采购退货单消息」回调的业务内容。的空实例。
-     */
-    public PurchaseReturnMessage() {
-    }
-
-
-    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 推送事件Id。必填。
      */
     @JsonProperty("pushEventId")
     private String pushEventId;
-
     /**
      * 操作类型。必填。
      */
     @JsonProperty("opType")
     private Integer opType;
-
     /**
      * 消息时序Id。必填。
      */
     @JsonProperty("seqId")
     private Long seqId;
-
     /**
      * 大消息体标识。
      */
     @JsonProperty("largeMessageTag")
     private Boolean largeMessageTag;
-
     /**
      * 采购退货单信息。必填。
      */
     @JsonProperty("bizData")
     private PurchaseReturnOrderDTO bizData;
+
+    /**
+     * 创建美团「【供应链】采购退货单消息」回调的业务内容。的空实例。
+     */
+    public PurchaseReturnMessage() {
+    }
 
     /**
      * 采购退货单信息。
@@ -73,23 +68,21 @@ public class PurchaseReturnMessage {
     public static class PurchaseReturnOrderDTO {
 
         /**
-         * 创建采购退货单信息。的空实例。
-         */
-        public PurchaseReturnOrderDTO() {
-        }
-
-
-        /**
          * 退货单主单。
          */
         @JsonProperty("item")
         private ReturnOrderItemDTO item;
-
         /**
          * 退货单明细。
          */
         @JsonProperty("details")
         private List<ReturnOrderItemDetailDTO> details;
+
+        /**
+         * 创建采购退货单信息。的空实例。
+         */
+        public PurchaseReturnOrderDTO() {
+        }
 
         /**
          * 退货单主单。
@@ -100,131 +93,111 @@ public class PurchaseReturnMessage {
         public static class ReturnOrderItemDTO {
 
             /**
-             * 创建退货单主单。的空实例。
-             */
-            public ReturnOrderItemDTO() {
-            }
-
-
-            /**
              * 总部机构。
              */
             @JsonProperty("rootOrgId")
             private Long rootOrgId;
-
             /**
              * 单据号。
              */
             @JsonProperty("itemSn")
             private String itemSn;
-
             /**
              * 退货日期。
              */
             @JsonProperty("bizTime")
             private Long bizTime;
-
             /**
              * 创建时间。
              */
             @JsonProperty("createTime")
             private Long createTime;
-
             /**
              * 更新时间。
              */
             @JsonProperty("modifyTime")
             private Long modifyTime;
-
             /**
              * 退货机构信息。
              */
             @JsonProperty("returnOrgInfo")
             private OrgOpenDTO returnOrgInfo;
-
             /**
              * 供应商信息。
              */
             @JsonProperty("supplierInfo")
             private SupplierOpenDTO supplierInfo;
-
             /**
              * 退货状态列表。
              */
             @JsonProperty("status")
             private JsonNode status;
-
             /**
              * 税额。
              */
             @JsonProperty("tax")
             private String tax;
-
             /**
              * 含税金额。
              */
             @JsonProperty("money")
             private String money;
-
             /**
              * 不含税金额。
              */
             @JsonProperty("noTaxMoney")
             private String noTaxMoney;
-
             /**
              * 业务模式。
              */
             @JsonProperty("bizModel")
             private Integer bizModel;
-
             /**
              * 来源单据号。
              */
             @JsonProperty("sourceSn")
             private String sourceSn;
-
             /**
              * 来源采购订单。
              */
             @JsonProperty("sourcePurchaseSn")
             private String sourcePurchaseSn;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
-
             /**
              * 下游单据号。
              */
             @JsonProperty("downstreamSns")
             private List<String> downstreamSns;
-
             /**
              * 创建人。
              */
             @JsonProperty("creator")
             private Long creator;
-
             /**
              * 版本号。
              */
             @JsonProperty("version")
             private Integer version;
-
             /**
              * 退货原因。
              */
             @JsonProperty("returnReason")
             private ReasonOpenDTO returnReason;
-
             /**
              * 删除状态。
              */
             @JsonProperty("deleteStatus")
             private Integer deleteStatus;
+
+            /**
+             * 创建退货单主单。的空实例。
+             */
+            public ReturnOrderItemDTO() {
+            }
 
             /**
              * 退货机构信息。
@@ -235,35 +208,31 @@ public class PurchaseReturnMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建退货机构信息。的空实例。
-                 */
-                public OrgOpenDTO() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点ID,即总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建退货机构信息。的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
             }
         }
 
@@ -276,131 +245,111 @@ public class PurchaseReturnMessage {
         public static class ReturnOrderItemDetailDTO {
 
             /**
-             * 创建退货单明细。的空实例。
-             */
-            public ReturnOrderItemDetailDTO() {
-            }
-
-
-            /**
              * 明细 ID。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 行号。
              */
             @JsonProperty("seqId")
             private Integer seqId;
-
             /**
              * 来源采购订单明细Id。
              */
             @JsonProperty("sourcePurchaseOrderDetailId")
             private String sourcePurchaseOrderDetailId;
-
             /**
              * 物品信息。
              */
             @JsonProperty("goodsInfo")
             private GoodsOpenDTO goodsInfo;
-
             /**
              * 退货仓库信息。
              */
             @JsonProperty("returnWarehouseInfo")
             private WarehouseOpenDTO returnWarehouseInfo;
-
             /**
              * 业务单位。
              */
             @JsonProperty("bizUnit")
             private UnitOpenDTO bizUnit;
-
             /**
              * 基准单位。
              */
             @JsonProperty("baseUnit")
             private BaseUnitDetails baseUnit;
-
             /**
              * 收货数量和基准单位数量。
              */
             @JsonProperty("receiveAmount")
             private MultiUnitAmountOpenDTO receiveAmount;
-
             /**
              * 退货数量和基准单位数量。
              */
             @JsonProperty("returnAmount")
             private ReturnAmountDetails returnAmount;
-
             /**
              * 退货金额(含税)。
              */
             @JsonProperty("money")
             private String money;
-
             /**
              * 退货金额(不含税)。
              */
             @JsonProperty("noTaxMoney")
             private String noTaxMoney;
-
             /**
              * 退货单价(含税)。
              */
             @JsonProperty("bizUnitPrice")
             private String bizUnitPrice;
-
             /**
              * 退货单价(不含税)。
              */
             @JsonProperty("bizUnitNoTaxPrice")
             private String bizUnitNoTaxPrice;
-
             /**
              * 税率。
              */
             @JsonProperty("taxRate")
             private String taxRate;
-
             /**
              * 税额。
              */
             @JsonProperty("tax")
             private String tax;
-
             /**
              * 实物批次号。
              */
             @JsonProperty("batchNum")
             private String batchNum;
-
             /**
              * 生产日期。
              */
             @JsonProperty("productionDate")
             private Long productionDate;
-
             /**
              * 过期日期。
              */
             @JsonProperty("expirationDate")
             private Long expirationDate;
-
             /**
              * 保质期。
              */
             @JsonProperty("shelfLife")
             private Integer shelfLife;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
+
+            /**
+             * 创建退货单明细。的空实例。
+             */
+            public ReturnOrderItemDetailDTO() {
+            }
 
             /**
              * 物品信息。
@@ -411,71 +360,61 @@ public class PurchaseReturnMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建物品信息。的空实例。
-                 */
-                public GoodsOpenDTO() {
-                }
-
-
-                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 物品编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 物品名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 物品分类。
                  */
                 @JsonProperty("category")
                 private JsonNode category;
-
                 /**
                  * 品牌。
                  */
                 @JsonProperty("brand")
                 private String brand;
-
                 /**
                  * 规格。
                  */
                 @JsonProperty("spec")
                 private String spec;
-
                 /**
                  * 基准单位名称。
                  */
                 @JsonProperty("baseUnit")
                 private UnitOpenDTO baseUnit;
-
                 /**
                  * 支持的单位名称列表。
                  */
                 @JsonProperty("units")
                 private List<UnitsItem> units;
-
                 /**
                  * 版本号。
                  */
                 @JsonProperty("version")
                 private Integer version;
-
                 /**
                  * 第三方编码。
                  */
                 @JsonProperty("thirdCode")
                 private String thirdCode;
+
+                /**
+                 * 创建物品信息。的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
 
                 /**
                  * 基准单位名称。
@@ -486,29 +425,26 @@ public class PurchaseReturnMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建基准单位名称。的空实例。
-                     */
-                    public UnitOpenDTO() {
-                    }
-
-
-                    /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
                     private String id;
-
                     /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
                     private String name;
-
                     /**
                      * 单位编码。
                      */
                     @JsonProperty("code")
                     private String code;
+
+                    /**
+                     * 创建基准单位名称。的空实例。
+                     */
+                    public UnitOpenDTO() {
+                    }
                 }
 
                 /**
@@ -520,29 +456,26 @@ public class PurchaseReturnMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建支持的单位名称列表。的空实例。
-                     */
-                    public UnitsItem() {
-                    }
-
-
-                    /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
                     private String id;
-
                     /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
                     private String name;
-
                     /**
                      * 单位编码。
                      */
                     @JsonProperty("code")
                     private String code;
+
+                    /**
+                     * 创建支持的单位名称列表。的空实例。
+                     */
+                    public UnitsItem() {
+                    }
                 }
             }
 
@@ -555,29 +488,26 @@ public class PurchaseReturnMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建退货仓库信息。的空实例。
-                 */
-                public WarehouseOpenDTO() {
-                }
-
-
-                /**
                  * 仓库 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 仓库编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 仓库名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建退货仓库信息。的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
             }
 
             /**
@@ -589,29 +519,26 @@ public class PurchaseReturnMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建业务单位。的空实例。
-                 */
-                public UnitOpenDTO() {
-                }
-
-
-                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 单位编码。
                  */
                 @JsonProperty("code")
                 private String code;
+
+                /**
+                 * 创建业务单位。的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
             }
 
             /**
@@ -623,29 +550,26 @@ public class PurchaseReturnMessage {
             public static class BaseUnitDetails {
 
                 /**
-                 * 创建基准单位。的空实例。
-                 */
-                public BaseUnitDetails() {
-                }
-
-
-                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 单位编码。
                  */
                 @JsonProperty("code")
                 private String code;
+
+                /**
+                 * 创建基准单位。的空实例。
+                 */
+                public BaseUnitDetails() {
+                }
             }
 
             /**
@@ -657,23 +581,21 @@ public class PurchaseReturnMessage {
             public static class MultiUnitAmountOpenDTO {
 
                 /**
-                 * 创建收货数量和基准单位数量。的空实例。
-                 */
-                public MultiUnitAmountOpenDTO() {
-                }
-
-
-                /**
                  * 基准数量。
                  */
                 @JsonProperty("baseUnitAmount")
                 private String baseUnitAmount;
-
                 /**
                  * 业务数量。
                  */
                 @JsonProperty("bizUnitAmount")
                 private String bizUnitAmount;
+
+                /**
+                 * 创建收货数量和基准单位数量。的空实例。
+                 */
+                public MultiUnitAmountOpenDTO() {
+                }
             }
 
             /**
@@ -685,23 +607,21 @@ public class PurchaseReturnMessage {
             public static class ReturnAmountDetails {
 
                 /**
-                 * 创建退货数量和基准单位数量。的空实例。
-                 */
-                public ReturnAmountDetails() {
-                }
-
-
-                /**
                  * 基准数量。
                  */
                 @JsonProperty("baseUnitAmount")
                 private String baseUnitAmount;
-
                 /**
                  * 业务数量。
                  */
                 @JsonProperty("bizUnitAmount")
                 private String bizUnitAmount;
+
+                /**
+                 * 创建退货数量和基准单位数量。的空实例。
+                 */
+                public ReturnAmountDetails() {
+                }
             }
         }
     }

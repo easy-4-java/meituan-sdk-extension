@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.easy4j</groupId>
@@ -40,8 +40,12 @@
         <repository>
             <id>2624322-release-6F6h6R</id>
             <url>https://packages.aliyun.com/6927b116e6c3e0425dbdf60d/maven/2624322-release-6f6h6r</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>false</enabled></snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
     <!-- 版本属性定义：Java 版本、依赖版本与 Maven 插件版本统一管理 -->
@@ -266,13 +270,15 @@
                             <configuration>
                                 <rules>
                                     <requireMavenVersion>
-                                        <message><![CDATA[You are running an older version of Maven. This application requires at least Maven ${maven.version}.]]></message>
+                                        <message>
+                                            <![CDATA[You are running an older version of Maven. This application requires at least Maven ${maven.version}.]]></message>
                                         <version>[${maven.version},)</version>
                                     </requireMavenVersion>
                                     <requireJavaVersion>
                                         <message>
-                                                                                        You are running an older version of Java. This application requires at least JDK ${java.version}.
-                                                                                </message>
+                                            You are running an older version of Java. This application requires at least
+                                            JDK ${java.version}.
+                                        </message>
                                         <version>[${java.version}.0,)</version>
                                     </requireJavaVersion>
                                 </rules>
@@ -352,7 +358,8 @@
                         <skip>false</skip>
                         <skipTests>false</skipTests>
                         <systemPropertyVariables>
-                            <meituan.sdk.reference>${project.build.directory}/official-input/MtOpJavaSDK.jar</meituan.sdk.reference>
+                            <meituan.sdk.reference>${project.build.directory}/official-input/MtOpJavaSDK.jar
+                            </meituan.sdk.reference>
                         </systemPropertyVariables>
                         <argLine>@{argLine} -Xmx1024m -Dfile.encoding=UTF-8</argLine>
                         <excludedGroups>integration</excludedGroups>
@@ -445,7 +452,9 @@
                     <execution>
                         <id>copy-official-sdk-for-provenance</id>
                         <phase>generate-resources</phase>
-                        <goals><goal>copy</goal></goals>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
@@ -462,7 +471,9 @@
                     <execution>
                         <id>unpack-official-sdk</id>
                         <phase>generate-resources</phase>
-                        <goals><goal>unpack</goal></goals>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
@@ -485,7 +496,9 @@
                     <execution>
                         <id>verify-and-record-official-input</id>
                         <phase>generate-resources</phase>
-                        <goals><goal>run</goal></goals>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
                         <configuration>
                             <exportAntProperties>true</exportAntProperties>
                             <target>
@@ -495,13 +508,18 @@
                                 <checksum file="${project.build.directory}/official-input/MtOpJavaSDK.jar"
                                           algorithm="SHA-256" property="official.input.sha256"/>
                                 <fail message="官方 SDK 输入哈希不符，禁止转换或回退旧快照">
-                                    <condition><not><equals arg1="${official.input.sha256}" arg2="${official.sdk.sha256}"/></not></condition>
+                                    <condition>
+                                        <not>
+                                            <equals arg1="${official.input.sha256}" arg2="${official.sdk.sha256}"/>
+                                        </not>
+                                    </condition>
                                 </fail>
                                 <mkdir dir="${project.build.outputDirectory}/META-INF/easy4j"/>
-                                <echo file="${project.build.outputDirectory}/META-INF/easy4j/meituan-sdk-origin.properties">original.coordinates=com.sankuai.sjst:MtOpJavaSDK:${meituan-op-sdk.version}
-original.sha256=${official.sdk.sha256}
-validation.namespace=jakarta.validation
-</echo>
+                                <echo file="${project.build.outputDirectory}/META-INF/easy4j/meituan-sdk-origin.properties">
+                                    original.coordinates=com.sankuai.sjst:MtOpJavaSDK:${meituan-op-sdk.version}
+                                    original.sha256=${official.sdk.sha256}
+                                    validation.namespace=jakarta.validation
+                                </echo>
                             </target>
                         </configuration>
                     </execution>
@@ -515,10 +533,14 @@ validation.namespace=jakarta.validation
                     <execution>
                         <id>adapt-official-sdk-validation</id>
                         <phase>process-resources</phase>
-                        <goals><goal>transform</goal></goals>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
                         <configuration>
                             <rules>
-                                <renames><rename>transform/validation-renames.properties</rename></renames>
+                                <renames>
+                                    <rename>transform/validation-renames.properties</rename>
+                                </renames>
                             </rules>
                         </configuration>
                     </execution>
@@ -532,7 +554,9 @@ validation.namespace=jakarta.validation
                 <version>${maven-jacoco-plugin.version}</version>
                 <configuration>
                     <!-- 官方 SDK 字节码随包分发，仅统计本项目自有实现。 -->
-                    <excludes><exclude>com/meituan/**</exclude></excludes>
+                    <excludes>
+                        <exclude>com/meituan/**</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
@@ -649,7 +673,7 @@ validation.namespace=jakarta.validation
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-install-plugin</artifactId>
                     </plugin>
-                                        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
                     <plugin>
                         <!-- 源码插件：发布时自动将源码同时发布 -->
                         <groupId>org.apache.maven.plugins</groupId>
@@ -661,7 +685,7 @@ validation.namespace=jakarta.validation
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                     </plugin>
-<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
                     <plugin>
                         <!-- 签名插件：对制品进行 PGP 签名 -->
                         <groupId>org.apache.maven.plugins</groupId>

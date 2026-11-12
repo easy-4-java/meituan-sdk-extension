@@ -6,10 +6,10 @@ import com.meituan.sdk.MeituanRequest;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.annotations.ApiMeta;
 import com.meituan.sdk.internal.utils.JsonUtil;
-import lombok.Data;
-
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+
 import java.lang.reflect.Type;
 
 /**
@@ -25,15 +25,19 @@ import java.lang.reflect.Type;
 )
 public class FreetryLoadCouponRequest implements MeituanRequest<FreetryLoadCouponResponse> {
 
-    /** 创建已验券码查询请求。 */
-    public FreetryLoadCouponRequest() {
-    }
-
-    /** 13 位券码。 */
+    /**
+     * 13 位券码。
+     */
     @NotNull(message = "couponCode不能为空")
     @Size(min = 13, max = 13, message = "couponCode长度必须为13")
     @SerializedName("couponCode")
     private String couponCode;
+
+    /**
+     * 创建已验券码查询请求。
+     */
+    public FreetryLoadCouponRequest() {
+    }
 
     /**
      * 将官方 JSON 响应反序列化为当前接口的业务类型。
@@ -43,7 +47,8 @@ public class FreetryLoadCouponRequest implements MeituanRequest<FreetryLoadCoupo
      */
     @Override
     public MeituanResponse<FreetryLoadCouponResponse> deserializeResponse(String response) {
-        Type type = new TypeToken<MeituanResponse<FreetryLoadCouponResponse>>() { }.getType();
+        Type type = new TypeToken<MeituanResponse<FreetryLoadCouponResponse>>() {
+        }.getType();
         return JsonUtil.fromJson(response, type);
     }
 

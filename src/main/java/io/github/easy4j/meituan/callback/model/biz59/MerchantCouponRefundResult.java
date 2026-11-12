@@ -18,27 +18,24 @@ import lombok.Setter;
 public class MerchantCouponRefundResult {
 
     /**
-     * 创建美团「商家券退券」回调的业务响应。的空实例。
-     */
-    public MerchantCouponRefundResult() {
-    }
-
-
-    /**
      * 退款ID。必填。
      */
     @JsonProperty("refundId")
     private String refundId;
-
     /**
      * 业务错误码。200：退券成功 400：参数错误 1111 ： 券已核销【注：美团侧会进行补核销，核销门店为商品的适用门店内随机一个】 1112：团购券已退款 1113：团购套餐已过期 1114：退券数量不对 1115：处理中【注：异步退券，返回这个】 1116：其他原因导致退券失败 1131：部分核销成功。
      */
     @JsonProperty("businessCode")
     private Integer businessCode;
-
     /**
      * 业务响应信息。
      */
     @JsonProperty("businessMsg")
     private String businessMsg;
+
+    /**
+     * 创建美团「商家券退券」回调的业务响应。的空实例。
+     */
+    public MerchantCouponRefundResult() {
+    }
 }

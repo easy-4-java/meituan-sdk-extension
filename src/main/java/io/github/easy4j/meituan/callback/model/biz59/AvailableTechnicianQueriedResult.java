@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz59;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「查询三方可用手艺人」回调的业务响应。
@@ -19,17 +20,17 @@ import lombok.Setter;
 public class AvailableTechnicianQueriedResult {
 
     /**
-     * 创建美团「查询三方可用手艺人」回调的业务响应。的空实例。
-     */
-    public AvailableTechnicianQueriedResult() {
-    }
-
-
-    /**
      * 手艺人列表。必填。
      */
     @JsonProperty("techList")
     private List<Tech> techList;
+
+
+    /**
+     * 创建美团「查询三方可用手艺人」回调的业务响应。的空实例。
+     */
+    public AvailableTechnicianQueriedResult() {
+    }
 
     /**
      * 手艺人列表。必填。
@@ -41,22 +42,20 @@ public class AvailableTechnicianQueriedResult {
     public static class Tech {
 
         /**
-         * 创建手艺人列表。必填。的空实例。
-         */
-        public Tech() {
-        }
-
-
-        /**
          * 手艺人ID。必填。
          */
         @JsonProperty("techId")
         private String techId;
-
         /**
          * 手艺人状态。0：可预约 1：已约满。必填。
          */
         @JsonProperty("techStatus")
         private Integer techStatus;
+
+        /**
+         * 创建手艺人列表。必填。的空实例。
+         */
+        public Tech() {
+        }
     }
 }

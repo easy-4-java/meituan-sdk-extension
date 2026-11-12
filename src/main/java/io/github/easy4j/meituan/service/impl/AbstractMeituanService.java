@@ -28,8 +28,9 @@ public abstract class AbstractMeituanService implements MeituanService {
 
     /**
      * 委托请求执行器按租户授权执行请求。
-     * @param <T> 本次调用使用的业务数据类型
-     * @param request 官方 SDK 请求对象
+     *
+     * @param <T>      本次调用使用的业务数据类型
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
@@ -40,7 +41,8 @@ public abstract class AbstractMeituanService implements MeituanService {
 
     /**
      * 委托请求执行器执行不需要授权 token 的请求。
-     * @param <T> 本次调用使用的业务数据类型
+     *
+     * @param <T>     本次调用使用的业务数据类型
      * @param request 官方 SDK 请求对象
      * @return 官方 SDK 响应对象
      */

@@ -2,6 +2,7 @@ package io.github.easy4j.meituan.callback;
 
 
 import cn.hutool.core.util.StrUtil;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -32,11 +33,11 @@ public final class MeituanCallbackSigner {
     /**
      * 计算回调参数签名。
      *
-     * @param signKey 应用签名密钥
+     * @param signKey    应用签名密钥
      * @param parameters 回调参数
      * @return SHA-1 小写十六进制签名
      * @throws IllegalArgumentException 当签名密钥为空白时
-     * @throws NullPointerException 当参数映射为 {@code null} 时
+     * @throws NullPointerException     当参数映射为 {@code null} 时
      */
     public static String sign(String signKey, Map<String, String> parameters) {
         if (StrUtil.isBlank(signKey)) {
@@ -63,7 +64,7 @@ public final class MeituanCallbackSigner {
     /**
      * 使用常量时间字节比较验证回调签名。
      *
-     * @param signKey 应用签名密钥
+     * @param signKey    应用签名密钥
      * @param parameters 回调参数
      * @param clientSign 平台下发签名
      * @return 签名有效时返回 true

@@ -2,20 +2,11 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.model.biz15.BrandMemberLevelChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz15.BrandMemberQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz15.BrandMemberRegistrationAndRightsMessage;
-import io.github.easy4j.meituan.callback.model.biz15.CoBrandedNewUserQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz15.MembershipCardEventMessage;
-import io.github.easy4j.meituan.callback.model.biz15.MembershipCardPointsMessage;
+import io.github.easy4j.meituan.callback.model.biz15.*;
 import lombok.Getter;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -113,9 +104,9 @@ public enum MeituanBusiness15MessageType implements MeituanMessageType {
     /**
      * 登记消息的名称、编号、官网文档和模型类型。
      *
-     * @param displayName 官网消息名称
-     * @param msgType 平台消息类型编号
-     * @param documentKey 官网文档标识或完整文档地址
+     * @param displayName  官网消息名称
+     * @param msgType      平台消息类型编号
+     * @param documentKey  官网文档标识或完整文档地址
      * @param messageClass 业务消息的反序列化目标类型
      */
     MeituanBusiness15MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
@@ -123,16 +114,6 @@ public enum MeituanBusiness15MessageType implements MeituanMessageType {
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
         this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
-    }
-
-    /**
-     * 返回此枚举所属的美团业务编号。
-     *
-     * @return 官方 businessId
-     */
-    @Override
-    public String getBusinessId() {
-        return BUSINESS_ID;
     }
 
     /**
@@ -159,5 +140,15 @@ public enum MeituanBusiness15MessageType implements MeituanMessageType {
             return Optional.empty();
         }
         return Optional.ofNullable(BY_MSG_TYPE.get(msgType));
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 }

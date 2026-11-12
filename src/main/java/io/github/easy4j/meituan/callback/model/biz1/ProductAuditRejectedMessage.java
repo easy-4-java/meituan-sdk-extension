@@ -22,36 +22,32 @@ import lombok.Setter;
 public class ProductAuditRejectedMessage {
 
     /**
-     * 创建美团「审核驳回通知」回调的业务内容。的空实例。
-     */
-    public ProductAuditRejectedMessage() {
-    }
-
-
-    /**
      * 维度，1-总部, 2-门店。必填。
      */
     @JsonProperty("scope")
     private Integer scope;
-
     /**
      * 总部code，当scope = 1时必填。
      */
     @JsonProperty("vendorChainId")
     private String vendorChainId;
-
     /**
      * 门店code，当scope = 2时必填。
      */
     @JsonProperty("vendorShopId")
     private String vendorShopId;
-
     /**
      * 审核驳回信息。必填。
      */
     @JsonAlias("auditMesage")
     @JsonProperty("auditMessage")
     private AuditRejectDetails auditMessage;
+
+    /**
+     * 创建美团「审核驳回通知」回调的业务内容。的空实例。
+     */
+    public ProductAuditRejectedMessage() {
+    }
 
     /**
      * 审核驳回信息。
@@ -62,34 +58,30 @@ public class ProductAuditRejectedMessage {
     public static class AuditRejectDetails {
 
         /**
-         * 创建审核驳回信息。的空实例。
-         */
-        public AuditRejectDetails() {
-        }
-
-
-        /**
          * 主体类型：10-spu，11-sku，20-加价属性，30-加料，40-餐盒，50-桌台 60-前台类目。必填。
          */
         @JsonProperty("subjectType")
         private Integer subjectType;
-
         /**
          * 主体 ID，根据subjectType确定，特殊：主体sku时，这个字段传spuId。必填。
          */
         @JsonProperty("subjectId")
         private String subjectId;
-
         /**
          * 子主体 ID，例如在spu场景下该字段需传skuId。
          */
         @JsonProperty("subSubjectId")
         private String subSubjectId;
-
         /**
          * 审核驳回原因。必填。
          */
         @JsonProperty("rejectReason")
         private String rejectReason;
+
+        /**
+         * 创建审核驳回信息。的空实例。
+         */
+        public AuditRejectDetails() {
+        }
     }
 }

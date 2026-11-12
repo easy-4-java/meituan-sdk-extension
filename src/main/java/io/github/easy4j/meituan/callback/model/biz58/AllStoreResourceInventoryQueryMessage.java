@@ -20,21 +20,19 @@ import lombok.Setter;
 public class AllStoreResourceInventoryQueryMessage {
 
     /**
-     * 创建美团「查询全量门店资源库存数据」回调的业务内容。的空实例。
-     */
-    public AllStoreResourceInventoryQueryMessage() {
-    }
-
-
-    /**
      * 查询页数。必填。
      */
     @JsonProperty("pageNumber")
     private Integer pageNumber;
-
     /**
      * 每页条数。必填。
      */
     @JsonProperty("pageSize")
     private Integer pageSize;
+
+    /**
+     * 创建美团「查询全量门店资源库存数据」回调的业务内容。的空实例。
+     */
+    public AllStoreResourceInventoryQueryMessage() {
+    }
 }

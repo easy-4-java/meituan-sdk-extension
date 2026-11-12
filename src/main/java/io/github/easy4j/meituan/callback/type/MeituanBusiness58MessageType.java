@@ -2,58 +2,11 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.model.biz58.AllStoreResourceInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.AuthorizedStoreCountQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.BatchInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.CustomerLeadMessage;
-import io.github.easy4j.meituan.callback.model.biz58.DeviceIdByQrCodeQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.GroupDealProjectMappingQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.HomeServiceInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.InventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.LegacySessionMigrationCompletedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MerchantIdentificationMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MigratedSessionTokenMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MonthlyChargeQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MonthlySubscriptionCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MultiProductInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MultiStoreDeviceStatusQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.OperateDeviceMessage;
-import io.github.easy4j.meituan.callback.model.biz58.OrderNotificationMessage;
-import io.github.easy4j.meituan.callback.model.biz58.OrderRefundInfoPushedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RedemptionStatusQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RefundWithdrawnMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationCancellationReviewMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationChangeResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationChangeSubmittedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationRedemptionMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationRefundFailedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationStartedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservedDeviceStartedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RoomAuditResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RoomInformationQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RoomPushResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SecondaryRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SelfServiceDeviceOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StaffTimeSlotInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StartDeviceAndConsumeDealMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StoreDeviceStatusQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StoreDevicesQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StoreResourceInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SurchargeOrderRedeemedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SurchargePaymentResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.TableOpeningSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz58.TechnicianAuditResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.VideoResourceQueryMessage;
+import io.github.easy4j.meituan.callback.model.biz58.*;
 import lombok.Getter;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -284,9 +237,9 @@ public enum MeituanBusiness58MessageType implements MeituanMessageType {
     /**
      * 登记消息的名称、编号、官网文档和模型类型。
      *
-     * @param displayName 官网消息名称
-     * @param msgType 平台消息类型编号
-     * @param documentKey 官网文档标识或完整文档地址
+     * @param displayName  官网消息名称
+     * @param msgType      平台消息类型编号
+     * @param documentKey  官网文档标识或完整文档地址
      * @param messageClass 业务消息的反序列化目标类型
      */
     MeituanBusiness58MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
@@ -294,16 +247,6 @@ public enum MeituanBusiness58MessageType implements MeituanMessageType {
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
         this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
-    }
-
-    /**
-     * 返回此枚举所属的美团业务编号。
-     *
-     * @return 官方 businessId
-     */
-    @Override
-    public String getBusinessId() {
-        return BUSINESS_ID;
     }
 
     /**
@@ -330,5 +273,15 @@ public enum MeituanBusiness58MessageType implements MeituanMessageType {
             return Optional.empty();
         }
         return Optional.ofNullable(BY_MSG_TYPE.get(msgType));
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 }

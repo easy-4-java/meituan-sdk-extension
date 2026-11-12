@@ -20,33 +20,29 @@ import lombok.Setter;
 public class LegacySessionMigrationCompletedMessage {
 
     /**
-     * 创建美团「接收原北极星session迁移完毕状态」回调的业务内容。的空实例。
-     */
-    public LegacySessionMigrationCompletedMessage() {
-    }
-
-
-    /**
      * 迁移的session。必填。
      */
     @JsonProperty("session")
     private String session;
-
     /**
      * 迁移完成时间戳，单位毫秒。必填。
      */
     @JsonProperty("completedTime")
     private Long completedTime;
-
     /**
      * 迁移子任务成功数量。必填。
      */
     @JsonProperty("successCount")
     private Long successCount;
-
     /**
      * 迁移子任务失败数量。必填。
      */
     @JsonProperty("failCount")
     private Long failCount;
+
+    /**
+     * 创建美团「接收原北极星session迁移完毕状态」回调的业务内容。的空实例。
+     */
+    public LegacySessionMigrationCompletedMessage() {
+    }
 }

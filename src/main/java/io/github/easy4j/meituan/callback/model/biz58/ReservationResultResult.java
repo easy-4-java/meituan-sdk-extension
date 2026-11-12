@@ -18,21 +18,19 @@ import lombok.Setter;
 public class ReservationResultResult {
 
     /**
-     * 创建美团「预订结果同步」回调的业务响应。的空实例。
-     */
-    public ReservationResultResult() {
-    }
-
-
-    /**
      * orderId。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * appOrderId。
      */
     @JsonProperty("appOrderId")
     private String appOrderId;
+
+    /**
+     * 创建美团「预订结果同步」回调的业务响应。的空实例。
+     */
+    public ReservationResultResult() {
+    }
 }

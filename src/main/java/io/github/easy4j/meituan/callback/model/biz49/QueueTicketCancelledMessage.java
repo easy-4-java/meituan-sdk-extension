@@ -20,15 +20,15 @@ import lombok.Setter;
 public class QueueTicketCancelledMessage {
 
     /**
-     * 创建美团「用户取消排队」回调的业务内容。的空实例。
-     */
-    public QueueTicketCancelledMessage() {
-    }
-
-
-    /**
      * 美团侧订单 ID。必填。
      */
     @JsonProperty("orderViewId")
     private String orderViewId;
+
+
+    /**
+     * 创建美团「用户取消排队」回调的业务内容。的空实例。
+     */
+    public QueueTicketCancelledMessage() {
+    }
 }

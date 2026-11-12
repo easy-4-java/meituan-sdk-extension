@@ -20,39 +20,34 @@ import lombok.Setter;
 public class DepositFrozenMessage {
 
     /**
-     * 创建美团「押金冻结通知」回调的业务内容。的空实例。
-     */
-    public DepositFrozenMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 冻结订单号。必填。
      */
     @JsonProperty("freezeOrderId")
     private String freezeOrderId;
-
     /**
      * 冻结金额。必填。
      */
     @JsonProperty("amount")
     private Integer amount;
-
     /**
      * 详情见枚举DepositChannel。必填。
      */
     @JsonProperty("channel")
     private String channel;
+
+    /**
+     * 创建美团「押金冻结通知」回调的业务内容。的空实例。
+     */
+    public DepositFrozenMessage() {
+    }
 }

@@ -20,33 +20,29 @@ import lombok.Setter;
 public class OrderCancelNoticeMessage {
 
     /**
-     * 创建美团「快驴订单取消通知」回调的业务内容。的空实例。
-     */
-    public OrderCancelNoticeMessage() {
-    }
-
-
-    /**
      * 快驴订单编号。必填。
      */
     @JsonProperty("orderNo")
     private String orderNo;
-
     /**
      * 服务商订单标识。必填。
      */
     @JsonProperty("orderIdentify")
     private String orderIdentify;
-
     /**
      * 服务商商家品牌标识。必填。
      */
     @JsonProperty("brandIdentify")
     private String brandIdentify;
-
     /**
      * 取消原因。
      */
     @JsonProperty("cancelReason")
     private String cancelReason;
+
+    /**
+     * 创建美团「快驴订单取消通知」回调的业务内容。的空实例。
+     */
+    public OrderCancelNoticeMessage() {
+    }
 }
