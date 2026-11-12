@@ -224,7 +224,7 @@ For member creation, pass `io.github.easy4j.meituan.callback.model.biz59.MemberC
 `CallbackUtil.parse(request)` and `CallbackUtil.parse(query, body)` return a `MeituanCallbackMessage<?>`
 using both `businessId` and `msgType` (or the legacy `invokeType`). Unknown combinations retain the
 decoded `message` or `param` text and signing parameters. If neither field exists, the payload is null.
-Pass an explicit class for the three restaurant POS callbacks whose documentation omits the type ID.
+Business 18 also dispatches member order coupon lookup (1810057), coupon redemption (1810061), and reverse orders (1810257).
 Reservation payloads expose nested JSON strings as typed objects. Some legacy formats use
 `param`, `params`, or named form fields instead of `message`.
 
@@ -267,10 +267,9 @@ return MeituanBusiness58MessageType.resolve(callback)
 ```
 
 `MeituanBusiness58MessageType` retains its original three constants. Use `MeituanCallbackModels` for other registered callbacks, including 5810239 and 5810241. `MeituanBusiness59MessageType` contains
-the 33 business 59 messages whose
-`msgType` is available in the official documentation. It verifies `businessId`
-before resolving. Unknown future types remain available through the raw callback;
-the enabled-list item “消费流水变更” remains unresolved because no protocol ID is published.
+34 documented business 59 message types and checks `businessId` before resolving.
+For consumption record changes (5910023), the capability directory confirms the ID.
+The SDK returns the original `message` string because the linked page provides no field definitions.
 `MeituanBusiness71MessageType` contains the documented Store Direct Connection
 audit-result callback: capability `poi_openapi_msg_push`, `msgType=7110001`.
 The four business 71 APIs are declared `needAuth=false`; `MeituanStoreService`

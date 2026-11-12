@@ -1,6 +1,7 @@
 package io.github.easy4j.meituan.callback;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.model.biz3.FlashOrderAcknowledgement;
 import lombok.Getter;
@@ -32,12 +33,24 @@ public final class MeituanCallbackResponse {
     @JsonProperty("data")
     private final String data;
 
+    /**
+     * 处理本次回调的追踪标识，可随会员等级变更回执返回。
+     */
+    @JsonProperty("traceId")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private final String traceId;
+
+    private MeituanCallbackResponse(int code, String message, String data) {
+        this(code, message, data, null);
+    }
+
     @JsonCreator
     private MeituanCallbackResponse(@JsonProperty("code") int code, @JsonProperty("message") String message,
-                                    @JsonProperty("data") String data) {
+                                    @JsonProperty("data") String data, @JsonProperty("traceId") String traceId) {
         this.code = code;
         this.message = message;
         this.data = data;
+        this.traceId = traceId;
     }
 
     /**
@@ -80,6 +93,16 @@ public final class MeituanCallbackResponse {
      */
     public static FlashOrderAcknowledgement flashOrderSuccess() {
         return new FlashOrderAcknowledgement("ok");
+    }
+
+    /**
+     * 为当前回执附上追踪标识。
+     *
+     * @param traceId 接收方用于定位此次请求的标识，为 {@code null} 时省略该字段
+     * @return 携带该标识的响应副本
+     */
+    public MeituanCallbackResponse withTraceId(String traceId) {
+        return new MeituanCallbackResponse(code, message, data, traceId);
     }
 
     /**

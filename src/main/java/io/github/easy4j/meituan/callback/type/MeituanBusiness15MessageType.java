@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import lombok.Getter;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
@@ -63,6 +64,14 @@ public enum MeituanBusiness15MessageType {
             "品牌会员注册和权益发放",
             "1510003",
             "msg_jmcard_6a027b3f-818b-484c-b5ef-6b1fe634d0a2"
+    ),
+    /**
+     * 美团黑金、黑钻会员等级变化通知。
+     */
+    BRAND_MEMBER_LEVEL_CHANGED(
+            "美团会员（黑金/黑钻）等级变化通知",
+            "1510005",
+            "https://developer.meituan.com/docs/biz/biz_jmcard_a37bb777-fedf-4732-b897-96d11a235d59"
     );
 
     private static final String BUSINESS_ID = "15";
@@ -90,7 +99,7 @@ public enum MeituanBusiness15MessageType {
     MeituanBusiness15MessageType(String displayName, String msgType, String documentKey) {
         this.displayName = displayName;
         this.msgType = msgType;
-        this.documentUrl = DOCUMENT_BASE_URL + documentKey;
+        this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
     }
 
     /**

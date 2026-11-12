@@ -1,6 +1,10 @@
 package io.github.easy4j.meituan.callback;
 
+import io.github.easy4j.meituan.callback.model.biz15.BrandMemberLevelChangedMessage;
+import io.github.easy4j.meituan.callback.model.biz15.BrandMemberLevelChangedResult;
 import io.github.easy4j.meituan.callback.model.biz15.CoBrandedNewUserQueryMessage;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness15MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
 import io.github.easy4j.meituan.callback.model.biz18.MemberCouponRedemptionMessage;
 import io.github.easy4j.meituan.callback.model.biz18.MemberOperationResult;
 import io.github.easy4j.meituan.callback.model.biz18.MemberOrderAvailableCouponsMessage;
@@ -67,6 +71,19 @@ class CallbackDispatchTest {
         var unknown = CallbackUtil.parse("businessId=18", Map.of("orderNo", "0007"));
         assertThat(unknown.getMessage()).isNull();
         assertThat(unknown.getParameters()).containsEntry("orderNo", "0007");
+    }
+
+    @Test
+    void dispatchesTheThreeRestaurantPosMessagesByTheirPublishedIds() {
+        var available = CallbackUtil.parse("businessId=18&msgType=1810057", Map.of("message", "{\"cardNo\":\"00042\"}"));
+        assertThat(available.getMessage()).isInstanceOfSatisfying(MemberOrderAvailableCouponsMessage.class,
+                message -> assertThat(message.getCardNo()).isEqualTo("00042"));
+        var redemption = CallbackUtil.parse("businessId=18&msgType=1810061", Map.of("message", "{\"code\":\"007\"}"));
+        assertThat(redemption.getMessage()).isInstanceOfSatisfying(MemberCouponRedemptionMessage.class,
+                message -> assertThat(message.getCode()).isEqualTo("007"));
+        var reverse = CallbackUtil.parse("businessId=18&msgType=1810257", Map.of("message", "{\"refundItemList\":[]}"));
+        assertThat(reverse.getMessage()).isInstanceOfSatisfying(ReverseOrderMessage.class,
+                message -> assertThat(message.getRefundItemList()).isEmpty());
     }
 
     @Test
@@ -139,6 +156,47 @@ class CallbackDispatchTest {
         assertThat(coupon.getReceiptInfoList().get(0).getReceiptCode()).isEqualTo("001");
         assertThat(MeituanCallbackResponse.successData(null).getData()).isNull();
         assertThat(mapper.writeValueAsString(MeituanCallbackResponse.flashOrderSuccess())).isEqualTo("{\"data\":\"ok\"}");
+    }
+
+    @Test
+    void dispatchesTheConfirmedMemberLevelChangeAndSerializesTheBrandsActualLevel() {
+        String json = """
+                {"eventId":10001001,"postExpiryMode":"CONTINUE_MT_LEVEL_MAPPING",
+                 "beforeLevel":{"mtLevel":"L6","mappingBrandLevel":"V5"},
+                 "newLevel":{"mtLevel":"L5","mappingBrandLevel":""},"changeType":"DOWNGRADE",
+                 "userOpenId":"example","platformType":"MEI_TUAN","levelChangeTime":1780000000}
+                """;
+        for (String typeField : List.of("msgType", "invokeType")) {
+            var callback = CallbackUtil.parse("businessId=15&" + typeField + "=1510005", Map.of("message", json));
+            assertThat(MeituanBusiness15MessageType.resolve(callback))
+                    .contains(MeituanBusiness15MessageType.BRAND_MEMBER_LEVEL_CHANGED);
+            assertThat(callback.getMessage()).isInstanceOfSatisfying(BrandMemberLevelChangedMessage.class, msg -> {
+                assertThat(msg.getNewLevel().getMappingBrandLevel()).isEmpty();
+                assertThat(mapper.readTree(mapper.writeValueAsString(msg))).isEqualTo(mapper.readTree(json));
+            });
+        }
+        String data = """
+                {"resultCode":200,"brandMemberId":"aabbcc","brandLevel":{"brandLevel":"贡士","levelBeginTime":1780604800}}
+                """;
+        var result = mapper.readValue(data, BrandMemberLevelChangedResult.class);
+        var response = MeituanCallbackResponse.successData(result).withTraceId("7457794513993866186");
+        var envelope = mapper.readTree(mapper.writeValueAsString(response));
+        assertThat(envelope.get("traceId").asString()).isEqualTo("7457794513993866186");
+        assertThat(mapper.readTree(envelope.get("data").asString())).isEqualTo(mapper.readTree(data));
+        assertThat(mapper.readTree(mapper.writeValueAsString(MeituanCallbackResponse.success())).has("traceId")).isFalse();
+    }
+
+    @Test
+    void keepsTheOriginalConsumptionRecordUntilItsFieldsArePublished() {
+        String raw = " {\"unknownField\":\"00042\"} ";
+        var callback = CallbackUtil.parse("businessId=59&msgType=5910023", Map.of("message", raw));
+        assertThat(MeituanBusiness59MessageType.resolve(callback))
+                .contains(MeituanBusiness59MessageType.CONSUMPTION_RECORD_CHANGED);
+        assertThat(MeituanCallbackModels.find("59", "5910023")).contains(String.class);
+        assertThat(callback.getMessage()).isEqualTo(raw);
+        assertThat(CallbackUtil.parse("businessId=59&msgType=5910023", Map.of()).getMessage()).isNull();
+        assertThat(callback.getParameters()).containsEntry("message", raw);
+        assertThat(MeituanCallbackModels.find("15", "5910023")).isEmpty();
     }
 
     private void assertResponseData(Object data, String expectedJson) {

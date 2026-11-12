@@ -226,7 +226,7 @@ MemberCreatedMessage member = parsed.getMessage();
 `CallbackUtil.parse(request)` 和 `CallbackUtil.parse(query, body)` 返回 `MeituanCallbackMessage<?>`，
 按 `businessId` 与 `msgType`（旧会员卡为 `invokeType`）共同匹配。
 未登记的组合保留 `message` 或 `param` 原文及全部验签参数；没有这两个字段时业务内容为空。
-智能版的「会员订单可用券列表」「会员优惠券核销」「逆向单消息」文档未公布类型编号，可显式传入表格链接中的模型。
+餐饮系统智能版的会员订单可用券列表（1810057）、会员优惠券核销（1810061）和逆向单消息（1810257）均支持自动解析。
 标准消息从 `message` 读取，历史会员卡从 `param` 读取。闪惠订单使用 `params`，部分外卖旧协议直接使用表单字段。
 正文同名字段优先于查询串，未知业务字段会被忽略。
 原始表单参数保留在 `getParameters()` 中，原始业务 JSON 可通过 `getRawMessage()` 获取，验签使用原始参数。
@@ -272,9 +272,8 @@ return MeituanBusiness58MessageType.resolve(callback)
 ```
 
 `MeituanBusiness58MessageType` 保留原有 3 项枚举。其他已登记消息可通过 `MeituanCallbackModels` 查询，包括次月扣款查询（5810239）和取消连续包月通知（5810241）。
-`MeituanBusiness59MessageType` 收录官方文档已给出 `msgType` 的 33 项 businessId=59
-消息，并在解析前校验 `businessId`。平台新增类型仍可通过原始回调读取；功能清单中的
-“消费流水变更”因官方尚未公开协议编号，保持未解析状态。
+`MeituanBusiness59MessageType` 收录 34 项已核实编号的消息，解析时校验 `businessId=59`。
+“消费流水变更”（5910023）的编号来自官网能力目录。消息详情未返回字段定义，SDK 保留 `message` 原文。
 `MeituanBusiness71MessageType` 收录门店建店直连的“审核结果通知”：能力名称
 `poi_openapi_msg_push`、`msgType=7110001`。四个 businessId=71 API 的官方元数据均为
 `needAuth=false`；`MeituanStoreService` 会按租户选择开发者凭据，但调用时不携带

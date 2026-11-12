@@ -131,7 +131,7 @@ public final class CallbackUtil {
     private static MeituanCallbackMessage<?> dispatch(Map<String, String> parameters) {
         var model = MeituanCallbackModels.find(MeituanCallbackMessage.businessId(parameters),
                 MeituanCallbackMessage.msgType(parameters));
-        if (model.isPresent()) {
+        if (model.isPresent() && !String.class.equals(model.get())) {
             return bind(parameters, model.get());
         }
         String rawMessage = MeituanCallbackMessage.rawMessage(parameters);

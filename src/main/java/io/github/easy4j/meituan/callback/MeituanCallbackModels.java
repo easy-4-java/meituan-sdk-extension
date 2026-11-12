@@ -8,6 +8,7 @@ import io.github.easy4j.meituan.callback.model.biz1.VoucherPaymentEnabledMessage
 import io.github.easy4j.meituan.callback.model.biz1.VoucherPaymentOrderMessage;
 import io.github.easy4j.meituan.callback.model.biz1000.MigrationCompletedMessage;
 import io.github.easy4j.meituan.callback.model.biz1000.PushVolumeAdjustmentResultMessage;
+import io.github.easy4j.meituan.callback.model.biz15.BrandMemberLevelChangedMessage;
 import io.github.easy4j.meituan.callback.model.biz15.BrandMemberQueryMessage;
 import io.github.easy4j.meituan.callback.model.biz15.BrandMemberRegistrationAndRightsMessage;
 import io.github.easy4j.meituan.callback.model.biz15.CoBrandedNewUserQueryMessage;
@@ -33,6 +34,8 @@ import io.github.easy4j.meituan.callback.model.biz18.ItemCategoryMessage;
 import io.github.easy4j.meituan.callback.model.biz18.ItemMasterMessage;
 import io.github.easy4j.meituan.callback.model.biz18.MemberCouponDiscountAllocationMessage;
 import io.github.easy4j.meituan.callback.model.biz18.MemberCouponDiscountReversedMessage;
+import io.github.easy4j.meituan.callback.model.biz18.MemberOrderAvailableCouponsMessage;
+import io.github.easy4j.meituan.callback.model.biz18.MemberCouponRedemptionMessage;
 import io.github.easy4j.meituan.callback.model.biz18.MemberPointsRedeemedMessage;
 import io.github.easy4j.meituan.callback.model.biz18.MemberPointsReversedMessage;
 import io.github.easy4j.meituan.callback.model.biz18.MemberPointsRulesQueryMessage;
@@ -64,6 +67,7 @@ import io.github.easy4j.meituan.callback.model.biz18.ReplenishmentSplitCancellat
 import io.github.easy4j.meituan.callback.model.biz18.StockDiscrepancyMessage;
 import io.github.easy4j.meituan.callback.model.biz18.StockIssueMessage;
 import io.github.easy4j.meituan.callback.model.biz18.StockReceiptMessage;
+import io.github.easy4j.meituan.callback.model.biz18.ReverseOrderMessage;
 import io.github.easy4j.meituan.callback.model.biz18.StockReturnAuditReversalCheckMessage;
 import io.github.easy4j.meituan.callback.model.biz18.StockReturnMessage;
 import io.github.easy4j.meituan.callback.model.biz18.StocktakeOrderMessage;
@@ -275,7 +279,7 @@ public final class MeituanCallbackModels {
      *
      * @param businessId 回调所属业务的 {@code businessId}
      * @param msgType 回调的 {@code msgType}；旧版会员卡协议使用 {@code invokeType}
-     * @return 对应的业务模型类；参数为空或组合未登记时返回空的 {@link Optional}
+     * @return 对应的业务模型类；仅核实编号但未核实字段时返回 {@link String} 类型；参数为空或组合未登记时返回空的 {@link Optional}
      */
     public static Optional<Class<?>> find(String businessId, String msgType) {
         if (Objects.isNull(businessId) || Objects.isNull(msgType)) {
@@ -321,6 +325,7 @@ public final class MeituanCallbackModels {
             case "15:15202" -> MembershipCardPointsMessage.class;
             case "15:1510001" -> BrandMemberQueryMessage.class;
             case "15:1510003" -> BrandMemberRegistrationAndRightsMessage.class;
+            case "15:1510005" -> BrandMemberLevelChangedMessage.class;
             case "16:16101" -> io.github.easy4j.meituan.callback.model.biz16.OrderDeliveryStatusMessage.class;
             case "16:16102" -> io.github.easy4j.meituan.callback.model.biz16.OrderNotificationMessage.class;
             case "16:1610009" -> PartialRefundMessage.class;
@@ -346,7 +351,9 @@ public final class MeituanCallbackModels {
             case "18:1810029" -> OnlinePaymentSettlementMessage.class;
             case "18:1810045" -> PosOrderDeliveredMessage.class;
             case "18:1810055" -> MemberSearchMessage.class;
+            case "18:1810057" -> MemberOrderAvailableCouponsMessage.class;
             case "18:1810059" -> MemberCouponDiscountAllocationMessage.class;
+            case "18:1810061" -> MemberCouponRedemptionMessage.class;
             case "18:1810063" -> MemberCouponDiscountReversedMessage.class;
             case "18:1810065" -> MemberPointsRedeemedMessage.class;
             case "18:1810067" -> MemberPointsReversedMessage.class;
@@ -380,6 +387,7 @@ public final class MeituanCallbackModels {
             case "18:1810251" -> FundExceptionMessage.class;
             case "18:1810253" -> ReplenishmentSplitCancellationCheckMessage.class;
             case "18:1810255" -> StockReturnAuditReversalCheckMessage.class;
+            case "18:1810257" -> ReverseOrderMessage.class;
             case "18:1810269" -> ExternalSalesOrderQueryMessage.class;
             case "18:1810271" -> ExternalSalesShipmentQueryMessage.class;
             case "18:1810273" -> ExternalSalesReturnQueryMessage.class;
@@ -494,6 +502,8 @@ public final class MeituanCallbackModels {
             case "59:5910017" -> ReservationUserModifiedMessage.class;
             case "59:5910019" -> MemberCreatedMessage.class;
             case "59:5910021" -> MemberLevelQueriedMessage.class;
+            // 能力中心确认了类型号；业务字段尚未核实，保留解码后的原文。
+            case "59:5910023" -> String.class;
             case "59:5910025" -> MerchantCouponConsumedRefundNoticeMessage.class;
             case "59:5910027" -> MerchantCouponForcedRefundNoticeMessage.class;
             case "59:5910029" -> MerchantCouponRefundMessage.class;

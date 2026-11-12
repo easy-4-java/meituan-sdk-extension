@@ -20,7 +20,8 @@ class MeituanBusiness15MessageTypeTest {
                 MeituanBusiness15MessageType.MEMBERSHIP_CARD_POINTS,
                 MeituanBusiness15MessageType.CO_BRANDED_NEW_USER_QUERY,
                 MeituanBusiness15MessageType.BRAND_MEMBER_QUERY,
-                MeituanBusiness15MessageType.BRAND_MEMBER_REGISTRATION_AND_RIGHTS
+                MeituanBusiness15MessageType.BRAND_MEMBER_REGISTRATION_AND_RIGHTS,
+                MeituanBusiness15MessageType.BRAND_MEMBER_LEVEL_CHANGED
         );
         assertThat(MeituanBusiness15MessageType.MEMBERSHIP_CARD_EVENT.getMsgType()).isEqualTo("15201");
         assertThat(MeituanBusiness15MessageType.MEMBERSHIP_CARD_POINTS.getMsgType()).isEqualTo("15202");
@@ -74,7 +75,7 @@ class MeituanBusiness15MessageTypeTest {
     }
 
     @Test
-    void shouldKeepUndocumentedLevelChangeAvailableToGenericCallbackConsumers() {
+    void shouldKeepUnknownMessageAvailableToGenericCallbackConsumers() {
         MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "msgType", "1599999",

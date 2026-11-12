@@ -10,7 +10,7 @@ import lombok.Setter;
 /**
  * 美团「逆向单消息」回调的业务内容。
  *
- * <p>官网未给出消息类型，可向 {@code CallbackUtil.parse} 显式传入本类型。</p>
+ * <p>业务标识为 {@code businessId=18}，消息类型为 {@code msgType=1810257}。</p>
  *
  * @see <a href="https://developer.meituan.com/docs/msg/msg_rms_2ae666d5-4440-47d5-8cd2-bb3e5ce2b33e">官网消息文档</a>
  */

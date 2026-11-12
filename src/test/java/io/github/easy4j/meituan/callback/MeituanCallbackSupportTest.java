@@ -68,14 +68,14 @@ class MeituanCallbackSupportTest {
 
     @Test
     void shouldExposeAllDocumentedBusiness59MessagesWithoutDuplicateMsgTypes() {
-        assertThat(MeituanBusiness59MessageType.values()).hasSize(33);
+        assertThat(MeituanBusiness59MessageType.values()).hasSize(34);
 
         Set<String> knownMsgTypes = java.util.Arrays.stream(MeituanBusiness59MessageType.values())
                 .map(MeituanBusiness59MessageType::getMsgType)
                 .filter(java.util.Objects::nonNull)
                 .collect(Collectors.toSet());
 
-        assertThat(knownMsgTypes).hasSize(33);
+        assertThat(knownMsgTypes).hasSize(34);
         assertThat(MeituanBusiness59MessageType.fromMsgType("5910149"))
                 .contains(MeituanBusiness59MessageType.MEMBER_UNREGISTERED);
 

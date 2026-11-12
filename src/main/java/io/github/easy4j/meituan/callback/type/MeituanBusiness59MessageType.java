@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import lombok.Getter;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
@@ -54,6 +55,11 @@ public enum MeituanBusiness59MessageType {
      * 查询会员级别通知。
      */
     MEMBER_LEVEL_QUERIED("查询会员级别", "5910021", "msg_ddzhkh_87291f75-1b2e-42e0-a8bd-9e3c1b51d229"),
+    /**
+     * 商场会员核销或撤销核销触发的消费流水变更。
+     */
+    CONSUMPTION_RECORD_CHANGED("消费流水变更", "5910023",
+            "https://developer.meituan.com/ability-center/detail/?docKey=ability_2a9fb707-fe4f-4bc3-859f-dbdef49efe5a"),
     /**
      * 预约取消同步三方。
      */
@@ -181,7 +187,7 @@ public enum MeituanBusiness59MessageType {
     MeituanBusiness59MessageType(String displayName, String msgType, String documentKey) {
         this.displayName = displayName;
         this.msgType = msgType;
-        this.documentUrl = DOCUMENT_BASE_URL + documentKey;
+        this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
     }
 
     /**

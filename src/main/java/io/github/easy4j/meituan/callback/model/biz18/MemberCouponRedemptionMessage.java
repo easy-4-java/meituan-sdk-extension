@@ -9,7 +9,7 @@ import lombok.Setter;
 /**
  * 美团「会员优惠券核销」回调的业务内容。
  *
- * <p>官网未给出消息类型，可向 {@code CallbackUtil.parse} 显式传入本类型。</p>
+ * <p>业务标识为 {@code businessId=18}，消息类型为 {@code msgType=1810061}。</p>
  *
  * @see <a href="https://developer.meituan.com/docs/msg/msg_rms_321e560e-f4c9-441f-8d56-ac3e391d87c2">官网消息文档</a>
  */
