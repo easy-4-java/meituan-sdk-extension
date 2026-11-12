@@ -385,6 +385,7 @@ MeituanCallbackMessage<String> raw = CallbackUtil.parse(query, body, String.clas
 在已准备仓库读取权限或本地官方 SDK 的环境中，使用当前分支的 Wrapper 和 JDK 21 执行与 [CI](.github/workflows/ci.yml) 相同的检查。
 
 ```bash
+python3 -m unittest discover -s scripts -p 'test_release_profile.py' -v
 ./mvnw -B --no-transfer-progress clean verify javadoc:javadoc javadoc:test-javadoc
 ```
 
@@ -399,6 +400,18 @@ MeituanCallbackMessage<String> raw = CallbackUtil.parse(query, body, String.clas
 JUnit 6 + Mockito 用于本地单元测试。常规构建排除 `integration` 标签，真实 API 调试类位于 `src/test/java/io/github/easy4j/meituan/debug/`，需自行提供授权配置与业务数据。
 
 Javadoc 开启 `doclint=all`、私有成员检查及警告失败。JaCoCo 配置 90% 行覆盖率阈值，但 `haltOnFailure=false`，低于阈值仅警告，构建成功不等于覆盖率达到 90%。CI 上传 `jacoco-coverage`、`surefire-reports` 和 `javadoc-reports`。本地测试或 CI 成功也不等于真实授权、回调或生产联调完成。
+
+### 10.1 发布到阿里云私有仓库
+
+配置 Maven 仓库凭据和本地 GPG 签名密钥后，使用当前分支的 JDK 21 与 Maven Wrapper 执行：
+
+```bash
+./mvnw -Prelease clean deploy
+```
+
+`release` 配置使用标准 `maven-deploy-plugin`，按 `distributionManagement` 选择阿里云仓库。当前 SNAPSHOT 版本上传到 `2624322-snapshot-3EoOv3`。发布会执行测试、源码打包、严格 Javadoc 生成和 GPG 签名，并上传 JAR、POM、源码包、Javadoc 包及签名。Maven 4 还会发布消费 POM 和原始构建 POM。
+
+发布配置回归检查会解析实际生效的 `release` 配置，确认测试、文档、签名和私有仓库目标均保留，并禁止 staging 扩展接管 deploy。CI 执行此检查，实际上传需使用具备发布权限的本地或发布环境。
 
 <a id="support"></a>
 

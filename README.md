@@ -385,6 +385,7 @@ Inventories cover both APIs and messages, including official entries whose detai
 With repository access or the official SDK installed locally, run the branch’s Wrapper on JDK 21 using the same checks as [CI](.github/workflows/ci.yml).
 
 ```bash
+python3 -m unittest discover -s scripts -p 'test_release_profile.py' -v
 ./mvnw -B --no-transfer-progress clean verify javadoc:javadoc javadoc:test-javadoc
 ```
 
@@ -399,6 +400,18 @@ With repository access or the official SDK installed locally, run the branch’s
 Local unit tests use JUnit 6 and Mockito. Regular builds exclude the `integration` tag. Live-API debug classes are under `src/test/java/io/github/easy4j/meituan/debug/` and require your own authorization configuration and business data.
 
 Javadoc enables `doclint=all`, private-member checks and failure on warnings. JaCoCo defines a 90% line-coverage threshold with `haltOnFailure=false`, so falling below it produces a warning; a successful build does not prove 90% coverage. CI uploads `jacoco-coverage`, `surefire-reports` and `javadoc-reports`. Local or CI success does not establish real authorization, callback or production acceptance.
+
+### 10.1 Publish to the private Aliyun repository
+
+Configure Maven repository credentials and a local GPG signing key, then use this branch’s JDK 21 and Maven Wrapper:
+
+```bash
+./mvnw -Prelease clean deploy
+```
+
+The `release` profile uses the standard `maven-deploy-plugin` and selects the Aliyun destination from `distributionManagement`. The current SNAPSHOT goes to `2624322-snapshot-3EoOv3`. Publication runs tests, source packaging, strict Javadoc generation and GPG signing, then uploads the JAR, POM, sources, Javadoc and signatures. Maven 4 also publishes the consumer POM and original build POM.
+
+The release-profile regression check resolves the effective `release` configuration, verifies that tests, documentation, signing and private repository destinations remain enabled, and prevents staging extensions from taking over deploy. CI runs this check; actual uploads require a local or release environment with publishing access.
 
 <a id="support"></a>
 

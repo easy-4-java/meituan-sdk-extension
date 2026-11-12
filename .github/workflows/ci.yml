@@ -41,7 +41,9 @@ jobs:
         env:
           ALIYUN_PACKAGES_USERNAME: ${{ secrets.ALIYUN_PACKAGES_USERNAME }}
           ALIYUN_PACKAGES_PASSWORD: ${{ secrets.ALIYUN_PACKAGES_PASSWORD }}
-        run: ./mvnw -B --no-transfer-progress clean verify javadoc:javadoc javadoc:test-javadoc
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_release_profile.py' -v
+          ./mvnw -B --no-transfer-progress clean verify javadoc:javadoc javadoc:test-javadoc
 
       - name: Upload JaCoCo coverage report
         if: always()
