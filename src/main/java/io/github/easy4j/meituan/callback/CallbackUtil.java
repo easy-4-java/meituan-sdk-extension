@@ -160,9 +160,9 @@ public final class CallbackUtil {
             }
             String json = rawMessage;
             // 部分消息的整个 message 又被编码成 JSON 字符串，验签仍使用原始参数。
-            for (int depth = 0; Objects.nonNull(payload) && depth < 3 && json.stripLeading().startsWith("\""); depth++) {
+            for (int depth = 0; Objects.nonNull(payload) && depth < 3 && StrUtil.trimStart(json).startsWith("\""); depth++) {
                 String decoded = MAPPER.readValue(json, String.class);
-                if (!StrUtil.startWithAny(decoded.stripLeading(), "{", "[", "\"")) {
+                if (!StrUtil.startWithAny(StrUtil.trimStart(decoded), "{", "[", "\"")) {
                     break;
                 }
                 json = decoded;
