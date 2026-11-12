@@ -20,45 +20,39 @@ import lombok.Setter;
 public class SubMerchantVerificationResultMessage {
 
     /**
-     * 创建美团「收单开放平台微信/支付宝子商户认证结果通知」回调的业务内容。的空实例。
-     */
-    public SubMerchantVerificationResultMessage() {
-    }
-
-
-    /**
      * 商户 ID。
      */
     @JsonProperty("merchantId")
     private Long merchantId;
-
     /**
      * 商编。
      */
     @JsonProperty("merchantNo")
     private Long merchantNo;
-
     /**
      * 申请单Id。
      */
     @JsonProperty("applyId")
     private String applyId;
-
     /**
      * 申请渠道。
      */
     @JsonProperty("payChannelType")
     private Integer payChannelType;
-
     /**
      * 认证状态。
      */
     @JsonProperty("authStatus")
     private Integer authStatus;
-
     /**
      * 驳回理由。
      */
     @JsonProperty("rejectReason")
     private String rejectReason;
+
+    /**
+     * 创建美团「收单开放平台微信/支付宝子商户认证结果通知」回调的业务内容。的空实例。
+     */
+    public SubMerchantVerificationResultMessage() {
+    }
 }

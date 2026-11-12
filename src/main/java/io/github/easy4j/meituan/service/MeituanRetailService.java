@@ -3,6 +3,13 @@ package io.github.easy4j.meituan.service;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.ddzh.analysis.pendingStoreOrder.PendingStoreOrderRequest;
 import com.meituan.sdk.model.ddzh.analysis.pendingStoreSigning.PendingStoreSigningRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderFeeSync.ChargeOrderFeeSyncRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderFulfill.ChargeOrderFulfillRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderInfoSync.ChargeOrderInfoSyncRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.chargeReserveOrderRefund.ChargeReserveOrderRefundRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.reserveOrderFeeSync.ReserveOrderFeeSyncRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.startDeviceResultCallBack.StartDeviceResultCallBackRequest;
+import com.meituan.sdk.model.ddzh.chargefulfill.stopDeviceResultCallBack.StopDeviceResultCallBackRequest;
 import com.meituan.sdk.model.ddzh.common.commonGrayOperate.CommonGrayOperateRequest;
 import com.meituan.sdk.model.ddzh.common.grayConfigBaseDev.GrayConfigBaseDevRequest;
 import com.meituan.sdk.model.ddzh.common.grayConfigBaseSession.GrayConfigBaseSessionRequest;
@@ -36,6 +43,8 @@ import com.meituan.sdk.model.ddzh.merchantdata.merchantDataDealGroupsConsumption
 import com.meituan.sdk.model.ddzh.merchantdata.merchantDataPoitraffic.MerchantDataPoitrafficRequest;
 import com.meituan.sdk.model.ddzh.merchantdata.saasTradeHistory.SaasTradeHistoryRequest;
 import com.meituan.sdk.model.ddzh.poiqrcode.poiqrcodeQuerydzcoupon.PoiqrcodeQuerydzcouponRequest;
+import com.meituan.sdk.model.ddzh.print.printOrderInfoSync.PrintOrderInfoSyncRequest;
+import com.meituan.sdk.model.ddzh.print.printOrderResultSync.PrintOrderResultSyncRequest;
 import com.meituan.sdk.model.ddzh.registration.registrationDepartmentAddEdit.RegistrationDepartmentAddEditRequest;
 import com.meituan.sdk.model.ddzh.registration.registrationDepartmentDelete.RegistrationDepartmentDeleteRequest;
 import com.meituan.sdk.model.ddzh.registration.registrationDepartmentDetail.RegistrationDepartmentDetailRequest;
@@ -146,6 +155,7 @@ import com.meituan.sdk.model.ddzh.yuding.roomQuery.RoomQueryRequest;
 import com.meituan.sdk.model.ddzh.yuding.roomSync.RoomSyncRequest;
 import com.meituan.sdk.model.ddzh.yuding.shopRuleBooking.ShopRuleBookingRequest;
 import com.meituan.sdk.model.ddzh.yuding.thirdPartyStockSync.ThirdPartyStockSyncRequest;
+import com.meituan.sdk.model.ddzh.yuding.thirdTechnicianSync.ThirdTechnicianSyncRequest;
 import com.meituan.sdk.model.ddzh.yuding.updatebookrule.UpdatebookruleRequest;
 import com.meituan.sdk.model.ddzh.yuding.updateorderfulfillinfo.UpdateorderfulfillinfoRequest;
 import com.meituan.sdk.model.ddzh.yuding.updatestock.UpdatestockRequest;
@@ -249,6 +259,7 @@ import com.meituan.sdk.model.ddzhkh.shangpin.productUnitedRevokeProduct.ProductU
 import com.meituan.sdk.model.ddzhkh.shangpin.productUnitedUpdatePrices.ProductUnitedUpdatePricesRequest;
 import com.meituan.sdk.model.ddzhkh.shangpin.productUnitedUpdateShop.ProductUnitedUpdateShopRequest;
 import com.meituan.sdk.model.ddzhkh.shangpin.productUnitedUpdateStock.ProductUnitedUpdateStockRequest;
+import com.meituan.sdk.model.ddzhkh.shangpin.showeventBatchQuickUpdateStock.ShoweventBatchQuickUpdateStockRequest;
 import com.meituan.sdk.model.ddzhkh.shangpin.showeventQuery.ShoweventQueryRequest;
 import com.meituan.sdk.model.ddzhkh.shangpin.showeventQuickUpdateStock.ShoweventQuickUpdateStockRequest;
 import com.meituan.sdk.model.ddzhkh.shangpin.showeventSubmit.ShoweventSubmitRequest;
@@ -259,6 +270,7 @@ import com.meituan.sdk.model.ddzhkh.xcx3csmzl.installmentPay.InstallmentPayReque
 import com.meituan.sdk.model.ddzhkh.xcx3csmzl.queryPayToken.QueryPayTokenRequest;
 import com.meituan.sdk.model.ddzhkh.xcx3csmzl.refundOrder.RefundOrderRequest;
 import com.meituan.sdk.model.ddzhkh.xcx3csmzl.syncOrder.SyncOrderRequest;
+import com.meituan.sdk.model.ddzhkh.xcxbj.appendPay.AppendPayRequest;
 import com.meituan.sdk.model.ddzhkh.xcxhjhs.syncAri.SyncAriRequest;
 import com.meituan.sdk.model.ddzhkh.xcxjwhs.queryInquiryOrder.QueryInquiryOrderRequest;
 import com.meituan.sdk.model.ddzhkh.xcxmj.syncStatus.SyncStatusRequest;
@@ -266,18 +278,6 @@ import com.meituan.sdk.model.ddzhkh.xcxpw.prePay.PrePayRequest;
 import com.meituan.sdk.model.ddzhkh.xcxpw.queryPayInfo.QueryPayInfoRequest;
 import com.meituan.sdk.model.ddzhkh.xcxpw.queryRefundInfo.QueryRefundInfoRequest;
 import com.meituan.sdk.model.ddzhkh.xcxwy.submitFileTransfer.SubmitFileTransferRequest;
-import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderFeeSync.ChargeOrderFeeSyncRequest;
-import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderFulfill.ChargeOrderFulfillRequest;
-import com.meituan.sdk.model.ddzh.chargefulfill.chargeOrderInfoSync.ChargeOrderInfoSyncRequest;
-import com.meituan.sdk.model.ddzh.chargefulfill.chargeReserveOrderRefund.ChargeReserveOrderRefundRequest;
-import com.meituan.sdk.model.ddzh.chargefulfill.reserveOrderFeeSync.ReserveOrderFeeSyncRequest;
-import com.meituan.sdk.model.ddzh.chargefulfill.startDeviceResultCallBack.StartDeviceResultCallBackRequest;
-import com.meituan.sdk.model.ddzh.chargefulfill.stopDeviceResultCallBack.StopDeviceResultCallBackRequest;
-import com.meituan.sdk.model.ddzh.print.printOrderInfoSync.PrintOrderInfoSyncRequest;
-import com.meituan.sdk.model.ddzh.print.printOrderResultSync.PrintOrderResultSyncRequest;
-import com.meituan.sdk.model.ddzh.yuding.thirdTechnicianSync.ThirdTechnicianSyncRequest;
-import com.meituan.sdk.model.ddzhkh.shangpin.showeventBatchQuickUpdateStock.ShoweventBatchQuickUpdateStockRequest;
-import com.meituan.sdk.model.ddzhkh.xcxbj.appendPay.AppendPayRequest;
 
 import java.util.List;
 
@@ -2986,6 +2986,7 @@ public interface MeituanRetailService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> ddzhkhSyncOrder(com.meituan.sdk.model.ddzhkh.xcxzc.syncOrder.SyncOrderRequest request, String tenantId);
+
     /**
      * 充电订单费用信息同步。
      * <p>官方接口：{@code /ddzh/chargefulfill/orderfee/sync}，API：{@code charge_order_fee_sync}，版本：{@code 10000}，businessId：{@code 58}，需要授权：{@code true}。</p>
@@ -3190,7 +3191,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 批量图片异步上传。接口路径为 {@code /ddzh/common/image/async/upload}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -3199,7 +3200,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 图片单张同步上传。接口路径为 {@code /ddzh/common/image/sync/single/upload}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -3208,7 +3209,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 新增合作中心查询服务状态接口（福禄侧自营保洁订单）。接口路径为 {@code /ddzh/le/trade/general/StatusQueryService}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -3217,7 +3218,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 次月扣款指令同步。接口路径为 {@code /ddzh/tuangou/subscription/status/sync}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -3226,7 +3227,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 查询订单签到信息。接口路径为 {@code /ddzh/yuding/queryOrderSignInfo}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -3235,7 +3236,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 查询服务人员认证状态。接口路径为 {@code /ddzh/yuding/queryServiceManAuthStatus}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -3244,7 +3245,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 门店超值套餐同步。接口路径为 {@code /ddzh/yuding/resource/dealgroup/greatvalue/sync}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */
@@ -3253,7 +3254,7 @@ public interface MeituanRetailService extends MeituanService {
     /**
      * 分页查询团购商品信息。接口路径为 {@code /ddzhkh/shangpin/pagequery/products}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */

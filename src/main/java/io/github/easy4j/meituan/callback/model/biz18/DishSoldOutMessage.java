@@ -20,27 +20,24 @@ import lombok.Setter;
 public class DishSoldOutMessage {
 
     /**
-     * 创建美团「菜品沽清消息」回调的业务内容。的空实例。
-     */
-    public DishSoldOutMessage() {
-    }
-
-
-    /**
      * 门店 ID。必填。
      */
     @JsonProperty("orgId")
     private Integer orgId;
-
     /**
      * 菜品SKU。必填。
      */
     @JsonProperty("skuId")
     private Long skuId;
-
     /**
      * 可售卖数量。必填。
      */
     @JsonProperty("quantity")
     private String quantity;
+
+    /**
+     * 创建美团「菜品沽清消息」回调的业务内容。的空实例。
+     */
+    public DishSoldOutMessage() {
+    }
 }

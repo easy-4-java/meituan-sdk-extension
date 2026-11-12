@@ -2,38 +2,11 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.model.biz2.AnonymousReviewChatMessage;
-import io.github.easy4j.meituan.callback.model.biz2.AutoReplySettingsChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.GroupMealProductChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.ImDeliveryBlockedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.MealPreparationExceptionMessage;
-import io.github.easy4j.meituan.callback.model.biz2.MealPreparationStatusMessage;
-import io.github.easy4j.meituan.callback.model.biz2.MerchantAppealResultMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderCompletedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderConfirmedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderDeliveryStatusMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderInformationChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderReceivedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderReminderMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderSettlementDetailsMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderTransferredToMerchantDeliveryMessage;
-import io.github.easy4j.meituan.callback.model.biz2.PartialOrderRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz2.PrivacyNumberFallbackMessage;
-import io.github.easy4j.meituan.callback.model.biz2.RefundReviewReminderMessage;
-import io.github.easy4j.meituan.callback.model.biz2.SmsDeliveryResultMessage;
-import io.github.easy4j.meituan.callback.model.biz2.StoreOrProductChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.StoreStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.TwoPartyImMessage;
+import io.github.easy4j.meituan.callback.model.biz2.*;
 import lombok.Getter;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -184,9 +157,9 @@ public enum MeituanBusiness2MessageType implements MeituanMessageType {
     /**
      * 登记消息的名称、编号、官网文档和模型类型。
      *
-     * @param displayName 官网消息名称
-     * @param msgType 平台消息类型编号
-     * @param documentKey 官网文档标识或完整文档地址
+     * @param displayName  官网消息名称
+     * @param msgType      平台消息类型编号
+     * @param documentKey  官网文档标识或完整文档地址
      * @param messageClass 业务消息的反序列化目标类型
      */
     MeituanBusiness2MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
@@ -194,16 +167,6 @@ public enum MeituanBusiness2MessageType implements MeituanMessageType {
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
         this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
-    }
-
-    /**
-     * 返回此枚举所属的美团业务编号。
-     *
-     * @return 官方 businessId
-     */
-    @Override
-    public String getBusinessId() {
-        return BUSINESS_ID;
     }
 
     /**
@@ -230,5 +193,15 @@ public enum MeituanBusiness2MessageType implements MeituanMessageType {
             return Optional.empty();
         }
         return Optional.ofNullable(BY_MSG_TYPE.get(msgType));
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 }

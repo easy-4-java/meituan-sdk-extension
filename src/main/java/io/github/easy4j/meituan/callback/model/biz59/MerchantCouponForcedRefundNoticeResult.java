@@ -18,15 +18,15 @@ import lombok.Setter;
 public class MerchantCouponForcedRefundNoticeResult {
 
     /**
-     * 创建美团「商家券强制退券」回调的业务响应。的空实例。
-     */
-    public MerchantCouponForcedRefundNoticeResult() {
-    }
-
-
-    /**
      * 退款ID。必填。
      */
     @JsonProperty("refundId")
     private String refundId;
+
+
+    /**
+     * 创建美团「商家券强制退券」回调的业务响应。的空实例。
+     */
+    public MerchantCouponForcedRefundNoticeResult() {
+    }
 }

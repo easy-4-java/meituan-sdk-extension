@@ -20,59 +20,51 @@ import lombok.Setter;
 public class BrandMemberRegistrationAndRightsMessage {
 
     /**
-     * 创建美团「品牌会员注册和权益发放」回调的业务内容。的空实例。
-     */
-    public BrandMemberRegistrationAndRightsMessage() {
-    }
-
-
-    /**
      * 本次事件 ID（通过此字段，接口支持请求幂等）。必填。
      */
     @JsonProperty("eventId")
     private Long eventId;
-
     /**
      * 事件类型： 1-注册并领取权益 2-解绑会员。必填。
      */
     @JsonProperty("eventType")
     private Integer eventType;
-
     /**
      * 美团用户唯一标识，同一个用户在美团APP和点评APP不一样。必填。
      */
     @JsonProperty("userOpenId")
     private String userOpenId;
-
     /**
      * 平台。必填。
      */
     @JsonProperty("platformType")
     private String platformType;
-
     /**
      * 用户领取的权益 ID。必填。
      */
     @JsonProperty("rightId")
     private Long rightId;
-
     /**
      * 美团会员等级，L1~L6，L1最低，L6最高。必填。
      */
     @JsonProperty("mtLevel")
     private String mtLevel;
-
     /**
      * 权益明细。
      */
     @JsonProperty("rightDetail")
     private RightDetail rightDetail;
-
     /**
      * 注册参数。必填。
      */
     @JsonProperty("registParam")
     private RegistParam registParam;
+
+    /**
+     * 创建美团「品牌会员注册和权益发放」回调的业务内容。的空实例。
+     */
+    public BrandMemberRegistrationAndRightsMessage() {
+    }
 
     /**
      * rightDetail。
@@ -83,23 +75,21 @@ public class BrandMemberRegistrationAndRightsMessage {
     public static class RightDetail {
 
         /**
-         * 创建rightDetail。的空实例。
-         */
-        public RightDetail() {
-        }
-
-
-        /**
          * 权益开始时间，秒级时间戳（如无，则表示无时间限制）。
          */
         @JsonProperty("rightBeginTime")
         private Long rightBeginTime;
-
         /**
          * 权益结束时间，秒级时间戳（如无，则表示无时间限制）。
          */
         @JsonProperty("rightEndTime")
         private Long rightEndTime;
+
+        /**
+         * 创建rightDetail。的空实例。
+         */
+        public RightDetail() {
+        }
     }
 
     /**
@@ -111,22 +101,20 @@ public class BrandMemberRegistrationAndRightsMessage {
     public static class RegistParam {
 
         /**
-         * 创建registParam。的空实例。
-         */
-        public RegistParam() {
-        }
-
-
-        /**
          * 美团内部生成的会员卡号，非品牌方自己内部的会员卡号。
          */
         @JsonProperty("cardNo")
         private String cardNo;
-
         /**
          * 用户注册时的手机号码，明文数据；若手机号为13111111111，则代表是探测请求， 开发者响应成功且固定返回mock数据即可。
          */
         @JsonProperty("phoneNo")
         private String phoneNo;
+
+        /**
+         * 创建registParam。的空实例。
+         */
+        public RegistParam() {
+        }
     }
 }

@@ -20,45 +20,39 @@ import lombok.Setter;
 public class RentalExtensionPrecheckMessage {
 
     /**
-     * 创建美团「订单续租预校验」回调的业务内容。的空实例。
-     */
-    public RentalExtensionPrecheckMessage() {
-    }
-
-
-    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 三方商家订单 ID。必填。
      */
     @JsonProperty("thirdOrderId")
     private String thirdOrderId;
-
     /**
      * 报价Id。必填。
      */
     @JsonProperty("quoteId")
     private String quoteId;
-
     /**
      * 总金额。必填。
      */
     @JsonProperty("totalAmount")
     private Integer totalAmount;
-
     /**
      * 期望续租截止时间。必填。
      */
     @JsonProperty("newDropOffTime")
     private String newDropOffTime;
-
     /**
      * 美团续租订单 ID。
      */
     @JsonProperty("mtRenewalOrderId")
     private Long mtRenewalOrderId;
+
+    /**
+     * 创建美团「订单续租预校验」回调的业务内容。的空实例。
+     */
+    public RentalExtensionPrecheckMessage() {
+    }
 }

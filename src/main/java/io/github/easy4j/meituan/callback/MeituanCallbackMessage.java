@@ -76,7 +76,7 @@ public final class MeituanCallbackMessage<T> {
      * 保存回调参数快照、业务对象和原始文本。
      *
      * @param parameters 已解码的回调参数及验签字段
-     * @param message 业务消息对象或处理结果说明
+     * @param message    业务消息对象或处理结果说明
      */
     MeituanCallbackMessage(Map<String, String> parameters, T message) {
         this(parameters, message, rawMessage(parameters));
@@ -86,7 +86,7 @@ public final class MeituanCallbackMessage<T> {
      * 保存回调参数快照、业务对象和原始文本。
      *
      * @param parameters 已解码的回调参数及验签字段
-     * @param message 业务消息对象或处理结果说明
+     * @param message    业务消息对象或处理结果说明
      * @param rawMessage 用于验签和排查问题的原始业务文本
      */
     MeituanCallbackMessage(Map<String, String> parameters, T message, String rawMessage) {
@@ -128,7 +128,7 @@ public final class MeituanCallbackMessage<T> {
      * 按键名优先级查找首个非空白参数并裁剪其首尾空白。
      *
      * @param parameters 已解码的回调参数及验签字段
-     * @param keys 按查找优先级排列的参数名
+     * @param keys       按查找优先级排列的参数名
      * @return 按键名优先级查找首个非空白参数并裁剪其首尾空白的结果
      */
     private static String findValue(Map<String, String> parameters, String... keys) {

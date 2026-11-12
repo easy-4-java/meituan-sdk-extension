@@ -20,33 +20,29 @@ import lombok.Setter;
 public class FundExceptionMessage {
 
     /**
-     * 创建美团「资金业务异常通知」回调的业务内容。的空实例。
-     */
-    public FundExceptionMessage() {
-    }
-
-
-    /**
      * 异常时间。必填。
      */
     @JsonProperty("exceptionTime")
     private String exceptionTime;
-
     /**
      * 异常系统。必填。
      */
     @JsonProperty("exceptionSystem")
     private String exceptionSystem;
-
     /**
      * 异常类型。必填。
      */
     @JsonProperty("exceptionType")
     private String exceptionType;
-
     /**
      * 异常原因。必填。
      */
     @JsonProperty("exceptionReason")
     private String exceptionReason;
+
+    /**
+     * 创建美团「资金业务异常通知」回调的业务内容。的空实例。
+     */
+    public FundExceptionMessage() {
+    }
 }

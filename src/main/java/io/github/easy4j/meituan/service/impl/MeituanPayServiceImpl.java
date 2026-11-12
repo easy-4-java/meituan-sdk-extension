@@ -17,6 +17,7 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonBankAll.ZcmopenApiCo
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonBankBranch.ZcmopenApiCommonBankBranchRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonCatelist.ZcmopenApiCommonCatelistRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonCitylist.ZcmopenApiCommonCitylistRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonImageUpload.ZcmopenApiCommonImageUploadRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonLocation.ZcmopenApiCommonLocationRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinancePaychannelQuery.ZcmopenApiFinancePaychannelQueryRequest;
@@ -31,6 +32,7 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantContractSign.Zcmop
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreate.ZcmopenApiMerchantCreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreateQuery.ZcmopenApiMerchantCreateQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeCard.ZcmopenApiMerchantPoiChangeCardRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeName.ZcmopenApiMerchantPoiChangeNameRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangePhone.ZcmopenApiMerchantPoiChangePhoneRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeQualification.ZcmopenApiMerchantPoiChangeQualificationRequest;
@@ -42,6 +44,10 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantVerifyCustomer.Zcm
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalBoundasync.ZcmopenApiTerminalBoundasyncRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalUnbind.ZcmopenApiTerminalUnbindRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiClose.ZcmopenpayApiCloseRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeCreate.ZcmopenpayApiDynamicQrcodeCreateRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeQuery.ZcmopenpayApiDynamicQrcodeQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefund.ZcmopenpayApiDynamicQrcodeRefundRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefundQuery.ZcmopenpayApiDynamicQrcodeRefundQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayMicropay.ZcmopenpayApiPayMicropayRequest;
@@ -49,12 +55,6 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiP
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefund.ZcmopenpayApiRefundRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiRefundQuery.ZcmopenpayApiRefundQueryRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeCreate.ZcmopenpayApiDynamicQrcodeCreateRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeQuery.ZcmopenpayApiDynamicQrcodeQueryRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefund.ZcmopenpayApiDynamicQrcodeRefundRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiDynamicQrcodeRefundQuery.ZcmopenpayApiDynamicQrcodeRefundQueryRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonFilePresignedUpload.ZcmopenApiCommonFilePresignedUploadRequest;
-import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantPoiChangeFlow.ZcmopenApiMerchantPoiChangeFlowRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
 import io.github.easy4j.meituan.service.MeituanPayService;
 
@@ -328,6 +328,7 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
     public MeituanResponse<?> zcmopenpayApiRefundQuery(ZcmopenpayApiRefundQueryRequest request, String tenantId) {
         return execute(request, tenantId);
     }
+
     /**
      * [基础]生成授权第三方文件上传预签名URL。
      * <p>官方接口：{@code /sdpt/acquiring/api/common/file/presigned/upload}，API：{@code zcmopen_api_common_file_presigned_upload}，版本：{@code 10124}，businessId：{@code 52}，需要授权：{@code false}。</p>

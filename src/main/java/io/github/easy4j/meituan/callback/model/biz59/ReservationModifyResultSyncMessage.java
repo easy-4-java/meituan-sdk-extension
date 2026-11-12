@@ -20,33 +20,29 @@ import lombok.Setter;
 public class ReservationModifyResultSyncMessage {
 
     /**
-     * 创建美团「改约结果同步三方」回调的业务内容。的空实例。
-     */
-    public ReservationModifyResultSyncMessage() {
-    }
-
-
-    /**
      * 预约单 ID。必填。
      */
     @JsonProperty("leadsId")
     private String leadsId;
-
     /**
      * 美团门店 ID，该字段是混淆字段，实际值类型为混淆后的字符串类型。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
-
     /**
      * 接单结果：1.同意改约 2.拒绝改约。
      */
     @JsonProperty("result")
     private String result;
-
     /**
      * 扩展字段。
      */
     @JsonProperty("extraMap")
     private String extraMap;
+
+    /**
+     * 创建美团「改约结果同步三方」回调的业务内容。的空实例。
+     */
+    public ReservationModifyResultSyncMessage() {
+    }
 }

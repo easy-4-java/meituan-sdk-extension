@@ -18,15 +18,15 @@ import lombok.Setter;
 public class AuthorizedStoreCountQueryResult {
 
     /**
-     * 创建美团「查询三方开发者货架插件授权门店数量」回调的业务响应。的空实例。
-     */
-    public AuthorizedStoreCountQueryResult() {
-    }
-
-
-    /**
      * 插件授权门店数量。必填。
      */
     @JsonProperty("pluginAuthShopCount")
     private Integer pluginAuthShopCount;
+
+
+    /**
+     * 创建美团「查询三方开发者货架插件授权门店数量」回调的业务响应。的空实例。
+     */
+    public AuthorizedStoreCountQueryResult() {
+    }
 }

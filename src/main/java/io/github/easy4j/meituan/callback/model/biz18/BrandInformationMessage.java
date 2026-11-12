@@ -21,39 +21,34 @@ import tools.jackson.databind.JsonNode;
 public class BrandInformationMessage {
 
     /**
-     * 创建美团「品牌消息」回调的业务内容。的空实例。
-     */
-    public BrandInformationMessage() {
-    }
-
-
-    /**
      * 品牌 ID。必填。
      */
     @JsonProperty("brandId")
     private Integer brandId;
-
     /**
      * 品牌名称。必填。
      */
     @JsonProperty("brandName")
     private String brandName;
-
     /**
      * 修改时间。必填。
      */
     @JsonProperty("modifyTime")
     private JsonNode modifyTime;
-
     /**
      * 状态。必填。
      */
     @JsonProperty("brandStatus")
     private Integer brandStatus;
-
     /**
      * 是否删除。必填。
      */
     @JsonProperty("deleted")
     private Integer deleted;
+
+    /**
+     * 创建美团「品牌消息」回调的业务内容。的空实例。
+     */
+    public BrandInformationMessage() {
+    }
 }

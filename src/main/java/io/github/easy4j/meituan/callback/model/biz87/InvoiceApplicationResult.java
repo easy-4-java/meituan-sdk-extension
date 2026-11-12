@@ -18,21 +18,19 @@ import lombok.Setter;
 public class InvoiceApplicationResult {
 
     /**
-     * 创建美团「开票申请接口」回调的业务响应。的空实例。
-     */
-    public InvoiceApplicationResult() {
-    }
-
-
-    /**
      * 开票申请ID。必填。
      */
     @JsonProperty("applyId")
     private String applyId;
-
     /**
      * 服务商开票受理流水号，用于查询进度。
      */
     @JsonProperty("batchNo")
     private String batchNo;
+
+    /**
+     * 创建美团「开票申请接口」回调的业务响应。的空实例。
+     */
+    public InvoiceApplicationResult() {
+    }
 }

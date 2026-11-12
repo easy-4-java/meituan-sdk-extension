@@ -18,27 +18,24 @@ import lombok.Setter;
 public class RentalPriceInfoResult {
 
     /**
-     * 创建美团「报价详情查询」回调的业务数据（PriceInfo）。的空实例。
-     */
-    public RentalPriceInfoResult() {
-    }
-
-
-    /**
      * 优惠前总价格 (单位分)。必填。
      */
     @JsonProperty("originalTotalAmount")
     private Integer originalTotalAmount;
-
     /**
      * 优惠后总价格（包含基础保险和商家交互的总价格) (单位分)。必填。
      */
     @JsonProperty("totalAmount")
     private Integer totalAmount;
-
     /**
      * 日均价(基本租车费的日均价) (单位分)。必填。
      */
     @JsonProperty("unitAmount")
     private Integer unitAmount;
+
+    /**
+     * 创建美团「报价详情查询」回调的业务数据（PriceInfo）。的空实例。
+     */
+    public RentalPriceInfoResult() {
+    }
 }

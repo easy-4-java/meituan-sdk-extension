@@ -8,13 +8,18 @@ import lombok.Data;
 @Data
 public class FreetryVerifyCouponResponse {
 
-    /** 创建验券响应。 */
+    /**
+     * 验券结果码。
+     */
+    private Integer verifyResultCode;
+    /**
+     * 验券结果说明。
+     */
+    private String verifyResult;
+
+    /**
+     * 创建验券响应。
+     */
     public FreetryVerifyCouponResponse() {
     }
-
-    /** 验券结果码。 */
-    private Integer verifyResultCode;
-
-    /** 验券结果说明。 */
-    private String verifyResult;
 }

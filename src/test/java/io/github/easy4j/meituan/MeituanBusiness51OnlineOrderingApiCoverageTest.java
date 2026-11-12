@@ -6,13 +6,7 @@ import io.github.easy4j.meituan.service.MeituanCateringService;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
@@ -23,13 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 到店餐饮在线点（businessId=51）公开 API 覆盖回归测试。
  */
 class MeituanBusiness51OnlineOrderingApiCoverageTest {
-
-    /**
-     * 创建到店餐饮在线点（businessId=51）公开 API 覆盖回归测试。的空实例。
-     */
-    MeituanBusiness51OnlineOrderingApiCoverageTest() {
-    }
-
 
     /**
      * 当前接口清单中记录的官方接口路径。
@@ -87,7 +74,6 @@ class MeituanBusiness51OnlineOrderingApiCoverageTest {
             "/foodmop/shop/customization/update",
             "/foodmop/shop/orProduct/unbound/query"
     );
-
     /**
      * 官方 SDK 已包含但接口清单未列出的路径。
      */
@@ -97,7 +83,14 @@ class MeituanBusiness51OnlineOrderingApiCoverageTest {
     );
 
     /**
+     * 创建到店餐饮在线点（businessId=51）公开 API 覆盖回归测试。的空实例。
+     */
+    MeituanBusiness51OnlineOrderingApiCoverageTest() {
+    }
+
+    /**
      * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -145,7 +138,7 @@ class MeituanBusiness51OnlineOrderingApiCoverageTest {
     /**
      * 将当前业务的官方请求按接口路径加入覆盖检查索引。
      *
-     * @param entry 待检查的官方 SDK JAR 条目
+     * @param entry          待检查的官方 SDK JAR 条目
      * @param requestsByPath 以官方接口路径为键的请求类型索引
      */
     private void collectFoodmopRequest(JarEntry entry, Map<String, Class<?>> requestsByPath) {

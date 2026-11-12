@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「【供应链】门店调拨单消息」回调的业务内容。
@@ -21,47 +22,41 @@ import lombok.Setter;
 public class StoreTransferOrderMessage {
 
     /**
-     * 创建美团「【供应链】门店调拨单消息」回调的业务内容。的空实例。
-     */
-    public StoreTransferOrderMessage() {
-    }
-
-
-    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 推送事件Id。必填。
      */
     @JsonProperty("pushEventId")
     private String pushEventId;
-
     /**
      * 操作类型。必填。
      */
     @JsonProperty("opType")
     private Integer opType;
-
     /**
      * 消息时序Id。必填。
      */
     @JsonProperty("seqId")
     private Long seqId;
-
     /**
      * 大消息体标识。
      */
     @JsonProperty("largeMessageTag")
     private Boolean largeMessageTag;
-
     /**
      * 业务数据。必填。
      */
     @JsonProperty("bizData")
     private StockAllotOpenDTO bizData;
+
+    /**
+     * 创建美团「【供应链】门店调拨单消息」回调的业务内容。的空实例。
+     */
+    public StoreTransferOrderMessage() {
+    }
 
     /**
      * 业务数据。
@@ -72,149 +67,126 @@ public class StoreTransferOrderMessage {
     public static class StockAllotOpenDTO {
 
         /**
-         * 创建业务数据。的空实例。
-         */
-        public StockAllotOpenDTO() {
-        }
-
-
-        /**
          * 调拨单号。
          */
         @JsonProperty("allotOrderSn")
         private String allotOrderSn;
-
         /**
          * 调拨日期。
          */
         @JsonProperty("allotDate")
         private Long allotDate;
-
         /**
          * 调出门店。
          */
         @JsonProperty("allotOutOrg")
         private OrgOpenDTO allotOutOrg;
-
         /**
          * 调出仓库。
          */
         @JsonProperty("allotOutWarehouse")
         private WarehouseOpenDTO allotOutWarehouse;
-
         /**
          * 调拨出库日期。
          */
         @JsonProperty("allotOutTime")
         private Long allotOutTime;
-
         /**
          * 调入门店。
          */
         @JsonProperty("allotInOrg")
         private AllotInOrgDetails allotInOrg;
-
         /**
          * 调入仓库。
          */
         @JsonProperty("allotInWarehouse")
         private AllotInWarehouseDetails allotInWarehouse;
-
         /**
          * 调拨入库日期。
          */
         @JsonProperty("allotInTime")
         private Long allotInTime;
-
         /**
          * 金额。
          */
         @JsonProperty("money")
         private String money;
-
         /**
          * 状态。
          */
         @JsonProperty("status")
         private PairDTO status;
-
         /**
          * 业务员。
          */
         @JsonProperty("responsiblePerson")
         private ResponsiblePersonOpenDTO responsiblePerson;
-
         /**
          * 调出备注。
          */
         @JsonProperty("allotOutRemark")
         private String allotOutRemark;
-
         /**
          * 调入备注。
          */
         @JsonProperty("allotInRemark")
         private String allotInRemark;
-
         /**
          * 创建机构。
          */
         @JsonProperty("createdOrg")
         private CreatedOrgDetails createdOrg;
-
         /**
          * 创建人。
          */
         @JsonProperty("creator")
         private UserOpenDTO creator;
-
         /**
          * 创建时间。
          */
         @JsonProperty("createdTime")
         private Long createdTime;
-
         /**
          * 提交人。
          */
         @JsonProperty("submitter")
         private SubmitterDetails submitter;
-
         /**
          * 提交时间。
          */
         @JsonProperty("submitTime")
         private Long submitTime;
-
         /**
          * 审核人。
          */
         @JsonProperty("auditor")
         private AuditorDetails auditor;
-
         /**
          * 审核时间。
          */
         @JsonProperty("auditTime")
         private Long auditTime;
-
         /**
          * 发货人。
          */
         @JsonProperty("deliverer")
         private DelivererDetails deliverer;
-
         /**
          * 发货时间。
          */
         @JsonProperty("deliverTime")
         private Long deliverTime;
-
         /**
          * 明细信息。
          */
         @JsonProperty("details")
         private List<StockAllotDetailOpenDTO> details;
+
+        /**
+         * 创建业务数据。的空实例。
+         */
+        public StockAllotOpenDTO() {
+        }
 
         /**
          * 调出门店。
@@ -225,35 +197,31 @@ public class StoreTransferOrderMessage {
         public static class OrgOpenDTO {
 
             /**
-             * 创建调出门店。的空实例。
-             */
-            public OrgOpenDTO() {
-            }
-
-
-            /**
              * 机构 ID。
              */
             @JsonProperty("orgId")
             private Long orgId;
-
             /**
              * 机构根节点 ID。
              */
             @JsonProperty("rootOrgId")
             private Long rootOrgId;
-
             /**
              * 机构编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 机构名称。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建调出门店。的空实例。
+             */
+            public OrgOpenDTO() {
+            }
         }
 
         /**
@@ -265,29 +233,26 @@ public class StoreTransferOrderMessage {
         public static class WarehouseOpenDTO {
 
             /**
-             * 创建调出仓库。的空实例。
-             */
-            public WarehouseOpenDTO() {
-            }
-
-
-            /**
              * 仓库 ID。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 仓库编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 仓库名称。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建调出仓库。的空实例。
+             */
+            public WarehouseOpenDTO() {
+            }
         }
 
         /**
@@ -299,35 +264,31 @@ public class StoreTransferOrderMessage {
         public static class AllotInOrgDetails {
 
             /**
-             * 创建调入门店。的空实例。
-             */
-            public AllotInOrgDetails() {
-            }
-
-
-            /**
              * 机构 ID。
              */
             @JsonProperty("orgId")
             private Long orgId;
-
             /**
              * 机构根节点 ID。
              */
             @JsonProperty("rootOrgId")
             private Long rootOrgId;
-
             /**
              * 机构编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 机构名称。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建调入门店。的空实例。
+             */
+            public AllotInOrgDetails() {
+            }
         }
 
         /**
@@ -339,29 +300,26 @@ public class StoreTransferOrderMessage {
         public static class AllotInWarehouseDetails {
 
             /**
-             * 创建调入仓库。的空实例。
-             */
-            public AllotInWarehouseDetails() {
-            }
-
-
-            /**
              * 仓库 ID。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 仓库编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 仓库名称。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建调入仓库。的空实例。
+             */
+            public AllotInWarehouseDetails() {
+            }
         }
 
         /**
@@ -373,53 +331,46 @@ public class StoreTransferOrderMessage {
         public static class ResponsiblePersonOpenDTO {
 
             /**
-             * 创建业务员。的空实例。
-             */
-            public ResponsiblePersonOpenDTO() {
-            }
-
-
-            /**
              * 主键 ID。
              */
             @JsonProperty("id")
             private Long id;
-
             /**
              * 编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 名称。
              */
             @JsonProperty("name")
             private String name;
-
             /**
              * 状态。
              */
             @JsonProperty("status")
             private PairDTO status;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
-
             /**
              * 绑定员工。
              */
             @JsonProperty("bindStaff")
             private UserOpenDTO bindStaff;
-
             /**
              * 适用机构列表。
              */
             @JsonProperty("applicableOrganizations")
             private List<OrgOpenDTO> applicableOrganizations;
+
+            /**
+             * 创建业务员。的空实例。
+             */
+            public ResponsiblePersonOpenDTO() {
+            }
 
             /**
              * 绑定员工。
@@ -430,53 +381,46 @@ public class StoreTransferOrderMessage {
             public static class UserOpenDTO {
 
                 /**
-                 * 创建绑定员工。的空实例。
-                 */
-                public UserOpenDTO() {
-                }
-
-
-                /**
                  * id。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 员工账号(废弃)。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 真实名称。
                  */
                 @JsonProperty("realName")
                 private String realName;
-
                 /**
                  * 员工账号。
                  */
                 @JsonProperty("userName")
                 private String userName;
-
                 /**
                  * 员工编码。
                  */
                 @JsonProperty("staffCode")
                 private String staffCode;
-
                 /**
                  * 员工手机号。
                  */
                 @JsonProperty("phone")
                 private String phone;
-
                 /**
                  * 账号创建类型 2 总部创建, 3 门店创建。
                  */
                 @JsonProperty("createType")
                 private Integer createType;
+
+                /**
+                 * 创建绑定员工。的空实例。
+                 */
+                public UserOpenDTO() {
+                }
             }
 
             /**
@@ -488,35 +432,31 @@ public class StoreTransferOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建适用机构列表。的空实例。
-                 */
-                public OrgOpenDTO() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建适用机构列表。的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
             }
         }
 
@@ -529,35 +469,31 @@ public class StoreTransferOrderMessage {
         public static class CreatedOrgDetails {
 
             /**
-             * 创建创建机构。的空实例。
-             */
-            public CreatedOrgDetails() {
-            }
-
-
-            /**
              * 机构 ID。
              */
             @JsonProperty("orgId")
             private Long orgId;
-
             /**
              * 机构根节点 ID。
              */
             @JsonProperty("rootOrgId")
             private Long rootOrgId;
-
             /**
              * 机构编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 机构名称。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建创建机构。的空实例。
+             */
+            public CreatedOrgDetails() {
+            }
         }
 
         /**
@@ -569,53 +505,46 @@ public class StoreTransferOrderMessage {
         public static class UserOpenDTO {
 
             /**
-             * 创建创建人。的空实例。
-             */
-            public UserOpenDTO() {
-            }
-
-
-            /**
              * id。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 员工账号(废弃)。
              */
             @JsonProperty("name")
             private String name;
-
             /**
              * 真实名称。
              */
             @JsonProperty("realName")
             private String realName;
-
             /**
              * 员工账号。
              */
             @JsonProperty("userName")
             private String userName;
-
             /**
              * 员工编码。
              */
             @JsonProperty("staffCode")
             private String staffCode;
-
             /**
              * 员工手机号。
              */
             @JsonProperty("phone")
             private String phone;
-
             /**
              * 账号创建类型 2 总部创建, 3 门店创建。
              */
             @JsonProperty("createType")
             private Integer createType;
+
+            /**
+             * 创建创建人。的空实例。
+             */
+            public UserOpenDTO() {
+            }
         }
 
         /**
@@ -627,53 +556,46 @@ public class StoreTransferOrderMessage {
         public static class SubmitterDetails {
 
             /**
-             * 创建提交人。的空实例。
-             */
-            public SubmitterDetails() {
-            }
-
-
-            /**
              * id。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 员工账号(废弃)。
              */
             @JsonProperty("name")
             private String name;
-
             /**
              * 真实名称。
              */
             @JsonProperty("realName")
             private String realName;
-
             /**
              * 员工账号。
              */
             @JsonProperty("userName")
             private String userName;
-
             /**
              * 员工编码。
              */
             @JsonProperty("staffCode")
             private String staffCode;
-
             /**
              * 员工手机号。
              */
             @JsonProperty("phone")
             private String phone;
-
             /**
              * 账号创建类型 2 总部创建, 3 门店创建。
              */
             @JsonProperty("createType")
             private Integer createType;
+
+            /**
+             * 创建提交人。的空实例。
+             */
+            public SubmitterDetails() {
+            }
         }
 
         /**
@@ -685,53 +607,46 @@ public class StoreTransferOrderMessage {
         public static class AuditorDetails {
 
             /**
-             * 创建审核人。的空实例。
-             */
-            public AuditorDetails() {
-            }
-
-
-            /**
              * id。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 员工账号(废弃)。
              */
             @JsonProperty("name")
             private String name;
-
             /**
              * 真实名称。
              */
             @JsonProperty("realName")
             private String realName;
-
             /**
              * 员工账号。
              */
             @JsonProperty("userName")
             private String userName;
-
             /**
              * 员工编码。
              */
             @JsonProperty("staffCode")
             private String staffCode;
-
             /**
              * 员工手机号。
              */
             @JsonProperty("phone")
             private String phone;
-
             /**
              * 账号创建类型 2 总部创建, 3 门店创建。
              */
             @JsonProperty("createType")
             private Integer createType;
+
+            /**
+             * 创建审核人。的空实例。
+             */
+            public AuditorDetails() {
+            }
         }
 
         /**
@@ -743,53 +658,46 @@ public class StoreTransferOrderMessage {
         public static class DelivererDetails {
 
             /**
-             * 创建发货人。的空实例。
-             */
-            public DelivererDetails() {
-            }
-
-
-            /**
              * id。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 员工账号(废弃)。
              */
             @JsonProperty("name")
             private String name;
-
             /**
              * 真实名称。
              */
             @JsonProperty("realName")
             private String realName;
-
             /**
              * 员工账号。
              */
             @JsonProperty("userName")
             private String userName;
-
             /**
              * 员工编码。
              */
             @JsonProperty("staffCode")
             private String staffCode;
-
             /**
              * 员工手机号。
              */
             @JsonProperty("phone")
             private String phone;
-
             /**
              * 账号创建类型 2 总部创建, 3 门店创建。
              */
             @JsonProperty("createType")
             private Integer createType;
+
+            /**
+             * 创建发货人。的空实例。
+             */
+            public DelivererDetails() {
+            }
         }
 
         /**
@@ -801,131 +709,111 @@ public class StoreTransferOrderMessage {
         public static class StockAllotDetailOpenDTO {
 
             /**
-             * 创建明细信息。的空实例。
-             */
-            public StockAllotDetailOpenDTO() {
-            }
-
-
-            /**
              * 物品详情信息。
              */
             @JsonProperty("goods")
             private GoodsOpenDTO goods;
-
             /**
              * 基准单位。
              */
             @JsonProperty("baseUnit")
             private UnitOpenDTO baseUnit;
-
             /**
              * 基准单位数量。
              */
             @JsonProperty("amount")
             private String amount;
-
             /**
              * 库存单位。
              */
             @JsonProperty("bizUnit")
             private BizUnitDetails bizUnit;
-
             /**
              * 调拨数量。
              */
             @JsonProperty("bizUnitAmount")
             private String bizUnitAmount;
-
             /**
              * 调拨单价（含税）。
              */
             @JsonProperty("bizUnitPrice")
             private String bizUnitPrice;
-
             /**
              * 金额。
              */
             @JsonProperty("money")
             private String money;
-
             /**
              * 调拨单价（不含税）。
              */
             @JsonProperty("bizUnitNoTaxPrice")
             private String bizUnitNoTaxPrice;
-
             /**
              * 调拨金额（不含税）。
              */
             @JsonProperty("noTaxMoney")
             private String noTaxMoney;
-
             /**
              * 税率。
              */
             @JsonProperty("taxRate")
             private String taxRate;
-
             /**
              * 税额。
              */
             @JsonProperty("tax")
             private String tax;
-
             /**
              * 成本单价（不含税）。
              */
             @JsonProperty("bizUnitStockPrice")
             private String bizUnitStockPrice;
-
             /**
              * 成本金额（不含税）。
              */
             @JsonProperty("stockMoney")
             private String stockMoney;
-
             /**
              * 实物批次号。
              */
             @JsonProperty("batchNum")
             private String batchNum;
-
             /**
              * 生产日期。
              */
             @JsonProperty("productionDate")
             private Long productionDate;
-
             /**
              * 保质期。
              */
             @JsonProperty("shelfLife")
             private Integer shelfLife;
-
             /**
              * 过期日期。
              */
             @JsonProperty("expirationDate")
             private Long expirationDate;
-
             /**
              * 辅助单位。
              */
             @JsonProperty("supplementaryUnit")
             private SupplementaryUnitDetails supplementaryUnit;
-
             /**
              * 辅助数量。
              */
             @JsonProperty("supplementaryUnitAmount")
             private String supplementaryUnitAmount;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
+
+            /**
+             * 创建明细信息。的空实例。
+             */
+            public StockAllotDetailOpenDTO() {
+            }
 
             /**
              * 物品详情信息。
@@ -936,71 +824,61 @@ public class StoreTransferOrderMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建物品详情信息。的空实例。
-                 */
-                public GoodsOpenDTO() {
-                }
-
-
-                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 物品编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 物品名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 物品类别。
                  */
                 @JsonProperty("category")
                 private SimpleCategoryOpenDTO category;
-
                 /**
                  * 品牌。
                  */
                 @JsonProperty("brand")
                 private String brand;
-
                 /**
                  * 规格型号。
                  */
                 @JsonProperty("spec")
                 private String spec;
-
                 /**
                  * 基准单位。
                  */
                 @JsonProperty("baseUnit")
                 private UnitOpenDTO baseUnit;
-
                 /**
                  * 单位信息。
                  */
                 @JsonProperty("units")
                 private List<UnitsItem> units;
-
                 /**
                  * 版本号。
                  */
                 @JsonProperty("version")
                 private Integer version;
-
                 /**
                  * 第三方编码。
                  */
                 @JsonProperty("thirdCode")
                 private String thirdCode;
+
+                /**
+                 * 创建物品详情信息。的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
 
                 /**
                  * 基准单位。
@@ -1011,29 +889,26 @@ public class StoreTransferOrderMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建基准单位。的空实例。
-                     */
-                    public UnitOpenDTO() {
-                    }
-
-
-                    /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
                     private String id;
-
                     /**
                      * 单位编码。
                      */
                     @JsonProperty("code")
                     private String code;
-
                     /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建基准单位。的空实例。
+                     */
+                    public UnitOpenDTO() {
+                    }
                 }
 
                 /**
@@ -1045,29 +920,26 @@ public class StoreTransferOrderMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建单位信息。的空实例。
-                     */
-                    public UnitsItem() {
-                    }
-
-
-                    /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
                     private String id;
-
                     /**
                      * 单位编码。
                      */
                     @JsonProperty("code")
                     private String code;
-
                     /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建单位信息。的空实例。
+                     */
+                    public UnitsItem() {
+                    }
                 }
             }
 
@@ -1080,29 +952,26 @@ public class StoreTransferOrderMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建基准单位。的空实例。
-                 */
-                public UnitOpenDTO() {
-                }
-
-
-                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 单位编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建基准单位。的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
             }
 
             /**
@@ -1114,29 +983,26 @@ public class StoreTransferOrderMessage {
             public static class BizUnitDetails {
 
                 /**
-                 * 创建库存单位。的空实例。
-                 */
-                public BizUnitDetails() {
-                }
-
-
-                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 单位编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建库存单位。的空实例。
+                 */
+                public BizUnitDetails() {
+                }
             }
 
             /**
@@ -1148,29 +1014,26 @@ public class StoreTransferOrderMessage {
             public static class SupplementaryUnitDetails {
 
                 /**
-                 * 创建辅助单位。的空实例。
-                 */
-                public SupplementaryUnitDetails() {
-                }
-
-
-                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 单位编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建辅助单位。的空实例。
+                 */
+                public SupplementaryUnitDetails() {
+                }
             }
         }
     }

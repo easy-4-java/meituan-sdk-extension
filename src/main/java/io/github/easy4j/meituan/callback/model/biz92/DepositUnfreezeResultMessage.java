@@ -20,57 +20,49 @@ import lombok.Setter;
 public class DepositUnfreezeResultMessage {
 
     /**
-     * 创建美团「押金解冻结果回调」回调的业务内容。的空实例。
-     */
-    public DepositUnfreezeResultMessage() {
-    }
-
-
-    /**
      * 美团订单号。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 供应商订单号。必填。
      */
     @JsonProperty("thirdOrderId")
     private Long thirdOrderId;
-
     /**
      * 商家解冻流水。
      */
     @JsonProperty("thirdUnfreezeId")
     private String thirdUnfreezeId;
-
     /**
      * 美团解冻流水。必填。
      */
     @JsonProperty("mtUnfreezeId")
     private String mtUnfreezeId;
-
     /**
      * 解冻结果发起方 PARTNER-商家主动发起， MT-美团兜底解冻。必填。
      */
     @JsonProperty("source")
     private String source;
-
     /**
      * 解冻类型。必填。
      */
     @JsonProperty("type")
     private String type;
-
     /**
      * 解冻金额。必填。
      */
     @JsonProperty("amount")
     private Integer amount;
-
     /**
      * 解冻时间。必填。
      */
     @JsonProperty("time")
     private String time;
+
+    /**
+     * 创建美团「押金解冻结果回调」回调的业务内容。的空实例。
+     */
+    public DepositUnfreezeResultMessage() {
+    }
 }

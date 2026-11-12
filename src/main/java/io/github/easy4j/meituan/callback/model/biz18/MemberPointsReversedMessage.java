@@ -20,45 +20,39 @@ import lombok.Setter;
 public class MemberPointsReversedMessage {
 
     /**
-     * 创建美团「会员积分冲正」回调的业务内容。的空实例。
-     */
-    public MemberPointsReversedMessage() {
-    }
-
-
-    /**
      * 会员 ID。
      */
     @JsonProperty("memberId")
     private String memberId;
-
     /**
      * 卡 ID。
      */
     @JsonProperty("cardId")
     private String cardId;
-
     /**
      * 卡号。
      */
     @JsonProperty("cardNo")
     private String cardNo;
-
     /**
      * localserver订单 ID。
      */
     @JsonProperty("localId")
     private String localId;
-
     /**
      * 撤销流水号。
      */
     @JsonProperty("bizId")
     private String bizId;
-
     /**
      * 原因。
      */
     @JsonProperty("reason")
     private String reason;
+
+    /**
+     * 创建美团「会员积分冲正」回调的业务内容。的空实例。
+     */
+    public MemberPointsReversedMessage() {
+    }
 }

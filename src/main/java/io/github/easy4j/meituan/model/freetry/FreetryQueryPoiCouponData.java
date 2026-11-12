@@ -10,13 +10,18 @@ import java.util.List;
 @Data
 public class FreetryQueryPoiCouponData {
 
-    /** 创建门店验券历史查询结果。 */
+    /**
+     * 券码总数。
+     */
+    private Integer totalCnt;
+    /**
+     * 券码列表。
+     */
+    private List<FreetryCouponData> couponList;
+
+    /**
+     * 创建门店验券历史查询结果。
+     */
     public FreetryQueryPoiCouponData() {
     }
-
-    /** 券码总数。 */
-    private Integer totalCnt;
-
-    /** 券码列表。 */
-    private List<FreetryCouponData> couponList;
 }

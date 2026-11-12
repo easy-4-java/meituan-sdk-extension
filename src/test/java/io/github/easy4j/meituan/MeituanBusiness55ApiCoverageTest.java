@@ -1,12 +1,7 @@
 package io.github.easy4j.meituan;
 
 import com.meituan.sdk.annotations.ApiMeta;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadActivityRestrictionRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryPrepareVerifyRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryActivitiesByPoiRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryPoiCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryVerifyCouponRequest;
+import io.github.easy4j.meituan.model.freetry.*;
 import io.github.easy4j.meituan.service.MeituanFreetryService;
 import org.junit.jupiter.api.Test;
 
@@ -23,13 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness55ApiCoverageTest {
 
     /**
-     * 创建大众点评免费试（businessId=55）公开 API 覆盖回归测试。的空实例。
-     */
-    MeituanBusiness55ApiCoverageTest() {
-    }
-
-
-    /**
      * 官方请求类型与接口路径的对应关系。
      */
     private static final Map<Class<?>, String> DOCUMENTED_REQUESTS = io.github.easy4j.meituan.TestCollections.mapOf(
@@ -40,6 +28,13 @@ class MeituanBusiness55ApiCoverageTest {
             FreetryQueryActivitiesByPoiRequest.class, "/freetry/open/coupon/queryActivitiesByPoi",
             FreetryPrepareVerifyRequest.class, "/freetry/open/coupon/prepareVerify"
     );
+
+
+    /**
+     * 创建大众点评免费试（businessId=55）公开 API 覆盖回归测试。的空实例。
+     */
+    MeituanBusiness55ApiCoverageTest() {
+    }
 
     /**
      * 验证当前业务的官方请求、接口元数据及业务门面完整对应。

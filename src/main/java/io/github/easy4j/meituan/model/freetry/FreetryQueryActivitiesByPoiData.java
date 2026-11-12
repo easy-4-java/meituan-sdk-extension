@@ -10,10 +10,14 @@ import java.util.List;
 @Data
 public class FreetryQueryActivitiesByPoiData {
 
-    /** 创建门店活动映射查询结果。 */
+    /**
+     * 门店活动列表。
+     */
+    private List<FreetryActivityData> activityList;
+
+    /**
+     * 创建门店活动映射查询结果。
+     */
     public FreetryQueryActivitiesByPoiData() {
     }
-
-    /** 门店活动列表。 */
-    private List<FreetryActivityData> activityList;
 }

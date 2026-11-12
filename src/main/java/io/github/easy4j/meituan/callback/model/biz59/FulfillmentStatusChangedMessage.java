@@ -20,45 +20,39 @@ import lombok.Setter;
 public class FulfillmentStatusChangedMessage {
 
     /**
-     * 创建美团「履约状态变更通知商家」回调的业务内容。的空实例。
-     */
-    public FulfillmentStatusChangedMessage() {
-    }
-
-
-    /**
      * 预约单号。必填。
      */
     @JsonProperty("leadsId")
     private String leadsId;
-
     /**
      * 美团门店 ID，该字段是混淆字段，实际值类型为混淆后的字符串类型。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
-
     /**
      * 履约状态 100：已到店。
      */
     @JsonProperty("fullfillStatus")
     private String fullfillStatus;
-
     /**
      * 履约状态类型 1：到店状态。
      */
     @JsonProperty("fullfillStatusType")
     private String fullfillStatusType;
-
     /**
      * 履约信息。
      */
     @JsonProperty("fullfillInfo")
     private String fullfillInfo;
-
     /**
      * 扩展字段。
      */
     @JsonProperty("extraMap")
     private String extraMap;
+
+    /**
+     * 创建美团「履约状态变更通知商家」回调的业务内容。的空实例。
+     */
+    public FulfillmentStatusChangedMessage() {
+    }
 }

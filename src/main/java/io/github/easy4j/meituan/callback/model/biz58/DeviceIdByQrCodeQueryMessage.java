@@ -20,15 +20,15 @@ import lombok.Setter;
 public class DeviceIdByQrCodeQueryMessage {
 
     /**
-     * 创建美团「根据二维码URL查询设备ID」回调的业务内容。的空实例。
-     */
-    public DeviceIdByQrCodeQueryMessage() {
-    }
-
-
-    /**
      * 二维码的URL。
      */
     @JsonProperty("url")
     private String url;
+
+
+    /**
+     * 创建美团「根据二维码URL查询设备ID」回调的业务内容。的空实例。
+     */
+    public DeviceIdByQrCodeQueryMessage() {
+    }
 }

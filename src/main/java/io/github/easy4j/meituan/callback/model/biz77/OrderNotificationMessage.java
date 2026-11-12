@@ -20,81 +20,69 @@ import lombok.Setter;
 public class OrderNotificationMessage {
 
     /**
-     * 创建美团「订单消息」回调的业务内容。的空实例。
-     */
-    public OrderNotificationMessage() {
-    }
-
-
-    /**
      * 变更类型。
      */
     @JsonProperty("changeType")
     private Integer changeType;
-
     /**
      * 17820103131。
      */
     @JsonProperty("changeTime")
     private Long changeTime;
-
     /**
      * 门店 ID。
      */
     @JsonProperty("shopID")
     private Integer shopID;
-
     /**
      * 订单 ID。
      */
     @JsonProperty("orderID")
     private Long orderID;
-
     /**
      * 订单展示编号。
      */
     @JsonProperty("orderDisplayID")
     private Long orderDisplayID;
-
     /**
      * 订单类型。
      */
     @JsonProperty("orderType")
     private Integer orderType;
-
     /**
      * 订单来源。
      */
     @JsonProperty("orderSource")
     private Integer orderSource;
-
     /**
      * 订单状态。
      */
     @JsonProperty("status")
     private Integer status;
-
     /**
      * 订单总价。
      */
     @JsonProperty("totalAmount")
     private Double totalAmount;
-
     /**
      * 订单实收。
      */
     @JsonProperty("payAmount")
     private Double payAmount;
-
     /**
      * 会员 ID。
      */
     @JsonProperty("memberId")
     private Long memberId;
-
     /**
      * 创建订单时间。
      */
     @JsonProperty("createOrderTime")
     private Long createOrderTime;
+
+    /**
+     * 创建美团「订单消息」回调的业务内容。的空实例。
+     */
+    public OrderNotificationMessage() {
+    }
 }

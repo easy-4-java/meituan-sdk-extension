@@ -3,10 +3,11 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import tools.jackson.databind.JsonNode;
+
+import java.util.List;
 
 /**
  * 美团「外卖菜品消息」回调的业务内容。
@@ -22,53 +23,46 @@ import tools.jackson.databind.JsonNode;
 public class TakeawayDishMessage {
 
     /**
-     * 创建美团「外卖菜品消息」回调的业务内容。的空实例。
-     */
-    public TakeawayDishMessage() {
-    }
-
-
-    /**
      * 租户 ID。必填。
      */
     @JsonProperty("tenantId")
     private Long tenantId;
-
     /**
      * 组织机构 ID。必填。
      */
     @JsonProperty("orgId")
     private Long orgId;
-
     /**
      * 门店 ID。必填。
      */
     @JsonProperty("poiId")
     private Long poiId;
-
     /**
      * 菜品列表。
      */
     @JsonProperty("spus")
     private List<PoiSpu4CTO> spus;
-
     /**
      * 分类列表。
      */
     @JsonProperty("categories")
     private List<PoiCategory4CTO> categories;
-
     /**
      * 外卖菜品来源。必填。
      */
     @JsonProperty("source")
     private Integer source;
-
     /**
      * 是否为删除操作。必填。
      */
     @JsonProperty("deleted")
     private Boolean deleted;
+
+    /**
+     * 创建美团「外卖菜品消息」回调的业务内容。的空实例。
+     */
+    public TakeawayDishMessage() {
+    }
 
     /**
      * 菜品列表。
@@ -79,107 +73,91 @@ public class TakeawayDishMessage {
     public static class PoiSpu4CTO {
 
         /**
-         * 创建菜品列表。的空实例。
-         */
-        public PoiSpu4CTO() {
-        }
-
-
-        /**
          * 商品 ID。
          */
         @JsonProperty("spuId")
         private Long spuId;
-
         /**
          * 商品名称。
          */
         @JsonProperty("name")
         private String name;
-
         /**
          * 商品类型。
          */
         @JsonProperty("type")
         private Integer type;
-
         /**
          * 描述。
          */
         @JsonProperty("memo")
         private String memo;
-
         /**
          * 分类 ID。
          */
         @JsonProperty("categoryId")
         private Long categoryId;
-
         /**
          * 分类排序。
          */
         @JsonProperty("categoryRank")
         private Long categoryRank;
-
         /**
          * 辣度。
          */
         @JsonProperty("spicyDegree")
         private Integer spicyDegree;
-
         /**
          * 标签列表。
          */
         @JsonProperty("tagList")
         private List<String> tagList;
-
         /**
          * 单位名称。
          */
         @JsonProperty("unit")
         private String unit;
-
         /**
          * 做法列表。
          */
         @JsonProperty("methodList")
         private List<String> methodList;
-
         /**
          * 售卖状态。
          */
         @JsonProperty("saleStatus")
         private Integer saleStatus;
-
         /**
          * 是否删除。
          */
         @JsonProperty("deleted")
         private Integer deleted;
-
         /**
          * sku规格列表。
          */
         @JsonProperty("skuList")
         private List<PoiSku4CTO> skuList;
-
         /**
          * 售卖时段。
          */
         @JsonProperty("saleTimeList")
         private List<JsonNode> saleTimeList;
-
         /**
          * 多媒体信息列表。
          */
         @JsonProperty("multimedias")
         private List<JsonNode> multimedias;
-
         /**
          * 外卖菜品来源。
          */
         @JsonProperty("source")
         private Integer source;
+
+        /**
+         * 创建菜品列表。的空实例。
+         */
+        public PoiSpu4CTO() {
+        }
 
         /**
          * sku规格列表。
@@ -190,47 +168,41 @@ public class TakeawayDishMessage {
         public static class PoiSku4CTO {
 
             /**
-             * 创建sku规格列表。的空实例。
-             */
-            public PoiSku4CTO() {
-            }
-
-
-            /**
              * sku id。
              */
             @JsonProperty("skuId")
             private Long skuId;
-
             /**
              * 规格名称。
              */
             @JsonProperty("spec")
             private String spec;
-
             /**
              * 价格（售价）。
              */
             @JsonProperty("price")
             private Long price;
-
             /**
              * 会员价。
              */
             @JsonProperty("memberPrice")
             private Long memberPrice;
-
             /**
              * 外卖菜品来源。
              */
             @JsonProperty("source")
             private Integer source;
-
             /**
              * 删除标记。
              */
             @JsonProperty("deleted")
             private Integer deleted;
+
+            /**
+             * 创建sku规格列表。的空实例。
+             */
+            public PoiSku4CTO() {
+            }
         }
     }
 
@@ -243,64 +215,55 @@ public class TakeawayDishMessage {
     public static class PoiCategory4CTO {
 
         /**
-         * 创建分类列表。的空实例。
-         */
-        public PoiCategory4CTO() {
-        }
-
-
-        /**
          * 分类 ID。
          */
         @JsonProperty("categoryId")
         private Long categoryId;
-
         /**
          * 分类名称。
          */
         @JsonProperty("name")
         private String name;
-
         /**
          * 分类类型。
          */
         @JsonProperty("type")
         private Integer type;
-
         /**
          * 默认排序。
          */
         @JsonProperty("defaultRank")
         private Integer defaultRank;
-
         /**
          * 点餐排序。
          */
         @JsonProperty("diancanRank")
         private Integer diancanRank;
-
         /**
          * pos排序。
          */
         @JsonProperty("posRank")
         private Integer posRank;
-
         /**
          * 父分类。
          */
         @JsonProperty("parentId")
         private Long parentId;
-
         /**
          * 外卖菜品来源。
          */
         @JsonProperty("source")
         private Integer source;
-
         /**
          * 删除标记。
          */
         @JsonProperty("deleted")
         private Integer deleted;
+
+        /**
+         * 创建分类列表。的空实例。
+         */
+        public PoiCategory4CTO() {
+        }
     }
 }

@@ -15,10 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * CachedMeituanTenantConfigStorage 的缓存、TTL、主动刷新与并发防击穿测试。
@@ -26,16 +23,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CachedMeituanTenantConfigStorageTest {
 
     /**
+     * 测试使用的租户标识。
+     */
+    private static final String TENANT = "tenant-a";
+    /**
+     * 底层租户配置被实际加载的次数。
+     */
+    private final AtomicInteger loadCount = new AtomicInteger();
+
+    /**
      * 创建CachedMeituanTenantConfigStorage 的缓存、TTL、主动刷新与并发防击穿测试。的空实例。
      */
     CachedMeituanTenantConfigStorageTest() {
     }
-
-
-    /**
-     * 测试使用的租户标识。
-     */
-    private static final String TENANT = "tenant-a";
 
     /**
      * 创建带指定授权 token 的测试租户配置。
@@ -49,11 +49,6 @@ class CachedMeituanTenantConfigStorageTest {
         config.setAppAuthToken(token);
         return config;
     }
-
-    /**
-     * 底层租户配置被实际加载的次数。
-     */
-    private final AtomicInteger loadCount = new AtomicInteger();
 
     /**
      * 创建记录实际加载次数的租户配置加载器。
@@ -203,6 +198,7 @@ class CachedMeituanTenantConfigStorageTest {
 
     /**
      * 验证同一租户并发缓存未命中时仅加载一次。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

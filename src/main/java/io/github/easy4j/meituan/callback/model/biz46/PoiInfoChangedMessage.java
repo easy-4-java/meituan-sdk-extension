@@ -46,7 +46,8 @@ public class PoiInfoChangedMessage {
      *
      * @param textValue 标量消息解码后的文本
      */
-    @JsonCreator(mode = JsonCreator.Mode.DELEGATING) public PoiInfoChangedMessage(String textValue) {
+    @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+    public PoiInfoChangedMessage(String textValue) {
         this.textValue = textValue;
     }
 }

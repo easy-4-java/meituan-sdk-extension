@@ -4,8 +4,8 @@ import io.github.easy4j.meituan.callback.model.biz1000.MigrationCompletedMessage
 import io.github.easy4j.meituan.callback.model.biz2.OrderCancelledMessage;
 import io.github.easy4j.meituan.callback.model.biz3.PaymentOrderMessage;
 import io.github.easy4j.meituan.callback.model.biz46.PoiInfoChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderCreatedMessage;
 import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage;
+import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderCreatedMessage;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.DeserializationFeature;
 import tools.jackson.databind.PropertyNamingStrategies;

@@ -33,7 +33,8 @@
 - **租户级执行** — 业务调用只需传 `tenantId`，执行器从可插拔的
   `MeituanTenantConfigStorage` 解析租户凭据后委托官方 client 发起请求。
 - **类型化业务门面** — 15 个 service 接口（`MeituanWaimaiService`、
-  `MeituanRetailService` 等），覆盖该版本官方 SDK 的 1,148 个正式业务请求（官方测试包 `corgiTest` 按设计排除；覆盖度由 `MeituanApiCoverageTest` 自动断言）。
+  `MeituanRetailService` 等），覆盖该版本官方 SDK 的 1,148 个正式业务请求（官方测试包 `corgiTest` 按设计排除；覆盖度由
+  `MeituanApiCoverageTest` 自动断言）。
 - **可选 Spring Boot starter** — 配套的
   [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
   完成配置绑定、租户存储、client 工厂、执行器与全部业务 service 的装配；
@@ -47,40 +48,42 @@
 
 ## 2. 功能与状态
 
-| 能力 | 状态 |
-| :--- | :--- |
-| 多租户密钥模型（每租户独立 `developerId` / `signKey`） | ✅ |
-| 按租户创建并缓存官方 client | ✅ |
-| 租户存储 SPI + 内存实现 + 可缓存装饰器 | ✅ |
-| 租户上下文（ThreadLocal `tenantId`） | ✅ |
-| 业务门面：餐饮、到店餐饮、配送、分销、免费试、客满满、快驴、直播、支付、零售、门店、工具、酒旅、外卖 | ✅ |
-| 可选 Spring Boot starter（`meituan-spring-boot-starter`，每个 Boot 2.3–4.1 版本线一条分支） | ✅ |
-| 异常转换保留官方错误码 | ✅ |
+| 能力                                                                                                 | 状态 |
+|:-----------------------------------------------------------------------------------------------------|:-----|
+| 多租户密钥模型（每租户独立 `developerId` / `signKey`）                                               | ✅   |
+| 按租户创建并缓存官方 client                                                                          | ✅   |
+| 租户存储 SPI + 内存实现 + 可缓存装饰器                                                               | ✅   |
+| 租户上下文（ThreadLocal `tenantId`）                                                                 | ✅   |
+| 业务门面：餐饮、到店餐饮、配送、分销、免费试、客满满、快驴、直播、支付、零售、门店、工具、酒旅、外卖 | ✅   |
+| 可选 Spring Boot starter（`meituan-spring-boot-starter`，每个 Boot 2.3–4.1 版本线一条分支）          | ✅   |
+| 异常转换保留官方错误码                                                                               | ✅   |
 
 ## 3. 环境要求与兼容性
 
-| 依赖 | 版本 |
-| :--- | :--- |
-| Java | 21+ |
-| Spring Boot | 4.x（自动装配 API 兼容 Boot 2.7+） |
-| 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`（专有发行物，见下） |
-| 构建 | Maven 4（已含 `./mvnw` wrapper） |
+| 依赖        | 版本                                                            |
+|:------------|:----------------------------------------------------------------|
+| Java        | 21+                                                             |
+| Spring Boot | 4.x（自动装配 API 兼容 Boot 2.7+）                              |
+| 官方 SDK    | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`（专有发行物，见下） |
+| 构建        | Maven 4（已含 `./mvnw` wrapper）                                |
 
-官方二进制、源码及 POM 发布在项目配置的阿里云 Maven release 仓库。在 Maven settings 中为 `2624322-release-6F6h6R` 配置读取凭据后即可构建。离线安装时，从美团 20261112 发行包解压 JAR，并使用本仓库的 `libs/MtOpJavaSDK-1.0-20261112.pom`。
+官方二进制、源码及 POM 发布在项目配置的阿里云 Maven release 仓库。在 Maven settings 中为 `2624322-release-6F6h6R`
+配置读取凭据后即可构建。离线安装时，从美团 20261112 发行包解压 JAR，并使用本仓库的 `libs/MtOpJavaSDK-1.0-20261112.pom`。
 
-通过 `new MeituanPlatformService(clientFactory, tenantStorage)` 使用 OAuth 换取或刷新 token、统一授权、本次调用的超时设置以及 `commonInvokeApi`。通用请求中的授权字段由调用方按接口要求填写。
+通过 `new MeituanPlatformService(clientFactory, tenantStorage)` 使用 OAuth 换取或刷新 token、统一授权、本次调用的超时设置以及
+`commonInvokeApi`。通用请求中的授权字段由调用方按接口要求填写。
 
 ## 4. 架构与模块
 
-| Package | 职责 |
-| :--- | :--- |
-| `io.github.easy4j.meituan` | 无框架核心：配置对象、client 工厂、执行器、业务 service |
-| `io.github.easy4j.meituan.client` | 官方 client 工厂、租户感知的 `MeituanRequestExecutor` |
-| `io.github.easy4j.meituan.config` | `MeituanConfig`（平台级）/ `MeituanTenantConfig`（租户级） |
-| `io.github.easy4j.meituan.tenant` | 租户存储 SPI、内存实现、缓存装饰器、`MeituanTenantContextHolder`、加载器 |
-| `io.github.easy4j.meituan.service` | 15 个业务 service 接口 |
-| `io.github.easy4j.meituan.service.impl` | 业务 service 实现 |
-| `io.github.easy4j.meituan.exception` | `MeituanJavaException` 异常转换 |
+| Package                                 | 职责                                                                     |
+|:----------------------------------------|:-------------------------------------------------------------------------|
+| `io.github.easy4j.meituan`              | 无框架核心：配置对象、client 工厂、执行器、业务 service                  |
+| `io.github.easy4j.meituan.client`       | 官方 client 工厂、租户感知的 `MeituanRequestExecutor`                    |
+| `io.github.easy4j.meituan.config`       | `MeituanConfig`（平台级）/ `MeituanTenantConfig`（租户级）               |
+| `io.github.easy4j.meituan.tenant`       | 租户存储 SPI、内存实现、缓存装饰器、`MeituanTenantContextHolder`、加载器 |
+| `io.github.easy4j.meituan.service`      | 15 个业务 service 接口                                                   |
+| `io.github.easy4j.meituan.service.impl` | 业务 service 实现                                                        |
+| `io.github.easy4j.meituan.exception`    | `MeituanJavaException` 异常转换                                          |
 
 调用链：
 
@@ -193,13 +196,14 @@ cachedStorage.evict("tenant-a");              // 清除单个条目
 ```
 
 > **token 生命周期责任** —— `appAuthToken` 的刷新由调用方负责：
-> 实现 `MeituanTenantConfigLoader` 从你的存储返回**当前有效** token，
+> 实现 `MeituanTenantConfigLoader` 从你的存储返回 **当前有效** token，
 > 取一个短于 token 有效期的 TTL，或在 token 轮换任务里调用
 > `put`/`refresh`。SDK 自身不做 token 刷新。
 
 ### 消息回调与业务模型
 
-业务模型位于 `io.github.easy4j.meituan.callback.model.biz<业务ID>`，消息类型枚举位于 `io.github.easy4j.meituan.callback.type`。从旧版升级时，请更新引用这些类型的 import 和反射使用的全限定类名，并重新编译调用方。
+业务模型位于 `io.github.easy4j.meituan.callback.model.biz<业务ID>`，消息类型枚举位于
+`io.github.easy4j.meituan.callback.type`。从旧版升级时，请更新引用这些类型的 import 和反射使用的全限定类名，并重新编译调用方。
 
 businessId=58/59/71 的消息使用 URL-encoded 公共参数，并在 `message` 字段中携带业务 JSON。
 SDK 使用 Jackson 3 将业务 JSON 转为 `MeituanCallbackMessage<T>`，可显式指定模型，也可按业务 ID 和消息类型自动选择模型。
@@ -226,7 +230,8 @@ MemberCreatedMessage member = parsed.getMessage();
 原始表单参数保留在 `getParameters()` 中，原始业务 JSON 可通过 `getRawMessage()` 获取，验签使用原始参数。
 JSON 对象型 `message` 会被序列化为参数值，无法保留其输入 JSON 的空白与格式，应按平台实际发送的表单验签。
 解析已知模型时，缺少消息、无效 JSON、类型转换失败或请求读取失败会抛出 `IllegalArgumentException`。
-预订新订单模型将字符串形式的 `data` 和 `requirements` 映射为嵌套对象，可调用 `getData().getRequirements().getRemark()` 读取备注。使用自定义模型并声明为 `String` 时仍保留原文。
+预订新订单模型将字符串形式的 `data` 和 `requirements` 映射为嵌套对象，可调用 `getData().getRequirements().getRemark()`
+读取备注。使用自定义模型并声明为 `String` 时仍保留原文。
 
 标准同步响应使用 `MeituanCallbackResponse.successData(result)`，Jackson 会将对象或列表写入外层的字符串字段 `data`。
 已有 JSON 文本可传给 `successJson(json)`。例如预订拒单可按下面的方式返回。
@@ -242,7 +247,8 @@ return MeituanCallbackResponse.successData(decision);
 闪惠接收订单推送使用 `MeituanCallbackResponse.flashOrderSuccess()`，返回 `{"data":"ok"}`。
 服务零售「单个查询库存」和「批量获取库存」使用 `InventoryQueryResponse`，其返回码为字符串，说明字段名为 `msg`。
 
-通过 `CallbackUtil.parse(request, String.class)` 或 `CallbackUtil.parse(null, body, String.class)` 读取解码后的业务文本，保留首尾空白。显式指定类型时，业务文本缺失或全为空白会抛出异常。
+通过 `CallbackUtil.parse(request, String.class)` 或 `CallbackUtil.parse(null, body, String.class)`
+读取解码后的业务文本，保留首尾空白。显式指定类型时，业务文本缺失或全为空白会抛出异常。
 字符串回执声明为 `MeituanCallbackResponse<String>`，嵌套对象回执声明为 `MeituanCallbackResponse<业务类型>`。升级后需要重新编译调用方。
 
 ```java
@@ -266,7 +272,8 @@ return MeituanBusiness58MessageType.resolve(callback)
         .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
 ```
 
-消息类型枚举覆盖 `MeituanCallbackModels` 中的 27 个业务、282 组已登记编号，每个业务使用 `MeituanBusiness<业务ID>MessageType`。
+消息类型枚举覆盖 `MeituanCallbackModels` 中的 27 个业务、282 组已登记编号，每个业务使用
+`MeituanBusiness<业务ID>MessageType`。
 `resolve(callback)` 同时检查业务 ID 和消息编号；`fromMsgType(msgType)` 查询该业务的枚举。
 回调定义集中在业务枚举中，每项填写名称、消息编号、官网文档和 `messageClass`。
 `MeituanCallbackModels` 从枚举构建只读索引；业务内新增回调只需添加一个枚举项。

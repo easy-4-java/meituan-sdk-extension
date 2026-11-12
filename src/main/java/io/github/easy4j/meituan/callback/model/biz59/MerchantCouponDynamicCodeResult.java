@@ -18,21 +18,19 @@ import lombok.Setter;
 public class MerchantCouponDynamicCodeResult {
 
     /**
-     * 创建美团「商家券获取动态核销码」回调的业务响应。的空实例。
-     */
-    public MerchantCouponDynamicCodeResult() {
-    }
-
-
-    /**
      * 动态核销码。必填。
      */
     @JsonProperty("dynamicCode")
     private String dynamicCode;
-
     /**
      * 动态核销码过期时间。动态核销码过期时间,时间戳单位S，默认缓存为2分钟，示例如： 172466100 （过期时间不要过长）。
      */
     @JsonProperty("expiryDate")
     private Long expiryDate;
+
+    /**
+     * 创建美团「商家券获取动态核销码」回调的业务响应。的空实例。
+     */
+    public MerchantCouponDynamicCodeResult() {
+    }
 }

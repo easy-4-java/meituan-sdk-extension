@@ -3,10 +3,11 @@ package io.github.easy4j.meituan.callback.model.biz27;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import tools.jackson.databind.JsonNode;
+
+import java.util.List;
 
 /**
  * 美团「快驴入库通知」回调的业务内容。
@@ -22,59 +23,51 @@ import tools.jackson.databind.JsonNode;
 public class StockInNoticeMessage {
 
     /**
-     * 创建美团「快驴入库通知」回调的业务内容。的空实例。
-     */
-    public StockInNoticeMessage() {
-    }
-
-
-    /**
      * 快驴入库单号。必填。
      */
     @JsonProperty("inboundBillNo")
     private String inboundBillNo;
-
     /**
      * 服务商订单标识。必填。
      */
     @JsonProperty("orderIdentify")
     private String orderIdentify;
-
     /**
      * 服务商商家品牌标识。必填。
      */
     @JsonProperty("brandIdentify")
     private String brandIdentify;
-
     /**
      * 服务商门店标识。必填。
      */
     @JsonProperty("shopIdentify")
     private String shopIdentify;
-
     /**
      * 来源。
      */
     @JsonProperty("source")
     private Integer source;
-
     /**
      * 创建时间。必填。
      */
     @JsonProperty("createTime")
     private JsonNode createTime;
-
     /**
      * 备注。
      */
     @JsonProperty("remark")
     private String remark;
-
     /**
      * 订单商品明细。必填。
      */
     @JsonProperty("orderItemList")
     private List<OrderItemDto> orderItemList;
+
+    /**
+     * 创建美团「快驴入库通知」回调的业务内容。的空实例。
+     */
+    public StockInNoticeMessage() {
+    }
 
     /**
      * 订单商品明细。
@@ -85,58 +78,50 @@ public class StockInNoticeMessage {
     public static class OrderItemDto {
 
         /**
-         * 创建订单商品明细。的空实例。
-         */
-        public OrderItemDto() {
-        }
-
-
-        /**
          * 服务商商品标识。必填。
          */
         @JsonProperty("goodsIdentify")
         private String goodsIdentify;
-
         /**
          * 服务商订单明细标识。必填。
          */
         @JsonProperty("orderItemIdentify")
         private String orderItemIdentify;
-
         /**
          * 商品数量。官网标注为 BigDecimal，示例为 {}，保留数值或对象。必填。
          */
         @JsonProperty("actualQuantity")
         private JsonNode actualQuantity;
-
         /**
          * 单价。官网标注为 BigDecimal，示例为 {}，保留数值或对象。必填。
          */
         @JsonProperty("goodsPrice")
         private JsonNode goodsPrice;
-
         /**
          * 多退少补重量。官网标注为 BigDecimal，示例为 {}，保留数值或对象。
          */
         @JsonProperty("differenceWeight")
         private JsonNode differenceWeight;
-
         /**
          * 多退少补金额。官网标注为 BigDecimal，示例为 {}，保留数值或对象。
          */
         @JsonProperty("differenceAmount")
         private JsonNode differenceAmount;
-
         /**
          * 商品应付金额。官网标注为 BigDecimal，示例为 {}，保留数值或对象。
          */
         @JsonProperty("payAmount")
         private JsonNode payAmount;
-
         /**
          * 商品实付金额。官网标注为 BigDecimal，示例为 {}，保留数值或对象。
          */
         @JsonProperty("actualPayAmount")
         private JsonNode actualPayAmount;
+
+        /**
+         * 创建订单商品明细。的空实例。
+         */
+        public OrderItemDto() {
+        }
     }
 }

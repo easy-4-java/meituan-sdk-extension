@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
 import io.github.easy4j.meituan.callback.EmbeddedJsonDeserializer;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import tools.jackson.databind.annotation.JsonDeserialize;
+
+import java.util.List;
 
 /**
  * 美团「商家券退券」回调的业务内容。
@@ -23,40 +24,35 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class MerchantCouponRefundMessage {
 
     /**
-     * 创建美团「商家券退券」回调的业务内容。的空实例。
-     */
-    public MerchantCouponRefundMessage() {
-    }
-
-
-    /**
      * 第三方团单 ID。必填。
      */
     @JsonProperty("appDealId")
     private String appDealId;
-
     /**
      * 开放平台上的订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 退款 ID。必填。
      */
     @JsonProperty("refundId")
     private String refundId;
-
     /**
      * 券码,以逗号分隔。必填。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
     @JsonProperty("serialNumberList")
     private List<String> serialNumberList;
-
     /**
      * 退券数目。必填。
      */
     @JsonProperty("refundCount")
     private String refundCount;
+
+    /**
+     * 创建美团「商家券退券」回调的业务内容。的空实例。
+     */
+    public MerchantCouponRefundMessage() {
+    }
 }

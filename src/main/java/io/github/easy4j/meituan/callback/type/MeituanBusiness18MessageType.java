@@ -2,80 +2,11 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.model.biz18.AssemblyOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.BrandInformationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ConfigurationChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.CouponRedemptionChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DeliveryOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DeliveryPriceMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DeliveryReceiptMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DisassemblyOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DishSoldOutMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ExternalSalesOrderQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ExternalSalesReturnQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ExternalSalesShipmentQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.FundExceptionMessage;
-import io.github.easy4j.meituan.callback.model.biz18.HeadquartersDishMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ItemCategoryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ItemMasterMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberCouponDiscountAllocationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberCouponDiscountReversedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberCouponRedemptionMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberOrderAvailableCouponsMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPointsRedeemedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPointsReversedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPointsRulesQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPriceQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberSearchMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MerchantSettingsChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OnlinePaymentSettlementMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OnlineTransactionMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OrderNotificationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OrderSettlementMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OrganizationAddressMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OrganizationStructureMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PaymentMethodChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PaymentNotificationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderAcceptedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderCollectedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderDeliveredMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderRejectedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosPartialRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosPreparationCompletedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosPreparationStartedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PurchaseOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PurchaseReceiptMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PurchaseReturnMessage;
-import io.github.easy4j.meituan.callback.model.biz18.RealtimeOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReceivableExpenseMessage;
-import io.github.easy4j.meituan.callback.model.biz18.RefundNotificationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReplenishmentOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReplenishmentSplitCancellationCheckMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReverseOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockDiscrepancyMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockIssueMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockReceiptMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockReturnAuditReversalCheckMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockReturnMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StocktakeOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreDishMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreInformationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreQrOrderingSettingsChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreTransferOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoredValueRedeemedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoredValueReversedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.SupplyPaymentMessage;
-import io.github.easy4j.meituan.callback.model.biz18.TableAreaChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.TakeawayDishMessage;
+import io.github.easy4j.meituan.callback.model.biz18.*;
 import lombok.Getter;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -389,9 +320,9 @@ public enum MeituanBusiness18MessageType implements MeituanMessageType {
     /**
      * 登记消息的名称、编号、官网文档和模型类型。
      *
-     * @param displayName 官网消息名称
-     * @param msgType 平台消息类型编号
-     * @param documentKey 官网文档标识或完整文档地址
+     * @param displayName  官网消息名称
+     * @param msgType      平台消息类型编号
+     * @param documentKey  官网文档标识或完整文档地址
      * @param messageClass 业务消息的反序列化目标类型
      */
     MeituanBusiness18MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
@@ -399,16 +330,6 @@ public enum MeituanBusiness18MessageType implements MeituanMessageType {
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
         this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
-    }
-
-    /**
-     * 返回此枚举所属的美团业务编号。
-     *
-     * @return 官方 businessId
-     */
-    @Override
-    public String getBusinessId() {
-        return BUSINESS_ID;
     }
 
     /**
@@ -435,5 +356,15 @@ public enum MeituanBusiness18MessageType implements MeituanMessageType {
             return Optional.empty();
         }
         return Optional.ofNullable(BY_MSG_TYPE.get(msgType));
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 }

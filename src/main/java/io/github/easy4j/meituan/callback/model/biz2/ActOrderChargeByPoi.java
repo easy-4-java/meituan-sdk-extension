@@ -14,33 +14,29 @@ import lombok.Setter;
 public class ActOrderChargeByPoi {
 
     /**
-     * 创建ActOrderChargeByPoi，用于接收订单数据接口【必须】等回调的业务字段。的空实例。
-     */
-    public ActOrderChargeByPoi() {
-    }
-
-
-    /**
      * 备注。
      */
     @JsonProperty("comment")
     private String comment;
-
     /**
      * 明细费用类型描述。
      */
     @JsonProperty("feeTypeDesc")
     private String feeTypeDesc;
-
     /**
      * 明细费用类型Id。
      */
     @JsonProperty("feeTypeId")
     private Integer feeTypeId;
-
     /**
      * 明细金额（分）。
      */
     @JsonProperty("moneyCent")
     private Integer moneyCent;
+
+    /**
+     * 创建ActOrderChargeByPoi，用于接收订单数据接口【必须】等回调的业务字段。的空实例。
+     */
+    public ActOrderChargeByPoi() {
+    }
 }

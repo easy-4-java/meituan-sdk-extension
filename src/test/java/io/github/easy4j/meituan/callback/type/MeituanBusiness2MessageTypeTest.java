@@ -1,10 +1,8 @@
 package io.github.easy4j.meituan.callback.type;
 
-import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import io.github.easy4j.meituan.callback.CallbackUtil;
+import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import org.junit.jupiter.api.Test;
-
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -52,40 +52,44 @@ What it is **not**:
 
 ## 2. Features & Status
 
-| Area | Status |
-| :--- | :--- |
-| Multi-tenant credential model (`developerId` / `signKey` per tenant) | ✅ |
-| Per-tenant official client creation & caching | ✅ |
-| Tenant storage SPI + in-memory + cacheable decorator | ✅ |
-| Tenant context holder (thread-local `tenantId`) | ✅ |
-| Business facades: catering, daocan (到店餐饮), delivery, distribution, freetry, kemanman, kuailv, live, pay, retail, store, tools, travel, waimai | ✅ |
-| Optional Spring Boot starter (`meituan-spring-boot-starter`, one line per Boot 2.3–4.1) | ✅ |
-| Exception translation preserving official error codes | ✅ |
+| Area                                                                                                                                              | Status |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
+| Multi-tenant credential model (`developerId` / `signKey` per tenant)                                                                              | ✅     |
+| Per-tenant official client creation & caching                                                                                                     | ✅     |
+| Tenant storage SPI + in-memory + cacheable decorator                                                                                              | ✅     |
+| Tenant context holder (thread-local `tenantId`)                                                                                                   | ✅     |
+| Business facades: catering, daocan (到店餐饮), delivery, distribution, freetry, kemanman, kuailv, live, pay, retail, store, tools, travel, waimai | ✅     |
+| Optional Spring Boot starter (`meituan-spring-boot-starter`, one line per Boot 2.3–4.1)                                                           | ✅     |
+| Exception translation preserving official error codes                                                                                             | ✅     |
 
 ## 3. Requirements & Compatibility
 
-| Dependency | Version |
-| :--- | :--- |
-| Java | 21+ |
-| Spring Boot | 4.x (auto-configuration API is Boot 2.7+ compatible) |
+| Dependency   | Version                                                              |
+|:-------------|:---------------------------------------------------------------------|
+| Java         | 21+                                                                  |
+| Spring Boot  | 4.x (auto-configuration API is Boot 2.7+ compatible)                 |
 | Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112` (proprietary, see below) |
-| Build | Maven 4 (`./mvnw` wrapper included) |
+| Build        | Maven 4 (`./mvnw` wrapper included)                                  |
 
-The binary, sources and POM are published in the configured Aliyun Maven release repository. Configure read credentials for `2624322-release-6F6h6R` in Maven settings. For offline installation, use the JARs extracted from Meituan’s 20261112 distribution and `libs/MtOpJavaSDK-1.0-20261112.pom`.
+The binary, sources and POM are published in the configured Aliyun Maven release repository. Configure read credentials
+for `2624322-release-6F6h6R` in Maven settings. For offline installation, use the JARs extracted from Meituan’s 20261112
+distribution and `libs/MtOpJavaSDK-1.0-20261112.pom`.
 
-Use `new MeituanPlatformService(clientFactory, tenantStorage)` for OAuth token exchange and refresh, unified authorization, per-call timeouts and `commonInvokeApi`. Supply the authorization fields required by the endpoint on the official common request.
+Use `new MeituanPlatformService(clientFactory, tenantStorage)` for OAuth token exchange and refresh, unified
+authorization, per-call timeouts and `commonInvokeApi`. Supply the authorization fields required by the endpoint on the
+official common request.
 
 ## 4. Architecture & Modules
 
-| Package | Responsibility |
-| :--- | :--- |
-| `io.github.easy4j.meituan` | framework-free core: config objects, client factory, executor, services |
-| `io.github.easy4j.meituan.client` | Official client factory, tenant-aware `MeituanRequestExecutor` |
-| `io.github.easy4j.meituan.config` | `MeituanConfig` (platform) / `MeituanTenantConfig` (tenant) |
-| `io.github.easy4j.meituan.tenant` | Tenant storage SPI, in-memory impl, cacheable decorator, `MeituanTenantContextHolder`, loader |
-| `io.github.easy4j.meituan.service` | 15 business service interfaces |
-| `io.github.easy4j.meituan.service.impl` | Business service implementations |
-| `io.github.easy4j.meituan.exception` | `MeituanJavaException` translation |
+| Package                                 | Responsibility                                                                                |
+|:----------------------------------------|:----------------------------------------------------------------------------------------------|
+| `io.github.easy4j.meituan`              | framework-free core: config objects, client factory, executor, services                       |
+| `io.github.easy4j.meituan.client`       | Official client factory, tenant-aware `MeituanRequestExecutor`                                |
+| `io.github.easy4j.meituan.config`       | `MeituanConfig` (platform) / `MeituanTenantConfig` (tenant)                                   |
+| `io.github.easy4j.meituan.tenant`       | Tenant storage SPI, in-memory impl, cacheable decorator, `MeituanTenantContextHolder`, loader |
+| `io.github.easy4j.meituan.service`      | 15 business service interfaces                                                                |
+| `io.github.easy4j.meituan.service.impl` | Business service implementations                                                              |
+| `io.github.easy4j.meituan.exception`    | `MeituanJavaException` translation                                                            |
 
 Call chain:
 
@@ -206,7 +210,9 @@ cachedStorage.evict("tenant-a");              // drop one entry
 
 ### Callback messages and payload models
 
-Business models live in `io.github.easy4j.meituan.callback.model.biz<businessId>` and message type enums live in `io.github.easy4j.meituan.callback.type`. When upgrading, update imports and any fully qualified class names used for reflection, then recompile the caller.
+Business models live in `io.github.easy4j.meituan.callback.model.biz<businessId>` and message type enums live in
+`io.github.easy4j.meituan.callback.type`. When upgrading, update imports and any fully qualified class names used for
+reflection, then recompile the caller.
 
 Meituan callbacks use URL-encoded common parameters and carry
 the business JSON in the `message` field. The SDK provides framework-neutral
@@ -217,7 +223,8 @@ For member creation, pass `io.github.easy4j.meituan.callback.model.biz59.MemberC
 `CallbackUtil.parse(request)` and `CallbackUtil.parse(query, body)` return a `MeituanCallbackMessage<?>`
 using both `businessId` and `msgType` (or the legacy `invokeType`). Unknown combinations retain the
 decoded `message` or `param` text and signing parameters. If neither field exists, the payload is null.
-Business 18 also dispatches member order coupon lookup (1810057), coupon redemption (1810061), and reverse orders (1810257).
+Business 18 also dispatches member order coupon lookup (1810057), coupon redemption (1810061), and reverse orders
+(1810257).
 Reservation payloads expose nested JSON strings as typed objects. Some legacy formats use
 `param`, `params`, or named form fields instead of `message`.
 
@@ -236,8 +243,10 @@ the official example uses a nested object: `MeituanCallbackResponse.of(0, "ok", 
 Use `MeituanCallbackResponse.flashOrderSuccess()` for the Flash Order acknowledgement `{"data":"ok"}`.
 The single and batch inventory callbacks with a string status code and a `msg` field use `InventoryQueryResponse`.
 
-Use `CallbackUtil.parse(request, String.class)` or `CallbackUtil.parse(null, body, String.class)` to read the decoded message text, including its original whitespace. An absent or blank payload is rejected by these typed overloads.
-Use `MeituanCallbackResponse<String>` for a string-valued response and `MeituanCallbackResponse<Payload>` for a nested object. Recompile callers after migrating.
+Use `CallbackUtil.parse(request, String.class)` or `CallbackUtil.parse(null, body, String.class)` to read the decoded
+message text, including its original whitespace. An absent or blank payload is rejected by these typed overloads.
+Use `MeituanCallbackResponse<String>` for a string-valued response and `MeituanCallbackResponse<Payload>` for a nested
+object. Recompile callers after migrating.
 
 ```java
 MeituanCallbackMessage<String> callback = CallbackUtil.parse(null, requestBody, String.class);
@@ -264,8 +273,10 @@ The message type enums cover all 282 registered identifiers across 27 businesses
 Each business has a `MeituanBusiness<businessId>MessageType` enum. `resolve(callback)` checks both identifiers,
 and `fromMsgType(msgType)` looks up a type within that business.
 Each enum entry defines its name, message ID, document URL and `messageClass`.
-`MeituanCallbackModels` derives its immutable index from these entries, so adding a callback to an existing business requires one enum entry.
-For a new business, connect its enum to the registry’s business catalogue. `MeituanCallbackModels.all()` exposes the registered definitions.
+`MeituanCallbackModels` derives its immutable index from these entries, so adding a callback to an existing business
+requires one enum entry.
+For a new business, connect its enum to the registry’s business catalogue. `MeituanCallbackModels.all()` exposes the
+registered definitions.
 
 For consumption record changes (5910023), the capability directory confirms the ID.
 The SDK returns the original `message` string because the linked page provides no field definitions.

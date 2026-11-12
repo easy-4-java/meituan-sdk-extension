@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz18;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「查询商品会员价」回调的业务响应。
@@ -21,17 +22,17 @@ import lombok.Setter;
 public class MemberPriceQueryResult {
 
     /**
-     * 创建美团「查询商品会员价」回调的业务响应。的空实例。
-     */
-    public MemberPriceQueryResult() {
-    }
-
-
-    /**
      * 菜品会员价信息。必填。
      */
     @JsonProperty("memberSkus")
     private List<MemberSku> memberSkus;
+
+
+    /**
+     * 创建美团「查询商品会员价」回调的业务响应。的空实例。
+     */
+    public MemberPriceQueryResult() {
+    }
 
     /**
      * 菜品会员价信息。必填。
@@ -43,22 +44,20 @@ public class MemberPriceQueryResult {
     public static class MemberSku {
 
         /**
-         * 创建菜品会员价信息。必填。的空实例。
-         */
-        public MemberSku() {
-        }
-
-
-        /**
          * 菜品skuId。必填。
          */
         @JsonProperty("skuId")
         private Long skuId;
-
         /**
          * 菜品会员价。必填。
          */
         @JsonProperty("memberPrice")
         private Long memberPrice;
+
+        /**
+         * 创建菜品会员价信息。必填。的空实例。
+         */
+        public MemberSku() {
+        }
     }
 }

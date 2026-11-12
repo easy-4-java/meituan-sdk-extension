@@ -14,21 +14,19 @@ import lombok.Setter;
 public class ReasonOpenDTO {
 
     /**
-     * 创建ReasonOpenDTO，用于【供应链】采购退货单消息等回调的业务字段。的空实例。
-     */
-    public ReasonOpenDTO() {
-    }
-
-
-    /**
      * 原因唯一code。
      */
     @JsonProperty("reasonCode")
     private String reasonCode;
-
     /**
      * 原因名称。
      */
     @JsonProperty("reasonName")
     private String reasonName;
+
+    /**
+     * 创建ReasonOpenDTO，用于【供应链】采购退货单消息等回调的业务字段。的空实例。
+     */
+    public ReasonOpenDTO() {
+    }
 }

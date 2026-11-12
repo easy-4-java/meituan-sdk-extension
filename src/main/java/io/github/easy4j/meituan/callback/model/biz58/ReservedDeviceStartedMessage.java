@@ -20,15 +20,15 @@ import lombok.Setter;
 public class ReservedDeviceStartedMessage {
 
     /**
-     * 创建美团「预订设备启动」回调的业务内容。的空实例。
-     */
-    public ReservedDeviceStartedMessage() {
-    }
-
-
-    /**
      * 订单号。必填。
      */
     @JsonProperty("unifiedOrderId")
     private String unifiedOrderId;
+
+
+    /**
+     * 创建美团「预订设备启动」回调的业务内容。的空实例。
+     */
+    public ReservedDeviceStartedMessage() {
+    }
 }

@@ -3,8 +3,6 @@ package io.github.easy4j.meituan.callback;
 import io.github.easy4j.meituan.callback.model.biz15.BrandMemberLevelChangedMessage;
 import io.github.easy4j.meituan.callback.model.biz15.BrandMemberLevelChangedResult;
 import io.github.easy4j.meituan.callback.model.biz15.CoBrandedNewUserQueryMessage;
-import io.github.easy4j.meituan.callback.type.MeituanBusiness15MessageType;
-import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
 import io.github.easy4j.meituan.callback.model.biz18.MemberCouponRedemptionMessage;
 import io.github.easy4j.meituan.callback.model.biz18.MemberOperationResult;
 import io.github.easy4j.meituan.callback.model.biz18.MemberOrderAvailableCouponsMessage;
@@ -16,6 +14,8 @@ import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedResult;
 import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponIssueResult;
 import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderDecision;
 import io.github.easy4j.meituan.callback.model.biz87.InvoiceStatusQueryResult;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness15MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 import tools.jackson.core.type.TypeReference;
@@ -28,15 +28,17 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * 验证Callback Dispatch的行为与接口契约。
  */
 class CallbackDispatchTest {
+
+    /**
+     * 用于验证 JSON 读写契约的映射器。
+     */
+    private final JsonMapper mapper = JsonMapper.shared();
 
     /**
      * 创建CallbackDispatchTest的空实例。
@@ -45,12 +47,8 @@ class CallbackDispatchTest {
     }
 
     /**
-     * 用于验证 JSON 读写契约的映射器。
-     */
-    private final JsonMapper mapper = JsonMapper.shared();
-
-    /**
      * 验证自动分发同时使用两个编号并保留验签文本。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -77,6 +75,7 @@ class CallbackDispatchTest {
 
     /**
      * 验证旧版表单通过容器参数分发且保留验签字段。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -117,16 +116,16 @@ class CallbackDispatchTest {
     @Test
     void bindsDifferentCouponOrderContractsAndNestedRefundItems() {
         var available = CallbackUtil.parse(null, Map.of("message",
-                Map.of("orderInfo", Map.of("orderNo", "o", "skus", new Object[]{Map.of("skuId", 42, "count", "0.5")}))),
+                        Map.of("orderInfo", Map.of("orderNo", "o", "skus", new Object[]{Map.of("skuId", 42, "count", "0.5")}))),
                 MemberOrderAvailableCouponsMessage.class).getMessage();
         assertThat(available.getOrderInfo().getSkus().get(0).getCount()).isEqualTo("0.5");
         var redemption = CallbackUtil.parse(null, Map.of("message",
-                Map.of("bizId", "b", "orderInfo", Map.of("localId", "o", "skus", new Object[]{Map.of("skuId", "0012", "count", 2)}))),
+                        Map.of("bizId", "b", "orderInfo", Map.of("localId", "o", "skus", new Object[]{Map.of("skuId", "0012", "count", 2)}))),
                 MemberCouponRedemptionMessage.class).getMessage();
         assertThat(redemption.getOrderInfo().getSkus().get(0).getSkuId()).isEqualTo("0012");
         var refund = CallbackUtil.parse(null, Map.of("message", Map.of(
-                "refundItemList", new Object[]{Map.of("weight", 0.75)},
-                "refundOrderServiceFeeVOS", new Object[]{Map.of("serviceFeeId", 4294967296L)})),
+                        "refundItemList", new Object[]{Map.of("weight", 0.75)},
+                        "refundOrderServiceFeeVOS", new Object[]{Map.of("serviceFeeId", 4294967296L)})),
                 ReverseOrderMessage.class).getMessage();
         assertThat(refund.getRefundItemList().get(0).getWeight()).isEqualTo(0.75);
         assertThat(refund.getRefundOrderServiceFeeVOS().get(0).getServiceFeeId()).isEqualTo(4294967296L);
@@ -160,7 +159,8 @@ class CallbackDispatchTest {
                 {"code":0,"message":"ok","data":{"result":true}}
                 """));
         var decoded = mapper.readValue(mapper.writeValueAsString(pos),
-                new TypeReference<MeituanCallbackResponse<MemberOperationResult>>() {});
+                new TypeReference<MeituanCallbackResponse<MemberOperationResult>>() {
+                });
         assertThat(decoded.getData().getResult()).isTrue();
         MeituanCallbackResponse<MemberOperationResult> failure = MeituanCallbackResponse.failure(1, "failed");
         assertThat(failure.getData()).isNull();
@@ -251,7 +251,7 @@ class CallbackDispatchTest {
     /**
      * 核对回执的 data 字段为字符串且其内容只序列化一次。
      *
-     * @param data 按接口协议编码的业务数据
+     * @param data         按接口协议编码的业务数据
      * @param expectedJson 预期的业务响应 JSON
      */
     private void assertResponseData(Object data, String expectedJson) {

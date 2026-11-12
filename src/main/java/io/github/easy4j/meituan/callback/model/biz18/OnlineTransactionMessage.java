@@ -23,41 +23,36 @@ import lombok.Setter;
 public class OnlineTransactionMessage {
 
     /**
-     * 创建美团「【供应链】在线交易流水」回调的业务内容。的空实例。
-     */
-    public OnlineTransactionMessage() {
-    }
-
-
-    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 推送事件Id。必填。
      */
     @JsonProperty("pushEventId")
     private String pushEventId;
-
     /**
      * 操作类型。必填。
      */
     @JsonProperty("opType")
     private Integer opType;
-
     /**
      * 消息时序Id。必填。
      */
     @JsonProperty("seqId")
     private Long seqId;
-
     /**
      * 在线交易流水。必填。
      */
     @JsonProperty("OnlinePayItemDTO")
     private OnlinePayItemDTO onlinePayItemDTO;
+
+    /**
+     * 创建美团「【供应链】在线交易流水」回调的业务内容。的空实例。
+     */
+    public OnlineTransactionMessage() {
+    }
 
     /**
      * 在线交易流水。
@@ -68,107 +63,91 @@ public class OnlineTransactionMessage {
     public static class OnlinePayItemDTO {
 
         /**
-         * 创建在线交易流水。的空实例。
-         */
-        public OnlinePayItemDTO() {
-        }
-
-
-        /**
          * 总部机构。
          */
         @JsonProperty("rootOrgId")
         private Long rootOrgId;
-
         /**
          * 付款机构。
          */
         @JsonProperty("fromSubject")
         private OrgOpenDTO fromSubject;
-
         /**
          * 收款机构信息。
          */
         @JsonProperty("counterpartySubject")
         private OpenOppositeOrgDTO counterpartySubject;
-
         /**
          * 交易时间。
          */
         @JsonProperty("payTransTime")
         private Long payTransTime;
-
         /**
          * 订单号。
          */
         @JsonProperty("outerOrderNo")
         private String outerOrderNo;
-
         /**
          * 关联单号。
          */
         @JsonProperty("outerRelatedOrderNo")
         private String outerRelatedOrderNo;
-
         /**
          * 支付流水号。
          */
         @JsonProperty("payTransNo")
         private String payTransNo;
-
         /**
          * 付款金额。
          */
         @JsonProperty("payAmount")
         private String payAmount;
-
         /**
          * 支付费率。
          */
         @JsonProperty("feeRate")
         private String feeRate;
-
         /**
          * 手续费承担方。
          */
         @JsonProperty("handleFeeBearer")
         private PairDTO handleFeeBearer;
-
         /**
          * 手续费金额。
          */
         @JsonProperty("handleFee")
         private String handleFee;
-
         /**
          * 交易金额。
          */
         @JsonProperty("transAmount")
         private String transAmount;
-
         /**
          * 支付方式。
          */
         @JsonProperty("payType")
         private PayTypeDetails payType;
-
         /**
          * 支付状态。
          */
         @JsonProperty("payStatus")
         private PayStatusDetails payStatus;
-
         /**
          * 到账状态。
          */
         @JsonProperty("receiptStatus")
         private ReceiptStatusDetails receiptStatus;
-
         /**
          * 删除状态。
          */
         @JsonProperty("deleteStatus")
         private Integer deleteStatus;
+
+        /**
+         * 创建在线交易流水。的空实例。
+         */
+        public OnlinePayItemDTO() {
+        }
 
         /**
          * 付款机构。
@@ -179,35 +158,31 @@ public class OnlineTransactionMessage {
         public static class OrgOpenDTO {
 
             /**
-             * 创建付款机构。的空实例。
-             */
-            public OrgOpenDTO() {
-            }
-
-
-            /**
              * 机构 ID。
              */
             @JsonProperty("orgId")
             private Long orgId;
-
             /**
              * 机构根节点ID,即总部机构 ID。
              */
             @JsonProperty("rootOrgId")
             private Long rootOrgId;
-
             /**
              * 机构编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 机构名称。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建付款机构。的空实例。
+             */
+            public OrgOpenDTO() {
+            }
         }
 
         /**
@@ -219,29 +194,26 @@ public class OnlineTransactionMessage {
         public static class OpenOppositeOrgDTO {
 
             /**
-             * 创建收款机构信息。的空实例。
-             */
-            public OpenOppositeOrgDTO() {
-            }
-
-
-            /**
              * 机构 ID。
              */
             @JsonProperty("type")
             private PairDTO type;
-
             /**
              * 机构编码。
              */
             @JsonProperty("code")
             private String code;
-
             /**
              * 机构名称。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建收款机构信息。的空实例。
+             */
+            public OpenOppositeOrgDTO() {
+            }
         }
 
         /**
@@ -253,23 +225,21 @@ public class OnlineTransactionMessage {
         public static class PayTypeDetails {
 
             /**
-             * 创建支付方式。的空实例。
-             */
-            public PayTypeDetails() {
-            }
-
-
-            /**
              * id。
              */
             @JsonProperty("id")
             private Integer id;
-
             /**
              * 描述。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建支付方式。的空实例。
+             */
+            public PayTypeDetails() {
+            }
         }
 
         /**
@@ -281,23 +251,21 @@ public class OnlineTransactionMessage {
         public static class ReceiptStatusDetails {
 
             /**
-             * 创建到账状态。的空实例。
-             */
-            public ReceiptStatusDetails() {
-            }
-
-
-            /**
              * id。
              */
             @JsonProperty("id")
             private Integer id;
-
             /**
              * 描述。
              */
             @JsonProperty("name")
             private String name;
+
+            /**
+             * 创建到账状态。的空实例。
+             */
+            public ReceiptStatusDetails() {
+            }
         }
     }
 }

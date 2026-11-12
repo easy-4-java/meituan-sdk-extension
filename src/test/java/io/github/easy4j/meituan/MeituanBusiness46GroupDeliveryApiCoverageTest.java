@@ -6,12 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.lang.reflect.Method;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -21,13 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * 团购配送（businessId=46）API 覆盖回归测试。
  */
 class MeituanBusiness46GroupDeliveryApiCoverageTest {
-
-    /**
-     * 创建团购配送（businessId=46）API 覆盖回归测试。的空实例。
-     */
-    MeituanBusiness46GroupDeliveryApiCoverageTest() {
-    }
-
 
     /**
      * 当前业务接口清单需要覆盖的路径。
@@ -65,9 +53,15 @@ class MeituanBusiness46GroupDeliveryApiCoverageTest {
             "/dcps/print/printer/status/update",
             "/dcps/settlement/querySettleResultForTGDeliver"
     );
+    /**
+     * 创建团购配送（businessId=46）API 覆盖回归测试。的空实例。
+     */
+    MeituanBusiness46GroupDeliveryApiCoverageTest() {
+    }
 
     /**
      * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -114,7 +108,7 @@ class MeituanBusiness46GroupDeliveryApiCoverageTest {
     /**
      * 将当前业务的官方请求按接口路径加入覆盖检查索引。
      *
-     * @param entry 待检查的官方 SDK JAR 条目
+     * @param entry          待检查的官方 SDK JAR 条目
      * @param requestsByPath 以官方接口路径为键的请求类型索引
      */
     private void collectBusiness46Request(JarEntry entry, Map<String, Class<?>> requestsByPath) {
@@ -153,7 +147,7 @@ class MeituanBusiness46GroupDeliveryApiCoverageTest {
     /**
      * 合并两个接口路径集合，消除重复路径。
      *
-     * @param left 第一个接口路径集合
+     * @param left  第一个接口路径集合
      * @param right 第二个接口路径集合
      * @return 合并两个接口路径集合，消除重复路径的结果
      */

@@ -1,8 +1,8 @@
 package io.github.easy4j.meituan.model.jmcard;
 
-import com.meituan.sdk.MeituanResponse;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.meituan.sdk.MeituanResponse;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 import org.junit.jupiter.api.Test;
 

@@ -30,13 +30,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanCateringCustomerSolutionApiCoverageTest {
 
     /**
-     * 创建餐饮客户解决方案清单的公开协议覆盖回归测试。的空实例。
-     */
-    MeituanCateringCustomerSolutionApiCoverageTest() {
-    }
-
-
-    /**
      * 已有明确协议与门面映射的接口契约。
      */
     private static final List<ApiContract> COVERED_APIS = io.github.easy4j.meituan.TestCollections.listOf(
@@ -81,6 +74,30 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
             "美团门店混淆",
             "设置会话下所有消息已读"
     );
+    /**
+     * 创建餐饮客户解决方案清单的公开协议覆盖回归测试。的空实例。
+     */
+    MeituanCateringCustomerSolutionApiCoverageTest() {
+    }
+
+    /**
+     * 构造用于检查官方元数据与门面签名的接口契约。
+     *
+     * @param name        官网接口名称
+     * @param requestType 官方请求类型
+     * @param facadeType  暴露该接口的业务门面类型
+     * @param path        官方接口路径
+     * @param businessId  官方业务编号
+     * @param apiVersion  官方接口版本
+     * @param apiName     官方接口标识
+     * @param needAuth    官方接口是否要求授权 token
+     * @return 构造用于检查官方元数据与门面签名的接口契约的结果
+     */
+    private static ApiContract api(String name, Class<? extends MeituanRequest<?>> requestType, Class<?> facadeType, String path, int businessId, String apiVersion, String apiName, boolean needAuth) {
+        return new ApiContract(
+                name, requestType, facadeType, path, businessId, apiVersion, apiName, needAuth
+        );
+    }
 
     /**
      * 验证接口路径、版本、业务编号、授权要求和门面签名与官方契约一致。
@@ -130,32 +147,13 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
     /**
      * 核对门面方法的请求类型和租户参数。
      *
-     * @param method 待核对的门面方法
+     * @param method      待核对的门面方法
      * @param requestType 官方请求类型
      */
     private void assertMethodSignature(Method method, Class<?> requestType) {
         assertThat(method.getParameterTypes()).hasSize(2);
         assertThat(method.getParameterTypes()[0]).isEqualTo(requestType);
         assertThat(method.getParameterTypes()[1]).isEqualTo(String.class);
-    }
-
-    /**
-     * 构造用于检查官方元数据与门面签名的接口契约。
-     *
-     * @param name 官网接口名称
-     * @param requestType 官方请求类型
-     * @param facadeType 暴露该接口的业务门面类型
-     * @param path 官方接口路径
-     * @param businessId 官方业务编号
-     * @param apiVersion 官方接口版本
-     * @param apiName 官方接口标识
-     * @param needAuth 官方接口是否要求授权 token
-     * @return 构造用于检查官方元数据与门面签名的接口契约的结果
-     */
-    private static ApiContract api(String name, Class<? extends MeituanRequest<?>> requestType, Class<?> facadeType, String path, int businessId, String apiVersion, String apiName, boolean needAuth) {
-        return new ApiContract(
-                name, requestType, facadeType, path, businessId, apiVersion, apiName, needAuth
-        );
     }
 
     /**
@@ -198,14 +196,14 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
         /**
          * 保存用于核对官方接口元数据和门面签名的契约。
          *
-         * @param name 官网接口名称
+         * @param name        官网接口名称
          * @param requestType 官方请求类型
-         * @param facadeType 暴露该接口的业务门面类型
-         * @param path 官方接口路径
-         * @param businessId 官方业务编号
-         * @param apiVersion 官方接口版本
-         * @param apiName 官方接口标识
-         * @param needAuth 官方接口是否要求授权 token
+         * @param facadeType  暴露该接口的业务门面类型
+         * @param path        官方接口路径
+         * @param businessId  官方业务编号
+         * @param apiVersion  官方接口版本
+         * @param apiName     官方接口标识
+         * @param needAuth    官方接口是否要求授权 token
          */
         private ApiContract(String name, Class<? extends MeituanRequest<?>> requestType, Class<?> facadeType, String path, int businessId, String apiVersion, String apiName, boolean needAuth) {
             this.name = name;

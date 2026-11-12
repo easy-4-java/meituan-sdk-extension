@@ -20,33 +20,29 @@ import lombok.Setter;
 public class ReservationChangeResultMessage {
 
     /**
-     * 创建美团「改约结果通知三方」回调的业务内容。的空实例。
-     */
-    public ReservationChangeResultMessage() {
-    }
-
-
-    /**
      * 平台订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 平台商品 ID。必填。
      */
     @JsonProperty("productId")
     private String productId;
-
     /**
      * 改约结果，2-成功，3-失败。必填。
      */
     @JsonProperty("changeOrderResult")
     private String changeOrderResult;
-
     /**
      * 生活服务行业新增字段，其他行业不传，交易类型，枚举值：1-预订，2-团单（团购后预约），商家根据此属性字段识别交易类型，预订业务该字段非必传，团购后预约业务必传。
      */
     @JsonProperty("type")
     private String type;
+
+    /**
+     * 创建美团「改约结果通知三方」回调的业务内容。的空实例。
+     */
+    public ReservationChangeResultMessage() {
+    }
 }

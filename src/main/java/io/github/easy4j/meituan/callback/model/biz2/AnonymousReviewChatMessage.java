@@ -23,29 +23,26 @@ import lombok.Setter;
 public class AnonymousReviewChatMessage {
 
     /**
-     * 创建美团「接收IM匿名评价群聊消息」回调的业务内容。的空实例。
-     */
-    public AnonymousReviewChatMessage() {
-    }
-
-
-    /**
      * 业务类型字段，此时为4：评价匿名群聊。
      */
     @JsonProperty("biz_type")
     private Integer bizType;
-
     /**
      * json格式的消息体，不同bizType时，字段不同，解析方式也不同。
      */
     @JsonProperty("push_content")
     private PushContent pushContent;
-
     /**
      * 扩展字段。
      */
     @JsonProperty("extended_field")
     private String extendedField;
+
+    /**
+     * 创建美团「接收IM匿名评价群聊消息」回调的业务内容。的空实例。
+     */
+    public AnonymousReviewChatMessage() {
+    }
 
     /**
      * json格式的消息体，不同bizType时，字段不同，解析方式也不同。
@@ -58,18 +55,10 @@ public class AnonymousReviewChatMessage {
     public static class PushContent {
 
         /**
-         * 创建json格式的消息体，不同bizType时，字段不同，解析方式也不同。的空实例。
-         */
-        public PushContent() {
-        }
-
-
-        /**
          * 消息 ID，确保消息唯一性，发送消息时，为三方的消息 ID，接收消息时，为美团的消息 ID。
          */
         @JsonProperty("msg_id")
         private Long msgId;
-
         /**
          * 加密后的消息内容。当前可通过获取多个长连接接口获取秘钥（imSecret字段）。 消息加密需使用AES加密，加密模式为CBC，
          * 填充使用pkcs5padding，数据块为128位，密码和偏移量为获取到的秘钥，输出为base64，字符集为utf8。
@@ -77,47 +66,46 @@ public class AnonymousReviewChatMessage {
          */
         @JsonProperty("msg_content")
         private String msgContent;
-
         /**
          * 消息类型。bizType为4评价匿名群聊时，支持：0文本，2图片，和14中建群时的评价卡片消息，不支持14中的优惠券消息。
          */
         @JsonProperty("msg_type")
         private Integer msgType;
-
         /**
          * 消息发送方 商家：1，用户：2。
          */
         @JsonProperty("msg_source")
         private Integer msgSource;
-
         /**
          * 消息发送时间,10位时间戳。
          */
         @JsonProperty("cts")
         private Long cts;
-
         /**
          * 应用标识。
          */
         @JsonProperty("app_id")
         private Long appId;
-
         /**
          * 门店标识。
          */
         @JsonProperty("app_poi_code")
         private String appPoiCode;
-
         /**
          * 评价 ID。
          */
         @JsonProperty("comment_id")
         private Long commentId;
-
         /**
          * 群 ID。
          */
         @JsonProperty("group_id")
         private Long groupId;
+
+        /**
+         * 创建json格式的消息体，不同bizType时，字段不同，解析方式也不同。的空实例。
+         */
+        public PushContent() {
+        }
     }
 }

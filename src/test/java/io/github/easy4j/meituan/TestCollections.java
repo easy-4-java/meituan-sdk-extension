@@ -1,12 +1,6 @@
 package io.github.easy4j.meituan;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 测试使用的 Java 8 集合工厂，保持三条发布分支共享同一套测试源码。
@@ -22,7 +16,7 @@ public final class TestCollections {
     /**
      * 创建保持参数顺序的可变列表。
      *
-     * @param <T> 本次调用使用的业务数据类型
+     * @param <T>    本次调用使用的业务数据类型
      * @param values 构造测试列表或集合的元素
      * @return 与请求参数对应的处理结果
      */
@@ -34,7 +28,7 @@ public final class TestCollections {
     /**
      * 创建保持参数顺序的可变集合。
      *
-     * @param <T> 本次调用使用的业务数据类型
+     * @param <T>    本次调用使用的业务数据类型
      * @param values 构造测试列表或集合的元素
      * @return 与请求参数对应的处理结果
      */
@@ -45,8 +39,9 @@ public final class TestCollections {
 
     /**
      * 按 key、value 交替参数创建保持顺序的可变映射。
-     * @param <K> 本次调用使用的业务数据类型
-     * @param <V> 本次调用使用的业务数据类型
+     *
+     * @param <K>       本次调用使用的业务数据类型
+     * @param <V>       本次调用使用的业务数据类型
      * @param keyValues 按键和值交替排列的测试参数，元素数量应为偶数
      * @return 与请求参数对应的处理结果
      */

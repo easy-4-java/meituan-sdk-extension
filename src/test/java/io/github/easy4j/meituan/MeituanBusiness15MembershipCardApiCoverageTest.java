@@ -9,13 +9,7 @@ import io.github.easy4j.meituan.service.MeituanKemanmanService;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -29,13 +23,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness15MembershipCardApiCoverageTest {
 
     /**
-     * 创建到店餐饮品牌会员卡（businessId=15）公开 API 覆盖回归测试。的空实例。
-     */
-    MeituanBusiness15MembershipCardApiCoverageTest() {
-    }
-
-
-    /**
      * 当前接口清单中记录的官方接口路径。
      */
     private static final Set<String> DOCUMENTED_API_PATHS = io.github.easy4j.meituan.TestCollections.setOf(
@@ -44,7 +31,6 @@ class MeituanBusiness15MembershipCardApiCoverageTest {
             "/jmcard/members/claim",
             "/jmcard/cards/create-or-update"
     );
-
     /**
      * 官方 SDK 提供的接口路径集合。
      */
@@ -53,7 +39,6 @@ class MeituanBusiness15MembershipCardApiCoverageTest {
             "/jmcard/members/query",
             "/jmcard/cards/create-or-update"
     );
-
     /**
      * 需要检查的官方请求类型集合。
      */
@@ -65,7 +50,14 @@ class MeituanBusiness15MembershipCardApiCoverageTest {
     );
 
     /**
+     * 创建到店餐饮品牌会员卡（businessId=15）公开 API 覆盖回归测试。的空实例。
+     */
+    MeituanBusiness15MembershipCardApiCoverageTest() {
+    }
+
+    /**
      * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -117,7 +109,7 @@ class MeituanBusiness15MembershipCardApiCoverageTest {
     /**
      * 将当前业务的官方请求按接口路径加入覆盖检查索引。
      *
-     * @param entry 待检查的官方 SDK JAR 条目
+     * @param entry          待检查的官方 SDK JAR 条目
      * @param requestsByPath 以官方接口路径为键的请求类型索引
      */
     private void collectBusiness15Request(JarEntry entry, Map<String, Class<?>> requestsByPath) {

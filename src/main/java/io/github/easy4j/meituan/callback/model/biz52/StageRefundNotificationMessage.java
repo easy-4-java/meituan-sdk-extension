@@ -20,81 +20,69 @@ import lombok.Setter;
 public class StageRefundNotificationMessage {
 
     /**
-     * 创建美团「收单开放平台退款通知（stage）」回调的业务内容。的空实例。
-     */
-    public StageRefundNotificationMessage() {
-    }
-
-
-    /**
      * 服务商业务订单号。
      */
     @JsonProperty("outOrderNo")
     private String outOrderNo;
-
     /**
      * 退款单号，服务商对账主键。
      */
     @JsonProperty("refundNo")
     private String refundNo;
-
     /**
      * 原支付单号。
      */
     @JsonProperty("transactionId")
     private String transactionId;
-
     /**
      * 原订单金额，单位分。
      */
     @JsonProperty("totalFee")
     private Integer totalFee;
-
     /**
      * 本次退款金额，单位分。
      */
     @JsonProperty("refundFee")
     private Integer refundFee;
-
     /**
      * 退款完成时间，时间戳单位毫秒。
      */
     @JsonProperty("refundTime")
     private Long refundTime;
-
     /**
      * 门店 ID。
      */
     @JsonProperty("merchantId")
     private Long merchantId;
-
     /**
      * 支付平台订单号。
      */
     @JsonProperty("platformOrderId")
     private String platformOrderId;
-
     /**
      * 用户支付渠道订单号。
      */
     @JsonProperty("channelOrderId")
     private String channelOrderId;
-
     /**
      * 动态二维码单号，仅动态码退款返回。
      */
     @JsonProperty("dynamicCodePaymentOrderId")
     private String dynamicCodePaymentOrderId;
-
     /**
      * 退款状态，当前为 REFUND_SUCCESS 表示退款成功。
      */
     @JsonProperty("refundStatus")
     private String refundStatus;
-
     /**
      * 服务商退款单号（业务方传入的业务退款单号）。
      */
     @JsonProperty("refundRequestNo")
     private String refundRequestNo;
+
+    /**
+     * 创建美团「收单开放平台退款通知（stage）」回调的业务内容。的空实例。
+     */
+    public StageRefundNotificationMessage() {
+    }
 }

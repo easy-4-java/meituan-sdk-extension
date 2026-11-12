@@ -20,33 +20,29 @@ import lombok.Setter;
 public class JointMemberPointsDeductionMessage {
 
     /**
-     * 创建美团「联合会员-会员积分扣减」回调的业务内容。的空实例。
-     */
-    public JointMemberPointsDeductionMessage() {
-    }
-
-
-    /**
      * 手机号。必填。
      */
     @JsonProperty("mobile")
     private String mobile;
-
     /**
      * 商场或者门店标识。
      */
     @JsonProperty("poiId")
     private String poiId;
-
     /**
      * 业务流水号。必填。
      */
     @JsonProperty("bizNo")
     private String bizNo;
-
     /**
      * 抵扣积分。必填。
      */
     @JsonProperty("deductNum")
     private Integer deductNum;
+
+    /**
+     * 创建美团「联合会员-会员积分扣减」回调的业务内容。的空实例。
+     */
+    public JointMemberPointsDeductionMessage() {
+    }
 }

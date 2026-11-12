@@ -23,34 +23,30 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class StoreAuditResultMessage {
 
     /**
-     * 创建美团「审核结果通知」回调的业务内容。的空实例。
-     */
-    public StoreAuditResultMessage() {
-    }
-
-
-    /**
      * 请求 ID。必填。
      */
     @JsonProperty("reqId")
     private Long reqId;
-
     /**
      * 响应代码。必填。
      */
     @JsonProperty("code")
     private Integer code;
-
     /**
      * 响应代码说明。必填。
      */
     @JsonProperty("msg")
     private String msg;
-
     /**
      * 响应数据:创建门店成功时是美团门店 ID；更新门店时是每个字段的审核结果。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
     @JsonProperty("data")
     private JsonNode data;
+
+    /**
+     * 创建美团「审核结果通知」回调的业务内容。的空实例。
+     */
+    public StoreAuditResultMessage() {
+    }
 }

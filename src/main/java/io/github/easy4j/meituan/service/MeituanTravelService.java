@@ -72,6 +72,7 @@ import com.meituan.sdk.model.pms.reservation.addOrder.AddOrderRequest;
 import com.meituan.sdk.model.pms.reservation.addOrderWithCustomPrice.AddOrderWithCustomPriceRequest;
 import com.meituan.sdk.model.pms.reservation.addShareWithCustomer.AddShareWithCustomerRequest;
 import com.meituan.sdk.model.pms.reservation.adddoorcardrecord.AdddoorcardrecordRequest;
+import com.meituan.sdk.model.pms.reservation.autoDispatchRoom.AutoDispatchRoomRequest;
 import com.meituan.sdk.model.pms.reservation.cancelOrder.CancelOrderRequest;
 import com.meituan.sdk.model.pms.reservation.changeOccupationDurationHourrent.ChangeOccupationDurationHourrentRequest;
 import com.meituan.sdk.model.pms.reservation.changeRoom.ChangeRoomRequest;
@@ -96,7 +97,6 @@ import com.meituan.sdk.model.pms.tmc.bookingCheck.BookingCheckRequest;
 import com.meituan.sdk.model.pms.tmc.getPhysicalRoomtypes.GetPhysicalRoomtypesRequest;
 import com.meituan.sdk.model.pms.tmc.queryHotelProducts.QueryHotelProductsRequest;
 import com.meituan.sdk.model.pms.tmc.queryOrder.QueryOrderRequest;
-import com.meituan.sdk.model.pms.reservation.autoDispatchRoom.AutoDispatchRoomRequest;
 
 /**
  * 酒旅经营宝业务能力门面。
@@ -1083,6 +1083,7 @@ public interface MeituanTravelService extends MeituanService {
      * @return 官方 SDK 反序列化后的响应
      */
     MeituanResponse<?> queryOrder(QueryOrderRequest request, String tenantId);
+
     /**
      * 预订单自动排房。
      * <p>官方接口：{@code /pms/reservation/autoDispatchRoom}，API：{@code auto_dispatch_room}，版本：{@code 10058}，businessId：{@code 57}，需要授权：{@code true}。</p>
@@ -1096,7 +1097,7 @@ public interface MeituanTravelService extends MeituanService {
     /**
      * 门店消费和收款账务明细数据接口。接口路径为 {@code /pms/data/queryFinancialDetails}。
      *
-     * @param request 官方 SDK 请求对象
+     * @param request  官方 SDK 请求对象
      * @param tenantId 选择开发者凭据的租户标识
      * @return 官方 SDK 响应
      */

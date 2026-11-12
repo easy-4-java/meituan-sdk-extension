@@ -21,57 +21,49 @@ import tools.jackson.databind.JsonNode;
 public class OrganizationStructureMessage {
 
     /**
-     * 创建美团「组织结构消息」回调的业务内容。的空实例。
-     */
-    public OrganizationStructureMessage() {
-    }
-
-
-    /**
      * 组织机构 ID。
      */
     @JsonProperty("orgId")
     private Integer orgId;
-
     /**
      * 组织机构编码。
      */
     @JsonProperty("orgCode")
     private String orgCode;
-
     /**
      * 组织机构名称。
      */
     @JsonProperty("orgName")
     private String orgName;
-
     /**
      * 上级组织机构 ID。
      */
     @JsonProperty("parentId")
     private Integer parentId;
-
     /**
      * 总部orgId。
      */
     @JsonProperty("rootOrgId")
     private Integer rootOrgId;
-
     /**
      * 修改时间。
      */
     @JsonProperty("modifyTime")
     private JsonNode modifyTime;
-
     /**
      * org状态。
      */
     @JsonProperty("orgStatus")
     private Integer orgStatus;
-
     /**
      * 删除标识。
      */
     @JsonProperty("deleted")
     private Integer deleted;
+
+    /**
+     * 创建美团「组织结构消息」回调的业务内容。的空实例。
+     */
+    public OrganizationStructureMessage() {
+    }
 }

@@ -18,15 +18,15 @@ import lombok.Setter;
 public class StartDeviceAndConsumeDealResult {
 
     /**
-     * 创建美团「启动设备并核销团单」回调的业务响应。的空实例。
-     */
-    public StartDeviceAndConsumeDealResult() {
-    }
-
-
-    /**
      * 操作结果（0为正常，非0为异常）。必填。
      */
     @JsonProperty("result")
     private Integer result;
+
+
+    /**
+     * 创建美团「启动设备并核销团单」回调的业务响应。的空实例。
+     */
+    public StartDeviceAndConsumeDealResult() {
+    }
 }

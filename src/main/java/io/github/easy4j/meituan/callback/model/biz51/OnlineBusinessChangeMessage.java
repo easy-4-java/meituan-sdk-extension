@@ -20,39 +20,34 @@ import lombok.Setter;
 public class OnlineBusinessChangeMessage {
 
     /**
-     * 创建美团「美团通知品牌方“线上点”业务变更【回调】（必接）」回调的业务内容。的空实例。
-     */
-    public OnlineBusinessChangeMessage() {
-    }
-
-
-    /**
      * 厂商门店 ID。
      */
     @JsonProperty("vendorShopId")
     private String vendorShopId;
-
     /**
      * 线上点业务开通状态10:开 20:关。
      */
     @JsonProperty("vendorBizOpen")
     private Integer vendorBizOpen;
-
     /**
      * 操作人（内容审核、运营、大客菜品服务等）。
      */
     @JsonProperty("operator")
     private String operator;
-
     /**
      * 操作原因（没有菜品、审核违法、运营紧急下线等）。
      */
     @JsonProperty("reason")
     private String reason;
-
     /**
      * 操作时间（单位毫秒）。
      */
     @JsonProperty("updateTime")
     private Long updateTime;
+
+    /**
+     * 创建美团「美团通知品牌方“线上点”业务变更【回调】（必接）」回调的业务内容。的空实例。
+     */
+    public OnlineBusinessChangeMessage() {
+    }
 }

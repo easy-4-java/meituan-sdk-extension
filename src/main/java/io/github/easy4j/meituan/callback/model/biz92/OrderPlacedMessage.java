@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz92;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「下单」回调的业务内容。
@@ -21,63 +22,54 @@ import lombok.Setter;
 public class OrderPlacedMessage {
 
     /**
-     * 创建美团「下单」回调的业务内容。的空实例。
-     */
-    public OrderPlacedMessage() {
-    }
-
-
-    /**
      * 报价单 ID，来自报价详情接口的返回。必填。
      */
     @JsonProperty("quoteId")
     private String quoteId;
-
     /**
      * 美团订单号。必填。
      */
     @JsonProperty("mtOrderId")
     private Long mtOrderId;
-
     /**
      * 商家车型编码。必填。
      */
     @JsonProperty("thirdCarModelId")
     private String thirdCarModelId;
-
     /**
      * 驾驶人信息。必填。
      */
     @JsonProperty("driver")
     private Driver driver;
-
     /**
      * 取车信息。必填。
      */
     @JsonProperty("pickUpInfo")
     private RentalInfo pickUpInfo;
-
     /**
      * 还车信息。必填。
      */
     @JsonProperty("dropOffInfo")
     private DropOffInfoDetails dropOffInfo;
-
     /**
      * 订单总金额(优惠后总价格+附加保险费用)。必填。
      */
     @JsonProperty("totalAmount")
     private Integer totalAmount;
-
     /**
      * 用户选择的保险方案编码列表，来自报价详情接口返回的 insuranceCode。必填。
      */
     @JsonProperty("selectedInsurances")
     private List<String> selectedInsurances;
-
     /**
      * 共担优惠信息。
      */
     @JsonProperty("coCouponInfo")
     private List<CoCouponInfo> coCouponInfo;
+
+    /**
+     * 创建美团「下单」回调的业务内容。的空实例。
+     */
+    public OrderPlacedMessage() {
+    }
 }

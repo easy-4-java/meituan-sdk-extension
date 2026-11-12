@@ -1,7 +1,5 @@
 package io.github.easy4j.meituan.debug;
 
-import org.junit.jupiter.api.Tag;
-
 import com.meituan.sdk.DefaultMeituanClient;
 import com.meituan.sdk.MeituanClient;
 import com.meituan.sdk.MeituanResponse;
@@ -9,6 +7,7 @@ import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.ReceiptQ
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.TuangouReceiptQuerylistbydateRequest;
 import com.meituan.sdk.model.ddzh.tuangou.tuangouReceiptQuerylistbydate.TuangouReceiptQuerylistbydateResponse;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -53,29 +52,43 @@ import java.util.Objects;
 public class MeituanReceiptQuerylistbydateDebugTest {
 
     /**
+     * 美团开发者 ID（如 100000）。
+     */
+    private static final Long DEVELOPER_ID = readLong("MEITUAN_DEVELOPER_ID", 100000L);
+
+
+    // ==================== 配置区（支持环境变量覆盖） ====================
+    /**
+     * 美团签名密钥（ISV 后台获取）。
+     */
+    private static final String SIGN_KEY = readString("MEITUAN_SIGN_KEY", "your-sign-key");
+    /**
+     * 业务 ID（ISV 后台为不同业务分配，如 团购验券=59）。
+     */
+    private static final Integer BIZ_TYPE = readInt("MEITUAN_BUSINESS_ID", 59);
+    /**
+     * 门店授权 token（美团合作中心门店授权回调下发）。
+     */
+    private static final String APP_AUTH_TOKEN = readString("MEITUAN_APP_AUTH_TOKEN", "");
+    /**
+     * 查询日期（格式 yyyy-MM-dd），默认昨天。
+     */
+    private static final String QUERY_DATE = System.getenv().getOrDefault(
+            "MEITUAN_QUERY_DATE",
+            LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_LOCAL_DATE));
+    /**
+     * 分页大小（美团最大 300）。
+     */
+    private static final int PAGE_SIZE = 300;
+    /**
+     * type: 0=验券记录  1=撤销验券记录。
+     */
+    private static final int TYPE_CONSUME = 0;
+    /**
      * 创建美团验券记录拉取调试测试（真实凭证）。的空实例。
      */
     public MeituanReceiptQuerylistbydateDebugTest() {
     }
-
-
-    // ==================== 配置区（支持环境变量覆盖） ====================
-    /** 美团开发者 ID（如 100000）。 */
-    private static final Long   DEVELOPER_ID   = readLong  ("MEITUAN_DEVELOPER_ID", 100000L);
-    /** 美团签名密钥（ISV 后台获取）。 */
-    private static final String SIGN_KEY      = readString("MEITUAN_SIGN_KEY",     "your-sign-key");
-    /** 业务 ID（ISV 后台为不同业务分配，如 团购验券=59）。 */
-    private static final Integer BIZ_TYPE     = readInt   ("MEITUAN_BUSINESS_ID",  59);
-    /** 门店授权 token（美团合作中心门店授权回调下发）。 */
-    private static final String APP_AUTH_TOKEN = readString("MEITUAN_APP_AUTH_TOKEN", "");
-    /** 查询日期（格式 yyyy-MM-dd），默认昨天。 */
-    private static final String QUERY_DATE    = System.getenv().getOrDefault(
-            "MEITUAN_QUERY_DATE",
-            LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_LOCAL_DATE));
-    /** 分页大小（美团最大 300）。 */
-    private static final int    PAGE_SIZE     = 300;
-    /** type: 0=验券记录  1=撤销验券记录。 */
-    private static final int    TYPE_CONSUME  = 0;
     // ==================== 配置区结束 ====================
 
     /**
@@ -89,7 +102,56 @@ public class MeituanReceiptQuerylistbydateDebugTest {
     }
 
     /**
+     * 读取字符串配置，缺失时使用默认值。
+     *
+     * @param key 配置键或消息字段名称
+     * @param def 配置缺失时使用的默认值
+     * @return 读取字符串配置，缺失时使用默认值的结果
+     */
+    private static String readString(String key, String def) {
+        String v = System.getenv(key);
+        return (v == null || v.isEmpty()) ? def : v;
+    }
+
+    /**
+     * 读取长整型配置，缺失时使用默认值。
+     *
+     * @param key 配置键或消息字段名称
+     * @param def 配置缺失时使用的默认值
+     * @return 读取长整型配置，缺失时使用默认值的结果
+     */
+    private static Long readLong(String key, Long def) {
+        String v = System.getenv(key);
+        if (v == null || v.isEmpty()) return def;
+        try {
+            return Long.valueOf(v);
+        } catch (NumberFormatException e) {
+            return def;
+        }
+    }
+
+    /**
+     * 读取整数配置，缺失时使用默认值。
+     *
+     * @param key 配置键或消息字段名称
+     * @param def 配置缺失时使用的默认值
+     * @return 读取整数配置，缺失时使用默认值的结果
+     */
+    private static Integer readInt(String key, Integer def) {
+        String v = System.getenv(key);
+        if (v == null || v.isEmpty()) return def;
+        try {
+            return Integer.valueOf(v);
+        } catch (NumberFormatException e) {
+            return def;
+        }
+    }
+
+    // ==================== 环境变量读取工具 ====================
+
+    /**
      * 分页拉取指定日期的所有验券记录并打印。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -201,42 +263,5 @@ public class MeituanReceiptQuerylistbydateDebugTest {
         System.out.println("  productType(商品类型): " + record.getProductType());
         System.out.println("  productItemId:         " + record.getProductItemId());
         System.out.println("  bookVerifyGroup(预订): " + record.getBookVerifyGroup());
-    }
-
-    // ==================== 环境变量读取工具 ====================
-    /**
-     * 读取字符串配置，缺失时使用默认值。
-     *
-     * @param key 配置键或消息字段名称
-     * @param def 配置缺失时使用的默认值
-     * @return 读取字符串配置，缺失时使用默认值的结果
-     */
-    private static String readString(String key, String def) {
-        String v = System.getenv(key);
-        return (v == null || v.isEmpty()) ? def : v;
-    }
-    /**
-     * 读取长整型配置，缺失时使用默认值。
-     *
-     * @param key 配置键或消息字段名称
-     * @param def 配置缺失时使用的默认值
-     * @return 读取长整型配置，缺失时使用默认值的结果
-     */
-    private static Long readLong(String key, Long def) {
-        String v = System.getenv(key);
-        if (v == null || v.isEmpty()) return def;
-        try { return Long.valueOf(v); } catch (NumberFormatException e) { return def; }
-    }
-    /**
-     * 读取整数配置，缺失时使用默认值。
-     *
-     * @param key 配置键或消息字段名称
-     * @param def 配置缺失时使用的默认值
-     * @return 读取整数配置，缺失时使用默认值的结果
-     */
-    private static Integer readInt(String key, Integer def) {
-        String v = System.getenv(key);
-        if (v == null || v.isEmpty()) return def;
-        try { return Integer.valueOf(v); } catch (NumberFormatException e) { return def; }
     }
 }

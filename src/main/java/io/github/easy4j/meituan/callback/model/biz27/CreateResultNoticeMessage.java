@@ -20,33 +20,29 @@ import lombok.Setter;
 public class CreateResultNoticeMessage {
 
     /**
-     * 创建美团「快驴订单创建结果异步通知」回调的业务内容。的空实例。
-     */
-    public CreateResultNoticeMessage() {
-    }
-
-
-    /**
      * 快驴订单编号。
      */
     @JsonProperty("orderNo")
     private String orderNo;
-
     /**
      * 服务商订单标识。必填。
      */
     @JsonProperty("orderIdentify")
     private String orderIdentify;
-
     /**
      * 服务商商家品牌标识。必填。
      */
     @JsonProperty("brandIdentify")
     private String brandIdentify;
-
     /**
      * 异常message。
      */
     @JsonProperty("errorMessage")
     private String errorMessage;
+
+    /**
+     * 创建美团「快驴订单创建结果异步通知」回调的业务内容。的空实例。
+     */
+    public CreateResultNoticeMessage() {
+    }
 }

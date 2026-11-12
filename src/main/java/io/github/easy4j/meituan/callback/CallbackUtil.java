@@ -53,7 +53,7 @@ public final class CallbackUtil {
      * 未匹配时保留原文，缺少 {@code message} 和 {@code param} 时业务内容为空。
      *
      * @param query 可带问号的 URL 编码查询串，可为空
-     * @param body 表单、JSON 信封或已解码的参数，可为空；同名参数以正文为准
+     * @param body  表单、JSON 信封或已解码的参数，可为空；同名参数以正文为准
      * @return 包含已登记业务对象或原文及验签参数的回调
      * @throws IllegalArgumentException 正文无效或已登记消息转换失败
      */
@@ -66,11 +66,11 @@ public final class CallbackUtil {
      *
      * <p>表单参数由容器解码；其他请求从查询串与正文读取。</p>
      *
-     * @param <T> 业务消息类型
-     * @param request Jakarta Servlet 请求，表单和正文应在被消费前调用
+     * @param <T>      业务消息类型
+     * @param request  Jakarta Servlet 请求，表单和正文应在被消费前调用
      * @param msgClass 业务内容的目标类型；{@link String} 表示保留文本
      * @return 包含业务对象和原始验签参数的回调对象
-     * @throws NullPointerException 当 {@code request} 或 {@code msgClass} 为 {@code null} 时
+     * @throws NullPointerException     当 {@code request} 或 {@code msgClass} 为 {@code null} 时
      * @throws IllegalArgumentException 请求读取失败、缺少业务消息或业务消息格式错误
      */
     public static <T> MeituanCallbackMessage<T> parse(HttpServletRequest request, Class<T> msgClass) {
@@ -111,12 +111,12 @@ public final class CallbackUtil {
      * <p>标准回调读取 {@code message}，旧版会员卡读取 {@code param}。其他历史协议
      * 可通过 {@link CallbackPayload} 指定业务参数名或使用整个表单。</p>
      *
-     * @param <T> 业务消息类型
-     * @param query URL-encoded 查询串，可为空
-     * @param body 回调信封正文，可为空
+     * @param <T>      业务消息类型
+     * @param query    URL-encoded 查询串，可为空
+     * @param body     回调信封正文，可为空
      * @param msgClass 业务内容的目标类型；{@link String} 表示保留文本
      * @return 包含业务对象和原始验签参数的回调对象
-     * @throws NullPointerException 当 {@code msgClass} 为 {@code null} 时
+     * @throws NullPointerException     当 {@code msgClass} 为 {@code null} 时
      * @throws IllegalArgumentException 缺少业务消息、正文格式错误或业务对象转换失败
      */
     public static <T> MeituanCallbackMessage<T> parse(String query, Object body, Class<T> msgClass) {
@@ -128,7 +128,7 @@ public final class CallbackUtil {
      * 读取回调参数并合并查询串与正文，同名字段采用正文值。
      *
      * @param query URL 编码的查询参数，可带前导问号
-     * @param body 回调正文或已解码的参数映射
+     * @param body  回调正文或已解码的参数映射
      * @return 读取回调参数并合并查询串与正文，同名字段采用正文值的结果
      */
     private static Map<String, String> readParameters(String query, Object body) {
@@ -147,7 +147,7 @@ public final class CallbackUtil {
      * 解码表单并合并参数，同名字段保留最后一个值。
      *
      * @param parameters 已解码的回调参数及验签字段
-     * @param form URL 编码的表单参数
+     * @param form       URL 编码的表单参数
      */
     private static void appendForm(Map<String, String> parameters, String form) {
         // 验签使用表单原始键名；JDK 解码器会拒绝不完整或非法的百分号编码。
@@ -179,9 +179,9 @@ public final class CallbackUtil {
     /**
      * 将业务内容绑定为指定模型，并保留用于验签的原始参数。
      *
-     * @param <T> 业务消息类型
+     * @param <T>        业务消息类型
      * @param parameters 已解码的回调参数及验签字段
-     * @param msgClass 业务内容的目标类型
+     * @param msgClass   业务内容的目标类型
      * @return 将业务内容绑定为指定模型，并保留用于验签的原始参数的结果
      */
     private static <T> MeituanCallbackMessage<T> bind(Map<String, String> parameters, Class<T> msgClass) {
@@ -221,7 +221,7 @@ public final class CallbackUtil {
      * 合并回调正文，将对象型业务内容编码为 JSON 参数。
      *
      * @param parameters 已解码的回调参数及验签字段
-     * @param body 回调正文或已解码的参数映射
+     * @param body       回调正文或已解码的参数映射
      */
     private static void appendBody(Map<String, String> parameters, Object body) {
         if (Objects.isNull(body)) {

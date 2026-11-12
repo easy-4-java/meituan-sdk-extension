@@ -18,21 +18,19 @@ import lombok.Setter;
 public class DeviceIdByQrCodeQueryResult {
 
     /**
-     * 创建美团「根据二维码URL查询设备ID」回调的业务响应。的空实例。
-     */
-    public DeviceIdByQrCodeQueryResult() {
-    }
-
-
-    /**
      * 三方设备ID，设备在商家侧的唯一标识。必填。
      */
     @JsonProperty("thirdPartyDeviceItemId")
     private String thirdPartyDeviceItemId;
-
     /**
      * 三方子设备ID，仅在存在主子两级设备时传递。
      */
     @JsonProperty("thirdPartyDeviceSubItemId")
     private String thirdPartyDeviceSubItemId;
+
+    /**
+     * 创建美团「根据二维码URL查询设备ID」回调的业务响应。的空实例。
+     */
+    public DeviceIdByQrCodeQueryResult() {
+    }
 }

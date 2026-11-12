@@ -4,9 +4,10 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 /**
  * 美团「接收订单推送接口」回调的业务内容。
@@ -24,59 +25,51 @@ import lombok.Setter;
 public class PaymentOrderMessage {
 
     /**
-     * 创建美团「接收订单推送接口」回调的业务内容。的空实例。
-     */
-    public PaymentOrderMessage() {
-    }
-
-
-    /**
      * 用户支付信息。
      */
     @JsonProperty("amountInfo")
     private AmountInfo amountInfo;
-
     /**
      * 业务描述。
      */
     @JsonProperty("business")
     private String business;
-
     /**
      * 是否可退款。
      */
     @JsonProperty("canRefund")
     private Boolean canRefund;
-
     /**
      * 点评订单编号。
      */
     @JsonProperty("dpOrderCode")
     private String dpOrderCode;
-
     /**
      * 订单状态。
      */
     @JsonProperty("orderStatus")
     private Long orderStatus;
-
     /**
      * 流水号。
      */
     @JsonProperty("serialNumber")
     private String serialNumber;
-
     /**
      * 开发者门店 ID。
      */
     @JsonProperty("ePoiId")
     private String ePoiId;
-
     /**
      * 商家订单 ID。
      */
     @JsonProperty("vendorOrderId")
     private String vendorOrderId;
+
+    /**
+     * 创建美团「接收订单推送接口」回调的业务内容。的空实例。
+     */
+    public PaymentOrderMessage() {
+    }
 
     /**
      * 用户支付信息。
@@ -87,34 +80,30 @@ public class PaymentOrderMessage {
     public static class AmountInfo {
 
         /**
-         * 创建用户支付信息。的空实例。
-         */
-        public AmountInfo() {
-        }
-
-
-        /**
          * 用户实际支付金额。
          */
         @JsonProperty("actualPay")
         private BigDecimal actualPay;
-
         /**
          * 平台优惠减免金额。
          */
         @JsonProperty("dpTotalPay")
         private BigDecimal dpTotalPay;
-
         /**
          * 原价。
          */
         @JsonProperty("originPrice")
         private Double originPrice;
-
         /**
          * 总金额。
          */
         @JsonProperty("total")
         private BigDecimal total;
+
+        /**
+         * 创建用户支付信息。的空实例。
+         */
+        public AmountInfo() {
+        }
     }
 }

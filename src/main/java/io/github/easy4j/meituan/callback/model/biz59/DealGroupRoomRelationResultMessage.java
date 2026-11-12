@@ -3,9 +3,10 @@ package io.github.easy4j.meituan.callback.model.biz59;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 /**
  * 美团「批量推送团购关联包型包间结果通知」回调的业务内容。
@@ -21,33 +22,29 @@ import lombok.Setter;
 public class DealGroupRoomRelationResultMessage {
 
     /**
-     * 创建美团「批量推送团购关联包型包间结果通知」回调的业务内容。的空实例。
-     */
-    public DealGroupRoomRelationResultMessage() {
-    }
-
-
-    /**
      * 推送是否成功。必填。
      */
     @JsonProperty("success")
     private Boolean success;
-
     /**
      * 失败信息。
      */
     @JsonProperty("errMsg")
     private String errMsg;
-
     /**
      * 团购 ID。必填。
      */
     @JsonProperty("dealGroupId")
     private Long dealGroupId;
-
     /**
      * 门店 ID 列表。必填。
      */
     @JsonProperty("opPoiIds")
     private List<String> opPoiIds;
+
+    /**
+     * 创建美团「批量推送团购关联包型包间结果通知」回调的业务内容。的空实例。
+     */
+    public DealGroupRoomRelationResultMessage() {
+    }
 }

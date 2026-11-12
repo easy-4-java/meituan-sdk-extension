@@ -29,6 +29,7 @@ class MeituanCallbackSupportTest {
 
     /**
      * 验证官网表单示例的公共字段和业务消息类型可以解析。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -108,6 +109,7 @@ class MeituanCallbackSupportTest {
 
     /**
      * 验证标准成功与失败回执的状态、说明及数据格式。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test

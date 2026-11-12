@@ -23,39 +23,34 @@ import lombok.Setter;
 public class ReservationCancelSyncMessage {
 
     /**
-     * 创建美团「取消同步三方」回调的业务内容。的空实例。
-     */
-    public ReservationCancelSyncMessage() {
-    }
-
-
-    /**
      * 预约单 ID。必填。
      */
     @JsonProperty("leadsId")
     private String leadsId;
-
     /**
      * 门店 ID。必填。
      */
     @JsonProperty("opPoiId")
     private String opPoiId;
-
     /**
      * 取消原因。
      */
     @JsonProperty("cancelReason")
     private String cancelReason;
-
     /**
      * 扩展字段。
      */
     @JsonProperty("extraMap")
     private String extraMap;
-
     /**
      * 是否极速退：true：是。
      */
     @JsonProperty("isFastRefund")
     private Boolean isFastRefund;
+
+    /**
+     * 创建美团「取消同步三方」回调的业务内容。的空实例。
+     */
+    public ReservationCancelSyncMessage() {
+    }
 }

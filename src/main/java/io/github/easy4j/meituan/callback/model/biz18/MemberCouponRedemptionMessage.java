@@ -20,45 +20,39 @@ import lombok.Setter;
 public class MemberCouponRedemptionMessage {
 
     /**
-     * 创建美团「会员优惠券核销」回调的业务内容。的空实例。
-     */
-    public MemberCouponRedemptionMessage() {
-    }
-
-
-    /**
      * 会员id。
      */
     @JsonProperty("memberId")
     private String memberId;
-
     /**
      * 卡id。
      */
     @JsonProperty("cardId")
     private String cardId;
-
     /**
      * 卡号。
      */
     @JsonProperty("cardNo")
     private String cardNo;
-
     /**
      * 待核销的券码（建议传入Long型数值信息，长度不超过19位）。
      */
     @JsonProperty("code")
     private String code;
-
     /**
      * 本次核销凭证，后续冲正基于该凭证执行，由美团侧统一提供，全局唯一。
      */
     @JsonProperty("bizId")
     private String bizId;
-
     /**
      * 订单信息，不传递则不计算可用券、已使用券。
      */
     @JsonProperty("orderInfo")
     private MemberCouponDiscountAllocationMessage.OrderInfoDetails orderInfo;
+
+    /**
+     * 创建美团「会员优惠券核销」回调的业务内容。的空实例。
+     */
+    public MemberCouponRedemptionMessage() {
+    }
 }

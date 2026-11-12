@@ -8,13 +8,18 @@ import lombok.Data;
 @Data
 public class FreetryLoadCouponData {
 
-    /** 创建已验券码查询结果。 */
+    /**
+     * 券码信息。
+     */
+    private FreetryCouponData coupon;
+    /**
+     * 活动信息。
+     */
+    private FreetryActivityData activity;
+
+    /**
+     * 创建已验券码查询结果。
+     */
     public FreetryLoadCouponData() {
     }
-
-    /** 券码信息。 */
-    private FreetryCouponData coupon;
-
-    /** 活动信息。 */
-    private FreetryActivityData activity;
 }

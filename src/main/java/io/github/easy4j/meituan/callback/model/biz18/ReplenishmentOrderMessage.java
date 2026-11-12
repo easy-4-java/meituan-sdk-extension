@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.easy4j.meituan.callback.CallbackPayload;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import tools.jackson.databind.JsonNode;
+
+import java.util.List;
 
 /**
  * 美团「【供应链】订货单消息」回调的业务内容。
@@ -23,47 +24,41 @@ import tools.jackson.databind.JsonNode;
 public class ReplenishmentOrderMessage {
 
     /**
-     * 创建美团「【供应链】订货单消息」回调的业务内容。的空实例。
-     */
-    public ReplenishmentOrderMessage() {
-    }
-
-
-    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 推送事件Id。必填。
      */
     @JsonProperty("pushEventId")
     private String pushEventId;
-
     /**
      * 操作类型。必填。
      */
     @JsonProperty("opType")
     private Integer opType;
-
     /**
      * 消息时序Id。必填。
      */
     @JsonProperty("seqId")
     private Long seqId;
-
     /**
      * 大消息体标识。
      */
     @JsonProperty("largeMessageTag")
     private Boolean largeMessageTag;
-
     /**
      * 门店订货单信息。必填。
      */
     @JsonProperty("bizData")
     private DemandOrderOpenDTO bizData;
+
+    /**
+     * 创建美团「【供应链】订货单消息」回调的业务内容。的空实例。
+     */
+    public ReplenishmentOrderMessage() {
+    }
 
     /**
      * 门店订货单信息。
@@ -74,23 +69,21 @@ public class ReplenishmentOrderMessage {
     public static class DemandOrderOpenDTO {
 
         /**
-         * 创建门店订货单信息。的空实例。
-         */
-        public DemandOrderOpenDTO() {
-        }
-
-
-        /**
          * 主单。必填。
          */
         @JsonProperty("item")
         private DemandOrderItemOpenDTO item;
-
         /**
          * 明细。必填。
          */
         @JsonProperty("details")
         private List<DemandOrderItemDetailOpenDTO> details;
+
+        /**
+         * 创建门店订货单信息。的空实例。
+         */
+        public DemandOrderOpenDTO() {
+        }
 
         /**
          * 主单。
@@ -101,353 +94,296 @@ public class ReplenishmentOrderMessage {
         public static class DemandOrderItemOpenDTO {
 
             /**
-             * 创建主单。的空实例。
-             */
-            public DemandOrderItemOpenDTO() {
-            }
-
-
-            /**
              * 单据号。
              */
             @JsonProperty("orderSn")
             private String orderSn;
-
             /**
              * 期望到货日期。
              */
             @JsonProperty("expectReceiveTime")
             private Long expectReceiveTime;
-
             /**
              * 免付金额。
              */
             @JsonProperty("freeMoney")
             private String freeMoney;
-
             /**
              * 运费金额。
              */
             @JsonProperty("freightFee")
             private String freightFee;
-
             /**
              * 折后金额。
              */
             @JsonProperty("money")
             private String money;
-
             /**
              * 不含税金额。
              */
             @JsonProperty("noTaxMoney")
             private String noTaxMoney;
-
             /**
              * 税额。
              */
             @JsonProperty("tax")
             private String tax;
-
             /**
              * 订货机构。
              */
             @JsonProperty("orderingSubject")
             private OrgOpenDTO orderingSubject;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
-
             /**
              * 初始订货单。
              */
             @JsonProperty("firstRequisitionOrderSn")
             private String firstRequisitionOrderSn;
-
             /**
              * 来源单据。
              */
             @JsonProperty("upstreamRequisitionOrderSn")
             private String upstreamRequisitionOrderSn;
-
             /**
              * 单据状态。
              */
             @JsonProperty("status")
             private PairDTO status;
-
             /**
              * 供货机构。
              */
             @JsonProperty("supplySubject")
             private SupplySubjectDetails supplySubject;
-
             /**
              * 单据提交时间。
              */
             @JsonProperty("submitTime")
             private Long submitTime;
-
             /**
              * 订单日期。
              */
             @JsonProperty("orderTime")
             private Long orderTime;
-
             /**
              * 创建时间。
              */
             @JsonProperty("createTime")
             private Long createTime;
-
             /**
              * 最后操作时间。
              */
             @JsonProperty("modifyTime")
             private Long modifyTime;
-
             /**
              * 预计发货日期。
              */
             @JsonProperty("expectDeliveryTime")
             private Long expectDeliveryTime;
-
             /**
              * 最后分单时间。
              */
             @JsonProperty("splitTime")
             private Long splitTime;
-
             /**
              * 是否加急单。
              */
             @JsonProperty("urgentType")
             private Boolean urgentType;
-
             /**
              * 是否预售。
              */
             @JsonProperty("preSale")
             private Boolean preSale;
-
             /**
              * 物品项目数。
              */
             @JsonProperty("itemCount")
             private Integer itemCount;
-
             /**
              * 付款金额。
              */
             @JsonProperty("payableMoney")
             private String payableMoney;
-
             /**
              * 折前金额。
              */
             @JsonProperty("originalMoney")
             private String originalMoney;
-
             /**
              * 订货标签。
              */
             @JsonProperty("requisitionOrderTags")
             private RequisitionOrderTagsDetails requisitionOrderTags;
-
             /**
              * 促销折扣。
              */
             @JsonProperty("campaignPromotionMoney")
             private String campaignPromotionMoney;
-
             /**
              * 手动折扣。
              */
             @JsonProperty("manualPromotionMoney")
             private String manualPromotionMoney;
-
             /**
              * 订货金额。
              */
             @JsonProperty("payableGoodsMoney")
             private String payableGoodsMoney;
-
             /**
              * 支付折扣。
              */
             @JsonProperty("paymentPromotionMoney")
             private String paymentPromotionMoney;
-
             /**
              * 配送自定义费用。
              */
             @JsonProperty("customFees")
             private CustomFeesOpenDTO customFees;
-
             /**
              * 是否代店下单。
              */
             @JsonProperty("createType")
             private CreateTypeDetails createType;
-
             /**
              * 创建来源。
              */
             @JsonProperty("sourceTerminalType")
             private SourceTerminalTypeDetails sourceTerminalType;
-
             /**
              * 运费重算。
              */
             @JsonProperty("feeRecalculateStatus")
             private FeeRecalculateStatusDetails feeRecalculateStatus;
-
             /**
              * 物流方式。
              */
             @JsonProperty("logisticsTypeNames")
             private List<String> logisticsTypeNames;
-
             /**
              * 创建类型。
              */
             @JsonProperty("orderOrderingType")
             private OrderOrderingTypeDetails orderOrderingType;
-
             /**
              * 创建方式。
              */
             @JsonProperty("sourceType")
             private SourceTypeDetails sourceType;
-
             /**
              * 拆单规则。
              */
             @JsonProperty("splitRule")
             private RuleIdentityOpenKey splitRule;
-
             /**
              * 分单状态。
              */
             @JsonProperty("splitStatus")
             private SplitStatusDetails splitStatus;
-
             /**
              * 付款方式。
              */
             @JsonProperty("payType")
             private PayTypeDetails payType;
-
             /**
              * 付款节点。
              */
             @JsonProperty("paymentNode")
             private PaymentNodeDetails paymentNode;
-
             /**
              * 付款状态。
              */
             @JsonProperty("payStatus")
             private PayStatusDetails payStatus;
-
             /**
              * 下游单据。
              */
             @JsonProperty("downstreamOrderSns")
             private List<String> downstreamOrderSns;
-
             /**
              * 提交人。
              */
             @JsonProperty("creatorId")
             private Long creatorId;
-
             /**
              * 收货机构。
              */
             @JsonProperty("receiveSubjectOrg")
             private ReceiveSubjectOrgDetails receiveSubjectOrg;
-
             /**
              * 版本号。
              */
             @JsonProperty("version")
             private Integer version;
-
             /**
              * 删除状态。
              */
             @JsonProperty("deleteStatus")
             private Integer deleteStatus;
-
             /**
              * 最大预计到货日期。
              */
             @JsonProperty("earliestExpectArriveTime")
             private Long earliestExpectArriveTime;
-
             /**
              * 最小预计到货日期。
              */
             @JsonProperty("latestExpectArriveTime")
             private Long latestExpectArriveTime;
-
             /**
              * 地址 ID。
              */
             @JsonProperty("addressId")
             private String addressId;
-
             /**
              * 主联系人姓名。
              */
             @JsonProperty("receiver")
             private String receiver;
-
             /**
              * 主联系人电话。
              */
             @JsonProperty("phone")
             private String phone;
-
             /**
              * 详细地址。
              */
             @JsonProperty("address")
             private String address;
-
             /**
              * 提交人。
              */
             @JsonProperty("submitter")
             private UserOpenDTO submitter;
-
             /**
              * 接单人。
              */
             @JsonProperty("auditor")
             private AuditorDetails auditor;
-
             /**
              * 接单时间。
              */
             @JsonProperty("auditTime")
             private Long auditTime;
-
             /**
              * 备用联系人姓名。
              */
             @JsonProperty("alternateContactName")
             private String alternateContactName;
-
             /**
              * 备用联系人电话。
              */
             @JsonProperty("alternateContactTelephone")
             private String alternateContactTelephone;
+
+            /**
+             * 创建主单。的空实例。
+             */
+            public DemandOrderItemOpenDTO() {
+            }
 
             /**
              * 订货机构。
@@ -458,35 +394,31 @@ public class ReplenishmentOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建订货机构。的空实例。
-                 */
-                public OrgOpenDTO() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点ID,即总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建订货机构。的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
             }
 
             /**
@@ -498,23 +430,21 @@ public class ReplenishmentOrderMessage {
             public static class PairDTO {
 
                 /**
-                 * 创建单据状态。的空实例。
-                 */
-                public PairDTO() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建单据状态。的空实例。
+                 */
+                public PairDTO() {
+                }
             }
 
             /**
@@ -526,35 +456,31 @@ public class ReplenishmentOrderMessage {
             public static class SupplySubjectDetails {
 
                 /**
-                 * 创建供货机构。的空实例。
-                 */
-                public SupplySubjectDetails() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点ID,即总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建供货机构。的空实例。
+                 */
+                public SupplySubjectDetails() {
+                }
             }
 
             /**
@@ -566,23 +492,21 @@ public class ReplenishmentOrderMessage {
             public static class RequisitionOrderTagsDetails {
 
                 /**
-                 * 创建订货标签。的空实例。
-                 */
-                public RequisitionOrderTagsDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建订货标签。的空实例。
+                 */
+                public RequisitionOrderTagsDetails() {
+                }
             }
 
             /**
@@ -596,23 +520,21 @@ public class ReplenishmentOrderMessage {
             public static class CustomFeesOpenDTO {
 
                 /**
-                 * 创建配送自定义费用。的空实例。
-                 */
-                public CustomFeesOpenDTO() {
-                }
-
-
-                /**
                  * 自定义费用。
                  */
                 @JsonProperty("ruleIdentityKey")
                 private RuleIdentityOpenKey ruleIdentityKey;
-
                 /**
                  * 值。
                  */
                 @JsonProperty("String")
                 private JsonNode string;
+
+                /**
+                 * 创建配送自定义费用。的空实例。
+                 */
+                public CustomFeesOpenDTO() {
+                }
 
                 /**
                  * 自定义费用。
@@ -623,29 +545,26 @@ public class ReplenishmentOrderMessage {
                 public static class RuleIdentityOpenKey {
 
                     /**
-                     * 创建自定义费用。的空实例。
-                     */
-                    public RuleIdentityOpenKey() {
-                    }
-
-
-                    /**
                      * id。
                      */
                     @JsonProperty("id")
                     private Long id;
-
                     /**
                      * 版本。
                      */
                     @JsonProperty("version")
                     private Integer version;
-
                     /**
                      * name。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建自定义费用。的空实例。
+                     */
+                    public RuleIdentityOpenKey() {
+                    }
                 }
             }
 
@@ -658,23 +577,21 @@ public class ReplenishmentOrderMessage {
             public static class CreateTypeDetails {
 
                 /**
-                 * 创建是否代店下单。的空实例。
-                 */
-                public CreateTypeDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建是否代店下单。的空实例。
+                 */
+                public CreateTypeDetails() {
+                }
             }
 
             /**
@@ -686,23 +603,21 @@ public class ReplenishmentOrderMessage {
             public static class SourceTerminalTypeDetails {
 
                 /**
-                 * 创建创建来源。的空实例。
-                 */
-                public SourceTerminalTypeDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建创建来源。的空实例。
+                 */
+                public SourceTerminalTypeDetails() {
+                }
             }
 
             /**
@@ -714,23 +629,21 @@ public class ReplenishmentOrderMessage {
             public static class FeeRecalculateStatusDetails {
 
                 /**
-                 * 创建运费重算。的空实例。
-                 */
-                public FeeRecalculateStatusDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建运费重算。的空实例。
+                 */
+                public FeeRecalculateStatusDetails() {
+                }
             }
 
             /**
@@ -742,23 +655,21 @@ public class ReplenishmentOrderMessage {
             public static class OrderOrderingTypeDetails {
 
                 /**
-                 * 创建创建类型。的空实例。
-                 */
-                public OrderOrderingTypeDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建创建类型。的空实例。
+                 */
+                public OrderOrderingTypeDetails() {
+                }
             }
 
             /**
@@ -770,23 +681,21 @@ public class ReplenishmentOrderMessage {
             public static class SourceTypeDetails {
 
                 /**
-                 * 创建创建方式。的空实例。
-                 */
-                public SourceTypeDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建创建方式。的空实例。
+                 */
+                public SourceTypeDetails() {
+                }
             }
 
             /**
@@ -798,29 +707,26 @@ public class ReplenishmentOrderMessage {
             public static class RuleIdentityOpenKey {
 
                 /**
-                 * 创建拆单规则。的空实例。
-                 */
-                public RuleIdentityOpenKey() {
-                }
-
-
-                /**
                  * id。
                  */
                 @JsonProperty("id")
                 private Long id;
-
                 /**
                  * 版本。
                  */
                 @JsonProperty("version")
                 private Integer version;
-
                 /**
                  * name。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建拆单规则。的空实例。
+                 */
+                public RuleIdentityOpenKey() {
+                }
             }
 
             /**
@@ -832,23 +738,21 @@ public class ReplenishmentOrderMessage {
             public static class SplitStatusDetails {
 
                 /**
-                 * 创建分单状态。的空实例。
-                 */
-                public SplitStatusDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建分单状态。的空实例。
+                 */
+                public SplitStatusDetails() {
+                }
             }
 
             /**
@@ -860,23 +764,21 @@ public class ReplenishmentOrderMessage {
             public static class PayTypeDetails {
 
                 /**
-                 * 创建付款方式。的空实例。
-                 */
-                public PayTypeDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建付款方式。的空实例。
+                 */
+                public PayTypeDetails() {
+                }
             }
 
             /**
@@ -888,23 +790,21 @@ public class ReplenishmentOrderMessage {
             public static class PaymentNodeDetails {
 
                 /**
-                 * 创建付款节点。的空实例。
-                 */
-                public PaymentNodeDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建付款节点。的空实例。
+                 */
+                public PaymentNodeDetails() {
+                }
             }
 
             /**
@@ -916,23 +816,21 @@ public class ReplenishmentOrderMessage {
             public static class PayStatusDetails {
 
                 /**
-                 * 创建付款状态。的空实例。
-                 */
-                public PayStatusDetails() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建付款状态。的空实例。
+                 */
+                public PayStatusDetails() {
+                }
             }
 
             /**
@@ -944,35 +842,31 @@ public class ReplenishmentOrderMessage {
             public static class ReceiveSubjectOrgDetails {
 
                 /**
-                 * 创建收货机构。的空实例。
-                 */
-                public ReceiveSubjectOrgDetails() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点ID,即总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建收货机构。的空实例。
+                 */
+                public ReceiveSubjectOrgDetails() {
+                }
             }
 
             /**
@@ -984,53 +878,46 @@ public class ReplenishmentOrderMessage {
             public static class UserOpenDTO {
 
                 /**
-                 * 创建提交人。的空实例。
-                 */
-                public UserOpenDTO() {
-                }
-
-
-                /**
                  * id。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 真实名称。
                  */
                 @JsonProperty("realName")
                 private String realName;
-
                 /**
                  * 员工账号。
                  */
                 @JsonProperty("userName")
                 private String userName;
-
                 /**
                  * 员工编码。
                  */
                 @JsonProperty("staffCode")
                 private String staffCode;
-
                 /**
                  * 员工手机号。
                  */
                 @JsonProperty("phone")
                 private String phone;
-
                 /**
                  * 账号创建类型。
                  */
                 @JsonProperty("createType")
                 private String createType;
+
+                /**
+                 * 创建提交人。的空实例。
+                 */
+                public UserOpenDTO() {
+                }
             }
 
             /**
@@ -1042,53 +929,46 @@ public class ReplenishmentOrderMessage {
             public static class AuditorDetails {
 
                 /**
-                 * 创建接单人。的空实例。
-                 */
-                public AuditorDetails() {
-                }
-
-
-                /**
                  * id。
                  */
                 @JsonProperty("id")
                 private String id;
-
                 /**
                  * 名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 真实名称。
                  */
                 @JsonProperty("realName")
                 private String realName;
-
                 /**
                  * 员工账号。
                  */
                 @JsonProperty("userName")
                 private String userName;
-
                 /**
                  * 员工编码。
                  */
                 @JsonProperty("staffCode")
                 private String staffCode;
-
                 /**
                  * 员工手机号。
                  */
                 @JsonProperty("phone")
                 private String phone;
-
                 /**
                  * 账号创建类型。
                  */
                 @JsonProperty("createType")
                 private String createType;
+
+                /**
+                 * 创建接单人。的空实例。
+                 */
+                public AuditorDetails() {
+                }
             }
         }
 
@@ -1101,233 +981,196 @@ public class ReplenishmentOrderMessage {
         public static class DemandOrderItemDetailOpenDTO {
 
             /**
-             * 创建明细。的空实例。
-             */
-            public DemandOrderItemDetailOpenDTO() {
-            }
-
-
-            /**
              * 明细 ID。
              */
             @JsonProperty("id")
             private String id;
-
             /**
              * 行号。
              */
             @JsonProperty("seqId")
             private Integer seqId;
-
             /**
              * 基准单位数量。
              */
             @JsonProperty("applyBaseUnitAmount")
             private String applyBaseUnitAmount;
-
             /**
              * 订货数量。
              */
             @JsonProperty("applyBizUnitAmount")
             private String applyBizUnitAmount;
-
             /**
              * 折后金额（含税）。
              */
             @JsonProperty("money")
             private String money;
-
             /**
              * 折后金额（不含税）。
              */
             @JsonProperty("noTaxMoney")
             private String noTaxMoney;
-
             /**
              * 折后单价（含税）。
              */
             @JsonProperty("applyPrice")
             private String applyPrice;
-
             /**
              * 折后单价（不含税）。
              */
             @JsonProperty("applyNoTaxPrice")
             private String applyNoTaxPrice;
-
             /**
              * 税额。
              */
             @JsonProperty("tax")
             private String tax;
-
             /**
              * 税率。
              */
             @JsonProperty("taxRate")
             private String taxRate;
-
             /**
              * 订货机构。
              */
             @JsonProperty("belongOrg")
             private OrgOpenDTO belongOrg;
-
             /**
              * 创建时间。
              */
             @JsonProperty("createTime")
             private Long createTime;
-
             /**
              * 送货机构。
              */
             @JsonProperty("deliverySubject")
             private OpenOppositeOrgDTO deliverySubject;
-
             /**
              * 物品信息。
              */
             @JsonProperty("goods")
             private JsonNode goods;
-
             /**
              * 单据号。
              */
             @JsonProperty("orderSn")
             private String orderSn;
-
             /**
              * 发货仓库。
              */
             @JsonProperty("warehouse")
             private JsonNode warehouse;
-
             /**
              * 配送方式。
              */
             @JsonProperty("distributionType")
             private Integer distributionType;
-
             /**
              * 赠品标记。
              */
             @JsonProperty("giftType")
             private PairDTO giftType;
-
             /**
              * 订货单位。
              */
             @JsonProperty("selectPurchaseUnit")
             private JsonNode selectPurchaseUnit;
-
             /**
              * 接单数量。
              */
             @JsonProperty("auditBizUnitAmount")
             private String auditBizUnitAmount;
-
             /**
              * 订货仓库。
              */
             @JsonProperty("orderingWarehouse")
             private JsonNode orderingWarehouse;
-
             /**
              * 折前单价（含税）。
              */
             @JsonProperty("originalPrice")
             private String originalPrice;
-
             /**
              * 折前金额（含税）。
              */
             @JsonProperty("originalMoney")
             private String originalMoney;
-
             /**
              * 折前单价（不含税）。
              */
             @JsonProperty("originalNoTaxPrice")
             private String originalNoTaxPrice;
-
             /**
              * 折前金额（不含税）。
              */
             @JsonProperty("originalNoTaxMoney")
             private String originalNoTaxMoney;
-
             /**
              * 促销折扣。
              */
             @JsonProperty("campaignPromotionMoney")
             private String campaignPromotionMoney;
-
             /**
              * 手动折扣。
              */
             @JsonProperty("manualPromotionMoney")
             private String manualPromotionMoney;
-
             /**
              * 订货单价。
              */
             @JsonProperty("price")
             private String price;
-
             /**
              * 订货金额。
              */
             @JsonProperty("payableGoodsMoney")
             private String payableGoodsMoney;
-
             /**
              * 支付折扣。
              */
             @JsonProperty("paymentPromotionMoney")
             private String paymentPromotionMoney;
-
             /**
              * 辅助单位。
              */
             @JsonProperty("supplementaryUnitId")
             private JsonNode supplementaryUnitId;
-
             /**
              * 辅助单位换算关系。
              */
             @JsonProperty("conversionRateSupplementaryDesc")
             private String conversionRateSupplementaryDesc;
-
             /**
              * 辅助数量。
              */
             @JsonProperty("supplySubjectStockAmount")
             private String supplySubjectStockAmount;
-
             /**
              * 预计发货日期。
              */
             @JsonProperty("expectDeliveryTime")
             private Long expectDeliveryTime;
-
             /**
              * 备注。
              */
             @JsonProperty("remark")
             private String remark;
-
             /**
              * 预计到货日期。
              */
             @JsonProperty("expectArriveTime")
             private Long expectArriveTime;
-
             /**
              * 供货机构。
              */
             @JsonProperty("supplySubject")
             private SupplySubjectDetails supplySubject;
+
+            /**
+             * 创建明细。的空实例。
+             */
+            public DemandOrderItemDetailOpenDTO() {
+            }
 
             /**
              * 订货机构。
@@ -1338,35 +1181,31 @@ public class ReplenishmentOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建订货机构。的空实例。
-                 */
-                public OrgOpenDTO() {
-                }
-
-
-                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
                 private Long orgId;
-
                 /**
                  * 机构根节点ID,即总部机构 ID。
                  */
                 @JsonProperty("rootOrgId")
                 private Long rootOrgId;
-
                 /**
                  * 机构编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 机构名称。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建订货机构。的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
             }
 
             /**
@@ -1378,35 +1217,31 @@ public class ReplenishmentOrderMessage {
             public static class OpenOppositeOrgDTO {
 
                 /**
-                 * 创建送货机构。的空实例。
-                 */
-                public OpenOppositeOrgDTO() {
-                }
-
-
-                /**
                  * 供货机构类型。
                  */
                 @JsonProperty("type")
                 private PairDTO type;
-
                 /**
                  * 编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 标识符。
                  */
                 @JsonProperty("id")
                 private Long id;
+
+                /**
+                 * 创建送货机构。的空实例。
+                 */
+                public OpenOppositeOrgDTO() {
+                }
 
                 /**
                  * 供货机构类型。
@@ -1417,23 +1252,21 @@ public class ReplenishmentOrderMessage {
                 public static class PairDTO {
 
                     /**
-                     * 创建供货机构类型。的空实例。
-                     */
-                    public PairDTO() {
-                    }
-
-
-                    /**
                      * 供货机构类型 ID 1: 供应商 2: 配送中心。
                      */
                     @JsonProperty("id")
                     private Integer id;
-
                     /**
                      * 供货机构类型描述。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建供货机构类型。的空实例。
+                     */
+                    public PairDTO() {
+                    }
                 }
             }
 
@@ -1446,23 +1279,21 @@ public class ReplenishmentOrderMessage {
             public static class PairDTO {
 
                 /**
-                 * 创建赠品标记。的空实例。
-                 */
-                public PairDTO() {
-                }
-
-
-                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
                 private Integer id;
-
                 /**
                  * 供货机构类型描述。
                  */
                 @JsonProperty("name")
                 private String name;
+
+                /**
+                 * 创建赠品标记。的空实例。
+                 */
+                public PairDTO() {
+                }
             }
 
             /**
@@ -1474,35 +1305,31 @@ public class ReplenishmentOrderMessage {
             public static class SupplySubjectDetails {
 
                 /**
-                 * 创建供货机构。的空实例。
-                 */
-                public SupplySubjectDetails() {
-                }
-
-
-                /**
                  * 供货机构类型。
                  */
                 @JsonProperty("type")
                 private PairDTO type;
-
                 /**
                  * 编码。
                  */
                 @JsonProperty("code")
                 private String code;
-
                 /**
                  * 名称。
                  */
                 @JsonProperty("name")
                 private String name;
-
                 /**
                  * 标识符。
                  */
                 @JsonProperty("id")
                 private Long id;
+
+                /**
+                 * 创建供货机构。的空实例。
+                 */
+                public SupplySubjectDetails() {
+                }
 
                 /**
                  * 供货机构类型。
@@ -1513,23 +1340,21 @@ public class ReplenishmentOrderMessage {
                 public static class PairDTO {
 
                     /**
-                     * 创建供货机构类型。的空实例。
-                     */
-                    public PairDTO() {
-                    }
-
-
-                    /**
                      * 供货机构类型 ID 1: 供应商 2: 配送中心。
                      */
                     @JsonProperty("id")
                     private Integer id;
-
                     /**
                      * 供货机构类型描述。
                      */
                     @JsonProperty("name")
                     private String name;
+
+                    /**
+                     * 创建供货机构类型。的空实例。
+                     */
+                    public PairDTO() {
+                    }
                 }
             }
         }

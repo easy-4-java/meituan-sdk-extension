@@ -21,17 +21,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanCateringServiceQueueRoutingTest {
 
     /**
-     * 创建到店餐饮排队 businessId=49 接口的租户执行路径回归测试。的空实例。
-     */
-    MeituanCateringServiceQueueRoutingTest() {
-    }
-
-
-    /**
      * 测试使用的租户标识。
      */
     private static final String TENANT_ID = "tenant-49";
-
     /**
      * 排队业务的官方接口路径。
      */
@@ -57,7 +49,14 @@ class MeituanCateringServiceQueueRoutingTest {
     );
 
     /**
+     * 创建到店餐饮排队 businessId=49 接口的租户执行路径回归测试。的空实例。
+     */
+    MeituanCateringServiceQueueRoutingTest() {
+    }
+
+    /**
      * 验证当前业务的接口按官方授权要求传递请求和租户信息。
+     *
      * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
@@ -104,13 +103,6 @@ class MeituanCateringServiceQueueRoutingTest {
     private static final class RecordingRequestExecutor implements MeituanRequestExecutor {
 
         /**
-         * 创建RecordingRequestExecutor的空实例。
-         */
-        private RecordingRequestExecutor() {
-        }
-
-
-        /**
          * 官方 SDK 请求对象。
          */
         private MeituanRequest<?> request;
@@ -122,6 +114,11 @@ class MeituanCateringServiceQueueRoutingTest {
          * 记录本次调用是否使用授权入口。
          */
         private boolean authorized;
+        /**
+         * 创建RecordingRequestExecutor的空实例。
+         */
+        private RecordingRequestExecutor() {
+        }
 
         /**
          * {@inheritDoc}
@@ -153,8 +150,8 @@ class MeituanCateringServiceQueueRoutingTest {
         /**
          * 保存当前请求、租户及授权入口，供路由断言读取。
          *
-         * @param currentRequest 本次调用接收到的官方请求
-         * @param currentTenantId 本次调用接收到的租户标识
+         * @param currentRequest    本次调用接收到的官方请求
+         * @param currentTenantId   本次调用接收到的租户标识
          * @param currentAuthorized 本次调用是否携带租户授权
          */
         private void record(MeituanRequest<?> currentRequest, String currentTenantId, boolean currentAuthorized) {

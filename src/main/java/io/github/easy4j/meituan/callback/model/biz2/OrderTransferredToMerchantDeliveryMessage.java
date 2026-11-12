@@ -20,27 +20,24 @@ import lombok.Setter;
 public class OrderTransferredToMerchantDeliveryMessage {
 
     /**
-     * 创建美团「接收美团配送转自配送消息」回调的业务内容。的空实例。
-     */
-    public OrderTransferredToMerchantDeliveryMessage() {
-    }
-
-
-    /**
      * 订单配送方式转自配变更类型（1：美团配送转为自配送）。
      */
     @JsonProperty("type")
     private Integer type;
-
     /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 配送方式（自配：0000）。
      */
     @JsonProperty("logisticsCode")
     private String logisticsCode;
+
+    /**
+     * 创建美团「接收美团配送转自配送消息」回调的业务内容。的空实例。
+     */
+    public OrderTransferredToMerchantDeliveryMessage() {
+    }
 }

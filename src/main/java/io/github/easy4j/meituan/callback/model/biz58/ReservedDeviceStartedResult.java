@@ -18,21 +18,19 @@ import lombok.Setter;
 public class ReservedDeviceStartedResult {
 
     /**
-     * 创建美团「预订设备启动」回调的业务响应。的空实例。
-     */
-    public ReservedDeviceStartedResult() {
-    }
-
-
-    /**
      * 业务错误码。业务错误码；返回特定code时，C端优先展示 businessMsg。
      */
     @JsonProperty("businessCode")
     private Integer businessCode;
-
     /**
      * 业务响应信息。业务错误信息。
      */
     @JsonProperty("businessMsg")
     private String businessMsg;
+
+    /**
+     * 创建美团「预订设备启动」回调的业务响应。的空实例。
+     */
+    public ReservedDeviceStartedResult() {
+    }
 }

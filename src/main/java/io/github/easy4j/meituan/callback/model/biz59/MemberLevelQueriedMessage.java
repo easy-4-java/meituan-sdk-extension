@@ -20,27 +20,24 @@ import lombok.Setter;
 public class MemberLevelQueriedMessage {
 
     /**
-     * 创建美团「查询会员级别」回调的业务内容。的空实例。
-     */
-    public MemberLevelQueriedMessage() {
-    }
-
-
-    /**
      * 会员卡号。
      */
     @JsonProperty("memberCard")
     private String memberCard;
-
     /**
      * 平台用户 ID（混淆ID）。
      */
     @JsonProperty("opUserId")
     private String opUserId;
-
     /**
      * 所属平台。
      */
     @JsonProperty("source")
     private Integer source;
+
+    /**
+     * 创建美团「查询会员级别」回调的业务内容。的空实例。
+     */
+    public MemberLevelQueriedMessage() {
+    }
 }

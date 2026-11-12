@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.1.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 http://maven.apache.org/xsd/maven-4.1.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.easy4j</groupId>
@@ -40,8 +40,12 @@
         <repository>
             <id>2624322-release-6F6h6R</id>
             <url>https://packages.aliyun.com/6927b116e6c3e0425dbdf60d/maven/2624322-release-6f6h6r</url>
-            <releases><enabled>true</enabled></releases>
-            <snapshots><enabled>false</enabled></snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
     <!-- 版本属性定义：Java 版本、依赖版本与 Maven 插件版本统一管理 -->
@@ -246,13 +250,15 @@
                             <configuration>
                                 <rules>
                                     <requireMavenVersion>
-                                        <message><![CDATA[You are running an older version of Maven. This application requires at least Maven 4.]]></message>
+                                        <message>
+                                            <![CDATA[You are running an older version of Maven. This application requires at least Maven 4.]]></message>
                                         <version>[4.0.0-rc-5,)</version>
                                     </requireMavenVersion>
                                     <requireJavaVersion>
                                         <message>
-                                                                                        You are running an older version of Java. This application requires at least JDK ${java.version}.
-                                                                                </message>
+                                            You are running an older version of Java. This application requires at least
+                                            JDK ${java.version}.
+                                        </message>
                                         <version>[${java.version}.0,)</version>
                                     </requireJavaVersion>
                                 </rules>

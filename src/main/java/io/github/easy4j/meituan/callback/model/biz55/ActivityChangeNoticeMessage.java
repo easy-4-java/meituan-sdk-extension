@@ -20,15 +20,15 @@ import lombok.Setter;
 public class ActivityChangeNoticeMessage {
 
     /**
-     * 创建美团「活动变更通知」回调的业务内容。的空实例。
-     */
-    public ActivityChangeNoticeMessage() {
-    }
-
-
-    /**
      * 变更的活动 ID。必填。
      */
     @JsonProperty("activityId")
     private Long activityId;
+
+
+    /**
+     * 创建美团「活动变更通知」回调的业务内容。的空实例。
+     */
+    public ActivityChangeNoticeMessage() {
+    }
 }

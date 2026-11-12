@@ -20,39 +20,34 @@ import lombok.Setter;
 public class ReservationCancelledMessage {
 
     /**
-     * 创建美团「取消预订」回调的业务内容。的空实例。
-     */
-    public ReservationCancelledMessage() {
-    }
-
-
-    /**
      * 取消类型，1-规则取消：用户正常规则下取消，2-非规则取消：除规则取消之外的其他取消，如用户通过开放平台客服强制取消 3：超退（客服退款）。必填。
      */
     @JsonProperty("cancelType")
     private String cancelType;
-
     /**
      * 技术合作中心上的订单 ID。必填。
      */
     @JsonProperty("orderId")
     private String orderId;
-
     /**
      * 取消预订审核渠道，1-三方平台审核，2-技术合作中心审核。
      */
     @JsonProperty("auditChannel")
     private String auditChannel;
-
     /**
      * 取消预订原因。
      */
     @JsonProperty("reason")
     private String reason;
-
     /**
      * 生活服务行业新增字段，其他行业不传，交易类型，枚举值，1-预订，2-团单（团购后预约），商家根据此属性字段识别交易类型，预订业务该字段非必传，团购后预约业务必传。
      */
     @JsonProperty("type")
     private String type;
+
+    /**
+     * 创建美团「取消预订」回调的业务内容。的空实例。
+     */
+    public ReservationCancelledMessage() {
+    }
 }

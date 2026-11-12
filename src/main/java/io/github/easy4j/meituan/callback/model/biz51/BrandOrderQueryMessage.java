@@ -20,21 +20,19 @@ import lombok.Setter;
 public class BrandOrderQueryMessage {
 
     /**
-     * 创建美团「品牌提供订单查询（必接）」回调的业务内容。的空实例。
-     */
-    public BrandOrderQueryMessage() {
-    }
-
-
-    /**
      * 美团平台订单 ID。必填。
      */
     @JsonProperty("orderId")
     private Long orderId;
-
     /**
      * 业务类型 10-MOP。必填。
      */
     @JsonProperty("bizType")
     private Integer bizType;
+
+    /**
+     * 创建美团「品牌提供订单查询（必接）」回调的业务内容。的空实例。
+     */
+    public BrandOrderQueryMessage() {
+    }
 }

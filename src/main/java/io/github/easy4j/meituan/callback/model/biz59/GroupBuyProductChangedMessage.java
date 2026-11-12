@@ -20,27 +20,24 @@ import lombok.Setter;
 public class GroupBuyProductChangedMessage {
 
     /**
-     * 创建美团「团购商品变更通知」回调的业务内容。的空实例。
-     */
-    public GroupBuyProductChangedMessage() {
-    }
-
-
-    /**
      * 美团团购商品 ID。必填。
      */
     @JsonProperty("dealGroupId")
     private Long dealGroupId;
-
     /**
      * 发布类型，0-维持原态（不变）,1-商品上架，2-商品下架。必填。
      */
     @JsonProperty("publishType")
     private Integer publishType;
-
     /**
      * 是否需要推送库存：0-不需要，1-需要。必填。
      */
     @JsonProperty("needPushStock")
     private Integer needPushStock;
+
+    /**
+     * 创建美团「团购商品变更通知」回调的业务内容。的空实例。
+     */
+    public GroupBuyProductChangedMessage() {
+    }
 }

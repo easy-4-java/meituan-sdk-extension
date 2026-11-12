@@ -14,33 +14,29 @@ import lombok.Setter;
 public class DistributionOrgDetails {
 
     /**
-     * 创建DistributionOrgDetails，用于【供应链】返货单消息等回调的业务字段。的空实例。
-     */
-    public DistributionOrgDetails() {
-    }
-
-
-    /**
      * 机构 ID。
      */
     @JsonProperty("orgId")
     private Long orgId;
-
     /**
      * 机构根节点ID,即总部机构 ID。
      */
     @JsonProperty("rootOrgId")
     private Long rootOrgId;
-
     /**
      * 机构编码。
      */
     @JsonProperty("code")
     private String code;
-
     /**
      * 机构名称。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建DistributionOrgDetails，用于【供应链】返货单消息等回调的业务字段。的空实例。
+     */
+    public DistributionOrgDetails() {
+    }
 }

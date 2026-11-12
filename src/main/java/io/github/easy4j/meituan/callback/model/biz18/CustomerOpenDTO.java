@@ -14,27 +14,24 @@ import lombok.Setter;
 public class CustomerOpenDTO {
 
     /**
-     * 创建CustomerOpenDTO，用于【供应链】查询外销订单消息等回调的业务字段。的空实例。
-     */
-    public CustomerOpenDTO() {
-    }
-
-
-    /**
      * 客户 ID。
      */
     @JsonProperty("id")
     private String id;
-
     /**
      * 客户编码。
      */
     @JsonProperty("code")
     private String code;
-
     /**
      * 客户名称。
      */
     @JsonProperty("name")
     private String name;
+
+    /**
+     * 创建CustomerOpenDTO，用于【供应链】查询外销订单消息等回调的业务字段。的空实例。
+     */
+    public CustomerOpenDTO() {
+    }
 }

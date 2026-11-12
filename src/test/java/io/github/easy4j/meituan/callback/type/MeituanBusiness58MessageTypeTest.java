@@ -1,11 +1,10 @@
 package io.github.easy4j.meituan.callback.type;
 
-import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import io.github.easy4j.meituan.callback.CallbackUtil;
+import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 

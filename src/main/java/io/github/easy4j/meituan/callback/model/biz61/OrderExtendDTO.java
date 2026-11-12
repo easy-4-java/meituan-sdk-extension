@@ -14,21 +14,19 @@ import lombok.Setter;
 public class OrderExtendDTO {
 
     /**
-     * 创建OrderExtendDTO，用于ORDER_SUBMIT等回调的业务字段。的空实例。
-     */
-    public OrderExtendDTO() {
-    }
-
-
-    /**
      * openId。
      */
     @JsonProperty("thirdUserId")
     private String thirdUserId;
-
     /**
      * 渠道拓展自定义参数。
      */
     @JsonProperty("channelExtend")
     private String channelExtend;
+
+    /**
+     * 创建OrderExtendDTO，用于ORDER_SUBMIT等回调的业务字段。的空实例。
+     */
+    public OrderExtendDTO() {
+    }
 }

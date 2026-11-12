@@ -20,45 +20,39 @@ import lombok.Setter;
 public class StoredValueReversedMessage {
 
     /**
-     * 创建美团「会员储值冲正」回调的业务内容。的空实例。
-     */
-    public StoredValueReversedMessage() {
-    }
-
-
-    /**
      * 会员 ID。必填。
      */
     @JsonProperty("memberId")
     private String memberId;
-
     /**
      * 卡 ID。必填。
      */
     @JsonProperty("cardId")
     private String cardId;
-
     /**
      * 卡号。
      */
     @JsonProperty("cardNo")
     private String cardNo;
-
     /**
      * localserver订单 ID。
      */
     @JsonProperty("localId")
     private String localId;
-
     /**
      * 撤销流水号。必填。
      */
     @JsonProperty("bizId")
     private String bizId;
-
     /**
      * 原因。必填。
      */
     @JsonProperty("reason")
     private String reason;
+
+    /**
+     * 创建美团「会员储值冲正」回调的业务内容。的空实例。
+     */
+    public StoredValueReversedMessage() {
+    }
 }

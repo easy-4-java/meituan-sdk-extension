@@ -3,18 +3,11 @@ package io.github.easy4j.meituan.service.impl;
 import com.meituan.sdk.MeituanRequest;
 import com.meituan.sdk.MeituanResponse;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadActivityRestrictionRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryPrepareVerifyRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryActivitiesByPoiRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryPoiCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryVerifyCouponRequest;
+import io.github.easy4j.meituan.model.freetry.*;
 import io.github.easy4j.meituan.service.MeituanFreetryService;
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.same;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 /**
  * 大众点评免费试 API 租户授权调用路径测试。
@@ -22,16 +15,16 @@ import static org.mockito.Mockito.verify;
 class MeituanFreetryServiceTest {
 
     /**
+     * 测试使用的租户标识。
+     */
+    private static final String TENANT_ID = "tenant-55";
+
+
+    /**
      * 创建大众点评免费试 API 租户授权调用路径测试。的空实例。
      */
     MeituanFreetryServiceTest() {
     }
-
-
-    /**
-     * 测试使用的租户标识。
-     */
-    private static final String TENANT_ID = "tenant-55";
 
     /**
      * 验证当前业务的接口按官方授权要求传递请求和租户信息。

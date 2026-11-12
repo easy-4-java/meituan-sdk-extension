@@ -2,18 +2,7 @@ package io.github.easy4j.meituan.service.impl;
 
 import com.meituan.sdk.MeituanResponse;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadActivityRestrictionRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadActivityRestrictionResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryLoadCouponResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryPrepareVerifyRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryPrepareVerifyResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryActivitiesByPoiRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryActivitiesByPoiResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryPoiCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryQueryPoiCouponResponse;
-import io.github.easy4j.meituan.model.freetry.FreetryVerifyCouponRequest;
-import io.github.easy4j.meituan.model.freetry.FreetryVerifyCouponResponse;
+import io.github.easy4j.meituan.model.freetry.*;
 import io.github.easy4j.meituan.service.MeituanFreetryService;
 
 /**

@@ -18,15 +18,15 @@ import lombok.Setter;
 public class ReservationCancelResultSyncResult {
 
     /**
-     * 创建美团「取消结果同步三方」回调的业务响应。的空实例。
-     */
-    public ReservationCancelResultSyncResult() {
-    }
-
-
-    /**
      * 处理结果。true/false。必填。
      */
     @JsonProperty("result")
     private String result;
+
+
+    /**
+     * 创建美团「取消结果同步三方」回调的业务响应。的空实例。
+     */
+    public ReservationCancelResultSyncResult() {
+    }
 }
