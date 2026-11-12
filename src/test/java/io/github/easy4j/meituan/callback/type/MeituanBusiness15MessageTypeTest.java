@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.type;
 
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.MeituanCallbackParser;
+import io.github.easy4j.meituan.callback.CallbackUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -33,11 +33,11 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldResolveModernMessageEnvelope() {
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "msgType", "15201",
                 "message", "{\"eventType\":\"USER_GET_CARD_EVENT\"}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness15MessageType.resolve(message))
                 .contains(MeituanBusiness15MessageType.MEMBERSHIP_CARD_EVENT);
@@ -46,11 +46,11 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldNormalizeLegacyInvokeTypeAndParamEnvelope() {
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "invokeType", "15101",
                 "param", "{\"phoneNo\":\"19288387287\",\"platformType\":\"MEI_TUAN\"}"
-        ));
+        ), String.class);
 
         assertThat(message.getMsgType()).isEqualTo("15101");
         assertThat(message.getMessage()).contains("19288387287");
@@ -60,13 +60,13 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldPreferModernEnvelopeWhenModernAndLegacyFieldsCollide() {
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "msgType", "15201",
                 "invokeType", "15101",
                 "message", "{\"source\":\"modern\"}",
                 "param", "{\"source\":\"legacy\"}"
-        ));
+        ), String.class);
 
         assertThat(message.getMsgType()).isEqualTo("15201");
         assertThat(message.getMessage()).isEqualTo("{\"source\":\"modern\"}");
@@ -76,11 +76,11 @@ class MeituanBusiness15MessageTypeTest {
 
     @Test
     void shouldKeepUnknownMessageAvailableToGenericCallbackConsumers() {
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15",
                 "msgType", "1599999",
                 "message", "{\"mtLevel\":\"L6\"}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness15MessageType.resolve(message)).isEmpty();
         assertThat(message.getBusinessId()).isEqualTo("15");

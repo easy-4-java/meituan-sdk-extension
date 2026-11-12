@@ -18,6 +18,7 @@ import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderDecision;
 import io.github.easy4j.meituan.callback.model.biz87.InvoiceStatusQueryResult;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
+import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.io.BufferedReader;
@@ -120,10 +121,16 @@ class CallbackDispatchTest {
     void preservesDistinctObjectAndStringResponseContracts() {
         var result = new MemberOperationResult();
         result.setResult(true);
-        var pos = new MeituanObjectCallbackResponse<>(0, "ok", result);
+        MeituanCallbackResponse<MemberOperationResult> pos = MeituanCallbackResponse.of(0, "ok", result);
+        assertThat(pos.withTraceId("trace").getData()).isSameAs(result);
         assertThat(mapper.readTree(mapper.writeValueAsString(pos))).isEqualTo(mapper.readTree("""
                 {"code":0,"message":"ok","data":{"result":true}}
                 """));
+        var decoded = mapper.readValue(mapper.writeValueAsString(pos),
+                new TypeReference<MeituanCallbackResponse<MemberOperationResult>>() {});
+        assertThat(decoded.getData().getResult()).isTrue();
+        MeituanCallbackResponse<MemberOperationResult> failure = MeituanCallbackResponse.failure(1, "failed");
+        assertThat(failure.getData()).isNull();
         var inventory = new InventoryQueryResponse("OP_SUCCESS", "success", "[]");
         assertThat(mapper.readTree(mapper.writeValueAsString(inventory))).isEqualTo(mapper.readTree("""
                 {"code":"OP_SUCCESS","msg":"success","data":"[]"}

@@ -32,7 +32,7 @@ class MeituanCallbackSupportTest {
                 + "&timestamp=1711592316026"
                 + "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8.name());
 
-        MeituanCallbackMessage<String> callback = MeituanCallbackParser.parseForm(body);
+        MeituanCallbackMessage<String> callback = CallbackUtil.parse(null, body, String.class);
 
         assertThat(callback.getMsgType()).isEqualTo("5910003");
         assertThat(callback.getBusinessId()).isEqualTo("59");
@@ -79,12 +79,12 @@ class MeituanCallbackSupportTest {
         assertThat(MeituanBusiness59MessageType.fromMsgType("5910149"))
                 .contains(MeituanBusiness59MessageType.MEMBER_UNREGISTERED);
 
-        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
-                "businessId", "58", "msgType", "5910003", "message", "{}"));
+        MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
+                "businessId", "58", "msgType", "5910003", "message", "{}"), String.class);
         assertThat(MeituanBusiness59MessageType.resolve(otherBusiness)).isEmpty();
 
-        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
-                "businessId", "59", "msgType", "5999999", "message", "{}"));
+        MeituanCallbackMessage<String> unknownMessage = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
+                "businessId", "59", "msgType", "5999999", "message", "{}"), String.class);
         assertThat(MeituanBusiness59MessageType.resolve(unknownMessage)).isEmpty();
         assertThat(unknownMessage.getMsgType()).isEqualTo("5999999");
     }
@@ -98,7 +98,7 @@ class MeituanCallbackSupportTest {
                 .extracting(MeituanCallbackResponse::getCode, MeituanCallbackResponse::getMessage)
                 .containsExactly(-99, "unsupported");
 
-        MeituanCallbackResponse response = MeituanCallbackResponse.successJson("{\"stock\":12}");
+        MeituanCallbackResponse<String> response = MeituanCallbackResponse.successJson("{\"stock\":12}");
         ObjectMapper objectMapper = JsonMapper.builder().build();
         JsonNode responseJson = objectMapper.readTree(objectMapper.writeValueAsString(response));
         assertThat(responseJson.get("data").isTextual()).isTrue();

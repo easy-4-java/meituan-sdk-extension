@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.type;
 
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.MeituanCallbackParser;
+import io.github.easy4j.meituan.callback.CallbackUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -58,11 +58,11 @@ class MeituanBusiness27MessageTypeTest {
 
     @Test
     void shouldResolveDocumentedMessageForBusiness27() {
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "27",
                 "msgType", "27004",
                 "message", "{\"orderNo\":\"K1000\"}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness27MessageType.resolve(message))
                 .contains(MeituanBusiness27MessageType.ORDER_CANCEL_NOTICE);
@@ -71,12 +71,12 @@ class MeituanBusiness27MessageTypeTest {
 
     @Test
     void shouldRejectOtherBusinessesAndKeepUndocumentedMessagesAvailable() {
-        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "51", "msgType", "27004", "message", "{}"
-        ));
-        MeituanCallbackMessage<String> undocumentedMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        ), String.class);
+        MeituanCallbackMessage<String> undocumentedMessage = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "27", "msgType", "2799999", "message", "{\"raw\":true}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness27MessageType.resolve(otherBusiness)).isEmpty();
         assertThat(MeituanBusiness27MessageType.resolve(undocumentedMessage)).isEmpty();

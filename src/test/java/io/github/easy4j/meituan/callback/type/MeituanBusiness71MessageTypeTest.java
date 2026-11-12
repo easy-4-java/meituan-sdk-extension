@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.type;
 
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.MeituanCallbackParser;
+import io.github.easy4j.meituan.callback.CallbackUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -28,17 +28,17 @@ class MeituanBusiness71MessageTypeTest {
 
     @Test
     void shouldResolveOnlyBusiness71MessagesAndPreserveUnknownType() {
-        MeituanCallbackMessage<String> auditResult = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
-                "businessId", "71", "msgType", "7110001", "message", "{}"));
+        MeituanCallbackMessage<String> auditResult = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
+                "businessId", "71", "msgType", "7110001", "message", "{}"), String.class);
         assertThat(MeituanBusiness71MessageType.resolve(auditResult))
                 .contains(MeituanBusiness71MessageType.POI_OPENAPI_MSG_PUSH);
 
-        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
-                "businessId", "58", "msgType", "7110001", "message", "{}"));
+        MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
+                "businessId", "58", "msgType", "7110001", "message", "{}"), String.class);
         assertThat(MeituanBusiness71MessageType.resolve(otherBusiness)).isEmpty();
 
-        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
-                "businessId", "71", "msgType", "7199999", "message", "{}"));
+        MeituanCallbackMessage<String> unknownMessage = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
+                "businessId", "71", "msgType", "7199999", "message", "{}"), String.class);
         assertThat(MeituanBusiness71MessageType.resolve(unknownMessage)).isEmpty();
         assertThat(unknownMessage.getMsgType()).isEqualTo("7199999");
     }

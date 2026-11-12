@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.type;
 
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.MeituanCallbackParser;
+import io.github.easy4j.meituan.callback.CallbackUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -24,11 +24,11 @@ class MeituanBusiness55MessageTypeTest {
         assertThat(MeituanBusiness55MessageType.ACTIVITY_CHANGE_NOTICE.getDocumentUrl())
                 .endsWith("msg_freetryopen_da0cca39-5099-452f-9d9b-c9bb632c0a81");
 
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "55",
                 "msgType", "5510001",
                 "message", "{\"activityId\":1000}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness55MessageType.resolve(message))
                 .contains(MeituanBusiness55MessageType.ACTIVITY_CHANGE_NOTICE);
@@ -37,12 +37,12 @@ class MeituanBusiness55MessageTypeTest {
 
     @Test
     void shouldRejectOtherBusinessesAndUnknownMessages() {
-        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "58", "msgType", "5510001", "message", "{}"
-        ));
-        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        ), String.class);
+        MeituanCallbackMessage<String> unknownMessage = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "55", "msgType", "5599999", "message", "{}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness55MessageType.resolve(otherBusiness)).isEmpty();
         assertThat(MeituanBusiness55MessageType.resolve(unknownMessage)).isEmpty();

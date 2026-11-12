@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.type;
 
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.MeituanCallbackParser;
+import io.github.easy4j.meituan.callback.CallbackUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -28,11 +28,11 @@ class MeituanBusiness2MessageTypeTest {
 
     @Test
     void shouldResolveDocumentedBrandImMessageForBusiness2() {
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "2",
                 "msgType", "210069",
                 "message", "{\"content\":\"hello\"}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness2MessageType.resolve(message))
                 .contains(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE);
@@ -41,12 +41,12 @@ class MeituanBusiness2MessageTypeTest {
 
     @Test
     void shouldRejectOtherBusinessesAndKeepUnknownMessagesAvailable() {
-        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "86", "msgType", "210069", "message", "{}"
-        ));
-        MeituanCallbackMessage<String> unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        ), String.class);
+        MeituanCallbackMessage<String> unknownMessage = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "2", "msgType", "299999", "message", "{\"raw\":true}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness2MessageType.resolve(otherBusiness)).isEmpty();
         assertThat(MeituanBusiness2MessageType.resolve(unknownMessage)).isEmpty();

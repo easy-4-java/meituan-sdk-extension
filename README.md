@@ -239,15 +239,15 @@ is unavailable. Verify signatures against the actual form parameters sent by the
 The interface tables also link to typed response data. For standard synchronous callbacks,
 `MeituanCallbackResponse.successData(result)` serializes an object or list into the string-valued
 `data` field. Use `successJson(json)` when the result is already JSON text. For POS coupon redemption,
-the official example uses a nested object: `new MeituanObjectCallbackResponse<>(0, "ok", result)`.
+the official example uses a nested object: `MeituanCallbackResponse.of(0, "ok", result)`.
 Use `MeituanCallbackResponse.flashOrderSuccess()` for the Flash Order acknowledgement `{"data":"ok"}`.
 The single and batch inventory callbacks with a string status code and a `msg` field use `InventoryQueryResponse`.
 
-The existing parser returns `MeituanCallbackMessage<String>`.
-Raw-type callers should add `<String>` or their payload type and recompile after this API change.
+Use `CallbackUtil.parse(request, String.class)` or `CallbackUtil.parse(null, body, String.class)` to read the decoded message text, including its original whitespace. An absent or blank payload is rejected by these typed overloads.
+Use `MeituanCallbackResponse<String>` for a string-valued response and `MeituanCallbackResponse<Payload>` for a nested object. Recompile callers after migrating.
 
 ```java
-MeituanCallbackMessage<String> callback = MeituanCallbackParser.parseForm(requestBody);
+MeituanCallbackMessage<String> callback = CallbackUtil.parse(null, requestBody, String.class);
 if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
     return MeituanCallbackResponse.failure(-2, "invalid signature");
 }

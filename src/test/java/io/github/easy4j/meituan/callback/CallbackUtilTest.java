@@ -121,6 +121,16 @@ class CallbackUtilTest {
     }
 
     @Test
+    void decodesFormValuesOnceAndRetainsTheLastValueForSigning() {
+        var callback = CallbackUtil.parse("?id=query", "id=one&id=two&message=+x%2By%26z%253D=+&flag&amp;id=literal", String.class);
+        assertThat(callback.getMessage()).isEqualTo(" x+y&z%3D= ");
+        assertThat(callback.getParameters()).containsEntry("id", "two")
+                .containsEntry("flag", "").containsEntry("amp;id", "literal");
+        assertThatThrownBy(() -> CallbackUtil.parse(null, "message=%GG", String.class))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void rejectsMalformedOrMissingPayloads() {
         assertThatThrownBy(() -> CallbackUtil.parse(QUERY, Map.of("message", "{"), Member.class))
                 .isInstanceOf(IllegalArgumentException.class);

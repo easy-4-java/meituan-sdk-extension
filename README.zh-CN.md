@@ -244,15 +244,15 @@ decision.setRejectReason(2); // 该桌型已订满
 return MeituanCallbackResponse.successData(decision);
 ```
 
-智能版会员券核销的官网示例直接嵌套业务对象，使用 `new MeituanObjectCallbackResponse<>(0, "ok", result)`。
+智能版会员券核销的官网示例直接嵌套业务对象，使用 `MeituanCallbackResponse.of(0, "ok", result)`。
 闪惠接收订单推送使用 `MeituanCallbackResponse.flashOrderSuccess()`，返回 `{"data":"ok"}`。
 服务零售「单个查询库存」和「批量获取库存」使用 `InventoryQueryResponse`，其返回码为字符串，说明字段名为 `msg`。
 
-现有 `MeituanCallbackParser` 返回 `MeituanCallbackMessage<String>`，继续支持原始字符串处理方式。
-`MeituanCallbackMessage` 已泛型化，显式声明为原始类型的调用方应补上 `<String>` 或业务类型，并重新编译。
+通过 `CallbackUtil.parse(request, String.class)` 或 `CallbackUtil.parse(null, body, String.class)` 读取解码后的业务文本，保留首尾空白。显式指定类型时，业务文本缺失或全为空白会抛出异常。
+字符串回执声明为 `MeituanCallbackResponse<String>`，嵌套对象回执声明为 `MeituanCallbackResponse<业务类型>`。升级后需要重新编译调用方。
 
 ```java
-MeituanCallbackMessage<String> callback = MeituanCallbackParser.parseForm(requestBody);
+MeituanCallbackMessage<String> callback = CallbackUtil.parse(null, requestBody, String.class);
 if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
     return MeituanCallbackResponse.failure(-2, "invalid signature");
 }

@@ -10,6 +10,7 @@ import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -113,18 +114,24 @@ public final class CallbackUtil {
 
     private static Map<String, String> readParameters(String query, Object body) {
         Map<String, String> parameters = new LinkedHashMap<>();
-        if (StrUtil.isNotBlank(query)) {
-            String form = query.startsWith("?") ? query.substring(1) : query;
-            if (StrUtil.isNotBlank(form)) {
-                parameters.putAll(MeituanCallbackParser.parseForm(form).getParameters());
-            }
-        }
+        appendForm(parameters, StrUtil.removePrefix(query, "?"));
 
         try {
             appendBody(parameters, body);
             return parameters;
         } catch (RuntimeException e) {
             throw new IllegalArgumentException("Cannot read Meituan callback parameters", e);
+        }
+    }
+
+    private static void appendForm(Map<String, String> parameters, String form) {
+        // 验签使用表单原始键名；JDK 解码器会拒绝不完整或非法的百分号编码。
+        for (String pair : StrUtil.split(form, '&')) {
+            String key = URLDecoder.decode(StrUtil.subBefore(pair, '=', false), StandardCharsets.UTF_8);
+            if (StrUtil.isNotBlank(key)) {
+                String value = URLDecoder.decode(StrUtil.subAfter(pair, '=', false), StandardCharsets.UTF_8);
+                parameters.put(key, value);
+            }
         }
     }
 
@@ -184,7 +191,7 @@ public final class CallbackUtil {
                 return;
             }
             if (!text.trim().startsWith("{")) {
-                parameters.putAll(MeituanCallbackParser.parseForm(text).getParameters());
+                appendForm(parameters, text);
                 return;
             }
             appendBody(parameters, MAPPER.readValue(text, Map.class));

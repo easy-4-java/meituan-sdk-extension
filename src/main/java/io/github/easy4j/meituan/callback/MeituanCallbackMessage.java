@@ -80,23 +80,33 @@ public final class MeituanCallbackMessage<T> {
         Map<String, String> copiedParameters = new LinkedHashMap<>(parameters);
         this.parameters = Collections.unmodifiableMap(copiedParameters);
         this.msgType = msgType(copiedParameters);
-        this.timestamp = MeituanCallbackParser.findValue(copiedParameters, "timestamp");
-        this.sign = MeituanCallbackParser.findValue(copiedParameters, "sign", "signature");
-        this.developerId = MeituanCallbackParser.findValue(copiedParameters, "developerId", "developer_id");
+        this.timestamp = findValue(copiedParameters, "timestamp");
+        this.sign = findValue(copiedParameters, "sign", "signature");
+        this.developerId = findValue(copiedParameters, "developerId", "developer_id");
         this.businessId = businessId(copiedParameters);
-        this.msgId = MeituanCallbackParser.findValue(copiedParameters, "msgId", "msg_id", "msgid");
-        this.opBizCode = MeituanCallbackParser.findValue(copiedParameters, "opBizCode", "op_biz_code", "opbizcode");
-        this.ePoiId = MeituanCallbackParser.findValue(copiedParameters, "ePoiId", "e_poi_id");
+        this.msgId = findValue(copiedParameters, "msgId", "msg_id", "msgid");
+        this.opBizCode = findValue(copiedParameters, "opBizCode", "op_biz_code", "opbizcode");
+        this.ePoiId = findValue(copiedParameters, "ePoiId", "e_poi_id");
         this.message = message;
         this.rawMessage = rawMessage;
     }
 
     static String msgType(Map<String, String> parameters) {
-        return MeituanCallbackParser.findValue(parameters, "msgType", "msg_type", "msgtype", "invokeType", "invoke_type");
+        return findValue(parameters, "msgType", "msg_type", "msgtype", "invokeType", "invoke_type");
     }
 
     static String businessId(Map<String, String> parameters) {
-        return MeituanCallbackParser.findValue(parameters, "businessId", "business_id");
+        return findValue(parameters, "businessId", "business_id");
+    }
+
+    private static String findValue(Map<String, String> parameters, String... keys) {
+        for (String key : keys) {
+            String value = parameters.get(key);
+            if (StrUtil.isNotBlank(value)) {
+                return value.trim();
+            }
+        }
+        return null;
     }
 
     static String rawMessage(Map<String, String> parameters) {

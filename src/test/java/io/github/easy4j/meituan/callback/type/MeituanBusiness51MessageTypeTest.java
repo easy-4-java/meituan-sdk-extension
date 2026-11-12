@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.callback.type;
 
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
-import io.github.easy4j.meituan.callback.MeituanCallbackParser;
+import io.github.easy4j.meituan.callback.CallbackUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -102,11 +102,11 @@ class MeituanBusiness51MessageTypeTest {
 
     @Test
     void shouldResolveDocumentedMessageForBusiness51() {
-        MeituanCallbackMessage<String> message = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "51",
                 "msgType", "5110013",
                 "message", "{\"orderId\":1000}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness51MessageType.resolve(message))
                 .contains(MeituanBusiness51MessageType.ORDER_PUSH);
@@ -115,12 +115,12 @@ class MeituanBusiness51MessageTypeTest {
 
     @Test
     void shouldRejectOtherBusinessesAndKeepUndocumentedMessagesAvailable() {
-        MeituanCallbackMessage<String> otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "15", "msgType", "5110013", "message", "{}"
-        ));
-        MeituanCallbackMessage<String> undocumentedMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
+        ), String.class);
+        MeituanCallbackMessage<String> undocumentedMessage = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
                 "businessId", "51", "msgType", "5199999", "message", "{\"raw\":true}"
-        ));
+        ), String.class);
 
         assertThat(MeituanBusiness51MessageType.resolve(otherBusiness)).isEmpty();
         assertThat(MeituanBusiness51MessageType.resolve(undocumentedMessage)).isEmpty();
