@@ -8,7 +8,9 @@ import io.github.easy4j.meituan.model.jmcard.MeituanMemberClaimUserRight;
 import jakarta.validation.Validation;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Jakarta 线必须同时验证官方请求与扩展库自有嵌套 DTO。
