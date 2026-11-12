@@ -370,7 +370,7 @@ MeituanCallbackMessage<String> raw = CallbackUtil.parse(query, body, String.clas
 
 ## 9. 接口清单
 
-[`docs/`](docs/) 保留 29 份接口清单，其中 19 份按官网一级业务分类，另有 10 份专题补充。一级清单按业务分组，表格包含接口描述、业务 ID、消息编号、示例 `opBizCode`、接口类型、官网地址及适用的模型链接。示例 `opBizCode` 是官网样例值，实际请求应使用自己的业务参数。
+[`docs/`](docs/) 按官网一级业务分类保存 19 份接口清单。每份按业务分组，表格包含接口描述、业务 ID、消息编号、示例 `opBizCode`、接口类型、官网地址及适用的模型链接。示例 `opBizCode` 是官网样例值，实际请求应使用自己的业务参数。
 
 | 分类 | 接口清单 |
 |---|---|
@@ -379,14 +379,6 @@ MeituanCallbackMessage<String> raw = CallbackUtil.parse(query, body, String.clas
 | 配送与分销 | [配送服务](docs/配送服务-接口清单.md) · [站外分销](docs/站外分销-接口清单.md) · [自动物流车](docs/自动物流车-接口清单.md) |
 | 营销与经营 | [免费试](docs/免费试-接口清单.md) · [客满满](docs/客满满-接口清单.md) · [快驴](docs/快驴-接口清单.md) · [美团平台直播](docs/美团平台直播-接口清单.md) · [工具型服务](docs/工具型服务-接口清单.md) |
 | 其他业务 | [充电宝](docs/充电宝-接口清单.md) · [企业版](docs/企业版-接口清单.md) · [美团收单](docs/美团收单-接口清单.md) · [美团租车](docs/美团租车-接口清单.md) · [酒旅经营宝](docs/酒旅经营宝-接口清单.md) · [游戏实物履约系统](docs/游戏实物履约系统-接口清单.md) |
-
-本分支另保留以下专题清单，可按具体业务直接查阅。
-
-| 专题 | 接口清单 |
-|---|---|
-| 餐饮专题 | [到店餐饮品牌会员卡](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E5%93%81%E7%89%8C%E4%BC%9A%E5%91%98%E5%8D%A1-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [到店餐饮在线点](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E5%9C%A8%E7%BA%BF%E7%82%B9-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [到店餐饮排队](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E6%8E%92%E9%98%9F-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [到店餐饮预定](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E9%A2%84%E5%AE%9A-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [餐饮客户解决方案](docs/%E9%A4%90%E9%A5%AE%E5%AE%A2%E6%88%B7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) |
-| 零售与门店专题 | [服务零售(客户)](docs/%E6%9C%8D%E5%8A%A1%E9%9B%B6%E5%94%AE%28%E5%AE%A2%E6%88%B7%29%20-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [门店建店直连](docs/%E9%97%A8%E5%BA%97%E5%BB%BA%E5%BA%97%E7%9B%B4%E8%BF%9E-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) |
-| 营销与配送专题 | [到店广告](docs/%E5%88%B0%E5%BA%97%E5%B9%BF%E5%91%8A-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [大众点评免费试](docs/%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84%E5%85%8D%E8%B4%B9%E8%AF%95-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [团购配送](docs/%E5%9B%A2%E8%B4%AD%E9%85%8D%E9%80%81-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) |
 
 清单同时包含 API 与消息文档，部分官网条目仍缺少可核实内容。固定 SDK 请求覆盖由 [MeituanApiCoverageTest](src/test/java/io/github/easy4j/meituan/MeituanApiCoverageTest.java) 检查；回调枚举和模型映射由 [MeituanMessageTypeCoverageTest](src/test/java/io/github/easy4j/meituan/callback/type/MeituanMessageTypeCoverageTest.java) 检查。该覆盖范围随固定 SDK 和已登记消息定义，不代表所有官网未来接口。
 
