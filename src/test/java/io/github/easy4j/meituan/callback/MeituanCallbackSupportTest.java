@@ -1,6 +1,6 @@
 package io.github.easy4j.meituan.callback;
 
-import io.github.easy4j.meituan.callback.business59.MeituanBusiness59MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;

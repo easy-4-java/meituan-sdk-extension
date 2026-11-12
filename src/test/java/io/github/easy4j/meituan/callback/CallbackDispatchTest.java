@@ -1,17 +1,17 @@
 package io.github.easy4j.meituan.callback;
 
-import io.github.easy4j.meituan.callback.business15.model.CoBrandedNewUserQueryMessage;
-import io.github.easy4j.meituan.callback.business18.model.MemberCouponRedemptionMessage;
-import io.github.easy4j.meituan.callback.business18.model.MemberOperationResult;
-import io.github.easy4j.meituan.callback.business18.model.MemberOrderAvailableCouponsMessage;
-import io.github.easy4j.meituan.callback.business3.model.PaymentOrderMessage;
-import io.github.easy4j.meituan.callback.business58.model.InventoryQueryResponse;
-import io.github.easy4j.meituan.callback.business87.model.InvoiceStatusQueryResult;
-import io.github.easy4j.meituan.callback.business18.model.ReverseOrderMessage;
-import io.github.easy4j.meituan.callback.business59.model.MemberCreatedMessage;
-import io.github.easy4j.meituan.callback.business59.model.MemberCreatedResult;
-import io.github.easy4j.meituan.callback.business59.model.MerchantCouponIssueResult;
-import io.github.easy4j.meituan.callback.business7.model.ReservationOrderDecision;
+import io.github.easy4j.meituan.callback.model.biz15.CoBrandedNewUserQueryMessage;
+import io.github.easy4j.meituan.callback.model.biz18.MemberCouponRedemptionMessage;
+import io.github.easy4j.meituan.callback.model.biz18.MemberOperationResult;
+import io.github.easy4j.meituan.callback.model.biz18.MemberOrderAvailableCouponsMessage;
+import io.github.easy4j.meituan.callback.model.biz18.ReverseOrderMessage;
+import io.github.easy4j.meituan.callback.model.biz3.PaymentOrderMessage;
+import io.github.easy4j.meituan.callback.model.biz58.InventoryQueryResponse;
+import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage;
+import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedResult;
+import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponIssueResult;
+import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderDecision;
+import io.github.easy4j.meituan.callback.model.biz87.InvoiceStatusQueryResult;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
@@ -117,20 +117,33 @@ class CallbackDispatchTest {
     void serializesBusinessDataOnceAndKeepsLegacyAcknowledgementShape() {
         var member = new MemberCreatedResult();
         member.setNewMember(true);
+        member.setMemberCard("0007");
         member.setMemberLevel("01");
+        member.setExpireDate(1770000000000L);
         var reservation = new ReservationOrderDecision();
         reservation.setResult(2);
         reservation.setRejectReason(5);
+        reservation.setOtherReason("当日停业");
         var coupon = mapper.readValue("""
                 {"receiptInfoList":[{"receiptCode":"001","receiptCodePic":"https://example.org/qr"}],"businessCode":200}
                 """, MerchantCouponIssueResult.class);
-        for (Object data : new Object[]{member, reservation, coupon}) {
-            var envelope = mapper.readTree(mapper.writeValueAsString(MeituanCallbackResponse.successData(data)));
-            assertThat(envelope.get("data").isString()).isTrue();
-            assertThat(mapper.readTree(envelope.get("data").asString())).isEqualTo(mapper.valueToTree(data));
-        }
+        assertResponseData(member, """
+                {"newMember":true,"memberCard":"0007","memberLevel":"01","expireDate":1770000000000}
+                """);
+        assertResponseData(reservation, """
+                {"result":2,"rejectReason":5,"otherReason":"当日停业"}
+                """);
+        assertResponseData(coupon, """
+                {"receiptInfoList":[{"receiptCode":"001","receiptCodePic":"https://example.org/qr"}],"businessCode":200}
+                """);
         assertThat(coupon.getReceiptInfoList().get(0).getReceiptCode()).isEqualTo("001");
         assertThat(MeituanCallbackResponse.successData(null).getData()).isNull();
         assertThat(mapper.writeValueAsString(MeituanCallbackResponse.flashOrderSuccess())).isEqualTo("{\"data\":\"ok\"}");
+    }
+
+    private void assertResponseData(Object data, String expectedJson) {
+        var envelope = mapper.readTree(mapper.writeValueAsString(MeituanCallbackResponse.successData(data)));
+        assertThat(envelope.get("data").isString()).isTrue();
+        assertThat(mapper.readTree(envelope.get("data").asString())).isEqualTo(mapper.readTree(expectedJson));
     }
 }

@@ -2,7 +2,7 @@ package io.github.easy4j.meituan.callback;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.github.easy4j.meituan.callback.business3.model.FlashOrderAcknowledgement;
+import io.github.easy4j.meituan.callback.model.biz3.FlashOrderAcknowledgement;
 import lombok.Getter;
 import tools.jackson.databind.json.JsonMapper;
 

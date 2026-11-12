@@ -13,7 +13,7 @@ import com.meituan.sdk.model.waimaiNg.im.sendImMsgWaimai.SendImMsgWaimaiRequest;
 import com.meituan.sdk.model.waimaiNg.im.setAutoSendConfigInfo.SetAutoSendConfigInfoRequest;
 import com.meituan.sdk.model.waimaiNg.im.setPoiImStatus.SetPoiImStatusRequest;
 import com.meituan.sdk.model.waimaiNg.im.waimaiImGetReadTime.WaimaiImGetReadTimeRequest;
-import io.github.easy4j.meituan.callback.business2.MeituanBusiness2MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness2MessageType;
 import io.github.easy4j.meituan.service.MeituanStoreService;
 import io.github.easy4j.meituan.service.MeituanWaimaiService;
 import org.junit.jupiter.api.Test;

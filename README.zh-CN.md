@@ -205,12 +205,14 @@ cachedStorage.evict("tenant-a");              // 清除单个条目
 
 ### 消息回调与业务模型
 
+业务模型位于 `io.github.easy4j.meituan.callback.model.biz<业务ID>`，消息类型枚举位于 `io.github.easy4j.meituan.callback.type`。从旧版升级时，请更新引用这些类型的 import 和反射使用的全限定类名，并重新编译调用方。
+
 businessId=58/59/71 的消息使用 URL-encoded 公共参数，并在 `message` 字段中携带业务 JSON。
 SDK 使用 Jackson 3 将业务 JSON 转为 `MeituanCallbackMessage<T>`，可显式指定模型，也可按业务 ID 和消息类型自动选择模型。
 Servlet 入口使用 `jakarta.servlet.http.HttpServletRequest`，由宿主 Web 容器提供 Servlet API。
 
 ```java
-import io.github.easy4j.meituan.callback.business59.model.MemberCreatedMessage;
+import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage;
 
 MeituanCallbackMessage<MemberCreatedMessage> callback =
         CallbackUtil.parse(request, MemberCreatedMessage.class);

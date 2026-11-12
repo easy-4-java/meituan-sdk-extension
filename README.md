@@ -213,12 +213,14 @@ cachedStorage.evict("tenant-a");              // drop one entry
 
 ### Callback messages and payload models
 
+Business models live in `io.github.easy4j.meituan.callback.model.biz<businessId>` and message type enums live in `io.github.easy4j.meituan.callback.type`. When upgrading, update imports and any fully qualified class names used for reflection, then recompile the caller.
+
 Meituan callbacks use URL-encoded common parameters and carry
 the business JSON in the `message` field. The SDK provides framework-neutral
 parsing, signature verification, message-type resolution, and response models:
 
 The message rows in [the interface lists](docs/) link to their Java payload classes.
-For member creation, pass `io.github.easy4j.meituan.callback.business59.model.MemberCreatedMessage.class`.
+For member creation, pass `io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage.class`.
 `CallbackUtil.parse(request)` and `CallbackUtil.parse(query, body)` return a `MeituanCallbackMessage<?>`
 using both `businessId` and `msgType` (or the legacy `invokeType`). Unknown combinations retain the
 decoded `message` or `param` text and signing parameters. If neither field exists, the payload is null.
