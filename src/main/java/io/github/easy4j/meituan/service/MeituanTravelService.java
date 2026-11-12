@@ -16,6 +16,8 @@ import com.meituan.sdk.model.pms.coupon.checkPublishChannelCoupon.CheckPublishCh
 import com.meituan.sdk.model.pms.coupon.publishChannelCoupon.PublishChannelCouponRequest;
 import com.meituan.sdk.model.pms.coupon.queryChannelCouponTemplateList.QueryChannelCouponTemplateListRequest;
 import com.meituan.sdk.model.pms.coupon.queryChannelCoupons.QueryChannelCouponsRequest;
+import com.meituan.sdk.model.pms.data.queryHotelFinancialDetail.QueryHotelFinancialDetailRequest;
+import com.meituan.sdk.model.pms.data.queryHotelFinancialDetail.QueryHotelFinancialDetailResponse;
 import com.meituan.sdk.model.pms.data.queryJy08.QueryJy08Request;
 import com.meituan.sdk.model.pms.esports.getLockScreenConfig.GetLockScreenConfigRequest;
 import com.meituan.sdk.model.pms.esports.getPcRoomNumber.GetPcRoomNumberRequest;
@@ -1091,4 +1093,12 @@ public interface MeituanTravelService extends MeituanService {
      */
     MeituanResponse<?> autoDispatchRoom(AutoDispatchRoomRequest request, String tenantId);
 
+    /**
+     * 门店消费和收款账务明细数据接口。接口路径为 {@code /pms/data/queryFinancialDetails}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<QueryHotelFinancialDetailResponse> queryHotelFinancialDetail(QueryHotelFinancialDetailRequest request, String tenantId);
 }

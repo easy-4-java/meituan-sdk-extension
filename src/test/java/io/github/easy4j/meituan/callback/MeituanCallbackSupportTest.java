@@ -1,6 +1,6 @@
 package io.github.easy4j.meituan.callback;
 
-import io.github.easy4j.meituan.callback.business59.MeituanBusiness59MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
 import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,7 +32,7 @@ class MeituanCallbackSupportTest {
                 + "&timestamp=1711592316026"
                 + "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8.name());
 
-        MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(body);
+        MeituanCallbackMessage<String> callback = CallbackUtil.parse(null, body, String.class);
 
         assertThat(callback.getMsgType()).isEqualTo("5910003");
         assertThat(callback.getBusinessId()).isEqualTo("59");
@@ -43,7 +43,7 @@ class MeituanCallbackSupportTest {
     }
 
     @Test
-    void shouldVerifySignatureAndRejectTamperedParameters() {
+    void shouldVerifySignatureAndRejectTamperedParameters() throws Exception {
         Map<String, String> parameters = new LinkedHashMap<>();
         parameters.put("msgType", "5910003");
         parameters.put("developerId", "123456");
@@ -67,24 +67,24 @@ class MeituanCallbackSupportTest {
     }
 
     @Test
-    void shouldExposeAllDocumentedBusiness59MessagesWithoutDuplicateMsgTypes() {
-        assertThat(MeituanBusiness59MessageType.values()).hasSize(33);
+    void shouldExposeAllDocumentedBusiness59MessagesWithoutDuplicateMsgTypes() throws Exception {
+        assertThat(MeituanBusiness59MessageType.values()).hasSize(34);
 
         Set<String> knownMsgTypes = java.util.Arrays.stream(MeituanBusiness59MessageType.values())
                 .map(MeituanBusiness59MessageType::getMsgType)
                 .filter(java.util.Objects::nonNull)
                 .collect(Collectors.toSet());
 
-        assertThat(knownMsgTypes).hasSize(33);
+        assertThat(knownMsgTypes).hasSize(34);
         assertThat(MeituanBusiness59MessageType.fromMsgType("5910149"))
                 .contains(MeituanBusiness59MessageType.MEMBER_UNREGISTERED);
 
-        MeituanCallbackMessage otherBusiness = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
-                "businessId", "58", "msgType", "5910003", "message", "{}"));
+        MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
+                "businessId", "58", "msgType", "5910003", "message", "{}"), String.class);
         assertThat(MeituanBusiness59MessageType.resolve(otherBusiness)).isEmpty();
 
-        MeituanCallbackMessage unknownMessage = MeituanCallbackParser.parse(io.github.easy4j.meituan.TestCollections.mapOf(
-                "businessId", "59", "msgType", "5999999", "message", "{}"));
+        MeituanCallbackMessage<String> unknownMessage = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
+                "businessId", "59", "msgType", "5999999", "message", "{}"), String.class);
         assertThat(MeituanBusiness59MessageType.resolve(unknownMessage)).isEmpty();
         assertThat(unknownMessage.getMsgType()).isEqualTo("5999999");
     }
@@ -98,7 +98,7 @@ class MeituanCallbackSupportTest {
                 .extracting(MeituanCallbackResponse::getCode, MeituanCallbackResponse::getMessage)
                 .containsExactly(-99, "unsupported");
 
-        MeituanCallbackResponse response = MeituanCallbackResponse.successJson("{\"stock\":12}");
+        MeituanCallbackResponse<String> response = MeituanCallbackResponse.successJson("{\"stock\":12}");
         ObjectMapper objectMapper = JsonMapper.builder().build();
         JsonNode responseJson = objectMapper.readTree(objectMapper.writeValueAsString(response));
         assertThat(responseJson.get("data").isTextual()).isTrue();

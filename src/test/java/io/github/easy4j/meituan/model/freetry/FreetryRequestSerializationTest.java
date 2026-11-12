@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FreetryRequestSerializationTest {
 
     @Test
-    void shouldSerializeDocumentedRequestFields() {
+    void shouldSerializeDocumentedRequestFields() throws Exception {
         FreetryLoadActivityRestrictionRequest restrictionRequest = new FreetryLoadActivityRestrictionRequest();
         restrictionRequest.setActivityId(1000L);
         FreetryQueryPoiCouponRequest queryRequest = new FreetryQueryPoiCouponRequest();
@@ -36,7 +36,7 @@ class FreetryRequestSerializationTest {
     }
 
     @Test
-    void shouldDeserializeDirectAndWrappedBusinessResponses() {
+    void shouldDeserializeDirectAndWrappedBusinessResponses() throws Exception {
         FreetryPrepareVerifyRequest prepareRequest = new FreetryPrepareVerifyRequest();
         MeituanResponse<FreetryPrepareVerifyResponse> prepareResponse = prepareRequest.deserializeResponse(
                 "{\"code\":\"OP_SUCCESS\",\"data\":{" +
@@ -59,7 +59,7 @@ class FreetryRequestSerializationTest {
     }
 
     @Test
-    void shouldDeserializeEveryDocumentedNestedResponseWithoutLosingLongPrecision() {
+    void shouldDeserializeEveryDocumentedNestedResponseWithoutLosingLongPrecision() throws Exception {
         MeituanResponse<FreetryLoadCouponResponse> loadResponse = new FreetryLoadCouponRequest()
                 .deserializeResponse("{\"code\":\"OP_SUCCESS\",\"data\":{" +
                         "\"code\":200,\"status\":true,\"msg\":\"success\",\"data\":{" +

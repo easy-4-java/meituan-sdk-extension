@@ -29,6 +29,7 @@ class MeituanBusiness51OnlineOrderingApiCoverageTest {
             "/foodmop/market/tuangou/deal/sku/mapping",
             "/foodmop/order/diancannew/order/pushNotice",
             "/foodmop/order/diancannew/order/fullFillNotice",
+            "/foodmop/order/diancannew/order/takeUpInfoSync",
             "/foodmop/order/refund",
             "/foodmop/order/refundNotice",
             "/foodmop/order/diancannew/order/finish",
@@ -107,8 +108,7 @@ class MeituanBusiness51OnlineOrderingApiCoverageTest {
 
     private Map<String, Class<?>> officialFoodmopRequestsByPath() throws Exception {
         Map<String, Class<?>> requestsByPath = new HashMap<>();
-        File sdkJar = new File(com.meituan.sdk.MeituanClient.class
-                .getProtectionDomain().getCodeSource().getLocation().toURI());
+        File sdkJar = OfficialSdkTestInput.jar();
         try (JarFile jarFile = new JarFile(sdkJar)) {
             Enumeration<JarEntry> entries = jarFile.entries();
             while (entries.hasMoreElements()) {

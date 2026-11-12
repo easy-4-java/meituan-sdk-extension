@@ -35,6 +35,7 @@ import com.meituan.sdk.model.foodmop.order.orderChangeNotice.OrderChangeNoticeRe
 import com.meituan.sdk.model.foodmop.order.orderFinish.OrderFinishRequest;
 import com.meituan.sdk.model.foodmop.order.orderFullFillNotice.OrderFullFillNoticeRequest;
 import com.meituan.sdk.model.foodmop.order.orderRefund.OrderRefundRequest;
+import com.meituan.sdk.model.foodmop.order.orderTakeUpInfoSync.OrderTakeUpInfoSyncRequest;
 import com.meituan.sdk.model.foodmop.order.refundNotice.RefundNoticeRequest;
 import com.meituan.sdk.model.foodmop.pay.tuangouTradeQueryByPage.TuangouTradeQueryByPageRequest;
 import com.meituan.sdk.model.foodmop.shop.baseInfoQuery.BaseInfoQueryRequest;
@@ -985,4 +986,8 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
         return execute(request, tenantId);
     }
 
+    @Override
+    public MeituanResponse<Void> orderTakeUpInfoSync(OrderTakeUpInfoSyncRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
 }

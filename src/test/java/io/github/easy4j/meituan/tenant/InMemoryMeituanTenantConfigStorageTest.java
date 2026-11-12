@@ -19,14 +19,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class InMemoryMeituanTenantConfigStorageTest {
 
     @Test
-    void should_return_empty_when_unset() {
+    void should_return_empty_when_unset() throws Exception {
         InMemoryMeituanTenantConfigStorage storage = new InMemoryMeituanTenantConfigStorage(new HashMap<>());
         Optional<MeituanTenantConfig> result = storage.findByTenantId("nope");
         assertFalse(result.isPresent());
     }
 
     @Test
-    void should_return_config_when_present() {
+    void should_return_config_when_present() throws Exception {
         MeituanTenantConfig cfg = new MeituanTenantConfig();
         cfg.setTenantId("t1");
         cfg.setAppId("app-1");
@@ -43,7 +43,7 @@ class InMemoryMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void should_return_empty_for_blank_tenant_id() {
+    void should_return_empty_for_blank_tenant_id() throws Exception {
         InMemoryMeituanTenantConfigStorage storage = new InMemoryMeituanTenantConfigStorage(new HashMap<>());
         assertFalse(storage.findByTenantId(null).isPresent());
         assertFalse(storage.findByTenantId("").isPresent());

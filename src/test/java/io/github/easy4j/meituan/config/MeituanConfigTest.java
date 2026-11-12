@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MeituanConfigTest {
 
     @Test
-    void should_have_default_server_url_charset_and_version() {
+    void should_have_default_server_url_charset_and_version() throws Exception {
         MeituanConfig config = new MeituanConfig();
         assertEquals("https://api-open-cater.meituan.com", config.getServerUrl());
         assertEquals("UTF-8", config.getCharset());
@@ -24,7 +24,7 @@ class MeituanConfigTest {
     }
 
     @Test
-    void should_allow_overriding_all_fields() {
+    void should_allow_overriding_all_fields() throws Exception {
         MeituanConfig config = new MeituanConfig();
         config.setServerUrl("https://staging.api.meituan.com");
         config.setCharset("GBK");

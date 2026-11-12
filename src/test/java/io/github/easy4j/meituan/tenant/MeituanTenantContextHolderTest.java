@@ -19,18 +19,18 @@ class MeituanTenantContextHolderTest {
     }
 
     @Test
-    void should_store_and_retrieve_tenant_id() {
+    void should_store_and_retrieve_tenant_id() throws Exception {
         MeituanTenantContextHolder.setTenantId("tenant-A");
         assertEquals("tenant-A", MeituanTenantContextHolder.getTenantId());
     }
 
     @Test
-    void should_return_null_when_unset() {
+    void should_return_null_when_unset() throws Exception {
         assertNull(MeituanTenantContextHolder.getTenantId());
     }
 
     @Test
-    void should_clear_tenant_id() {
+    void should_clear_tenant_id() throws Exception {
         MeituanTenantContextHolder.setTenantId("tenant-B");
         MeituanTenantContextHolder.clear();
         assertNull(MeituanTenantContextHolder.getTenantId());

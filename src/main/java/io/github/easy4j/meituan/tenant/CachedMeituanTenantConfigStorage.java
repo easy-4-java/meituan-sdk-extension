@@ -1,7 +1,7 @@
 package io.github.easy4j.meituan.tenant;
 
+import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.config.MeituanTenantConfig;
-import io.github.easy4j.meituan.utils.StringUtils;
 
 import java.time.Clock;
 import java.time.Duration;
@@ -84,7 +84,7 @@ public class CachedMeituanTenantConfigStorage implements MeituanTenantConfigStor
      */
     @Override
     public Optional<MeituanTenantConfig> findByTenantId(String tenantId) {
-        if (!StringUtils.hasText(tenantId)) {
+        if (StrUtil.isBlank(tenantId)) {
             return Optional.empty();
         }
         CacheEntry cacheEntry = cachedTenants.get(tenantId);
@@ -102,7 +102,7 @@ public class CachedMeituanTenantConfigStorage implements MeituanTenantConfigStor
      * @param tenantConfig 租户授权配置
      */
     public void put(String tenantId, MeituanTenantConfig tenantConfig) {
-        if (!StringUtils.hasText(tenantId) || Objects.isNull(tenantConfig)) {
+        if (StrUtil.isBlank(tenantId) || Objects.isNull(tenantConfig)) {
             return;
         }
         tenantConfig.setTenantId(tenantId);
@@ -116,7 +116,7 @@ public class CachedMeituanTenantConfigStorage implements MeituanTenantConfigStor
      * @return 外部加载器返回的最新租户配置
      */
     public Optional<MeituanTenantConfig> refresh(String tenantId) {
-        if (!StringUtils.hasText(tenantId)) {
+        if (StrUtil.isBlank(tenantId)) {
             return Optional.empty();
         }
         Object tenantLock = tenantLocks.computeIfAbsent(tenantId, key -> new Object());
@@ -135,7 +135,7 @@ public class CachedMeituanTenantConfigStorage implements MeituanTenantConfigStor
      * @param tenantId 租户标识
      */
     public void evict(String tenantId) {
-        if (StringUtils.hasText(tenantId)) {
+        if (StrUtil.isNotBlank(tenantId)) {
             cachedTenants.remove(tenantId);
         }
     }

@@ -3,11 +3,20 @@ package io.github.easy4j.meituan.service.impl;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.mendianzhilian.test.bind.BindRequest;
 import com.meituan.sdk.model.mendianzhilian.test.createPoi.CreatePoiRequest;
+import com.meituan.sdk.model.mendianzhilian.test.pageSearch.PageSearchRequest;
+import com.meituan.sdk.model.mendianzhilian.test.pageSearch.PageSearchResponse;
 import com.meituan.sdk.model.mendianzhilian.test.search.SearchRequest;
 import com.meituan.sdk.model.mendianzhilian.test.updatePoi.UpdatePoiRequest;
+import com.meituan.sdk.model.solution2.csaccount.dcQueryMopTuangouDetail.DcQueryMopTuangouDetailRequest;
+import com.meituan.sdk.model.solution2.csaccount.dcQueryMopTuangouDetail.DcQueryMopTuangouDetailResponse;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetail.DcSrcollQueryTradeProfitDetailRequest;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetailForOppoiid.DcSrcollQueryTradeProfitDetailForOppoiidRequest;
 import com.meituan.sdk.model.solution2.dcpoidinfo.dcPageQueryTokenPoiList.DcPageQueryTokenPoiListRequest;
+import com.meituan.sdk.model.solution2.mtcompany.invoiceResultCallback.InvoiceResultCallbackRequest;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceClose.ManageInvoiceCloseRequest;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceClose.ManageInvoiceCloseResponse;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceOpen.ManageInvoiceOpenRequest;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceOpen.ManageInvoiceOpenResponse;
 import com.meituan.sdk.model.solution2.mtcompany.wechatOrderSqtInfoBatchQuery.WechatOrderSqtInfoBatchQueryRequest;
 import com.meituan.sdk.model.solution2.csaccount.scrollQueryNonTradeProfitDetail.ScrollQueryNonTradeProfitDetailRequest;
 import io.github.easy4j.meituan.client.MeituanRequestExecutor;
@@ -101,4 +110,28 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
         return execute(request, tenantId);
     }
 
+    @Override
+    public MeituanResponse<PageSearchResponse> pageSearch(PageSearchRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<DcQueryMopTuangouDetailResponse> dcQueryMopTuangouDetail(DcQueryMopTuangouDetailRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<Void> invoiceResultCallback(InvoiceResultCallbackRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ManageInvoiceCloseResponse> manageInvoiceClose(ManageInvoiceCloseRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ManageInvoiceOpenResponse> manageInvoiceOpen(ManageInvoiceOpenRequest request, String tenantId) {
+        return execute(request, tenantId);
+    }
 }

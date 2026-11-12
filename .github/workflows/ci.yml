@@ -27,24 +27,20 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v7
 
-      - name: Set up JDK 21
+      - name: Set up JDK 8
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '8'
           cache: maven
-
-
-      - name: Install vendored MtOpJavaSDK (libs/) into local repository
-        run: |
-          V=1.0-20260923
-          R=com/sankuai/sjst/MtOpJavaSDK/$V
-          mkdir -p ~/.m2/repository/$R
-          cp libs/MtOpJavaSDK-1.0-SNAPSHOT.jar ~/.m2/repository/$R/MtOpJavaSDK-$V.jar
-          cp libs/MtOpJavaSDK-1.0-20260923.pom ~/.m2/repository/$R/MtOpJavaSDK-$V.pom
-          rm -f ~/.m2/repository/$R/*.lastUpdated ~/.m2/repository/$R/resolver-status.properties
+          server-id: 2624322-release-6F6h6R
+          server-username: ALIYUN_PACKAGES_USERNAME
+          server-password: ALIYUN_PACKAGES_PASSWORD
 
       - name: Build and verify with JaCoCo coverage gate
+        env:
+          ALIYUN_PACKAGES_USERNAME: ${{ secrets.ALIYUN_PACKAGES_USERNAME }}
+          ALIYUN_PACKAGES_PASSWORD: ${{ secrets.ALIYUN_PACKAGES_PASSWORD }}
         run: ./mvnw -B --no-transfer-progress clean verify
 
       - name: Upload JaCoCo coverage report
@@ -52,6 +48,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: jacoco-coverage
+          if-no-files-found: error
           path: target/site/jacoco
           retention-days: 14
 

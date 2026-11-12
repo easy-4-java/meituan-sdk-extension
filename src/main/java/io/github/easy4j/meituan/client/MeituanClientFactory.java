@@ -1,10 +1,10 @@
 package io.github.easy4j.meituan.client;
 
+import cn.hutool.core.util.StrUtil;
 import com.meituan.sdk.DefaultMeituanClient;
 import com.meituan.sdk.MeituanClient;
 import io.github.easy4j.meituan.config.MeituanConfig;
 import io.github.easy4j.meituan.config.MeituanTenantConfig;
-import io.github.easy4j.meituan.utils.StringUtils;
 
 import java.util.Objects;
 
@@ -82,7 +82,7 @@ public class MeituanClientFactory {
         if (Objects.isNull(tenantConfig.getDeveloperId())) {
             throw new IllegalArgumentException("developerId must not be null");
         }
-        if (!StringUtils.hasText(tenantConfig.getSignKey())) {
+        if (StrUtil.isBlank(tenantConfig.getSignKey())) {
             throw new IllegalArgumentException("signKey must not be blank");
         }
     }

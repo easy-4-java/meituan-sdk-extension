@@ -27,7 +27,8 @@ class MeituanBusiness71ApiCoverageTest {
             "/mendianzhilian/test/map/poi/update",
             "/mendianzhilian/test/map/poi/bind",
             "/mendianzhilian/test/map/poi/create",
-            "/mendianzhilian/test/map/poi/search"
+            "/mendianzhilian/test/map/poi/search",
+            "/mendianzhilian/test/map/poi/page/search"
     );
 
     @Test
@@ -55,8 +56,7 @@ class MeituanBusiness71ApiCoverageTest {
 
     private Map<String, Class<?>> documentedRequestsByPath() throws Exception {
         Map<String, Class<?>> requestsByPath = new HashMap<>();
-        File sdkJar = new File(com.meituan.sdk.MeituanClient.class
-                .getProtectionDomain().getCodeSource().getLocation().toURI());
+        File sdkJar = OfficialSdkTestInput.jar();
         try (JarFile jarFile = new JarFile(sdkJar)) {
             Enumeration<JarEntry> entries = jarFile.entries();
             while (entries.hasMoreElements()) {

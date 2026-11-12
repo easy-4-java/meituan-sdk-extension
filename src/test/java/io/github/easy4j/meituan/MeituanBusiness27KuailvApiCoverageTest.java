@@ -57,8 +57,7 @@ class MeituanBusiness27KuailvApiCoverageTest {
 
     private Map<String, Class<?>> business27RequestsByPath() throws Exception {
         Map<String, Class<?>> requestsByPath = new HashMap<>();
-        File sdkJar = new File(com.meituan.sdk.MeituanClient.class
-                .getProtectionDomain().getCodeSource().getLocation().toURI());
+        File sdkJar = OfficialSdkTestInput.jar();
         try (JarFile jarFile = new JarFile(sdkJar)) {
             Enumeration<JarEntry> entries = jarFile.entries();
             while (entries.hasMoreElements()) {
