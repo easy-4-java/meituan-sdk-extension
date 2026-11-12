@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Driver {
 
     /**
-     * 创建Driver\uff0c\u7528\u4e8e\u9a7e\u9a76\u5458\u4fee\u6539\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     * 创建Driver，用于驾驶员修改等回调的业务字段。的空实例。
      */
     public Driver() {
     }

@@ -21,7 +21,7 @@ import lombok.Setter;
 public class CorporateInvoiceApplicationMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u7f8e\u56e2\u4f01\u4e1a\u5f00\u7968\u7533\u8bf7\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「美团企业开票申请」回调的业务内容。的空实例。
      */
     public CorporateInvoiceApplicationMessage() {
     }
@@ -96,7 +96,7 @@ public class CorporateInvoiceApplicationMessage {
     public static class InvoiceApplyOrderOuterDTO {
 
         /**
-         * 创建\u5f00\u7968\u7684\u8ba2\u5355\u5217\u8868\uff0c\u5916\u5356\u8ba2\u5355\u4e2d\u7684orderViewId\uff0c\u6700\u592720\u4e2a\u3002的空实例。
+         * 创建开票的订单列表，外卖订单中的orderViewId，最大20个。的空实例。
          */
         public InvoiceApplyOrderOuterDTO() {
         }
@@ -141,7 +141,7 @@ public class CorporateInvoiceApplicationMessage {
         public static class CodeListObject {
 
             /**
-             * 创建\u56e2\u8d2d\u7801\u4fe1\u606f\u3002的空实例。
+             * 创建团购码信息。的空实例。
              */
             public CodeListObject() {
             }
@@ -170,7 +170,7 @@ public class CorporateInvoiceApplicationMessage {
     public static class InvoiceTitleDetails {
 
         /**
-         * 创建\u53d1\u7968\u62ac\u5934\uff0c\u5177\u4f53\u5b57\u6bb5\u89c1\u4e0b\u9762\u63cf\u8ff0\u3002的空实例。
+         * 创建发票抬头，具体字段见下面描述。的空实例。
          */
         public InvoiceTitleDetails() {
         }

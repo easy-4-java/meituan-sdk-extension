@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class OrderCancelledMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u53d6\u6d88\u6d88\u606f\u63a5\u53e3\u3010\u5fc5\u987b\u3011\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「接收订单取消消息接口【必须】」回调的业务内容。的空实例。
      */
     public OrderCancelledMessage() {
     }
@@ -65,7 +65,7 @@ public class OrderCancelledMessage {
     public static class OrderCancel {
 
         /**
-         * 创建\u8ba2\u5355\u53d6\u6d88\u4fe1\u606f\u3002的空实例。
+         * 创建订单取消信息。的空实例。
          */
         public OrderCancel() {
         }

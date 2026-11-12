@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class PurchaseReturnMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u91c7\u8d2d\u9000\u8d27\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】采购退货单消息」回调的业务内容。的空实例。
      */
     public PurchaseReturnMessage() {
     }
@@ -73,7 +73,7 @@ public class PurchaseReturnMessage {
     public static class PurchaseReturnOrderDTO {
 
         /**
-         * 创建\u91c7\u8d2d\u9000\u8d27\u5355\u4fe1\u606f\u3002的空实例。
+         * 创建采购退货单信息。的空实例。
          */
         public PurchaseReturnOrderDTO() {
         }
@@ -100,7 +100,7 @@ public class PurchaseReturnMessage {
         public static class ReturnOrderItemDTO {
 
             /**
-             * 创建\u9000\u8d27\u5355\u4e3b\u5355\u3002的空实例。
+             * 创建退货单主单。的空实例。
              */
             public ReturnOrderItemDTO() {
             }
@@ -235,7 +235,7 @@ public class PurchaseReturnMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u9000\u8d27\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 * 创建退货机构信息。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -276,7 +276,7 @@ public class PurchaseReturnMessage {
         public static class ReturnOrderItemDetailDTO {
 
             /**
-             * 创建\u9000\u8d27\u5355\u660e\u7ec6\u3002的空实例。
+             * 创建退货单明细。的空实例。
              */
             public ReturnOrderItemDetailDTO() {
             }
@@ -411,7 +411,7 @@ public class PurchaseReturnMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 * 创建物品信息。的空实例。
                  */
                 public GoodsOpenDTO() {
                 }
@@ -486,7 +486,7 @@ public class PurchaseReturnMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建\u57fa\u51c6\u5355\u4f4d\u540d\u79f0\u3002的空实例。
+                     * 创建基准单位名称。的空实例。
                      */
                     public UnitOpenDTO() {
                     }
@@ -520,7 +520,7 @@ public class PurchaseReturnMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+                     * 创建支持的单位名称列表。的空实例。
                      */
                     public UnitsItem() {
                     }
@@ -555,7 +555,7 @@ public class PurchaseReturnMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建\u9000\u8d27\u4ed3\u5e93\u4fe1\u606f\u3002的空实例。
+                 * 创建退货仓库信息。的空实例。
                  */
                 public WarehouseOpenDTO() {
                 }
@@ -589,7 +589,7 @@ public class PurchaseReturnMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建\u4e1a\u52a1\u5355\u4f4d\u3002的空实例。
+                 * 创建业务单位。的空实例。
                  */
                 public UnitOpenDTO() {
                 }
@@ -623,7 +623,7 @@ public class PurchaseReturnMessage {
             public static class BaseUnitDetails {
 
                 /**
-                 * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                 * 创建基准单位。的空实例。
                  */
                 public BaseUnitDetails() {
                 }
@@ -657,7 +657,7 @@ public class PurchaseReturnMessage {
             public static class MultiUnitAmountOpenDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 * 创建收货数量和基准单位数量。的空实例。
                  */
                 public MultiUnitAmountOpenDTO() {
                 }
@@ -685,7 +685,7 @@ public class PurchaseReturnMessage {
             public static class ReturnAmountDetails {
 
                 /**
-                 * 创建\u9000\u8d27\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 * 创建退货数量和基准单位数量。的空实例。
                  */
                 public ReturnAmountDetails() {
                 }

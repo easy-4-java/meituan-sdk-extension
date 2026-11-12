@@ -959,8 +959,7 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> orderMaxRefundAmountQuery(
-            OrderMaxRefundAmountQueryRequest request, String tenantId) {
+    public MeituanResponse<?> orderMaxRefundAmountQuery(OrderMaxRefundAmountQueryRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -968,8 +967,7 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> cybercafeBookResultSync(
-            CybercafeBookResultSyncRequest request, String tenantId) {
+    public MeituanResponse<?> cybercafeBookResultSync(CybercafeBookResultSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -977,8 +975,7 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> cybercafeBookRuleSync(
-            CybercafeBookRuleSyncRequest request, String tenantId) {
+    public MeituanResponse<?> cybercafeBookRuleSync(CybercafeBookRuleSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -994,8 +991,7 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> cybercafeBookCancelResultSync(
-            CybercafeBookCancelResultSyncRequest request, String tenantId) {
+    public MeituanResponse<?> cybercafeBookCancelResultSync(CybercafeBookCancelResultSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 

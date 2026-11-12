@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class VoucherPaymentOrderMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u4ee3\u91d1\u5238\u4e70\u5355\u8ba2\u5355\u6d88\u606f\u3010\u5fc5\u63a5\u3011\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「代金券买单订单消息【必接】」回调的业务内容。的空实例。
      */
     public VoucherPaymentOrderMessage() {
     }
@@ -157,7 +157,7 @@ public class VoucherPaymentOrderMessage {
     public static class CouponInfo {
 
         /**
-         * 创建\u4f18\u60e0\u8be6\u7ec6\u4fe1\u606f\u3002的空实例。
+         * 创建优惠详细信息。的空实例。
          */
         public CouponInfo() {
         }
@@ -210,7 +210,7 @@ public class VoucherPaymentOrderMessage {
     public static class RefundInfo {
 
         /**
-         * 创建\u9000\u6b3e\u8be6\u7ec6\u4fe1\u606f\u3002的空实例。
+         * 创建退款详细信息。的空实例。
          */
         public RefundInfo() {
         }

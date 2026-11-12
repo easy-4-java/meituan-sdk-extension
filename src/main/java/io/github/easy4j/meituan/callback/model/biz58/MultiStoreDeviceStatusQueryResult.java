@@ -19,7 +19,7 @@ import lombok.Setter;
 public class MultiStoreDeviceStatusQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u591a\u95e8\u5e97\u4e09\u65b9\u8bbe\u5907\u53f7\u6279\u91cf\u67e5\u8be2\u8bbe\u5907\u72b6\u6001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「多门店三方设备号批量查询设备状态」回调的业务响应。的空实例。
      */
     public MultiStoreDeviceStatusQueryResult() {
     }
@@ -47,7 +47,7 @@ public class MultiStoreDeviceStatusQueryResult {
     public static class DeviceStatusInfo {
 
         /**
-         * 创建\u8bbe\u5907\u72b6\u6001\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建设备状态信息列表。必填。的空实例。
          */
         public DeviceStatusInfo() {
         }

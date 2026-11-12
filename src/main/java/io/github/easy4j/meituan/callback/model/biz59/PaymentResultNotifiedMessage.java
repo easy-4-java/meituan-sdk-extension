@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class PaymentResultNotifiedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u652f\u4ed8\u7ed3\u679c\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「支付结果通知」回调的业务内容。的空实例。
      */
     public PaymentResultNotifiedMessage() {
     }
@@ -51,7 +51,7 @@ public class PaymentResultNotifiedMessage {
     public static class MsgDetails {
 
         /**
-         * 创建\u652f\u4ed8\u76f8\u5173\u4fe1\u606fjson\u5b57\u7b26\u4e32\u3002的空实例。
+         * 创建支付相关信息json字符串。的空实例。
          */
         public MsgDetails() {
         }
@@ -86,7 +86,7 @@ public class PaymentResultNotifiedMessage {
         public static class OrderInfoRes {
 
             /**
-             * 创建\u5355\u6b21\u652f\u4ed8\u4e1a\u52a1\u8ba2\u5355\u8fd4\u56de\u6b64\u4fe1\u606f\u3002的空实例。
+             * 创建单次支付业务订单返回此信息。的空实例。
              */
             public OrderInfoRes() {
             }
@@ -156,7 +156,7 @@ public class PaymentResultNotifiedMessage {
         public static class PayInfo {
 
             /**
-             * 创建\u652f\u4ed8\u7ed3\u679c\u3002的空实例。
+             * 创建支付结果。的空实例。
              */
             public PayInfo() {
             }
@@ -237,7 +237,7 @@ public class PaymentResultNotifiedMessage {
             public static class ConsumeItem {
 
                 /**
-                 * 创建\u672c\u6b21\u652f\u4ed8\u5173\u8054\u7684\u6d88\u8d39\u9879\u5217\u8868\u3002的空实例。
+                 * 创建本次支付关联的消费项列表。的空实例。
                  */
                 public ConsumeItem() {
                 }

@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class OrderNotificationMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u4fe1\u606f\u63a8\u9001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「订单信息推送」回调的业务内容。的空实例。
      */
     public OrderNotificationMessage() {
     }
@@ -183,7 +183,7 @@ public class OrderNotificationMessage {
     public static class PrepayInfo {
 
         /**
-         * 创建\u9884\u4ed8\u76f8\u5173\u4fe1\u606f\u3002的空实例。
+         * 创建预付相关信息。的空实例。
          */
         public PrepayInfo() {
         }
@@ -235,7 +235,7 @@ public class OrderNotificationMessage {
     public static class RefundInfoDetails {
 
         /**
-         * 创建refundInfo\u3002的空实例。
+         * 创建refundInfo。的空实例。
          */
         public RefundInfoDetails() {
         }
@@ -263,7 +263,7 @@ public class OrderNotificationMessage {
     public static class TechInfoBO {
 
         /**
-         * 创建techInfo\u3002的空实例。
+         * 创建techInfo。的空实例。
          */
         public TechInfoBO() {
         }

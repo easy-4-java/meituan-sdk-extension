@@ -18,7 +18,7 @@ import lombok.Setter;
 public class BrandMemberLevelChangedResult {
 
     /**
-     * 创建\u54c1\u724c\u5904\u7406\u7f8e\u56e2\u4f1a\u5458\u7b49\u7ea7\u53d8\u66f4\u540e\u5199\u5165\u54cd\u5e94 data \u7684\u4e1a\u52a1\u7ed3\u679c\u3002的空实例。
+     * 创建品牌处理美团会员等级变更后写入响应 data 的业务结果。的空实例。
      */
     public BrandMemberLevelChangedResult() {
     }
@@ -58,7 +58,7 @@ public class BrandMemberLevelChangedResult {
     public static class ActualLevel {
 
         /**
-         * 创建\u54c1\u724c\u4fa7\u5b9e\u9645\u751f\u6548\u7684\u4f1a\u5458\u7b49\u7ea7\u4e0e\u6709\u6548\u671f\u3002的空实例。
+         * 创建品牌侧实际生效的会员等级与有效期。的空实例。
          */
         public ActualLevel() {
         }

@@ -18,7 +18,7 @@ import lombok.Setter;
 public class MonthlySubscriptionCancelledResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u53d6\u6d88\u8fde\u7eed\u5305\u6708\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「取消连续包月通知」回调的业务响应。的空实例。
      */
     public MonthlySubscriptionCancelledResult() {
     }

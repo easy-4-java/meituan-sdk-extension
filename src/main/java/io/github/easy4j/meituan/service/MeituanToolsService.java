@@ -660,12 +660,11 @@ public interface MeituanToolsService extends MeituanService {
     MeituanResponse<?> invoiceApplyCallback(InvoiceApplyCallbackRequest request, String tenantId);
 
     /**
-     * \u67e5\u8be2\u4f01\u4e1a\u8ba2\u5355\u5f00\u7968\u4fe1\u606f\u3002
+     * 查询企业订单开票信息。
      *
      * @param request 官方 SDK 请求对象
      * @param tenantId 选择开发者凭据与授权信息的租户标识
      * @return 官方 SDK 响应对象
      */
-    MeituanResponse<?> enterpriseOrderInvoiceInfoQuery(
-            EnterpriseOrderInvoiceInfoQueryRequest request, String tenantId);
+    MeituanResponse<?> enterpriseOrderInvoiceInfoQuery(EnterpriseOrderInvoiceInfoQueryRequest request, String tenantId);
 }

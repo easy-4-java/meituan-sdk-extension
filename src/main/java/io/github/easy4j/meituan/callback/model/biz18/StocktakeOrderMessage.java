@@ -21,7 +21,7 @@ import lombok.Setter;
 public class StocktakeOrderMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u76d8\u70b9\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】盘点单消息」回调的业务内容。的空实例。
      */
     public StocktakeOrderMessage() {
     }
@@ -72,7 +72,7 @@ public class StocktakeOrderMessage {
     public static class StockCheckDTO {
 
         /**
-         * 创建\u4e1a\u52a1\u6570\u636e\u3002的空实例。
+         * 创建业务数据。的空实例。
          */
         public StockCheckDTO() {
         }
@@ -99,7 +99,7 @@ public class StocktakeOrderMessage {
         public static class StockCheckItemDTO {
 
             /**
-             * 创建\u4e3b\u5355\u3002的空实例。
+             * 创建主单。的空实例。
              */
             public StockCheckItemDTO() {
             }
@@ -264,7 +264,7 @@ public class StocktakeOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 * 创建机构信息。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -304,7 +304,7 @@ public class StocktakeOrderMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建\u4ed3\u5e93\u4fe1\u606f\u3002的空实例。
+                 * 创建仓库信息。的空实例。
                  */
                 public WarehouseOpenDTO() {
                 }
@@ -338,7 +338,7 @@ public class StocktakeOrderMessage {
             public static class CreateSourceDetails {
 
                 /**
-                 * 创建\u521b\u5efa\u6765\u6e90\u30101\uff1a\u624b\u52a8\u521b\u5efa 2\uff1a\u6708\u7ed3\u521b\u5efa\u3011\u3002的空实例。
+                 * 创建创建来源【1：手动创建 2：月结创建】。的空实例。
                  */
                 public CreateSourceDetails() {
                 }
@@ -366,7 +366,7 @@ public class StocktakeOrderMessage {
             public static class CheckModeDetails {
 
                 /**
-                 * 创建\u76d8\u70b9\u65b9\u5f0f\u30101\uff1a\u5408\u6279\u76d8 2\uff1a\u5206\u6279\u76d8\u3011\u3002的空实例。
+                 * 创建盘点方式【1：合批盘 2：分批盘】。的空实例。
                  */
                 public CheckModeDetails() {
                 }
@@ -394,7 +394,7 @@ public class StocktakeOrderMessage {
             public static class UserOpenDTO {
 
                 /**
-                 * 创建\u521b\u5efa\u4eba\u3002的空实例。
+                 * 创建创建人。的空实例。
                  */
                 public UserOpenDTO() {
                 }
@@ -452,7 +452,7 @@ public class StocktakeOrderMessage {
             public static class SubmitterDetails {
 
                 /**
-                 * 创建\u63d0\u4ea4\u4eba\u3002的空实例。
+                 * 创建提交人。的空实例。
                  */
                 public SubmitterDetails() {
                 }
@@ -510,7 +510,7 @@ public class StocktakeOrderMessage {
             public static class AuditorDetails {
 
                 /**
-                 * 创建\u5ba1\u6838\u4eba\u3002的空实例。
+                 * 创建审核人。的空实例。
                  */
                 public AuditorDetails() {
                 }
@@ -569,7 +569,7 @@ public class StocktakeOrderMessage {
         public static class StockCheckItemDetailDTO {
 
             /**
-             * 创建\u660e\u7ec6\u5217\u8868\u3002的空实例。
+             * 创建明细列表。的空实例。
              */
             public StockCheckItemDetailDTO() {
             }
@@ -884,7 +884,7 @@ public class StocktakeOrderMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 * 创建物品信息。的空实例。
                  */
                 public GoodsOpenDTO() {
                 }
@@ -959,7 +959,7 @@ public class StocktakeOrderMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                     * 创建基准单位。的空实例。
                      */
                     public UnitOpenDTO() {
                     }
@@ -993,7 +993,7 @@ public class StocktakeOrderMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建\u5355\u4f4d\u4fe1\u606f\u3002的空实例。
+                     * 创建单位信息。的空实例。
                      */
                     public UnitsItem() {
                     }
@@ -1028,7 +1028,7 @@ public class StocktakeOrderMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                 * 创建基准单位。的空实例。
                  */
                 public UnitOpenDTO() {
                 }
@@ -1062,7 +1062,7 @@ public class StocktakeOrderMessage {
             public static class FirstCheckUnitInfoDetails {
 
                 /**
-                 * 创建\u4e1a\u52a1\u5355\u4f4d\u3002的空实例。
+                 * 创建业务单位。的空实例。
                  */
                 public FirstCheckUnitInfoDetails() {
                 }
@@ -1096,7 +1096,7 @@ public class StocktakeOrderMessage {
             public static class GenerateTypeDetails {
 
                 /**
-                 * 创建\u660e\u7ec6\u751f\u6210\u65b9\u5f0f\u3002的空实例。
+                 * 创建明细生成方式。的空实例。
                  */
                 public GenerateTypeDetails() {
                 }
@@ -1124,7 +1124,7 @@ public class StocktakeOrderMessage {
             public static class SecondCheckUnitInfoDetails {
 
                 /**
-                 * 创建\u5355\u4f4d\u4e8c\u3002的空实例。
+                 * 创建单位二。的空实例。
                  */
                 public SecondCheckUnitInfoDetails() {
                 }
@@ -1158,7 +1158,7 @@ public class StocktakeOrderMessage {
             public static class ThirdCheckUnitInfoDetails {
 
                 /**
-                 * 创建\u5355\u4f4d\u4e09\u3002的空实例。
+                 * 创建单位三。的空实例。
                  */
                 public ThirdCheckUnitInfoDetails() {
                 }
@@ -1192,7 +1192,7 @@ public class StocktakeOrderMessage {
             public static class CheckSummationUnitInfoDetails {
 
                 /**
-                 * 创建\u6c47\u603b\u5355\u4f4d\u3002的空实例。
+                 * 创建汇总单位。的空实例。
                  */
                 public CheckSummationUnitInfoDetails() {
                 }

@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class MealPreparationExceptionMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u51fa\u9910\u5f02\u5e38\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「接收出餐异常消息」回调的业务内容。的空实例。
      */
     public MealPreparationExceptionMessage() {
     }
@@ -61,7 +61,7 @@ public class MealPreparationExceptionMessage {
     public static class BizData {
 
         /**
-         * 创建\u4e0d\u540c\u7684biz_type\u683c\u5f0f\u4e0d\u4e00\u6837\u3002的空实例。
+         * 创建不同的biz_type格式不一样。的空实例。
          */
         public BizData() {
         }

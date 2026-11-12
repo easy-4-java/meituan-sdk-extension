@@ -20,7 +20,7 @@ import lombok.Setter;
 public class MemberOperationResult {
 
     /**
-     * 创建\u667a\u80fd\u7248\u4f1a\u5458\u5238\u3001\u50a8\u503c\u548c\u79ef\u5206\u6838\u9500\u6216\u51b2\u6b63\u7684\u5e03\u5c14\u7ed3\u679c\u3002的空实例。
+     * 创建智能版会员券、储值和积分核销或冲正的布尔结果。的空实例。
      */
     public MemberOperationResult() {
     }

@@ -19,7 +19,7 @@ import lombok.Setter;
 public class OrderDetailQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u8be6\u60c5\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「订单详情查询」回调的业务响应。的空实例。
      */
     public OrderDetailQueryResult() {
     }
@@ -77,7 +77,7 @@ public class OrderDetailQueryResult {
     public static class Driver {
 
         /**
-         * 创建\u9a7e\u9a76\u5458\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建驾驶员信息。必填。的空实例。
          */
         public Driver() {
         }
@@ -118,7 +118,7 @@ public class OrderDetailQueryResult {
     public static class BookingInfo {
 
         /**
-         * 创建\u9884\u8ba2\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建预订信息。必填。的空实例。
          */
         public BookingInfo() {
         }
@@ -153,7 +153,7 @@ public class OrderDetailQueryResult {
     public static class OrderInfo {
 
         /**
-         * 创建\u8ba2\u5355\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建订单信息。必填。的空实例。
          */
         public OrderInfo() {
         }
@@ -218,7 +218,7 @@ public class OrderDetailQueryResult {
     public static class DepositInfo {
 
         /**
-         * 创建\u62bc\u91d1\u76f8\u5173\u4fe1\u606f\uff08\u4ea7\u751f\u4e86\u62bc\u91d1\u4e8b\u4ef6\u5fc5\u4f20\uff09\u3002的空实例。
+         * 创建押金相关信息（产生了押金事件必传）。的空实例。
          */
         public DepositInfo() {
         }
@@ -283,7 +283,7 @@ public class OrderDetailQueryResult {
     public static class RenewalOrder {
 
         /**
-         * 创建\u7eed\u79df\u5355\u4fe1\u606f\uff08\u6709\u7eed\u79df\u4fe1\u606f\u5fc5\u4f20\uff09\u3002的空实例。
+         * 创建续租单信息（有续租信息必传）。的空实例。
          */
         public RenewalOrder() {
         }
@@ -342,7 +342,7 @@ public class OrderDetailQueryResult {
     public static class RentalInfo {
 
         /**
-         * 创建\u53d6\u8f66\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建取车信息。必填。的空实例。
          */
         public RentalInfo() {
         }
@@ -383,7 +383,7 @@ public class OrderDetailQueryResult {
     public static class RefundOrder {
 
         /**
-         * 创建\u9000\u6b3e\u5355\u5217\u8868 \u5f53\u6709\u9000\u6b3e\u5355\u7684\u65f6\u5019\u5fc5\u4f20\u3002的空实例。
+         * 创建退款单列表 当有退款单的时候必传。的空实例。
          */
         public RefundOrder() {
         }
@@ -442,7 +442,7 @@ public class OrderDetailQueryResult {
     public static class DeductOrder {
 
         /**
-         * 创建\u62bc\u91d1\u6263\u6b3e\u5355\u3002的空实例。
+         * 创建押金扣款单。的空实例。
          */
         public DeductOrder() {
         }
@@ -507,7 +507,7 @@ public class OrderDetailQueryResult {
     public static class UnfreezeOrder {
 
         /**
-         * 创建\u62bc\u91d1\u89e3\u51bb\u5355\u3002的空实例。
+         * 创建押金解冻单。的空实例。
          */
         public UnfreezeOrder() {
         }
@@ -566,7 +566,7 @@ public class OrderDetailQueryResult {
     public static class Address {
 
         /**
-         * 创建\u5730\u5740\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建地址信息。必填。的空实例。
          */
         public Address() {
         }

@@ -23,7 +23,7 @@ import lombok.Setter;
 public class RefundApplicationPushMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u9000\u6b3e\u7533\u8bf7\u63a8\u9001\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「退款申请推送（必接）」回调的业务内容。的空实例。
      */
     public RefundApplicationPushMessage() {
     }
@@ -64,7 +64,7 @@ public class RefundApplicationPushMessage {
     public static class OrderRefund {
 
         /**
-         * 创建\u9000\u6b3e\u6d88\u606f\u3002的空实例。
+         * 创建退款消息。的空实例。
          */
         public OrderRefund() {
         }

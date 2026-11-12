@@ -19,7 +19,7 @@ import lombok.Setter;
 public class StoreListQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u95e8\u5e97\u5217\u8868\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「门店列表查询」回调的业务响应。的空实例。
      */
     public StoreListQueryResult() {
     }
@@ -65,7 +65,7 @@ public class StoreListQueryResult {
     public static class Store {
 
         /**
-         * 创建\u95e8\u5e97\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建门店信息。必填。的空实例。
          */
         public Store() {
         }
@@ -154,7 +154,7 @@ public class StoreListQueryResult {
     public static class TimeRange {
 
         /**
-         * 创建\u8425\u4e1a\u65f6\u95f4\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建营业时间。必填。的空实例。
          */
         public TimeRange() {
         }

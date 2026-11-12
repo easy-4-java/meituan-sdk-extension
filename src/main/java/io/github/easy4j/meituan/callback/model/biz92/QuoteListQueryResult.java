@@ -19,7 +19,7 @@ import lombok.Setter;
 public class QuoteListQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u62a5\u4ef7\u5217\u8868\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「报价列表查询」回调的业务响应。的空实例。
      */
     public QuoteListQueryResult() {
     }
@@ -53,7 +53,7 @@ public class QuoteListQueryResult {
     public static class Quotation {
 
         /**
-         * 创建\u62a5\u4ef7\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建报价信息列表。必填。的空实例。
          */
         public Quotation() {
         }

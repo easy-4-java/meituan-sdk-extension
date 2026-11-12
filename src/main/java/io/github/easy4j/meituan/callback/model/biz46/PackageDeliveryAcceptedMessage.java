@@ -27,7 +27,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class PackageDeliveryAcceptedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5957\u9910\u914d\u9001\u63a5\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「套餐配送接单消息」回调的业务内容。的空实例。
      */
     public PackageDeliveryAcceptedMessage() {
     }
@@ -274,7 +274,7 @@ public class PackageDeliveryAcceptedMessage {
     public static class GroupDeal {
 
         /**
-         * 创建\u83dc\u54c1\u8be6\u60c5\uff0c\u6ce8\uff1a\u672a\u6765\u8be5\u5b57\u6bb5\u4f1a\u5e9f\u5f03\u3002的空实例。
+         * 创建菜品详情，注：未来该字段会废弃。的空实例。
          */
         public GroupDeal() {
         }
@@ -314,7 +314,7 @@ public class PackageDeliveryAcceptedMessage {
     public static class RefundData {
 
         /**
-         * 创建\u9000\u6b3e\u76f8\u5173\u4fe1\u606f\u3002的空实例。
+         * 创建退款相关信息。的空实例。
          */
         public RefundData() {
         }

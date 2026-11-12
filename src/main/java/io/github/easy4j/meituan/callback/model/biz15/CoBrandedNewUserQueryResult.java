@@ -18,7 +18,7 @@ import lombok.Setter;
 public class CoBrandedNewUserQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u4f1a\u5458\u8054\u540d\u5361\u67e5\u8be2\u65b0\u5ba2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「会员联名卡查询新客」回调的业务响应。的空实例。
      */
     public CoBrandedNewUserQueryResult() {
     }

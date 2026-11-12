@@ -20,7 +20,7 @@ import lombok.Setter;
 public class ClubActivityParticipantsQueriedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u6d3b\u52a8\u573a\u6b21\u53c2\u4e0e\u4eba\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「查询活动场次参与人接口」回调的业务内容。的空实例。
      */
     public ClubActivityParticipantsQueriedMessage() {
     }

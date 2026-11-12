@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness71ApiCoverageTest {
 
     /**
-     * 创建\u95e8\u5e97\u5efa\u5e97\u76f4\u8fde\uff08businessId=71\uff09API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建门店建店直连（businessId=71）API 覆盖回归测试。的空实例。
      */
     MeituanBusiness71ApiCoverageTest() {
     }

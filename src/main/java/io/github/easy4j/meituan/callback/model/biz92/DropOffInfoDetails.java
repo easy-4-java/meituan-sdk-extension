@@ -14,7 +14,7 @@ import lombok.Setter;
 public class DropOffInfoDetails {
 
     /**
-     * 创建DropOffInfoDetails\uff0c\u7528\u4e8e\u4e0b\u5355\u9884\u6821\u9a8c\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     * 创建DropOffInfoDetails，用于下单预校验等回调的业务字段。的空实例。
      */
     public DropOffInfoDetails() {
     }

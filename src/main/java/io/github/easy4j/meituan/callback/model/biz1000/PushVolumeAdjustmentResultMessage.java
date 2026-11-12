@@ -19,7 +19,7 @@ import lombok.Setter;
 public class PushVolumeAdjustmentResultMessage extends ArrayList<PushVolumeAdjustmentResultMessage.Entry> {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5f00\u53d1\u8005\u8fc1\u79fb\u6d88\u606f\u8c03\u91cf\u7ed3\u679c\u901a\u77e5\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「开发者迁移消息调量结果通知消息」回调的业务内容。的空实例。
      */
     public PushVolumeAdjustmentResultMessage() {
     }
@@ -39,7 +39,7 @@ public class PushVolumeAdjustmentResultMessage extends ArrayList<PushVolumeAdjus
     public static class Entry {
 
         /**
-         * 创建\u8fc1\u79fb\u5904\u7406\u6761\u76ee\u3002的空实例。
+         * 创建迁移处理条目。的空实例。
          */
         public Entry() {
         }

@@ -23,7 +23,7 @@ import lombok.Setter;
 public class TwoPartyImMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a5\u6536IM\u4e24\u65b9\u4f1a\u8bdd\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「接收IM两方会话消息」回调的业务内容。的空实例。
      */
     public TwoPartyImMessage() {
     }
@@ -58,7 +58,7 @@ public class TwoPartyImMessage {
     public static class PushContent {
 
         /**
-         * 创建json\u683c\u5f0f\u7684\u6d88\u606f\u4f53\uff0c\u4e0d\u540cbizType\u65f6\uff0c\u5b57\u6bb5\u4e0d\u540c\uff0c\u89e3\u6790\u65b9\u5f0f\u4e5f\u4e0d\u540c\u3002的空实例。
+         * 创建json格式的消息体，不同bizType时，字段不同，解析方式也不同。的空实例。
          */
         public PushContent() {
         }

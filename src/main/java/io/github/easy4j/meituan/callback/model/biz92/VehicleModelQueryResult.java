@@ -19,7 +19,7 @@ import lombok.Setter;
 public class VehicleModelQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u552e\u5356\u8f66\u578b\u5e93\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「售卖车型库查询」回调的业务响应。的空实例。
      */
     public VehicleModelQueryResult() {
     }
@@ -65,7 +65,7 @@ public class VehicleModelQueryResult {
     public static class CarModel {
 
         /**
-         * 创建\u8f66\u578b\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建车型信息列表。必填。的空实例。
          */
         public CarModel() {
         }

@@ -21,7 +21,7 @@ import lombok.Setter;
 public class MemberOrderAvailableCouponsResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u4f1a\u5458\u8ba2\u5355\u53ef\u7528\u5238\u5217\u8868\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「会员订单可用券列表」回调的业务响应。的空实例。
      */
     public MemberOrderAvailableCouponsResult() {
     }
@@ -43,7 +43,7 @@ public class MemberOrderAvailableCouponsResult {
     public static class AvailableCoupon {
 
         /**
-         * 创建\u5f53\u524d\u8ba2\u5355\u53ef\u4f7f\u7528\u7684\u7b2c\u4e09\u65b9\u4f1a\u5458\u4f18\u60e0\u5238\u5217\u8868\u3002的空实例。
+         * 创建当前订单可使用的第三方会员优惠券列表。的空实例。
          */
         public AvailableCoupon() {
         }

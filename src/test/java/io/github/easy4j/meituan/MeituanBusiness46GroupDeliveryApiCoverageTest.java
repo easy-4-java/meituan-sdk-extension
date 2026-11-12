@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness46GroupDeliveryApiCoverageTest {
 
     /**
-     * 创建\u56e2\u8d2d\u914d\u9001\uff08businessId=46\uff09API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建团购配送（businessId=46）API 覆盖回归测试。的空实例。
      */
     MeituanBusiness46GroupDeliveryApiCoverageTest() {
     }

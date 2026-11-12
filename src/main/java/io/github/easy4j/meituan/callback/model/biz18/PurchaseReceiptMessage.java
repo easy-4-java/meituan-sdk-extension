@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class PurchaseReceiptMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u91c7\u8d2d\u6536\u8d27\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】采购收货单消息」回调的业务内容。的空实例。
      */
     public PurchaseReceiptMessage() {
     }
@@ -74,7 +74,7 @@ public class PurchaseReceiptMessage {
     public static class PurchaseAcceptOrderOpenDTO {
 
         /**
-         * 创建\u91c7\u8d2d\u6536\u8d27\u5355\u4fe1\u606f\u3002的空实例。
+         * 创建采购收货单信息。的空实例。
          */
         public PurchaseAcceptOrderOpenDTO() {
         }
@@ -101,7 +101,7 @@ public class PurchaseReceiptMessage {
         public static class PurchaseAcceptOrderItemOpenDTO {
 
             /**
-             * 创建\u91c7\u8d2d\u6536\u8d27\u5355\u4e3b\u5355\u3002的空实例。
+             * 创建采购收货单主单。的空实例。
              */
             public PurchaseAcceptOrderItemOpenDTO() {
             }
@@ -266,7 +266,7 @@ public class PurchaseReceiptMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u65b9\u673a\u6784\u3002的空实例。
+                 * 创建收货方机构。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -306,7 +306,7 @@ public class PurchaseReceiptMessage {
             public static class PurchaseOrgInfoDetails {
 
                 /**
-                 * 创建\u91c7\u8d2d\u673a\u6784\u3002的空实例。
+                 * 创建采购机构。的空实例。
                  */
                 public PurchaseOrgInfoDetails() {
                 }
@@ -346,7 +346,7 @@ public class PurchaseReceiptMessage {
             public static class OrgAddressOpenDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u5730\u5740\u3002的空实例。
+                 * 创建收货地址。的空实例。
                  */
                 public OrgAddressOpenDTO() {
                 }
@@ -392,7 +392,7 @@ public class PurchaseReceiptMessage {
             public static class LogisticsInfoOpenDTO {
 
                 /**
-                 * 创建\u7269\u6d41\u4fe1\u606f\u3002的空实例。
+                 * 创建物流信息。的空实例。
                  */
                 public LogisticsInfoOpenDTO() {
                 }
@@ -432,7 +432,7 @@ public class PurchaseReceiptMessage {
             public static class FileOpenDTO {
 
                 /**
-                 * 创建\u9644\u4ef6\u3002的空实例。
+                 * 创建附件。的空实例。
                  */
                 public FileOpenDTO() {
                 }
@@ -472,7 +472,7 @@ public class PurchaseReceiptMessage {
             public static class UserOpenDTO {
 
                 /**
-                 * 创建\u521b\u5efa\u4eba\u3002的空实例。
+                 * 创建创建人。的空实例。
                  */
                 public UserOpenDTO() {
                 }
@@ -509,7 +509,7 @@ public class PurchaseReceiptMessage {
         public static class PurchaseAcceptOrderDetailOpenDTO {
 
             /**
-             * 创建\u91c7\u8d2d\u6536\u8d27\u5355\u660e\u7ec6\u3002的空实例。
+             * 创建采购收货单明细。的空实例。
              */
             public PurchaseAcceptOrderDetailOpenDTO() {
             }
@@ -704,7 +704,7 @@ public class PurchaseReceiptMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 * 创建物品信息。的空实例。
                  */
                 public GoodsOpenDTO() {
                 }
@@ -779,7 +779,7 @@ public class PurchaseReceiptMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建\u57fa\u51c6\u5355\u4f4d\u540d\u79f0\u3002的空实例。
+                     * 创建基准单位名称。的空实例。
                      */
                     public UnitOpenDTO() {
                     }
@@ -807,7 +807,7 @@ public class PurchaseReceiptMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+                     * 创建支持的单位名称列表。的空实例。
                      */
                     public UnitsItem() {
                     }
@@ -836,7 +836,7 @@ public class PurchaseReceiptMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建\u91c7\u8d2d\u5355\u4f4d\u3002的空实例。
+                 * 创建采购单位。的空实例。
                  */
                 public UnitOpenDTO() {
                 }
@@ -864,7 +864,7 @@ public class PurchaseReceiptMessage {
             public static class ReceiveUnitDetails {
 
                 /**
-                 * 创建\u6536\u8d27\u5355\u4f4d\u3002的空实例。
+                 * 创建收货单位。的空实例。
                  */
                 public ReceiveUnitDetails() {
                 }
@@ -892,7 +892,7 @@ public class PurchaseReceiptMessage {
             public static class SupplementUnitDetails {
 
                 /**
-                 * 创建\u8f85\u52a9\u5355\u4f4d\u3002的空实例。
+                 * 创建辅助单位。的空实例。
                  */
                 public SupplementUnitDetails() {
                 }
@@ -920,7 +920,7 @@ public class PurchaseReceiptMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u4ed3\u5e93\u3002的空实例。
+                 * 创建收货仓库。的空实例。
                  */
                 public WarehouseOpenDTO() {
                 }
@@ -954,7 +954,7 @@ public class PurchaseReceiptMessage {
             public static class OrgAddressDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u5730\u5740\u3002的空实例。
+                 * 创建收货地址。的空实例。
                  */
                 public OrgAddressDTO() {
                 }

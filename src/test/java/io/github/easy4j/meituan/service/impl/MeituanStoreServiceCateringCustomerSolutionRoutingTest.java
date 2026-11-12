@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanStoreServiceCateringCustomerSolutionRoutingTest {
 
     /**
-     * 创建\u9910\u996e\u5ba2\u6237\u89e3\u51b3\u65b9\u6848 businessId=86 \u63a5\u53e3\u7684\u79df\u6237\u6388\u6743\u6267\u884c\u8def\u5f84\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建餐饮客户解决方案 businessId=86 接口的租户授权执行路径回归测试。的空实例。
      */
     MeituanStoreServiceCateringCustomerSolutionRoutingTest() {
     }
@@ -133,8 +133,7 @@ class MeituanStoreServiceCateringCustomerSolutionRoutingTest {
          * {@inheritDoc}
          */
         @Override
-        public <T> MeituanResponse<T> executeWithoutAuth(
-                MeituanRequest<T> currentRequest, String currentTenantId) {
+        public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> currentRequest, String currentTenantId) {
             record(currentRequest, currentTenantId, false);
             return createResponse();
         }

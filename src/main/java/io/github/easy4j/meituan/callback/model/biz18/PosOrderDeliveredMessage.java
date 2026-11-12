@@ -20,7 +20,7 @@ import lombok.Setter;
 public class PosOrderDeliveredMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300cPOS\u63a5\u5355-\u63a5\u5355\u9875\u5546\u5bb6\u70b9\u51fb\u5df2\u9001\u8fbe\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「POS接单-接单页商家点击已送达」回调的业务内容。的空实例。
      */
     public PosOrderDeliveredMessage() {
     }

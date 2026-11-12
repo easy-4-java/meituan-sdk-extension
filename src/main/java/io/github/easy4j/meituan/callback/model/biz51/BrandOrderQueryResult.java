@@ -18,7 +18,7 @@ import lombok.Setter;
 public class BrandOrderQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u54c1\u724c\u63d0\u4f9b\u8ba2\u5355\u67e5\u8be2\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「品牌提供订单查询（必接）」回调的业务响应。的空实例。
      */
     public BrandOrderQueryResult() {
     }

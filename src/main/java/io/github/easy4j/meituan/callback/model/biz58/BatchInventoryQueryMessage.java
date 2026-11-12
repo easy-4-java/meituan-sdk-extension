@@ -21,7 +21,7 @@ import lombok.Setter;
 public class BatchInventoryQueryMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u6279\u91cf\u83b7\u53d6\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「批量获取库存」回调的业务内容。的空实例。
      */
     public BatchInventoryQueryMessage() {
     }
@@ -72,7 +72,7 @@ public class BatchInventoryQueryMessage {
     public static class InventoryProductInfo {
 
         /**
-         * 创建\u9879\u76ee\u4fe1\u606f\uff08\u5305\u542b\u5bf9\u9879\u76ee\u5177\u4f53\u4fe1\u606f\u7684\u67e5\u8be2\u6761\u4ef6\uff09\uff0c\u8be6\u7ec6\u5b57\u6bb5\u89c1\u4e0b\u8868\u3002的空实例。
+         * 创建项目信息（包含对项目具体信息的查询条件），详细字段见下表。的空实例。
          */
         public InventoryProductInfo() {
         }
@@ -100,7 +100,7 @@ public class BatchInventoryQueryMessage {
     public static class InventoryInfo {
 
         /**
-         * 创建\u6279\u91cf\u9879\u76ee\u4fe1\u606f\u3002的空实例。
+         * 创建批量项目信息。的空实例。
          */
         public InventoryInfo() {
         }
