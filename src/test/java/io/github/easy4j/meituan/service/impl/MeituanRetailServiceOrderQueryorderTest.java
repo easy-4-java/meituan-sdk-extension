@@ -180,7 +180,7 @@ class MeituanRetailServiceOrderQueryorderTest {
     /**
      * 按本地调试配置创建带租户授权的服务零售门面。
      *
-     * @param meituanClient meituanClient
+     * @param meituanClient 测试使用的官方 SDK 客户端
      * @return 按本地调试配置创建带租户授权的服务零售门面的结果
      */
     private MeituanRetailService buildRetailService(MeituanClient meituanClient) {
