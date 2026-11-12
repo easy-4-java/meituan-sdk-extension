@@ -24,6 +24,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness27KuailvApiCoverageTest {
 
+    /**
+     * 创建\u5feb\u9a74\u6e05\u5355\uff08businessId=27\uff09API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness27KuailvApiCoverageTest() {
+    }
+
+
+    /**
+     * 快驴接口清单需要覆盖的路径。
+     */
     private static final Set<String> KUAILV_CHECKLIST_API_PATHS = io.github.easy4j.meituan.TestCollections.setOf(
             "/kl/open/order/create",
             "/kl/open/order/create/sync",
@@ -34,6 +44,10 @@ class MeituanBusiness27KuailvApiCoverageTest {
             "/kl/open/goods/sku/sales"
     );
 
+    /**
+     * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldWrapEveryDocumentedKuailvApiInFacade() throws Exception {
         Map<String, Class<?>> requestsByPath = business27RequestsByPath();
@@ -55,6 +69,12 @@ class MeituanBusiness27KuailvApiCoverageTest {
         }
     }
 
+    /**
+     * 扫描官方 SDK 并按接口路径索引当前业务的请求类型。
+     *
+     * @return 扫描官方 SDK 并按接口路径索引当前业务的请求类型的结果
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     private Map<String, Class<?>> business27RequestsByPath() throws Exception {
         Map<String, Class<?>> requestsByPath = new HashMap<>();
         File sdkJar = new File(com.meituan.sdk.MeituanClient.class
@@ -68,6 +88,12 @@ class MeituanBusiness27KuailvApiCoverageTest {
         return requestsByPath;
     }
 
+    /**
+     * 将当前业务的官方请求按接口路径加入覆盖检查索引。
+     *
+     * @param entry 待检查的官方 SDK JAR 条目
+     * @param requestsByPath 以官方接口路径为键的请求类型索引
+     */
     private void collectBusiness27Request(JarEntry entry, Map<String, Class<?>> requestsByPath) {
         String name = entry.getName();
         if (!name.startsWith("com/meituan/sdk/model/") || !name.endsWith("Request.class")) {

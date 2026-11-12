@@ -25,6 +25,13 @@ import tools.jackson.databind.JsonNode;
 public class PaidOrderPushMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u65b0\u8ba2\u5355\u63a8\u9001\uff08\u5df2\u652f\u4ed8\uff09\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PaidOrderPushMessage() {
+    }
+
+
+    /**
      * 订单 ID（数据库中请用bigint(20)存储此字段）；使用外卖orderIdView字段，外卖侧后续不使用该字段。必填。
      */
     @JsonProperty("orderId")
@@ -352,6 +359,13 @@ public class PaidOrderPushMessage {
     public static class PoiReceiveDetailDetails {
 
         /**
+         * 创建\u5546\u5bb6\u5bf9\u8d26\u4fe1\u606f\u7684json\u6570\u636e\u3002的空实例。
+         */
+        public PoiReceiveDetailDetails() {
+        }
+
+
+        /**
          * 未使用。必填。
          */
         @JsonProperty("actOrderChargeByMt")
@@ -402,6 +416,13 @@ public class PaidOrderPushMessage {
         public static class ActOrderChargeByPoiDetails {
 
             /**
+             * 创建\u5546\u5bb6\u627f\u62c5\u660e\u7ec6\u3002的空实例。
+             */
+            public ActOrderChargeByPoiDetails() {
+            }
+
+
+            /**
              * 填""。必填。
              */
             @JsonProperty("comment")
@@ -433,6 +454,13 @@ public class PaidOrderPushMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ReconciliationExtrasDetails {
+
+            /**
+             * 创建-\u3002的空实例。
+             */
+            public ReconciliationExtrasDetails() {
+            }
+
 
             /**
              * 费率模式；秒提业务，新增收费模式，0：到店线上核销收费模式。必填。
@@ -511,6 +539,13 @@ public class PaidOrderPushMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DetailDetails {
+
+        /**
+         * 创建\u8ba2\u5355\u5546\u54c1\u8be6\u60c5\uff0c\u5176\u503c\u4e3a\u7531list\u3002的空实例。
+         */
+        public DetailDetails() {
+        }
+
 
         /**
          * 子商品信息列表。必填。
@@ -629,6 +664,13 @@ public class PaidOrderPushMessage {
                 isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class SubDetailListDetails {
+
+            /**
+             * 创建\u5b50\u5546\u54c1\u4fe1\u606f\u5217\u8868\u3002的空实例。
+             */
+            public SubDetailListDetails() {
+            }
+
 
             /**
              * 为-1，不使用。必填。

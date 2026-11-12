@@ -27,6 +27,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class OrderNotificationMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderNotificationMessage() {
+    }
+
+
+    /**
      * 订单 ID。必填。
      */
     @JsonProperty("order_id")
@@ -395,6 +402,13 @@ public class OrderNotificationMessage {
     public static class WmAppOrderFoods {
 
         /**
+         * 创建\u8ba2\u5355\u8be6\u60c5\u3002的空实例。
+         */
+        public WmAppOrderFoods() {
+        }
+
+
+        /**
          * 菜品名称。必填。
          */
         @JsonProperty("food_name")
@@ -500,6 +514,13 @@ public class OrderNotificationMessage {
     public static class Activity {
 
         /**
+         * 创建\u6d3b\u52a8\u4fe1\u606f\uff08jsonArray\u683c\u5f0f\uff09\u3002的空实例。
+         */
+        public Activity() {
+        }
+
+
+        /**
          * 活动 ID。必填。
          */
         @JsonProperty("actDetailId")
@@ -543,6 +564,13 @@ public class OrderNotificationMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiReceiveDetail {
+
+        /**
+         * 创建\u5546\u5bb6\u5bf9\u8d26\u4fe1\u606f\uff0c\u6b64\u5b57\u6bb5\u4e3aJSON\u5b57\u7b26\u4e32\u3002的空实例。
+         */
+        public PoiReceiveDetail() {
+        }
+
 
         /**
          * 美团承担明细。
@@ -595,6 +623,13 @@ public class OrderNotificationMessage {
         public static class ActOrderChargeByMt {
 
             /**
+             * 创建\u7f8e\u56e2\u627f\u62c5\u660e\u7ec6\u3002的空实例。
+             */
+            public ActOrderChargeByMt() {
+            }
+
+
+            /**
              * 备注。
              */
             @JsonProperty("comment")
@@ -628,6 +663,13 @@ public class OrderNotificationMessage {
         public static class ActOrderChargeByPoi {
 
             /**
+             * 创建\u5546\u5bb6\u627f\u62c5\u660e\u7ec6\u3002的空实例。
+             */
+            public ActOrderChargeByPoi() {
+            }
+
+
+            /**
              * 备注。
              */
             @JsonProperty("comment")
@@ -659,6 +701,13 @@ public class OrderNotificationMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ReconciliationExtras {
+
+            /**
+             * 创建\u62d3\u5c55\u5b57\u6bb5\uff0c\u5355\u4f4d\u4e3a\u5143\uff0c\u793a\u4f8b\u503c\u4e2d\u7684\u5c5e\u6027\u4e3a\u4f01\u5ba2\u8d39\u7387\u793a\u4f8b\u3002\u5177\u4f53\u5c5e\u6027\u9700\u8981\u6839\u636e\u8d39\u7387\u6a21\u5f0f\u5224\u65ad\u3002的空实例。
+             */
+            public ReconciliationExtras() {
+            }
+
 
             /**
              * 费率模式 1:旧收费模式 2:新收费模式 3 外卖1.0模式 4 外卖2.0模式 5 外卖企客模式 6 闪购企客模式。

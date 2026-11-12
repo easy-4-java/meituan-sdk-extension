@@ -14,6 +14,13 @@ import lombok.Setter;
 public class CustomerOpenDTO {
 
     /**
+     * 创建CustomerOpenDTO\uff0c\u7528\u4e8e\u3010\u4f9b\u5e94\u94fe\u3011\u67e5\u8be2\u5916\u9500\u8ba2\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public CustomerOpenDTO() {
+    }
+
+
+    /**
      * 客户 ID。
      */
     @JsonProperty("id")

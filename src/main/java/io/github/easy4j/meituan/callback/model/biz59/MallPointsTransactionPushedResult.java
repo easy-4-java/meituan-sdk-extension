@@ -18,6 +18,13 @@ import lombok.Setter;
 public class MallPointsTransactionPushedResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5546\u573a\u79ef\u5206\u4ea4\u6613\u4e8b\u4ef6\u63a8\u9001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public MallPointsTransactionPushedResult() {
+    }
+
+
+    /**
      * 积分事务是否成功。必填。
      */
     @JsonProperty("transactionSuccess")

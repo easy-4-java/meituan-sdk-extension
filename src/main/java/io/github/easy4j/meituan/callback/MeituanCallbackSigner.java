@@ -18,8 +18,14 @@ import java.util.TreeMap;
  */
 public final class MeituanCallbackSigner {
 
+    /**
+     * 小写十六进制编码的字符表。
+     */
     private static final char[] HEX = "0123456789abcdef".toCharArray();
 
+    /**
+     * 创建当前类的实例。
+     */
     private MeituanCallbackSigner() {
     }
 
@@ -71,6 +77,12 @@ public final class MeituanCallbackSigner {
         return MessageDigest.isEqual(expected, actual);
     }
 
+    /**
+     * 将签名原文计算为小写 SHA-1 十六进制摘要。
+     *
+     * @param source 待计算摘要的签名文本
+     * @return 将签名原文计算为小写 SHA-1 十六进制摘要的结果
+     */
     private static String sha1Hex(String source) {
         try {
             byte[] hash = MessageDigest.getInstance("SHA-1")

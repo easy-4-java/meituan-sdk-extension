@@ -21,6 +21,13 @@ import lombok.Setter;
 public class StockIssueMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u51fa\u5e93\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StockIssueMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -65,6 +72,13 @@ public class StockIssueMessage {
     public static class StockOutDTO {
 
         /**
+         * 创建\u51fa\u5e93\u5355\u4fe1\u606f\u3002的空实例。
+         */
+        public StockOutDTO() {
+        }
+
+
+        /**
          * 主单信息。
          */
         @JsonProperty("item")
@@ -83,6 +97,13 @@ public class StockIssueMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class StockOutItemDTO {
+
+            /**
+             * 创建\u4e3b\u5355\u4fe1\u606f\u3002的空实例。
+             */
+            public StockOutItemDTO() {
+            }
+
 
             /**
              * 总部机构。
@@ -267,6 +288,13 @@ public class StockIssueMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -300,6 +328,13 @@ public class StockIssueMessage {
             public static class WarehouseOpenDTO {
 
                 /**
+                 * 创建\u4ed3\u5e93\u4fe1\u606f\u3002的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
+
+
+                /**
                  * 仓库编码。
                  */
                 @JsonProperty("code")
@@ -325,6 +360,13 @@ public class StockIssueMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class ResponsiblePersonOpenDTO {
+
+                /**
+                 * 创建\u4e1a\u52a1\u5458\u3002的空实例。
+                 */
+                public ResponsiblePersonOpenDTO() {
+                }
+
 
                 /**
                  * id。
@@ -375,6 +417,13 @@ public class StockIssueMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class UserOpenDTO {
+
+                    /**
+                     * 创建\u7ed1\u5b9a\u5458\u5de5\u3002的空实例。
+                     */
+                    public UserOpenDTO() {
+                    }
+
 
                     /**
                      * id。
@@ -434,6 +483,13 @@ public class StockIssueMessage {
                 public static class OrgOpenDTO {
 
                     /**
+                     * 创建\u9002\u7528\u673a\u6784\u5217\u8868\u3002的空实例。
+                     */
+                    public OrgOpenDTO() {
+                    }
+
+
+                    /**
                      * 机构 ID。
                      */
                     @JsonProperty("orgId")
@@ -466,6 +522,13 @@ public class StockIssueMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class UserOpenDTO {
+
+                /**
+                 * 创建\u521b\u5efa\u4eba\u3002的空实例。
+                 */
+                public UserOpenDTO() {
+                }
+
 
                 /**
                  * id。
@@ -525,6 +588,13 @@ public class StockIssueMessage {
             public static class SubmitterDetails {
 
                 /**
+                 * 创建\u63d0\u4ea4\u4eba\u3002的空实例。
+                 */
+                public SubmitterDetails() {
+                }
+
+
+                /**
                  * id。
                  */
                 @JsonProperty("id")
@@ -580,6 +650,13 @@ public class StockIssueMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class AuditorDetails {
+
+                /**
+                 * 创建\u5ba1\u6838\u4eba\u3002的空实例。
+                 */
+                public AuditorDetails() {
+                }
+
 
                 /**
                  * id。
@@ -639,6 +716,13 @@ public class StockIssueMessage {
             public static class BizTypeOpenDTO {
 
                 /**
+                 * 创建\u4e1a\u52a1\u7c7b\u578b\u3002的空实例。
+                 */
+                public BizTypeOpenDTO() {
+                }
+
+
+                /**
                  * 业务类型编码。
                  */
                 @JsonProperty("bizTypeCode")
@@ -683,6 +767,13 @@ public class StockIssueMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class StockOutItemDetailDTO {
+
+            /**
+             * 创建\u660e\u7ec6\u4fe1\u606f\u3002的空实例。
+             */
+            public StockOutItemDetailDTO() {
+            }
+
 
             /**
              * 明细 ID。
@@ -885,6 +976,13 @@ public class StockIssueMessage {
             public static class WarehouseOpenDTO {
 
                 /**
+                 * 创建\u4ed3\u5e93\u4fe1\u606f\u3002的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
+
+
+                /**
                  * 仓库编码。
                  */
                 @JsonProperty("code")
@@ -910,6 +1008,13 @@ public class StockIssueMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class GoodsOpenDTO {
+
+                /**
+                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
+
 
                 /**
                  * 物品 ID。
@@ -974,6 +1079,13 @@ public class StockIssueMessage {
                 public static class UnitOpenDTO {
 
                     /**
+                     * 创建\u57fa\u51c6\u5355\u4f4d\u540d\u79f0\u3002的空实例。
+                     */
+                    public UnitOpenDTO() {
+                    }
+
+
+                    /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
@@ -993,6 +1105,13 @@ public class StockIssueMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class UnitsItem {
+
+                    /**
+                     * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+                     */
+                    public UnitsItem() {
+                    }
+
 
                     /**
                      * 单位名称。

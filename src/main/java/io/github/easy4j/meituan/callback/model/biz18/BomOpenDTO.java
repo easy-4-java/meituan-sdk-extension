@@ -14,6 +14,13 @@ import lombok.Setter;
 public class BomOpenDTO {
 
     /**
+     * 创建BomOpenDTO\uff0c\u7528\u4e8e\u3010\u4f9b\u5e94\u94fe\u3011\u7ec4\u5408\u52a0\u5de5\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public BomOpenDTO() {
+    }
+
+
+    /**
      * BOM编码。
      */
     @JsonProperty("bomCode")

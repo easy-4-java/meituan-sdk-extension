@@ -21,6 +21,13 @@ import lombok.Setter;
 public class StoreTransferOrderMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u95e8\u5e97\u8c03\u62e8\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StoreTransferOrderMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -63,6 +70,13 @@ public class StoreTransferOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class StockAllotOpenDTO {
+
+        /**
+         * 创建\u4e1a\u52a1\u6570\u636e\u3002的空实例。
+         */
+        public StockAllotOpenDTO() {
+        }
+
 
         /**
          * 调拨单号。
@@ -211,6 +225,13 @@ public class StoreTransferOrderMessage {
         public static class OrgOpenDTO {
 
             /**
+             * 创建\u8c03\u51fa\u95e8\u5e97\u3002的空实例。
+             */
+            public OrgOpenDTO() {
+            }
+
+
+            /**
              * 机构 ID。
              */
             @JsonProperty("orgId")
@@ -244,6 +265,13 @@ public class StoreTransferOrderMessage {
         public static class WarehouseOpenDTO {
 
             /**
+             * 创建\u8c03\u51fa\u4ed3\u5e93\u3002的空实例。
+             */
+            public WarehouseOpenDTO() {
+            }
+
+
+            /**
              * 仓库 ID。
              */
             @JsonProperty("id")
@@ -269,6 +297,13 @@ public class StoreTransferOrderMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class AllotInOrgDetails {
+
+            /**
+             * 创建\u8c03\u5165\u95e8\u5e97\u3002的空实例。
+             */
+            public AllotInOrgDetails() {
+            }
+
 
             /**
              * 机构 ID。
@@ -304,6 +339,13 @@ public class StoreTransferOrderMessage {
         public static class AllotInWarehouseDetails {
 
             /**
+             * 创建\u8c03\u5165\u4ed3\u5e93\u3002的空实例。
+             */
+            public AllotInWarehouseDetails() {
+            }
+
+
+            /**
              * 仓库 ID。
              */
             @JsonProperty("id")
@@ -329,6 +371,13 @@ public class StoreTransferOrderMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ResponsiblePersonOpenDTO {
+
+            /**
+             * 创建\u4e1a\u52a1\u5458\u3002的空实例。
+             */
+            public ResponsiblePersonOpenDTO() {
+            }
+
 
             /**
              * 主键 ID。
@@ -379,6 +428,13 @@ public class StoreTransferOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class UserOpenDTO {
+
+                /**
+                 * 创建\u7ed1\u5b9a\u5458\u5de5\u3002的空实例。
+                 */
+                public UserOpenDTO() {
+                }
+
 
                 /**
                  * id。
@@ -432,6 +488,13 @@ public class StoreTransferOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u9002\u7528\u673a\u6784\u5217\u8868\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -466,6 +529,13 @@ public class StoreTransferOrderMessage {
         public static class CreatedOrgDetails {
 
             /**
+             * 创建\u521b\u5efa\u673a\u6784\u3002的空实例。
+             */
+            public CreatedOrgDetails() {
+            }
+
+
+            /**
              * 机构 ID。
              */
             @JsonProperty("orgId")
@@ -497,6 +567,13 @@ public class StoreTransferOrderMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class UserOpenDTO {
+
+            /**
+             * 创建\u521b\u5efa\u4eba\u3002的空实例。
+             */
+            public UserOpenDTO() {
+            }
+
 
             /**
              * id。
@@ -550,6 +627,13 @@ public class StoreTransferOrderMessage {
         public static class SubmitterDetails {
 
             /**
+             * 创建\u63d0\u4ea4\u4eba\u3002的空实例。
+             */
+            public SubmitterDetails() {
+            }
+
+
+            /**
              * id。
              */
             @JsonProperty("id")
@@ -599,6 +683,13 @@ public class StoreTransferOrderMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class AuditorDetails {
+
+            /**
+             * 创建\u5ba1\u6838\u4eba\u3002的空实例。
+             */
+            public AuditorDetails() {
+            }
+
 
             /**
              * id。
@@ -652,6 +743,13 @@ public class StoreTransferOrderMessage {
         public static class DelivererDetails {
 
             /**
+             * 创建\u53d1\u8d27\u4eba\u3002的空实例。
+             */
+            public DelivererDetails() {
+            }
+
+
+            /**
              * id。
              */
             @JsonProperty("id")
@@ -701,6 +799,13 @@ public class StoreTransferOrderMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class StockAllotDetailOpenDTO {
+
+            /**
+             * 创建\u660e\u7ec6\u4fe1\u606f\u3002的空实例。
+             */
+            public StockAllotDetailOpenDTO() {
+            }
+
 
             /**
              * 物品详情信息。
@@ -831,6 +936,13 @@ public class StoreTransferOrderMessage {
             public static class GoodsOpenDTO {
 
                 /**
+                 * 创建\u7269\u54c1\u8be6\u60c5\u4fe1\u606f\u3002的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
+
+
+                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
@@ -899,6 +1011,13 @@ public class StoreTransferOrderMessage {
                 public static class UnitOpenDTO {
 
                     /**
+                     * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                     */
+                    public UnitOpenDTO() {
+                    }
+
+
+                    /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
@@ -924,6 +1043,13 @@ public class StoreTransferOrderMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class UnitsItem {
+
+                    /**
+                     * 创建\u5355\u4f4d\u4fe1\u606f\u3002的空实例。
+                     */
+                    public UnitsItem() {
+                    }
+
 
                     /**
                      * 单位 ID。
@@ -954,6 +1080,13 @@ public class StoreTransferOrderMessage {
             public static class UnitOpenDTO {
 
                 /**
+                 * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
+
+
+                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
@@ -981,6 +1114,13 @@ public class StoreTransferOrderMessage {
             public static class BizUnitDetails {
 
                 /**
+                 * 创建\u5e93\u5b58\u5355\u4f4d\u3002的空实例。
+                 */
+                public BizUnitDetails() {
+                }
+
+
+                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
@@ -1006,6 +1146,13 @@ public class StoreTransferOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class SupplementaryUnitDetails {
+
+                /**
+                 * 创建\u8f85\u52a9\u5355\u4f4d\u3002的空实例。
+                 */
+                public SupplementaryUnitDetails() {
+                }
+
 
                 /**
                  * 单位 ID。

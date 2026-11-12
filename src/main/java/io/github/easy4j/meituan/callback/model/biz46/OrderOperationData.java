@@ -14,6 +14,13 @@ import lombok.Setter;
 public class OrderOperationData {
 
     /**
+     * 创建OrderOperationData\uff0c\u7528\u4e8e\u5957\u9910\u914d\u9001\u63a5\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public OrderOperationData() {
+    }
+
+
+    /**
      * 用户下单后系统自动拒绝接单时间,毫秒时间戳。
      */
     @JsonProperty("systemAutoRefuseOrderTime")

@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class MerchantCouponIssueMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5546\u5bb6\u5238\u53d1\u5238\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MerchantCouponIssueMessage() {
+    }
+
+
+    /**
      * 三方团单 ID。必填。
      */
     @JsonProperty("appDealId")
@@ -116,6 +123,13 @@ public class MerchantCouponIssueMessage {
     public static class ExtraMapDetails {
 
         /**
+         * 创建\u5197\u4f59\u5b57\u6bb5\u3002的空实例。
+         */
+        public ExtraMapDetails() {
+        }
+
+
+        /**
          * 加项信息。
          */
         @JsonProperty("additionItemInfos")
@@ -128,6 +142,13 @@ public class MerchantCouponIssueMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class AdditionItemInfosItem {
+
+            /**
+             * 创建\u52a0\u9879\u4fe1\u606f\u3002的空实例。
+             */
+            public AdditionItemInfosItem() {
+            }
+
 
             /**
              * 服务名。
@@ -162,6 +183,13 @@ public class MerchantCouponIssueMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ReceiptAmountInfoDTO {
+
+        /**
+         * 创建\u5238\u7801\u91d1\u989d\u660e\u7ec6\u5217\u8868\u3002的空实例。
+         */
+        public ReceiptAmountInfoDTO() {
+        }
+
 
         /**
          * 券码金额。

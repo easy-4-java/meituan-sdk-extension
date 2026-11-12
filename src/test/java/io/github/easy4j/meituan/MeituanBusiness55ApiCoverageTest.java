@@ -22,6 +22,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness55ApiCoverageTest {
 
+    /**
+     * 创建\u5927\u4f17\u70b9\u8bc4\u514d\u8d39\u8bd5\uff08businessId=55\uff09\u516c\u5f00 API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness55ApiCoverageTest() {
+    }
+
+
+    /**
+     * 官方请求类型与接口路径的对应关系。
+     */
     private static final Map<Class<?>, String> DOCUMENTED_REQUESTS = io.github.easy4j.meituan.TestCollections.mapOf(
             FreetryLoadActivityRestrictionRequest.class, "/freetry/open/coupon/loadActivityRestriction",
             FreetryLoadCouponRequest.class, "/freetry/open/coupon/load",
@@ -31,6 +41,9 @@ class MeituanBusiness55ApiCoverageTest {
             FreetryPrepareVerifyRequest.class, "/freetry/open/coupon/prepareVerify"
     );
 
+    /**
+     * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     */
     @Test
     void shouldDeclareEveryDocumentedBusiness55ApiWithRuntimeRoutingMetadata() {
         DOCUMENTED_REQUESTS.forEach((requestType, path) -> {
@@ -45,6 +58,9 @@ class MeituanBusiness55ApiCoverageTest {
         });
     }
 
+    /**
+     * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     */
     @Test
     void shouldExposeEveryDocumentedBusiness55ApiFromFreetryFacade() {
         Set<Class<?>> facadeRequestTypes = io.github.easy4j.meituan.TestCollections.setOf(MeituanFreetryService.class.getDeclaredMethods()).stream()

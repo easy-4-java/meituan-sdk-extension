@@ -28,6 +28,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class SelfDeliveryCompletedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u81ea\u914d\u5b8c\u6210\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public SelfDeliveryCompletedMessage() {
+    }
+
+
+    /**
      * 门店名称。
      */
     @JsonProperty("poiName")
@@ -270,6 +277,13 @@ public class SelfDeliveryCompletedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class GroupDeal {
+
+        /**
+         * 创建\u83dc\u54c1\u8be6\u60c5\uff0c\u6ce8\uff1a\u672a\u6765\u8be5\u5b57\u6bb5\u4f1a\u5e9f\u5f03\u3002的空实例。
+         */
+        public GroupDeal() {
+        }
+
 
         /**
          * 当前菜品组，若商家上单配置了菜品组，则存在该字段。

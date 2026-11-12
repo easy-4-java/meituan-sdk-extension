@@ -19,6 +19,13 @@ import lombok.Setter;
 public class AllStoreResourceInventoryQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u5168\u91cf\u95e8\u5e97\u8d44\u6e90\u5e93\u5b58\u6570\u636e\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public AllStoreResourceInventoryQueryResult() {
+    }
+
+
+    /**
      * 是否还有待查数据：true-有、false-无。必填。
      */
     @JsonProperty("hasNext")
@@ -38,6 +45,13 @@ public class AllStoreResourceInventoryQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiInfoBO {
+
+        /**
+         * 创建\u95e8\u5e97\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public PoiInfoBO() {
+        }
+
 
         /**
          * 三方门店id。必填。
@@ -80,6 +94,13 @@ public class AllStoreResourceInventoryQueryResult {
     public static class BallTableInfoBO {
 
         /**
+         * 创建\u7403\u684c\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public BallTableInfoBO() {
+        }
+
+
+        /**
          * 球桌id。必填。
          */
         @JsonProperty("id")
@@ -118,6 +139,13 @@ public class AllStoreResourceInventoryQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DealGroupBO {
+
+        /**
+         * 创建\u7403\u684c\u5173\u8054\u56e2\u8d2d\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public DealGroupBO() {
+        }
+
 
         /**
          * 团购id（美团侧id）。必填。
@@ -166,6 +194,13 @@ public class AllStoreResourceInventoryQueryResult {
     public static class UsableTime {
 
         /**
+         * 创建\u56e2\u8d2d\u4f7f\u7528\u65f6\u95f4\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public UsableTime() {
+        }
+
+
+        /**
          * 开始时间，格式：hh:mm。必填。
          */
         @JsonProperty("startTime")
@@ -186,6 +221,13 @@ public class AllStoreResourceInventoryQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ExceptDate {
+
+        /**
+         * 创建\u81ea\u5b9a\u4e49\u4e0d\u53ef\u7528\u65e5\u671f\u3002的空实例。
+         */
+        public ExceptDate() {
+        }
+
 
         /**
          * 自定义不可用开始日期，格式：yyyy-MM-dd。必填。

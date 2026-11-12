@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class StoreStatusChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u95e8\u5e97\u72b6\u6001\u53d8\u66f4\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StoreStatusChangedMessage() {
+    }
+
+
+    /**
      * 服务商入驻技术合作中心得到的唯一身份表示。
      */
     @JsonProperty("developerId")
@@ -50,6 +57,13 @@ public class StoreStatusChangedMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiStatus {
+
+        /**
+         * 创建\u95e8\u5e97\u72b6\u6001\u4fe1\u606f\u3002的空实例。
+         */
+        public PoiStatus() {
+        }
+
 
         /**
          * ERP方门店 ID，最大长度100。

@@ -18,6 +18,13 @@ import lombok.Setter;
 public class DepositUnfreezeResultResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u62bc\u91d1\u89e3\u51bb\u7ed3\u679c\u56de\u8c03\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public DepositUnfreezeResultResult() {
+    }
+
+
+    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")

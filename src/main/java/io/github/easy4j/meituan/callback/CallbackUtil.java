@@ -23,10 +23,16 @@ import java.util.Objects;
  */
 public final class CallbackUtil {
 
+    /**
+     * 处理业务 JSON 的线程安全映射器。
+     */
     private static final ObjectMapper MAPPER = JsonMapper.builder()
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
             .build();
 
+    /**
+     * 创建当前类的实例。
+     */
     private CallbackUtil() {
     }
 
@@ -72,6 +78,12 @@ public final class CallbackUtil {
         return bind(readParameters(request), msgClass);
     }
 
+    /**
+     * 读取回调参数并合并查询串与正文，同名字段采用正文值。
+     *
+     * @param request 官方 SDK 请求对象
+     * @return 读取回调参数并合并查询串与正文，同名字段采用正文值的结果
+     */
     private static Map<String, String> readParameters(HttpServletRequest request) {
         Objects.requireNonNull(request, "request must not be null");
         try {
@@ -112,6 +124,13 @@ public final class CallbackUtil {
         return bind(readParameters(query, body), msgClass);
     }
 
+    /**
+     * 读取回调参数并合并查询串与正文，同名字段采用正文值。
+     *
+     * @param query URL 编码的查询参数，可带前导问号
+     * @param body 回调正文或已解码的参数映射
+     * @return 读取回调参数并合并查询串与正文，同名字段采用正文值的结果
+     */
     private static Map<String, String> readParameters(String query, Object body) {
         Map<String, String> parameters = new LinkedHashMap<>();
         appendForm(parameters, StrUtil.removePrefix(query, "?"));
@@ -124,6 +143,12 @@ public final class CallbackUtil {
         }
     }
 
+    /**
+     * 解码表单并合并参数，同名字段保留最后一个值。
+     *
+     * @param parameters 已解码的回调参数及验签字段
+     * @param form URL 编码的表单参数
+     */
     private static void appendForm(Map<String, String> parameters, String form) {
         // 验签使用表单原始键名；JDK 解码器会拒绝不完整或非法的百分号编码。
         for (String pair : StrUtil.split(form, '&')) {
@@ -135,6 +160,12 @@ public final class CallbackUtil {
         }
     }
 
+    /**
+     * 按业务编号和消息编号选择模型，未知消息保留原始文本。
+     *
+     * @param parameters 已解码的回调参数及验签字段
+     * @return 按业务编号和消息编号选择模型，未知消息保留原始文本的结果
+     */
     private static MeituanCallbackMessage<?> dispatch(Map<String, String> parameters) {
         var model = MeituanCallbackModels.find(MeituanCallbackMessage.businessId(parameters),
                 MeituanCallbackMessage.msgType(parameters));
@@ -145,6 +176,14 @@ public final class CallbackUtil {
         return new MeituanCallbackMessage<>(parameters, rawMessage, rawMessage);
     }
 
+    /**
+     * 将业务内容绑定为指定模型，并保留用于验签的原始参数。
+     *
+     * @param <T> 业务消息类型
+     * @param parameters 已解码的回调参数及验签字段
+     * @param msgClass 业务内容的目标类型
+     * @return 将业务内容绑定为指定模型，并保留用于验签的原始参数的结果
+     */
     private static <T> MeituanCallbackMessage<T> bind(Map<String, String> parameters, Class<T> msgClass) {
         try {
             String rawMessage = MeituanCallbackMessage.rawMessage(parameters);
@@ -178,6 +217,12 @@ public final class CallbackUtil {
         }
     }
 
+    /**
+     * 合并回调正文，将对象型业务内容编码为 JSON 参数。
+     *
+     * @param parameters 已解码的回调参数及验签字段
+     * @param body 回调正文或已解码的参数映射
+     */
     private static void appendBody(Map<String, String> parameters, Object body) {
         if (Objects.isNull(body)) {
             return;

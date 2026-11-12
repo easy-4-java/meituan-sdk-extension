@@ -21,6 +21,13 @@ import lombok.Setter;
 public class MemberCouponDiscountAllocationMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u4f1a\u5458\u5238\u4f18\u60e0\u5206\u644a\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MemberCouponDiscountAllocationMessage() {
+    }
+
+
+    /**
      * 会员 ID。
      */
     @JsonProperty("memberId")
@@ -59,6 +66,13 @@ public class MemberCouponDiscountAllocationMessage {
     public static class OrderInfoDetails {
 
         /**
+         * 创建\u8ba2\u5355\u4fe1\u606f\uff0c\u4e0d\u4f20\u9012\u5219\u4e0d\u8ba1\u7b97\u53ef\u7528\u5238\u3001\u5df2\u4f7f\u7528\u5238\u3002的空实例。
+         */
+        public OrderInfoDetails() {
+        }
+
+
+        /**
          * localserver订单 ID。
          */
         @JsonProperty("localId")
@@ -95,6 +109,13 @@ public class MemberCouponDiscountAllocationMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class SkusItem {
+
+            /**
+             * 创建\u5546\u54c1\u5217\u8868\u3002的空实例。
+             */
+            public SkusItem() {
+            }
+
 
             /**
              * 商品编号。

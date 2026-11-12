@@ -20,6 +20,13 @@ import lombok.Setter;
 public class MigrationCompletedMessage extends ArrayList<MigrationCompletedMessage.Entry> {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8fc1\u79fb\u4efb\u52a1\u5904\u7406\u5b8c\u6210\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MigrationCompletedMessage() {
+    }
+
+
+    /**
      * 序列化版本号。
      */
     private static final long serialVersionUID = 1L;
@@ -31,6 +38,13 @@ public class MigrationCompletedMessage extends ArrayList<MigrationCompletedMessa
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Entry {
+
+        /**
+         * 创建\u8fc1\u79fb\u5904\u7406\u6761\u76ee\u3002的空实例。
+         */
+        public Entry() {
+        }
+
 
         /**
          * 原开发者的授权实体, 外卖/非接单下则为epoiId。

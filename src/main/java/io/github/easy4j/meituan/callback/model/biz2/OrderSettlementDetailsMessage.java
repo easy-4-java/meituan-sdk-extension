@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class OrderSettlementDetailsMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u7ed3\u7b97\u660e\u7ec6\u56de\u8c03\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderSettlementDetailsMessage() {
+    }
+
+
+    /**
      * 服务商入驻技术合作中心得到的唯一身份表示。必填。
      */
     @JsonProperty("developerId")
@@ -84,6 +91,13 @@ public class OrderSettlementDetailsMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class TradeDetail {
+
+        /**
+         * 创建\u8ba2\u5355\u7ed3\u7b97\u4fe1\u606f\u8be6\u60c5\u6570\u636e\u3002的空实例。
+         */
+        public TradeDetail() {
+        }
+
 
         /**
          * 活动成本明细(仅商家部分)。
@@ -195,6 +209,13 @@ public class OrderSettlementDetailsMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PhfOrderChargeData {
+
+        /**
+         * 创建\u62fc\u597d\u996d\u8ba2\u5355\u4fe1\u606f\u3002的空实例。
+         */
+        public PhfOrderChargeData() {
+        }
+
 
         /**
          * 顾客单买单送费。

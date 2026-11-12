@@ -20,6 +20,13 @@ import lombok.Setter;
 public class OrderTransferredToMerchantDeliveryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u7f8e\u56e2\u914d\u9001\u8f6c\u81ea\u914d\u9001\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderTransferredToMerchantDeliveryMessage() {
+    }
+
+
+    /**
      * 订单配送方式转自配变更类型（1：美团配送转为自配送）。
      */
     @JsonProperty("type")

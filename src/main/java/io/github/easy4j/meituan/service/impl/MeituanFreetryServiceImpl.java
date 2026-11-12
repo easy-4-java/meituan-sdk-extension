@@ -31,36 +31,54 @@ public class MeituanFreetryServiceImpl extends AbstractMeituanService implements
         super(requestExecutor);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryLoadActivityRestrictionResponse> loadActivityRestriction(
             FreetryLoadActivityRestrictionRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryLoadCouponResponse> loadCoupon(
             FreetryLoadCouponRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryQueryPoiCouponResponse> queryPoiCoupon(
             FreetryQueryPoiCouponRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryVerifyCouponResponse> verifyCoupon(
             FreetryVerifyCouponRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryQueryActivitiesByPoiResponse> queryActivitiesByPoi(
             FreetryQueryActivitiesByPoiRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryPrepareVerifyResponse> prepareVerify(
             FreetryPrepareVerifyRequest request, String tenantId) {

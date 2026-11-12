@@ -22,6 +22,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness46GroupDeliveryApiCoverageTest {
 
+    /**
+     * 创建\u56e2\u8d2d\u914d\u9001\uff08businessId=46\uff09API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness46GroupDeliveryApiCoverageTest() {
+    }
+
+
+    /**
+     * 当前业务接口清单需要覆盖的路径。
+     */
     private static final Set<String> CHECKLIST_API_PATHS = io.github.easy4j.meituan.TestCollections.setOf(
             "/dcps/fulfill/poi/getPoiInfo",
             "/dcps/fulfill/poi/deliveryRule/create",
@@ -48,11 +58,18 @@ class MeituanBusiness46GroupDeliveryApiCoverageTest {
             "/dcps/fulfill/fill/tracking/number",
             "/dcps/fulfill/delivery/change/status"
     );
+    /**
+     * 仅在官方 SDK 中提供的接口路径。
+     */
     private static final Set<String> SDK_ONLY_API_PATHS = io.github.easy4j.meituan.TestCollections.setOf(
             "/dcps/print/printer/status/update",
             "/dcps/settlement/querySettleResultForTGDeliver"
     );
 
+    /**
+     * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldWrapEveryOfficialBusiness46ApiAndCoverChecklist() throws Exception {
         Map<String, Class<?>> requestsByPath = business46RequestsByPath();
@@ -75,6 +92,12 @@ class MeituanBusiness46GroupDeliveryApiCoverageTest {
         }
     }
 
+    /**
+     * 扫描官方 SDK 并按接口路径索引当前业务的请求类型。
+     *
+     * @return 扫描官方 SDK 并按接口路径索引当前业务的请求类型的结果
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     private Map<String, Class<?>> business46RequestsByPath() throws Exception {
         Map<String, Class<?>> requestsByPath = new HashMap<>();
         File sdkJar = new File(com.meituan.sdk.MeituanClient.class
@@ -88,6 +111,12 @@ class MeituanBusiness46GroupDeliveryApiCoverageTest {
         return requestsByPath;
     }
 
+    /**
+     * 将当前业务的官方请求按接口路径加入覆盖检查索引。
+     *
+     * @param entry 待检查的官方 SDK JAR 条目
+     * @param requestsByPath 以官方接口路径为键的请求类型索引
+     */
     private void collectBusiness46Request(JarEntry entry, Map<String, Class<?>> requestsByPath) {
         String name = entry.getName();
         if (!name.startsWith("com/meituan/sdk/model/") || !name.endsWith("Request.class")) {
@@ -110,11 +139,24 @@ class MeituanBusiness46GroupDeliveryApiCoverageTest {
         }
     }
 
+    /**
+     * 判断请求的官方元数据是否属于当前被检查的业务。
+     *
+     * @param requestType 官方请求类型
+     * @return 判断请求的官方元数据是否属于当前被检查的业务的结果
+     */
     private boolean isBusiness46Request(Class<?> requestType) {
         ApiMeta apiMeta = requestType.getAnnotation(ApiMeta.class);
         return Objects.nonNull(apiMeta) && apiMeta.businessId() == 46;
     }
 
+    /**
+     * 合并两个接口路径集合，消除重复路径。
+     *
+     * @param left 第一个接口路径集合
+     * @param right 第二个接口路径集合
+     * @return 合并两个接口路径集合，消除重复路径的结果
+     */
     private Set<String> union(Set<String> left, Set<String> right) {
         Set<String> result = new HashSet<>(left);
         result.addAll(right);

@@ -20,6 +20,13 @@ import lombok.Setter;
 public class AllStoreResourceInventoryQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u5168\u91cf\u95e8\u5e97\u8d44\u6e90\u5e93\u5b58\u6570\u636e\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public AllStoreResourceInventoryQueryMessage() {
+    }
+
+
+    /**
      * 查询页数。必填。
      */
     @JsonProperty("pageNumber")

@@ -13,6 +13,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class MeituanConfigTest {
 
+    /**
+     * 创建 \u5355\u5143\u6d4b\u8bd5\uff1a\u8986\u76d6\u9ed8\u8ba4\u503c\u4e0e setter/getter\u3002的空实例。
+     */
+    MeituanConfigTest() {
+    }
+
+
+    /**
+     * 验证平台配置提供默认地址、字符集和协议版本。
+     */
     @Test
     void should_have_default_server_url_charset_and_version() {
         MeituanConfig config = new MeituanConfig();
@@ -23,6 +33,9 @@ class MeituanConfigTest {
                 "默认 needSslCheck 应为 null/false，由 SDK 自身决定");
     }
 
+    /**
+     * 验证平台配置的各字段可以被显式覆盖。
+     */
     @Test
     void should_allow_overriding_all_fields() {
         MeituanConfig config = new MeituanConfig();

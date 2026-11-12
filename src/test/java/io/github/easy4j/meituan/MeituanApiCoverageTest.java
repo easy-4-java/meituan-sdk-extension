@@ -27,6 +27,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class MeituanApiCoverageTest {
 
+    /**
+     * 创建\u95e8\u9762\u8986\u76d6\u5ea6\u6d4b\u8bd5\uff1a\u626b\u63cf\u5b98\u65b9 MtOpJavaSDK jar\uff0c\u786e\u4fdd\u6240\u6709\u5e26  \u5143\u6570\u636e\u7684的空实例。
+     */
+    MeituanApiCoverageTest() {
+    }
+
+
     /** 全部业务门面接口。 */
     private static final String[] FACADES = {
             "io.github.easy4j.meituan.service.MeituanCateringService",
@@ -46,6 +53,10 @@ class MeituanApiCoverageTest {
             "io.github.easy4j.meituan.service.MeituanWaimaiService",
     };
 
+    /**
+     * 验证所有正式官方请求均具有业务门面入口。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void allApiMetaRequestsAreWrappedByFacadeMethods() throws Exception {
         File jar = findOfficialSdkJar();
@@ -83,6 +94,12 @@ class MeituanApiCoverageTest {
                 "以下带 @ApiMeta 的官方 Request 未被任何门面封装: " + uncovered + " (已覆盖 " + covered + ")");
     }
 
+    /**
+     * 收集全部业务门面接收的官方请求类型名称。
+     *
+     * @return 收集全部业务门面接收的官方请求类型名称的结果
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     private Set<String> facadeParamTypes() throws Exception {
         Set<String> paramTypes = new HashSet<>();
         for (String facade : FACADES) {
@@ -96,6 +113,12 @@ class MeituanApiCoverageTest {
         return paramTypes;
     }
 
+    /**
+     * 定位用于核对接口覆盖范围的官方 SDK JAR。
+     *
+     * @return 定位用于核对接口覆盖范围的官方 SDK JAR的结果
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     private File findOfficialSdkJar() throws Exception {
         java.net.URL location = com.meituan.sdk.MeituanClient.class
                 .getProtectionDomain().getCodeSource().getLocation();

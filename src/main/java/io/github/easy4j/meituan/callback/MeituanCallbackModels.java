@@ -44,6 +44,9 @@ import java.util.stream.Stream;
  */
 public final class MeituanCallbackModels {
 
+    /**
+     * 从业务枚举构建的只读消息定义索引。
+     */
     private static final Map<String, MeituanMessageType> TYPES = Stream.<MeituanMessageType[]>of(
                     MeituanBusiness1MessageType.values(),
                     MeituanBusiness2MessageType.values(),
@@ -77,6 +80,9 @@ public final class MeituanCallbackModels {
             .collect(Collectors.toUnmodifiableMap(
                     type -> type.getBusinessId() + ":" + type.getMsgType(), Function.identity()));
 
+    /**
+     * 创建当前类的实例。
+     */
     private MeituanCallbackModels() {
     }
 

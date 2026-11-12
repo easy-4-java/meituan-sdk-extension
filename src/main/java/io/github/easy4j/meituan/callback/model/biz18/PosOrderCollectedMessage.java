@@ -20,6 +20,13 @@ import lombok.Setter;
 public class PosOrderCollectedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300cPOS\u63a5\u5355-\u63a5\u5355\u9875\u5546\u5bb6\u70b9\u51fb\u786e\u8ba4\u53d6\u9910\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PosOrderCollectedMessage() {
+    }
+
+
+    /**
      * 门店机构 ID。
      */
     @JsonProperty("orgId")

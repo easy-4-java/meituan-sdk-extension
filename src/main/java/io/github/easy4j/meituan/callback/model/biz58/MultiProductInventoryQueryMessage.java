@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class MultiProductInventoryQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u591a\u5546\u54c1\u5e93\u5b58\u6279\u91cf\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MultiProductInventoryQueryMessage() {
+    }
+
+
+    /**
      * 预订时间，形如2019-01-01。必填。
      */
     @JsonProperty("bookDate")
@@ -74,6 +81,13 @@ public class MultiProductInventoryQueryMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class InventoryProductInfos {
+
+        /**
+         * 创建\u9879\u76ee\u4fe1\u606f\u6570\u7ec4\uff08\u5305\u542b\u5bf9\u9879\u76ee\u5177\u4f53\u4fe1\u606f\u7684\u67e5\u8be2\u6761\u4ef6\uff09\u3002的空实例。
+         */
+        public InventoryProductInfos() {
+        }
+
 
         /**
          * 三方服务项目 ID，不填则查询门店下所有服务项目（宠物预订业务使用本字段）。

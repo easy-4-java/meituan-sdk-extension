@@ -14,6 +14,16 @@ import static org.assertj.core.api.Assertions.tuple;
  */
 class MeituanBusiness46MessageTypeTest {
 
+    /**
+     * 创建\u56e2\u8d2d\u914d\u9001\uff08businessId=46\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness46MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     */
     @Test
     void shouldExposeAllFourteenDocumentedMessageTypes() {
         assertThat(MeituanBusiness46MessageType.values())
@@ -40,6 +50,9 @@ class MeituanBusiness46MessageTypeTest {
                 );
     }
 
+    /**
+     * 验证当前业务的已登记消息可解析，其他业务及未知编号保持隔离。
+     */
     @Test
     void shouldResolveDocumentedMessageForBusiness46() {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -53,6 +66,9 @@ class MeituanBusiness46MessageTypeTest {
         assertThat(message.getMessage()).isEqualTo("{\"orderId\":1000}");
     }
 
+    /**
+     * 验证跨业务消息被拒绝，并按通用回调契约处理未知编号。
+     */
     @Test
     void shouldRejectOtherBusinessesAndKeepUnknownMessagesAvailable() {
         MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -67,6 +83,12 @@ class MeituanBusiness46MessageTypeTest {
         assertThat(unknownMessage.getMessage()).isEqualTo("{\"raw\":true}");
     }
 
+    /**
+     * 根据官网文档标识构造消息文档地址。
+     *
+     * @param documentKey 官网文档标识或完整文档地址
+     * @return 根据官网文档标识构造消息文档地址的结果
+     */
     private String document(String documentKey) {
         return "https://developer.meituan.com/docs/msg/" + documentKey;
     }

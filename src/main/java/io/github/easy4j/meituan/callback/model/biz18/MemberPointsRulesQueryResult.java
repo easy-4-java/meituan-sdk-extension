@@ -21,6 +21,13 @@ import lombok.Setter;
 public class MemberPointsRulesQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u4f1a\u5458\u79ef\u5206\u89c4\u5219\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public MemberPointsRulesQueryResult() {
+    }
+
+
+    /**
      * 积分抵现规则，支持传入多等级会员规则。必填。
      */
     @JsonProperty("redeemRules")
@@ -34,6 +41,13 @@ public class MemberPointsRulesQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RedeemRule {
+
+        /**
+         * 创建\u79ef\u5206\u62b5\u73b0\u89c4\u5219\uff0c\u652f\u6301\u4f20\u5165\u591a\u7b49\u7ea7\u4f1a\u5458\u89c4\u5219\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public RedeemRule() {
+        }
+
 
         /**
          * 会员为统一等级不用传。

@@ -16,8 +16,21 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 验证Meituan Payload的行为与接口契约。
+ */
 class MeituanPayloadTest {
 
+    /**
+     * 创建MeituanPayloadTest的空实例。
+     */
+    MeituanPayloadTest() {
+    }
+
+
+    /**
+     * 验证独立映射器启用下划线策略后仍采用官网字段名称。
+     */
     @Test
     void standaloneMapperUsesDocumentedNamesEvenWithASnakeCaseNamingStrategy() {
         JsonMapper mapper = JsonMapper.builder()
@@ -35,6 +48,9 @@ class MeituanPayloadTest {
         assertThat(output.has("e_poi_id")).isFalse();
     }
 
+    /**
+     * 验证会员标识反序列化后保留前导零。
+     */
     @Test
     void mapsMemberIdentifiersWithoutLosingLeadingZeros() {
         MemberCreatedMessage member = CallbackUtil.parse("businessId=59&msgType=5910019",
@@ -47,6 +63,9 @@ class MeituanPayloadTest {
         assertThat(member.getRequestSeq()).isEqualTo("00001");
     }
 
+    /**
+     * 验证预订及编码需求字段被类型化，原始验签文本保持完整。
+     */
     @Test
     void mapsReservationAndItsEncodedRequirementsWithoutChangingTheSignedMessage() {
         String data = """
@@ -60,6 +79,9 @@ class MeituanPayloadTest {
         assertThat(callback.getRawMessage()).isEqualTo(callback.getParameters().get("message"));
     }
 
+    /**
+     * 验证消息模型按业务编号和消息编号共同选择。
+     */
     @Test
     void resolvesMessageClassWithinItsBusiness() {
         assertThat(MeituanCallbackModels.find("59", "5910019")).hasValue(MemberCreatedMessage.class);
@@ -68,6 +90,9 @@ class MeituanPayloadTest {
                 .isEqualTo(MeituanCallbackModels.find("1", "110027")).isPresent();
     }
 
+    /**
+     * 验证数组型消息可以直接映射为集合模型。
+     */
     @Test
     void readsArrayPayloadWithoutAnArtificialWrapperProperty() {
         var callback = CallbackUtil.parse("businessId=1000&msgType=100010007",
@@ -79,6 +104,9 @@ class MeituanPayloadTest {
         });
     }
 
+    /**
+     * 验证历史表单协议可以读取且保留其验签参数。
+     */
     @Test
     void readsDocumentedLegacyFormsAndPreservesTheirSigningParameters() {
         String order = "{\"orderId\":9007199254740993,\"reason\":\"取消\"}";
@@ -93,6 +121,9 @@ class MeituanPayloadTest {
         assertThat(flash.getMessage().getAmountInfo().getActualPay().toString()).isIn("10.10", "10.1");
     }
 
+    /**
+     * 验证门店变更消息兼容官网对象和字符串两种形态。
+     */
     @Test
     void keepsBothPublishedShapesOfTheStoreChangeMessage() {
         var text = CallbackUtil.parse(null, Map.of("message", "\"example\""), PoiInfoChangedMessage.class);

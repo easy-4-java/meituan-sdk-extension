@@ -21,7 +21,7 @@ import java.util.Objects;
  * <p>调用官方 SDK {@code ddzh/tuangou/receipt/querylistbydate} 接口，
  * 按日期分页拉取门店验券记录（即订单/团购券核销明细）。</p>
  *
- * <h3>诊断记录（已通过真实环境验证）</h3>
+ * <h2>诊断记录（已通过真实环境验证）</h2>
  * <ul>
  *     <li>SDK 内部使用 <b>GSON</b> 序列化 Request，GSON 默认跳过 {@code null} 字段，
  *         因此 {@code bizType} 字段（美团 API 字段名 {@code biz}）必须显式赋非空值（如 0）。</li>
@@ -30,7 +30,7 @@ import java.util.Objects;
  *     <li>签名算法：{@code signKey + 按字典序排序的 key1value1key2value2...} → SHA1 hex 小写。</li>
  * </ul>
  *
- * <h3>使用方法</h3>
+ * <h2>使用方法</h2>
  * <ol>
  *     <li>设置环境变量（推荐用 IntelliJ Run Configuration 或 shell export）：
  *         <pre>
@@ -44,13 +44,20 @@ import java.util.Objects;
  *     <li>输出结果会写到控制台 + （如有）{@code /tmp/meituan-receipts.json}</li>
  * </ol>
  *
- * <h3>API 文档</h3>
+ * <h2>API 文档</h2>
  * <p>https://developer.meituan.com/docs/api/ddzh-tuangou-receipt-querylistbydate</p>
  *
  * @author wandl
  */
 @Tag("integration")
 public class MeituanReceiptQuerylistbydateDebugTest {
+
+    /**
+     * 创建\u7f8e\u56e2\u9a8c\u5238\u8bb0\u5f55\u62c9\u53d6\u8c03\u8bd5\u6d4b\u8bd5\uff08\u771f\u5b9e\u51ed\u8bc1\uff09\u3002的空实例。
+     */
+    public MeituanReceiptQuerylistbydateDebugTest() {
+    }
+
 
     // ==================== 配置区（支持环境变量覆盖） ====================
     /** 美团开发者 ID（如 100000）。 */
@@ -71,12 +78,19 @@ public class MeituanReceiptQuerylistbydateDebugTest {
     private static final int    TYPE_CONSUME  = 0;
     // ==================== 配置区结束 ====================
 
+    /**
+     * 运行当前调试类的官方接口联调流程。
+     *
+     * @param args 命令行参数
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     public static void main(String[] args) throws Exception {
         new MeituanReceiptQuerylistbydateDebugTest().querylistbydate();
     }
 
     /**
      * 分页拉取指定日期的所有验券记录并打印。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
     @Disabled("手动运行：设置环境变量或填入真实凭证后去掉 @Disabled")
@@ -148,6 +162,12 @@ public class MeituanReceiptQuerylistbydateDebugTest {
         System.out.println("已拉取: " + fetchedCount);
     }
 
+    /**
+     * 构造指定偏移量的已验券码分页查询请求。
+     *
+     * @param offset 本页数据的起始偏移量
+     * @return 构造指定偏移量的已验券码分页查询请求的结果
+     */
     private TuangouReceiptQuerylistbydateRequest buildRequest(int offset) {
         TuangouReceiptQuerylistbydateRequest request = new TuangouReceiptQuerylistbydateRequest();
         request.setDate(QUERY_DATE);
@@ -159,6 +179,11 @@ public class MeituanReceiptQuerylistbydateDebugTest {
         return request;
     }
 
+    /**
+     * 输出当前验券记录的主要字段，供本地接口联调核对。
+     *
+     * @param record 从官方响应中读取的验券记录
+     */
     private void printRecord(ReceiptQueryBaseResult record) {
         System.out.println("--------------------------------------------------");
         System.out.println("  flowId(流水号):       " + record.getFlowId());
@@ -179,15 +204,36 @@ public class MeituanReceiptQuerylistbydateDebugTest {
     }
 
     // ==================== 环境变量读取工具 ====================
+    /**
+     * 读取字符串配置，缺失时使用默认值。
+     *
+     * @param key 配置键或消息字段名称
+     * @param def 配置缺失时使用的默认值
+     * @return 读取字符串配置，缺失时使用默认值的结果
+     */
     private static String readString(String key, String def) {
         String v = System.getenv(key);
         return (v == null || v.isEmpty()) ? def : v;
     }
+    /**
+     * 读取长整型配置，缺失时使用默认值。
+     *
+     * @param key 配置键或消息字段名称
+     * @param def 配置缺失时使用的默认值
+     * @return 读取长整型配置，缺失时使用默认值的结果
+     */
     private static Long readLong(String key, Long def) {
         String v = System.getenv(key);
         if (v == null || v.isEmpty()) return def;
         try { return Long.valueOf(v); } catch (NumberFormatException e) { return def; }
     }
+    /**
+     * 读取整数配置，缺失时使用默认值。
+     *
+     * @param key 配置键或消息字段名称
+     * @param def 配置缺失时使用的默认值
+     * @return 读取整数配置，缺失时使用默认值的结果
+     */
     private static Integer readInt(String key, Integer def) {
         String v = System.getenv(key);
         if (v == null || v.isEmpty()) return def;

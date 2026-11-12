@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class HomeServiceInventoryQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5230\u5bb6\u884c\u4e1a\u5e93\u5b58\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public HomeServiceInventoryQueryMessage() {
+    }
+
+
+    /**
      * 预订日期 格式：2019-08-14。必填。
      */
     @JsonProperty("bookdate")
@@ -59,6 +66,13 @@ public class HomeServiceInventoryQueryMessage {
     public static class ServiceAddress {
 
         /**
+         * 创建\u4e0a\u95e8\u670d\u52a1\u5730\u5740 \u6ce8\uff1a\u7c7b\u578b\u4e3a\u5bf9\u8c61\u7c7b\u578b\uff0c\u8be6\u89c1\u6269\u5c55\u53c2\u6570service_address\u3002的空实例。
+         */
+        public ServiceAddress() {
+        }
+
+
+        /**
          * 上门地址。必填。
          */
         @JsonProperty("address")
@@ -92,6 +106,13 @@ public class HomeServiceInventoryQueryMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Product {
+
+        /**
+         * 创建\u4e09\u65b9\u9879\u76ee\u4fe1\u606f \u6ce8\uff1a\u7c7b\u578b\u4e3a\u5bf9\u8c61\u7c7b\u578b\u3002的空实例。
+         */
+        public Product() {
+        }
+
 
         /**
          * 三方的项目 ID。必填。

@@ -21,6 +21,13 @@ import lombok.Setter;
 public class DeliveryReceiptMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u914d\u9001\u6536\u8d27\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public DeliveryReceiptMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -65,6 +72,13 @@ public class DeliveryReceiptMessage {
     public static class AcceptanceOrderOpenDTO {
 
         /**
+         * 创建\u914d\u9001\u6536\u8d27\u5355\u4fe1\u606f\u3002的空实例。
+         */
+        public AcceptanceOrderOpenDTO() {
+        }
+
+
+        /**
          * 配送收货单主单。必填。
          */
         @JsonProperty("item")
@@ -83,6 +97,13 @@ public class DeliveryReceiptMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class AcceptanceOrderItemDTO {
+
+            /**
+             * 创建\u914d\u9001\u6536\u8d27\u5355\u4e3b\u5355\u3002的空实例。
+             */
+            public AcceptanceOrderItemDTO() {
+            }
+
 
             /**
              * 机构Id。
@@ -237,6 +258,13 @@ public class DeliveryReceiptMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u8ba2\u8d27\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -270,6 +298,13 @@ public class DeliveryReceiptMessage {
             public static class OpenOppositeOrgDTO {
 
                 /**
+                 * 创建\u4f9b\u8d27\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 */
+                public OpenOppositeOrgDTO() {
+                }
+
+
+                /**
                  * 对方机构类型,1.供应商,2.组织机构,3.外销客户。
                  */
                 @JsonProperty("type")
@@ -295,6 +330,13 @@ public class DeliveryReceiptMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class SupplyOrgInfoDetails {
+
+                /**
+                 * 创建\u9001\u8d27\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 */
+                public SupplyOrgInfoDetails() {
+                }
+
 
                 /**
                  * 对方机构类型,1.供应商,2.组织机构,3.外销客户。
@@ -324,6 +366,13 @@ public class DeliveryReceiptMessage {
             public static class ReceiveTypeDetails {
 
                 /**
+                 * 创建\u6536\u8d27\u7c7b\u578b\u3002的空实例。
+                 */
+                public ReceiveTypeDetails() {
+                }
+
+
+                /**
                  * id。
                  */
                 @JsonProperty("id")
@@ -343,6 +392,13 @@ public class DeliveryReceiptMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class DeliverOrgInfoDetails {
+
+                /**
+                 * 创建\u914d\u9001\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 */
+                public DeliverOrgInfoDetails() {
+                }
+
 
                 /**
                  * 类型。
@@ -371,6 +427,13 @@ public class DeliveryReceiptMessage {
                 public static class TypeDetails {
 
                     /**
+                     * 创建\u7c7b\u578b\u3002的空实例。
+                     */
+                    public TypeDetails() {
+                    }
+
+
+                    /**
                      * 标识符。
                      */
                     @JsonProperty("id")
@@ -392,6 +455,13 @@ public class DeliveryReceiptMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class AcceptanceOrderItemDetailDTO {
+
+            /**
+             * 创建\u914d\u9001\u6536\u8d27\u5355\u660e\u7ec6\u3002的空实例。
+             */
+            public AcceptanceOrderItemDetailDTO() {
+            }
+
 
             /**
              * 明细 ID。
@@ -540,6 +610,13 @@ public class DeliveryReceiptMessage {
             public static class GoodsOpenDTO {
 
                 /**
+                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
+
+
+                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
@@ -585,6 +662,13 @@ public class DeliveryReceiptMessage {
             public static class WarehouseOpenDTO {
 
                 /**
+                 * 创建\u6536\u8d27\u4ed3\u5e93\u4fe1\u606f\u3002的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
+
+
+                /**
                  * 仓库编码。
                  */
                 @JsonProperty("code")
@@ -612,6 +696,13 @@ public class DeliveryReceiptMessage {
             public static class UnitOpenDTO {
 
                 /**
+                 * 创建\u8ba2\u8d27\u5355\u4f4d\u3002的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
+
+
+                /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
@@ -631,6 +722,13 @@ public class DeliveryReceiptMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class BaseUnitDetails {
+
+                /**
+                 * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                 */
+                public BaseUnitDetails() {
+                }
+
 
                 /**
                  * 单位名称。
@@ -654,6 +752,13 @@ public class DeliveryReceiptMessage {
             public static class MultiUnitAmountOpenDTO {
 
                 /**
+                 * 创建\u6536\u8d27\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 */
+                public MultiUnitAmountOpenDTO() {
+                }
+
+
+                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
@@ -673,6 +778,13 @@ public class DeliveryReceiptMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class DemandAmountDetails {
+
+                /**
+                 * 创建\u8ba2\u8d27\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 */
+                public DemandAmountDetails() {
+                }
+
 
                 /**
                  * 基准单位数量。
@@ -696,6 +808,13 @@ public class DeliveryReceiptMessage {
             public static class ApplyAuditAmountDetails {
 
                 /**
+                 * 创建\u63a5\u5355\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 */
+                public ApplyAuditAmountDetails() {
+                }
+
+
+                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
@@ -717,6 +836,13 @@ public class DeliveryReceiptMessage {
             public static class DeliverAmpuntDetails {
 
                 /**
+                 * 创建\u53d1\u8d27\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 */
+                public DeliverAmpuntDetails() {
+                }
+
+
+                /**
                  * 基准单位数量。
                  */
                 @JsonProperty("baseUnitAmount")
@@ -736,6 +862,13 @@ public class DeliveryReceiptMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class DemandDeliverDiffAmountDetails {
+
+                /**
+                 * 创建\u8ba2\u53d1\u5dee\u5f02\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 */
+                public DemandDeliverDiffAmountDetails() {
+                }
+
 
                 /**
                  * 基准单位数量。

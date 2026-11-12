@@ -19,6 +19,13 @@ import lombok.Setter;
 public class OrderDetailQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u8be6\u60c5\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public OrderDetailQueryResult() {
+    }
+
+
+    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")
@@ -70,6 +77,13 @@ public class OrderDetailQueryResult {
     public static class Driver {
 
         /**
+         * 创建\u9a7e\u9a76\u5458\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public Driver() {
+        }
+
+
+        /**
          * 姓名。必填。
          */
         @JsonProperty("name")
@@ -104,6 +118,13 @@ public class OrderDetailQueryResult {
     public static class BookingInfo {
 
         /**
+         * 创建\u9884\u8ba2\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public BookingInfo() {
+        }
+
+
+        /**
          * 取车信息。必填。
          */
         @JsonProperty("pickUpInfo")
@@ -130,6 +151,13 @@ public class OrderDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderInfo {
+
+        /**
+         * 创建\u8ba2\u5355\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public OrderInfo() {
+        }
+
 
         /**
          * 美团订单id。必填。
@@ -190,6 +218,13 @@ public class OrderDetailQueryResult {
     public static class DepositInfo {
 
         /**
+         * 创建\u62bc\u91d1\u76f8\u5173\u4fe1\u606f\uff08\u4ea7\u751f\u4e86\u62bc\u91d1\u4e8b\u4ef6\u5fc5\u4f20\uff09\u3002的空实例。
+         */
+        public DepositInfo() {
+        }
+
+
+        /**
          * 车损押金 单位分。必填。
          */
         @JsonProperty("carDepositAmount")
@@ -248,6 +283,13 @@ public class OrderDetailQueryResult {
     public static class RenewalOrder {
 
         /**
+         * 创建\u7eed\u79df\u5355\u4fe1\u606f\uff08\u6709\u7eed\u79df\u4fe1\u606f\u5fc5\u4f20\uff09\u3002的空实例。
+         */
+        public RenewalOrder() {
+        }
+
+
+        /**
          * 美团续租订单Id。必填。
          */
         @JsonProperty("mtRenewalOrderId")
@@ -300,6 +342,13 @@ public class OrderDetailQueryResult {
     public static class RentalInfo {
 
         /**
+         * 创建\u53d6\u8f66\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public RentalInfo() {
+        }
+
+
+        /**
          * 商家门店code。必填。
          */
         @JsonProperty("thirdStoreCode")
@@ -332,6 +381,13 @@ public class OrderDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundOrder {
+
+        /**
+         * 创建\u9000\u6b3e\u5355\u5217\u8868 \u5f53\u6709\u9000\u6b3e\u5355\u7684\u65f6\u5019\u5fc5\u4f20\u3002的空实例。
+         */
+        public RefundOrder() {
+        }
+
 
         /**
          * 美团退款流水。必填。
@@ -384,6 +440,13 @@ public class OrderDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DeductOrder {
+
+        /**
+         * 创建\u62bc\u91d1\u6263\u6b3e\u5355\u3002的空实例。
+         */
+        public DeductOrder() {
+        }
+
 
         /**
          * 商家扣款流水号。必填。
@@ -444,6 +507,13 @@ public class OrderDetailQueryResult {
     public static class UnfreezeOrder {
 
         /**
+         * 创建\u62bc\u91d1\u89e3\u51bb\u5355\u3002的空实例。
+         */
+        public UnfreezeOrder() {
+        }
+
+
+        /**
          * 扣款解冻流水号。必填。
          */
         @JsonProperty("mtUnfreezeId")
@@ -494,6 +564,13 @@ public class OrderDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Address {
+
+        /**
+         * 创建\u5730\u5740\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public Address() {
+        }
+
 
         /**
          * 纬度（GCJ-02 坐标系）。必填。

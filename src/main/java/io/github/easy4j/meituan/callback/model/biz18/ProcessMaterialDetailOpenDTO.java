@@ -15,6 +15,13 @@ import lombok.Setter;
 public class ProcessMaterialDetailOpenDTO {
 
     /**
+     * 创建ProcessMaterialDetailOpenDTO\uff0c\u7528\u4e8e\u3010\u4f9b\u5e94\u94fe\u3011\u7ec4\u5408\u52a0\u5de5\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public ProcessMaterialDetailOpenDTO() {
+    }
+
+
+    /**
      * 原材料信息。
      */
     @JsonProperty("goodsInfo")
@@ -131,6 +138,13 @@ public class ProcessMaterialDetailOpenDTO {
     public static class GoodsOpenDTO {
 
         /**
+         * 创建\u539f\u6750\u6599\u4fe1\u606f\u3002的空实例。
+         */
+        public GoodsOpenDTO() {
+        }
+
+
+        /**
          * 物品 ID。
          */
         @JsonProperty("id")
@@ -199,6 +213,13 @@ public class ProcessMaterialDetailOpenDTO {
         public static class UnitOpenDTO {
 
             /**
+             * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+             */
+            public UnitOpenDTO() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -224,6 +245,13 @@ public class ProcessMaterialDetailOpenDTO {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class UnitsItem {
+
+            /**
+             * 创建\u5355\u4f4d\u4fe1\u606f\u3002的空实例。
+             */
+            public UnitsItem() {
+            }
+
 
             /**
              * 单位 ID。
@@ -254,6 +282,13 @@ public class ProcessMaterialDetailOpenDTO {
     public static class WarehouseOpenDTO {
 
         /**
+         * 创建\u51fa(\u5165)\u5e93\u4ed3\u5e93\u3002的空实例。
+         */
+        public WarehouseOpenDTO() {
+        }
+
+
+        /**
          * 仓库 ID。
          */
         @JsonProperty("id")
@@ -279,6 +314,13 @@ public class ProcessMaterialDetailOpenDTO {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class UnitOpenDTO {
+
+        /**
+         * 创建\u6295\u6599\u5355\u4f4d\u3002的空实例。
+         */
+        public UnitOpenDTO() {
+        }
+
 
         /**
          * 单位 ID。

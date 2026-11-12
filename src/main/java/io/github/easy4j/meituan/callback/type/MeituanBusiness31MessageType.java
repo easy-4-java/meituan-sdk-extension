@@ -25,8 +25,17 @@ public enum MeituanBusiness31MessageType implements MeituanMessageType {
      */
     ORDER_STATUS("订单状态回调消息", "3110001", "https://developer.meituan.com/docs/msg/msg_peisongls_7db17451-dac6-4747-bd66-cd6268a37166", OrderStatusMessage.class);
 
+    /**
+     * 当前消息目录所属的官方业务编号。
+     */
     private static final String BUSINESS_ID = "31";
+    /**
+     * 官网消息文档地址的基础路径。
+     */
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
+    /**
+     * 按消息编号建立的只读枚举索引。
+     */
     private static final Map<String, MeituanBusiness31MessageType> BY_MSG_TYPE = Collections.unmodifiableMap(
             Arrays.stream(values())
                     .collect(Collectors.toMap(MeituanBusiness31MessageType::getMsgType, Function.identity()))
@@ -52,6 +61,14 @@ public enum MeituanBusiness31MessageType implements MeituanMessageType {
      */
     private final Class<?> messageClass;
 
+    /**
+     * 登记消息的名称、编号、官网文档和模型类型。
+     *
+     * @param displayName 官网消息名称
+     * @param msgType 平台消息类型编号
+     * @param documentKey 官网文档标识或完整文档地址
+     * @param messageClass 业务消息的反序列化目标类型
+     */
     MeituanBusiness31MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;

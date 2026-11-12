@@ -25,6 +25,11 @@ public final class EmbeddedJsonDeserializer extends ValueDeserializer<Object> {
         this(null);
     }
 
+    /**
+     * 创建绑定指定字段类型的内嵌 JSON 反序列化器。
+     *
+     * @param fieldType 字段声明的目标类型及集合元素类型
+     */
     private EmbeddedJsonDeserializer(JavaType fieldType) {
         this.fieldType = fieldType;
     }
@@ -54,6 +59,15 @@ public final class EmbeddedJsonDeserializer extends ValueDeserializer<Object> {
     }
 
     // 部分示例对同一字段连续编码两次。限制解包层数，同时支持平台直接推送 JSON 对象。
+    /**
+     * 按字段目标类型解包内嵌 JSON，并限制连续解包层数。
+     *
+     * @param parser 定位在业务字段上的 JSON 解析器
+     * @param context 当前 JSON 反序列化上下文
+     * @param type 声明的目标类型
+     * @param depth 当前内嵌 JSON 解包层数
+     * @return 按字段目标类型解包内嵌 JSON，并限制连续解包层数的结果
+     */
     private static Object read(JsonParser parser, DeserializationContext context, JavaType type, int depth) {
         if (parser.hasToken(JsonToken.VALUE_STRING) && depth < 3) {
             String json = parser.getString();

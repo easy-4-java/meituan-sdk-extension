@@ -27,6 +27,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class PackageDeliveryAcceptedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5957\u9910\u914d\u9001\u63a5\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PackageDeliveryAcceptedMessage() {
+    }
+
+
+    /**
      * 门店名称。
      */
     @JsonProperty("poiName")
@@ -267,6 +274,13 @@ public class PackageDeliveryAcceptedMessage {
     public static class GroupDeal {
 
         /**
+         * 创建\u83dc\u54c1\u8be6\u60c5\uff0c\u6ce8\uff1a\u672a\u6765\u8be5\u5b57\u6bb5\u4f1a\u5e9f\u5f03\u3002的空实例。
+         */
+        public GroupDeal() {
+        }
+
+
+        /**
          * 当前菜品组，若商家上单配置了菜品组，则存在该字段。
          */
         @JsonProperty("groupName")
@@ -298,6 +312,13 @@ public class PackageDeliveryAcceptedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundData {
+
+        /**
+         * 创建\u9000\u6b3e\u76f8\u5173\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundData() {
+        }
+
 
         /**
          * 退款申请状态,0=无申请 8=用户申请退款待商家审批 15=用户撤销退款 16=商家审批通过 17=商家审批拒绝 18=系统自动拒绝退款 32=退款中 64=退款完成。

@@ -21,6 +21,13 @@ import lombok.Setter;
 public class StockDiscrepancyMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u5dee\u5f02\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StockDiscrepancyMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -65,6 +72,13 @@ public class StockDiscrepancyMessage {
     public static class DiffOrderDTO {
 
         /**
+         * 创建\u5dee\u5f02\u5355\u4fe1\u606f\u3002的空实例。
+         */
+        public DiffOrderDTO() {
+        }
+
+
+        /**
          * 差异单主单。必填。
          */
         @JsonProperty("item")
@@ -83,6 +97,13 @@ public class StockDiscrepancyMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class DiffOrderItemDTO {
+
+            /**
+             * 创建\u5dee\u5f02\u5355\u4e3b\u5355\u3002的空实例。
+             */
+            public DiffOrderItemDTO() {
+            }
+
 
             /**
              * 总部机构。
@@ -243,6 +264,13 @@ public class StockDiscrepancyMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u5f52\u5c5e\u673a\u6784\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -276,6 +304,13 @@ public class StockDiscrepancyMessage {
             public static class OpenOppositeOrgDTO {
 
                 /**
+                 * 创建\u9001\u8d27\u673a\u6784\u3002的空实例。
+                 */
+                public OpenOppositeOrgDTO() {
+                }
+
+
+                /**
                  * 机构类型。
                  */
                 @JsonProperty("type")
@@ -306,6 +341,13 @@ public class StockDiscrepancyMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class PairDTO {
+
+                    /**
+                     * 创建\u673a\u6784\u7c7b\u578b\u3002的空实例。
+                     */
+                    public PairDTO() {
+                    }
+
 
                     /**
                      * 类型 ID。
@@ -330,6 +372,13 @@ public class StockDiscrepancyMessage {
             public static class DistributionOrgNewDetails {
 
                 /**
+                 * 创建\u4f9b\u8d27\u673a\u6784NEW\u3002的空实例。
+                 */
+                public DistributionOrgNewDetails() {
+                }
+
+
+                /**
                  * 机构类型。
                  */
                 @JsonProperty("type")
@@ -362,6 +411,13 @@ public class StockDiscrepancyMessage {
                 public static class PairDTO {
 
                     /**
+                     * 创建\u673a\u6784\u7c7b\u578b\u3002的空实例。
+                     */
+                    public PairDTO() {
+                    }
+
+
+                    /**
                      * 类型 ID。
                      */
                     @JsonProperty("id")
@@ -382,6 +438,13 @@ public class StockDiscrepancyMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class DealOrgDetails {
+
+                /**
+                 * 创建\u5904\u7406\u673a\u6784\u3002的空实例。
+                 */
+                public DealOrgDetails() {
+                }
+
 
                 /**
                  * 机构 ID。
@@ -415,6 +478,13 @@ public class StockDiscrepancyMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class DistributionOrderPromotionInfoOpenDTO {
+
+                /**
+                 * 创建\u5dee\u5f02\u5355\u5904\u7406\u524d\u4f18\u60e0\u4fe1\u606f\u6c47\u603b\u3002的空实例。
+                 */
+                public DistributionOrderPromotionInfoOpenDTO() {
+                }
+
 
                 /**
                  * 折前金额。
@@ -462,6 +532,13 @@ public class StockDiscrepancyMessage {
             public static class ActualDealPromotionInfoDetails {
 
                 /**
+                 * 创建\u5dee\u5f02\u5355\u5904\u7406\u540e\u4f18\u60e0\u4fe1\u606f\u6c47\u603b\uff08\u591a\u6536\u573a\u666f\u5305\u542b\u51fa\u5e93\u3001\u5c11\u6536\u573a\u666f\u5305\u542b\u62a5\u635f\u548c\u56de\u5e93\uff09\u3002的空实例。
+                 */
+                public ActualDealPromotionInfoDetails() {
+                }
+
+
+                /**
                  * 折前金额。
                  */
                 @JsonProperty("originalMoney")
@@ -506,6 +583,13 @@ public class StockDiscrepancyMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class DiffOrderItemDetailDTO {
+
+            /**
+             * 创建\u5dee\u5f02\u5355\u660e\u7ec6\u3002的空实例。
+             */
+            public DiffOrderItemDetailDTO() {
+            }
+
 
             /**
              * 明细 ID。
@@ -732,6 +816,13 @@ public class StockDiscrepancyMessage {
             public static class GoodsOpenDTO {
 
                 /**
+                 * 创建\u7269\u54c1\u660e\u7ec6\u3002的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
+
+
+                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
@@ -794,6 +885,13 @@ public class StockDiscrepancyMessage {
                 public static class UnitOpenDTO {
 
                     /**
+                     * 创建\u57fa\u51c6\u5355\u4f4d\u540d\u79f0\u3002的空实例。
+                     */
+                    public UnitOpenDTO() {
+                    }
+
+
+                    /**
                      * 单位名称。
                      */
                     @JsonProperty("name")
@@ -813,6 +911,13 @@ public class StockDiscrepancyMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class UnitsItem {
+
+                    /**
+                     * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+                     */
+                    public UnitsItem() {
+                    }
+
 
                     /**
                      * 单位名称。
@@ -837,6 +942,13 @@ public class StockDiscrepancyMessage {
             public static class UnitOpenDTO {
 
                 /**
+                 * 创建\u4e1a\u52a1\u5355\u4f4d\u3002的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
+
+
+                /**
                  * 单位名称。
                  */
                 @JsonProperty("name")
@@ -856,6 +968,13 @@ public class StockDiscrepancyMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class WarehouseOpenDTO {
+
+                /**
+                 * 创建\u6536\u8d27\u4ed3\u5e93\u3002的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
+
 
                 /**
                  * 仓库 ID。
@@ -885,6 +1004,13 @@ public class StockDiscrepancyMessage {
             public static class ApplyReceiveWarehouseDetails {
 
                 /**
+                 * 创建\u95e8\u5e97\u6536\u8d27\u4ed3\u5e93\u3002的空实例。
+                 */
+                public ApplyReceiveWarehouseDetails() {
+                }
+
+
+                /**
                  * 仓库 ID。
                  */
                 @JsonProperty("id")
@@ -910,6 +1036,13 @@ public class StockDiscrepancyMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class DistributionOrderDetailPromotionInfoOpenDTO {
+
+                /**
+                 * 创建\u5dee\u5f02\u5355\u5904\u7406\u524d\u4f18\u60e0\u4fe1\u606f\u3002的空实例。
+                 */
+                public DistributionOrderDetailPromotionInfoOpenDTO() {
+                }
+
 
                 /**
                  * 促销折扣金额。
@@ -991,6 +1124,13 @@ public class StockDiscrepancyMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class ActualDealPromotionInfoDetails {
+
+                /**
+                 * 创建\u5dee\u5f02\u5355\u5904\u7406\u540e\u4f18\u60e0\u4fe1\u606f\uff08\u591a\u6536\u573a\u666f\u5305\u542b\u51fa\u5e93\u3001\u5c11\u6536\u573a\u666f\u5305\u542b\u62a5\u635f\u548c\u56de\u5e93\uff09\u3002的空实例。
+                 */
+                public ActualDealPromotionInfoDetails() {
+                }
+
 
                 /**
                  * 促销折扣金额。

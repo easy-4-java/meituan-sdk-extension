@@ -22,6 +22,13 @@ import tools.jackson.databind.JsonNode;
 public class VoucherPaymentOrderMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u4ee3\u91d1\u5238\u4e70\u5355\u8ba2\u5355\u6d88\u606f\u3010\u5fc5\u63a5\u3011\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public VoucherPaymentOrderMessage() {
+    }
+
+
+    /**
      * 系统订单号。
      */
     @JsonProperty("orderId")
@@ -150,6 +157,13 @@ public class VoucherPaymentOrderMessage {
     public static class CouponInfo {
 
         /**
+         * 创建\u4f18\u60e0\u8be6\u7ec6\u4fe1\u606f\u3002的空实例。
+         */
+        public CouponInfo() {
+        }
+
+
+        /**
          * 优惠类型，
          * 优惠名称 couponType 点评优惠——立减运营活动 10 点评优惠——抵用券 20 点评优惠——优惠代码 21 平台优惠——美团红包 22 平台优惠——美团抵用券 23 点评优惠——红包/现金券 30 点评优惠——积分 40 团购代金券 52 商户优惠——折扣 101 商户优惠——赠品 102 商户优惠——满减 103 商户优惠——满赠券 104 商户优惠-预定立减优惠 105 平台立减-KA铺码 106 商户优惠——尊享券送券 110 商户优惠——尊享券用券 111 商户优惠——抵用券 112 商户优惠——会员卡 113 商户优惠——原价买单 114 商户优惠——美团商家红包 115 商家优惠——美团商家自促抵用券 116 自助餐 117 美团会员卡 118 商家优惠——点评商家自促抵用券 119 商户优惠——预订订金 120 平台优惠——满赠 200。
          */
@@ -194,6 +208,13 @@ public class VoucherPaymentOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundInfo {
+
+        /**
+         * 创建\u9000\u6b3e\u8be6\u7ec6\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundInfo() {
+        }
+
 
         /**
          * 退款来源。

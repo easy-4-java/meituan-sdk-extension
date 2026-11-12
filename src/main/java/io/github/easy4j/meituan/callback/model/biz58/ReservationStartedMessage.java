@@ -26,6 +26,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class ReservationStartedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5f00\u59cb\u9884\u8ba2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReservationStartedMessage() {
+    }
+
+
+    /**
      * 技术合作中心订单 ID。必填。
      */
     @JsonProperty("orderId")
@@ -268,6 +275,13 @@ public class ReservationStartedMessage {
     public static class Product {
 
         /**
+         * 创建\u9884\u8ba2\u5546\u54c1\u4fe1\u606f(\u4e0d\u5305\u542b\u670d\u52a1\u9879\u76ee)\uff0c\u5355\u4e2a\u5546\u54c1\u7684\u6570\u636e\u7ed3\u6784\u67e5\u770b\u4e0b\u6587\u7684product\u8bf4\u660e\u3002的空实例。
+         */
+        public Product() {
+        }
+
+
+        /**
          * 三方商品 ID。
          */
         @JsonProperty("app_product_id")
@@ -375,6 +389,13 @@ public class ReservationStartedMessage {
     public static class OrderShoppromoDetailsItem {
 
         /**
+         * 创建\u6240\u5728\u8ba2\u5355\u5546\u5bb6\u8425\u9500\u8be6\u60c5\u3002的空实例。
+         */
+        public OrderShoppromoDetailsItem() {
+        }
+
+
+        /**
          * 优惠类型，8-商家抵用券，16-美团商家红包，17-商家立减，18-美团商家立减，22-打折卡，2-基础券（包括联合营销券中的商家承担部分）。必填。
          */
         @JsonProperty("promo_type")
@@ -402,6 +423,13 @@ public class ReservationStartedMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RelatedServiceItemItem {
+
+        /**
+         * 创建\u8ba2\u5355\u5173\u8054\u670d\u52a1\u9879\u76ee\uff0c\u683c\u5f0f\u4e3ajson\u6570\u7ec4\uff0c\u89c1related_service_item\u3002的空实例。
+         */
+        public RelatedServiceItemItem() {
+        }
+
 
         /**
          * 商品单价。
@@ -443,6 +471,13 @@ public class ReservationStartedMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class UserAddressDetails {
+
+        /**
+         * 创建\u7528\u6237\u4e0a\u95e8\u5730\u5740(\u53d6\u4ef6\u5730\u5740)\uff0c\u683c\u5f0f\u4e3ajson\uff0c\u89c1address\u3002的空实例。
+         */
+        public UserAddressDetails() {
+        }
+
 
         /**
          * 上门联系用户名称 receiver_mobile 上门联系用户电话(出于对用户隐私的保护，后续该字段会废弃，
@@ -504,6 +539,13 @@ public class ReservationStartedMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DeliveryAddressDetails {
+
+        /**
+         * 创建\u9001\u4ef6\u5730\u5740\uff0c\u683c\u5f0f\u4e3ajson\uff0c\u89c1address\u3002的空实例。
+         */
+        public DeliveryAddressDetails() {
+        }
+
 
         /**
          * 上门联系用户名称 receiver_mobile 上门联系用户电话(出于对用户隐私的保护，后续该字段会废弃，

@@ -21,6 +21,13 @@ import lombok.Setter;
 public class StoreDishMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5e97\u5185\u83dc\u54c1\u6d88\u606f\uff08\u5355\u5e97\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StoreDishMessage() {
+    }
+
+
+    /**
      * 租户 ID。必填。
      */
     @JsonProperty("tenantId")
@@ -87,6 +94,13 @@ public class StoreDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiSpu4CTO {
+
+        /**
+         * 创建\u83dc\u54c1\u5217\u8868\u3002的空实例。
+         */
+        public PoiSpu4CTO() {
+        }
+
 
         /**
          * 商品 ID。
@@ -235,6 +249,13 @@ public class StoreDishMessage {
         public static class PoiSku4CTO {
 
             /**
+             * 创建sku\u89c4\u683c\u5217\u8868\u3002的空实例。
+             */
+            public PoiSku4CTO() {
+            }
+
+
+            /**
              * sku id。
              */
             @JsonProperty("skuId")
@@ -298,6 +319,13 @@ public class StoreDishMessage {
         public static class PoiRemark4CTO {
 
             /**
+             * 创建\u5907\u6ce8\u4fe1\u606f\u3002的空实例。
+             */
+            public PoiRemark4CTO() {
+            }
+
+
+            /**
              * 备注code。
              */
             @JsonProperty("code")
@@ -318,6 +346,13 @@ public class StoreDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiCombo4CTO {
+
+        /**
+         * 创建\u5957\u9910\u5217\u8868\u3002的空实例。
+         */
+        public PoiCombo4CTO() {
+        }
+
 
         /**
          * 套餐 ID。
@@ -418,6 +453,13 @@ public class StoreDishMessage {
         public static class PoiRemark4CTO {
 
             /**
+             * 创建\u5907\u6ce8\u4fe1\u606f\u3002的空实例。
+             */
+            public PoiRemark4CTO() {
+            }
+
+
+            /**
              * 备注code。
              */
             @JsonProperty("code")
@@ -438,6 +480,13 @@ public class StoreDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiCategory4CTO {
+
+        /**
+         * 创建\u5206\u7c7b\u5217\u8868\u3002的空实例。
+         */
+        public PoiCategory4CTO() {
+        }
+
 
         /**
          * 分类 ID。
@@ -509,6 +558,13 @@ public class StoreDishMessage {
     public static class PoiUnit4CTO {
 
         /**
+         * 创建\u5355\u4f4d\u5217\u8868\u3002的空实例。
+         */
+        public PoiUnit4CTO() {
+        }
+
+
+        /**
          * 单位 id。
          */
         @JsonProperty("id")
@@ -558,6 +614,13 @@ public class StoreDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiMethod4CTO {
+
+        /**
+         * 创建\u505a\u6cd5\u5217\u8868\u3002的空实例。
+         */
+        public PoiMethod4CTO() {
+        }
+
 
         /**
          * 做法 id。
@@ -633,6 +696,13 @@ public class StoreDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PoiSpec4CTO {
+
+        /**
+         * 创建\u89c4\u683c\u5217\u8868\u3002的空实例。
+         */
+        public PoiSpec4CTO() {
+        }
+
 
         /**
          * 规格 id。

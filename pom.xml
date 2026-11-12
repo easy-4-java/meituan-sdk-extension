@@ -373,7 +373,15 @@
                         <charset>${project.build.sourceEncoding}</charset>
                         <encoding>${project.build.sourceEncoding}</encoding>
                         <docencoding>${project.build.sourceEncoding}</docencoding>
-                        <failOnError>false</failOnError>
+                        <failOnError>true</failOnError>
+                        <failOnWarnings>true</failOnWarnings>
+                        <doclint>all</doclint>
+                        <show>private</show>
+                        <detectJavaApiLink>false</detectJavaApiLink>
+                        <additionalOptions>
+                            <additionalOption>-Xmaxwarns</additionalOption>
+                            <additionalOption>10000</additionalOption>
+                        </additionalOptions>
                     </configuration>
                     <executions>
                         <execution>
@@ -471,15 +479,6 @@
     </build>
     <!-- 构建 Profile 配置 -->
     <profiles>
-        <profile>
-            <id>disable-javadoc-doclint</id>
-            <activation>
-                <jdk>[1.8,)</jdk>
-            </activation>
-            <properties>
-                <additionalparam>-Xdoclint:none</additionalparam>
-            </properties>
-        </profile>
         <!-- 发布到私有仓库：mvn -Prelease deploy（GPG 签名 + 源码 + Javadoc + Staging 发布插件） -->
         <profile>
             <id>release</id>

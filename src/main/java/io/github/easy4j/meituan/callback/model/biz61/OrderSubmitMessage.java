@@ -21,6 +21,13 @@ import lombok.Setter;
 public class OrderSubmitMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300cORDER_SUBMIT\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderSubmitMessage() {
+    }
+
+
+    /**
      * 唯一key。
      */
     @JsonProperty("uniqueId")
@@ -93,6 +100,13 @@ public class OrderSubmitMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderItemDto {
+
+        /**
+         * 创建\u8ba2\u5355\u8be6\u60c5\u3002的空实例。
+         */
+        public OrderItemDto() {
+        }
+
 
         /**
          * 购买项Id。

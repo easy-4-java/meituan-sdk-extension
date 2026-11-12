@@ -20,6 +20,13 @@ import lombok.Setter;
 public class ReservationCancelledMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u53d6\u6d88\u9884\u8ba2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReservationCancelledMessage() {
+    }
+
+
+    /**
      * 取消类型，1-规则取消：用户正常规则下取消，2-非规则取消：除规则取消之外的其他取消，如用户通过开放平台客服强制取消 3：超退（客服退款）。必填。
      */
     @JsonProperty("cancelType")

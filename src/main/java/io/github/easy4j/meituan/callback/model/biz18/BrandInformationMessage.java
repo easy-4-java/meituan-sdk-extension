@@ -21,6 +21,13 @@ import tools.jackson.databind.JsonNode;
 public class BrandInformationMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u54c1\u724c\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public BrandInformationMessage() {
+    }
+
+
+    /**
      * 品牌 ID。必填。
      */
     @JsonProperty("brandId")

@@ -30,14 +30,14 @@ import java.util.Objects;
  * <p>通过 {@link MeituanRetailService}（meituan-sdk-extension 封装）调用官方 API，
  * 演示完整的多租户配置 + 分页拉取 + 数据打印流程。</p>
  *
- * <h3>使用方法</h3>
+ * <h2>使用方法</h2>
  * <ol>
  *     <li>替换下方配置区的 {@code DEVELOPER_ID / SIGN_KEY / APP_AUTH_TOKEN}</li>
  *     <li>替换 {@code QUERY_DATE} 为要查询的日期</li>
  *     <li>运行 {@code main()} 或去掉 {@code @Disabled} 后运行测试方法</li>
  * </ol>
  *
- * <h3>该测试与 MeituanReceiptQuerylistbydateDebugTest 的区别</h3>
+ * <h2>该测试与 MeituanReceiptQuerylistbydateDebugTest 的区别</h2>
  * <p>本测试使用 SDK 封装层（MeituanRetailService），会经过 MeituanClientFactory →
  * MeituanRequestExecutor → MeituanRetailService 完整链路，验证多租户路由逻辑正确。</p>
  *
@@ -46,23 +46,58 @@ import java.util.Objects;
 @Tag("integration")
 public class MeituanMultiTenantSdkReceiptDebugTest {
 
+    /**
+     * 创建\u4f7f\u7528\u591a\u79df\u6237 SDK \u5c01\u88c5\u62c9\u53d6\u7f8e\u56e2\u9a8c\u5238\u8bb0\u5f55\u3002的空实例。
+     */
+    public MeituanMultiTenantSdkReceiptDebugTest() {
+    }
+
+
     // ==================== 配置区 ====================
+    /**
+     * 测试使用的租户标识。
+     */
     private static final String TENANT_ID      = "debug-tenant";
+    /**
+     * 本地联调使用的美团开发者编号。
+     */
     private static final Long DEVELOPER_ID     = 100000L;
+    /**
+     * 本地联调使用的开发者签名密钥。
+     */
     private static final String SIGN_KEY        = "your-sign-key";
+    /**
+     * 本地联调使用的应用授权 token。
+     */
     private static final String APP_AUTH_TOKEN  = "xxxx";
+    /**
+     * 本地联调查询的业务日期。
+     */
     private static final String QUERY_DATE      = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+    /**
+     * 本地联调每次请求的分页大小。
+     */
     private static final int PAGE_SIZE          = 300;
     // ==================== 配置区结束 ====================
 
+    /**
+     * 处理业务 JSON 的线程安全映射器。
+     */
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
+    /**
+     * 运行当前调试类的官方接口联调流程。
+     *
+     * @param args 命令行参数
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     public static void main(String[] args) throws Exception {
         new MeituanMultiTenantSdkReceiptDebugTest().pullReceiptRecords();
     }
 
     /**
      * 通过多租户 SDK 封装拉取验券记录。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
     void pullReceiptRecords() throws Exception {
@@ -117,6 +152,7 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
      * 演示：将一条验券记录转为 JSON Map（模拟 MeituanOrderPullJobHandler 的处理流程）。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
     void convertRecordToMap() throws Exception {
@@ -143,6 +179,11 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
         System.out.println("解析出的 orderNo: " + orderNo);
     }
 
+    /**
+     * 按本地调试配置创建带租户授权的服务零售门面。
+     *
+     * @return 按本地调试配置创建带租户授权的服务零售门面的结果
+     */
     private MeituanRetailService buildRetailService() {
         // 平台配置（超时等）
         MeituanConfig config = new MeituanConfig();
@@ -166,6 +207,12 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
         return new MeituanRetailServiceImpl(executor);
     }
 
+    /**
+     * 构造指定偏移量的已验券码分页查询请求。
+     *
+     * @param offset 本页数据的起始偏移量
+     * @return 构造指定偏移量的已验券码分页查询请求的结果
+     */
     private TuangouReceiptQuerylistbydateRequest buildRequest(int offset) {
         TuangouReceiptQuerylistbydateRequest request = new TuangouReceiptQuerylistbydateRequest();
         request.setDate(QUERY_DATE);
@@ -177,6 +224,8 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
      * 解析订单号（与 MeituanOrderPullJobHandler.resolveOrderNo 一致）。
+     * @param order order
+     * @return 与请求参数对应的处理结果
      */
     private String resolveOrderNo(Map<String, Object> order) {
         Object flowId = order.get("flowId");
@@ -194,6 +243,11 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
         return "MT-" + order.hashCode();
     }
 
+    /**
+     * 输出当前验券记录的主要字段，供本地接口联调核对。
+     *
+     * @param record 从官方响应中读取的验券记录
+     */
     private void printRecord(ReceiptQueryBaseResult record) {
         System.out.println("  flowId=" + record.getFlowId()
                 + ", receiptCode=" + record.getReceiptCode()

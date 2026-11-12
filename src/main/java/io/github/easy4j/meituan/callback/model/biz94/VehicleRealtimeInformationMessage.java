@@ -22,6 +22,13 @@ import lombok.Setter;
 public class VehicleRealtimeInformationMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5b9e\u65f6\u4fe1\u606f\u63a8\u9001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public VehicleRealtimeInformationMessage() {
+    }
+
+
+    /**
      * 车架号。必填。
      */
     @JsonProperty("vin")
@@ -132,6 +139,13 @@ public class VehicleRealtimeInformationMessage {
     public static class DoorState {
 
         /**
+         * 创建doorState\u3002的空实例。
+         */
+        public DoorState() {
+        }
+
+
+        /**
          * 车门类型。必填。
          */
         @JsonProperty("doorType")
@@ -165,6 +179,13 @@ public class VehicleRealtimeInformationMessage {
     public static class WheelState {
 
         /**
+         * 创建wheelState\u3002的空实例。
+         */
+        public WheelState() {
+        }
+
+
+        /**
          * 轮胎位置: FL/FR/RL/RR。必填。
          */
         @JsonProperty("wheelPosition")
@@ -192,6 +213,13 @@ public class VehicleRealtimeInformationMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class LightState {
+
+        /**
+         * 创建lightState\u3002的空实例。
+         */
+        public LightState() {
+        }
+
 
         /**
          * 灯光类型：TURN_LEFT, TURN_RIGHT, HAZARD, HIGH_BEAM, LOW_BEAM, REAR_LOW_BEAM, FRONT_FOG_LAMP, REAR_FOG_LAMP, BRAKE_LIGHT, BACKUP_LAMP。

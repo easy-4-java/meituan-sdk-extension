@@ -194,9 +194,18 @@ public enum MeituanBusiness59MessageType implements MeituanMessageType {
      */
     MEMBER_UNREGISTERED("会员注销", "5910149", "msg_ddzhkh_f34f7833-4633-4725-98ac-a3ee75ecd32e", MemberUnregisteredMessage.class);
 
+    /**
+     * 当前消息目录所属的官方业务编号。
+     */
     private static final String BUSINESS_ID = "59";
+    /**
+     * 官网消息文档地址的基础路径。
+     */
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
 
+    /**
+     * 按消息编号建立的只读枚举索引。
+     */
     private static final Map<String, MeituanBusiness59MessageType> BY_MSG_TYPE = Collections.unmodifiableMap(
             Arrays.stream(values())
                     .collect(Collectors.toMap(MeituanBusiness59MessageType::getMsgType, Function.identity()))
@@ -222,6 +231,14 @@ public enum MeituanBusiness59MessageType implements MeituanMessageType {
      */
     private final Class<?> messageClass;
 
+    /**
+     * 登记消息的名称、编号、官网文档和模型类型。
+     *
+     * @param displayName 官网消息名称
+     * @param msgType 平台消息类型编号
+     * @param documentKey 官网文档标识或完整文档地址
+     * @param messageClass 业务消息的反序列化目标类型
+     */
     MeituanBusiness59MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;

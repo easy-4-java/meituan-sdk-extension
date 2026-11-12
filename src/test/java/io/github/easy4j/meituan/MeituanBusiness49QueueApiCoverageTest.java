@@ -25,6 +25,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness49QueueApiCoverageTest {
 
+    /**
+     * 创建\u5230\u5e97\u9910\u996e\u6392\u961f\u6e05\u5355\uff08businessId=49\uff09API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness49QueueApiCoverageTest() {
+    }
+
+
+    /**
+     * 排队业务的官方接口路径。
+     */
     private static final Set<String> BUSINESS_49_API_PATHS = io.github.easy4j.meituan.TestCollections.setOf(
             "/dcpd/approval/batchAuthorize",
             "/dcpd/queue/query/shop/state",
@@ -46,6 +56,9 @@ class MeituanBusiness49QueueApiCoverageTest {
             "/dcpd/queue/order/cancel/callback"
     );
 
+    /**
+     * 排队业务接口清单需要覆盖的路径。
+     */
     private static final Set<String> QUEUE_CHECKLIST_API_PATHS = io.github.easy4j.meituan.TestCollections.setOf(
             "/dcpd/queue/shop/config/tableType/sync",
             "/dcpd/queue/shop/config/tableType/clear",
@@ -65,6 +78,10 @@ class MeituanBusiness49QueueApiCoverageTest {
             "/dcpd/queue/order/cancel/callback"
     );
 
+    /**
+     * 验证当前业务的官方请求、接口元数据及业务门面完整对应。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldWrapEveryQueueChecklistApiInCateringFacade() throws Exception {
         Map<String, Class<?>> requestsByPath = business49RequestsByPath();
@@ -90,6 +107,12 @@ class MeituanBusiness49QueueApiCoverageTest {
         assertThat(facadeRequestTypes).containsAll(business49RequestTypes);
     }
 
+    /**
+     * 扫描官方 SDK 并按接口路径索引当前业务的请求类型。
+     *
+     * @return 扫描官方 SDK 并按接口路径索引当前业务的请求类型的结果
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     private Map<String, Class<?>> business49RequestsByPath() throws Exception {
         Map<String, Class<?>> requestsByPath = new HashMap<>();
         File sdkJar = new File(com.meituan.sdk.MeituanClient.class
@@ -103,6 +126,12 @@ class MeituanBusiness49QueueApiCoverageTest {
         return requestsByPath;
     }
 
+    /**
+     * 将当前业务的官方请求按接口路径加入覆盖检查索引。
+     *
+     * @param entry 待检查的官方 SDK JAR 条目
+     * @param requestsByPath 以官方接口路径为键的请求类型索引
+     */
     private void collectBusiness49Request(JarEntry entry, Map<String, Class<?>> requestsByPath) {
         String name = entry.getName();
         if (!name.startsWith("com/meituan/sdk/model/") || !name.endsWith("Request.class")) {

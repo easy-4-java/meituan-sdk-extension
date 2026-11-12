@@ -2652,41 +2652,65 @@ public class MeituanRetailServiceImpl extends AbstractMeituanService implements 
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<Void> imageAsyncUpload(ImageAsyncUploadRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ImageSingleSyncUploadResponse> imageSingleSyncUpload(ImageSingleSyncUploadRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<QueryServiceStatusResponse> queryServiceStatus(QueryServiceStatusRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<SubscriptionStatusSyncResponse> subscriptionStatusSync(SubscriptionStatusSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<List<RReserveOrderSignStatus>> bookQueryOrderSignInfo(BookQueryOrderSignInfoRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<List<RServiceManAuthStatus>> bookQueryServiceManAuthStatus(BookQueryServiceManAuthStatusRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<GreatValueProductSyncResponse> greatValueProductSync(GreatValueProductSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<PageQueryProductsResponse> pageQueryProducts(PageQueryProductsRequest request, String tenantId) {
         return execute(request, tenantId);

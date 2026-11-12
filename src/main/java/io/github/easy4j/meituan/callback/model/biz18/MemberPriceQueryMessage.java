@@ -20,6 +20,13 @@ import lombok.Setter;
 public class MemberPriceQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u5546\u54c1\u4f1a\u5458\u4ef7\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MemberPriceQueryMessage() {
+    }
+
+
+    /**
      * 会员 ID。必填。
      */
     @JsonProperty("memberId")
@@ -50,6 +57,13 @@ public class MemberPriceQueryMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class StandardLoyaltySkus {
+
+        /**
+         * 创建skus\u3002的空实例。
+         */
+        public StandardLoyaltySkus() {
+        }
+
 
         /**
          * 菜品skuId。必填。

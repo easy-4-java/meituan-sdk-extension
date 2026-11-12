@@ -29,8 +29,17 @@ public enum MeituanBusiness55MessageType implements MeituanMessageType {
             "5510001",
             "msg_freetryopen_da0cca39-5099-452f-9d9b-c9bb632c0a81", ActivityChangeNoticeMessage.class);
 
+    /**
+     * 当前消息目录所属的官方业务编号。
+     */
     private static final String BUSINESS_ID = "55";
+    /**
+     * 官网消息文档地址的基础路径。
+     */
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
+    /**
+     * 按消息编号建立的只读枚举索引。
+     */
     private static final Map<String, MeituanBusiness55MessageType> BY_MSG_TYPE = Collections.unmodifiableMap(
             Arrays.stream(values())
                     .collect(Collectors.toMap(MeituanBusiness55MessageType::getMsgType, Function.identity()))
@@ -56,6 +65,14 @@ public enum MeituanBusiness55MessageType implements MeituanMessageType {
      */
     private final Class<?> messageClass;
 
+    /**
+     * 登记消息的名称、编号、官网文档和模型类型。
+     *
+     * @param displayName 官网消息名称
+     * @param msgType 平台消息类型编号
+     * @param documentKey 官网文档标识或完整文档地址
+     * @param messageClass 业务消息的反序列化目标类型
+     */
     MeituanBusiness55MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;

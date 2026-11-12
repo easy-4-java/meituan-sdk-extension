@@ -19,6 +19,13 @@ import lombok.Setter;
 public class QuoteDetailQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u62a5\u4ef7\u8be6\u60c5\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public QuoteDetailQueryResult() {
+    }
+
+
+    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")
@@ -118,6 +125,13 @@ public class QuoteDetailQueryResult {
     public static class Policy {
 
         /**
+         * 创建\u653f\u7b56\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public Policy() {
+        }
+
+
+        /**
          * 退款规则。必填。
          */
         @JsonProperty("cancelRule")
@@ -138,6 +152,13 @@ public class QuoteDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Insurance {
+
+        /**
+         * 创建\u4fdd\u969c\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public Insurance() {
+        }
+
 
         /**
          * 保障服务Code枚举：InsuranceCode。必填。
@@ -192,6 +213,13 @@ public class QuoteDetailQueryResult {
     public static class PickUpMaterial {
 
         /**
+         * 创建\u53d6\u8f66\u6750\u6599\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public PickUpMaterial() {
+        }
+
+
+        /**
          * 驾照要求信息，不传代表没有特殊要求。
          */
         @JsonProperty("driverLicense")
@@ -220,6 +248,13 @@ public class QuoteDetailQueryResult {
     public static class PolicyContent {
 
         /**
+         * 创建\u5176\u4ed6\u653f\u7b56\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public PolicyContent() {
+        }
+
+
+        /**
          * 规则编码，详情见规则编码枚举PolicyModuleCode。必填。
          */
         @JsonProperty("moduleCode")
@@ -240,6 +275,13 @@ public class QuoteDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class InsuranceComponent {
+
+        /**
+         * 创建\u4fdd\u9669\u90e8\u5206\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public InsuranceComponent() {
+        }
+
 
         /**
          * 车损费用。必填。
@@ -276,6 +318,13 @@ public class QuoteDetailQueryResult {
     public static class ContentBlock {
 
         /**
+         * 创建\u672c\u4fdd\u969c\u4e0d\u4e88\u7406\u8d54\u60c5\u51b5\u63cf\u8ff0\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public ContentBlock() {
+        }
+
+
+        /**
          * 二级子标题。
          */
         @JsonProperty("subTitle")
@@ -296,6 +345,13 @@ public class QuoteDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DriverLicense {
+
+        /**
+         * 创建\u9a7e\u7167\u8981\u6c42\u4fe1\u606f\uff0c\u4e0d\u4f20\u4ee3\u8868\u6ca1\u6709\u7279\u6b8a\u8981\u6c42\u3002的空实例。
+         */
+        public DriverLicense() {
+        }
+
 
         /**
          * 驾龄，单位（月），要求驾龄&gt;=n月，不填代表对驾龄没要求。
@@ -326,6 +382,13 @@ public class QuoteDetailQueryResult {
     public static class IDCard {
 
         /**
+         * 创建\u8eab\u4efd\u8bc1\u8981\u6c42\u4fe1\u606f\uff0c\u4e0d\u4f20\u4ee3\u8868\u6ca1\u6709\u7279\u6b8a\u8981\u6c42\u3002的空实例。
+         */
+        public IDCard() {
+        }
+
+
+        /**
          * 是否支持电子身份证，不填表示不支持。
          */
         @JsonProperty("allowDigitCard")
@@ -346,6 +409,13 @@ public class QuoteDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class VehicleDamageInsurance {
+
+        /**
+         * 创建\u8f66\u635f\u8d39\u7528\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public VehicleDamageInsurance() {
+        }
+
 
         /**
          * 是否全额赔付。必填。
@@ -394,6 +464,13 @@ public class QuoteDetailQueryResult {
     public static class ThirdPartyInsurance {
 
         /**
+         * 创建\u4e09\u8005\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public ThirdPartyInsurance() {
+        }
+
+
+        /**
          * 是否全额赔付。必填。
          */
         @JsonProperty("fullCoverage")
@@ -428,6 +505,13 @@ public class QuoteDetailQueryResult {
     public static class DepreciationInsurance {
 
         /**
+         * 创建\u6298\u65e7\u8d39\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public DepreciationInsurance() {
+        }
+
+
+        /**
          * 是否免收。必填。
          */
         @JsonProperty("free")
@@ -460,6 +544,13 @@ public class QuoteDetailQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class LossOfUseInsurance {
+
+        /**
+         * 创建\u505c\u8fd0\u8d39\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public LossOfUseInsurance() {
+        }
+
 
         /**
          * 是否免停运费。必填。

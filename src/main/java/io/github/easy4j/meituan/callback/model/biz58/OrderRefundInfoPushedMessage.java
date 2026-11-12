@@ -21,6 +21,13 @@ import lombok.Setter;
 public class OrderRefundInfoPushedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u9000\u6b3e\u4fe1\u606f\u63a8\u9001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderRefundInfoPushedMessage() {
+    }
+
+
+    /**
      * 美团订单号。必填。
      */
     @JsonProperty("orderId")
@@ -81,6 +88,13 @@ public class OrderRefundInfoPushedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundBaseInfo {
+
+        /**
+         * 创建\u9000\u6b3e\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundBaseInfo() {
+        }
+
 
         /**
          * 退款申请 ID。

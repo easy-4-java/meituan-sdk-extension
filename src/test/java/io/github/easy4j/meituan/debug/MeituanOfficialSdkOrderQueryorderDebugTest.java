@@ -20,14 +20,40 @@ import java.util.Objects;
 @Tag("integration")
 public class MeituanOfficialSdkOrderQueryorderDebugTest {
 
+    /**
+     * 创建\u5b98\u65b9 MtOpJavaSDK \u539f\u59cb\u8c03\u7528\u8c03\u8bd5\u3002的空实例。
+     */
+    public MeituanOfficialSdkOrderQueryorderDebugTest() {
+    }
+
+
+    /**
+     * 本地联调使用的美团开发者编号。
+     */
     private static final Long DEVELOPER_ID = 100000L;
+    /**
+     * 本地联调使用的开发者签名密钥。
+     */
     private static final String SIGN_KEY = "your-sign-key";
+    /**
+     * 本地联调使用的应用授权 token。
+     */
     private static final String APP_AUTH_TOKEN = "xxxx";
 
+    /**
+     * 运行当前调试类的官方接口联调流程。
+     *
+     * @param args 命令行参数
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     public static void main(String[] args) throws Exception {
         new MeituanOfficialSdkOrderQueryorderDebugTest().queryOrder();
     }
 
+    /**
+     * 按调试配置查询官方订单，并输出返回结果。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void queryOrder() throws Exception {
         MeituanClient meituanClient = DefaultMeituanClient.builder(DEVELOPER_ID, SIGN_KEY).build();
@@ -49,6 +75,11 @@ public class MeituanOfficialSdkOrderQueryorderDebugTest {
         printResponse(response);
     }
 
+    /**
+     * 输出官方订单查询的状态码与业务数据。
+     *
+     * @param response 预设或实际接收到的接口响应
+     */
     private void printResponse(MeituanResponse<OrderQueryorderResponse> response) {
         if (Objects.isNull(response)) {
             System.out.println("response is null");

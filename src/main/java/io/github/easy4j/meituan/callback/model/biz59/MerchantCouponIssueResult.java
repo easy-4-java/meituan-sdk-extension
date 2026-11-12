@@ -19,6 +19,13 @@ import lombok.Setter;
 public class MerchantCouponIssueResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5546\u5bb6\u5238\u53d1\u5238\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public MerchantCouponIssueResult() {
+    }
+
+
+    /**
      * 券码。用户券码，【 若需要发多张券时，只返回一张券码则为一码多用，该用户订单内的券都会是相同的券码 】 注：老应用仍可使用该字段传递券码，新三方请使用新券码字段receiptInfoList。
      */
     @JsonProperty("serialNumberList")
@@ -50,6 +57,13 @@ public class MerchantCouponIssueResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ReceiptInfoObj {
+
+        /**
+         * 创建\u5238\u7801\u4fe1\u606f\u5217\u8868\u3002\u53d1\u5238\u6210\u529f\u65f6\uff0c\u5fc5\u4f20\u3002的空实例。
+         */
+        public ReceiptInfoObj() {
+        }
+
 
         /**
          * 券码值。必填（注：对于一码多用的券类型，仅需传递一个券码即可，传递多个相同的则视为发券失败；另外列表内券码值不允许出现重复或空值，否则均视为发券失败！)。

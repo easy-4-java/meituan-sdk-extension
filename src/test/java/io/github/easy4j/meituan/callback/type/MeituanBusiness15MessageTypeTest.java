@@ -13,6 +13,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness15MessageTypeTest {
 
+    /**
+     * 创建\u5230\u5e97\u9910\u996e\u54c1\u724c\u4f1a\u5458\u5361\uff08businessId=15\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness15MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     */
     @Test
     void shouldExposeAllFiveDocumentedMessageTypes() {
         assertThat(MeituanBusiness15MessageType.values()).containsExactly(
@@ -31,6 +41,9 @@ class MeituanBusiness15MessageTypeTest {
                 .isEqualTo("1510003");
     }
 
+    /**
+     * 验证标准回调信封可解析为会员卡事件。
+     */
     @Test
     void shouldResolveModernMessageEnvelope() {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -44,6 +57,9 @@ class MeituanBusiness15MessageTypeTest {
         assertThat(message.getMessage()).contains("USER_GET_CARD_EVENT");
     }
 
+    /**
+     * 验证旧版 invokeType 和 param 字段可以归一化读取。
+     */
     @Test
     void shouldNormalizeLegacyInvokeTypeAndParamEnvelope() {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -58,6 +74,9 @@ class MeituanBusiness15MessageTypeTest {
                 .contains(MeituanBusiness15MessageType.CO_BRANDED_NEW_USER_QUERY);
     }
 
+    /**
+     * 验证标准字段与旧协议字段并存时优先使用标准字段。
+     */
     @Test
     void shouldPreferModernEnvelopeWhenModernAndLegacyFieldsCollide() {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -74,6 +93,9 @@ class MeituanBusiness15MessageTypeTest {
                 .contains(MeituanBusiness15MessageType.MEMBERSHIP_CARD_EVENT);
     }
 
+    /**
+     * 验证未知消息编号仍可通过通用回调读取原文。
+     */
     @Test
     void shouldKeepUnknownMessageAvailableToGenericCallbackConsumers() {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(

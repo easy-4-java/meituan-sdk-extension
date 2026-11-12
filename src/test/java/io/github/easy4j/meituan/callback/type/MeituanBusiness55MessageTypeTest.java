@@ -13,6 +13,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness55MessageTypeTest {
 
+    /**
+     * 创建\u5927\u4f17\u70b9\u8bc4\u514d\u8d39\u8bd5\uff08businessId=55\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness55MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证免费试活动变更消息的编号及枚举解析。
+     */
     @Test
     void shouldExposeAndResolveActivityChangeNotice() {
         assertThat(MeituanBusiness55MessageType.values()).containsExactly(
@@ -35,6 +45,9 @@ class MeituanBusiness55MessageTypeTest {
         assertThat(message.getMessage()).isEqualTo("{\"activityId\":1000}");
     }
 
+    /**
+     * 验证跨业务消息被拒绝，并按通用回调契约处理未知编号。
+     */
     @Test
     void shouldRejectOtherBusinessesAndUnknownMessages() {
         MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(

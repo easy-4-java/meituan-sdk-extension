@@ -18,6 +18,13 @@ import lombok.Setter;
 public class OrderCancelledResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u53d6\u6d88\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public OrderCancelledResult() {
+    }
+
+
+    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")

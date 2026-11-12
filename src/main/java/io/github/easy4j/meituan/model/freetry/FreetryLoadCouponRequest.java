@@ -35,12 +35,18 @@ public class FreetryLoadCouponRequest implements MeituanRequest<FreetryLoadCoupo
     @SerializedName("couponCode")
     private String couponCode;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryLoadCouponResponse> deserializeResponse(String response) {
         Type type = new TypeToken<MeituanResponse<FreetryLoadCouponResponse>>() { }.getType();
         return JsonUtil.fromJson(response, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeToJson() {
         return JsonUtil.toJson(this);

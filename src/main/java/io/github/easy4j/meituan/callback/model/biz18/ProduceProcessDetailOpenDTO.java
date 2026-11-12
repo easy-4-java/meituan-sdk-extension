@@ -15,6 +15,13 @@ import lombok.Setter;
 public class ProduceProcessDetailOpenDTO {
 
     /**
+     * 创建ProduceProcessDetailOpenDTO\uff0c\u7528\u4e8e\u3010\u4f9b\u5e94\u94fe\u3011\u7ec4\u5408\u52a0\u5de5\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public ProduceProcessDetailOpenDTO() {
+    }
+
+
+    /**
      * 组合加工单号。必填。
      */
     @JsonProperty("orderSn")
@@ -143,6 +150,13 @@ public class ProduceProcessDetailOpenDTO {
     public static class OrgOpenDTO {
 
         /**
+         * 创建\u673a\u6784\u3002的空实例。
+         */
+        public OrgOpenDTO() {
+        }
+
+
+        /**
          * 机构 ID。
          */
         @JsonProperty("orgId")
@@ -176,6 +190,13 @@ public class ProduceProcessDetailOpenDTO {
     public static class WarehouseOpenDTO {
 
         /**
+         * 创建\u52a0\u5de5\u95f4\u3002的空实例。
+         */
+        public WarehouseOpenDTO() {
+        }
+
+
+        /**
          * 仓库 ID。
          */
         @JsonProperty("id")
@@ -201,6 +222,13 @@ public class ProduceProcessDetailOpenDTO {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class UserOpenDTO {
+
+        /**
+         * 创建\u521b\u5efa\u4eba\u3002的空实例。
+         */
+        public UserOpenDTO() {
+        }
+
 
         /**
          * id。

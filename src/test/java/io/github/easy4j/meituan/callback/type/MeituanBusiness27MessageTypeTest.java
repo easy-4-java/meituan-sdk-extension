@@ -14,6 +14,16 @@ import static org.assertj.core.api.Assertions.tuple;
  */
 class MeituanBusiness27MessageTypeTest {
 
+    /**
+     * 创建\u5feb\u9a74\uff08businessId=27\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness27MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     */
     @Test
     void shouldExposeAllSixDocumentedMessageTypes() {
         assertThat(MeituanBusiness27MessageType.values())
@@ -56,6 +66,9 @@ class MeituanBusiness27MessageTypeTest {
                 );
     }
 
+    /**
+     * 验证当前业务的已登记消息可解析，其他业务及未知编号保持隔离。
+     */
     @Test
     void shouldResolveDocumentedMessageForBusiness27() {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -69,6 +82,9 @@ class MeituanBusiness27MessageTypeTest {
         assertThat(message.getMessage()).isEqualTo("{\"orderNo\":\"K1000\"}");
     }
 
+    /**
+     * 验证跨业务消息被拒绝，并按通用回调契约处理未知编号。
+     */
     @Test
     void shouldRejectOtherBusinessesAndKeepUndocumentedMessagesAvailable() {
         MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(

@@ -23,6 +23,13 @@ import lombok.Setter;
 public class RefundApplicationPushMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u9000\u6b3e\u7533\u8bf7\u63a8\u9001\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public RefundApplicationPushMessage() {
+    }
+
+
+    /**
      * 服务商入驻技术合作中心得到的唯一身份表示。必填。
      */
     @JsonProperty("developerId")
@@ -55,6 +62,13 @@ public class RefundApplicationPushMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderRefund {
+
+        /**
+         * 创建\u9000\u6b3e\u6d88\u606f\u3002的空实例。
+         */
+        public OrderRefund() {
+        }
+
 
         /**
          * 订单 ID，外卖订单orderIdView。必填。

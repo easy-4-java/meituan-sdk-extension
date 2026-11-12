@@ -20,6 +20,13 @@ import lombok.Setter;
 public class RentalExtensionQuoteQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u7eed\u79df\u62a5\u4ef7\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public RentalExtensionQuoteQueryMessage() {
+    }
+
+
+    /**
      * 美团订单 ID。必填。
      */
     @JsonProperty("mtOrderId")

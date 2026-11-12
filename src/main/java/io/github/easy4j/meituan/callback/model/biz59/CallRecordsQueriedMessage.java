@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class CallRecordsQueriedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u901a\u8bdd\u8bb0\u5f55\uff08\u5bf9\u8d26\u6216\u8865\u507f\u4f7f\u7528\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public CallRecordsQueriedMessage() {
+    }
+
+
+    /**
      * 开始时间，格式yyyyMMddhhmmss。必填。
      */
     @JsonProperty("startTime")

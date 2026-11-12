@@ -18,6 +18,13 @@ import lombok.Setter;
 public class CallRecordsQueriedResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u901a\u8bdd\u8bb0\u5f55\uff08\u5bf9\u8d26\u6216\u8865\u507f\u4f7f\u7528\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public CallRecordsQueriedResult() {
+    }
+
+
+    /**
      * 当前页数。必填。
      */
     @JsonProperty("page")
@@ -55,6 +62,13 @@ public class CallRecordsQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class CallRecord {
+
+        /**
+         * 创建\u901a\u8bdd\u8bb0\u5f55\u3002\u5b98\u7f51\u5c06 records \u7684\u5b57\u6bb5\u7c7b\u578b\u5b9a\u4e49\u4e3a object&lt;Record&gt;\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public CallRecord() {
+        }
+
 
         /**
          * 通话的唯一标识，与查询时保持一致。必填。

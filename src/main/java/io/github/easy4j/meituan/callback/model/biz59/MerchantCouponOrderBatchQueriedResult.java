@@ -21,6 +21,13 @@ import lombok.Setter;
 public class MerchantCouponOrderBatchQueriedResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5546\u5bb6\u5238\u6279\u91cf\u67e5\u8be2\u4e09\u65b9\u8ba2\u5355\u4fe1\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public MerchantCouponOrderBatchQueriedResult() {
+    }
+
+
+    /**
      * 订单号。美团订单号必填。
      */
     @JsonProperty("orderId")
@@ -64,6 +71,13 @@ public class MerchantCouponOrderBatchQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ReceiptInfoResult {
+
+        /**
+         * 创建\u5238\u7801\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public ReceiptInfoResult() {
+        }
+
 
         /**
          * 券号。券码必填。

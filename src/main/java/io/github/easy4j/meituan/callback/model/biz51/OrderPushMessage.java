@@ -22,6 +22,13 @@ import tools.jackson.databind.JsonNode;
 public class OrderPushMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a8\u5355\u63a5\u53e3\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderPushMessage() {
+    }
+
+
+    /**
      * MT订单 ID。必填。
      */
     @JsonProperty("openId")
@@ -212,6 +219,13 @@ public class OrderPushMessage {
     public static class OrderSkuDTO {
 
         /**
+         * 创建\u8ba2\u5355\u5173\u8054\u5355\u54c1\u660e\u7ec6\uff0c\u62c6\u5230\u5355\u4efd\uff08sku\u3001combo\u81f3\u5c11\u6709\u4e00\u4e2a\uff09\u3002的空实例。
+         */
+        public OrderSkuDTO() {
+        }
+
+
+        /**
          * 品牌商品编号。
          */
         @JsonProperty("spuId")
@@ -329,6 +343,13 @@ public class OrderPushMessage {
         public static class SaleAttrDTO {
 
             /**
+             * 创建\u9500\u552e\u5c5e\u6027\u5217\u8868\uff08eg\uff1a\u676f\u578b\u3001\u6e29\u5ea6\u3001\u5496\u5561\u8c46\u7b49\uff09\u3002的空实例。
+             */
+            public SaleAttrDTO() {
+            }
+
+
+            /**
              * 销售属性Code。
              */
             @JsonProperty("code")
@@ -354,6 +375,13 @@ public class OrderPushMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class PremiumDTO {
+
+            /**
+             * 创建Sku\u4e0b\u7684\u914d\u6599\u4fe1\u606f\u3002的空实例。
+             */
+            public PremiumDTO() {
+            }
+
 
             /**
              * 配料Id。
@@ -393,6 +421,13 @@ public class OrderPushMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class SkuActivityDTO {
+
+            /**
+             * 创建\u83dc\u54c1\u6d3b\u52a8\u5217\u8868\uff0c\u4e00\u4efdsku\u4e0a\u53ea\u80fd\u7528\u4e00\u79cd\u4f18\u60e0\u3002的空实例。
+             */
+            public SkuActivityDTO() {
+            }
+
 
             /**
              * 关联活动 ID，如果是团购券和DealInfoDTO#dealId做关联。
@@ -477,6 +512,13 @@ public class OrderPushMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderComboDTO {
+
+        /**
+         * 创建\u8ba2\u5355\u5173\u8054\u5957\u9910\u660e\u7ec6\uff0c\u62c6\u5230\u5355\u4efd\uff08sku\u3001combo\u81f3\u5c11\u6709\u4e00\u4e2a\uff09 \u56e2\u8d2d\u5238\u53ef\u4ee5\u62b5\u6263Combo \u4e5f\u53ef\u4ee5 \u62b5\u6263Sku\uff0c的空实例。
+         */
+        public OrderComboDTO() {
+        }
+
 
         /**
          * combo的标识code。
@@ -575,6 +617,13 @@ public class OrderPushMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class OrderSkuDTO {
+
+            /**
+             * 创建combo sku\u5217\u8868\uff1a \u5982\u679cactivityType = 42 sku\u4e0a\u4e0d\u6279\u4ef7\u6d3b\u52a8OrderSkuDTO#skuActivityDTOList \u4fe1\u606f\u65e0\u3002的空实例。
+             */
+            public OrderSkuDTO() {
+            }
+
 
             /**
              * 品牌商品编号。
@@ -694,6 +743,13 @@ public class OrderPushMessage {
             public static class SaleAttrDTO {
 
                 /**
+                 * 创建\u9500\u552e\u5c5e\u6027\u5217\u8868\uff08eg\uff1a\u676f\u578b\u3001\u6e29\u5ea6\u3001\u5496\u5561\u8c46\u7b49\uff09\u3002的空实例。
+                 */
+                public SaleAttrDTO() {
+                }
+
+
+                /**
                  * 销售属性Code。
                  */
                 @JsonProperty("code")
@@ -719,6 +775,13 @@ public class OrderPushMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class PremiumDTO {
+
+                /**
+                 * 创建Sku\u4e0b\u7684\u914d\u6599\u4fe1\u606f\u3002的空实例。
+                 */
+                public PremiumDTO() {
+                }
+
 
                 /**
                  * 配料Id。
@@ -758,6 +821,13 @@ public class OrderPushMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class SkuActivityDTO {
+
+                /**
+                 * 创建\u83dc\u54c1\u6d3b\u52a8\u5217\u8868\uff0c\u4e00\u4efdsku\u4e0a\u53ea\u80fd\u7528\u4e00\u79cd\u4f18\u60e0\u3002的空实例。
+                 */
+                public SkuActivityDTO() {
+                }
+
 
                 /**
                  * 关联活动 ID，如果是团购券和DealInfoDTO#dealId做关联。
@@ -843,6 +913,13 @@ public class OrderPushMessage {
     public static class DealInfoDTO {
 
         /**
+         * 创建\u56e2\u8d2d\u5238\u4fe1\u606f\u5217\u8868\uff0c\u62c6\u5230\u5355\u4efd\uff08\u56e2\u8d2d\u5238\u5151\u6362\u65f6\u5fc5\u6709\uff09\u3002的空实例。
+         */
+        public DealInfoDTO() {
+        }
+
+
+        /**
          * 团购券批次 ID。
          */
         @JsonProperty("dealId")
@@ -881,6 +958,13 @@ public class OrderPushMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderActivityDTO {
+
+        /**
+         * 创建\u8ba2\u5355\u884c\u6d3b\u52a8\u5217\u8868\uff08\u6574\u5355\u4f18\u60e0\uff09\uff1a\u6574\u5355\u4f18\u60e0\u662f\u57fa\u4e8e\u8ba2\u5355\u7684\uff0c\u4e0d\u4f1a\u6279\u4ef7\u5230sku#activityList\uff0c\u5e76\u4e14\u5728\u7f8e\u56e2\u5185\u90e8\u9664\u4e86\u79ef\u5206\u62b5\u6263\u914d\u6599\u4e4b\u5916\uff0c\u548c\u5176\u4ed6\u8425\u9500\u90fd\u4e92\u65a5\u7684\uff0c的空实例。
+         */
+        public OrderActivityDTO() {
+        }
+
 
         /**
          * 活动 ID。

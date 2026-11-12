@@ -21,7 +21,7 @@ import java.util.UUID;
  * 美团购券准备 + 核销调试测试。
  * <p>覆盖团购验券完整流程：prepare（输码验券校验）→ consume（验券核销）。</p>
  *
- * <h3>使用方法</h3>
+ * <h2>使用方法</h2>
  * <ol>
  *     <li>替换下方 {@code DEVELOPER_ID / SIGN_KEY / APP_AUTH_TOKEN} 为真实凭证</li>
  *     <li>替换 {@code RECEIPT_CODE} 为要验券的真实券码</li>
@@ -29,13 +29,13 @@ import java.util.UUID;
  *     <li>prepare 成功后会自动调 consume 完成核销</li>
  * </ol>
  *
- * <h3>API 文档</h3>
+ * <h2>API 文档</h2>
  * <ul>
  *     <li>验券准备：https://developer.meituan.com/docs/api/ddzh-tuangou-receipt-prepare</li>
  *     <li>验券核销：https://developer.meituan.com/docs/api/ddzh-tuangou-receipt-consume</li>
  * </ul>
  *
- * <h3>验券流程说明</h3>
+ * <h2>验券流程说明</h2>
  * <pre>
  *   用户输入券码
  *       ↓
@@ -54,24 +54,56 @@ import java.util.UUID;
 @Tag("integration")
 public class MeituanReceiptPrepareAndConsumeDebugTest {
 
+    /**
+     * 创建\u7f8e\u56e2\u8d2d\u5238\u51c6\u5907 + \u6838\u9500\u8c03\u8bd5\u6d4b\u8bd5\u3002的空实例。
+     */
+    public MeituanReceiptPrepareAndConsumeDebugTest() {
+    }
+
+
     // ==================== 配置区 ====================
     // 替换为真实凭证
+    /**
+     * 本地联调使用的美团开发者编号。
+     */
     private static final Long DEVELOPER_ID   = 100000L;
+    /**
+     * 本地联调使用的开发者签名密钥。
+     */
     private static final String SIGN_KEY      = "your-sign-key";
+    /**
+     * 本地联调使用的应用授权 token。
+     */
     private static final String APP_AUTH_TOKEN = "xxxx";
     // 要验券的券码（必填）
+    /**
+     * 本地联调使用的券码。
+     */
     private static final String RECEIPT_CODE  = "替换为真实券码";
     // 操作员信息（仅记录用，不影响验券逻辑）
+    /**
+     * 本地联调使用的 ERP 标识。
+     */
     private static final String ERP_ID   = "admin";
+    /**
+     * 本地联调使用的 ERP 名称。
+     */
     private static final String ERP_NAME  = "管理员";
     // ==================== 配置区结束 ====================
 
+    /**
+     * 运行当前调试类的官方接口联调流程。
+     *
+     * @param args 命令行参数
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     public static void main(String[] args) throws Exception {
         new MeituanReceiptPrepareAndConsumeDebugTest().prepareAndConsume();
     }
 
     /**
      * 完整验券流程：prepare → consume。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
      */
     @Test
     @Disabled("手动运行：替换真实凭证和券码后去掉 @Disabled")
@@ -108,6 +140,12 @@ public class MeituanReceiptPrepareAndConsumeDebugTest {
 
     // ==================== Prepare ====================
 
+    /**
+     * 使用调试配置发起验券准备，并返回官方响应。
+     *
+     * @param client 为当前开发者创建的官方客户端
+     * @return 使用调试配置发起验券准备，并返回官方响应的结果
+     */
     private TuangouReceiptPrepareResponse doPrepare(MeituanClient client) {
         TuangouReceiptPrepareRequest request = new TuangouReceiptPrepareRequest();
         request.setReceiptCode(RECEIPT_CODE);
@@ -157,6 +195,12 @@ public class MeituanReceiptPrepareAndConsumeDebugTest {
 
     // ==================== Consume ====================
 
+    /**
+     * 使用验券准备返回的请求标识发起正式验券。
+     *
+     * @param client 为当前开发者创建的官方客户端
+     * @param requestId 验券准备接口返回的请求标识
+     */
     private void doConsume(MeituanClient client, String requestId) {
         TuangouReceiptConsumeRequest request = new TuangouReceiptConsumeRequest();
         request.setReceiptCode(RECEIPT_CODE);

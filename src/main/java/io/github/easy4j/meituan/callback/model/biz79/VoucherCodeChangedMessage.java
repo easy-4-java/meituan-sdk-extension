@@ -20,6 +20,13 @@ import lombok.Setter;
 public class VoucherCodeChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5238\u7801\u53d8\u66f4\u63a8\u9001\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public VoucherCodeChangedMessage() {
+    }
+
+
+    /**
      * 消息推送时间戳，单位毫秒。
      */
     @JsonProperty("messagePushTime")
@@ -56,6 +63,13 @@ public class VoucherCodeChangedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class CouponPushMessageListDetails {
+
+        /**
+         * 创建\u5238\u7801\u5217\u8868\u3002的空实例。
+         */
+        public CouponPushMessageListDetails() {
+        }
+
 
         /**
          * 券码，支持bin码。
@@ -106,6 +120,13 @@ public class VoucherCodeChangedMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ExtendMapDetails {
+
+            /**
+             * 创建\u6269\u5c55\u53c2\u6570\u3002的空实例。
+             */
+            public ExtendMapDetails() {
+            }
+
 
             /**
              * 可能包含非数字字符。 couponCode归属用户手机号，加密传输。
@@ -159,6 +180,13 @@ public class VoucherCodeChangedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ExtendInfoDetails {
+
+        /**
+         * 创建\u9884\u7559\u6269\u5c55\u5b57\u6bb5\u3002的空实例。
+         */
+        public ExtendInfoDetails() {
+        }
+
 
         /**
          * 梯次卡标识，梯次卡必传。

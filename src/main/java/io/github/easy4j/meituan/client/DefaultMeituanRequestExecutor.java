@@ -124,6 +124,8 @@ public class DefaultMeituanRequestExecutor implements MeituanRequestExecutor {
 
     /**
      * 根据租户密钥选择官方 client。
+     * @param tenantConfig 本次调用使用的租户开发者凭据和授权配置
+     * @return 所选租户对应的官方客户端
      */
     private MeituanClient resolveClient(MeituanTenantConfig tenantConfig) {
         if (Objects.nonNull(defaultMeituanClient)) {
@@ -135,6 +137,8 @@ public class DefaultMeituanRequestExecutor implements MeituanRequestExecutor {
 
     /**
      * 构造 client 缓存 key，避免在日志或异常中暴露 signKey 原文。
+     * @param tenantConfig 本次调用使用的租户开发者凭据和授权配置
+     * @return 不包含签名密钥原文的客户端缓存标识
      */
     private String buildClientCacheKey(MeituanTenantConfig tenantConfig) {
         return tenantConfig.getDeveloperId() + ":" + Integer.toHexString(tenantConfig.getSignKey().hashCode());
@@ -142,6 +146,9 @@ public class DefaultMeituanRequestExecutor implements MeituanRequestExecutor {
 
     /**
      * 保留官方 SDK 的错误码与错误信息，避免上层只能看到租户标识而无法定位参数、网络或签名问题。
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @param exception 官方 SDK 返回的调用异常
+     * @return 包含官方错误码和说明的请求失败信息
      */
     private String buildRequestFailureMessage(String tenantId, MtSdkException exception) {
         return "Meituan request failed for tenant: " + tenantId

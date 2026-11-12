@@ -20,6 +20,13 @@ import lombok.Setter;
 public class SmsDeliveryResultMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u77ed\u4fe1\u53d1\u9001\u7ed3\u679c\u56de\u8c03\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public SmsDeliveryResultMessage() {
+    }
+
+
+    /**
      * 消息标识。必填。
      */
     @JsonProperty("msgId")

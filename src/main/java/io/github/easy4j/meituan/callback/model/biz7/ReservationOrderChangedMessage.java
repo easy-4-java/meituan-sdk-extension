@@ -25,6 +25,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class ReservationOrderChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u53d8\u66f4\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReservationOrderChangedMessage() {
+    }
+
+
+    /**
      * 厂商门店 ID。必填。
      */
     @JsonProperty("ePoiId")
@@ -46,6 +53,13 @@ public class ReservationOrderChangedMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Order {
+
+        /**
+         * 创建\u4e1a\u52a1\u53c2\u6570\u3002的空实例。
+         */
+        public Order() {
+        }
+
 
         /**
          * 预订订单号。必填。
@@ -121,6 +135,13 @@ public class ReservationOrderChangedMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ErbUserModifyOrderPushParam {
+
+            /**
+             * 创建\u7528\u6237\u4fee\u6539\u4fe1\u606f\u3002的空实例。
+             */
+            public ErbUserModifyOrderPushParam() {
+            }
+
 
             /**
              * 商家接单后提供完整手机号，解密参考订单接入指南。

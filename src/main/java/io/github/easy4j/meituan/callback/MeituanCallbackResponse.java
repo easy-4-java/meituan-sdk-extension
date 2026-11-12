@@ -44,10 +44,25 @@ public final class MeituanCallbackResponse<T> {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private final String traceId;
 
+    /**
+     * 创建包含状态码、业务结果和可选追踪标识的回执。
+     *
+     * @param code 协议规定的处理结果码
+     * @param message 业务消息对象或处理结果说明
+     * @param data 按接口协议编码的业务数据
+     */
     private MeituanCallbackResponse(int code, String message, T data) {
         this(code, message, data, null);
     }
 
+    /**
+     * 创建包含状态码、业务结果和可选追踪标识的回执。
+     *
+     * @param code 协议规定的处理结果码
+     * @param message 业务消息对象或处理结果说明
+     * @param data 按接口协议编码的业务数据
+     * @param traceId 本次回调的追踪标识
+     */
     @JsonCreator
     private MeituanCallbackResponse(@JsonProperty("code") int code, @JsonProperty("message") String message,
                                     @JsonProperty("data") T data, @JsonProperty("traceId") String traceId) {

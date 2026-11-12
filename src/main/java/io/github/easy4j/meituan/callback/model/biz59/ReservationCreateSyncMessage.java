@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class ReservationCreateSyncMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u521b\u5355\u540c\u6b65\u4e09\u65b9\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReservationCreateSyncMessage() {
+    }
+
+
+    /**
      * 预约单 ID。必填。
      */
     @JsonProperty("leadsId")
@@ -131,6 +138,13 @@ public class ReservationCreateSyncMessage {
     public static class LeadsReferListDetails {
 
         /**
+         * 创建\u8ba2\u5355\u5173\u8054 ID \u5217\u8868\uff08jsonarray \u5b57\u7b26\u4e32\uff09\u3002的空实例。
+         */
+        public LeadsReferListDetails() {
+        }
+
+
+        /**
          * 关联 ID 类型 36：美团统一交易订单 ID 12：美团团购 ID 44：美团券码 45：体检标品 46：orderID（团检订单ID） 47：卡号（三方发券需要） 48：卡密（三方发券需要，
          * 不加密） 50：spuId（标品ID） 51：三方商品 ID C 端个检商家发券返回：36美团统一交易订单 ID、51三方商品 ID、47卡号、48卡密 C 端个检平台发券返回：36美团统一交易订单 ID、12美团团购 ID、44美团券码 团检返回：45体检标品、46 orderID、50 spuId。
          */
@@ -153,6 +167,13 @@ public class ReservationCreateSyncMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class HashMap {
+
+        /**
+         * 创建\u8ba2\u5355\u5c5e\u6027map\u3002的空实例。
+         */
+        public HashMap() {
+        }
+
 
         /**
          * 【体检业务使用】是否开通号码保护 true：开通 false：未开通。

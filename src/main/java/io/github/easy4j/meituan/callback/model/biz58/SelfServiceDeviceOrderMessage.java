@@ -23,6 +23,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class SelfServiceDeviceOrderMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u81ea\u52a9\u8bbe\u5907\u8ba2\u5355\u4fe1\u606f\u63a8\u9001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public SelfServiceDeviceOrderMessage() {
+    }
+
+
+    /**
      * 美团订单号。必填。
      */
     @JsonProperty("orderId")
@@ -87,6 +94,13 @@ public class SelfServiceDeviceOrderMessage {
     public static class Product {
 
         /**
+         * 创建\u5546\u54c1\u4fe1\u606f(size \u4e3a1)\u3002的空实例。
+         */
+        public Product() {
+        }
+
+
+        /**
          * 美团商品 ID。
          */
         @JsonProperty("productId")
@@ -118,6 +132,13 @@ public class SelfServiceDeviceOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderPriceDTO {
+
+        /**
+         * 创建\u56e2\u8d2d\u666e\u901a\u5355\u76f8\u5173\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+         */
+        public OrderPriceDTO() {
+        }
+
 
         /**
          * 订单金额。

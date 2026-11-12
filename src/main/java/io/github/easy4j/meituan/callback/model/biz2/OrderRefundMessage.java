@@ -25,6 +25,13 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class OrderRefundMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u9000\u6b3e\u7c7b\u6d88\u606f\u63a5\u53e3\u3010\u5fc5\u987b\u3011\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderRefundMessage() {
+    }
+
+
+    /**
      * 服务商入驻技术合作中心得到的唯一身份表示。必填。
      */
     @JsonProperty("developerId")
@@ -58,6 +65,13 @@ public class OrderRefundMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderRefund {
+
+        /**
+         * 创建\u9000\u6b3e\u6d88\u606f\u3002的空实例。
+         */
+        public OrderRefund() {
+        }
+
 
         /**
          * 订单号。

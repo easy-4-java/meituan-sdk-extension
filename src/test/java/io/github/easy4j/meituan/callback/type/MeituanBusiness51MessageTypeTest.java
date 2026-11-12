@@ -14,6 +14,16 @@ import static org.assertj.core.api.Assertions.tuple;
  */
 class MeituanBusiness51MessageTypeTest {
 
+    /**
+     * 创建\u5230\u5e97\u9910\u996e\u5728\u7ebf\u70b9\uff08businessId=51\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness51MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     */
     @Test
     void shouldExposeAllTwelveDocumentedMessageTypes() {
         assertThat(MeituanBusiness51MessageType.values()).containsExactly(
@@ -100,6 +110,9 @@ class MeituanBusiness51MessageTypeTest {
                 );
     }
 
+    /**
+     * 验证当前业务的已登记消息可解析，其他业务及未知编号保持隔离。
+     */
     @Test
     void shouldResolveDocumentedMessageForBusiness51() {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -113,6 +126,9 @@ class MeituanBusiness51MessageTypeTest {
         assertThat(message.getMessage()).isEqualTo("{\"orderId\":1000}");
     }
 
+    /**
+     * 验证跨业务消息被拒绝，并按通用回调契约处理未知编号。
+     */
     @Test
     void shouldRejectOtherBusinessesAndKeepUndocumentedMessagesAvailable() {
         MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(

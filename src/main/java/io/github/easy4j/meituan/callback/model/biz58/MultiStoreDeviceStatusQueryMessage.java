@@ -21,6 +21,13 @@ import lombok.Setter;
 public class MultiStoreDeviceStatusQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u591a\u95e8\u5e97\u4e09\u65b9\u8bbe\u5907\u53f7\u6279\u91cf\u67e5\u8be2\u8bbe\u5907\u72b6\u6001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MultiStoreDeviceStatusQueryMessage() {
+    }
+
+
+    /**
      * 三方设备 ID 列表。必填。
      */
     @JsonProperty("thirdPartyDeviceItemIds")
