@@ -1,6 +1,12 @@
 package io.github.easy4j.meituan.callback;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.github.easy4j.meituan.callback.business3.model.FlashOrderAcknowledgement;
 import lombok.Getter;
+import tools.jackson.databind.json.JsonMapper;
+
+import java.util.Objects;
 
 /**
  * 美团消息回调标准响应。
@@ -11,19 +17,24 @@ public final class MeituanCallbackResponse {
     /**
      * 响应状态码。成功为 {@code 0}。
      */
+    @JsonProperty("code")
     private final int code;
 
     /**
      * 返回给平台的处理结果说明。
      */
+    @JsonProperty("message")
     private final String message;
 
     /**
      * 业务响应的 JSON 字符串；无业务数据时为 {@code null}。
      */
+    @JsonProperty("data")
     private final String data;
 
-    private MeituanCallbackResponse(int code, String message, String data) {
+    @JsonCreator
+    private MeituanCallbackResponse(@JsonProperty("code") int code, @JsonProperty("message") String message,
+                                    @JsonProperty("data") String data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -49,6 +60,26 @@ public final class MeituanCallbackResponse {
      */
     public static MeituanCallbackResponse successJson(String dataJson) {
         return new MeituanCallbackResponse(0, "success", dataJson);
+    }
+
+    /**
+     * 将业务对象序列化一次，生成标准同步回调所需的 JSON 字符串字段 {@code data}。
+     *
+     * @param data 业务对象或列表，为空时等同于 {@link #success()}；
+     *             已序列化的 JSON 文本请使用 {@link #successJson(String)}
+     * @return 携带业务数据的成功响应
+     */
+    public static MeituanCallbackResponse successData(Object data) {
+        return Objects.isNull(data) ? success() : successJson(JsonMapper.shared().writeValueAsString(data));
+    }
+
+    /**
+     * 构造闪惠接收订单推送（业务 3、消息 310001）的专用成功回执。
+     *
+     * @return 仅含 {@code data="ok"} 的回执
+     */
+    public static FlashOrderAcknowledgement flashOrderSuccess() {
+        return new FlashOrderAcknowledgement("ok");
     }
 
     /**

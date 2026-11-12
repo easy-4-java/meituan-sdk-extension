@@ -206,7 +206,7 @@ cachedStorage.evict("tenant-a");              // 清除单个条目
 ### 消息回调与业务模型
 
 businessId=58/59/71 的消息使用 URL-encoded 公共参数，并在 `message` 字段中携带业务 JSON。
-SDK 使用 Jackson 3 将业务 JSON 转为 `MeituanCallbackMessage<T>`，通过 `CallbackUtil` 提供两个入口。
+SDK 使用 Jackson 3 将业务 JSON 转为 `MeituanCallbackMessage<T>`，可显式指定模型，也可按业务 ID 和消息类型自动选择模型。
 Servlet 入口使用 `jakarta.servlet.http.HttpServletRequest`，由宿主 Web 容器提供 Servlet API。
 
 ```java
@@ -220,14 +220,31 @@ MeituanCallbackMessage<MemberCreatedMessage> parsed =
 MemberCreatedMessage member = parsed.getMessage();
 ```
 
-各业务的接口清单在消息行提供“消息模型”源码链接。已知类型可直接传入对应的 class；
-通用入口可用 `MeituanCallbackModels.find(businessId, msgType)` 查找类型，未登记时返回空。
+各业务的接口清单在消息行提供「消息模型」和已定义的「响应模型」源码链接。
+`CallbackUtil.parse(request)` 和 `CallbackUtil.parse(query, body)` 返回 `MeituanCallbackMessage<?>`，
+按 `businessId` 与 `msgType`（旧会员卡为 `invokeType`）共同匹配。
+未登记的组合保留 `message` 或 `param` 原文及全部验签参数；没有这两个字段时业务内容为空。
+智能版的「会员订单可用券列表」「会员优惠券核销」「逆向单消息」文档未公布类型编号，可显式传入表格链接中的模型。
 标准消息从 `message` 读取，历史会员卡从 `param` 读取。闪惠订单使用 `params`，部分外卖旧协议直接使用表单字段。
 正文同名字段优先于查询串，未知业务字段会被忽略。
 原始表单参数保留在 `getParameters()` 中，原始业务 JSON 可通过 `getRawMessage()` 获取，验签使用原始参数。
 JSON 对象型 `message` 会被序列化为参数值，无法保留其输入 JSON 的空白与格式，应按平台实际发送的表单验签。
-缺少消息、无效 JSON、类型转换失败或请求读取失败会抛出 `IllegalArgumentException`。
+解析已知模型时，缺少消息、无效 JSON、类型转换失败或请求读取失败会抛出 `IllegalArgumentException`。
 预订新订单模型将字符串形式的 `data` 和 `requirements` 映射为嵌套对象，可调用 `getData().getRequirements().getRemark()` 读取备注。使用自定义模型并声明为 `String` 时仍保留原文。
+
+标准同步响应使用 `MeituanCallbackResponse.successData(result)`，Jackson 会将对象或列表写入外层的字符串字段 `data`。
+已有 JSON 文本可传给 `successJson(json)`。例如预订拒单可按下面的方式返回。
+
+```java
+ReservationOrderDecision decision = new ReservationOrderDecision();
+decision.setResult(2);
+decision.setRejectReason(2); // 该桌型已订满
+return MeituanCallbackResponse.successData(decision);
+```
+
+智能版会员券核销的官网示例直接嵌套业务对象，使用 `new MeituanObjectCallbackResponse<>(0, "ok", result)`。
+闪惠接收订单推送使用 `MeituanCallbackResponse.flashOrderSuccess()`，返回 `{"data":"ok"}`。
+服务零售「单个查询库存」和「批量获取库存」使用 `InventoryQueryResponse`，其返回码为字符串，说明字段名为 `msg`。
 
 现有 `MeituanCallbackParser` 返回 `MeituanCallbackMessage<String>`，继续支持原始字符串处理方式。
 `MeituanCallbackMessage` 已泛型化，显式声明为原始类型的调用方应补上 `<String>` 或业务类型，并重新编译。

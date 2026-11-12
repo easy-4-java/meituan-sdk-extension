@@ -219,7 +219,10 @@ parsing, signature verification, message-type resolution, and response models:
 
 The message rows in [the interface lists](docs/) link to their Java payload classes.
 For member creation, pass `io.github.easy4j.meituan.callback.business59.model.MemberCreatedMessage.class`.
-`MeituanCallbackModels.find(businessId, msgType)` returns the registered class when available.
+`CallbackUtil.parse(request)` and `CallbackUtil.parse(query, body)` return a `MeituanCallbackMessage<?>`
+using both `businessId` and `msgType` (or the legacy `invokeType`). Unknown combinations retain the
+decoded `message` or `param` text and signing parameters. If neither field exists, the payload is null.
+Pass an explicit class for the three restaurant POS callbacks whose documentation omits the type ID.
 Reservation payloads expose nested JSON strings as typed objects. Some legacy formats use
 `param`, `params`, or named form fields instead of `message`.
 
@@ -227,10 +230,17 @@ Reservation payloads expose nested JSON strings as typed objects. Some legacy fo
 `CallbackUtil.parse(query, body, Payload.class)` accepts a query string and a form string,
 JSON envelope, decoded map, or envelope object. Both return `MeituanCallbackMessage<Payload>`
 and map the business message with Jackson 3. Body parameters take precedence over query parameters.
-Unknown payload properties are ignored. Invalid or missing payloads throw `IllegalArgumentException`.
+Unknown payload properties are ignored. Invalid or missing payloads for a known model throw `IllegalArgumentException`.
 Use `getParameters()` for signature verification and `getRawMessage()` to access the original message.
 Object-valued JSON messages are serialized into parameter values, so their original JSON formatting
 is unavailable. Verify signatures against the actual form parameters sent by the platform.
+The interface tables also link to typed response data. For standard synchronous callbacks,
+`MeituanCallbackResponse.successData(result)` serializes an object or list into the string-valued
+`data` field. Use `successJson(json)` when the result is already JSON text. For POS coupon redemption,
+the official example uses a nested object: `new MeituanObjectCallbackResponse<>(0, "ok", result)`.
+Use `MeituanCallbackResponse.flashOrderSuccess()` for the Flash Order acknowledgement `{"data":"ok"}`.
+The single and batch inventory callbacks with a string status code and a `msg` field use `InventoryQueryResponse`.
+
 The existing parser returns `MeituanCallbackMessage<String>`.
 Raw-type callers should add `<String>` or their payload type and recompile after this API change.
 

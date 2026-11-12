@@ -73,19 +73,17 @@ public final class MeituanCallbackMessage<T> {
     private final Map<String, String> parameters;
 
     MeituanCallbackMessage(Map<String, String> parameters, T message) {
-        this(parameters, message, StrUtil.isNotBlank(parameters.get("message"))
-                ? parameters.get("message") : parameters.get("param"));
+        this(parameters, message, rawMessage(parameters));
     }
 
     MeituanCallbackMessage(Map<String, String> parameters, T message, String rawMessage) {
         Map<String, String> copiedParameters = new LinkedHashMap<>(parameters);
         this.parameters = Collections.unmodifiableMap(copiedParameters);
-        this.msgType = MeituanCallbackParser.findValue(
-                copiedParameters, "msgType", "msg_type", "msgtype", "invokeType", "invoke_type");
+        this.msgType = msgType(copiedParameters);
         this.timestamp = MeituanCallbackParser.findValue(copiedParameters, "timestamp");
         this.sign = MeituanCallbackParser.findValue(copiedParameters, "sign", "signature");
         this.developerId = MeituanCallbackParser.findValue(copiedParameters, "developerId", "developer_id");
-        this.businessId = MeituanCallbackParser.findValue(copiedParameters, "businessId", "business_id");
+        this.businessId = businessId(copiedParameters);
         this.msgId = MeituanCallbackParser.findValue(copiedParameters, "msgId", "msg_id", "msgid");
         this.opBizCode = MeituanCallbackParser.findValue(copiedParameters, "opBizCode", "op_biz_code", "opbizcode");
         this.ePoiId = MeituanCallbackParser.findValue(copiedParameters, "ePoiId", "e_poi_id");
@@ -93,4 +91,15 @@ public final class MeituanCallbackMessage<T> {
         this.rawMessage = rawMessage;
     }
 
+    static String msgType(Map<String, String> parameters) {
+        return MeituanCallbackParser.findValue(parameters, "msgType", "msg_type", "msgtype", "invokeType", "invoke_type");
+    }
+
+    static String businessId(Map<String, String> parameters) {
+        return MeituanCallbackParser.findValue(parameters, "businessId", "business_id");
+    }
+
+    static String rawMessage(Map<String, String> parameters) {
+        return StrUtil.isNotBlank(parameters.get("message")) ? parameters.get("message") : parameters.get("param");
+    }
 }

@@ -30,6 +30,31 @@ public final class CallbackUtil {
     }
 
     /**
+     * 根据业务 ID 和消息类型选择已登记的回调模型。
+     * 未登记的组合保留解码后的业务原文和全部验签参数。
+     *
+     * @param request Servlet 回调请求，须在消费请求体前调用
+     * @return 包含已登记业务对象或原文的回调
+     * @throws IllegalArgumentException 请求读取失败或已登记消息的内容无效
+     */
+    public static MeituanCallbackMessage<?> parse(HttpServletRequest request) {
+        return dispatch(readParameters(request));
+    }
+
+    /**
+     * 合并查询串和正文，按业务 ID 和消息类型（含旧协议的 {@code invokeType}）解析。
+     * 未匹配时保留原文，缺少 {@code message} 和 {@code param} 时业务内容为空。
+     *
+     * @param query 可带问号的 URL 编码查询串，可为空
+     * @param body 表单、JSON 信封或已解码的参数，可为空；同名参数以正文为准
+     * @return 包含已登记业务对象或原文及验签参数的回调
+     * @throws IllegalArgumentException 正文无效或已登记消息转换失败
+     */
+    public static MeituanCallbackMessage<?> parse(String query, Object body) {
+        return dispatch(readParameters(query, body));
+    }
+
+    /**
      * 解析 Servlet 回调请求。
      *
      * <p>表单参数由容器解码；其他请求从查询串与正文读取。</p>
@@ -42,16 +67,20 @@ public final class CallbackUtil {
      * @throws IllegalArgumentException 请求读取失败、缺少业务消息或业务消息格式错误
      */
     public static <T> MeituanCallbackMessage<T> parse(HttpServletRequest request, Class<T> msgClass) {
-        Objects.requireNonNull(request, "request must not be null");
         Objects.requireNonNull(msgClass, "msgClass must not be null");
+        return bind(readParameters(request), msgClass);
+    }
+
+    private static Map<String, String> readParameters(HttpServletRequest request) {
+        Objects.requireNonNull(request, "request must not be null");
         try {
             if (Objects.isNull(request.getCharacterEncoding())) {
                 request.setCharacterEncoding(StandardCharsets.UTF_8.name());
             }
             if (ContentType.isFormUrlEncode(request.getContentType())) {
-                return parse(null, JakartaServletUtil.getParams(request), msgClass);
+                return readParameters(null, JakartaServletUtil.getParams(request));
             }
-            return parse(request.getQueryString(), JakartaServletUtil.getBody(request), msgClass);
+            return readParameters(request.getQueryString(), JakartaServletUtil.getBody(request));
         } catch (IOException | IORuntimeException e) {
             Throwable cause = e instanceof IORuntimeException ? e.getCause() : e;
             throw new IllegalArgumentException("Cannot read Meituan callback request", cause);
@@ -79,6 +108,10 @@ public final class CallbackUtil {
      */
     public static <T> MeituanCallbackMessage<T> parse(String query, Object body, Class<T> msgClass) {
         Objects.requireNonNull(msgClass, "msgClass must not be null");
+        return bind(readParameters(query, body), msgClass);
+    }
+
+    private static Map<String, String> readParameters(String query, Object body) {
         Map<String, String> parameters = new LinkedHashMap<>();
         if (StrUtil.isNotBlank(query)) {
             String form = query.startsWith("?") ? query.substring(1) : query;
@@ -89,10 +122,25 @@ public final class CallbackUtil {
 
         try {
             appendBody(parameters, body);
-            String rawMessage = parameters.get("message");
-            if (StrUtil.isBlank(rawMessage)) {
-                rawMessage = parameters.get("param");
-            }
+            return parameters;
+        } catch (RuntimeException e) {
+            throw new IllegalArgumentException("Cannot read Meituan callback parameters", e);
+        }
+    }
+
+    private static MeituanCallbackMessage<?> dispatch(Map<String, String> parameters) {
+        var model = MeituanCallbackModels.find(MeituanCallbackMessage.businessId(parameters),
+                MeituanCallbackMessage.msgType(parameters));
+        if (model.isPresent()) {
+            return bind(parameters, model.get());
+        }
+        String rawMessage = MeituanCallbackMessage.rawMessage(parameters);
+        return new MeituanCallbackMessage<>(parameters, rawMessage, rawMessage);
+    }
+
+    private static <T> MeituanCallbackMessage<T> bind(Map<String, String> parameters, Class<T> msgClass) {
+        try {
+            String rawMessage = MeituanCallbackMessage.rawMessage(parameters);
             CallbackPayload payload = msgClass.getAnnotation(CallbackPayload.class);
             if (StrUtil.isBlank(rawMessage) && Objects.nonNull(payload)) {
                 if (payload.value().isEmpty() && !parameters.isEmpty()) {
