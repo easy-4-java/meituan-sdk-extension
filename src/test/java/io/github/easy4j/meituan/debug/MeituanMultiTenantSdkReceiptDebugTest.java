@@ -224,7 +224,7 @@ public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
      * 解析订单号（与 MeituanOrderPullJobHandler.resolveOrderNo 一致）。
-     * @param order order
+     * @param order 官方订单查询返回的单条订单明细
      * @return 与请求参数对应的处理结果
      */
     private String resolveOrderNo(Map<String, Object> order) {

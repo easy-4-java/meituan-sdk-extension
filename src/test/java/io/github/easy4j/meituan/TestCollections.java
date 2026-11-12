@@ -23,7 +23,7 @@ public final class TestCollections {
      * \u521b\u5efa\u4fdd\u6301\u53c2\u6570\u987a\u5e8f\u7684\u53ef\u53d8\u5217\u8868\u3002
      *
      * @param <T> 本次调用使用的业务数据类型
-     * @param values values
+     * @param values 构造测试列表或集合的元素
      * @return 与请求参数对应的处理结果
      */
     @SafeVarargs
@@ -35,7 +35,7 @@ public final class TestCollections {
      * \u521b\u5efa\u4fdd\u6301\u53c2\u6570\u987a\u5e8f\u7684\u53ef\u53d8\u96c6\u5408\u3002
      *
      * @param <T> 本次调用使用的业务数据类型
-     * @param values values
+     * @param values 构造测试列表或集合的元素
      * @return 与请求参数对应的处理结果
      */
     @SafeVarargs
@@ -47,7 +47,7 @@ public final class TestCollections {
      * 按 key、value 交替参数创建保持顺序的可变映射。
      * @param <K> 本次调用使用的业务数据类型
      * @param <V> 本次调用使用的业务数据类型
-     * @param keyValues keyValues
+     * @param keyValues 按键和值交替排列的测试参数，元素数量应为偶数
      * @return 与请求参数对应的处理结果
      */
     @SuppressWarnings("unchecked")
