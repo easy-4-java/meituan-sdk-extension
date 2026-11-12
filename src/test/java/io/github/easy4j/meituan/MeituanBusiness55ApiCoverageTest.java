@@ -54,6 +54,7 @@ class MeituanBusiness55ApiCoverageTest {
 
         assertThat(facadeRequestTypes).containsExactlyInAnyOrderElementsOf(DOCUMENTED_REQUESTS.keySet());
         assertThat(MeituanFreetryService.class.getDeclaredMethods())
+                .filteredOn(method -> !method.isSynthetic())
                 .extracting(Method::getName)
                 .containsExactlyInAnyOrder(
                         "loadActivityRestriction",

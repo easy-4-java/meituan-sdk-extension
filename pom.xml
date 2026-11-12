@@ -48,6 +48,7 @@
     <properties>
         <!-- ═══ 第一段: 基础属性（自然排序）═══ -->
         <java.version>17</java.version>
+        <argLine></argLine>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.version>4.0.0-rc-5</maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -330,7 +331,7 @@
                     <configuration>
                         <skip>false</skip>
                         <skipTests>false</skipTests>
-                        <argLine>-Xmx1024m -Dfile.encoding=UTF-8</argLine>
+                        <argLine>@{argLine} -Xmx1024m -Dfile.encoding=UTF-8</argLine>
                         <excludedGroups>integration</excludedGroups>
                         <additionalClasspathElements>
                             <additionalClasspathElement>${basedir}/target/test-classes</additionalClasspathElement>
