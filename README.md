@@ -373,7 +373,7 @@ Business 18 identifiers `1810057`, `1810061` and `1810257` support automatic dis
 
 ## 9. API inventories
 
-[`docs/`](docs/) contains 29 API inventories: 19 grouped by the official top-level businesses and 10 additional topic inventories. Top-level tables include descriptions, business IDs, message identifiers, example `opBizCode`, API type, official links and applicable model links. Example `opBizCode` values come from official samples; use your own business parameters in actual requests.
+[`docs/`](docs/) contains 19 API inventories grouped by the official top-level businesses. Tables include descriptions, business IDs, message identifiers, example `opBizCode`, API type, official links and applicable model links. Example `opBizCode` values come from official samples; use your own business parameters in actual requests.
 
 | Category | Inventories |
 |---|---|
@@ -382,14 +382,6 @@ Business 18 identifiers `1810057`, `1810061` and `1810257` support automatic dis
 | Delivery and distribution | [配送服务](docs/配送服务-接口清单.md) · [站外分销](docs/站外分销-接口清单.md) · [自动物流车](docs/自动物流车-接口清单.md) |
 | Marketing and operations | [免费试](docs/免费试-接口清单.md) · [客满满](docs/客满满-接口清单.md) · [快驴](docs/快驴-接口清单.md) · [美团平台直播](docs/美团平台直播-接口清单.md) · [工具型服务](docs/工具型服务-接口清单.md) |
 | Other businesses | [充电宝](docs/充电宝-接口清单.md) · [企业版](docs/企业版-接口清单.md) · [美团收单](docs/美团收单-接口清单.md) · [美团租车](docs/美团租车-接口清单.md) · [酒旅经营宝](docs/酒旅经营宝-接口清单.md) · [游戏实物履约系统](docs/游戏实物履约系统-接口清单.md) |
-
-This branch also retains the following topic inventories for direct business-specific lookup.
-
-| Topic | Inventories |
-|---|---|
-| Catering topics | [到店餐饮品牌会员卡](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E5%93%81%E7%89%8C%E4%BC%9A%E5%91%98%E5%8D%A1-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [到店餐饮在线点](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E5%9C%A8%E7%BA%BF%E7%82%B9-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [到店餐饮排队](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E6%8E%92%E9%98%9F-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [到店餐饮预定](docs/%E5%88%B0%E5%BA%97%E9%A4%90%E9%A5%AE%E9%A2%84%E5%AE%9A-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [餐饮客户解决方案](docs/%E9%A4%90%E9%A5%AE%E5%AE%A2%E6%88%B7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) |
-| Retail and POI topics | [服务零售(客户)](docs/%E6%9C%8D%E5%8A%A1%E9%9B%B6%E5%94%AE%28%E5%AE%A2%E6%88%B7%29%20-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [门店建店直连](docs/%E9%97%A8%E5%BA%97%E5%BB%BA%E5%BA%97%E7%9B%B4%E8%BF%9E-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) |
-| Marketing and delivery topics | [到店广告](docs/%E5%88%B0%E5%BA%97%E5%B9%BF%E5%91%8A-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [大众点评免费试](docs/%E5%A4%A7%E4%BC%97%E7%82%B9%E8%AF%84%E5%85%8D%E8%B4%B9%E8%AF%95-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) · [团购配送](docs/%E5%9B%A2%E8%B4%AD%E9%85%8D%E9%80%81-%E6%8E%A5%E5%8F%A3%E6%B8%85%E5%8D%95.md) |
 
 Inventories cover both APIs and messages, including official entries whose details remain unverified. [MeituanApiCoverageTest](src/test/java/io/github/easy4j/meituan/MeituanApiCoverageTest.java) checks the pinned SDK’s requests; [MeituanMessageTypeCoverageTest](src/test/java/io/github/easy4j/meituan/callback/type/MeituanMessageTypeCoverageTest.java) checks enum/model mappings. Coverage applies to the pinned SDK and registered definitions, not future platform APIs.
 
