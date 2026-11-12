@@ -14,6 +14,13 @@ import lombok.Setter;
 public class PoiSaleTime4CTO {
 
     /**
+     * 创建PoiSaleTime4CTO\uff0c\u7528\u4e8e\u5e97\u5185\u83dc\u54c1\u6d88\u606f\uff08\u603b\u90e8\uff09\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public PoiSaleTime4CTO() {
+    }
+
+
+    /**
      * 开始日期。
      */
     @JsonProperty("saleBeginDate")

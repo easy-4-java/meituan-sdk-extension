@@ -13,6 +13,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness71MessageTypeTest {
 
+    /**
+     * 创建\u95e8\u5e97\u5efa\u5e97\u76f4\u8fde\uff08businessId=71\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness71MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证门店审核通知的编号、能力名称和文档地址。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldExposePoiAuditResultMessageContract() throws Exception {
         assertThat(MeituanBusiness71MessageType.values()).hasSize(1);
@@ -26,6 +37,10 @@ class MeituanBusiness71MessageTypeTest {
                         + "msg_mendianzhilian_2f16b69e-de3b-4f19-a24b-7c38f9bdc40f");
     }
 
+    /**
+     * 验证当前业务的已登记消息可解析，其他业务及未知编号保持隔离。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldResolveOnlyBusiness71MessagesAndPreserveUnknownType() throws Exception {
         MeituanCallbackMessage<String> auditResult = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(

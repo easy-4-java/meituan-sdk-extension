@@ -23,6 +23,13 @@ import lombok.Setter;
 public class OrderFulfillmentQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u8ba2\u5355\u5c65\u7ea6\u4fe1\u606f\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderFulfillmentQueryMessage() {
+    }
+
+
+    /**
      * app_id。必填。
      */
     @JsonProperty("app_id")
@@ -67,6 +74,13 @@ public class OrderFulfillmentQueryMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderQueryParam {
+
+        /**
+         * 创建\u8ba2\u5355\u67e5\u8be2\u53c2\u6570\u3002的空实例。
+         */
+        public OrderQueryParam() {
+        }
+
 
         /**
          * 订单 ID，wm_order_id_view。必填。

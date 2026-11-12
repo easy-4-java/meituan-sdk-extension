@@ -23,6 +23,13 @@ import lombok.Setter;
 public class OrderNotificationMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderNotificationMessage() {
+    }
+
+
+    /**
      * 大订单标识。
      */
     @JsonProperty("bigOrderTag")
@@ -41,6 +48,13 @@ public class OrderNotificationMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderDetailRmsVO {
+
+        /**
+         * 创建\u8ba2\u5355\u8be6\u60c5\u3002\u5982\u679c\u662f\u5927\u8ba2\u5355\uff0c\u9664orderbase\u5916\uff0corderDetailRmsVO\u4e2d\u5176\u4ed6\u5c5e\u6027\u90fd\u4e3a\u7a7a\u3002\u83b7\u53d6\u8ba2\u5355\u5168\u90e8\u4fe1\u606f\uff0c\u8bf7\u901a\u8fc7-\u8ba2\u5355\u8be6\u60c5\u63a5\u53e3\u83b7\u53d6\u3002的空实例。
+         */
+        public OrderDetailRmsVO() {
+        }
+
 
         /**
          * 订单基本信息。
@@ -97,6 +111,13 @@ public class OrderNotificationMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class OrderBaseVO {
+
+            /**
+             * 创建\u8ba2\u5355\u57fa\u672c\u4fe1\u606f\u3002的空实例。
+             */
+            public OrderBaseVO() {
+            }
+
 
             /**
              * 订单Id。
@@ -408,6 +429,13 @@ public class OrderNotificationMessage {
                 isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class OrderItemVO {
+
+            /**
+             * 创建\u8ba2\u5355\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+             */
+            public OrderItemVO() {
+            }
+
 
             /**
              * 订单Id。
@@ -736,6 +764,13 @@ public class OrderNotificationMessage {
             public static class OrderGoodsAttrVO {
 
                 /**
+                 * 创建\u5546\u54c1\u5c5e\u6027JSON\uff1a[{type:0,name:"\u751c\u5ea6",version:1,values:[{value:"\u534a\u7cd6",price:5,actual:3}]}]\u3002的空实例。
+                 */
+                public OrderGoodsAttrVO() {
+                }
+
+
+                /**
                  * 属性类型：0-属性、1-做法、2-标签。
                  */
                 @JsonProperty("type")
@@ -760,6 +795,13 @@ public class OrderNotificationMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class OrderGoodsAttrValueVO {
+
+                    /**
+                     * 创建\u5c5e\u6027\u53d6\u503c\u5217\u8868\u3002的空实例。
+                     */
+                    public OrderGoodsAttrValueVO() {
+                    }
+
 
                     /**
                      * 属性值。
@@ -854,6 +896,13 @@ public class OrderNotificationMessage {
                     public static class DiscountItemVO {
 
                         /**
+                         * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                         */
+                        public DiscountItemVO() {
+                        }
+
+
+                        /**
                          * 优惠项名称。
                          */
                         @JsonProperty("discountName")
@@ -877,6 +926,13 @@ public class OrderNotificationMessage {
             public static class DiscountItemVO {
 
                 /**
+                 * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                 */
+                public DiscountItemVO() {
+                }
+
+
+                /**
                  * 优惠项名称。
                  */
                 @JsonProperty("discountName")
@@ -897,6 +953,13 @@ public class OrderNotificationMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class OrderPayVO {
+
+            /**
+             * 创建\u8ba2\u5355\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+             */
+            public OrderPayVO() {
+            }
+
 
             /**
              * 订单 ID。
@@ -1052,6 +1115,13 @@ public class OrderNotificationMessage {
         public static class OrderDiscountVO {
 
             /**
+             * 创建\u8ba2\u5355\u4f18\u60e0\u4fe1\u606f\u3002的空实例。
+             */
+            public OrderDiscountVO() {
+            }
+
+
+            /**
              * 订单 ID。
              */
             @JsonProperty("orderId")
@@ -1151,6 +1221,13 @@ public class OrderNotificationMessage {
         public static class SubOrderVO {
 
             /**
+             * 创建\u5b50\u5355\u4fe1\u606f\uff0c\u8054\u53f0\u573a\u666f\u4f7f\u7528\u3002的空实例。
+             */
+            public SubOrderVO() {
+            }
+
+
+            /**
              * 子单基本信息。
              */
             @JsonProperty("orderBase")
@@ -1193,6 +1270,13 @@ public class OrderNotificationMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class OrderBaseVO {
+
+                /**
+                 * 创建\u5b50\u5355\u57fa\u672c\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrderBaseVO() {
+                }
+
 
                 /**
                  * 订单Id。
@@ -1504,6 +1588,13 @@ public class OrderNotificationMessage {
                     isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class OrderItemVO {
+
+                /**
+                 * 创建\u5b50\u5355\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrderItemVO() {
+                }
+
 
                 /**
                  * 订单Id。
@@ -1832,6 +1923,13 @@ public class OrderNotificationMessage {
                 public static class OrderGoodsAttrVO {
 
                     /**
+                     * 创建\u5546\u54c1\u5c5e\u6027JSON\uff1a[{type:0,name:"\u751c\u5ea6",version:1,values:[{value:"\u534a\u7cd6",price:5,actual:3}]}]\u3002的空实例。
+                     */
+                    public OrderGoodsAttrVO() {
+                    }
+
+
+                    /**
                      * 属性类型：0-属性、1-做法、2-标签。
                      */
                     @JsonProperty("type")
@@ -1856,6 +1954,13 @@ public class OrderNotificationMessage {
                     @Setter
                     @JsonIgnoreProperties(ignoreUnknown = true)
                     public static class OrderGoodsAttrValueVO {
+
+                        /**
+                         * 创建\u5c5e\u6027\u53d6\u503c\u5217\u8868\u3002的空实例。
+                         */
+                        public OrderGoodsAttrValueVO() {
+                        }
+
 
                         /**
                          * 属性值。
@@ -1950,6 +2055,13 @@ public class OrderNotificationMessage {
                         public static class DiscountItemVO {
 
                             /**
+                             * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                             */
+                            public DiscountItemVO() {
+                            }
+
+
+                            /**
                              * 优惠项名称。
                              */
                             @JsonProperty("discountName")
@@ -1973,6 +2085,13 @@ public class OrderNotificationMessage {
                 public static class DiscountItemVO {
 
                     /**
+                     * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                     */
+                    public DiscountItemVO() {
+                    }
+
+
+                    /**
                      * 优惠项名称。
                      */
                     @JsonProperty("discountName")
@@ -1993,6 +2112,13 @@ public class OrderNotificationMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class OrderPayVO {
+
+                /**
+                 * 创建\u5b50\u5355\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrderPayVO() {
+                }
+
 
                 /**
                  * 订单 ID。
@@ -2148,6 +2274,13 @@ public class OrderNotificationMessage {
             public static class OrderDiscountVO {
 
                 /**
+                 * 创建\u5b50\u5355\u6298\u6263\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrderDiscountVO() {
+                }
+
+
+                /**
                  * 订单 ID。
                  */
                 @JsonProperty("orderId")
@@ -2247,6 +2380,13 @@ public class OrderNotificationMessage {
             public static class OrderOnAccountVO {
 
                 /**
+                 * 创建\u8ba2\u5355\u6302\u8d26\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrderOnAccountVO() {
+                }
+
+
+                /**
                  * 挂账类型。
                  */
                 @JsonProperty("type")
@@ -2272,6 +2412,13 @@ public class OrderNotificationMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class OrderServiceFeeVO {
+
+                /**
+                 * 创建\u5b50\u5355\u670d\u52a1\u8d39\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrderServiceFeeVO() {
+                }
+
 
                 /**
                  * 服务费名称。
@@ -2402,6 +2549,13 @@ public class OrderNotificationMessage {
                 public static class OrderServiceFeeRuleVO {
 
                     /**
+                     * 创建\u670d\u52a1\u8d39\u89c4\u5219\u3002的空实例。
+                     */
+                    public OrderServiceFeeRuleVO() {
+                    }
+
+
+                    /**
                      * 服务费类型：1-按顾客人数 2-按桌收取 3-按菜品优惠后价格设置比例 4-按菜品价格合计设置比例。
                      */
                     @JsonProperty("type")
@@ -2429,6 +2583,13 @@ public class OrderNotificationMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class OrderWmVO {
+
+            /**
+             * 创建\u8ba2\u5355\u5916\u5356\u4fe1\u606f\u3002的空实例。
+             */
+            public OrderWmVO() {
+            }
+
 
             /**
              * 餐盒费总价。
@@ -2517,6 +2678,13 @@ public class OrderNotificationMessage {
             public static class FeeVO {
 
                 /**
+                 * 创建\u9910\u76d2\u8d39\u76f8\u5173\u3002的空实例。
+                 */
+                public FeeVO() {
+                }
+
+
+                /**
                  * 费用。
                  */
                 @JsonProperty("fee")
@@ -2560,6 +2728,13 @@ public class OrderNotificationMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class ShippingDetails {
+
+                /**
+                 * 创建\u914d\u9001\u8d39\u76f8\u5173\u3002的空实例。
+                 */
+                public ShippingDetails() {
+                }
+
 
                 /**
                  * 费用。
@@ -2608,6 +2783,13 @@ public class OrderNotificationMessage {
         public static class OrderOnAccountVO {
 
             /**
+             * 创建\u8ba2\u5355\u6302\u8d26\u4fe1\u606f\u3002的空实例。
+             */
+            public OrderOnAccountVO() {
+            }
+
+
+            /**
              * 挂账类型。
              */
             @JsonProperty("type")
@@ -2633,6 +2815,13 @@ public class OrderNotificationMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class OrderServiceFeeVO {
+
+            /**
+             * 创建\u670d\u52a1\u8d39\u4fe1\u606f\u5217\u8868\u3002的空实例。
+             */
+            public OrderServiceFeeVO() {
+            }
+
 
             /**
              * 服务费名称。
@@ -2761,6 +2950,13 @@ public class OrderNotificationMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class OrderServiceFeeRuleVO {
+
+                /**
+                 * 创建\u670d\u52a1\u8d39\u89c4\u5219\u3002的空实例。
+                 */
+                public OrderServiceFeeRuleVO() {
+                }
+
 
                 /**
                  * 服务费类型：1-按顾客人数 2-按桌收取 3-按菜品优惠后价格设置比例 4-按菜品价格合计设置比例。

@@ -19,7 +19,13 @@ import java.util.Objects;
  */
 public final class MeituanPlatformService {
 
+    /**
+     * 按租户创建官方客户端的工厂。
+     */
     private final MeituanClientFactory clientFactory;
+    /**
+     * 按租户标识查询授权配置的存储。
+     */
     private final MeituanTenantConfigStorage tenantStorage;
 
     /**
@@ -107,6 +113,14 @@ public final class MeituanPlatformService {
         return invoke(tenantId, (client, config) -> client.commonInvokeApi(request, responseType));
     }
 
+    /**
+     * 使用所选租户的客户端执行操作，并统一包装官方 SDK 异常。
+     *
+     * @param <R> 本次操作返回的数据类型
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @param call 使用所选租户客户端执行的操作
+     * @return 当前调用的业务结果
+     */
     private <R> R invoke(String tenantId, ClientCall<R> call) {
         MeituanTenantConfig config = tenantStorage.findByTenantId(tenantId)
                 .orElseThrow(() -> new MeituanJavaException("Meituan tenant config not found: " + tenantId));
@@ -120,8 +134,21 @@ public final class MeituanPlatformService {
         }
     }
 
+    /**
+     * 使用所选租户客户端执行单次官方操作的函数。
+     *
+     * @param <R> 本次调用的返回类型
+     */
     @FunctionalInterface
     private interface ClientCall<R> {
+        /**
+         * 使用所选租户的客户端执行操作，并统一包装官方 SDK 异常。
+         *
+         * @param client 为当前开发者创建的官方客户端
+         * @param config 本次调用选中的租户配置
+         * @return 当前调用的业务结果
+         * @throws MtSdkException 当请求读取、数据转换或接口检查失败时
+         */
         R invoke(MeituanClient client, MeituanTenantConfig config) throws MtSdkException;
     }
 }

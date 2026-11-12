@@ -20,6 +20,13 @@ import lombok.Setter;
 public class InventoryQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5355\u4e2a\u67e5\u8be2\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public InventoryQueryResult() {
+    }
+
+
+    /**
      * 预订服务项目id。必填。
      */
     @JsonProperty("appProductName")

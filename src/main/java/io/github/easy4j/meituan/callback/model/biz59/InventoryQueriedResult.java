@@ -20,6 +20,13 @@ import lombok.Setter;
 public class InventoryQueriedResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public InventoryQueriedResult() {
+    }
+
+
+    /**
      * 库存主体。必填。
      */
     @JsonProperty("stockSubject")
@@ -39,6 +46,13 @@ public class InventoryQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class StockSubject {
+
+        /**
+         * 创建\u5e93\u5b58\u4e3b\u4f53\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public StockSubject() {
+        }
+
 
         /**
          * 库存主体类型。库存主体类型： 1.美团门店（key：大众点评门店ID） 2.团购（key：deal_group） 3.标品（key：spu）。必填。
@@ -61,6 +75,13 @@ public class InventoryQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Stock {
+
+        /**
+         * 创建\u5e93\u5b58\u5b9e\u4f8b\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public Stock() {
+        }
+
 
         /**
          * 库存模式。库存模式： 1.标准库存 2.区间库存 3.日库存 4.日时段库存（体检业务： 3.日库存 丽人业务： 4.日时段库存）。必填。
@@ -103,6 +124,13 @@ public class InventoryQueriedResult {
     public static class StandardStock {
 
         /**
+         * 创建\u6807\u51c6\u5e93\u5b58\u3002的空实例。
+         */
+        public StandardStock() {
+        }
+
+
+        /**
          * 库存单元。必填。
          */
         @JsonProperty("stockUnit")
@@ -117,6 +145,13 @@ public class InventoryQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PeriodStocks {
+
+        /**
+         * 创建\u533a\u95f4\u5e93\u5b58\u3002的空实例。
+         */
+        public PeriodStocks() {
+        }
+
 
         /**
          * 库存单元。必填。
@@ -153,6 +188,13 @@ public class InventoryQueriedResult {
     public static class DailyStocks {
 
         /**
+         * 创建\u65e5\u671f\u5e93\u5b58\u3002的空实例。
+         */
+        public DailyStocks() {
+        }
+
+
+        /**
          * 库存单元。必填。
          */
         @JsonProperty("stockUnit")
@@ -173,6 +215,13 @@ public class InventoryQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DailyTimeStocks {
+
+        /**
+         * 创建\u65e5\u65f6\u6bb5\u5e93\u5b58\u3002的空实例。
+         */
+        public DailyTimeStocks() {
+        }
+
 
         /**
          * 库存单元。必填。
@@ -201,6 +250,13 @@ public class InventoryQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class StockUnit {
+
+        /**
+         * 创建\u5e93\u5b58\u5355\u5143\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public StockUnit() {
+        }
+
 
         /**
          * 计划总量。必填。
@@ -261,6 +317,13 @@ public class InventoryQueriedResult {
     public static class DateTimeRange {
 
         /**
+         * 创建\u65e5\u671f\u65f6\u95f4\u8303\u56f4\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public DateTimeRange() {
+        }
+
+
+        /**
          * 开始日期时间。开始日期时间，例如2023-05-01 08:00:00。必填。
          */
         @JsonProperty("startDateTime")
@@ -281,6 +344,13 @@ public class InventoryQueriedResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class TimeRange {
+
+        /**
+         * 创建\u65f6\u95f4\u8303\u56f4\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public TimeRange() {
+        }
+
 
         /**
          * 开始时间。开始时间，例如08:00:00。必填。

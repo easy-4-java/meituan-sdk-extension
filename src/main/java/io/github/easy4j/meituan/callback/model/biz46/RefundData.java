@@ -17,6 +17,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class RefundData {
 
     /**
+     * 创建RefundData\uff0c\u7528\u4e8e\u63a5\u6536\u5546\u5bb6\u8f6c\u81ea\u914d\u6210\u529f\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public RefundData() {
+    }
+
+
+    /**
      * 退款申请状态,0=无申请 8=用户申请退款待商家审批 15=用户撤销退款 16=商家审批通过 17=商家审批拒绝 18=系统自动拒绝退款 32=退款中 64=退款完成。
      */
     @JsonProperty("refundStatus")

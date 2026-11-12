@@ -16,6 +16,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness58MessageTypeTest {
 
+    /**
+     * 创建\u670d\u52a1\u96f6\u552e\uff08businessId=58\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness58MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldExposeAllDocumentedBusiness58MessagesWithoutDuplicateMsgTypes() throws Exception {
         assertThat(MeituanBusiness58MessageType.values()).hasSize(44);
@@ -41,6 +52,10 @@ class MeituanBusiness58MessageTypeTest {
                 .endsWith("msg_ddzh_a8ef235b-a621-4de4-b8d4-b0820980ea4f");
     }
 
+    /**
+     * 验证当前业务的已登记消息可解析，其他业务及未知编号保持隔离。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldResolveOnlyBusiness58MessagesAndKeepUnknownTypeAvailable() throws Exception {
         MeituanCallbackMessage<String> operateDevice = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(

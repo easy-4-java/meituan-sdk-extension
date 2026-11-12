@@ -21,6 +21,13 @@ import lombok.Setter;
 public class CouponRedemptionChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u4f18\u60e0\u5238\u5b9e\u4f8b\u6838\u9500/\u64a4\u9500\u4e8b\u4ef6\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public CouponRedemptionChangedMessage() {
+    }
+
+
+    /**
      * 事件类型。必填。
      */
     @JsonProperty("eventType")
@@ -51,6 +58,13 @@ public class CouponRedemptionChangedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class CouponInfo {
+
+        /**
+         * 创建couponInfos\u3002的空实例。
+         */
+        public CouponInfo() {
+        }
+
 
         /**
          * 券码。必填。

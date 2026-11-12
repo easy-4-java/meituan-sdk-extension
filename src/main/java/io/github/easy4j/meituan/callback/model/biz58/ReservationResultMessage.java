@@ -24,6 +24,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class ReservationResultMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u9884\u8ba2\u7ed3\u679c\u540c\u6b65\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReservationResultMessage() {
+    }
+
+
+    /**
      * 三方项目 ID（KTV为包房类型id），若第三方可通过服务名称识别，可不传。在products可根据partner_productid查询到相关信息。必填。
      */
     @JsonProperty("appProductId")
@@ -204,6 +211,13 @@ public class ReservationResultMessage {
     public static class Product {
 
         /**
+         * 创建\u9884\u8ba2\u5546\u54c1\u4fe1\u606f(\u4e0d\u5305\u542b\u670d\u52a1\u9879\u76ee)\u3002的空实例。
+         */
+        public Product() {
+        }
+
+
+        /**
          * 第三方商品 ID。
          */
         @JsonProperty("app_product_id")
@@ -285,6 +299,13 @@ public class ReservationResultMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderShoppromoDetails {
+
+        /**
+         * 创建\u6240\u5728\u8ba2\u5355\u5546\u5bb6\u8425\u9500\u8be6\u60c5\u3002的空实例。
+         */
+        public OrderShoppromoDetails() {
+        }
+
 
         /**
          * 优惠金额。官网标注为 BigDecimal，示例为 {}，保留数值或对象。必填。

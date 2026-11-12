@@ -35,9 +35,26 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/**
+ * 验证Callback Dispatch的行为与接口契约。
+ */
 class CallbackDispatchTest {
+
+    /**
+     * 创建CallbackDispatchTest的空实例。
+     */
+    CallbackDispatchTest() {
+    }
+
+    /**
+     * 用于验证 JSON 读写契约的映射器。
+     */
     private final JsonMapper mapper = new JsonMapper();
 
+    /**
+     * 验证自动分发同时使用两个编号并保留验签文本。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void dispatchesByBothIdentifiersAndPreservesSignedText() throws Exception {
         String raw = " {\"name\":\"张三 + A\"} ";
@@ -60,6 +77,10 @@ class CallbackDispatchTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    /**
+     * 验证旧版表单通过容器参数分发且保留验签字段。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void dispatchesLegacyFormWithoutConsumingTheBodyOrLosingSignedParameters() throws Exception {
         javax.servlet.http.HttpServletRequest request = mock(HttpServletRequest.class);
@@ -76,6 +97,10 @@ class CallbackDispatchTest {
         assertThat(unknown.getParameters()).containsEntry("orderNo", "0007");
     }
 
+    /**
+     * 验证三条智能版会员和逆向单消息按公开编号选择模型。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void dispatchesTheThreeRestaurantPosMessagesByTheirPublishedIds() throws Exception {
         MeituanCallbackMessage<?> available = CallbackUtil.parse("businessId=18&msgType=1810057", io.github.easy4j.meituan.TestCollections.mapOf("message", "{\"cardNo\":\"00042\"}"));
@@ -89,6 +114,10 @@ class CallbackDispatchTest {
                 message -> assertThat(message.getRefundItemList()).isEmpty());
     }
 
+    /**
+     * 验证可用券、核销及嵌套退款明细使用各自字段契约。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void bindsDifferentCouponOrderContractsAndNestedRefundItems() throws Exception {
         MemberOrderAvailableCouponsMessage available = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf("message",
@@ -107,6 +136,10 @@ class CallbackDispatchTest {
         assertThat(refund.getRefundOrderServiceFeeVOS().get(0).getServiceFeeId()).isEqualTo(4294967296L);
     }
 
+    /**
+     * 验证发票行项与文件信息完整保留，列表回执序列化为数组。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void preservesNestedInvoiceItemsAndFilesAndSerializesListsAsJsonArrays() throws Exception {
         String json = "{\"applyId\":\"01\",\"invoices\":[{\"invoiceDate\":\"2026-11-12\",\"invoiceItems\":[{\"itemName\":\"餐费\",\"taxAmount\":\"3.00\"}],\n\"fileInfos\":[{\"fileType\":\"PDF\",\"fileUrl\":\"https://example.org/invoice.pdf\"}]}]}\n";
@@ -116,6 +149,10 @@ class CallbackDispatchTest {
         assertThat(mapper.readTree(encoded).get(0)).isEqualTo(mapper.readTree(json));
     }
 
+    /**
+     * 验证嵌套对象回执和字符串回执各自遵循协议。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void preservesDistinctObjectAndStringResponseContracts() throws Exception {
         MemberOperationResult result = new MemberOperationResult();
@@ -132,6 +169,10 @@ class CallbackDispatchTest {
         assertThat(mapper.readTree(mapper.writeValueAsString(inventory))).isEqualTo(mapper.readTree("{\"code\":\"OP_SUCCESS\",\"msg\":\"success\",\"data\":\"[]\"}\n"));
     }
 
+    /**
+     * 验证业务数据只序列化一次，并保留闪惠专用回执格式。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void serializesBusinessDataOnceAndKeepsLegacyAcknowledgementShape() throws Exception {
         MemberCreatedResult member = new MemberCreatedResult();
@@ -152,6 +193,10 @@ class CallbackDispatchTest {
         assertThat(mapper.writeValueAsString(MeituanCallbackResponse.flashOrderSuccess())).isEqualTo("{\"data\":\"ok\"}");
     }
 
+    /**
+     * 验证会员等级变更自动分发及品牌实际等级响应。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void dispatchesTheConfirmedMemberLevelChangeAndSerializesTheBrandsActualLevel() throws Exception {
         String json = "{\"eventId\":10001001,\"postExpiryMode\":\"CONTINUE_MT_LEVEL_MAPPING\",\n \"beforeLevel\":{\"mtLevel\":\"L6\",\"mappingBrandLevel\":\"V5\"},\n \"newLevel\":{\"mtLevel\":\"L5\",\"mappingBrandLevel\":\"\"},\"changeType\":\"DOWNGRADE\",\n \"userOpenId\":\"example\",\"platformType\":\"MEI_TUAN\",\"levelChangeTime\":1780000000}\n";
@@ -173,6 +218,10 @@ class CallbackDispatchTest {
         assertThat(mapper.readTree(mapper.writeValueAsString(MeituanCallbackResponse.success())).has("traceId")).isFalse();
     }
 
+    /**
+     * 验证消费流水事件在缺少字段定义时保留原文。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void keepsTheOriginalConsumptionRecordUntilItsFieldsArePublished() throws Exception {
         String raw = " {\"unknownField\":\"00042\"} ";
@@ -186,6 +235,13 @@ class CallbackDispatchTest {
         assertThat(MeituanCallbackModels.find("15", "5910023")).isEmpty();
     }
 
+    /**
+     * 核对回执的 data 字段为字符串且其内容只序列化一次。
+     *
+     * @param data 按接口协议编码的业务数据
+     * @param expectedJson 预期的业务响应 JSON
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     private void assertResponseData(Object data, String expectedJson) throws Exception {
         JsonNode envelope = mapper.readTree(mapper.writeValueAsString(MeituanCallbackResponse.successData(data)));
         assertThat(envelope.get("data").isTextual()).isTrue();

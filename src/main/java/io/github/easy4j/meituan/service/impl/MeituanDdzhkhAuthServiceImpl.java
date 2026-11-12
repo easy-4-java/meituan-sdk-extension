@@ -27,35 +27,53 @@ public class MeituanDdzhkhAuthServiceImpl extends AbstractMeituanService impleme
         super(requestExecutor);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<PageQueryTokenPoiListResponse> pageQueryTokenPoiList(
             PageQueryTokenPoiListRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<QueryPoiMappingResponse> queryPoiMapping(
             QueryPoiMappingRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> orderQueryInfoByGeneralconnect(
             OrderQueryInfoByGeneralconnectRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> memberInfoAsyncCallback(
             MemberInfoAsyncCallbackRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> searchPayInfoBill(SearchPayInfoBillRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> searchRefundBill(SearchRefundBillRequest request, String tenantId) {
         return execute(request, tenantId);

@@ -20,6 +20,13 @@ import lombok.Setter;
 public class StoreAuthorizationSyncMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u95e8\u5e97\u6388\u6743\u4fe1\u606f\u540c\u6b65\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StoreAuthorizationSyncMessage() {
+    }
+
+
+    /**
      * 门店code。必填。
      */
     @JsonProperty("vendorShopId")

@@ -20,13 +20,39 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/**
+ * 验证Meituan Retail Service Order Queryorder的行为与接口契约。
+ */
 class MeituanRetailServiceOrderQueryorderTest {
 
+    /**
+     * 创建MeituanRetailServiceOrderQueryorderTest的空实例。
+     */
+    MeituanRetailServiceOrderQueryorderTest() {
+    }
+
+
+    /**
+     * 测试使用的租户标识。
+     */
     private static final String TENANT_ID = "tenant-001";
+    /**
+     * 本地联调使用的应用授权 token。
+     */
     private static final String APP_AUTH_TOKEN = "xxxx";
+    /**
+     * 本地联调使用的美团开发者编号。
+     */
     private static final long DEVELOPER_ID = 100000L;
+    /**
+     * 本地联调使用的开发者签名密钥。
+     */
     private static final String SIGN_KEY = "sign-key";
 
+    /**
+     * 验证订单查询将租户 token 传给官方客户端。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void orderQueryorderShouldInvokeOfficialClientWithTenantAuthToken() throws Exception {
         MeituanClient meituanClient = mock(MeituanClient.class);
@@ -51,6 +77,10 @@ class MeituanRetailServiceOrderQueryorderTest {
         assertThat(capturedRequest.getPageSize()).isEqualTo(20);
     }
 
+    /**
+     * 验证订单查询使用所选租户的开发者凭据创建客户端。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void orderQueryorderShouldCreateOfficialClientFromTenantCredentials() throws Exception {
         MeituanClientFactory meituanClientFactory = mock(MeituanClientFactory.class);
@@ -75,6 +105,10 @@ class MeituanRetailServiceOrderQueryorderTest {
         verify(meituanClient).invokeApi(request, APP_AUTH_TOKEN);
     }
 
+    /**
+     * 验证订单查询成功示例能够完整反序列化。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void orderQueryorderShouldDeserializeSuccessResponseExample() throws Exception {
         String json = "{"
@@ -124,6 +158,10 @@ class MeituanRetailServiceOrderQueryorderTest {
         assertThat(result.getRelatedBookByOrder()).isFalse();
     }
 
+    /**
+     * 验证订单查询失败示例能够读取错误码及说明。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void orderQueryorderShouldDeserializeErrorResponseExample() throws Exception {
         String json = "{"
@@ -141,6 +179,12 @@ class MeituanRetailServiceOrderQueryorderTest {
         assertThat(response.getData()).isNull();
     }
 
+    /**
+     * 按本地调试配置创建带租户授权的服务零售门面。
+     *
+     * @param meituanClient meituanClient
+     * @return 按本地调试配置创建带租户授权的服务零售门面的结果
+     */
     private MeituanRetailService buildRetailService(MeituanClient meituanClient) {
         InMemoryMeituanTenantConfigStorage tenantConfigStorage = new InMemoryMeituanTenantConfigStorage(
                 Collections.singletonMap(TENANT_ID, buildTenantConfig())
@@ -148,6 +192,11 @@ class MeituanRetailServiceOrderQueryorderTest {
         return new MeituanRetailServiceImpl(new DefaultMeituanRequestExecutor(meituanClient, tenantConfigStorage));
     }
 
+    /**
+     * 创建包含测试开发者凭据和授权 token 的租户配置。
+     *
+     * @return 创建包含测试开发者凭据和授权 token 的租户配置的结果
+     */
     private MeituanTenantConfig buildTenantConfig() {
         MeituanTenantConfig tenantConfig = new MeituanTenantConfig();
         tenantConfig.setDeveloperId(DEVELOPER_ID);
@@ -156,6 +205,11 @@ class MeituanRetailServiceOrderQueryorderTest {
         return tenantConfig;
     }
 
+    /**
+     * 构造指定偏移量的已验券码分页查询请求。
+     *
+     * @return 构造指定偏移量的已验券码分页查询请求的结果
+     */
     private OrderQueryorderRequest buildRequest() {
         OrderQueryorderRequest request = new OrderQueryorderRequest();
         request.setOrderType(1);
@@ -168,6 +222,11 @@ class MeituanRetailServiceOrderQueryorderTest {
         return request;
     }
 
+    /**
+     * 构造用于验证订单查询路由的成功响应。
+     *
+     * @return 构造用于验证订单查询路由的成功响应的结果
+     */
     private MeituanResponse<OrderQueryorderResponse> successResponse() {
         ResultSub result = new ResultSub();
         result.setOrderId("5008024992393321234");

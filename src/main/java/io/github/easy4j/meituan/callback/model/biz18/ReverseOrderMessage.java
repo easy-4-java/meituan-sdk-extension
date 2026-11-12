@@ -21,6 +21,13 @@ import lombok.Setter;
 public class ReverseOrderMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u9006\u5411\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReverseOrderMessage() {
+    }
+
+
+    /**
      * 退款单基本信息。
      */
     @JsonProperty("refundOrderBase")
@@ -57,6 +64,13 @@ public class ReverseOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundOrderBase {
+
+        /**
+         * 创建\u9000\u6b3e\u5355\u57fa\u672c\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundOrderBase() {
+        }
+
 
         /**
          * 原订单id。
@@ -380,6 +394,13 @@ public class ReverseOrderMessage {
     public static class DiscountItem {
 
         /**
+         * 创建\u4f18\u60e0\u9879\u3002的空实例。
+         */
+        public DiscountItem() {
+        }
+
+
+        /**
          * 优惠项名称。
          */
         @JsonProperty("discountName")
@@ -399,6 +420,13 @@ public class ReverseOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class AttributeValue {
+
+        /**
+         * 创建\u5c5e\u6027\u503c\u5217\u8868\u3002的空实例。
+         */
+        public AttributeValue() {
+        }
+
 
         /**
          * 菜品收入。
@@ -494,6 +522,13 @@ public class ReverseOrderMessage {
     public static class ItemAttribute {
 
         /**
+         * 创建\u9000\u6b3e\u5546\u54c1\u5c5e\u6027\u5217\u8868\u3002的空实例。
+         */
+        public ItemAttribute() {
+        }
+
+
+        /**
          * 属性值列表。
          */
         @JsonProperty("values")
@@ -519,6 +554,13 @@ public class ReverseOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundItem {
+
+        /**
+         * 创建\u9000\u6b3e\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundItem() {
+        }
+
 
         /**
          * 菜品原总价合计，包含关联的餐盒价格。
@@ -764,6 +806,13 @@ public class ReverseOrderMessage {
     public static class RefundPayment {
 
         /**
+         * 创建\u9000\u6b3e\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundPayment() {
+        }
+
+
+        /**
          * 该笔退款的收入退款金额。
          */
         @JsonProperty("income")
@@ -893,6 +942,13 @@ public class ReverseOrderMessage {
     public static class RefundDiscount {
 
         /**
+         * 创建\u9000\u6b3e\u5355\u6298\u6263\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundDiscount() {
+        }
+
+
+        /**
          * 原单优惠流水号。
          */
         @JsonProperty("discountNo")
@@ -1020,6 +1076,13 @@ public class ReverseOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundServiceFee {
+
+        /**
+         * 创建\u9000\u6b3e\u8d39\u7528\u4fe1\u606f\u3002的空实例。
+         */
+        public RefundServiceFee() {
+        }
+
 
         /**
          * 服务费唯一标示。

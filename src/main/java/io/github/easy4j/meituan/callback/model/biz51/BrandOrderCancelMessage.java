@@ -23,6 +23,13 @@ import lombok.Setter;
 public class BrandOrderCancelMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u54c1\u724c\u63d0\u4f9b\u53d6\u6d88\u8ba2\u5355\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public BrandOrderCancelMessage() {
+    }
+
+
+    /**
      * 推送数据来源，默认为mop（秒提）。必填。
      */
     @JsonProperty("source")
@@ -47,6 +54,13 @@ public class BrandOrderCancelMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class CancelOrConfirmOrderPushDTO {
+
+        /**
+         * 创建\u4e1a\u52a1\u53c2\u6570\u3002的空实例。
+         */
+        public CancelOrConfirmOrderPushDTO() {
+        }
+
 
         /**
          * 使用外卖orderIdView字段。必填。

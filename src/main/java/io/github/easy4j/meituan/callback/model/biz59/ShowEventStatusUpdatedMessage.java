@@ -20,6 +20,13 @@ import lombok.Setter;
 public class ShowEventStatusUpdatedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u6f14\u51fa\u9879\u76ee\u72b6\u6001\u66f4\u65b0\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ShowEventStatusUpdatedMessage() {
+    }
+
+
+    /**
      * 演出项目 ID。
      */
     @JsonProperty("showEventId")

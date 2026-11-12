@@ -20,6 +20,13 @@ import lombok.Setter;
 public class PrintOrderMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u6307\u5b9a\u6253\u5370\u673a\u6253\u5370\u8ba2\u5355\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PrintOrderMessage() {
+    }
+
+
+    /**
      * 打印机服务商类型。
      */
     @JsonProperty("printerMerchantType")

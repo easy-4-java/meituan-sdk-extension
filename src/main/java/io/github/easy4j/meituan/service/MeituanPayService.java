@@ -401,19 +401,43 @@ public interface MeituanPayService extends MeituanService {
      */
     MeituanResponse<?> zcmopenApiMerchantPoiChangeFlow(ZcmopenApiMerchantPoiChangeFlowRequest request, String tenantId);
 
-    /** 动态码支付创建。 */
+    /**
+     * \u52a8\u6001\u7801\u652f\u4ed8\u521b\u5efa\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> zcmopenpayApiDynamicQrcodeCreate(
             ZcmopenpayApiDynamicQrcodeCreateRequest request, String tenantId);
 
-    /** 动态码支付查询。 */
+    /**
+     * \u52a8\u6001\u7801\u652f\u4ed8\u67e5\u8be2\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> zcmopenpayApiDynamicQrcodeQuery(
             ZcmopenpayApiDynamicQrcodeQueryRequest request, String tenantId);
 
-    /** 动态码支付退款。 */
+    /**
+     * \u52a8\u6001\u7801\u652f\u4ed8\u9000\u6b3e\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefund(
             ZcmopenpayApiDynamicQrcodeRefundRequest request, String tenantId);
 
-    /** 动态码支付退款查询。 */
+    /**
+     * \u52a8\u6001\u7801\u652f\u4ed8\u9000\u6b3e\u67e5\u8be2\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefundQuery(
             ZcmopenpayApiDynamicQrcodeRefundQueryRequest request, String tenantId);
 

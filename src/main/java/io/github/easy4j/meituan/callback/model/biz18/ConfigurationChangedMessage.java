@@ -21,6 +21,13 @@ import lombok.Setter;
 public class ConfigurationChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u914d\u7f6e\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ConfigurationChangedMessage() {
+    }
+
+
+    /**
      * 结算时间。
      */
     @JsonProperty("clearingTime")
@@ -51,6 +58,13 @@ public class ConfigurationChangedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class MealInfoTO {
+
+        /**
+         * 创建\u9910\u6bb5\u4fe1\u606f\u3002的空实例。
+         */
+        public MealInfoTO() {
+        }
+
 
         /**
          * 餐段编号。必填。
@@ -86,6 +100,13 @@ public class ConfigurationChangedMessage {
     public static class ShiftInfoTO {
 
         /**
+         * 创建\u73ed\u6b21\u4fe1\u606f\u3002的空实例。
+         */
+        public ShiftInfoTO() {
+        }
+
+
+        /**
          * 班次编号。必填。
          */
         @JsonProperty("shiftNO")
@@ -117,6 +138,13 @@ public class ConfigurationChangedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OpeningHoursTO {
+
+        /**
+         * 创建\u8425\u4e1a\u65f6\u95f4\u3002的空实例。
+         */
+        public OpeningHoursTO() {
+        }
+
 
         /**
          * 营业开始时间。必填。

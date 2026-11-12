@@ -20,6 +20,13 @@ import lombok.Setter;
 public class OnlineBusinessChangeMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u7f8e\u56e2\u901a\u77e5\u54c1\u724c\u65b9\u201c\u7ebf\u4e0a\u70b9\u201d\u4e1a\u52a1\u53d8\u66f4\u3010\u56de\u8c03\u3011\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OnlineBusinessChangeMessage() {
+    }
+
+
+    /**
      * 厂商门店 ID。
      */
     @JsonProperty("vendorShopId")

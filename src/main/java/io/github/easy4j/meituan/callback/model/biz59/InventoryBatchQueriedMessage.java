@@ -21,6 +21,13 @@ import lombok.Setter;
 public class InventoryBatchQueriedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u6279\u91cf\u67e5\u8be2\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public InventoryBatchQueriedMessage() {
+    }
+
+
+    /**
      * 主体信息。必填。
      */
     @JsonProperty("resvSubjectMapList")
@@ -71,6 +78,13 @@ public class InventoryBatchQueriedMessage {
     public static class ResvSubjectMapListItem {
 
         /**
+         * 创建\u4e3b\u4f53\u4fe1\u606f\u3002的空实例。
+         */
+        public ResvSubjectMapListItem() {
+        }
+
+
+        /**
          * 美团门店 ID 混淆值。必填。
          */
         @JsonProperty("opPoiId")
@@ -102,6 +116,13 @@ public class InventoryBatchQueriedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ExtraMapDetails {
+
+        /**
+         * 创建\u6269\u5c55\u5b57\u6bb5\u3002的空实例。
+         */
+        public ExtraMapDetails() {
+        }
+
 
         /**
          * 美团门店 ID 混淆值。必填。

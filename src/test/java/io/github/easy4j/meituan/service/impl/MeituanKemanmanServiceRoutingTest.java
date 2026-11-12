@@ -19,8 +19,22 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanKemanmanServiceRoutingTest {
 
+    /**
+     * 创建\u5230\u5e97\u9910\u996e\u54c1\u724c\u4f1a\u5458\u5361 API \u79df\u6237\u6388\u6743\u8def\u7531\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanKemanmanServiceRoutingTest() {
+    }
+
+
+    /**
+     * 测试使用的租户标识。
+     */
     private static final String TENANT_ID = "tenant-15";
 
+    /**
+     * 验证当前业务的接口按官方授权要求传递请求和租户信息。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldRouteEveryBusiness15ApiThroughAuthorizedTenantExecution() throws Exception {
         RecordingRequestExecutor requestExecutor = new RecordingRequestExecutor();
@@ -45,17 +59,45 @@ class MeituanKemanmanServiceRoutingTest {
         }
     }
 
+    /**
+     * 判断请求的官方元数据是否属于当前被检查的业务。
+     *
+     * @param requestType 官方请求类型
+     * @return 判断请求的官方元数据是否属于当前被检查的业务的结果
+     */
     private boolean isBusiness15Request(Class<?> requestType) {
         ApiMeta apiMeta = requestType.getAnnotation(ApiMeta.class);
         return Objects.nonNull(apiMeta) && apiMeta.businessId() == 15;
     }
 
+    /**
+     * 记录请求、租户、授权方式和响应的测试执行器。
+     */
     private static final class RecordingRequestExecutor implements MeituanRequestExecutor {
 
+        /**
+         * 创建RecordingRequestExecutor的空实例。
+         */
+        private RecordingRequestExecutor() {
+        }
+
+
+        /**
+         * 官方 SDK 请求对象。
+         */
         private MeituanRequest<?> request;
+        /**
+         * 选择开发者凭据与授权信息的租户标识。
+         */
         private String tenantId;
+        /**
+         * 记录本次调用是否使用授权入口。
+         */
         private boolean authorized;
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public <T> MeituanResponse<T> execute(MeituanRequest<T> currentRequest, String currentTenantId) {
             request = currentRequest;
@@ -64,6 +106,9 @@ class MeituanKemanmanServiceRoutingTest {
             return new MeituanResponse<>();
         }
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> currentRequest) {
             request = currentRequest;
@@ -72,6 +117,9 @@ class MeituanKemanmanServiceRoutingTest {
             return new MeituanResponse<>();
         }
 
+        /**
+         * 清空上一次调用记录，避免多次路由断言相互影响。
+         */
         private void reset() {
             request = null;
             tenantId = null;

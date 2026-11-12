@@ -20,6 +20,13 @@ import lombok.Setter;
 public class PlatformOrderStatusChangeMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u7f8e\u56e2\u5e73\u53f0\u8ba2\u5355\u72b6\u6001\u53d8\u66f4\u901a\u77e5\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PlatformOrderStatusChangeMessage() {
+    }
+
+
+    /**
      * 美团平台订单 ID。必填。
      */
     @JsonProperty("orderId")

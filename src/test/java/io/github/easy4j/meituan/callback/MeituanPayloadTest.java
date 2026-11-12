@@ -18,8 +18,22 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 验证Meituan Payload的行为与接口契约。
+ */
 class MeituanPayloadTest {
 
+    /**
+     * 创建MeituanPayloadTest的空实例。
+     */
+    MeituanPayloadTest() {
+    }
+
+
+    /**
+     * 验证独立映射器启用下划线策略后仍采用官网字段名称。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void standaloneMapperUsesDocumentedNamesEvenWithASnakeCaseNamingStrategy() throws Exception {
         JsonMapper mapper = JsonMapper.builder()
@@ -35,6 +49,10 @@ class MeituanPayloadTest {
         assertThat(output.has("e_poi_id")).isFalse();
     }
 
+    /**
+     * 验证会员标识反序列化后保留前导零。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void mapsMemberIdentifiersWithoutLosingLeadingZeros() throws Exception {
         MemberCreatedMessage member = CallbackUtil.parse("businessId=59&msgType=5910019",
@@ -47,6 +65,10 @@ class MeituanPayloadTest {
         assertThat(member.getRequestSeq()).isEqualTo("00001");
     }
 
+    /**
+     * 验证预订及编码需求字段被类型化，原始验签文本保持完整。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void mapsReservationAndItsEncodedRequirementsWithoutChangingTheSignedMessage() throws Exception {
         String data = "{\"orderSerializedId\":\"001\",\"status\":10,\"requirements\":\"{\\\"tableType\\\":1,\\\"remark\\\":\\\"靠窗\\\"}\"}\n".trim();
@@ -58,6 +80,10 @@ class MeituanPayloadTest {
         assertThat(callback.getRawMessage()).isEqualTo(callback.getParameters().get("message"));
     }
 
+    /**
+     * 验证消息模型按业务编号和消息编号共同选择。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void resolvesMessageClassWithinItsBusiness() throws Exception {
         assertThat(MeituanCallbackModels.find("59", "5910019")).hasValue(MemberCreatedMessage.class);
@@ -66,6 +92,10 @@ class MeituanPayloadTest {
                 .isEqualTo(MeituanCallbackModels.find("1", "110027")).isPresent();
     }
 
+    /**
+     * 验证数组型消息可以直接映射为集合模型。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void readsArrayPayloadWithoutAnArtificialWrapperProperty() throws Exception {
         MeituanCallbackMessage<MigrationCompletedMessage> callback = CallbackUtil.parse("businessId=1000&msgType=100010007",
@@ -77,6 +107,10 @@ class MeituanPayloadTest {
         });
     }
 
+    /**
+     * 验证历史表单协议可以读取且保留其验签参数。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void readsDocumentedLegacyFormsAndPreservesTheirSigningParameters() throws Exception {
         String order = "{\"orderId\":9007199254740993,\"reason\":\"取消\"}";
@@ -91,6 +125,10 @@ class MeituanPayloadTest {
         assertThat(flash.getMessage().getAmountInfo().getActualPay().toString()).isIn("10.10", "10.1");
     }
 
+    /**
+     * 验证门店变更消息兼容官网对象和字符串两种形态。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void keepsBothPublishedShapesOfTheStoreChangeMessage() throws Exception {
         MeituanCallbackMessage<PoiInfoChangedMessage> text = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf("message", "\"example\""), PoiInfoChangedMessage.class);

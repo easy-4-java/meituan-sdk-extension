@@ -14,6 +14,13 @@ import lombok.Setter;
 public class DeliveryData {
 
     /**
+     * 创建DeliveryData\uff0c\u7528\u4e8e\u5957\u9910\u914d\u9001\u63a5\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public DeliveryData() {
+    }
+
+
+    /**
      * 是否仅支持自配,true代表不会走美团配送仅自配。
      */
     @JsonProperty("onlySupportSelfDelivery")

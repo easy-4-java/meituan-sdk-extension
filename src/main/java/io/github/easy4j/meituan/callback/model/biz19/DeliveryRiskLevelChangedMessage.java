@@ -23,6 +23,13 @@ import lombok.Setter;
 public class DeliveryRiskLevelChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u914d\u9001\u98ce\u9669\u7b49\u7ea7\u53d8\u66f4\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public DeliveryRiskLevelChangedMessage() {
+    }
+
+
+    /**
      * 取货门店 ID。必填。
      */
     @JsonProperty("shop_id")

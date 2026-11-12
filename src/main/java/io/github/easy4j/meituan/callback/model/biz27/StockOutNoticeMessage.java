@@ -22,6 +22,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class StockOutNoticeMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5feb\u9a74\u51fa\u5e93\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StockOutNoticeMessage() {
+    }
+
+
+    /**
      * 快驴出库单号。必填。
      */
     @JsonProperty("outboundBillNo")
@@ -82,6 +89,13 @@ public class StockOutNoticeMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderItemDto {
+
+        /**
+         * 创建\u8ba2\u5355\u5546\u54c1\u660e\u7ec6\u3002的空实例。
+         */
+        public OrderItemDto() {
+        }
+
 
         /**
          * 服务商商品标识。必填。

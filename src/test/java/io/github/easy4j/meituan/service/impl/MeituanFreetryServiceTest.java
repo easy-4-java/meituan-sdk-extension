@@ -21,8 +21,22 @@ import static org.mockito.Mockito.verify;
  */
 class MeituanFreetryServiceTest {
 
+    /**
+     * 创建\u5927\u4f17\u70b9\u8bc4\u514d\u8d39\u8bd5 API \u79df\u6237\u6388\u6743\u8c03\u7528\u8def\u5f84\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanFreetryServiceTest() {
+    }
+
+
+    /**
+     * 测试使用的租户标识。
+     */
     private static final String TENANT_ID = "tenant-55";
 
+    /**
+     * 验证当前业务的接口按官方授权要求传递请求和租户信息。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldExecuteAllBusiness55ApisWithTenantAuthorization() throws Exception {
         MeituanRequestExecutor requestExecutor = mock(MeituanRequestExecutor.class);
@@ -49,15 +63,25 @@ class MeituanFreetryServiceTest {
         verify(requestExecutor).execute(same(prepareRequest), same(TENANT_ID));
     }
 
+    /**
+     * 验证现有自定义免费试门面实现保持源码兼容。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldKeepExistingCustomFacadeImplementationsSourceCompatible() throws Exception {
         MeituanRequestExecutor requestExecutor = mock(MeituanRequestExecutor.class);
         MeituanFreetryService customService = new MeituanFreetryService() {
+            /**
+             * {@inheritDoc}
+             */
             @Override
             public <T> MeituanResponse<T> execute(MeituanRequest<T> request, String tenantId) {
                 return requestExecutor.execute(request, tenantId);
             }
 
+            /**
+             * {@inheritDoc}
+             */
             @Override
             public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> request) {
                 return requestExecutor.executeWithoutAuth(request);

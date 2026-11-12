@@ -21,6 +21,13 @@ import lombok.Setter;
 public class PosPartialRefundMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300cPOS\u90e8\u5206\u9000-\u63a5\u5355\u9875\u5546\u5bb6\u4e3b\u52a8\u9000\u83dc\u9000\u6b3e(\u90e8\u5206\u9000)\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PosPartialRefundMessage() {
+    }
+
+
+    /**
      * 第三方订单的唯一标识，与正向交易单的orderNo对应。必填。
      */
     @JsonProperty("orderNo")
@@ -51,6 +58,13 @@ public class PosPartialRefundMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RefundDish {
+
+        /**
+         * 创建\u9000\u83dc\u5217\u8868\u3002的空实例。
+         */
+        public RefundDish() {
+        }
+
 
         /**
          * 菜品编码，与正向交易单的skuId对应。必填。

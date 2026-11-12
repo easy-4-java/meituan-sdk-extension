@@ -908,6 +908,9 @@ public class MeituanTravelServiceImpl extends AbstractMeituanService implements 
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<QueryHotelFinancialDetailResponse> queryHotelFinancialDetail(QueryHotelFinancialDetailRequest request, String tenantId) {
         return execute(request, tenantId);

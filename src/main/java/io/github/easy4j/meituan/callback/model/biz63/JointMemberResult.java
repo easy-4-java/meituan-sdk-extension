@@ -18,6 +18,13 @@ import lombok.Setter;
 public class JointMemberResult {
 
     /**
+     * 创建\u8054\u5408\u4f1a\u5458\u67e5\u8be2\u548c\u6ce8\u518c\u8fd4\u56de\u7684\u4f1a\u5458\u4fe1\u606f\u3002的空实例。
+     */
+    public JointMemberResult() {
+    }
+
+
+    /**
      * 手机号。必填。
      */
     @JsonProperty("mobile")

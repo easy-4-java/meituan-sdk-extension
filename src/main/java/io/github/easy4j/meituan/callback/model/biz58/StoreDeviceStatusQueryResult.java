@@ -19,6 +19,13 @@ import lombok.Setter;
 public class StoreDeviceStatusQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u5355\u4e2a\u95e8\u5e97\u4e0b\u6307\u5b9a\u8bbe\u5907\u72b6\u6001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public StoreDeviceStatusQueryResult() {
+    }
+
+
+    /**
      * 设备状态信息列表。必填。
      */
     @JsonProperty("deviceStatusInfos")
@@ -32,6 +39,13 @@ public class StoreDeviceStatusQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DeviceStatusInfo {
+
+        /**
+         * 创建\u8bbe\u5907\u72b6\u6001\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public DeviceStatusInfo() {
+        }
+
 
         /**
          * 三方设备ID。必填。

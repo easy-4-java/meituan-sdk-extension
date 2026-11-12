@@ -20,6 +20,13 @@ import lombok.Setter;
 public class MigratedSessionTokenMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536session\u8fc1\u79fb\u540e\u7684\u5408\u4f5c\u4e2d\u5fc3token\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MigratedSessionTokenMessage() {
+    }
+
+
+    /**
      * token归属业务 ID。必填。
      */
     @JsonProperty("businessId")

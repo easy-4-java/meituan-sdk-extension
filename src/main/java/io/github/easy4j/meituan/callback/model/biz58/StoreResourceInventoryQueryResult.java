@@ -19,6 +19,13 @@ import lombok.Setter;
 public class StoreResourceInventoryQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u6307\u5b9a\u95e8\u5e97\u8d44\u6e90\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public StoreResourceInventoryQueryResult() {
+    }
+
+
+    /**
      * 三方门店id。必填。
      */
     @JsonProperty("thirdPartPoiId")
@@ -56,6 +63,13 @@ public class StoreResourceInventoryQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class BallTableInfoBO {
+
+        /**
+         * 创建\u684c\u4fe1\u606f\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public BallTableInfoBO() {
+        }
+
 
         /**
          * 球桌id。必填。

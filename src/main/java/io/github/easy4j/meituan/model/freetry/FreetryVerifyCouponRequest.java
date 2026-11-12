@@ -42,12 +42,18 @@ public class FreetryVerifyCouponRequest implements MeituanRequest<FreetryVerifyC
     @SerializedName("idempotent")
     private String idempotent;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryVerifyCouponResponse> deserializeResponse(String response) {
         Type type = new TypeToken<MeituanResponse<FreetryVerifyCouponResponse>>() { }.getType();
         return JsonUtil.fromJson(response, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeToJson() {
         return JsonUtil.toJson(this);

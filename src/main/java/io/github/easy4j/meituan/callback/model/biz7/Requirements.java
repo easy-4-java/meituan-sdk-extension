@@ -14,6 +14,13 @@ import lombok.Setter;
 public class Requirements {
 
     /**
+     * 创建Requirements\uff0c\u7528\u4e8e\u63a8\u9001\u65b0\u8ba2\u5355\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public Requirements() {
+    }
+
+
+    /**
      * 桌型，0-大厅 1-包间 3-自定义。
      */
     @JsonProperty("tableType")

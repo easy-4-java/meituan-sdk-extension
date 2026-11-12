@@ -24,6 +24,13 @@ import lombok.Setter;
 public class PaymentOrderMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u63a8\u9001\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PaymentOrderMessage() {
+    }
+
+
+    /**
      * 用户支付信息。
      */
     @JsonProperty("amountInfo")
@@ -78,6 +85,13 @@ public class PaymentOrderMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class AmountInfo {
+
+        /**
+         * 创建\u7528\u6237\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+         */
+        public AmountInfo() {
+        }
+
 
         /**
          * 用户实际支付金额。

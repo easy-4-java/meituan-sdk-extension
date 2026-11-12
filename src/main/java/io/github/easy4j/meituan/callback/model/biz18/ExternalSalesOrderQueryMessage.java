@@ -22,6 +22,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class ExternalSalesOrderQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u67e5\u8be2\u5916\u9500\u8ba2\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ExternalSalesOrderQueryMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -66,6 +73,13 @@ public class ExternalSalesOrderQueryMessage {
     public static class SaleOrderOpenDTO {
 
         /**
+         * 创建\u9500\u552e\u8ba2\u5355\u4fe1\u606f\u3002的空实例。
+         */
+        public SaleOrderOpenDTO() {
+        }
+
+
+        /**
          * 销售订单主单。
          */
         @JsonProperty("item")
@@ -84,6 +98,13 @@ public class ExternalSalesOrderQueryMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class SaleOrderItemOpenDTO {
+
+            /**
+             * 创建\u9500\u552e\u8ba2\u5355\u4e3b\u5355\u3002的空实例。
+             */
+            public SaleOrderItemOpenDTO() {
+            }
+
 
             /**
              * 销售订单单号。
@@ -202,6 +223,13 @@ public class ExternalSalesOrderQueryMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u9500\u552e\u673a\u6784\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -233,6 +261,13 @@ public class ExternalSalesOrderQueryMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class UserOpenDTO {
+
+                /**
+                 * 创建\u521b\u5efa\u4eba\u3002的空实例。
+                 */
+                public UserOpenDTO() {
+                }
+
 
                 /**
                  * id。
@@ -280,6 +315,13 @@ public class ExternalSalesOrderQueryMessage {
             public static class DistributedWarehouseStatusDetails {
 
                 /**
+                 * 创建\u5206\u4ed3\u72b6\u6001\uff0810\uff1a\u5f85\u5206\u4ed3 20\uff1a\u5df2\u5206\u4ed3\uff09\u3002的空实例。
+                 */
+                public DistributedWarehouseStatusDetails() {
+                }
+
+
+                /**
                  * id。
                  */
                 @JsonProperty("id")
@@ -299,6 +341,13 @@ public class ExternalSalesOrderQueryMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class OrgAddressOpenDTO {
+
+                /**
+                 * 创建\u5730\u5740\u3002的空实例。
+                 */
+                public OrgAddressOpenDTO() {
+                }
+
 
                 /**
                  * 联系人姓名。
@@ -326,6 +375,13 @@ public class ExternalSalesOrderQueryMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class ResponsiblePersonOpenDTO {
+
+                /**
+                 * 创建\u4e1a\u52a1\u5458\u3002的空实例。
+                 */
+                public ResponsiblePersonOpenDTO() {
+                }
+
 
                 /**
                  * 主键 ID。
@@ -366,6 +422,13 @@ public class ExternalSalesOrderQueryMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class SaleOrderDetailOpenDTO {
+
+            /**
+             * 创建\u9500\u552e\u5b9a\u5355\u7269\u54c1\u660e\u7ec6\u3002的空实例。
+             */
+            public SaleOrderDetailOpenDTO() {
+            }
+
 
             /**
              * 明细行 ID。
@@ -472,6 +535,13 @@ public class ExternalSalesOrderQueryMessage {
             public static class GoodsOpenDTO {
 
                 /**
+                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
+
+
+                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
@@ -541,6 +611,13 @@ public class ExternalSalesOrderQueryMessage {
             public static class WarehouseOpenDTO {
 
                 /**
+                 * 创建\u53d1\u8d27\u4ed3\u5e93\u3002的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
+
+
+                /**
                  * 仓库 ID。
                  */
                 @JsonProperty("id")
@@ -566,6 +643,13 @@ public class ExternalSalesOrderQueryMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class SaleComboItemOpenDTO {
+
+                /**
+                 * 创建\u5957\u9910\u5b50\u9879\u660e\u7ec6\u3002的空实例。
+                 */
+                public SaleComboItemOpenDTO() {
+                }
+
 
                 /**
                  * 主键 ID。
@@ -696,6 +780,13 @@ public class ExternalSalesOrderQueryMessage {
                 public static class GoodsOpenDTO {
 
                     /**
+                     * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                     */
+                    public GoodsOpenDTO() {
+                    }
+
+
+                    /**
                      * 物品 ID。
                      */
                     @JsonProperty("id")
@@ -763,6 +854,13 @@ public class ExternalSalesOrderQueryMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class WarehouseOpenDTO {
+
+                    /**
+                     * 创建\u53d1\u8d27\u4ed3\u5e93\u3002的空实例。
+                     */
+                    public WarehouseOpenDTO() {
+                    }
+
 
                     /**
                      * 仓库 ID。

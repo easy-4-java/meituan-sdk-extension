@@ -21,6 +21,13 @@ import lombok.Setter;
 public class HeadquartersDishMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5e97\u5185\u83dc\u54c1\u6d88\u606f\uff08\u603b\u90e8\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public HeadquartersDishMessage() {
+    }
+
+
+    /**
      * 租户 ID。必填。
      */
     @JsonProperty("tenantId")
@@ -81,6 +88,13 @@ public class HeadquartersDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Spu4CTO {
+
+        /**
+         * 创建\u83dc\u54c1\u5217\u8868\u3002的空实例。
+         */
+        public Spu4CTO() {
+        }
+
 
         /**
          * 商品 ID。
@@ -181,6 +195,13 @@ public class HeadquartersDishMessage {
         public static class PoiSku4CTO {
 
             /**
+             * 创建sku\u89c4\u683c\u5217\u8868\u3002的空实例。
+             */
+            public PoiSku4CTO() {
+            }
+
+
+            /**
              * sku id。
              */
             @JsonProperty("skuId")
@@ -219,6 +240,13 @@ public class HeadquartersDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Combo4CTO {
+
+        /**
+         * 创建\u5957\u9910\u5217\u8868\u3002的空实例。
+         */
+        public Combo4CTO() {
+        }
+
 
         /**
          * 套餐 ID。
@@ -270,6 +298,13 @@ public class HeadquartersDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Category4CTO {
+
+        /**
+         * 创建\u5206\u7c7b\u5217\u8868\u3002的空实例。
+         */
+        public Category4CTO() {
+        }
+
 
         /**
          * 分类 ID。
@@ -335,6 +370,13 @@ public class HeadquartersDishMessage {
     public static class Unit4CTO {
 
         /**
+         * 创建\u5355\u4f4d\u5217\u8868\u3002的空实例。
+         */
+        public Unit4CTO() {
+        }
+
+
+        /**
          * 单位 id。
          */
         @JsonProperty("id")
@@ -366,6 +408,13 @@ public class HeadquartersDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Method4CTO {
+
+        /**
+         * 创建\u505a\u6cd5\u5217\u8868\u3002的空实例。
+         */
+        public Method4CTO() {
+        }
+
 
         /**
          * 做法 id。
@@ -423,6 +472,13 @@ public class HeadquartersDishMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Spec4CTO {
+
+        /**
+         * 创建\u89c4\u683c\u5217\u8868\u3002的空实例。
+         */
+        public Spec4CTO() {
+        }
+
 
         /**
          * 规格 id。

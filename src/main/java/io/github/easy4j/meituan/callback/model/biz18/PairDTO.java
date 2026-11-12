@@ -14,6 +14,13 @@ import lombok.Setter;
 public class PairDTO {
 
     /**
+     * 创建PairDTO\uff0c\u7528\u4e8e\u3010\u4f9b\u5e94\u94fe\u3011\uff08\u9884\uff09\u4ed8\u6b3e\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public PairDTO() {
+    }
+
+
+    /**
      * id。
      */
     @JsonProperty("id")

@@ -348,65 +348,101 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> zcmopenpayApiDynamicQrcodeCreate(
             ZcmopenpayApiDynamicQrcodeCreateRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> zcmopenpayApiDynamicQrcodeQuery(
             ZcmopenpayApiDynamicQrcodeQueryRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefund(
             ZcmopenpayApiDynamicQrcodeRefundRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefundQuery(
             ZcmopenpayApiDynamicQrcodeRefundQueryRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ErpApiInvalidActCodeResponse> erpApiInvalidActCode(ErpApiInvalidActCodeRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ErpApiQddCreateActCodeResponse> erpApiQddCreateActCode(ErpApiQddCreateActCodeRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ErpApiQddMerchantProductQueryResponse> erpApiQddMerchantProductQuery(ErpApiQddMerchantProductQueryRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ErpApiQddMerchantProductQueryBatchResponse> erpApiQddMerchantProductQueryBatch(ErpApiQddMerchantProductQueryBatchRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ErpApiWaiterAppPoiGrantUpdateResponse> erpApiWaiterAppPoiGrantUpdate(ErpApiWaiterAppPoiGrantUpdateRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ZcmopenApiMerchantBizuserAuthenticationApplyResponse> zcmopenApiMerchantBizuserAuthenticationApply(ZcmopenApiMerchantBizuserAuthenticationApplyRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ZcmopenApiMerchantBizuserAuthenticationQueryResponse> zcmopenApiMerchantBizuserAuthenticationQuery(ZcmopenApiMerchantBizuserAuthenticationQueryRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ZcmopenpayApiFinanceWalletSettleQueryResponse> zcmopenpayApiFinanceWalletSettleQuery(ZcmopenpayApiFinanceWalletSettleQueryRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);

@@ -23,6 +23,13 @@ import lombok.Setter;
 public class TwoPartyImMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536IM\u4e24\u65b9\u4f1a\u8bdd\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public TwoPartyImMessage() {
+    }
+
+
+    /**
      * 业务类型字段，此时为1：两方会话。
      */
     @JsonProperty("biz_type")
@@ -49,6 +56,13 @@ public class TwoPartyImMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PushContent {
+
+        /**
+         * 创建json\u683c\u5f0f\u7684\u6d88\u606f\u4f53\uff0c\u4e0d\u540cbizType\u65f6\uff0c\u5b57\u6bb5\u4e0d\u540c\uff0c\u89e3\u6790\u65b9\u5f0f\u4e5f\u4e0d\u540c\u3002的空实例。
+         */
+        public PushContent() {
+        }
+
 
         /**
          * 消息 ID，确保消息唯一性，发送消息时，为三方的消息 ID，接收消息时，为美团的消息 ID。

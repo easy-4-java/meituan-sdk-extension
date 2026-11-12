@@ -20,6 +20,13 @@ import lombok.Setter;
 public class GroupBuyProductChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u56e2\u8d2d\u5546\u54c1\u53d8\u66f4\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public GroupBuyProductChangedMessage() {
+    }
+
+
+    /**
      * 美团团购商品 ID。必填。
      */
     @JsonProperty("dealGroupId")

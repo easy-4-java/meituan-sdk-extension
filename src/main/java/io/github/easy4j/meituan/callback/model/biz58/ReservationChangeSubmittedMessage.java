@@ -20,6 +20,13 @@ import lombok.Setter;
 public class ReservationChangeSubmittedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u6539\u7ea6\u63d0\u4ea4\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReservationChangeSubmittedMessage() {
+    }
+
+
+    /**
      * 平台订单 ID。必填。
      */
     @JsonProperty("orderId")

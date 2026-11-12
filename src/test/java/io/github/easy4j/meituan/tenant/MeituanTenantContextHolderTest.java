@@ -13,22 +13,44 @@ import static org.junit.jupiter.api.Assertions.assertNull;
  */
 class MeituanTenantContextHolderTest {
 
+    /**
+     * 创建 \u5355\u5143\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanTenantContextHolderTest() {
+    }
+
+
+    /**
+     * 清除当前线程的租户上下文，隔离后续测试。
+     */
     @AfterEach
     void cleanup() {
         MeituanTenantContextHolder.clear();
     }
 
+    /**
+     * 验证当前线程可以保存并读取租户标识。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_store_and_retrieve_tenant_id() throws Exception {
         MeituanTenantContextHolder.setTenantId("tenant-A");
         assertEquals("tenant-A", MeituanTenantContextHolder.getTenantId());
     }
 
+    /**
+     * 验证未设置线程上下文时返回 null。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_return_null_when_unset() throws Exception {
         assertNull(MeituanTenantContextHolder.getTenantId());
     }
 
+    /**
+     * 验证清理操作会移除当前线程的租户标识。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_clear_tenant_id() throws Exception {
         MeituanTenantContextHolder.setTenantId("tenant-B");
@@ -36,6 +58,10 @@ class MeituanTenantContextHolderTest {
         assertNull(MeituanTenantContextHolder.getTenantId());
     }
 
+    /**
+     * 验证不同线程的租户上下文相互隔离。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_be_thread_isolated() throws Exception {
         MeituanTenantContextHolder.setTenantId("main-thread");

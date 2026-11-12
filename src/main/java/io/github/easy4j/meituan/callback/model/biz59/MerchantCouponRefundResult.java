@@ -18,6 +18,13 @@ import lombok.Setter;
 public class MerchantCouponRefundResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5546\u5bb6\u5238\u9000\u5238\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public MerchantCouponRefundResult() {
+    }
+
+
+    /**
      * 退款ID。必填。
      */
     @JsonProperty("refundId")

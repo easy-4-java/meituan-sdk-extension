@@ -19,6 +19,13 @@ import lombok.Setter;
 public class EarlyReturnCheckResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63d0\u524d\u8fd8\u8f66\u68c0\u67e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public EarlyReturnCheckResult() {
+    }
+
+
+    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")
@@ -62,6 +69,13 @@ public class EarlyReturnCheckResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class InsuranceFee {
+
+        /**
+         * 创建\u9664\u57fa\u7840\u4fdd\u969c\u5916\uff0c\u989d\u5916\u4fdd\u969c\u9700\u8981\u4ed8\u8d39\u91d1\u989d\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public InsuranceFee() {
+        }
+
 
         /**
          * 保障服务Code枚举：InsuranceCode。必填。

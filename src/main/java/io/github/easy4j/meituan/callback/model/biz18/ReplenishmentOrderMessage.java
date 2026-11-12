@@ -23,6 +23,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class ReplenishmentOrderMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u8ba2\u8d27\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReplenishmentOrderMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -67,6 +74,13 @@ public class ReplenishmentOrderMessage {
     public static class DemandOrderOpenDTO {
 
         /**
+         * 创建\u95e8\u5e97\u8ba2\u8d27\u5355\u4fe1\u606f\u3002的空实例。
+         */
+        public DemandOrderOpenDTO() {
+        }
+
+
+        /**
          * 主单。必填。
          */
         @JsonProperty("item")
@@ -85,6 +99,13 @@ public class ReplenishmentOrderMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class DemandOrderItemOpenDTO {
+
+            /**
+             * 创建\u4e3b\u5355\u3002的空实例。
+             */
+            public DemandOrderItemOpenDTO() {
+            }
+
 
             /**
              * 单据号。
@@ -437,6 +458,13 @@ public class ReplenishmentOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u8ba2\u8d27\u673a\u6784\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -470,6 +498,13 @@ public class ReplenishmentOrderMessage {
             public static class PairDTO {
 
                 /**
+                 * 创建\u5355\u636e\u72b6\u6001\u3002的空实例。
+                 */
+                public PairDTO() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -489,6 +524,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class SupplySubjectDetails {
+
+                /**
+                 * 创建\u4f9b\u8d27\u673a\u6784\u3002的空实例。
+                 */
+                public SupplySubjectDetails() {
+                }
+
 
                 /**
                  * 机构 ID。
@@ -524,6 +566,13 @@ public class ReplenishmentOrderMessage {
             public static class RequisitionOrderTagsDetails {
 
                 /**
+                 * 创建\u8ba2\u8d27\u6807\u7b7e\u3002的空实例。
+                 */
+                public RequisitionOrderTagsDetails() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -547,6 +596,13 @@ public class ReplenishmentOrderMessage {
             public static class CustomFeesOpenDTO {
 
                 /**
+                 * 创建\u914d\u9001\u81ea\u5b9a\u4e49\u8d39\u7528\u3002的空实例。
+                 */
+                public CustomFeesOpenDTO() {
+                }
+
+
+                /**
                  * 自定义费用。
                  */
                 @JsonProperty("ruleIdentityKey")
@@ -565,6 +621,13 @@ public class ReplenishmentOrderMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class RuleIdentityOpenKey {
+
+                    /**
+                     * 创建\u81ea\u5b9a\u4e49\u8d39\u7528\u3002的空实例。
+                     */
+                    public RuleIdentityOpenKey() {
+                    }
+
 
                     /**
                      * id。
@@ -595,6 +658,13 @@ public class ReplenishmentOrderMessage {
             public static class CreateTypeDetails {
 
                 /**
+                 * 创建\u662f\u5426\u4ee3\u5e97\u4e0b\u5355\u3002的空实例。
+                 */
+                public CreateTypeDetails() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -614,6 +684,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class SourceTerminalTypeDetails {
+
+                /**
+                 * 创建\u521b\u5efa\u6765\u6e90\u3002的空实例。
+                 */
+                public SourceTerminalTypeDetails() {
+                }
+
 
                 /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
@@ -637,6 +714,13 @@ public class ReplenishmentOrderMessage {
             public static class FeeRecalculateStatusDetails {
 
                 /**
+                 * 创建\u8fd0\u8d39\u91cd\u7b97\u3002的空实例。
+                 */
+                public FeeRecalculateStatusDetails() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -656,6 +740,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class OrderOrderingTypeDetails {
+
+                /**
+                 * 创建\u521b\u5efa\u7c7b\u578b\u3002的空实例。
+                 */
+                public OrderOrderingTypeDetails() {
+                }
+
 
                 /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
@@ -679,6 +770,13 @@ public class ReplenishmentOrderMessage {
             public static class SourceTypeDetails {
 
                 /**
+                 * 创建\u521b\u5efa\u65b9\u5f0f\u3002的空实例。
+                 */
+                public SourceTypeDetails() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -698,6 +796,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class RuleIdentityOpenKey {
+
+                /**
+                 * 创建\u62c6\u5355\u89c4\u5219\u3002的空实例。
+                 */
+                public RuleIdentityOpenKey() {
+                }
+
 
                 /**
                  * id。
@@ -727,6 +832,13 @@ public class ReplenishmentOrderMessage {
             public static class SplitStatusDetails {
 
                 /**
+                 * 创建\u5206\u5355\u72b6\u6001\u3002的空实例。
+                 */
+                public SplitStatusDetails() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -746,6 +858,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class PayTypeDetails {
+
+                /**
+                 * 创建\u4ed8\u6b3e\u65b9\u5f0f\u3002的空实例。
+                 */
+                public PayTypeDetails() {
+                }
+
 
                 /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
@@ -769,6 +888,13 @@ public class ReplenishmentOrderMessage {
             public static class PaymentNodeDetails {
 
                 /**
+                 * 创建\u4ed8\u6b3e\u8282\u70b9\u3002的空实例。
+                 */
+                public PaymentNodeDetails() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -790,6 +916,13 @@ public class ReplenishmentOrderMessage {
             public static class PayStatusDetails {
 
                 /**
+                 * 创建\u4ed8\u6b3e\u72b6\u6001\u3002的空实例。
+                 */
+                public PayStatusDetails() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -809,6 +942,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class ReceiveSubjectOrgDetails {
+
+                /**
+                 * 创建\u6536\u8d27\u673a\u6784\u3002的空实例。
+                 */
+                public ReceiveSubjectOrgDetails() {
+                }
+
 
                 /**
                  * 机构 ID。
@@ -842,6 +982,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class UserOpenDTO {
+
+                /**
+                 * 创建\u63d0\u4ea4\u4eba\u3002的空实例。
+                 */
+                public UserOpenDTO() {
+                }
+
 
                 /**
                  * id。
@@ -895,6 +1042,13 @@ public class ReplenishmentOrderMessage {
             public static class AuditorDetails {
 
                 /**
+                 * 创建\u63a5\u5355\u4eba\u3002的空实例。
+                 */
+                public AuditorDetails() {
+                }
+
+
+                /**
                  * id。
                  */
                 @JsonProperty("id")
@@ -945,6 +1099,13 @@ public class ReplenishmentOrderMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class DemandOrderItemDetailOpenDTO {
+
+            /**
+             * 创建\u660e\u7ec6\u3002的空实例。
+             */
+            public DemandOrderItemDetailOpenDTO() {
+            }
+
 
             /**
              * 明细 ID。
@@ -1177,6 +1338,13 @@ public class ReplenishmentOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u8ba2\u8d27\u673a\u6784\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -1210,6 +1378,13 @@ public class ReplenishmentOrderMessage {
             public static class OpenOppositeOrgDTO {
 
                 /**
+                 * 创建\u9001\u8d27\u673a\u6784\u3002的空实例。
+                 */
+                public OpenOppositeOrgDTO() {
+                }
+
+
+                /**
                  * 供货机构类型。
                  */
                 @JsonProperty("type")
@@ -1240,6 +1415,13 @@ public class ReplenishmentOrderMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class PairDTO {
+
+                    /**
+                     * 创建\u4f9b\u8d27\u673a\u6784\u7c7b\u578b\u3002的空实例。
+                     */
+                    public PairDTO() {
+                    }
+
 
                     /**
                      * 供货机构类型 ID 1: 供应商 2: 配送中心。
@@ -1264,6 +1446,13 @@ public class ReplenishmentOrderMessage {
             public static class PairDTO {
 
                 /**
+                 * 创建\u8d60\u54c1\u6807\u8bb0\u3002的空实例。
+                 */
+                public PairDTO() {
+                }
+
+
+                /**
                  * 供货机构类型 ID 1: 供应商 2: 配送中心。
                  */
                 @JsonProperty("id")
@@ -1283,6 +1472,13 @@ public class ReplenishmentOrderMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class SupplySubjectDetails {
+
+                /**
+                 * 创建\u4f9b\u8d27\u673a\u6784\u3002的空实例。
+                 */
+                public SupplySubjectDetails() {
+                }
+
 
                 /**
                  * 供货机构类型。
@@ -1315,6 +1511,13 @@ public class ReplenishmentOrderMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class PairDTO {
+
+                    /**
+                     * 创建\u4f9b\u8d27\u673a\u6784\u7c7b\u578b\u3002的空实例。
+                     */
+                    public PairDTO() {
+                    }
+
 
                     /**
                      * 供货机构类型 ID 1: 供应商 2: 配送中心。

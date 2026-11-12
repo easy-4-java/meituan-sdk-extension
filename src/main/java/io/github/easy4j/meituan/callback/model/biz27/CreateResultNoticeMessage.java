@@ -20,6 +20,13 @@ import lombok.Setter;
 public class CreateResultNoticeMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5feb\u9a74\u8ba2\u5355\u521b\u5efa\u7ed3\u679c\u5f02\u6b65\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public CreateResultNoticeMessage() {
+    }
+
+
+    /**
      * 快驴订单编号。
      */
     @JsonProperty("orderNo")

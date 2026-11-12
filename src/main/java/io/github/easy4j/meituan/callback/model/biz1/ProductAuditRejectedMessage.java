@@ -22,6 +22,13 @@ import lombok.Setter;
 public class ProductAuditRejectedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5ba1\u6838\u9a73\u56de\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ProductAuditRejectedMessage() {
+    }
+
+
+    /**
      * 维度，1-总部, 2-门店。必填。
      */
     @JsonProperty("scope")
@@ -53,6 +60,13 @@ public class ProductAuditRejectedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class AuditRejectDetails {
+
+        /**
+         * 创建\u5ba1\u6838\u9a73\u56de\u4fe1\u606f\u3002的空实例。
+         */
+        public AuditRejectDetails() {
+        }
+
 
         /**
          * 主体类型：10-spu，11-sku，20-加价属性，30-加料，40-餐盒，50-桌台 60-前台类目。必填。

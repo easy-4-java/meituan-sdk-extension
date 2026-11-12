@@ -20,6 +20,13 @@ import lombok.Setter;
 public class PrivacyNumberFallbackMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u9690\u79c1\u53f7-\u964d\u7ea7\u56de\u8c03\u63a5\u53e3\u3010\u5fc5\u987b\u3011\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PrivacyNumberFallbackMessage() {
+    }
+
+
+    /**
      * 开发者 ID。
      */
     @JsonProperty("developerId")

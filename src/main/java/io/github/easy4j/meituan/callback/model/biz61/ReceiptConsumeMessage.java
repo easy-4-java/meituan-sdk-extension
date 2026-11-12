@@ -21,6 +21,13 @@ import lombok.Setter;
 public class ReceiptConsumeMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300cRECEIPT_CONSUME\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReceiptConsumeMessage() {
+    }
+
+
+    /**
      * 订单 ID。
      */
     @JsonProperty("orderId")
@@ -45,6 +52,13 @@ public class ReceiptConsumeMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ReceiptDto {
+
+        /**
+         * 创建\u6838\u9500\u7684\u5238\u7801\u4fe1\u606f\u3002的空实例。
+         */
+        public ReceiptDto() {
+        }
+
 
         /**
          * 券Id。

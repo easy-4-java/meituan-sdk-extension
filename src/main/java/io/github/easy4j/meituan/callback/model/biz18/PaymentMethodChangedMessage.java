@@ -21,6 +21,13 @@ import lombok.Setter;
 public class PaymentMethodChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u7ed3\u8d26\u65b9\u5f0f\u53d8\u66f4\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PaymentMethodChangedMessage() {
+    }
+
+
+    /**
      * 组织机构 ID。必填。
      */
     @JsonProperty("orgId")
@@ -39,6 +46,13 @@ public class PaymentMethodChangedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PaymentModifyInfo {
+
+        /**
+         * 创建\u7ed3\u8d26\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+         */
+        public PaymentModifyInfo() {
+        }
+
 
         /**
          * 操作类型，1-创建，2-更新，3-启停，4-删除。必填。
@@ -107,6 +121,13 @@ public class PaymentMethodChangedMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class IncomeRule {
+
+            /**
+             * 创建\u8bb0\u8d26\u89c4\u5219\u3002的空实例。
+             */
+            public IncomeRule() {
+            }
+
 
             /**
              * 计收入规则，1-计入收入，2-计入优惠。

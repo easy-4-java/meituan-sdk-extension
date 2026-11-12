@@ -19,6 +19,13 @@ import lombok.Setter;
 public class InvoiceStatusQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5f00\u7968\u72b6\u6001\u7ed3\u679c\u67e5\u8be2\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public InvoiceStatusQueryResult() {
+    }
+
+
+    /**
      * 开票申请ID。必填。
      */
     @JsonProperty("applyId")
@@ -62,6 +69,13 @@ public class InvoiceStatusQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Invoice {
+
+        /**
+         * 创建\u53d1\u7968\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public Invoice() {
+        }
+
 
         /**
          * 发票ID（发票服务商内部标识发票的唯一键）。必填。
@@ -242,6 +256,13 @@ public class InvoiceStatusQueryResult {
     public static class InvoiceItem {
 
         /**
+         * 创建\u53d1\u7968\u63cf\u8ff0\u4fe1\u606f\uff0c InvoiceItem\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public InvoiceItem() {
+        }
+
+
+        /**
          * 项目名称（如：餐饮服务*餐饮费）。必填。
          */
         @JsonProperty("itemName")
@@ -298,6 +319,13 @@ public class InvoiceStatusQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class FileInfo {
+
+        /**
+         * 创建\u53d1\u7968\u6587\u4ef6\uff08\u81f3\u5c11\u63d0\u4f9bPDF\u3001XML\u548cOFD\u6587\u4ef6\uff09\u3002的空实例。
+         */
+        public FileInfo() {
+        }
+
 
         /**
          * 文件类型：PDF、XML、OFD、JPG、PNG等。必填。

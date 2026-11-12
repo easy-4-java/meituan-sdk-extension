@@ -18,6 +18,13 @@ import lombok.Setter;
 public class InvoiceApplicationResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5f00\u7968\u7533\u8bf7\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public InvoiceApplicationResult() {
+    }
+
+
+    /**
      * 开票申请ID。必填。
      */
     @JsonProperty("applyId")
