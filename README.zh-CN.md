@@ -261,12 +261,13 @@ return MeituanBusiness58MessageType.resolve(callback)
                 handleRefundNotification(callback.getMessage());
                 yield MeituanCallbackResponse.success();
             }
+            default -> MeituanCallbackResponse.failure(-1, "unsupported msgType");
         })
         .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
 ```
 
-`MeituanBusiness58MessageType` 保留原有 3 项枚举。其他已登记消息可通过 `MeituanCallbackModels` 查询，包括次月扣款查询（5810239）和取消连续包月通知（5810241）。
-`MeituanBusiness59MessageType` 收录 34 项已核实编号的消息，解析时校验 `businessId=59`。
+消息类型枚举覆盖 `MeituanCallbackModels` 中的 27 个业务、282 组已登记编号，每个业务使用 `MeituanBusiness<业务ID>MessageType`。
+`resolve(callback)` 同时检查业务 ID 和消息编号；`fromMsgType(msgType)` 查询该业务的枚举。
 “消费流水变更”（5910023）的编号来自官网能力目录。消息详情未返回字段定义，SDK 保留 `message` 原文。
 `MeituanBusiness71MessageType` 收录门店建店直连的“审核结果通知”：能力名称
 `poi_openapi_msg_push`、`msgType=7110001`。五个 businessId=71 API 的官方元数据均为

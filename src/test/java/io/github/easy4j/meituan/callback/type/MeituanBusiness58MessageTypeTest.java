@@ -18,13 +18,13 @@ class MeituanBusiness58MessageTypeTest {
 
     @Test
     void shouldExposeAllDocumentedBusiness58MessagesWithoutDuplicateMsgTypes() {
-        assertThat(MeituanBusiness58MessageType.values()).hasSize(3);
+        assertThat(MeituanBusiness58MessageType.values()).hasSize(44);
 
         Set<String> msgTypes = Arrays.stream(MeituanBusiness58MessageType.values())
                 .map(MeituanBusiness58MessageType::getMsgType)
                 .collect(Collectors.toSet());
 
-        assertThat(msgTypes).containsExactlyInAnyOrder("5810149", "5810147", "5810173");
+        assertThat(msgTypes).hasSize(44).contains("5810149", "5810147", "5810173");
         assertThat(MeituanBusiness58MessageType.OPERATE_DEVICE.getDisplayName()).isEqualTo("操作设备");
         assertThat(MeituanBusiness58MessageType.OPERATE_DEVICE.getMsgType()).isEqualTo("5810149");
         assertThat(MeituanBusiness58MessageType.OPERATE_DEVICE.getDocumentUrl())

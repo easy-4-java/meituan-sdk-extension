@@ -89,11 +89,12 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
                 "美团门店混淆",
                 "设置会话下所有消息已读"
         );
-        assertThat(MeituanBusiness2MessageType.values())
-                .containsExactly(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE);
+        assertThat(MeituanBusiness2MessageType.fromMsgType("210069"))
+                .contains(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE);
+        int documentedCustomerSolutionMessages = 1;
         assertThat(COVERED_APIS.size() + UNRESOLVED_APIS.size()
-                + MeituanBusiness2MessageType.values().length).isEqualTo(14);
-        assertThat(COVERED_APIS.size() + MeituanBusiness2MessageType.values().length).isEqualTo(12);
+                + documentedCustomerSolutionMessages).isEqualTo(14);
+        assertThat(COVERED_APIS.size() + documentedCustomerSolutionMessages).isEqualTo(12);
     }
 
     private void assertFacadeMethodExists(ApiContract contract) {

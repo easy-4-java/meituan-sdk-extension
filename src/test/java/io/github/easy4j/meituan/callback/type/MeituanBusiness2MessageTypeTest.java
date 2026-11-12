@@ -16,7 +16,7 @@ class MeituanBusiness2MessageTypeTest {
     @Test
     void shouldExposeDocumentedBrandImMessage() {
         assertThat(MeituanBusiness2MessageType.values())
-                .containsExactly(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE);
+                .hasSize(24).contains(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE);
         assertThat(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE.getDisplayName())
                 .isEqualTo("接收IM两方会话消息");
         assertThat(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE.getMsgType()).isEqualTo("210069");

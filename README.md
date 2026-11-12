@@ -255,12 +255,14 @@ return MeituanBusiness58MessageType.resolve(callback)
                 handleRefundNotification(callback.getMessage());
                 yield MeituanCallbackResponse.success();
             }
+            default -> MeituanCallbackResponse.failure(-1, "unsupported msgType");
         })
         .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
 ```
 
-`MeituanBusiness58MessageType` retains its original three constants. Use `MeituanCallbackModels` for other registered callbacks, including 5810239 and 5810241. `MeituanBusiness59MessageType` contains
-34 documented business 59 message types and checks `businessId` before resolving.
+The message type enums cover all 282 registered identifiers across 27 businesses in `MeituanCallbackModels`.
+Each business has a `MeituanBusiness<businessId>MessageType` enum. `resolve(callback)` checks both identifiers,
+and `fromMsgType(msgType)` looks up a type within that business.
 For consumption record changes (5910023), the capability directory confirms the ID.
 The SDK returns the original `message` string because the linked page provides no field definitions.
 `MeituanBusiness71MessageType` contains the documented Store Direct Connection
