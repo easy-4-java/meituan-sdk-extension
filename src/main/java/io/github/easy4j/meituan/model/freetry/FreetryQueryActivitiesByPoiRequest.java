@@ -27,7 +27,10 @@ public class FreetryQueryActivitiesByPoiRequest implements MeituanRequest<Freetr
     }
 
     /**
-     * {@inheritDoc}
+     * 将官方 JSON 响应反序列化为当前接口的业务类型。
+     *
+     * @param response 官方接口返回的完整 JSON 文本
+     * @return 包含状态码、结果说明和业务数据的官方响应
      */
     @Override
     public MeituanResponse<FreetryQueryActivitiesByPoiResponse> deserializeResponse(String response) {
@@ -36,7 +39,9 @@ public class FreetryQueryActivitiesByPoiRequest implements MeituanRequest<Freetr
     }
 
     /**
-     * {@inheritDoc}
+     * 将当前请求按官方字段名称序列化为 JSON。
+     *
+     * @return 发送给官方 SDK 的业务参数 JSON
      */
     @Override
     public String serializeToJson() {

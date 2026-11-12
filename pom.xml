@@ -403,6 +403,8 @@
                         <legacyMode>true</legacyMode>
                         <detectJavaApiLink>false</detectJavaApiLink>
                         <additionalOptions>
+                            <additionalOption>-classpath</additionalOption>
+                            <additionalOption>${javadoc.classpath}</additionalOption>
                             <additionalOption>-Xmaxwarns</additionalOption>
                             <additionalOption>10000</additionalOption>
                         </additionalOptions>
@@ -485,7 +487,11 @@
                         <phase>generate-resources</phase>
                         <goals><goal>run</goal></goals>
                         <configuration>
+                            <exportAntProperties>true</exportAntProperties>
                             <target>
+                                <pathconvert property="javadoc.classpath">
+                                    <path refid="maven.test.classpath"/>
+                                </pathconvert>
                                 <checksum file="${project.build.directory}/official-input/MtOpJavaSDK.jar"
                                           algorithm="SHA-256" property="official.input.sha256"/>
                                 <fail message="官方 SDK 输入哈希不符，禁止转换或回退旧快照">
