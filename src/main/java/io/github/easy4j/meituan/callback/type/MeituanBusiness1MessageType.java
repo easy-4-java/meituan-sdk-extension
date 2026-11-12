@@ -2,6 +2,12 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz1.PaidOrderCreatedMessage;
+import io.github.easy4j.meituan.callback.model.biz1.ProductAuditRejectedMessage;
+import io.github.easy4j.meituan.callback.model.biz1.StoreAuthorizationSyncMessage;
+import io.github.easy4j.meituan.callback.model.biz1.StoreVoucherPaymentSettingsChangedMessage;
+import io.github.easy4j.meituan.callback.model.biz1.VoucherPaymentEnabledMessage;
+import io.github.easy4j.meituan.callback.model.biz1.VoucherPaymentOrderMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,36 +23,36 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=1} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness1MessageType {
+public enum MeituanBusiness1MessageType implements MeituanMessageType {
 
     /**
      * 代金券买单订单消息【必接】。
      */
-    VOUCHER_PAYMENT_ORDER("代金券买单订单消息【必接】", "110009", "https://developer.meituan.com/docs/msg/msg_tuangoung_339f232c-3fcc-42bb-af9e-979375b5e8dc"),
+    VOUCHER_PAYMENT_ORDER("代金券买单订单消息【必接】", "110009", "https://developer.meituan.com/docs/msg/msg_tuangoung_339f232c-3fcc-42bb-af9e-979375b5e8dc", VoucherPaymentOrderMessage.class),
     /**
      * 开通代金券买单消息。
      */
-    VOUCHER_PAYMENT_ENABLED("开通代金券买单消息", "110011", "https://developer.meituan.com/docs/msg/msg_tuangoung_10c69b71-a072-4d6f-ab0e-9d1f3a2027da"),
+    VOUCHER_PAYMENT_ENABLED("开通代金券买单消息", "110011", "https://developer.meituan.com/docs/msg/msg_tuangoung_10c69b71-a072-4d6f-ab0e-9d1f3a2027da", VoucherPaymentEnabledMessage.class),
     /**
      * 门店授权信息同步。
      */
-    STORE_AUTHORIZATION_SYNC("门店授权信息同步", "110019", "https://developer.meituan.com/docs/msg/msg_tuangoung_33cda1bb-6a24-473e-b1b0-a3c869024e39"),
+    STORE_AUTHORIZATION_SYNC("门店授权信息同步", "110019", "https://developer.meituan.com/docs/msg/msg_tuangoung_33cda1bb-6a24-473e-b1b0-a3c869024e39", StoreAuthorizationSyncMessage.class),
     /**
      * 门店代金券买单设置变更。
      */
-    STORE_VOUCHER_PAYMENT_SETTINGS_CHANGED("门店代金券买单设置变更", "110021", "https://developer.meituan.com/docs/msg/msg_tuangoung_0c32a6c8-7f01-44d8-8b1b-65b769db8ddb"),
+    STORE_VOUCHER_PAYMENT_SETTINGS_CHANGED("门店代金券买单设置变更", "110021", "https://developer.meituan.com/docs/msg/msg_tuangoung_0c32a6c8-7f01-44d8-8b1b-65b769db8ddb", StoreVoucherPaymentSettingsChangedMessage.class),
     /**
      * 审核驳回通知。
      */
-    PRODUCT_AUDIT_REJECTED("审核驳回通知", "110027", "https://developer.meituan.com/docs/msg/msg_tuangoung_41822434-e339-4850-9e0e-1204af98e295"),
+    PRODUCT_AUDIT_REJECTED("审核驳回通知", "110027", "https://developer.meituan.com/docs/msg/msg_tuangoung_41822434-e339-4850-9e0e-1204af98e295", ProductAuditRejectedMessage.class),
     /**
      * 审核驳回通知。
      */
-    PRODUCT_AUDIT_REJECTED_110017("审核驳回通知", "110017", "https://developer.meituan.com/docs/msg/msg_tuangoung_41822434-e339-4850-9e0e-1204af98e295"),
+    PRODUCT_AUDIT_REJECTED_110017("审核驳回通知", "110017", "https://developer.meituan.com/docs/msg/msg_tuangoung_41822434-e339-4850-9e0e-1204af98e295", ProductAuditRejectedMessage.class),
     /**
      * 新订单推送（已支付）。
      */
-    PAID_ORDER_CREATED("新订单推送（已支付）", "110029", "https://developer.meituan.com/docs/msg/msg_tuangoung_a598c633-ce85-4889-a688-41d372c40c10");
+    PAID_ORDER_CREATED("新订单推送（已支付）", "110029", "https://developer.meituan.com/docs/msg/msg_tuangoung_a598c633-ce85-4889-a688-41d372c40c10", PaidOrderCreatedMessage.class);
 
     private static final String BUSINESS_ID = "1";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -70,10 +76,26 @@ public enum MeituanBusiness1MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness1MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness1MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

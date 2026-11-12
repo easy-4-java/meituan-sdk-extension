@@ -263,6 +263,10 @@ return MeituanBusiness58MessageType.resolve(callback)
 The message type enums cover all 282 registered identifiers across 27 businesses in `MeituanCallbackModels`.
 Each business has a `MeituanBusiness<businessId>MessageType` enum. `resolve(callback)` checks both identifiers,
 and `fromMsgType(msgType)` looks up a type within that business.
+Each enum entry defines its name, message ID, document URL and `messageClass`.
+`MeituanCallbackModels` derives its immutable index from these entries, so adding a callback to an existing business requires one enum entry.
+For a new business, connect its enum to the registry’s business catalogue. `MeituanCallbackModels.all()` exposes the registered definitions.
+
 For consumption record changes (5910023), the capability directory confirms the ID.
 The SDK returns the original `message` string because the linked page provides no field definitions.
 `MeituanBusiness71MessageType` contains the documented Store Direct Connection

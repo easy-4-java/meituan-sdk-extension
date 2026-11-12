@@ -2,6 +2,13 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz16.DispatchEligibilityMessage;
+import io.github.easy4j.meituan.callback.model.biz16.MealPreparationStatusMessage;
+import io.github.easy4j.meituan.callback.model.biz16.OrderDeliveryStatusMessage;
+import io.github.easy4j.meituan.callback.model.biz16.OrderNotificationMessage;
+import io.github.easy4j.meituan.callback.model.biz16.PartialRefundMessage;
+import io.github.easy4j.meituan.callback.model.biz16.RefundReviewReminderMessage;
+import io.github.easy4j.meituan.callback.model.biz16.SmsDeliveryResultMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,36 +24,36 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=16} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness16MessageType {
+public enum MeituanBusiness16MessageType implements MeituanMessageType {
 
     /**
      * 接收订单配送状态消息。
      */
-    ORDER_DELIVERY_STATUS("接收订单配送状态消息", "16101", "https://developer.meituan.com/docs/msg/msg_wmoperng_518e4127-0a7d-40ef-b4c3-5ea4c47969be"),
+    ORDER_DELIVERY_STATUS("接收订单配送状态消息", "16101", "https://developer.meituan.com/docs/msg/msg_wmoperng_518e4127-0a7d-40ef-b4c3-5ea4c47969be", OrderDeliveryStatusMessage.class),
     /**
      * 接收订单消息。
      */
-    ORDER_NOTIFICATION("接收订单消息", "16102", "https://developer.meituan.com/docs/msg/msg_wmoperng_e166a543-49a3-4ce2-8663-35f41ea8b415"),
+    ORDER_NOTIFICATION("接收订单消息", "16102", "https://developer.meituan.com/docs/msg/msg_wmoperng_e166a543-49a3-4ce2-8663-35f41ea8b415", OrderNotificationMessage.class),
     /**
      * 接收部分退款回调接口。
      */
-    PARTIAL_REFUND("接收部分退款回调接口", "1610009", "https://developer.meituan.com/docs/msg/msg_wmoperng_3a03df24-a1c3-41e5-8b64-653542166018"),
+    PARTIAL_REFUND("接收部分退款回调接口", "1610009", "https://developer.meituan.com/docs/msg/msg_wmoperng_3a03df24-a1c3-41e5-8b64-653542166018", PartialRefundMessage.class),
     /**
      * 推送订单出餐状态。
      */
-    MEAL_PREPARATION_STATUS("推送订单出餐状态", "1610013", "https://developer.meituan.com/docs/msg/msg_wmoperng_b21fef3b-dc3c-4848-8dd1-5a37403cf313"),
+    MEAL_PREPARATION_STATUS("推送订单出餐状态", "1610013", "https://developer.meituan.com/docs/msg/msg_wmoperng_b21fef3b-dc3c-4848-8dd1-5a37403cf313", MealPreparationStatusMessage.class),
     /**
      * 接收用户催商家审核退款消息。
      */
-    REFUND_REVIEW_REMINDER("接收用户催商家审核退款消息", "1610015", "https://developer.meituan.com/docs/msg/msg_wmoperng_fedafb83-675d-4d97-8156-0ba95aadf2a1"),
+    REFUND_REVIEW_REMINDER("接收用户催商家审核退款消息", "1610015", "https://developer.meituan.com/docs/msg/msg_wmoperng_fedafb83-675d-4d97-8156-0ba95aadf2a1", RefundReviewReminderMessage.class),
     /**
      * 推送是否可发配送。
      */
-    DISPATCH_ELIGIBILITY("推送是否可发配送", "1610019", "https://developer.meituan.com/docs/msg/msg_wmoperng_5eb67b95-94be-4f04-aa5f-8fd64c2e9457"),
+    DISPATCH_ELIGIBILITY("推送是否可发配送", "1610019", "https://developer.meituan.com/docs/msg/msg_wmoperng_5eb67b95-94be-4f04-aa5f-8fd64c2e9457", DispatchEligibilityMessage.class),
     /**
      * 短信发送结果回调。
      */
-    SMS_DELIVERY_RESULT("短信发送结果回调", "1610031", "https://developer.meituan.com/docs/msg/msg_wmoperng_6df899a1-136f-452e-bb3f-7802f7111d65");
+    SMS_DELIVERY_RESULT("短信发送结果回调", "1610031", "https://developer.meituan.com/docs/msg/msg_wmoperng_6df899a1-136f-452e-bb3f-7802f7111d65", SmsDeliveryResultMessage.class);
 
     private static final String BUSINESS_ID = "16";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -70,10 +77,26 @@ public enum MeituanBusiness16MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness16MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness16MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

@@ -2,6 +2,7 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz86.CorporateInvoiceApplicationMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,12 +18,12 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=86} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness86MessageType {
+public enum MeituanBusiness86MessageType implements MeituanMessageType {
 
     /**
      * 美团企业开票申请。
      */
-    CORPORATE_INVOICE_APPLICATION("美团企业开票申请", "8610002", "https://developer.meituan.com/docs/msg/msg_solution2_c248a615-a5ef-4086-a842-220da8a15f2f");
+    CORPORATE_INVOICE_APPLICATION("美团企业开票申请", "8610002", "https://developer.meituan.com/docs/msg/msg_solution2_c248a615-a5ef-4086-a842-220da8a15f2f", CorporateInvoiceApplicationMessage.class);
 
     private static final String BUSINESS_ID = "86";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -46,10 +47,26 @@ public enum MeituanBusiness86MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness86MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness86MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

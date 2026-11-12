@@ -268,6 +268,10 @@ return MeituanBusiness58MessageType.resolve(callback)
 
 消息类型枚举覆盖 `MeituanCallbackModels` 中的 27 个业务、282 组已登记编号，每个业务使用 `MeituanBusiness<业务ID>MessageType`。
 `resolve(callback)` 同时检查业务 ID 和消息编号；`fromMsgType(msgType)` 查询该业务的枚举。
+回调定义集中在业务枚举中，每项填写名称、消息编号、官网文档和 `messageClass`。
+`MeituanCallbackModels` 从枚举构建只读索引；业务内新增回调只需添加一个枚举项。
+新增业务时，将该业务枚举接入注册表的业务目录。`MeituanCallbackModels.all()` 可读取完整消息定义。
+
 “消费流水变更”（5910023）的编号来自官网能力目录。消息详情未返回字段定义，SDK 保留 `message` 原文。
 `MeituanBusiness71MessageType` 收录门店建店直连的“审核结果通知”：能力名称
 `poi_openapi_msg_push`、`msgType=7110001`。五个 businessId=71 API 的官方元数据均为

@@ -2,6 +2,9 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz94.VehicleExceptionMessage;
+import io.github.easy4j.meituan.callback.model.biz94.VehicleRealtimeInformationMessage;
+import io.github.easy4j.meituan.callback.model.biz94.VehicleTaskStatusMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,20 +20,20 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=94} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness94MessageType {
+public enum MeituanBusiness94MessageType implements MeituanMessageType {
 
     /**
      * 车辆任务状态推送。
      */
-    VEHICLE_TASK_STATUS("车辆任务状态推送", "9410000", "https://developer.meituan.com/docs/msg/msg_keebot_4ab66dcf-35a9-4712-acc9-b0adb8f4307a"),
+    VEHICLE_TASK_STATUS("车辆任务状态推送", "9410000", "https://developer.meituan.com/docs/msg/msg_keebot_4ab66dcf-35a9-4712-acc9-b0adb8f4307a", VehicleTaskStatusMessage.class),
     /**
      * 车辆异常推送。
      */
-    VEHICLE_EXCEPTION("车辆异常推送", "9410002", "https://developer.meituan.com/docs/msg/msg_keebot_d02a2f66-30a7-4bf4-a69e-cf56c88612bd"),
+    VEHICLE_EXCEPTION("车辆异常推送", "9410002", "https://developer.meituan.com/docs/msg/msg_keebot_d02a2f66-30a7-4bf4-a69e-cf56c88612bd", VehicleExceptionMessage.class),
     /**
      * 实时信息推送。
      */
-    VEHICLE_REALTIME_INFORMATION("实时信息推送", "9410004", "https://developer.meituan.com/docs/msg/msg_keebot_9dd81753-503d-411f-b27f-e91786cc83fd");
+    VEHICLE_REALTIME_INFORMATION("实时信息推送", "9410004", "https://developer.meituan.com/docs/msg/msg_keebot_9dd81753-503d-411f-b27f-e91786cc83fd", VehicleRealtimeInformationMessage.class);
 
     private static final String BUSINESS_ID = "94";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -54,10 +57,26 @@ public enum MeituanBusiness94MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness94MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness94MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

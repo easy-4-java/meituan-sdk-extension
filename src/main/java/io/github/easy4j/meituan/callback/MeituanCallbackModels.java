@@ -1,575 +1,104 @@
 package io.github.easy4j.meituan.callback;
 
-import io.github.easy4j.meituan.callback.model.biz1.PaidOrderCreatedMessage;
-import io.github.easy4j.meituan.callback.model.biz1.ProductAuditRejectedMessage;
-import io.github.easy4j.meituan.callback.model.biz1.StoreAuthorizationSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz1.StoreVoucherPaymentSettingsChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz1.VoucherPaymentEnabledMessage;
-import io.github.easy4j.meituan.callback.model.biz1.VoucherPaymentOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz1000.MigrationCompletedMessage;
-import io.github.easy4j.meituan.callback.model.biz1000.PushVolumeAdjustmentResultMessage;
-import io.github.easy4j.meituan.callback.model.biz15.BrandMemberLevelChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz15.BrandMemberQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz15.BrandMemberRegistrationAndRightsMessage;
-import io.github.easy4j.meituan.callback.model.biz15.CoBrandedNewUserQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz15.MembershipCardEventMessage;
-import io.github.easy4j.meituan.callback.model.biz15.MembershipCardPointsMessage;
-import io.github.easy4j.meituan.callback.model.biz16.DispatchEligibilityMessage;
-import io.github.easy4j.meituan.callback.model.biz16.PartialRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz18.AssemblyOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.BrandInformationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ConfigurationChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.CouponRedemptionChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DeliveryOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DeliveryPriceMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DeliveryReceiptMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DisassemblyOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.DishSoldOutMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ExternalSalesOrderQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ExternalSalesReturnQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ExternalSalesShipmentQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.FundExceptionMessage;
-import io.github.easy4j.meituan.callback.model.biz18.HeadquartersDishMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ItemCategoryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ItemMasterMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberCouponDiscountAllocationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberCouponDiscountReversedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberOrderAvailableCouponsMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberCouponRedemptionMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPointsRedeemedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPointsReversedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPointsRulesQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberPriceQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MemberSearchMessage;
-import io.github.easy4j.meituan.callback.model.biz18.MerchantSettingsChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OnlinePaymentSettlementMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OnlineTransactionMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OrderSettlementMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OrganizationAddressMessage;
-import io.github.easy4j.meituan.callback.model.biz18.OrganizationStructureMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PaymentMethodChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PaymentNotificationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderAcceptedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderCollectedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderDeliveredMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosOrderRejectedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosPartialRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosPreparationCompletedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PosPreparationStartedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PurchaseOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PurchaseReceiptMessage;
-import io.github.easy4j.meituan.callback.model.biz18.PurchaseReturnMessage;
-import io.github.easy4j.meituan.callback.model.biz18.RealtimeOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReceivableExpenseMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReplenishmentOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReplenishmentSplitCancellationCheckMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockDiscrepancyMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockIssueMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockReceiptMessage;
-import io.github.easy4j.meituan.callback.model.biz18.ReverseOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockReturnAuditReversalCheckMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StockReturnMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StocktakeOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreDishMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreInformationMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreQrOrderingSettingsChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoreTransferOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoredValueRedeemedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.StoredValueReversedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.SupplyPaymentMessage;
-import io.github.easy4j.meituan.callback.model.biz18.TableAreaChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz18.TakeawayDishMessage;
-import io.github.easy4j.meituan.callback.model.biz19.DeliveryOrderExceptionMessage;
-import io.github.easy4j.meituan.callback.model.biz19.DeliveryOrderStatusMessage;
-import io.github.easy4j.meituan.callback.model.biz19.DeliveryRangeChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz19.DeliveryRiskLevelChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz19.StoreStatusMessage;
-import io.github.easy4j.meituan.callback.model.biz2.AnonymousReviewChatMessage;
-import io.github.easy4j.meituan.callback.model.biz2.AutoReplySettingsChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.GroupMealProductChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.ImDeliveryBlockedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.MealPreparationExceptionMessage;
-import io.github.easy4j.meituan.callback.model.biz2.MerchantAppealResultMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderConfirmedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderInformationChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderReceivedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderReminderMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderSettlementDetailsMessage;
-import io.github.easy4j.meituan.callback.model.biz2.OrderTransferredToMerchantDeliveryMessage;
-import io.github.easy4j.meituan.callback.model.biz2.PartialOrderRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz2.PrivacyNumberFallbackMessage;
-import io.github.easy4j.meituan.callback.model.biz2.StoreOrProductChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.StoreStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz2.TwoPartyImMessage;
-import io.github.easy4j.meituan.callback.model.biz27.BillDetailNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz27.CreateResultNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz27.OrderCancelNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz27.OrderShipmentNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz27.StockInNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz27.StockOutNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz3.PaymentOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz31.OrderStatusMessage;
-import io.github.easy4j.meituan.callback.model.biz46.DeliveryStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz46.MealReadyMessage;
-import io.github.easy4j.meituan.callback.model.biz46.OrderPaidMessage;
-import io.github.easy4j.meituan.callback.model.biz46.OrderRejectedMessage;
-import io.github.easy4j.meituan.callback.model.biz46.OrderTimeoutCanceledMessage;
-import io.github.easy4j.meituan.callback.model.biz46.PackageDeliveryAcceptedMessage;
-import io.github.easy4j.meituan.callback.model.biz46.PoiInfoChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz46.PreorderMealReminderMessage;
-import io.github.easy4j.meituan.callback.model.biz46.PrintOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz46.RefundStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz46.SelfDeliveryAvailableMessage;
-import io.github.easy4j.meituan.callback.model.biz46.SelfDeliveryCompletedMessage;
-import io.github.easy4j.meituan.callback.model.biz46.SelfDeliveryTransferSucceededMessage;
-import io.github.easy4j.meituan.callback.model.biz49.QueueTicketCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz49.QueueTicketIssuedMessage;
-import io.github.easy4j.meituan.callback.model.biz51.BrandOrderCancelMessage;
-import io.github.easy4j.meituan.callback.model.biz51.BrandOrderQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz51.OnlineBusinessChangeMessage;
-import io.github.easy4j.meituan.callback.model.biz51.OnlineServiceStatusChangeMessage;
-import io.github.easy4j.meituan.callback.model.biz51.OrderFulfillmentQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz51.OrderPushMessage;
-import io.github.easy4j.meituan.callback.model.biz51.PaidOrderPushMessage;
-import io.github.easy4j.meituan.callback.model.biz51.PlatformOrderStatusChangeMessage;
-import io.github.easy4j.meituan.callback.model.biz51.PreparationTimeAndQueueQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz51.PreparationTimeQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz51.ProductAuditNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz51.RefundApplicationPushMessage;
-import io.github.easy4j.meituan.callback.model.biz52.ActivationCodeRedeemedMessage;
-import io.github.easy4j.meituan.callback.model.biz52.MerchantOnboardingResultMessage;
-import io.github.easy4j.meituan.callback.model.biz52.PaymentProductActivationResultMessage;
-import io.github.easy4j.meituan.callback.model.biz52.PaymentResultMessage;
-import io.github.easy4j.meituan.callback.model.biz52.StagePaymentResultMessage;
-import io.github.easy4j.meituan.callback.model.biz52.StageRefundNotificationMessage;
-import io.github.easy4j.meituan.callback.model.biz52.SubMerchantVerificationResultMessage;
-import io.github.easy4j.meituan.callback.model.biz55.ActivityChangeNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz58.AllStoreResourceInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.AuthorizedStoreCountQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.BatchInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.CustomerLeadMessage;
-import io.github.easy4j.meituan.callback.model.biz58.DeviceIdByQrCodeQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.GroupDealProjectMappingQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.HomeServiceInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.InventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.LegacySessionMigrationCompletedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MerchantIdentificationMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MigratedSessionTokenMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MonthlyChargeQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MonthlySubscriptionCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MultiProductInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.MultiStoreDeviceStatusQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.OperateDeviceMessage;
-import io.github.easy4j.meituan.callback.model.biz58.OrderRefundInfoPushedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RedemptionStatusQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RefundWithdrawnMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationCancellationReviewMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationChangeResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationChangeSubmittedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationRedemptionMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationRefundFailedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservationStartedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.ReservedDeviceStartedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RoomAuditResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RoomInformationQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.RoomPushResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SecondaryRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SelfServiceDeviceOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StaffTimeSlotInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StartDeviceAndConsumeDealMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StoreDeviceStatusQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StoreDevicesQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.StoreResourceInventoryQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SurchargeOrderRedeemedMessage;
-import io.github.easy4j.meituan.callback.model.biz58.SurchargePaymentResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.TableOpeningSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz58.TechnicianAuditResultMessage;
-import io.github.easy4j.meituan.callback.model.biz58.VideoResourceQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz59.AvailableTechnicianQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.CallRecordsQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ClubActivityAuditResultMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ClubActivityParticipantsQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.DealGroupPublishedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.DealGroupRoomRelationResultMessage;
-import io.github.easy4j.meituan.callback.model.biz59.FulfillmentStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.GroupBuyProductChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.InventoryBatchQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.InventoryQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MallMemberPointsAuthorizedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MallPointsTransactionPushedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MemberLevelQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MemberUnregisteredMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponConsumedRefundNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponDegradedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponDynamicCodeMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponForcedRefundNoticeMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponIssueMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponOrderBatchQueriedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.MerchantCouponRefundMessage;
-import io.github.easy4j.meituan.callback.model.biz59.PaymentResultNotifiedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ProductOnlineStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ProductStatusChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.RefundResultNotifiedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationCancelResultSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationCancelSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationCreateSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationModifyResultSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationOperationResultSyncMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ReservationUserModifiedMessage;
-import io.github.easy4j.meituan.callback.model.biz59.ShowEventStatusUpdatedMessage;
-import io.github.easy4j.meituan.callback.model.biz61.OrderCloseMessage;
-import io.github.easy4j.meituan.callback.model.biz61.OrderSubmitMessage;
-import io.github.easy4j.meituan.callback.model.biz61.PayProcessMessage;
-import io.github.easy4j.meituan.callback.model.biz61.ReceiptCancelConsumeMessage;
-import io.github.easy4j.meituan.callback.model.biz61.ReceiptConsumeMessage;
-import io.github.easy4j.meituan.callback.model.biz61.RefundProcessMessage;
-import io.github.easy4j.meituan.callback.model.biz63.JointMemberPointsDeductionMessage;
-import io.github.easy4j.meituan.callback.model.biz63.JointMemberQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz63.JointMemberRegistrationMessage;
-import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderCreatedMessage;
-import io.github.easy4j.meituan.callback.model.biz7.TableRulesAndInventoryChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz71.StoreAuditResultMessage;
-import io.github.easy4j.meituan.callback.model.biz79.VoucherCodeChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz86.CorporateInvoiceApplicationMessage;
-import io.github.easy4j.meituan.callback.model.biz87.InvoiceApplicationMessage;
-import io.github.easy4j.meituan.callback.model.biz87.InvoiceStatusQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz92.DepositDeductionRefundResultMessage;
-import io.github.easy4j.meituan.callback.model.biz92.DepositDeductionResultMessage;
-import io.github.easy4j.meituan.callback.model.biz92.DepositFrozenMessage;
-import io.github.easy4j.meituan.callback.model.biz92.DepositUnfreezeResultMessage;
-import io.github.easy4j.meituan.callback.model.biz92.DriverChangedMessage;
-import io.github.easy4j.meituan.callback.model.biz92.EarlyReturnCheckMessage;
-import io.github.easy4j.meituan.callback.model.biz92.OrderCancellationPrecheckMessage;
-import io.github.easy4j.meituan.callback.model.biz92.OrderDetailQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz92.OrderPlacedMessage;
-import io.github.easy4j.meituan.callback.model.biz92.OrderPrecheckMessage;
-import io.github.easy4j.meituan.callback.model.biz92.QuoteDetailQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz92.QuoteListQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz92.RefundResultMessage;
-import io.github.easy4j.meituan.callback.model.biz92.RentalExtensionCancellationCheckMessage;
-import io.github.easy4j.meituan.callback.model.biz92.RentalExtensionCancelledMessage;
-import io.github.easy4j.meituan.callback.model.biz92.RentalExtensionOrderMessage;
-import io.github.easy4j.meituan.callback.model.biz92.RentalExtensionPrecheckMessage;
-import io.github.easy4j.meituan.callback.model.biz92.RentalExtensionQuoteQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz92.StoreListQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz92.VehicleModelQueryMessage;
-import io.github.easy4j.meituan.callback.model.biz94.VehicleExceptionMessage;
-import io.github.easy4j.meituan.callback.model.biz94.VehicleRealtimeInformationMessage;
-import io.github.easy4j.meituan.callback.model.biz94.VehicleTaskStatusMessage;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness1MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness2MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness3MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness7MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness15MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness16MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness18MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness19MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness27MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness31MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness46MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness49MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness51MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness52MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness55MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness58MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness59MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness61MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness63MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness71MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness77MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness79MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness86MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness87MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness92MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness94MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness1000MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanMessageType;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
- * 按官网业务 ID 和消息类型查找可传给 {@link CallbackUtil} 的业务模型类。
+ * 从业务消息枚举建立只读模型索引，供 {@link CallbackUtil} 自动解析。
+ * <p>新增业务需要接入该业务的枚举目录；业务内新增回调只需添加枚举项。</p>
  */
 public final class MeituanCallbackModels {
+
+    private static final Map<String, MeituanMessageType> TYPES = Stream.<MeituanMessageType[]>of(
+                    MeituanBusiness1MessageType.values(),
+                    MeituanBusiness2MessageType.values(),
+                    MeituanBusiness3MessageType.values(),
+                    MeituanBusiness7MessageType.values(),
+                    MeituanBusiness15MessageType.values(),
+                    MeituanBusiness16MessageType.values(),
+                    MeituanBusiness18MessageType.values(),
+                    MeituanBusiness19MessageType.values(),
+                    MeituanBusiness27MessageType.values(),
+                    MeituanBusiness31MessageType.values(),
+                    MeituanBusiness46MessageType.values(),
+                    MeituanBusiness49MessageType.values(),
+                    MeituanBusiness51MessageType.values(),
+                    MeituanBusiness52MessageType.values(),
+                    MeituanBusiness55MessageType.values(),
+                    MeituanBusiness58MessageType.values(),
+                    MeituanBusiness59MessageType.values(),
+                    MeituanBusiness61MessageType.values(),
+                    MeituanBusiness63MessageType.values(),
+                    MeituanBusiness71MessageType.values(),
+                    MeituanBusiness77MessageType.values(),
+                    MeituanBusiness79MessageType.values(),
+                    MeituanBusiness86MessageType.values(),
+                    MeituanBusiness87MessageType.values(),
+                    MeituanBusiness92MessageType.values(),
+                    MeituanBusiness94MessageType.values(),
+                    MeituanBusiness1000MessageType.values()
+            )
+            .flatMap(Arrays::stream)
+            .collect(Collectors.toUnmodifiableMap(
+                    type -> type.getBusinessId() + ":" + type.getMsgType(), Function.identity()));
 
     private MeituanCallbackModels() {
     }
 
     /**
-     * 根据业务 ID 和消息类型查找传给 {@link CallbackUtil} 的模型类。
-     *
-     * @param businessId 回调所属业务的 {@code businessId}
-     * @param msgType 回调的 {@code msgType}；旧版会员卡协议使用 {@code invokeType}
-     * @return 对应的业务模型类；仅核实编号但未核实字段时返回 {@link String} 类型；参数为空或组合未登记时返回空的 {@link Optional}
+     * 根据业务编号和消息编号查询业务模型。
+     * @param businessId 官方业务编号
+     * @param msgType 消息类型编号，旧协议也可使用 invokeType
+     * @return 模型类；仅核实编号的消息返回 String；未登记或参数为 null 时为空
      */
     public static Optional<Class<?>> find(String businessId, String msgType) {
         if (Objects.isNull(businessId) || Objects.isNull(msgType)) {
             return Optional.empty();
         }
-        Class<?> type = switch (businessId + ":" + msgType) {
-            case "1:110009" -> VoucherPaymentOrderMessage.class;
-            case "1:110011" -> VoucherPaymentEnabledMessage.class;
-            case "1:110019" -> StoreAuthorizationSyncMessage.class;
-            case "1:110021" -> StoreVoucherPaymentSettingsChangedMessage.class;
-            case "1:110027", "1:110017" -> ProductAuditRejectedMessage.class;
-            case "1:110029" -> PaidOrderCreatedMessage.class;
-            case "2:2101" -> StoreOrProductChangedMessage.class;
-            case "2:2102" -> MealPreparationExceptionMessage.class;
-            case "2:210001" -> OrderReceivedMessage.class;
-            case "2:210003" -> io.github.easy4j.meituan.callback.model.biz2.OrderCancelledMessage.class;
-            case "2:210005" -> OrderRefundMessage.class;
-            case "2:210007" -> io.github.easy4j.meituan.callback.model.biz2.OrderCompletedMessage.class;
-            case "2:210009" -> OrderConfirmedMessage.class;
-            case "2:210011" -> io.github.easy4j.meituan.callback.model.biz2.OrderDeliveryStatusMessage.class;
-            case "2:210013" -> StoreStatusChangedMessage.class;
-            case "2:210015" -> OrderSettlementDetailsMessage.class;
-            case "2:210017" -> PartialOrderRefundMessage.class;
-            case "2:210019" -> PrivacyNumberFallbackMessage.class;
-            case "2:210021" -> OrderReminderMessage.class;
-            case "2:210027" -> GroupMealProductChangedMessage.class;
-            case "2:210031" -> OrderTransferredToMerchantDeliveryMessage.class;
-            case "2:210033" -> ImDeliveryBlockedMessage.class;
-            case "2:210051" -> AutoReplySettingsChangedMessage.class;
-            case "2:210065" -> MerchantAppealResultMessage.class;
-            case "2:210069" -> TwoPartyImMessage.class;
-            case "2:210071" -> AnonymousReviewChatMessage.class;
-            case "2:210077" -> OrderInformationChangedMessage.class;
-            case "2:210081" -> io.github.easy4j.meituan.callback.model.biz2.MealPreparationStatusMessage.class;
-            case "2:210083" -> io.github.easy4j.meituan.callback.model.biz2.RefundReviewReminderMessage.class;
-            case "2:210095" -> io.github.easy4j.meituan.callback.model.biz2.SmsDeliveryResultMessage.class;
-            case "3:310001" -> PaymentOrderMessage.class;
-            case "7:710003" -> ReservationOrderCreatedMessage.class;
-            case "7:710005" -> ReservationOrderChangedMessage.class;
-            case "7:710014" -> TableRulesAndInventoryChangedMessage.class;
-            case "15:15101" -> CoBrandedNewUserQueryMessage.class;
-            case "15:15201" -> MembershipCardEventMessage.class;
-            case "15:15202" -> MembershipCardPointsMessage.class;
-            case "15:1510001" -> BrandMemberQueryMessage.class;
-            case "15:1510003" -> BrandMemberRegistrationAndRightsMessage.class;
-            case "15:1510005" -> BrandMemberLevelChangedMessage.class;
-            case "16:16101" -> io.github.easy4j.meituan.callback.model.biz16.OrderDeliveryStatusMessage.class;
-            case "16:16102" -> io.github.easy4j.meituan.callback.model.biz16.OrderNotificationMessage.class;
-            case "16:1610009" -> PartialRefundMessage.class;
-            case "16:1610013" -> io.github.easy4j.meituan.callback.model.biz16.MealPreparationStatusMessage.class;
-            case "16:1610015" -> io.github.easy4j.meituan.callback.model.biz16.RefundReviewReminderMessage.class;
-            case "16:1610019" -> DispatchEligibilityMessage.class;
-            case "16:1610031" -> io.github.easy4j.meituan.callback.model.biz16.SmsDeliveryResultMessage.class;
-            case "18:18201" -> StoreDishMessage.class;
-            case "18:18202" -> StoreInformationMessage.class;
-            case "18:18203" -> OrganizationStructureMessage.class;
-            case "18:18204" -> BrandInformationMessage.class;
-            case "18:18205" -> ConfigurationChangedMessage.class;
-            case "18:18206" -> TakeawayDishMessage.class;
-            case "18:18207" -> io.github.easy4j.meituan.callback.model.biz18.OrderNotificationMessage.class;
-            case "18:18208" -> OrderSettlementMessage.class;
-            case "18:18209" -> HeadquartersDishMessage.class;
-            case "18:1810011" -> PosOrderAcceptedMessage.class;
-            case "18:1810013" -> PosOrderRejectedMessage.class;
-            case "18:1810015" -> PosPreparationStartedMessage.class;
-            case "18:1810017" -> PosPreparationCompletedMessage.class;
-            case "18:1810019" -> PosOrderCollectedMessage.class;
-            case "18:1810023" -> PosOrderCancelledMessage.class;
-            case "18:1810029" -> OnlinePaymentSettlementMessage.class;
-            case "18:1810045" -> PosOrderDeliveredMessage.class;
-            case "18:1810055" -> MemberSearchMessage.class;
-            case "18:1810057" -> MemberOrderAvailableCouponsMessage.class;
-            case "18:1810059" -> MemberCouponDiscountAllocationMessage.class;
-            case "18:1810061" -> MemberCouponRedemptionMessage.class;
-            case "18:1810063" -> MemberCouponDiscountReversedMessage.class;
-            case "18:1810065" -> MemberPointsRedeemedMessage.class;
-            case "18:1810067" -> MemberPointsReversedMessage.class;
-            case "18:1810069" -> StoredValueRedeemedMessage.class;
-            case "18:1810071" -> StoredValueReversedMessage.class;
-            case "18:1810077" -> MemberPointsRulesQueryMessage.class;
-            case "18:1810079" -> DishSoldOutMessage.class;
-            case "18:1810081" -> PaymentMethodChangedMessage.class;
-            case "18:1810083" -> PaymentNotificationMessage.class;
-            case "18:1810085" -> io.github.easy4j.meituan.callback.model.biz18.RefundNotificationMessage.class;
-            case "18:1810089" -> PosPartialRefundMessage.class;
-            case "18:1810093" -> MemberPriceQueryMessage.class;
-            case "18:1810095" -> DeliveryOrderMessage.class;
-            case "18:1810097" -> StockDiscrepancyMessage.class;
-            case "18:1810099" -> StockReturnMessage.class;
-            case "18:1810101" -> ItemMasterMessage.class;
-            case "18:1810103" -> ItemCategoryMessage.class;
-            case "18:1810105" -> PurchaseOrderMessage.class;
-            case "18:1810107" -> PurchaseReturnMessage.class;
-            case "18:1810111" -> OrganizationAddressMessage.class;
-            case "18:1810115" -> ReplenishmentOrderMessage.class;
-            case "18:1810117" -> DeliveryReceiptMessage.class;
-            case "18:1810123" -> ReceivableExpenseMessage.class;
-            case "18:1810125" -> OnlineTransactionMessage.class;
-            case "18:1810127" -> StockReceiptMessage.class;
-            case "18:1810179" -> StockIssueMessage.class;
-            case "18:1810235" -> RealtimeOrderMessage.class;
-            case "18:1810237" -> SupplyPaymentMessage.class;
-            case "18:1810243" -> CouponRedemptionChangedMessage.class;
-            case "18:1810249" -> PurchaseReceiptMessage.class;
-            case "18:1810251" -> FundExceptionMessage.class;
-            case "18:1810253" -> ReplenishmentSplitCancellationCheckMessage.class;
-            case "18:1810255" -> StockReturnAuditReversalCheckMessage.class;
-            case "18:1810257" -> ReverseOrderMessage.class;
-            case "18:1810269" -> ExternalSalesOrderQueryMessage.class;
-            case "18:1810271" -> ExternalSalesShipmentQueryMessage.class;
-            case "18:1810273" -> ExternalSalesReturnQueryMessage.class;
-            case "18:1810275" -> TableAreaChangedMessage.class;
-            case "18:1810277" -> MerchantSettingsChangedMessage.class;
-            case "18:1810279" -> StoreQrOrderingSettingsChangedMessage.class;
-            case "18:1810285" -> DeliveryPriceMessage.class;
-            case "18:1810335" -> AssemblyOrderMessage.class;
-            case "18:1810337" -> DisassemblyOrderMessage.class;
-            case "18:1810339" -> StoreTransferOrderMessage.class;
-            case "18:1810341" -> StocktakeOrderMessage.class;
-            case "19:19101" -> DeliveryOrderStatusMessage.class;
-            case "19:19102" -> DeliveryOrderExceptionMessage.class;
-            case "19:19103" -> StoreStatusMessage.class;
-            case "19:19104" -> DeliveryRangeChangedMessage.class;
-            case "19:19105" -> DeliveryRiskLevelChangedMessage.class;
-            case "27:27001" -> CreateResultNoticeMessage.class;
-            case "27:27002" -> StockInNoticeMessage.class;
-            case "27:27003" -> StockOutNoticeMessage.class;
-            case "27:27004" -> OrderCancelNoticeMessage.class;
-            case "27:2710003" -> BillDetailNoticeMessage.class;
-            case "27:2710005" -> OrderShipmentNoticeMessage.class;
-            case "31:3110001" -> OrderStatusMessage.class;
-            case "46:4610000" -> PackageDeliveryAcceptedMessage.class;
-            case "46:4610002" -> OrderPaidMessage.class;
-            case "46:4610004" -> OrderRejectedMessage.class;
-            case "46:4610006" -> OrderTimeoutCanceledMessage.class;
-            case "46:4610008" -> RefundStatusChangedMessage.class;
-            case "46:4610010" -> MealReadyMessage.class;
-            case "46:4610012" -> DeliveryStatusChangedMessage.class;
-            case "46:4610014" -> SelfDeliveryAvailableMessage.class;
-            case "46:4610016" -> SelfDeliveryCompletedMessage.class;
-            case "46:4610018" -> io.github.easy4j.meituan.callback.model.biz46.OrderCompletedMessage.class;
-            case "46:4610023" -> PoiInfoChangedMessage.class;
-            case "46:4610024" -> PreorderMealReminderMessage.class;
-            case "46:4610026" -> SelfDeliveryTransferSucceededMessage.class;
-            case "46:4610029" -> PrintOrderMessage.class;
-            case "49:4910001" -> QueueTicketIssuedMessage.class;
-            case "49:4910003" -> QueueTicketCancelledMessage.class;
-            case "51:5110001" -> OnlineBusinessChangeMessage.class;
-            case "51:5110003" -> OnlineServiceStatusChangeMessage.class;
-            case "51:5110005" -> PreparationTimeQueryMessage.class;
-            case "51:5110007" -> ProductAuditNoticeMessage.class;
-            case "51:5110009" -> BrandOrderQueryMessage.class;
-            case "51:5110011" -> PlatformOrderStatusChangeMessage.class;
-            case "51:5110013" -> OrderPushMessage.class;
-            case "51:5110019" -> PreparationTimeAndQueueQueryMessage.class;
-            case "51:5110021" -> OrderFulfillmentQueryMessage.class;
-            case "51:5110023" -> RefundApplicationPushMessage.class;
-            case "51:5110025" -> PaidOrderPushMessage.class;
-            case "51:5110029" -> BrandOrderCancelMessage.class;
-            case "52:5210005" -> PaymentResultMessage.class;
-            case "52:5210006" -> ActivationCodeRedeemedMessage.class;
-            case "52:5210008" -> MerchantOnboardingResultMessage.class;
-            case "52:5210010" -> PaymentProductActivationResultMessage.class;
-            case "52:5210011" -> SubMerchantVerificationResultMessage.class;
-            case "52:5210013" -> io.github.easy4j.meituan.callback.model.biz52.RefundNotificationMessage.class;
-            case "52:5210015" -> StagePaymentResultMessage.class;
-            case "52:5210017" -> StageRefundNotificationMessage.class;
-            case "55:5510001" -> ActivityChangeNoticeMessage.class;
-            case "58:5810001" -> ReservationCancelledMessage.class;
-            case "58:5810003" -> ReservationResultMessage.class;
-            case "58:5810005" -> RefundWithdrawnMessage.class;
-            case "58:5810007" -> ReservationChangeResultMessage.class;
-            case "58:5810009" -> HomeServiceInventoryQueryMessage.class;
-            case "58:5810011" -> StaffTimeSlotInventoryQueryMessage.class;
-            case "58:5810013" -> ReservationCancellationReviewMessage.class;
-            case "58:5810015" -> ReservationChangeSubmittedMessage.class;
-            case "58:5810017" -> ReservationStartedMessage.class;
-            case "58:5810019" -> RoomInformationQueryMessage.class;
-            case "58:5810021" -> InventoryQueryMessage.class;
-            case "58:5810023" -> RedemptionStatusQueryMessage.class;
-            case "58:5810025" -> BatchInventoryQueryMessage.class;
-            case "58:5810027" -> ReservedDeviceStartedMessage.class;
-            case "58:5810029" -> SurchargePaymentResultMessage.class;
-            case "58:5810031" -> ReservationRedemptionMessage.class;
-            case "58:5810033" -> MultiProductInventoryQueryMessage.class;
-            case "58:5810053" -> CustomerLeadMessage.class;
-            case "58:5810055" -> io.github.easy4j.meituan.callback.model.biz58.OrderNotificationMessage.class;
-            case "58:5810077" -> MerchantIdentificationMessage.class;
-            case "58:5810079" -> MigratedSessionTokenMessage.class;
-            case "58:5810083" -> LegacySessionMigrationCompletedMessage.class;
-            case "58:5810093" -> StoreResourceInventoryQueryMessage.class;
-            case "58:5810095" -> AllStoreResourceInventoryQueryMessage.class;
-            case "58:5810097" -> VideoResourceQueryMessage.class;
-            case "58:5810099" -> SurchargeOrderRedeemedMessage.class;
-            case "58:5810101" -> TableOpeningSyncMessage.class;
-            case "58:5810105" -> TechnicianAuditResultMessage.class;
-            case "58:5810145" -> SelfServiceDeviceOrderMessage.class;
-            case "58:5810147" -> StartDeviceAndConsumeDealMessage.class;
-            case "58:5810149" -> OperateDeviceMessage.class;
-            case "58:5810151" -> DeviceIdByQrCodeQueryMessage.class;
-            case "58:5810153" -> StoreDeviceStatusQueryMessage.class;
-            case "58:5810155" -> StoreDevicesQueryMessage.class;
-            case "58:5810157" -> AuthorizedStoreCountQueryMessage.class;
-            case "58:5810161" -> MultiStoreDeviceStatusQueryMessage.class;
-            case "58:5810162" -> RoomPushResultMessage.class;
-            case "58:5810163" -> GroupDealProjectMappingQueryMessage.class;
-            case "58:5810173" -> OrderRefundInfoPushedMessage.class;
-            case "58:5810239" -> MonthlyChargeQueryMessage.class;
-            case "58:5810241" -> MonthlySubscriptionCancelledMessage.class;
-            case "58:5810245" -> SecondaryRefundMessage.class;
-            case "58:5810247" -> RoomAuditResultMessage.class;
-            case "58:5810251" -> ReservationRefundFailedMessage.class;
-            case "59:5910003" -> ProductStatusChangedMessage.class;
-            case "59:5910005" -> ReservationModifyResultSyncMessage.class;
-            case "59:5910007" -> InventoryQueriedMessage.class;
-            case "59:5910009" -> FulfillmentStatusChangedMessage.class;
-            case "59:5910011" -> ReservationCancelSyncMessage.class;
-            case "59:5910013" -> ReservationCancelResultSyncMessage.class;
-            case "59:5910015" -> ReservationCreateSyncMessage.class;
-            case "59:5910017" -> ReservationUserModifiedMessage.class;
-            case "59:5910019" -> MemberCreatedMessage.class;
-            case "59:5910021" -> MemberLevelQueriedMessage.class;
-            // 能力中心确认了类型号；业务字段尚未核实，保留解码后的原文。
-            case "59:5910023" -> String.class;
-            case "59:5910025" -> MerchantCouponConsumedRefundNoticeMessage.class;
-            case "59:5910027" -> MerchantCouponForcedRefundNoticeMessage.class;
-            case "59:5910029" -> MerchantCouponRefundMessage.class;
-            case "59:5910031" -> MerchantCouponIssueMessage.class;
-            case "59:5910033" -> AvailableTechnicianQueriedMessage.class;
-            case "59:5910035" -> MerchantCouponDynamicCodeMessage.class;
-            case "59:5910049" -> ProductOnlineStatusChangedMessage.class;
-            case "59:5910071" -> CallRecordsQueriedMessage.class;
-            case "59:5910079" -> InventoryBatchQueriedMessage.class;
-            case "59:5910081" -> PaymentResultNotifiedMessage.class;
-            case "59:5910083" -> RefundResultNotifiedMessage.class;
-            case "59:5910093" -> MallPointsTransactionPushedMessage.class;
-            case "59:5910099" -> MallMemberPointsAuthorizedMessage.class;
-            case "59:5910101" -> ClubActivityAuditResultMessage.class;
-            case "59:5910103" -> ClubActivityParticipantsQueriedMessage.class;
-            case "59:5910105" -> MerchantCouponOrderBatchQueriedMessage.class;
-            case "59:5910109" -> DealGroupPublishedMessage.class;
-            case "59:5910135" -> ReservationOperationResultSyncMessage.class;
-            case "59:5910137" -> GroupBuyProductChangedMessage.class;
-            case "59:5910139" -> MerchantCouponDegradedMessage.class;
-            case "59:5910141" -> ShowEventStatusUpdatedMessage.class;
-            case "59:5910147" -> DealGroupRoomRelationResultMessage.class;
-            case "59:5910149" -> MemberUnregisteredMessage.class;
-            case "61:6110001" -> OrderSubmitMessage.class;
-            case "61:6110003" -> OrderCloseMessage.class;
-            case "61:6110005" -> PayProcessMessage.class;
-            case "61:6110007" -> RefundProcessMessage.class;
-            case "61:6110009" -> ReceiptConsumeMessage.class;
-            case "61:6110011" -> ReceiptCancelConsumeMessage.class;
-            case "63:6310000" -> JointMemberQueryMessage.class;
-            case "63:6310002" -> JointMemberRegistrationMessage.class;
-            case "63:6310004" -> JointMemberPointsDeductionMessage.class;
-            case "71:7110001" -> StoreAuditResultMessage.class;
-            case "77:7710001" -> io.github.easy4j.meituan.callback.model.biz77.OrderNotificationMessage.class;
-            case "79:7910001" -> VoucherCodeChangedMessage.class;
-            case "86:8610002" -> CorporateInvoiceApplicationMessage.class;
-            case "87:8710001" -> InvoiceApplicationMessage.class;
-            case "87:8710003" -> InvoiceStatusQueryMessage.class;
-            case "92:9210001" -> StoreListQueryMessage.class;
-            case "92:9210003" -> VehicleModelQueryMessage.class;
-            case "92:9210005" -> QuoteListQueryMessage.class;
-            case "92:9210007" -> QuoteDetailQueryMessage.class;
-            case "92:9210009" -> OrderPrecheckMessage.class;
-            case "92:9210011" -> OrderPlacedMessage.class;
-            case "92:9210013" -> OrderCancellationPrecheckMessage.class;
-            case "92:9210015" -> io.github.easy4j.meituan.callback.model.biz92.OrderCancelledMessage.class;
-            case "92:9210017" -> RentalExtensionQuoteQueryMessage.class;
-            case "92:9210019" -> RentalExtensionPrecheckMessage.class;
-            case "92:9210021" -> RentalExtensionCancellationCheckMessage.class;
-            case "92:9210023" -> RentalExtensionCancelledMessage.class;
-            case "92:9210025" -> EarlyReturnCheckMessage.class;
-            case "92:9210027" -> DepositFrozenMessage.class;
-            case "92:9210029" -> DriverChangedMessage.class;
-            case "92:9210031" -> OrderDetailQueryMessage.class;
-            case "92:9210033" -> RefundResultMessage.class;
-            case "92:9210035" -> DepositDeductionResultMessage.class;
-            case "92:9210037" -> DepositDeductionRefundResultMessage.class;
-            case "92:9210039" -> RentalExtensionOrderMessage.class;
-            case "92:9210040" -> DepositUnfreezeResultMessage.class;
-            case "94:9410000" -> VehicleTaskStatusMessage.class;
-            case "94:9410002" -> VehicleExceptionMessage.class;
-            case "94:9410004" -> VehicleRealtimeInformationMessage.class;
-            case "1000:100010007" -> MigrationCompletedMessage.class;
-            case "1000:100010009" -> PushVolumeAdjustmentResultMessage.class;
-            default -> null;
-        };
-        return Optional.ofNullable(type);
+        return Optional.ofNullable(TYPES.get(businessId + ":" + msgType))
+                .map(MeituanMessageType::getMessageClass);
+    }
+
+    /**
+     * 获取全部已登记消息定义。
+     * @return 包含编号、名称、文档地址和模型类的只读消息集合，遍历顺序未指定
+     */
+    public static Collection<MeituanMessageType> all() {
+        return TYPES.values();
     }
 }

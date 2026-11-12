@@ -2,6 +2,7 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz55.ActivityChangeNoticeMessage;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
  * <p>该目录描述平台消息协议，不代表开发者账号已经获得对应业务授权。</p>
  */
 @Getter
-public enum MeituanBusiness55MessageType {
+public enum MeituanBusiness55MessageType implements MeituanMessageType {
 
     /**
      * 免费试活动发生变更。
@@ -26,8 +27,7 @@ public enum MeituanBusiness55MessageType {
     ACTIVITY_CHANGE_NOTICE(
             "活动变更通知",
             "5510001",
-            "msg_freetryopen_da0cca39-5099-452f-9d9b-c9bb632c0a81"
-    );
+            "msg_freetryopen_da0cca39-5099-452f-9d9b-c9bb632c0a81", ActivityChangeNoticeMessage.class);
 
     private static final String BUSINESS_ID = "55";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -51,10 +51,26 @@ public enum MeituanBusiness55MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness55MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness55MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = DOCUMENT_BASE_URL + documentKey;
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

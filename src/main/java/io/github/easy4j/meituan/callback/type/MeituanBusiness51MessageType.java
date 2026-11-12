@@ -2,6 +2,18 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz51.BrandOrderCancelMessage;
+import io.github.easy4j.meituan.callback.model.biz51.BrandOrderQueryMessage;
+import io.github.easy4j.meituan.callback.model.biz51.OnlineBusinessChangeMessage;
+import io.github.easy4j.meituan.callback.model.biz51.OnlineServiceStatusChangeMessage;
+import io.github.easy4j.meituan.callback.model.biz51.OrderFulfillmentQueryMessage;
+import io.github.easy4j.meituan.callback.model.biz51.OrderPushMessage;
+import io.github.easy4j.meituan.callback.model.biz51.PaidOrderPushMessage;
+import io.github.easy4j.meituan.callback.model.biz51.PlatformOrderStatusChangeMessage;
+import io.github.easy4j.meituan.callback.model.biz51.PreparationTimeAndQueueQueryMessage;
+import io.github.easy4j.meituan.callback.model.biz51.PreparationTimeQueryMessage;
+import io.github.easy4j.meituan.callback.model.biz51.ProductAuditNoticeMessage;
+import io.github.easy4j.meituan.callback.model.biz51.RefundApplicationPushMessage;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -18,7 +30,7 @@ import java.util.stream.Collectors;
  * <p>只收录当前官方文档能够确认类型号的消息；通用回调对象仍会保留未知消息的原始内容。</p>
  */
 @Getter
-public enum MeituanBusiness51MessageType {
+public enum MeituanBusiness51MessageType implements MeituanMessageType {
 
     /**
      * 美团通知品牌方“线上点”业务变更。
@@ -26,8 +38,7 @@ public enum MeituanBusiness51MessageType {
     ONLINE_BUSINESS_CHANGE(
             "美团通知品牌方“线上点”业务变更",
             "5110001",
-            "msg_foodmop_babc2497-e3b5-49be-8259-3412d71fe210"
-    ),
+            "msg_foodmop_babc2497-e3b5-49be-8259-3412d71fe210", OnlineBusinessChangeMessage.class),
 
     /**
      * 美团通知品牌方门店“线上点”营业状态变更。
@@ -35,8 +46,7 @@ public enum MeituanBusiness51MessageType {
     ONLINE_SERVICE_STATUS_CHANGE(
             "美团通知品牌方门店“线上点”营业状态变更",
             "5110003",
-            "msg_foodmop_ac21784a-7718-4ab3-9a41-2ea7eafa6fca"
-    ),
+            "msg_foodmop_ac21784a-7718-4ab3-9a41-2ea7eafa6fca", OnlineServiceStatusChangeMessage.class),
 
     /**
      * 门店预计备餐时间查询。
@@ -44,8 +54,7 @@ public enum MeituanBusiness51MessageType {
     PREPARATION_TIME_QUERY(
             "门店预计备餐时间查询",
             "5110005",
-            "msg_foodmop_dbf2bef2-55ee-4d2e-9985-7cf039ca2ff6"
-    ),
+            "msg_foodmop_dbf2bef2-55ee-4d2e-9985-7cf039ca2ff6", PreparationTimeQueryMessage.class),
 
     /**
      * 商品审核失败通知，当前官方文档标记为必接。
@@ -53,8 +62,7 @@ public enum MeituanBusiness51MessageType {
     PRODUCT_AUDIT_NOTICE(
             "商品审核失败通知（必接）",
             "5110007",
-            "msg_foodmop_217803ab-efd3-47e2-bb94-bad7e887b645"
-    ),
+            "msg_foodmop_217803ab-efd3-47e2-bb94-bad7e887b645", ProductAuditNoticeMessage.class),
 
     /**
      * 品牌提供订单查询。
@@ -62,8 +70,7 @@ public enum MeituanBusiness51MessageType {
     BRAND_ORDER_QUERY(
             "品牌提供订单查询",
             "5110009",
-            "msg_foodmop_9e4af01d-409c-4a85-addb-2da4f86831bf"
-    ),
+            "msg_foodmop_9e4af01d-409c-4a85-addb-2da4f86831bf", BrandOrderQueryMessage.class),
 
     /**
      * 美团平台订单状态变更通知。
@@ -71,8 +78,7 @@ public enum MeituanBusiness51MessageType {
     PLATFORM_ORDER_STATUS_CHANGE(
             "美团平台订单状态变更通知",
             "5110011",
-            "msg_foodmop_1578f703-51d9-408d-8115-81600e6bda31"
-    ),
+            "msg_foodmop_1578f703-51d9-408d-8115-81600e6bda31", PlatformOrderStatusChangeMessage.class),
 
     /**
      * 美团向品牌推送订单。
@@ -80,8 +86,7 @@ public enum MeituanBusiness51MessageType {
     ORDER_PUSH(
             "推单接口",
             "5110013",
-            "msg_foodmop_a4d1b81e-3c9c-48d6-928c-52c9d43e3754"
-    ),
+            "msg_foodmop_a4d1b81e-3c9c-48d6-928c-52c9d43e3754", OrderPushMessage.class),
 
     /**
      * 门店预计备餐时间和排队信息查询。
@@ -89,8 +94,7 @@ public enum MeituanBusiness51MessageType {
     PREPARATION_TIME_AND_QUEUE_QUERY(
             "门店预计备餐时间和排队信息（必接）",
             "5110019",
-            "msg_foodmop_8516072d-d9ba-40dd-bc43-ab46c1276b5d"
-    ),
+            "msg_foodmop_8516072d-d9ba-40dd-bc43-ab46c1276b5d", PreparationTimeAndQueueQueryMessage.class),
 
     /**
      * 查询订单履约信息。
@@ -98,8 +102,7 @@ public enum MeituanBusiness51MessageType {
     ORDER_FULFILLMENT_QUERY(
             "查询订单履约信息",
             "5110021",
-            "msg_foodmop_c5d73602-79ab-4880-ba25-ef974c42f9d0"
-    ),
+            "msg_foodmop_c5d73602-79ab-4880-ba25-ef974c42f9d0", OrderFulfillmentQueryMessage.class),
 
     /**
      * 退款申请推送。
@@ -107,8 +110,7 @@ public enum MeituanBusiness51MessageType {
     REFUND_APPLICATION_PUSH(
             "退款申请推送",
             "5110023",
-            "msg_foodmop_8ac18476-e862-4fb9-a767-1050f22689c7"
-    ),
+            "msg_foodmop_8ac18476-e862-4fb9-a767-1050f22689c7", RefundApplicationPushMessage.class),
 
     /**
      * 新订单推送（已支付）。
@@ -116,8 +118,7 @@ public enum MeituanBusiness51MessageType {
     PAID_ORDER_PUSH(
             "新订单推送（已支付）",
             "5110025",
-            "msg_foodmop_3dca76a3-2434-4548-be17-d3258d17e967"
-    ),
+            "msg_foodmop_3dca76a3-2434-4548-be17-d3258d17e967", PaidOrderPushMessage.class),
 
     /**
      * 品牌提供取消订单。
@@ -125,8 +126,7 @@ public enum MeituanBusiness51MessageType {
     BRAND_ORDER_CANCEL(
             "品牌提供取消订单",
             "5110029",
-            "msg_foodmop_c2d61f12-5312-4717-8fef-1d4cbba36709"
-    );
+            "msg_foodmop_c2d61f12-5312-4717-8fef-1d4cbba36709", BrandOrderCancelMessage.class);
 
     private static final String BUSINESS_ID = "51";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -150,10 +150,26 @@ public enum MeituanBusiness51MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness51MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness51MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = DOCUMENT_BASE_URL + documentKey;
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

@@ -2,6 +2,9 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderChangedMessage;
+import io.github.easy4j.meituan.callback.model.biz7.ReservationOrderCreatedMessage;
+import io.github.easy4j.meituan.callback.model.biz7.TableRulesAndInventoryChangedMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,20 +20,20 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=7} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness7MessageType {
+public enum MeituanBusiness7MessageType implements MeituanMessageType {
 
     /**
      * 推送新订单。
      */
-    RESERVATION_ORDER_CREATED("推送新订单", "710003", "https://developer.meituan.com/docs/msg/msg_resv2_2db30e48-c7a1-4c08-b234-65ebf8e6638f"),
+    RESERVATION_ORDER_CREATED("推送新订单", "710003", "https://developer.meituan.com/docs/msg/msg_resv2_2db30e48-c7a1-4c08-b234-65ebf8e6638f", ReservationOrderCreatedMessage.class),
     /**
      * 订单变更。
      */
-    RESERVATION_ORDER_CHANGED("订单变更", "710005", "https://developer.meituan.com/docs/msg/msg_resv2_f89e564f-498c-4843-9d6f-ccb70d26f133"),
+    RESERVATION_ORDER_CHANGED("订单变更", "710005", "https://developer.meituan.com/docs/msg/msg_resv2_f89e564f-498c-4843-9d6f-ccb70d26f133", ReservationOrderChangedMessage.class),
     /**
      * 推送桌型桌位&amp;规则&amp;库存变更通知。
      */
-    TABLE_RULES_AND_INVENTORY_CHANGED("推送桌型桌位&amp;规则&amp;库存变更通知", "710014", "https://developer.meituan.com/docs/msg/msg_resv2_9eb4d57f-7159-40bd-ba43-cef4d82c09ce");
+    TABLE_RULES_AND_INVENTORY_CHANGED("推送桌型桌位&amp;规则&amp;库存变更通知", "710014", "https://developer.meituan.com/docs/msg/msg_resv2_9eb4d57f-7159-40bd-ba43-cef4d82c09ce", TableRulesAndInventoryChangedMessage.class);
 
     private static final String BUSINESS_ID = "7";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -54,10 +57,26 @@ public enum MeituanBusiness7MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness7MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness7MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

@@ -2,6 +2,8 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz1000.MigrationCompletedMessage;
+import io.github.easy4j.meituan.callback.model.biz1000.PushVolumeAdjustmentResultMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,16 +19,16 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=1000} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness1000MessageType {
+public enum MeituanBusiness1000MessageType implements MeituanMessageType {
 
     /**
      * 迁移任务处理完成通知。
      */
-    MIGRATION_COMPLETED("迁移任务处理完成通知", "100010007", "https://developer.meituan.com/docs/msg/msg_common_d7f87232-fe1f-491c-9dc1-c1c089263f53"),
+    MIGRATION_COMPLETED("迁移任务处理完成通知", "100010007", "https://developer.meituan.com/docs/msg/msg_common_d7f87232-fe1f-491c-9dc1-c1c089263f53", MigrationCompletedMessage.class),
     /**
      * 开发者迁移消息调量结果通知消息。
      */
-    PUSH_VOLUME_ADJUSTMENT_RESULT("开发者迁移消息调量结果通知消息", "100010009", "https://developer.meituan.com/docs/msg/msg_common_baf66063-f311-471d-8392-01df3fce7d80");
+    PUSH_VOLUME_ADJUSTMENT_RESULT("开发者迁移消息调量结果通知消息", "100010009", "https://developer.meituan.com/docs/msg/msg_common_baf66063-f311-471d-8392-01df3fce7d80", PushVolumeAdjustmentResultMessage.class);
 
     private static final String BUSINESS_ID = "1000";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -50,10 +52,26 @@ public enum MeituanBusiness1000MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness1000MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness1000MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

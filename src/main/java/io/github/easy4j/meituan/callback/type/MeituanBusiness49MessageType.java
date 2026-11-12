@@ -2,6 +2,8 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz49.QueueTicketCancelledMessage;
+import io.github.easy4j.meituan.callback.model.biz49.QueueTicketIssuedMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,16 +19,16 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=49} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness49MessageType {
+public enum MeituanBusiness49MessageType implements MeituanMessageType {
 
     /**
      * 用户取号。
      */
-    QUEUE_TICKET_ISSUED("用户取号", "4910001", "https://developer.meituan.com/docs/msg/msg_dcpd_5dcead14-465f-40ba-9120-e3566cea7968"),
+    QUEUE_TICKET_ISSUED("用户取号", "4910001", "https://developer.meituan.com/docs/msg/msg_dcpd_5dcead14-465f-40ba-9120-e3566cea7968", QueueTicketIssuedMessage.class),
     /**
      * 用户取消排队。
      */
-    QUEUE_TICKET_CANCELLED("用户取消排队", "4910003", "https://developer.meituan.com/docs/msg/msg_dcpd_67e64a98-431a-47d0-b8c0-f46300d1ffc3");
+    QUEUE_TICKET_CANCELLED("用户取消排队", "4910003", "https://developer.meituan.com/docs/msg/msg_dcpd_67e64a98-431a-47d0-b8c0-f46300d1ffc3", QueueTicketCancelledMessage.class);
 
     private static final String BUSINESS_ID = "49";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -50,10 +52,26 @@ public enum MeituanBusiness49MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness49MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness49MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

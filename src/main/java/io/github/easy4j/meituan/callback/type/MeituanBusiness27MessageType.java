@@ -2,6 +2,12 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz27.BillDetailNoticeMessage;
+import io.github.easy4j.meituan.callback.model.biz27.CreateResultNoticeMessage;
+import io.github.easy4j.meituan.callback.model.biz27.OrderCancelNoticeMessage;
+import io.github.easy4j.meituan.callback.model.biz27.OrderShipmentNoticeMessage;
+import io.github.easy4j.meituan.callback.model.biz27.StockInNoticeMessage;
+import io.github.easy4j.meituan.callback.model.biz27.StockOutNoticeMessage;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -18,7 +24,7 @@ import java.util.stream.Collectors;
  * <p>只收录当前官方文档能够确认类型号的消息；通用回调对象仍会保留未知消息的原始内容。</p>
  */
 @Getter
-public enum MeituanBusiness27MessageType {
+public enum MeituanBusiness27MessageType implements MeituanMessageType {
 
     /**
      * 快驴订单创建结果异步通知。
@@ -26,8 +32,7 @@ public enum MeituanBusiness27MessageType {
     CREATE_RESULT_NOTICE(
             "快驴订单创建结果异步通知",
             "27001",
-            "msg_klopen_29b2c89c-6012-4333-990c-5d5f5eda69a7"
-    ),
+            "msg_klopen_29b2c89c-6012-4333-990c-5d5f5eda69a7", CreateResultNoticeMessage.class),
 
     /**
      * 快驴入库通知。
@@ -35,8 +40,7 @@ public enum MeituanBusiness27MessageType {
     STOCK_IN_NOTICE(
             "快驴入库通知",
             "27002",
-            "msg_klopen_4e16b653-ed45-4efa-8948-0badc1dfa9f2"
-    ),
+            "msg_klopen_4e16b653-ed45-4efa-8948-0badc1dfa9f2", StockInNoticeMessage.class),
 
     /**
      * 快驴出库通知。
@@ -44,8 +48,7 @@ public enum MeituanBusiness27MessageType {
     STOCK_OUT_NOTICE(
             "快驴出库通知",
             "27003",
-            "msg_klopen_1056ac08-a99a-4053-a2bc-db530bb5c3af"
-    ),
+            "msg_klopen_1056ac08-a99a-4053-a2bc-db530bb5c3af", StockOutNoticeMessage.class),
 
     /**
      * 快驴订单取消通知。
@@ -53,8 +56,7 @@ public enum MeituanBusiness27MessageType {
     ORDER_CANCEL_NOTICE(
             "快驴订单取消通知",
             "27004",
-            "msg_klopen_642ff552-99c0-4a65-bb26-ef6c66a45314"
-    ),
+            "msg_klopen_642ff552-99c0-4a65-bb26-ef6c66a45314", OrderCancelNoticeMessage.class),
 
     /**
      * 快驴推送账单明细。
@@ -62,8 +64,7 @@ public enum MeituanBusiness27MessageType {
     BILL_DETAIL_NOTICE(
             "快驴推送账单明细",
             "2710003",
-            "msg_klopen_cd5fa387-81aa-4cb7-836a-58fff83b41a5"
-    ),
+            "msg_klopen_cd5fa387-81aa-4cb7-836a-58fff83b41a5", BillDetailNoticeMessage.class),
 
     /**
      * 快驴订单发货通知。
@@ -71,8 +72,7 @@ public enum MeituanBusiness27MessageType {
     ORDER_SHIPMENT_NOTICE(
             "快驴订单发货通知",
             "2710005",
-            "msg_klopen_80bb04b0-5b52-4d47-9d55-430c0e561e79"
-    );
+            "msg_klopen_80bb04b0-5b52-4d47-9d55-430c0e561e79", OrderShipmentNoticeMessage.class);
 
     private static final String BUSINESS_ID = "27";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -96,10 +96,26 @@ public enum MeituanBusiness27MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness27MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness27MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = DOCUMENT_BASE_URL + documentKey;
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

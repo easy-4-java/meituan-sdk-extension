@@ -2,6 +2,7 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz71.StoreAuditResultMessage;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
  * 调用方使用 {@code switch} 时应保留 {@code default} 分支。</p>
  */
 @Getter
-public enum MeituanBusiness71MessageType {
+public enum MeituanBusiness71MessageType implements MeituanMessageType {
 
     /**
      * 门店创建、更新或账号认领处理完成后的审核结果通知。
@@ -28,8 +29,7 @@ public enum MeituanBusiness71MessageType {
             "审核结果通知",
             "poi_openapi_msg_push",
             "7110001",
-            "msg_mendianzhilian_2f16b69e-de3b-4f19-a24b-7c38f9bdc40f"
-    );
+            "msg_mendianzhilian_2f16b69e-de3b-4f19-a24b-7c38f9bdc40f", StoreAuditResultMessage.class);
 
     private static final String BUSINESS_ID = "71";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -59,11 +59,27 @@ public enum MeituanBusiness71MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness71MessageType(String displayName, String capabilityName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness71MessageType(String displayName, String capabilityName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.capabilityName = capabilityName;
         this.msgType = msgType;
         this.documentUrl = DOCUMENT_BASE_URL + documentKey;
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

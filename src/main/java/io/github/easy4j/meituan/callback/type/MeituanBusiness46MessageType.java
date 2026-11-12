@@ -2,6 +2,20 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz46.DeliveryStatusChangedMessage;
+import io.github.easy4j.meituan.callback.model.biz46.MealReadyMessage;
+import io.github.easy4j.meituan.callback.model.biz46.OrderCompletedMessage;
+import io.github.easy4j.meituan.callback.model.biz46.OrderPaidMessage;
+import io.github.easy4j.meituan.callback.model.biz46.OrderRejectedMessage;
+import io.github.easy4j.meituan.callback.model.biz46.OrderTimeoutCanceledMessage;
+import io.github.easy4j.meituan.callback.model.biz46.PackageDeliveryAcceptedMessage;
+import io.github.easy4j.meituan.callback.model.biz46.PoiInfoChangedMessage;
+import io.github.easy4j.meituan.callback.model.biz46.PreorderMealReminderMessage;
+import io.github.easy4j.meituan.callback.model.biz46.PrintOrderMessage;
+import io.github.easy4j.meituan.callback.model.biz46.RefundStatusChangedMessage;
+import io.github.easy4j.meituan.callback.model.biz46.SelfDeliveryAvailableMessage;
+import io.github.easy4j.meituan.callback.model.biz46.SelfDeliveryCompletedMessage;
+import io.github.easy4j.meituan.callback.model.biz46.SelfDeliveryTransferSucceededMessage;
 import lombok.Getter;
 
 import java.util.Arrays;
@@ -18,7 +32,7 @@ import java.util.stream.Collectors;
  * <p>只收录官方文档能够确认类型号的消息；通用回调对象仍会保留未知消息的原始内容。</p>
  */
 @Getter
-public enum MeituanBusiness46MessageType {
+public enum MeituanBusiness46MessageType implements MeituanMessageType {
 
     /**
      * 套餐配送接单消息。
@@ -26,8 +40,7 @@ public enum MeituanBusiness46MessageType {
     PACKAGE_DELIVERY_ACCEPTED(
             "套餐配送接单消息",
             "4610000",
-            "msg_dcps_48121253-009e-4075-89d4-5b79fb9ba172"
-    ),
+            "msg_dcps_48121253-009e-4075-89d4-5b79fb9ba172", PackageDeliveryAcceptedMessage.class),
 
     /**
      * 接收门店信息变更消息。
@@ -35,8 +48,7 @@ public enum MeituanBusiness46MessageType {
     POI_INFO_CHANGED(
             "接收门店信息变更消息",
             "4610023",
-            "msg_dcps_7eec9ee3-9b57-451a-aaf9-ccd574dbecdf"
-    ),
+            "msg_dcps_7eec9ee3-9b57-451a-aaf9-ccd574dbecdf", PoiInfoChangedMessage.class),
 
     /**
      * 接收订单完成消息。
@@ -44,8 +56,7 @@ public enum MeituanBusiness46MessageType {
     ORDER_COMPLETED(
             "接收订单完成消息",
             "4610018",
-            "msg_dcps_69917343-b53f-4de8-bdbf-2eee2477bdd5"
-    ),
+            "msg_dcps_69917343-b53f-4de8-bdbf-2eee2477bdd5", OrderCompletedMessage.class),
 
     /**
      * 接收订单自配完成消息。
@@ -53,8 +64,7 @@ public enum MeituanBusiness46MessageType {
     SELF_DELIVERY_COMPLETED(
             "接收订单自配完成消息",
             "4610016",
-            "msg_dcps_4548a521-15cb-4dfb-8721-971a0e831085"
-    ),
+            "msg_dcps_4548a521-15cb-4dfb-8721-971a0e831085", SelfDeliveryCompletedMessage.class),
 
     /**
      * 接收订单可转自配消息。
@@ -62,8 +72,7 @@ public enum MeituanBusiness46MessageType {
     SELF_DELIVERY_AVAILABLE(
             "接收订单可转自配消息",
             "4610014",
-            "msg_dcps_efa3af0a-85bd-4cc9-94c4-4e5a7d712ddb"
-    ),
+            "msg_dcps_efa3af0a-85bd-4cc9-94c4-4e5a7d712ddb", SelfDeliveryAvailableMessage.class),
 
     /**
      * 接收配送状态变更消息。
@@ -71,8 +80,7 @@ public enum MeituanBusiness46MessageType {
     DELIVERY_STATUS_CHANGED(
             "接收配送状态变更消息",
             "4610012",
-            "msg_dcps_14be7b74-05e1-4b4e-a626-d6cacbee850c"
-    ),
+            "msg_dcps_14be7b74-05e1-4b4e-a626-d6cacbee850c", DeliveryStatusChangedMessage.class),
 
     /**
      * 接收订单已出餐消息。
@@ -80,8 +88,7 @@ public enum MeituanBusiness46MessageType {
     MEAL_READY(
             "接收订单已出餐消息",
             "4610010",
-            "msg_dcps_0771bd42-2080-4e7d-886c-c0969ded3078"
-    ),
+            "msg_dcps_0771bd42-2080-4e7d-886c-c0969ded3078", MealReadyMessage.class),
 
     /**
      * 接收用户退款状态变更消息。
@@ -89,8 +96,7 @@ public enum MeituanBusiness46MessageType {
     REFUND_STATUS_CHANGED(
             "接收用户退款状态变更消息",
             "4610008",
-            "msg_dcps_d812c905-37ba-4972-8204-9f7e867a1f78"
-    ),
+            "msg_dcps_d812c905-37ba-4972-8204-9f7e867a1f78", RefundStatusChangedMessage.class),
 
     /**
      * 接收订单超时取消消息。
@@ -98,8 +104,7 @@ public enum MeituanBusiness46MessageType {
     ORDER_TIMEOUT_CANCELED(
             "接收订单超时取消消息",
             "4610006",
-            "msg_dcps_b19bc448-d624-41db-9b33-58501f48ba16"
-    ),
+            "msg_dcps_b19bc448-d624-41db-9b33-58501f48ba16", OrderTimeoutCanceledMessage.class),
 
     /**
      * 接收订单拒绝接单消息。
@@ -107,8 +112,7 @@ public enum MeituanBusiness46MessageType {
     ORDER_REJECTED(
             "接收订单拒绝接单消息",
             "4610004",
-            "msg_dcps_baa84876-82fa-4e30-8b8e-e8ffa051a452"
-    ),
+            "msg_dcps_baa84876-82fa-4e30-8b8e-e8ffa051a452", OrderRejectedMessage.class),
 
     /**
      * 接收订单已支付消息。
@@ -116,8 +120,7 @@ public enum MeituanBusiness46MessageType {
     ORDER_PAID(
             "接收订单已支付消息",
             "4610002",
-            "msg_dcps_75fe9410-4d49-40f6-960e-22e55329fd59"
-    ),
+            "msg_dcps_75fe9410-4d49-40f6-960e-22e55329fd59", OrderPaidMessage.class),
 
     /**
      * 接收商家转自配成功消息。
@@ -125,8 +128,7 @@ public enum MeituanBusiness46MessageType {
     SELF_DELIVERY_TRANSFER_SUCCEEDED(
             "接收商家转自配成功消息",
             "4610026",
-            "msg_dcps_73535482-f538-43e6-9b11-b18a4535e484"
-    ),
+            "msg_dcps_73535482-f538-43e6-9b11-b18a4535e484", SelfDeliveryTransferSucceededMessage.class),
 
     /**
      * 接收预订单提醒备餐消息。
@@ -134,8 +136,7 @@ public enum MeituanBusiness46MessageType {
     PREORDER_MEAL_REMINDER(
             "接收预订单提醒备餐消息",
             "4610024",
-            "msg_dcps_eb9ee436-1e53-420f-891e-cb030e8c9dba"
-    ),
+            "msg_dcps_eb9ee436-1e53-420f-891e-cb030e8c9dba", PreorderMealReminderMessage.class),
 
     /**
      * 指定打印机打印订单。
@@ -143,8 +144,7 @@ public enum MeituanBusiness46MessageType {
     PRINT_ORDER(
             "指定打印机打印订单",
             "4610029",
-            "msg_dcps_d36c3f46-442f-4189-ba83-36591af2f548"
-    );
+            "msg_dcps_d36c3f46-442f-4189-ba83-36591af2f548", PrintOrderMessage.class);
 
     private static final String BUSINESS_ID = "46";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -168,10 +168,26 @@ public enum MeituanBusiness46MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness46MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness46MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = DOCUMENT_BASE_URL + documentKey;
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**

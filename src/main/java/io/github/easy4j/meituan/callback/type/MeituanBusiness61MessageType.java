@@ -2,6 +2,12 @@ package io.github.easy4j.meituan.callback.type;
 
 import cn.hutool.core.util.StrUtil;
 import io.github.easy4j.meituan.callback.MeituanCallbackMessage;
+import io.github.easy4j.meituan.callback.model.biz61.OrderCloseMessage;
+import io.github.easy4j.meituan.callback.model.biz61.OrderSubmitMessage;
+import io.github.easy4j.meituan.callback.model.biz61.PayProcessMessage;
+import io.github.easy4j.meituan.callback.model.biz61.ReceiptCancelConsumeMessage;
+import io.github.easy4j.meituan.callback.model.biz61.ReceiptConsumeMessage;
+import io.github.easy4j.meituan.callback.model.biz61.RefundProcessMessage;
 import lombok.Getter;
 
 import java.net.URI;
@@ -17,32 +23,32 @@ import java.util.stream.Collectors;
  * 业务 {@code businessId=61} 的已登记回调消息类型目录。
  */
 @Getter
-public enum MeituanBusiness61MessageType {
+public enum MeituanBusiness61MessageType implements MeituanMessageType {
 
     /**
      * ORDER_SUBMIT。
      */
-    ORDER_SUBMIT("ORDER_SUBMIT", "6110001", "https://developer.meituan.com/docs/msg/msg_outdistribution_94f141f9-ad3a-41c1-8dfa-5d749212add3"),
+    ORDER_SUBMIT("ORDER_SUBMIT", "6110001", "https://developer.meituan.com/docs/msg/msg_outdistribution_94f141f9-ad3a-41c1-8dfa-5d749212add3", OrderSubmitMessage.class),
     /**
      * ORDER_CLOSE。
      */
-    ORDER_CLOSE("ORDER_CLOSE", "6110003", "https://developer.meituan.com/docs/msg/msg_outdistribution_e43fa49a-cdce-4a21-89f8-7e0218601ff6"),
+    ORDER_CLOSE("ORDER_CLOSE", "6110003", "https://developer.meituan.com/docs/msg/msg_outdistribution_e43fa49a-cdce-4a21-89f8-7e0218601ff6", OrderCloseMessage.class),
     /**
      * PAY_PROCESS。
      */
-    PAY_PROCESS("PAY_PROCESS", "6110005", "https://developer.meituan.com/docs/msg/msg_outdistribution_812cf73c-7727-4540-8ee6-f9e2f5f68023"),
+    PAY_PROCESS("PAY_PROCESS", "6110005", "https://developer.meituan.com/docs/msg/msg_outdistribution_812cf73c-7727-4540-8ee6-f9e2f5f68023", PayProcessMessage.class),
     /**
      * REFUND_PROCESS。
      */
-    REFUND_PROCESS("REFUND_PROCESS", "6110007", "https://developer.meituan.com/docs/msg/msg_outdistribution_dfadd7a1-0eeb-4290-a7f7-782d7c56e262"),
+    REFUND_PROCESS("REFUND_PROCESS", "6110007", "https://developer.meituan.com/docs/msg/msg_outdistribution_dfadd7a1-0eeb-4290-a7f7-782d7c56e262", RefundProcessMessage.class),
     /**
      * RECEIPT_CONSUME。
      */
-    RECEIPT_CONSUME("RECEIPT_CONSUME", "6110009", "https://developer.meituan.com/docs/msg/msg_outdistribution_124ce302-bc79-4135-a0ee-3574335c1e3b"),
+    RECEIPT_CONSUME("RECEIPT_CONSUME", "6110009", "https://developer.meituan.com/docs/msg/msg_outdistribution_124ce302-bc79-4135-a0ee-3574335c1e3b", ReceiptConsumeMessage.class),
     /**
      * RECEIPT_CANCEL_CONSUME。
      */
-    RECEIPT_CANCEL_CONSUME("RECEIPT_CANCEL_CONSUME", "6110011", "https://developer.meituan.com/docs/msg/msg_outdistribution_1a13b8f7-7690-415b-8b80-41a6b3230c40");
+    RECEIPT_CANCEL_CONSUME("RECEIPT_CANCEL_CONSUME", "6110011", "https://developer.meituan.com/docs/msg/msg_outdistribution_1a13b8f7-7690-415b-8b80-41a6b3230c40", ReceiptCancelConsumeMessage.class);
 
     private static final String BUSINESS_ID = "61";
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
@@ -66,10 +72,26 @@ public enum MeituanBusiness61MessageType {
      */
     private final String documentUrl;
 
-    MeituanBusiness61MessageType(String displayName, String msgType, String documentKey) {
+    /**
+     * 业务内容的 Jackson 目标类型；String 表示保留业务原文。
+     */
+    private final Class<?> messageClass;
+
+    MeituanBusiness61MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;
         this.documentUrl = URI.create(DOCUMENT_BASE_URL).resolve(documentKey).toString();
+        this.messageClass = Objects.requireNonNull(messageClass, "messageClass must not be null");
+    }
+
+    /**
+     * 返回此枚举所属的美团业务编号。
+     *
+     * @return 官方 businessId
+     */
+    @Override
+    public String getBusinessId() {
+        return BUSINESS_ID;
     }
 
     /**
