@@ -25,7 +25,7 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class PartialOrderRefundMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u90e8\u5206\u9000\u6b3e\u56de\u8c03\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「接收部分退款回调接口」回调的业务内容。的空实例。
      */
     public PartialOrderRefundMessage() {
     }
@@ -67,7 +67,7 @@ public class PartialOrderRefundMessage {
     public static class PartOrderRefund {
 
         /**
-         * 创建\u90e8\u5206\u9000\u6b3e\u6d88\u606f\u3002的空实例。
+         * 创建部分退款消息。的空实例。
          */
         public PartOrderRefund() {
         }

@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanCallbackSupportTest {
 
     /**
-     * 创建\u670d\u52a1\u96f6\u552e\uff08\u5ba2\u6237\uff0cbusinessId=59\uff09\u6d88\u606f\u56de\u8c03\u57fa\u7840\u80fd\u529b\u6d4b\u8bd5\u3002的空实例。
+     * 创建服务零售（客户，businessId=59）消息回调基础能力测试。的空实例。
      */
     MeituanCallbackSupportTest() {
     }

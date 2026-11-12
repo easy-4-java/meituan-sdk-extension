@@ -26,7 +26,7 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class ReservationStartedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5f00\u59cb\u9884\u8ba2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「开始预订」回调的业务内容。的空实例。
      */
     public ReservationStartedMessage() {
     }
@@ -275,7 +275,7 @@ public class ReservationStartedMessage {
     public static class Product {
 
         /**
-         * 创建\u9884\u8ba2\u5546\u54c1\u4fe1\u606f(\u4e0d\u5305\u542b\u670d\u52a1\u9879\u76ee)\uff0c\u5355\u4e2a\u5546\u54c1\u7684\u6570\u636e\u7ed3\u6784\u67e5\u770b\u4e0b\u6587\u7684product\u8bf4\u660e\u3002的空实例。
+         * 创建预订商品信息(不包含服务项目)，单个商品的数据结构查看下文的product说明。的空实例。
          */
         public Product() {
         }
@@ -389,7 +389,7 @@ public class ReservationStartedMessage {
     public static class OrderShoppromoDetailsItem {
 
         /**
-         * 创建\u6240\u5728\u8ba2\u5355\u5546\u5bb6\u8425\u9500\u8be6\u60c5\u3002的空实例。
+         * 创建所在订单商家营销详情。的空实例。
          */
         public OrderShoppromoDetailsItem() {
         }
@@ -425,7 +425,7 @@ public class ReservationStartedMessage {
     public static class RelatedServiceItemItem {
 
         /**
-         * 创建\u8ba2\u5355\u5173\u8054\u670d\u52a1\u9879\u76ee\uff0c\u683c\u5f0f\u4e3ajson\u6570\u7ec4\uff0c\u89c1related_service_item\u3002的空实例。
+         * 创建订单关联服务项目，格式为json数组，见related_service_item。的空实例。
          */
         public RelatedServiceItemItem() {
         }
@@ -473,7 +473,7 @@ public class ReservationStartedMessage {
     public static class UserAddressDetails {
 
         /**
-         * 创建\u7528\u6237\u4e0a\u95e8\u5730\u5740(\u53d6\u4ef6\u5730\u5740)\uff0c\u683c\u5f0f\u4e3ajson\uff0c\u89c1address\u3002的空实例。
+         * 创建用户上门地址(取件地址)，格式为json，见address。的空实例。
          */
         public UserAddressDetails() {
         }
@@ -541,7 +541,7 @@ public class ReservationStartedMessage {
     public static class DeliveryAddressDetails {
 
         /**
-         * 创建\u9001\u4ef6\u5730\u5740\uff0c\u683c\u5f0f\u4e3ajson\uff0c\u89c1address\u3002的空实例。
+         * 创建送件地址，格式为json，见address。的空实例。
          */
         public DeliveryAddressDetails() {
         }

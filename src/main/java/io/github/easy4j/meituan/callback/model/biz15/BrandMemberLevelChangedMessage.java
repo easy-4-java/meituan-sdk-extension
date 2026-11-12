@@ -18,7 +18,7 @@ import lombok.Setter;
 public class BrandMemberLevelChangedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u5411\u54c1\u724c\u63a8\u9001\u7684\u8054\u5408\u4f1a\u5458\u7b49\u7ea7\u53d8\u66f4\u4e8b\u4ef6\uff08\u4e1a\u52a1 15\uff0c\u6d88\u606f 1510005\uff09\u3002的空实例。
+     * 创建美团向品牌推送的联合会员等级变更事件（业务 15，消息 1510005）。的空实例。
      */
     public BrandMemberLevelChangedMessage() {
     }
@@ -82,7 +82,7 @@ public class BrandMemberLevelChangedMessage {
     public static class MappedLevel {
 
         /**
-         * 创建\u7f8e\u56e2\u4f1a\u5458\u7b49\u7ea7\u4e0e\u54c1\u724c\u7b49\u7ea7\u7684\u6620\u5c04\u3002的空实例。
+         * 创建美团会员等级与品牌等级的映射。的空实例。
          */
         public MappedLevel() {
         }

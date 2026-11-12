@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanMemberClaimRequestTest {
 
     /**
-     * 创建\u9886\u53d6\u7f8e\u56e2\u4f1a\u5458\u6743\u76ca\u8bf7\u6c42\u4e0e\u54cd\u5e94\u534f\u8bae\u6d4b\u8bd5\u3002的空实例。
+     * 创建领取美团会员权益请求与响应协议测试。的空实例。
      */
     MeituanMemberClaimRequestTest() {
     }

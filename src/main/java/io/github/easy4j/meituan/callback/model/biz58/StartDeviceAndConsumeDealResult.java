@@ -18,7 +18,7 @@ import lombok.Setter;
 public class StartDeviceAndConsumeDealResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u542f\u52a8\u8bbe\u5907\u5e76\u6838\u9500\u56e2\u5355\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「启动设备并核销团单」回调的业务响应。的空实例。
      */
     public StartDeviceAndConsumeDealResult() {
     }

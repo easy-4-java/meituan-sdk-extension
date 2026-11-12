@@ -20,7 +20,7 @@ import lombok.Setter;
 public class MallPointsTransactionPushedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5546\u573a\u79ef\u5206\u4ea4\u6613\u4e8b\u4ef6\u63a8\u9001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「商场积分交易事件推送」回调的业务内容。的空实例。
      */
     public MallPointsTransactionPushedMessage() {
     }

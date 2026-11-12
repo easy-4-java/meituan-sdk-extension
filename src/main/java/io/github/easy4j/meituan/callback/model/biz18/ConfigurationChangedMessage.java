@@ -21,7 +21,7 @@ import lombok.Setter;
 public class ConfigurationChangedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u914d\u7f6e\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「配置消息」回调的业务内容。的空实例。
      */
     public ConfigurationChangedMessage() {
     }
@@ -60,7 +60,7 @@ public class ConfigurationChangedMessage {
     public static class MealInfoTO {
 
         /**
-         * 创建\u9910\u6bb5\u4fe1\u606f\u3002的空实例。
+         * 创建餐段信息。的空实例。
          */
         public MealInfoTO() {
         }
@@ -100,7 +100,7 @@ public class ConfigurationChangedMessage {
     public static class ShiftInfoTO {
 
         /**
-         * 创建\u73ed\u6b21\u4fe1\u606f\u3002的空实例。
+         * 创建班次信息。的空实例。
          */
         public ShiftInfoTO() {
         }
@@ -140,7 +140,7 @@ public class ConfigurationChangedMessage {
     public static class OpeningHoursTO {
 
         /**
-         * 创建\u8425\u4e1a\u65f6\u95f4\u3002的空实例。
+         * 创建营业时间。的空实例。
          */
         public OpeningHoursTO() {
         }

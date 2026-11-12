@@ -32,7 +32,7 @@ import static org.mockito.Mockito.when;
 class MeituanStoreServiceDirectConnectionTest {
 
     /**
-     * 创建\u95e8\u5e97\u5efa\u5e97\u76f4\u8fde API \u7684\u514d appAuthToken \u8c03\u7528\u8def\u5f84\u6d4b\u8bd5\u3002的空实例。
+     * 创建门店建店直连 API 的免 appAuthToken 调用路径测试。的空实例。
      */
     MeituanStoreServiceDirectConnectionTest() {
     }

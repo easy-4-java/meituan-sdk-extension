@@ -21,7 +21,7 @@ import lombok.Setter;
 public class DeliveryOrderMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u914d\u9001\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】配送单消息」回调的业务内容。的空实例。
      */
     public DeliveryOrderMessage() {
     }
@@ -72,7 +72,7 @@ public class DeliveryOrderMessage {
     public static class DeliveryOrderDTO {
 
         /**
-         * 创建\u914d\u9001\u5355\u4fe1\u606f\u3002的空实例。
+         * 创建配送单信息。的空实例。
          */
         public DeliveryOrderDTO() {
         }
@@ -99,7 +99,7 @@ public class DeliveryOrderMessage {
         public static class DeliveryOrderItemDTO {
 
             /**
-             * 创建\u914d\u9001\u5355\u4e3b\u5355\u3002的空实例。
+             * 创建配送单主单。的空实例。
              */
             public DeliveryOrderItemDTO() {
             }
@@ -300,7 +300,7 @@ public class DeliveryOrderMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u8ba2\u8d27\u673a\u6784\u3002的空实例。
+                 * 创建订货机构。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -340,7 +340,7 @@ public class DeliveryOrderMessage {
             public static class SupplyOrgDetails {
 
                 /**
-                 * 创建\u4f9b\u8d27\u673a\u6784\u3002的空实例。
+                 * 创建供货机构。的空实例。
                  */
                 public SupplyOrgDetails() {
                 }
@@ -380,7 +380,7 @@ public class DeliveryOrderMessage {
             public static class OpenOppositeOrgDTO {
 
                 /**
-                 * 创建\u9001\u8d27\u673a\u6784\u3002的空实例。
+                 * 创建送货机构。的空实例。
                  */
                 public OpenOppositeOrgDTO() {
                 }
@@ -413,7 +413,7 @@ public class DeliveryOrderMessage {
                 public static class PairDTO {
 
                     /**
-                     * 创建\u5bf9\u65b9\u673a\u6784\u7c7b\u578b,1.\u4f9b\u5e94\u5546,2.\u7ec4\u7ec7\u673a\u6784,3.\u5916\u9500\u5ba2\u6237\u3002的空实例。
+                     * 创建对方机构类型,1.供应商,2.组织机构,3.外销客户。的空实例。
                      */
                     public PairDTO() {
                     }
@@ -442,7 +442,7 @@ public class DeliveryOrderMessage {
             public static class ReceiveOrgDetails {
 
                 /**
-                 * 创建\u6536\u8d27\u673a\u6784\u3002的空实例。
+                 * 创建收货机构。的空实例。
                  */
                 public ReceiveOrgDetails() {
                 }
@@ -482,7 +482,7 @@ public class DeliveryOrderMessage {
             public static class OrgAddressOpenDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u76f8\u5173\u3002的空实例。
+                 * 创建收货相关。的空实例。
                  */
                 public OrgAddressOpenDTO() {
                 }
@@ -528,7 +528,7 @@ public class DeliveryOrderMessage {
             public static class LongPairOpenDTO {
 
                 /**
-                 * 创建\u8ba2\u8d27\u6807\u7b7e\u3002的空实例。
+                 * 创建订货标签。的空实例。
                  */
                 public LongPairOpenDTO() {
                 }
@@ -556,7 +556,7 @@ public class DeliveryOrderMessage {
             public static class PairDTO {
 
                 /**
-                 * 创建\u662f\u5426\u8865\u53d1\uff08\u914d\u9001\u5355\u8865\u53d1\u72b6\u6001\uff09\u3002的空实例。
+                 * 创建是否补发（配送单补发状态）。的空实例。
                  */
                 public PairDTO() {
                 }
@@ -585,7 +585,7 @@ public class DeliveryOrderMessage {
         public static class DeliveryOrderItemDetailDTO {
 
             /**
-             * 创建\u914d\u9001\u5355\u660e\u7ec6\u3002的空实例。
+             * 创建配送单明细。的空实例。
              */
             public DeliveryOrderItemDetailDTO() {
             }
@@ -876,7 +876,7 @@ public class DeliveryOrderMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 * 创建物品信息。的空实例。
                  */
                 public GoodsOpenDTO() {
                 }
@@ -945,7 +945,7 @@ public class DeliveryOrderMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建\u57fa\u51c6\u5355\u4f4d\u540d\u79f0\u3002的空实例。
+                     * 创建基准单位名称。的空实例。
                      */
                     public UnitOpenDTO() {
                     }
@@ -973,7 +973,7 @@ public class DeliveryOrderMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+                     * 创建支持的单位名称列表。的空实例。
                      */
                     public UnitsItem() {
                     }
@@ -1002,7 +1002,7 @@ public class DeliveryOrderMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建\u53d1\u8d27\u4ed3\u5e93\u3002的空实例。
+                 * 创建发货仓库。的空实例。
                  */
                 public WarehouseOpenDTO() {
                 }
@@ -1036,7 +1036,7 @@ public class DeliveryOrderMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                 * 创建基准单位。的空实例。
                  */
                 public UnitOpenDTO() {
                 }
@@ -1064,7 +1064,7 @@ public class DeliveryOrderMessage {
             public static class BizUnitDetails {
 
                 /**
-                 * 创建\u4e1a\u52a1\u5355\u4f4d\u3002的空实例。
+                 * 创建业务单位。的空实例。
                  */
                 public BizUnitDetails() {
                 }
@@ -1092,7 +1092,7 @@ public class DeliveryOrderMessage {
             public static class MultiUnitAmountOpenDTO {
 
                 /**
-                 * 创建\u8ba2\u8d27\u6570\u91cf\u3002的空实例。
+                 * 创建订货数量。的空实例。
                  */
                 public MultiUnitAmountOpenDTO() {
                 }
@@ -1120,7 +1120,7 @@ public class DeliveryOrderMessage {
             public static class ReceiveOrderAmountDetails {
 
                 /**
-                 * 创建\u63a5\u5355\u6570\u91cf\u3002的空实例。
+                 * 创建接单数量。的空实例。
                  */
                 public ReceiveOrderAmountDetails() {
                 }
@@ -1148,7 +1148,7 @@ public class DeliveryOrderMessage {
             public static class DeliverAmountDetails {
 
                 /**
-                 * 创建\u53d1\u8d27\u6570\u91cf\u3002的空实例。
+                 * 创建发货数量。的空实例。
                  */
                 public DeliverAmountDetails() {
                 }
@@ -1176,7 +1176,7 @@ public class DeliveryOrderMessage {
             public static class ReceiveAmountDetails {
 
                 /**
-                 * 创建\u6536\u8d27\u6570\u91cf\u3002的空实例。
+                 * 创建收货数量。的空实例。
                  */
                 public ReceiveAmountDetails() {
                 }
@@ -1204,7 +1204,7 @@ public class DeliveryOrderMessage {
             public static class DiffAmountDetails {
 
                 /**
-                 * 创建\u5dee\u5f02\u6570\u91cf\u3002的空实例。
+                 * 创建差异数量。的空实例。
                  */
                 public DiffAmountDetails() {
                 }
@@ -1232,7 +1232,7 @@ public class DeliveryOrderMessage {
             public static class RefundAmountDetails {
 
                 /**
-                 * 创建\u8fd4\u8d27\u6570\u91cf\u3002的空实例。
+                 * 创建返货数量。的空实例。
                  */
                 public RefundAmountDetails() {
                 }
@@ -1260,7 +1260,7 @@ public class DeliveryOrderMessage {
             public static class AcceptDeliverDiffAmountDetails {
 
                 /**
-                 * 创建\u6536\u53d1\u5dee\u5f02\u6570\u91cf\u3002的空实例。
+                 * 创建收发差异数量。的空实例。
                  */
                 public AcceptDeliverDiffAmountDetails() {
                 }

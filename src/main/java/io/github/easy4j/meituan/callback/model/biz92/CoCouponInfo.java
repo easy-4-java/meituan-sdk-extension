@@ -14,7 +14,7 @@ import lombok.Setter;
 public class CoCouponInfo {
 
     /**
-     * 创建CoCouponInfo\uff0c\u7528\u4e8e\u8ba2\u5355\u7eed\u79df\u4e0b\u5355\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     * 创建CoCouponInfo，用于订单续租下单等回调的业务字段。的空实例。
      */
     public CoCouponInfo() {
     }

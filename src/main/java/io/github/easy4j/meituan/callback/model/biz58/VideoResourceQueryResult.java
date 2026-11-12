@@ -19,7 +19,7 @@ import lombok.Setter;
 public class VideoResourceQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u89c6\u9891\u8d44\u6e90\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「查询视频资源」回调的业务响应。的空实例。
      */
     public VideoResourceQueryResult() {
     }
@@ -41,7 +41,7 @@ public class VideoResourceQueryResult {
     public static class PoiShowVideoBO {
 
         /**
-         * 创建\u89c6\u9891\u8d44\u6e90\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建视频资源列表。必填。的空实例。
          */
         public PoiShowVideoBO() {
         }
@@ -82,7 +82,7 @@ public class VideoResourceQueryResult {
     public static class ShowVideoBO {
 
         /**
-         * 创建\u7cbe\u5f69\u89c6\u9891\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建精彩视频列表。必填。的空实例。
          */
         public ShowVideoBO() {
         }

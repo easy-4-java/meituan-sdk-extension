@@ -81,8 +81,7 @@ public final class MeituanPlatformService {
      * @param <T> 响应数据类型
      * @return 官方响应
      */
-    public <T> MeituanResponse<T> execute(MeituanRequest<T> request, String tenantId,
-                                          Integer connectTimeout, Integer readTimeout) {
+    public <T> MeituanResponse<T> execute(MeituanRequest<T> request, String tenantId, Integer connectTimeout, Integer readTimeout) {
         return invoke(tenantId, (client, config) ->
                 client.invokeApi(request, config.getAppAuthToken(), connectTimeout, readTimeout));
     }
@@ -96,8 +95,7 @@ public final class MeituanPlatformService {
      * @param <T> 响应数据类型
      * @return 官方响应
      */
-    public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> request, String tenantId,
-                                                     Integer connectTimeout, Integer readTimeout) {
+    public <T> MeituanResponse<T> executeWithoutAuth(MeituanRequest<T> request, String tenantId, Integer connectTimeout, Integer readTimeout) {
         return invoke(tenantId, (client, config) -> client.invokeApi(request, connectTimeout, readTimeout));
     }
 

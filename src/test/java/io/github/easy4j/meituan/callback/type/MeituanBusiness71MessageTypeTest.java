@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness71MessageTypeTest {
 
     /**
-     * 创建\u95e8\u5e97\u5efa\u5e97\u76f4\u8fde\uff08businessId=71\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     * 创建门店建店直连（businessId=71）消息类型目录测试。的空实例。
      */
     MeituanBusiness71MessageTypeTest() {
     }

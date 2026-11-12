@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness15MembershipCardApiCoverageTest {
 
     /**
-     * 创建\u5230\u5e97\u9910\u996e\u54c1\u724c\u4f1a\u5458\u5361\uff08businessId=15\uff09\u516c\u5f00 API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建到店餐饮品牌会员卡（businessId=15）公开 API 覆盖回归测试。的空实例。
      */
     MeituanBusiness15MembershipCardApiCoverageTest() {
     }

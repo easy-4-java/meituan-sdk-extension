@@ -22,7 +22,7 @@ import tools.jackson.databind.JsonNode;
 public class OrderShipmentNoticeMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5feb\u9a74\u8ba2\u5355\u53d1\u8d27\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「快驴订单发货通知」回调的业务内容。的空实例。
      */
     public OrderShipmentNoticeMessage() {
     }
@@ -133,7 +133,7 @@ public class OrderShipmentNoticeMessage {
     public static class OrderProduct {
 
         /**
-         * 创建\u8ba2\u5355\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+         * 创建订单商品信息。的空实例。
          */
         public OrderProduct() {
         }

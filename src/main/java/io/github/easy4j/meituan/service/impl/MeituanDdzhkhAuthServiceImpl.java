@@ -31,8 +31,7 @@ public class MeituanDdzhkhAuthServiceImpl extends AbstractMeituanService impleme
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<PageQueryTokenPoiListResponse> pageQueryTokenPoiList(
-            PageQueryTokenPoiListRequest request, String tenantId) {
+    public MeituanResponse<PageQueryTokenPoiListResponse> pageQueryTokenPoiList(PageQueryTokenPoiListRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -40,8 +39,7 @@ public class MeituanDdzhkhAuthServiceImpl extends AbstractMeituanService impleme
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<QueryPoiMappingResponse> queryPoiMapping(
-            QueryPoiMappingRequest request, String tenantId) {
+    public MeituanResponse<QueryPoiMappingResponse> queryPoiMapping(QueryPoiMappingRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -49,8 +47,7 @@ public class MeituanDdzhkhAuthServiceImpl extends AbstractMeituanService impleme
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> orderQueryInfoByGeneralconnect(
-            OrderQueryInfoByGeneralconnectRequest request, String tenantId) {
+    public MeituanResponse<?> orderQueryInfoByGeneralconnect(OrderQueryInfoByGeneralconnectRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
@@ -58,8 +55,7 @@ public class MeituanDdzhkhAuthServiceImpl extends AbstractMeituanService impleme
      * {@inheritDoc}
      */
     @Override
-    public MeituanResponse<?> memberInfoAsyncCallback(
-            MemberInfoAsyncCallbackRequest request, String tenantId) {
+    public MeituanResponse<?> memberInfoAsyncCallback(MemberInfoAsyncCallbackRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 

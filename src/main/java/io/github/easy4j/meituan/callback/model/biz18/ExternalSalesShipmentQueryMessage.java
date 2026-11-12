@@ -22,7 +22,7 @@ import tools.jackson.databind.JsonNode;
 public class ExternalSalesShipmentQueryMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u67e5\u8be2\u5916\u9500\u53d1\u8d27\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】查询外销发货单消息」回调的业务内容。的空实例。
      */
     public ExternalSalesShipmentQueryMessage() {
     }
@@ -73,7 +73,7 @@ public class ExternalSalesShipmentQueryMessage {
     public static class SaleDeliveryOrderOpenDTO {
 
         /**
-         * 创建\u9500\u552e\u53d1\u8d27\u5355\u4fe1\u606f\u3002的空实例。
+         * 创建销售发货单信息。的空实例。
          */
         public SaleDeliveryOrderOpenDTO() {
         }
@@ -100,7 +100,7 @@ public class ExternalSalesShipmentQueryMessage {
         public static class SaleDeliverOrderItemOpenDTO {
 
             /**
-             * 创建\u9500\u552e\u53d1\u8d27\u5355\u4e3b\u5355\u3002的空实例。
+             * 创建销售发货单主单。的空实例。
              */
             public SaleDeliverOrderItemOpenDTO() {
             }
@@ -241,7 +241,7 @@ public class ExternalSalesShipmentQueryMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u9500\u552e\u673a\u6784\u3002的空实例。
+                 * 创建销售机构。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -281,7 +281,7 @@ public class ExternalSalesShipmentQueryMessage {
             public static class UserOpenDTO {
 
                 /**
-                 * 创建\u521b\u5efa\u4eba\u3002的空实例。
+                 * 创建创建人。的空实例。
                  */
                 public UserOpenDTO() {
                 }
@@ -327,7 +327,7 @@ public class ExternalSalesShipmentQueryMessage {
             public static class OrgAddressOpenDTO {
 
                 /**
-                 * 创建\u5730\u5740\u3002的空实例。
+                 * 创建地址。的空实例。
                  */
                 public OrgAddressOpenDTO() {
                 }
@@ -361,7 +361,7 @@ public class ExternalSalesShipmentQueryMessage {
             public static class ResponsiblePersonOpenDTO {
 
                 /**
-                 * 创建\u4e1a\u52a1\u5458\u3002的空实例。
+                 * 创建业务员。的空实例。
                  */
                 public ResponsiblePersonOpenDTO() {
                 }
@@ -401,7 +401,7 @@ public class ExternalSalesShipmentQueryMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建\u53d1\u8d27\u4ed3\u5e93\u3002的空实例。
+                 * 创建发货仓库。的空实例。
                  */
                 public WarehouseOpenDTO() {
                 }
@@ -436,7 +436,7 @@ public class ExternalSalesShipmentQueryMessage {
         public static class SaleDeliverOrderDetailOpenDTO {
 
             /**
-             * 创建\u9500\u552e\u53d1\u8d27\u5355\u7269\u54c1\u660e\u7ec6\u3002的空实例。
+             * 创建销售发货单物品明细。的空实例。
              */
             public SaleDeliverOrderDetailOpenDTO() {
             }
@@ -565,7 +565,7 @@ public class ExternalSalesShipmentQueryMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 * 创建物品信息。的空实例。
                  */
                 public GoodsOpenDTO() {
                 }

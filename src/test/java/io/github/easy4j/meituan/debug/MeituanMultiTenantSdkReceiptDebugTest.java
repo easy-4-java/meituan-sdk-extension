@@ -47,7 +47,7 @@ import java.util.Objects;
 public class MeituanMultiTenantSdkReceiptDebugTest {
 
     /**
-     * 创建\u4f7f\u7528\u591a\u79df\u6237 SDK \u5c01\u88c5\u62c9\u53d6\u7f8e\u56e2\u9a8c\u5238\u8bb0\u5f55\u3002的空实例。
+     * 创建使用多租户 SDK 封装拉取美团验券记录。的空实例。
      */
     public MeituanMultiTenantSdkReceiptDebugTest() {
     }

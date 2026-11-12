@@ -55,7 +55,7 @@ import java.util.UUID;
 public class MeituanReceiptPrepareAndConsumeDebugTest {
 
     /**
-     * 创建\u7f8e\u56e2\u8d2d\u5238\u51c6\u5907 + \u6838\u9500\u8c03\u8bd5\u6d4b\u8bd5\u3002的空实例。
+     * 创建美团购券准备 + 核销调试测试。的空实例。
      */
     public MeituanReceiptPrepareAndConsumeDebugTest() {
     }

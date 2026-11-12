@@ -17,7 +17,7 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class RefundData {
 
     /**
-     * 创建RefundData\uff0c\u7528\u4e8e\u63a5\u6536\u5546\u5bb6\u8f6c\u81ea\u914d\u6210\u529f\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     * 创建RefundData，用于接收商家转自配成功消息等回调的业务字段。的空实例。
      */
     public RefundData() {
     }

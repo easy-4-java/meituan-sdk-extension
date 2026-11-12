@@ -25,7 +25,7 @@ import tools.jackson.databind.JsonNode;
 public class PaidOrderPushMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u65b0\u8ba2\u5355\u63a8\u9001\uff08\u5df2\u652f\u4ed8\uff09\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「新订单推送（已支付）（必接）」回调的业务内容。的空实例。
      */
     public PaidOrderPushMessage() {
     }
@@ -359,7 +359,7 @@ public class PaidOrderPushMessage {
     public static class PoiReceiveDetailDetails {
 
         /**
-         * 创建\u5546\u5bb6\u5bf9\u8d26\u4fe1\u606f\u7684json\u6570\u636e\u3002的空实例。
+         * 创建商家对账信息的json数据。的空实例。
          */
         public PoiReceiveDetailDetails() {
         }
@@ -416,7 +416,7 @@ public class PaidOrderPushMessage {
         public static class ActOrderChargeByPoiDetails {
 
             /**
-             * 创建\u5546\u5bb6\u627f\u62c5\u660e\u7ec6\u3002的空实例。
+             * 创建商家承担明细。的空实例。
              */
             public ActOrderChargeByPoiDetails() {
             }
@@ -456,7 +456,7 @@ public class PaidOrderPushMessage {
         public static class ReconciliationExtrasDetails {
 
             /**
-             * 创建-\u3002的空实例。
+             * 创建-。的空实例。
              */
             public ReconciliationExtrasDetails() {
             }
@@ -541,7 +541,7 @@ public class PaidOrderPushMessage {
     public static class DetailDetails {
 
         /**
-         * 创建\u8ba2\u5355\u5546\u54c1\u8be6\u60c5\uff0c\u5176\u503c\u4e3a\u7531list\u3002的空实例。
+         * 创建订单商品详情，其值为由list。的空实例。
          */
         public DetailDetails() {
         }
@@ -666,7 +666,7 @@ public class PaidOrderPushMessage {
         public static class SubDetailListDetails {
 
             /**
-             * 创建\u5b50\u5546\u54c1\u4fe1\u606f\u5217\u8868\u3002的空实例。
+             * 创建子商品信息列表。的空实例。
              */
             public SubDetailListDetails() {
             }

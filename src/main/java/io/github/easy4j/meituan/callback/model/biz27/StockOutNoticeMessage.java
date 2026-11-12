@@ -22,7 +22,7 @@ import tools.jackson.databind.JsonNode;
 public class StockOutNoticeMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5feb\u9a74\u51fa\u5e93\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「快驴出库通知」回调的业务内容。的空实例。
      */
     public StockOutNoticeMessage() {
     }
@@ -91,7 +91,7 @@ public class StockOutNoticeMessage {
     public static class OrderItemDto {
 
         /**
-         * 创建\u8ba2\u5355\u5546\u54c1\u660e\u7ec6\u3002的空实例。
+         * 创建订单商品明细。的空实例。
          */
         public OrderItemDto() {
         }

@@ -21,7 +21,7 @@ import lombok.Setter;
 public class PaymentMethodChangedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u7ed3\u8d26\u65b9\u5f0f\u53d8\u66f4\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「结账方式变更消息」回调的业务内容。的空实例。
      */
     public PaymentMethodChangedMessage() {
     }
@@ -48,7 +48,7 @@ public class PaymentMethodChangedMessage {
     public static class PaymentModifyInfo {
 
         /**
-         * 创建\u7ed3\u8d26\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+         * 创建结账方式列表。的空实例。
          */
         public PaymentModifyInfo() {
         }
@@ -123,7 +123,7 @@ public class PaymentMethodChangedMessage {
         public static class IncomeRule {
 
             /**
-             * 创建\u8bb0\u8d26\u89c4\u5219\u3002的空实例。
+             * 创建记账规则。的空实例。
              */
             public IncomeRule() {
             }

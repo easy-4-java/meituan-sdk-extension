@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FreetryRequestSerializationTest {
 
     /**
-     * 创建\u5927\u4f17\u70b9\u8bc4\u514d\u8d39\u8bd5\u8bf7\u6c42\u5e8f\u5217\u5316\u4e0e\u54cd\u5e94\u53cd\u5e8f\u5217\u5316\u6d4b\u8bd5\u3002的空实例。
+     * 创建大众点评免费试请求序列化与响应反序列化测试。的空实例。
      */
     FreetryRequestSerializationTest() {
     }

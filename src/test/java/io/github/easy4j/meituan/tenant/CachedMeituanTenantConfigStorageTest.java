@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CachedMeituanTenantConfigStorageTest {
 
     /**
-     * 创建CachedMeituanTenantConfigStorage \u7684\u7f13\u5b58\u3001TTL\u3001\u4e3b\u52a8\u5237\u65b0\u4e0e\u5e76\u53d1\u9632\u51fb\u7a7f\u6d4b\u8bd5\u3002的空实例。
+     * 创建CachedMeituanTenantConfigStorage 的缓存、TTL、主动刷新与并发防击穿测试。的空实例。
      */
     CachedMeituanTenantConfigStorageTest() {
     }

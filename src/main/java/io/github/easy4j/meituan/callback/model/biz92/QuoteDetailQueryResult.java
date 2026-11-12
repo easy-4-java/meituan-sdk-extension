@@ -19,7 +19,7 @@ import lombok.Setter;
 public class QuoteDetailQueryResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u62a5\u4ef7\u8be6\u60c5\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「报价详情查询」回调的业务响应。的空实例。
      */
     public QuoteDetailQueryResult() {
     }
@@ -125,7 +125,7 @@ public class QuoteDetailQueryResult {
     public static class Policy {
 
         /**
-         * 创建\u653f\u7b56\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建政策列表。必填。的空实例。
          */
         public Policy() {
         }
@@ -154,7 +154,7 @@ public class QuoteDetailQueryResult {
     public static class Insurance {
 
         /**
-         * 创建\u4fdd\u969c\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建保障信息。必填。的空实例。
          */
         public Insurance() {
         }
@@ -213,7 +213,7 @@ public class QuoteDetailQueryResult {
     public static class PickUpMaterial {
 
         /**
-         * 创建\u53d6\u8f66\u6750\u6599\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建取车材料。必填。的空实例。
          */
         public PickUpMaterial() {
         }
@@ -248,7 +248,7 @@ public class QuoteDetailQueryResult {
     public static class PolicyContent {
 
         /**
-         * 创建\u5176\u4ed6\u653f\u7b56\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建其他政策。必填。的空实例。
          */
         public PolicyContent() {
         }
@@ -277,7 +277,7 @@ public class QuoteDetailQueryResult {
     public static class InsuranceComponent {
 
         /**
-         * 创建\u4fdd\u9669\u90e8\u5206\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建保险部分。必填。的空实例。
          */
         public InsuranceComponent() {
         }
@@ -318,7 +318,7 @@ public class QuoteDetailQueryResult {
     public static class ContentBlock {
 
         /**
-         * 创建\u672c\u4fdd\u969c\u4e0d\u4e88\u7406\u8d54\u60c5\u51b5\u63cf\u8ff0\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建本保障不予理赔情况描述。必填。的空实例。
          */
         public ContentBlock() {
         }
@@ -347,7 +347,7 @@ public class QuoteDetailQueryResult {
     public static class DriverLicense {
 
         /**
-         * 创建\u9a7e\u7167\u8981\u6c42\u4fe1\u606f\uff0c\u4e0d\u4f20\u4ee3\u8868\u6ca1\u6709\u7279\u6b8a\u8981\u6c42\u3002的空实例。
+         * 创建驾照要求信息，不传代表没有特殊要求。的空实例。
          */
         public DriverLicense() {
         }
@@ -382,7 +382,7 @@ public class QuoteDetailQueryResult {
     public static class IDCard {
 
         /**
-         * 创建\u8eab\u4efd\u8bc1\u8981\u6c42\u4fe1\u606f\uff0c\u4e0d\u4f20\u4ee3\u8868\u6ca1\u6709\u7279\u6b8a\u8981\u6c42\u3002的空实例。
+         * 创建身份证要求信息，不传代表没有特殊要求。的空实例。
          */
         public IDCard() {
         }
@@ -411,7 +411,7 @@ public class QuoteDetailQueryResult {
     public static class VehicleDamageInsurance {
 
         /**
-         * 创建\u8f66\u635f\u8d39\u7528\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建车损费用。必填。的空实例。
          */
         public VehicleDamageInsurance() {
         }
@@ -464,7 +464,7 @@ public class QuoteDetailQueryResult {
     public static class ThirdPartyInsurance {
 
         /**
-         * 创建\u4e09\u8005\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建三者。必填。的空实例。
          */
         public ThirdPartyInsurance() {
         }
@@ -505,7 +505,7 @@ public class QuoteDetailQueryResult {
     public static class DepreciationInsurance {
 
         /**
-         * 创建\u6298\u65e7\u8d39\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建折旧费。必填。的空实例。
          */
         public DepreciationInsurance() {
         }
@@ -546,7 +546,7 @@ public class QuoteDetailQueryResult {
     public static class LossOfUseInsurance {
 
         /**
-         * 创建\u505c\u8fd0\u8d39\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建停运费。必填。的空实例。
          */
         public LossOfUseInsurance() {
         }

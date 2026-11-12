@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MeituanConfigTest {
 
     /**
-     * 创建 \u5355\u5143\u6d4b\u8bd5\uff1a\u8986\u76d6\u9ed8\u8ba4\u503c\u4e0e setter/getter\u3002的空实例。
+     * 创建 单元测试：覆盖默认值与 setter/getter。的空实例。
      */
     MeituanConfigTest() {
     }

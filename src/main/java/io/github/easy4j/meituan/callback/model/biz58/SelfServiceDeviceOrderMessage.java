@@ -23,7 +23,7 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class SelfServiceDeviceOrderMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u81ea\u52a9\u8bbe\u5907\u8ba2\u5355\u4fe1\u606f\u63a8\u9001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「自助设备订单信息推送」回调的业务内容。的空实例。
      */
     public SelfServiceDeviceOrderMessage() {
     }
@@ -94,7 +94,7 @@ public class SelfServiceDeviceOrderMessage {
     public static class Product {
 
         /**
-         * 创建\u5546\u54c1\u4fe1\u606f(size \u4e3a1)\u3002的空实例。
+         * 创建商品信息(size 为1)。的空实例。
          */
         public Product() {
         }
@@ -134,7 +134,7 @@ public class SelfServiceDeviceOrderMessage {
     public static class OrderPriceDTO {
 
         /**
-         * 创建\u56e2\u8d2d\u666e\u901a\u5355\u76f8\u5173\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+         * 创建团购普通单相关支付信息。的空实例。
          */
         public OrderPriceDTO() {
         }

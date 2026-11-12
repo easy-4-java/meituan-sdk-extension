@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanKemanmanServiceRoutingTest {
 
     /**
-     * 创建\u5230\u5e97\u9910\u996e\u54c1\u724c\u4f1a\u5458\u5361 API \u79df\u6237\u6388\u6743\u8def\u7531\u6d4b\u8bd5\u3002的空实例。
+     * 创建到店餐饮品牌会员卡 API 租户授权路由测试。的空实例。
      */
     MeituanKemanmanServiceRoutingTest() {
     }

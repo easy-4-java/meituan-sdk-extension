@@ -53,7 +53,7 @@ import java.util.Objects;
 public class MeituanReceiptQuerylistbydateDebugTest {
 
     /**
-     * 创建\u7f8e\u56e2\u9a8c\u5238\u8bb0\u5f55\u62c9\u53d6\u8c03\u8bd5\u6d4b\u8bd5\uff08\u771f\u5b9e\u51ed\u8bc1\uff09\u3002的空实例。
+     * 创建美团验券记录拉取调试测试（真实凭证）。的空实例。
      */
     public MeituanReceiptQuerylistbydateDebugTest() {
     }

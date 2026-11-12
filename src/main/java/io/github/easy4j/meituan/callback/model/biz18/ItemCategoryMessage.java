@@ -21,7 +21,7 @@ import tools.jackson.databind.JsonNode;
 public class ItemCategoryMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u7269\u54c1\u7c7b\u522b\u6863\u6848\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】物品类别档案消息」回调的业务内容。的空实例。
      */
     public ItemCategoryMessage() {
     }
@@ -66,7 +66,7 @@ public class ItemCategoryMessage {
     public static class CompleteGoodsCategoryOpenDTO {
 
         /**
-         * 创建\u7269\u54c1\u7c7b\u522b\u4fe1\u606f\u3002的空实例。
+         * 创建物品类别信息。的空实例。
          */
         public CompleteGoodsCategoryOpenDTO() {
         }
@@ -129,7 +129,7 @@ public class ItemCategoryMessage {
         public static class OrgOpenDTO {
 
             /**
-             * 创建OrgOpenDTO\u3002的空实例。
+             * 创建OrgOpenDTO。的空实例。
              */
             public OrgOpenDTO() {
             }

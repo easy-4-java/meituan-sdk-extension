@@ -19,7 +19,7 @@ import lombok.Setter;
 public class AvailableTechnicianQueriedResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u4e09\u65b9\u53ef\u7528\u624b\u827a\u4eba\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「查询三方可用手艺人」回调的业务响应。的空实例。
      */
     public AvailableTechnicianQueriedResult() {
     }
@@ -41,7 +41,7 @@ public class AvailableTechnicianQueriedResult {
     public static class Tech {
 
         /**
-         * 创建\u624b\u827a\u4eba\u5217\u8868\u3002\u5fc5\u586b\u3002的空实例。
+         * 创建手艺人列表。必填。的空实例。
          */
         public Tech() {
         }

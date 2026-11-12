@@ -23,7 +23,7 @@ import tools.jackson.databind.annotation.JsonDeserialize;
 public class CustomerLeadMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a8\u9001\u987e\u5ba2\u7ebf\u7d22\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「推送顾客线索消息」回调的业务内容。的空实例。
      */
     public CustomerLeadMessage() {
     }
@@ -151,7 +151,7 @@ public class CustomerLeadMessage {
     public static class ConsumerExtendInfo {
 
         /**
-         * 创建\u5ba2\u8d44\u6269\u5c55\u4fe1\u606f\u3002的空实例。
+         * 创建客资扩展信息。的空实例。
          */
         public ConsumerExtendInfo() {
         }
@@ -173,7 +173,7 @@ public class CustomerLeadMessage {
     public static class FollowUpExtendInfo {
 
         /**
-         * 创建\u8ddf\u8fdb\u8bb0\u5f55\u6269\u5c55\u4fe1\u606f\u3002的空实例。
+         * 创建跟进记录扩展信息。的空实例。
          */
         public FollowUpExtendInfo() {
         }
@@ -231,7 +231,7 @@ public class CustomerLeadMessage {
     public static class ActionExtendInfo {
 
         /**
-         * 创建\u7559\u8d44\u884c\u4e3a\u6269\u5c55\u4fe1\u606f\u3002的空实例。
+         * 创建留资行为扩展信息。的空实例。
          */
         public ActionExtendInfo() {
         }

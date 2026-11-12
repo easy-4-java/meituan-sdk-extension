@@ -23,7 +23,7 @@ import lombok.Setter;
 public class OrderNotificationMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「订单消息」回调的业务内容。的空实例。
      */
     public OrderNotificationMessage() {
     }
@@ -50,7 +50,7 @@ public class OrderNotificationMessage {
     public static class OrderDetailRmsVO {
 
         /**
-         * 创建\u8ba2\u5355\u8be6\u60c5\u3002\u5982\u679c\u662f\u5927\u8ba2\u5355\uff0c\u9664orderbase\u5916\uff0corderDetailRmsVO\u4e2d\u5176\u4ed6\u5c5e\u6027\u90fd\u4e3a\u7a7a\u3002\u83b7\u53d6\u8ba2\u5355\u5168\u90e8\u4fe1\u606f\uff0c\u8bf7\u901a\u8fc7-\u8ba2\u5355\u8be6\u60c5\u63a5\u53e3\u83b7\u53d6\u3002的空实例。
+         * 创建订单详情。如果是大订单，除orderbase外，orderDetailRmsVO中其他属性都为空。获取订单全部信息，请通过-订单详情接口获取。的空实例。
          */
         public OrderDetailRmsVO() {
         }
@@ -113,7 +113,7 @@ public class OrderNotificationMessage {
         public static class OrderBaseVO {
 
             /**
-             * 创建\u8ba2\u5355\u57fa\u672c\u4fe1\u606f\u3002的空实例。
+             * 创建订单基本信息。的空实例。
              */
             public OrderBaseVO() {
             }
@@ -431,7 +431,7 @@ public class OrderNotificationMessage {
         public static class OrderItemVO {
 
             /**
-             * 创建\u8ba2\u5355\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+             * 创建订单商品信息。的空实例。
              */
             public OrderItemVO() {
             }
@@ -764,7 +764,7 @@ public class OrderNotificationMessage {
             public static class OrderGoodsAttrVO {
 
                 /**
-                 * 创建\u5546\u54c1\u5c5e\u6027JSON\uff1a[{type:0,name:"\u751c\u5ea6",version:1,values:[{value:"\u534a\u7cd6",price:5,actual:3}]}]\u3002的空实例。
+                 * 创建商品属性JSON：[{type:0,name:"甜度",version:1,values:[{value:"半糖",price:5,actual:3}]}]。的空实例。
                  */
                 public OrderGoodsAttrVO() {
                 }
@@ -797,7 +797,7 @@ public class OrderNotificationMessage {
                 public static class OrderGoodsAttrValueVO {
 
                     /**
-                     * 创建\u5c5e\u6027\u53d6\u503c\u5217\u8868\u3002的空实例。
+                     * 创建属性取值列表。的空实例。
                      */
                     public OrderGoodsAttrValueVO() {
                     }
@@ -896,7 +896,7 @@ public class OrderNotificationMessage {
                     public static class DiscountItemVO {
 
                         /**
-                         * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                         * 创建优惠方式列表。的空实例。
                          */
                         public DiscountItemVO() {
                         }
@@ -926,7 +926,7 @@ public class OrderNotificationMessage {
             public static class DiscountItemVO {
 
                 /**
-                 * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                 * 创建优惠方式列表。的空实例。
                  */
                 public DiscountItemVO() {
                 }
@@ -955,7 +955,7 @@ public class OrderNotificationMessage {
         public static class OrderPayVO {
 
             /**
-             * 创建\u8ba2\u5355\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+             * 创建订单支付信息。的空实例。
              */
             public OrderPayVO() {
             }
@@ -1115,7 +1115,7 @@ public class OrderNotificationMessage {
         public static class OrderDiscountVO {
 
             /**
-             * 创建\u8ba2\u5355\u4f18\u60e0\u4fe1\u606f\u3002的空实例。
+             * 创建订单优惠信息。的空实例。
              */
             public OrderDiscountVO() {
             }
@@ -1221,7 +1221,7 @@ public class OrderNotificationMessage {
         public static class SubOrderVO {
 
             /**
-             * 创建\u5b50\u5355\u4fe1\u606f\uff0c\u8054\u53f0\u573a\u666f\u4f7f\u7528\u3002的空实例。
+             * 创建子单信息，联台场景使用。的空实例。
              */
             public SubOrderVO() {
             }
@@ -1272,7 +1272,7 @@ public class OrderNotificationMessage {
             public static class OrderBaseVO {
 
                 /**
-                 * 创建\u5b50\u5355\u57fa\u672c\u4fe1\u606f\u3002的空实例。
+                 * 创建子单基本信息。的空实例。
                  */
                 public OrderBaseVO() {
                 }
@@ -1590,7 +1590,7 @@ public class OrderNotificationMessage {
             public static class OrderItemVO {
 
                 /**
-                 * 创建\u5b50\u5355\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+                 * 创建子单商品信息。的空实例。
                  */
                 public OrderItemVO() {
                 }
@@ -1923,7 +1923,7 @@ public class OrderNotificationMessage {
                 public static class OrderGoodsAttrVO {
 
                     /**
-                     * 创建\u5546\u54c1\u5c5e\u6027JSON\uff1a[{type:0,name:"\u751c\u5ea6",version:1,values:[{value:"\u534a\u7cd6",price:5,actual:3}]}]\u3002的空实例。
+                     * 创建商品属性JSON：[{type:0,name:"甜度",version:1,values:[{value:"半糖",price:5,actual:3}]}]。的空实例。
                      */
                     public OrderGoodsAttrVO() {
                     }
@@ -1956,7 +1956,7 @@ public class OrderNotificationMessage {
                     public static class OrderGoodsAttrValueVO {
 
                         /**
-                         * 创建\u5c5e\u6027\u53d6\u503c\u5217\u8868\u3002的空实例。
+                         * 创建属性取值列表。的空实例。
                          */
                         public OrderGoodsAttrValueVO() {
                         }
@@ -2055,7 +2055,7 @@ public class OrderNotificationMessage {
                         public static class DiscountItemVO {
 
                             /**
-                             * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                             * 创建优惠方式列表。的空实例。
                              */
                             public DiscountItemVO() {
                             }
@@ -2085,7 +2085,7 @@ public class OrderNotificationMessage {
                 public static class DiscountItemVO {
 
                     /**
-                     * 创建\u4f18\u60e0\u65b9\u5f0f\u5217\u8868\u3002的空实例。
+                     * 创建优惠方式列表。的空实例。
                      */
                     public DiscountItemVO() {
                     }
@@ -2114,7 +2114,7 @@ public class OrderNotificationMessage {
             public static class OrderPayVO {
 
                 /**
-                 * 创建\u5b50\u5355\u652f\u4ed8\u4fe1\u606f\u3002的空实例。
+                 * 创建子单支付信息。的空实例。
                  */
                 public OrderPayVO() {
                 }
@@ -2274,7 +2274,7 @@ public class OrderNotificationMessage {
             public static class OrderDiscountVO {
 
                 /**
-                 * 创建\u5b50\u5355\u6298\u6263\u4fe1\u606f\u3002的空实例。
+                 * 创建子单折扣信息。的空实例。
                  */
                 public OrderDiscountVO() {
                 }
@@ -2380,7 +2380,7 @@ public class OrderNotificationMessage {
             public static class OrderOnAccountVO {
 
                 /**
-                 * 创建\u8ba2\u5355\u6302\u8d26\u4fe1\u606f\u3002的空实例。
+                 * 创建订单挂账信息。的空实例。
                  */
                 public OrderOnAccountVO() {
                 }
@@ -2414,7 +2414,7 @@ public class OrderNotificationMessage {
             public static class OrderServiceFeeVO {
 
                 /**
-                 * 创建\u5b50\u5355\u670d\u52a1\u8d39\u4fe1\u606f\u3002的空实例。
+                 * 创建子单服务费信息。的空实例。
                  */
                 public OrderServiceFeeVO() {
                 }
@@ -2549,7 +2549,7 @@ public class OrderNotificationMessage {
                 public static class OrderServiceFeeRuleVO {
 
                     /**
-                     * 创建\u670d\u52a1\u8d39\u89c4\u5219\u3002的空实例。
+                     * 创建服务费规则。的空实例。
                      */
                     public OrderServiceFeeRuleVO() {
                     }
@@ -2585,7 +2585,7 @@ public class OrderNotificationMessage {
         public static class OrderWmVO {
 
             /**
-             * 创建\u8ba2\u5355\u5916\u5356\u4fe1\u606f\u3002的空实例。
+             * 创建订单外卖信息。的空实例。
              */
             public OrderWmVO() {
             }
@@ -2678,7 +2678,7 @@ public class OrderNotificationMessage {
             public static class FeeVO {
 
                 /**
-                 * 创建\u9910\u76d2\u8d39\u76f8\u5173\u3002的空实例。
+                 * 创建餐盒费相关。的空实例。
                  */
                 public FeeVO() {
                 }
@@ -2730,7 +2730,7 @@ public class OrderNotificationMessage {
             public static class ShippingDetails {
 
                 /**
-                 * 创建\u914d\u9001\u8d39\u76f8\u5173\u3002的空实例。
+                 * 创建配送费相关。的空实例。
                  */
                 public ShippingDetails() {
                 }
@@ -2783,7 +2783,7 @@ public class OrderNotificationMessage {
         public static class OrderOnAccountVO {
 
             /**
-             * 创建\u8ba2\u5355\u6302\u8d26\u4fe1\u606f\u3002的空实例。
+             * 创建订单挂账信息。的空实例。
              */
             public OrderOnAccountVO() {
             }
@@ -2817,7 +2817,7 @@ public class OrderNotificationMessage {
         public static class OrderServiceFeeVO {
 
             /**
-             * 创建\u670d\u52a1\u8d39\u4fe1\u606f\u5217\u8868\u3002的空实例。
+             * 创建服务费信息列表。的空实例。
              */
             public OrderServiceFeeVO() {
             }
@@ -2952,7 +2952,7 @@ public class OrderNotificationMessage {
             public static class OrderServiceFeeRuleVO {
 
                 /**
-                 * 创建\u670d\u52a1\u8d39\u89c4\u5219\u3002的空实例。
+                 * 创建服务费规则。的空实例。
                  */
                 public OrderServiceFeeRuleVO() {
                 }

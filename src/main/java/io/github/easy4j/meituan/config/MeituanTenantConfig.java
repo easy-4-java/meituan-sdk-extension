@@ -10,7 +10,7 @@ import lombok.Data;
 public class MeituanTenantConfig {
 
     /**
-     * 创建\u79df\u6237\u7ea7\u7f8e\u56e2\u6388\u6743\u914d\u7f6e\u3002的空实例。
+     * 创建租户级美团授权配置。的空实例。
      */
     public MeituanTenantConfig() {
     }

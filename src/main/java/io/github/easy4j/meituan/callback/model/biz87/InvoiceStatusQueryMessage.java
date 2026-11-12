@@ -20,7 +20,7 @@ import lombok.Setter;
 public class InvoiceStatusQueryMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5f00\u7968\u72b6\u6001\u7ed3\u679c\u67e5\u8be2\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「开票状态结果查询接口」回调的业务内容。的空实例。
      */
     public InvoiceStatusQueryMessage() {
     }

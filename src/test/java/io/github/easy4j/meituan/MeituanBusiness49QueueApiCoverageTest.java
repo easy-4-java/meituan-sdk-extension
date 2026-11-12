@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanBusiness49QueueApiCoverageTest {
 
     /**
-     * 创建\u5230\u5e97\u9910\u996e\u6392\u961f\u6e05\u5355\uff08businessId=49\uff09API \u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建到店餐饮排队清单（businessId=49）API 覆盖回归测试。的空实例。
      */
     MeituanBusiness49QueueApiCoverageTest() {
     }

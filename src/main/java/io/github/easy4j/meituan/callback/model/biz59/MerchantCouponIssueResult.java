@@ -19,7 +19,7 @@ import lombok.Setter;
 public class MerchantCouponIssueResult {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u5546\u5bb6\u5238\u53d1\u5238\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     * 创建美团「商家券发券」回调的业务响应。的空实例。
      */
     public MerchantCouponIssueResult() {
     }
@@ -59,7 +59,7 @@ public class MerchantCouponIssueResult {
     public static class ReceiptInfoObj {
 
         /**
-         * 创建\u5238\u7801\u4fe1\u606f\u5217\u8868\u3002\u53d1\u5238\u6210\u529f\u65f6\uff0c\u5fc5\u4f20\u3002的空实例。
+         * 创建券码信息列表。发券成功时，必传。的空实例。
          */
         public ReceiptInfoObj() {
         }

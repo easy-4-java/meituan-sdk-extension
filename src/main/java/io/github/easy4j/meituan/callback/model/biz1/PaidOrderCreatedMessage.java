@@ -22,7 +22,7 @@ import lombok.Setter;
 public class PaidOrderCreatedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u65b0\u8ba2\u5355\u63a8\u9001\uff08\u5df2\u652f\u4ed8\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「新订单推送（已支付）」回调的业务内容。的空实例。
      */
     public PaidOrderCreatedMessage() {
     }
@@ -217,7 +217,7 @@ public class PaidOrderCreatedMessage {
     public static class OrderSkuDTO {
 
         /**
-         * 创建\u8ba2\u5355\u5173\u8054\u5355\u54c1\u660e\u7ec6\uff0c\u62c6\u5230\u5355\u4efd\uff08sku\u3001combo\u81f3\u5c11\u6709\u4e00\u4e2a\uff09\u3002的空实例。
+         * 创建订单关联单品明细，拆到单份（sku、combo至少有一个）。的空实例。
          */
         public OrderSkuDTO() {
         }
@@ -340,7 +340,7 @@ public class PaidOrderCreatedMessage {
         public static class SaleAttrDTO {
 
             /**
-             * 创建\u9500\u552e\u5c5e\u6027\u5217\u8868\uff08eg\uff1a\u676f\u578b\u3001\u6e29\u5ea6\u3001\u5496\u5561\u8c46\u7b49\uff09\u3002的空实例。
+             * 创建销售属性列表（eg：杯型、温度、咖啡豆等）。的空实例。
              */
             public SaleAttrDTO() {
             }
@@ -374,7 +374,7 @@ public class PaidOrderCreatedMessage {
         public static class PremiumDTO {
 
             /**
-             * 创建Sku\u4e0b\u7684\u914d\u6599\u4fe1\u606f\u3002的空实例。
+             * 创建Sku下的配料信息。的空实例。
              */
             public PremiumDTO() {
             }
@@ -414,7 +414,7 @@ public class PaidOrderCreatedMessage {
         public static class SkuActivityDTO {
 
             /**
-             * 创建\u83dc\u54c1\u6d3b\u52a8\u5217\u8868\uff0c\u4e00\u4efdsku\u4e0a\u53ea\u80fd\u7528\u4e00\u79cd\u4f18\u60e0\u3002的空实例。
+             * 创建菜品活动列表，一份sku上只能用一种优惠。的空实例。
              */
             public SkuActivityDTO() {
             }
@@ -504,7 +504,7 @@ public class PaidOrderCreatedMessage {
             public static class ActivityExtDetails {
 
                 /**
-                 * 创建\u6d3b\u52a8\u6269\u5c55\u4fe1\u606f\uff1a\u5177\u4f53\u6570\u636e\u7ed3\u6784\u89c1\u4e0b\u8bf4\u660e\u3002的空实例。
+                 * 创建活动扩展信息：具体数据结构见下说明。的空实例。
                  */
                 public ActivityExtDetails() {
                 }
@@ -542,7 +542,7 @@ public class PaidOrderCreatedMessage {
     public static class OrderComboDTO {
 
         /**
-         * 创建\u8ba2\u5355\u5173\u8054\u5957\u9910\u660e\u7ec6\uff0c\u62c6\u5230\u5355\u4efd\uff08sku\u3001combo\u81f3\u5c11\u6709\u4e00\u4e2a\uff09 \u56e2\u8d2d\u5238\u53ef\u4ee5\u62b5\u6263Combo \u4e5f\u53ef\u4ee5 \u62b5\u6263Sku\uff0c的空实例。
+         * 创建订单关联套餐明细，拆到单份（sku、combo至少有一个） 团购券可以抵扣Combo 也可以 抵扣Sku，的空实例。
          */
         public OrderComboDTO() {
         }
@@ -641,7 +641,7 @@ public class PaidOrderCreatedMessage {
         public static class OrderSkuDTO {
 
             /**
-             * 创建combo sku\u5217\u8868\uff1a \u5982\u679cactivityType = 42 sku\u4e0a\u4e0d\u6279\u4ef7\u6d3b\u52a8OrderSkuDTO#skuActivityDTOList \u4fe1\u606f\u65e0\u3002的空实例。
+             * 创建combo sku列表： 如果activityType = 42 sku上不批价活动OrderSkuDTO#skuActivityDTOList 信息无。的空实例。
              */
             public OrderSkuDTO() {
             }
@@ -764,7 +764,7 @@ public class PaidOrderCreatedMessage {
             public static class SaleAttrDTO {
 
                 /**
-                 * 创建\u9500\u552e\u5c5e\u6027\u5217\u8868\uff08eg\uff1a\u676f\u578b\u3001\u6e29\u5ea6\u3001\u5496\u5561\u8c46\u7b49\uff09\u3002的空实例。
+                 * 创建销售属性列表（eg：杯型、温度、咖啡豆等）。的空实例。
                  */
                 public SaleAttrDTO() {
                 }
@@ -798,7 +798,7 @@ public class PaidOrderCreatedMessage {
             public static class PremiumDTO {
 
                 /**
-                 * 创建Sku\u4e0b\u7684\u914d\u6599\u4fe1\u606f\u3002的空实例。
+                 * 创建Sku下的配料信息。的空实例。
                  */
                 public PremiumDTO() {
                 }
@@ -838,7 +838,7 @@ public class PaidOrderCreatedMessage {
             public static class SkuActivityDTO {
 
                 /**
-                 * 创建\u83dc\u54c1\u6d3b\u52a8\u5217\u8868\uff0c\u4e00\u4efdsku\u4e0a\u53ea\u80fd\u7528\u4e00\u79cd\u4f18\u60e0\u3002的空实例。
+                 * 创建菜品活动列表，一份sku上只能用一种优惠。的空实例。
                  */
                 public SkuActivityDTO() {
                 }
@@ -928,7 +928,7 @@ public class PaidOrderCreatedMessage {
                 public static class ActivityExtDetails {
 
                     /**
-                     * 创建\u6d3b\u52a8\u6269\u5c55\u4fe1\u606f\uff1a\u5177\u4f53\u6570\u636e\u7ed3\u6784\u89c1\u4e0b\u8bf4\u660e\u3002的空实例。
+                     * 创建活动扩展信息：具体数据结构见下说明。的空实例。
                      */
                     public ActivityExtDetails() {
                     }
@@ -966,7 +966,7 @@ public class PaidOrderCreatedMessage {
     public static class DealInfoDTO {
 
         /**
-         * 创建\u56e2\u8d2d\u5238\u4fe1\u606f\u5217\u8868\uff0c\u62c6\u5230\u5355\u4efd\uff08\u56e2\u8d2d\u5238\u5151\u6362\u65f6\u5fc5\u6709\uff09\u3002的空实例。
+         * 创建团购券信息列表，拆到单份（团购券兑换时必有）。的空实例。
          */
         public DealInfoDTO() {
         }
@@ -1031,7 +1031,7 @@ public class PaidOrderCreatedMessage {
         public static class DealExtDetails {
 
             /**
-             * 创建\u56e2\u5355\u6269\u5c55\u5b57\u6bb5\uff0c\u793a\u4f8b\u3002 "ALL_DEDUCTION_AMOUNT": "7900", "PAY_DEDUCTION_GOODS_LIST": "[{\"goodsNo\":\"b889ca55f9f239f5b038c5c9be3407cb\",\"weight\":null,\"actualDeductionAmount\":7900}]", "PAY_NO": "3dcf1ed670d93fe7baa9eca15476df84"\u3002的空实例。
+             * 创建团单扩展字段，示例。 "ALL_DEDUCTION_AMOUNT": "7900", "PAY_DEDUCTION_GOODS_LIST": "[{\"goodsNo\":\"b889ca55f9f239f5b038c5c9be3407cb\",\"weight\":null,\"actualDeductionAmount\":7900}]", "PAY_NO": "3dcf1ed670d93fe7baa9eca15476df84"。的空实例。
              */
             public DealExtDetails() {
             }
@@ -1068,7 +1068,7 @@ public class PaidOrderCreatedMessage {
     public static class OrderActivityDTO {
 
         /**
-         * 创建\u8ba2\u5355\u884c\u6d3b\u52a8 \uff08\u6574\u5355\u4f18\u60e0\uff09\uff1a\u6574\u5355\u4f18\u60e0\u662f\u57fa\u4e8e\u8ba2\u5355\u7684\uff0c\u4e0d\u4f1a\u6279\u4ef7\u5230sku#activityList\uff0c\u5e76\u4e14\u5728\u7f8e\u56e2\u5185\u90e8\u9664\u4e86\u79ef\u5206\u62b5\u6263\u914d\u6599\u4e4b\u5916\uff0c\u548c\u5176\u4ed6\u8425\u9500\u90fd\u4e92\u65a5\u7684\uff0c的空实例。
+         * 创建订单行活动 （整单优惠）：整单优惠是基于订单的，不会批价到sku#activityList，并且在美团内部除了积分抵扣配料之外，和其他营销都互斥的，的空实例。
          */
         public OrderActivityDTO() {
         }
@@ -1126,7 +1126,7 @@ public class PaidOrderCreatedMessage {
     public static class SmartOrderDTO {
 
         /**
-         * 创建\u667a\u80fd\u70b9\u9910\u4fe1\u606f\u3002的空实例。
+         * 创建智能点餐信息。的空实例。
          */
         public SmartOrderDTO() {
         }
@@ -1178,7 +1178,7 @@ public class PaidOrderCreatedMessage {
         public static class PayDTO {
 
             /**
-             * 创建payDTOList\u3002的空实例。
+             * 创建payDTOList。的空实例。
              */
             public PayDTO() {
             }
@@ -1262,7 +1262,7 @@ public class PaidOrderCreatedMessage {
             public static class PayExtDetails {
 
                 /**
-                 * 创建\u793a\u4f8b{"couponPlatform":"MT","couponCode":"0","dealTitle":"\u5c3e\u6b3e","dealValue":6600,"couponBuyPrice":6600,"couponDealId":"0","couponCount":1,"encryptedCode":null,"bizCost":0,"platBizCost":0,"dealPrice":6600,"payDetailType":null,\u3002的空实例。
+                 * 创建示例{"couponPlatform":"MT","couponCode":"0","dealTitle":"尾款","dealValue":6600,"couponBuyPrice":6600,"couponDealId":"0","couponCount":1,"encryptedCode":null,"bizCost":0,"platBizCost":0,"dealPrice":6600,"payDetailType":null,。的空实例。
                  */
                 public PayExtDetails() {
                 }

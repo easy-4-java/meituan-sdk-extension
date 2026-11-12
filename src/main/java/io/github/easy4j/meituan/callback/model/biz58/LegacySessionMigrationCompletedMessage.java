@@ -20,7 +20,7 @@ import lombok.Setter;
 public class LegacySessionMigrationCompletedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u539f\u5317\u6781\u661fsession\u8fc1\u79fb\u5b8c\u6bd5\u72b6\u6001\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「接收原北极星session迁移完毕状态」回调的业务内容。的空实例。
      */
     public LegacySessionMigrationCompletedMessage() {
     }

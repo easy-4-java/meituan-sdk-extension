@@ -22,7 +22,7 @@ import tools.jackson.databind.JsonNode;
 public class StockReturnMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u8fd4\u8d27\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「【供应链】返货单消息」回调的业务内容。的空实例。
      */
     public StockReturnMessage() {
     }
@@ -73,7 +73,7 @@ public class StockReturnMessage {
     public static class DistributionRefundOrderDTO {
 
         /**
-         * 创建\u8fd4\u8d27\u5355\u4fe1\u606f\u3002的空实例。
+         * 创建返货单信息。的空实例。
          */
         public DistributionRefundOrderDTO() {
         }
@@ -100,7 +100,7 @@ public class StockReturnMessage {
         public static class RefundOrderItemDTO {
 
             /**
-             * 创建\u5dee\u5f02\u5355\u4e3b\u5355\u3002的空实例。
+             * 创建差异单主单。的空实例。
              */
             public RefundOrderItemDTO() {
             }
@@ -277,7 +277,7 @@ public class StockReturnMessage {
             public static class OrgOpenDTO {
 
                 /**
-                 * 创建\u9000\u8d27\u673a\u6784\u3002的空实例。
+                 * 创建退货机构。的空实例。
                  */
                 public OrgOpenDTO() {
                 }
@@ -317,7 +317,7 @@ public class StockReturnMessage {
             public static class AttachmentOpenDTO {
 
                 /**
-                 * 创建\u9644\u4ef6\u4fe1\u606f\u3002的空实例。
+                 * 创建附件信息。的空实例。
                  */
                 public AttachmentOpenDTO() {
                 }
@@ -369,7 +369,7 @@ public class StockReturnMessage {
             public static class BizModeDetails {
 
                 /**
-                 * 创建\u4e1a\u52a1\u6a21\u5f0f\u3002的空实例。
+                 * 创建业务模式。的空实例。
                  */
                 public BizModeDetails() {
                 }
@@ -397,7 +397,7 @@ public class StockReturnMessage {
             public static class CustomFieldOpenDTO {
 
                 /**
-                 * 创建\u81ea\u5b9a\u4e49\u5b57\u6bb5\u4fe1\u606f\u3002的空实例。
+                 * 创建自定义字段信息。的空实例。
                  */
                 public CustomFieldOpenDTO() {
                 }
@@ -431,7 +431,7 @@ public class StockReturnMessage {
             public static class RefundModeDetails {
 
                 /**
-                 * 创建\u8fd4\u8d27\u6a21\u5f0f\u3002的空实例。
+                 * 创建返货模式。的空实例。
                  */
                 public RefundModeDetails() {
                 }
@@ -460,7 +460,7 @@ public class StockReturnMessage {
         public static class RefundOrderItemDetailDTO {
 
             /**
-             * 创建\u5dee\u5f02\u5355\u660e\u7ec6\u3002的空实例。
+             * 创建差异单明细。的空实例。
              */
             public RefundOrderItemDetailDTO() {
             }
@@ -703,7 +703,7 @@ public class StockReturnMessage {
             public static class GoodsOpenDTO {
 
                 /**
-                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 * 创建物品信息。的空实例。
                  */
                 public GoodsOpenDTO() {
                 }
@@ -772,7 +772,7 @@ public class StockReturnMessage {
                 public static class UnitOpenDTO {
 
                     /**
-                     * 创建\u57fa\u51c6\u5355\u4f4d\u540d\u79f0\u3002的空实例。
+                     * 创建基准单位名称。的空实例。
                      */
                     public UnitOpenDTO() {
                     }
@@ -800,7 +800,7 @@ public class StockReturnMessage {
                 public static class UnitsItem {
 
                     /**
-                     * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+                     * 创建支持的单位名称列表。的空实例。
                      */
                     public UnitsItem() {
                     }
@@ -829,7 +829,7 @@ public class StockReturnMessage {
             public static class WarehouseOpenDTO {
 
                 /**
-                 * 创建\u6536\u8d27\u4ed3\u5e93\u3002的空实例。
+                 * 创建收货仓库。的空实例。
                  */
                 public WarehouseOpenDTO() {
                 }
@@ -863,7 +863,7 @@ public class StockReturnMessage {
             public static class DeliveryWarehouseDetails {
 
                 /**
-                 * 创建\u53d1\u8d27\u4ed3\u5e93\u3002的空实例。
+                 * 创建发货仓库。的空实例。
                  */
                 public DeliveryWarehouseDetails() {
                 }
@@ -897,7 +897,7 @@ public class StockReturnMessage {
             public static class RefundOrderDetailPromotionInfoOpenDTO {
 
                 /**
-                 * 创建\u9000\u8d27-\u4f18\u60e0\u4fe1\u606f\u3002的空实例。
+                 * 创建退货-优惠信息。的空实例。
                  */
                 public RefundOrderDetailPromotionInfoOpenDTO() {
                 }
@@ -997,7 +997,7 @@ public class StockReturnMessage {
             public static class ReceivePromotionInfoDetails {
 
                 /**
-                 * 创建\u56de\u5e93-\u4f18\u60e0\u4fe1\u606f\u3002的空实例。
+                 * 创建回库-优惠信息。的空实例。
                  */
                 public ReceivePromotionInfoDetails() {
                 }
@@ -1097,7 +1097,7 @@ public class StockReturnMessage {
             public static class RejectPromotionInfoDetails {
 
                 /**
-                 * 创建\u9a73\u56de-\u4f18\u60e0\u4fe1\u606f\u3002的空实例。
+                 * 创建驳回-优惠信息。的空实例。
                  */
                 public RejectPromotionInfoDetails() {
                 }
@@ -1197,7 +1197,7 @@ public class StockReturnMessage {
             public static class UnitOpenDTO {
 
                 /**
-                 * 创建\u4e1a\u52a1\u5355\u4f4d\u3002的空实例。
+                 * 创建业务单位。的空实例。
                  */
                 public UnitOpenDTO() {
                 }
@@ -1225,7 +1225,7 @@ public class StockReturnMessage {
             public static class AttachmentOpenDTO {
 
                 /**
-                 * 创建\u9644\u4ef6\u4fe1\u606f\u3002的空实例。
+                 * 创建附件信息。的空实例。
                  */
                 public AttachmentOpenDTO() {
                 }
@@ -1277,7 +1277,7 @@ public class StockReturnMessage {
             public static class SupplierOpenDTO {
 
                 /**
-                 * 创建\u6279\u6b21\u5173\u8054\u7684\u4f9b\u5e94\u5546\u3002的空实例。
+                 * 创建批次关联的供应商。的空实例。
                  */
                 public SupplierOpenDTO() {
                 }
@@ -1311,7 +1311,7 @@ public class StockReturnMessage {
             public static class ProducerOpenDTO {
 
                 /**
-                 * 创建\u6279\u6b21\u5173\u8054\u7684\u751f\u4ea7\u5546\u3002的空实例。
+                 * 创建批次关联的生产商。的空实例。
                  */
                 public ProducerOpenDTO() {
                 }

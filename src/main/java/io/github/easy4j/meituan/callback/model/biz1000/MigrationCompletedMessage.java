@@ -20,7 +20,7 @@ import lombok.Setter;
 public class MigrationCompletedMessage extends ArrayList<MigrationCompletedMessage.Entry> {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u8fc1\u79fb\u4efb\u52a1\u5904\u7406\u5b8c\u6210\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「迁移任务处理完成通知」回调的业务内容。的空实例。
      */
     public MigrationCompletedMessage() {
     }
@@ -40,7 +40,7 @@ public class MigrationCompletedMessage extends ArrayList<MigrationCompletedMessa
     public static class Entry {
 
         /**
-         * 创建\u8fc1\u79fb\u5904\u7406\u6761\u76ee\u3002的空实例。
+         * 创建迁移处理条目。的空实例。
          */
         public Entry() {
         }

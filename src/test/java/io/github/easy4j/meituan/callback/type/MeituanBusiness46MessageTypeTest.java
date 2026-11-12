@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.tuple;
 class MeituanBusiness46MessageTypeTest {
 
     /**
-     * 创建\u56e2\u8d2d\u914d\u9001\uff08businessId=46\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     * 创建团购配送（businessId=46）消息类型目录测试。的空实例。
      */
     MeituanBusiness46MessageTypeTest() {
     }

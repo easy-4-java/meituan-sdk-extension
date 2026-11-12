@@ -21,7 +21,7 @@ import java.util.Objects;
 public class MeituanOfficialSdkOrderQueryorderDebugTest {
 
     /**
-     * 创建\u5b98\u65b9 MtOpJavaSDK \u539f\u59cb\u8c03\u7528\u8c03\u8bd5\u3002的空实例。
+     * 创建官方 MtOpJavaSDK 原始调用调试。的空实例。
      */
     public MeituanOfficialSdkOrderQueryorderDebugTest() {
     }

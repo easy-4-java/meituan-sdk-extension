@@ -22,7 +22,7 @@ import static org.mockito.Mockito.verify;
 class MeituanFreetryServiceTest {
 
     /**
-     * 创建\u5927\u4f17\u70b9\u8bc4\u514d\u8d39\u8bd5 API \u79df\u6237\u6388\u6743\u8c03\u7528\u8def\u5f84\u6d4b\u8bd5\u3002的空实例。
+     * 创建大众点评免费试 API 租户授权调用路径测试。的空实例。
      */
     MeituanFreetryServiceTest() {
     }

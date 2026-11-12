@@ -20,7 +20,7 @@ import lombok.Setter;
 public class OrderInformationChangedMessage {
 
     /**
-     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u7528\u6237\u4fee\u6539\u8ba2\u5355\u4fe1\u606f\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     * 创建美团「接收用户修改订单信息消息」回调的业务内容。的空实例。
      */
     public OrderInformationChangedMessage() {
     }

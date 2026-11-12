@@ -30,7 +30,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanCateringCustomerSolutionApiCoverageTest {
 
     /**
-     * 创建\u9910\u996e\u5ba2\u6237\u89e3\u51b3\u65b9\u6848\u6e05\u5355\u7684\u516c\u5f00\u534f\u8bae\u8986\u76d6\u56de\u5f52\u6d4b\u8bd5\u3002的空实例。
+     * 创建餐饮客户解决方案清单的公开协议覆盖回归测试。的空实例。
      */
     MeituanCateringCustomerSolutionApiCoverageTest() {
     }
@@ -152,15 +152,7 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
      * @param needAuth 官方接口是否要求授权 token
      * @return 构造用于检查官方元数据与门面签名的接口契约的结果
      */
-    private static ApiContract api(
-            String name,
-            Class<? extends MeituanRequest<?>> requestType,
-            Class<?> facadeType,
-            String path,
-            int businessId,
-            String apiVersion,
-            String apiName,
-            boolean needAuth) {
+    private static ApiContract api(String name, Class<? extends MeituanRequest<?>> requestType, Class<?> facadeType, String path, int businessId, String apiVersion, String apiName, boolean needAuth) {
         return new ApiContract(
                 name, requestType, facadeType, path, businessId, apiVersion, apiName, needAuth
         );
@@ -215,9 +207,7 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
          * @param apiName 官方接口标识
          * @param needAuth 官方接口是否要求授权 token
          */
-        private ApiContract(String name, Class<? extends MeituanRequest<?>> requestType,
-                            Class<?> facadeType, String path, int businessId, String apiVersion,
-                            String apiName, boolean needAuth) {
+        private ApiContract(String name, Class<? extends MeituanRequest<?>> requestType, Class<?> facadeType, String path, int businessId, String apiVersion, String apiName, boolean needAuth) {
             this.name = name;
             this.requestType = requestType;
             this.facadeType = facadeType;
