@@ -22,6 +22,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class BillDetailNoticeMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u5feb\u9a74\u63a8\u9001\u8d26\u5355\u660e\u7ec6\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public BillDetailNoticeMessage() {
+    }
+
+
+    /**
      * 订单编号。必填。
      */
     @JsonProperty("orderId")
@@ -70,6 +77,13 @@ public class BillDetailNoticeMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class OrderProduct {
+
+        /**
+         * 创建\u8ba2\u5355\u5546\u54c1\u4fe1\u606f\u3002的空实例。
+         */
+        public OrderProduct() {
+        }
+
 
         /**
          * sku 编号。必填。

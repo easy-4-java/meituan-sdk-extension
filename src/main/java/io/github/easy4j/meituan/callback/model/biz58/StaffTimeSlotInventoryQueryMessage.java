@@ -24,6 +24,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class StaffTimeSlotInventoryQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u6279\u91cf\u67e5\u8be2\u5546\u5bb6\u56fa\u5b9a\u65f6\u95f4\u70b9\u670d\u52a1\u4eba\u5458\u5e93\u5b58\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StaffTimeSlotInventoryQueryMessage() {
+    }
+
+
+    /**
      * 上门服务地址。必填。
      */
     @JsonDeserialize(using = EmbeddedJsonDeserializer.class)
@@ -64,6 +71,13 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class ServiceAddressDetails {
 
         /**
+         * 创建\u4e0a\u95e8\u670d\u52a1\u5730\u5740\u3002的空实例。
+         */
+        public ServiceAddressDetails() {
+        }
+
+
+        /**
          * 上门地址。必填。
          */
         @JsonProperty("address")
@@ -97,6 +111,13 @@ public class StaffTimeSlotInventoryQueryMessage {
     public static class BookTimeListItem {
 
         /**
+         * 创建\u9884\u7ea6\u65f6\u95f4\u5217\u8868 \u6ce8\uff1a\u7c7b\u578b\u4e3a\u5bf9\u8c61\u7c7b\u578b\uff0c\u8be6\u89c1\u6269\u5c55\u53c2\u6570book_time_list\u3002的空实例。
+         */
+        public BookTimeListItem() {
+        }
+
+
+        /**
          * 开始时间点，格式如 2016-05-24 12:00 ，数据精确到分钟，只支持整点和半点。必填。
          */
         @JsonProperty("begin")
@@ -118,6 +139,13 @@ public class StaffTimeSlotInventoryQueryMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Product {
+
+        /**
+         * 创建\u4e09\u65b9\u9879\u76ee\u4fe1\u606f\u3002的空实例。
+         */
+        public Product() {
+        }
+
 
         /**
          * 三方的项目 ID。必填。

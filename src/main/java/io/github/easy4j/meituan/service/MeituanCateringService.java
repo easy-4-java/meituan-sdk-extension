@@ -1136,26 +1136,68 @@ public interface MeituanCateringService extends MeituanService {
      */
     MeituanResponse<?> shopStateQuery(ShopStateQueryRequest request, String tenantId);
 
-    /** 查询技师信息。 */
+    /**
+     * \u67e5\u8be2\u6280\u5e08\u4fe1\u606f\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> staffTechinfoQuery(StaffTechinfoQueryRequest request, String tenantId);
 
-    /** 查询订单最大可退金额。 */
+    /**
+     * \u67e5\u8be2\u8ba2\u5355\u6700\u5927\u53ef\u9000\u91d1\u989d\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> orderMaxRefundAmountQuery(OrderMaxRefundAmountQueryRequest request, String tenantId);
 
-    /** 同步网咖预订结果。 */
+    /**
+     * \u540c\u6b65\u7f51\u5496\u9884\u8ba2\u7ed3\u679c\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> cybercafeBookResultSync(CybercafeBookResultSyncRequest request, String tenantId);
 
-    /** 同步网咖预订规则。 */
+    /**
+     * \u540c\u6b65\u7f51\u5496\u9884\u8ba2\u89c4\u5219\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> cybercafeBookRuleSync(CybercafeBookRuleSyncRequest request, String tenantId);
 
-    /** 网咖预订核销。 */
+    /**
+     * \u7f51\u5496\u9884\u8ba2\u6838\u9500\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> cybercafeBookConsume(CybercafeBookConsumeRequest request, String tenantId);
 
-    /** 同步网咖预订取消结果。 */
+    /**
+     * \u540c\u6b65\u7f51\u5496\u9884\u8ba2\u53d6\u6d88\u7ed3\u679c\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> cybercafeBookCancelResultSync(
             CybercafeBookCancelResultSyncRequest request, String tenantId);
 
-    /** 同步第三方资源区域信息。 */
+    /**
+     * \u540c\u6b65\u7b2c\u4e09\u65b9\u8d44\u6e90\u533a\u57df\u4fe1\u606f\u3002
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据与授权信息的租户标识
+     * @return 官方 SDK 响应对象
+     */
     MeituanResponse<?> zoneInfoSync(ZoneInfoSyncRequest request, String tenantId);
 
     /**

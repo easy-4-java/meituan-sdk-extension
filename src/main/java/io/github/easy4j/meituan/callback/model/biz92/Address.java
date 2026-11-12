@@ -14,6 +14,13 @@ import lombok.Setter;
 public class Address {
 
     /**
+     * 创建Address\uff0c\u7528\u4e8e\u62a5\u4ef7\u5217\u8868\u67e5\u8be2\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public Address() {
+    }
+
+
+    /**
      * 纬度（GCJ-02 坐标系）。必填。
      */
     @JsonProperty("latitude")

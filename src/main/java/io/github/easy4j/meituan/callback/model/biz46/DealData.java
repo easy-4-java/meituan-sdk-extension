@@ -17,6 +17,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class DealData {
 
     /**
+     * 创建DealData\uff0c\u7528\u4e8e\u5957\u9910\u914d\u9001\u63a5\u5355\u6d88\u606f\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public DealData() {
+    }
+
+
+    /**
      * 套餐 ID。
      */
     @JsonProperty("dealId")
@@ -66,6 +73,13 @@ public class DealData {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class GroupDeal {
+
+        /**
+         * 创建\u83dc\u5355\u4fe1\u606fjson\u3002的空实例。
+         */
+        public GroupDeal() {
+        }
+
 
         /**
          * 当前菜品组，若商家上单配置了菜品组，则存在该字段。

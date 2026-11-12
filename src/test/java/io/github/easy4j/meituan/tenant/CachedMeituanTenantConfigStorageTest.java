@@ -25,8 +25,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class CachedMeituanTenantConfigStorageTest {
 
+    /**
+     * 创建CachedMeituanTenantConfigStorage \u7684\u7f13\u5b58\u3001TTL\u3001\u4e3b\u52a8\u5237\u65b0\u4e0e\u5e76\u53d1\u9632\u51fb\u7a7f\u6d4b\u8bd5\u3002的空实例。
+     */
+    CachedMeituanTenantConfigStorageTest() {
+    }
+
+
+    /**
+     * 测试使用的租户标识。
+     */
     private static final String TENANT = "tenant-a";
 
+    /**
+     * 创建带指定授权 token 的测试租户配置。
+     *
+     * @param token 测试配置中的授权 token
+     * @return 创建带指定授权 token 的测试租户配置的结果
+     */
     private MeituanTenantConfig newConfig(String token) {
         MeituanTenantConfig config = new MeituanTenantConfig();
         config.setTenantId(TENANT);
@@ -34,8 +50,16 @@ class CachedMeituanTenantConfigStorageTest {
         return config;
     }
 
+    /**
+     * 底层租户配置被实际加载的次数。
+     */
     private final AtomicInteger loadCount = new AtomicInteger();
 
+    /**
+     * 创建记录实际加载次数的租户配置加载器。
+     *
+     * @return 创建记录实际加载次数的租户配置加载器的结果
+     */
     private MeituanTenantConfigLoader countingLoader() {
         return tenantId -> {
             loadCount.incrementAndGet();
@@ -43,11 +67,18 @@ class CachedMeituanTenantConfigStorageTest {
         };
     }
 
+    /**
+     * 初始化租户缓存及加载次数，隔离各测试场景。
+     */
     @BeforeEach
     void setUp() {
         loadCount.set(0);
     }
 
+    /**
+     * 验证有效缓存中的配置被复用且不会重复加载。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldCacheAfterFirstLoadAndNotReloadWhileFresh() throws Exception {
         CachedMeituanTenantConfigStorage storage =
@@ -60,27 +91,43 @@ class CachedMeituanTenantConfigStorageTest {
         assertEquals(1, storage.size());
     }
 
+    /**
+     * 验证缓存超过存活时间后重新加载配置。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldReloadAfterTtlExpires() throws Exception {
         // 用可控时钟模拟过期
         final long[] now = {1000L};
         Clock clock = Clock.fixed(java.time.Instant.EPOCH, java.time.ZoneId.systemDefault());
         Clock mutableClock = new Clock() {
+            /**
+             * {@inheritDoc}
+             */
             @Override
             public java.time.ZoneId getZone() {
                 return clock.getZone();
             }
 
+            /**
+             * {@inheritDoc}
+             */
             @Override
             public Clock withZone(java.time.ZoneId zone) {
                 return this;
             }
 
+            /**
+             * {@inheritDoc}
+             */
             @Override
             public long millis() {
                 return now[0];
             }
 
+            /**
+             * {@inheritDoc}
+             */
             @Override
             public java.time.Instant instant() {
                 return java.time.Instant.ofEpochMilli(now[0]);
@@ -96,6 +143,10 @@ class CachedMeituanTenantConfigStorageTest {
         assertEquals("token-2", after.get().getAppAuthToken());
     }
 
+    /**
+     * 验证零存活时间表示缓存长期有效。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void zeroTtlMeansNeverExpire() throws Exception {
         CachedMeituanTenantConfigStorage storage =
@@ -105,6 +156,10 @@ class CachedMeituanTenantConfigStorageTest {
         assertEquals(1, loadCount.get());
     }
 
+    /**
+     * 验证主动写入覆盖旧配置，刷新操作重新调用加载器。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void putShouldOverwriteCacheAndRefreshShouldReload() throws Exception {
         AtomicInteger count = new AtomicInteger();
@@ -122,6 +177,10 @@ class CachedMeituanTenantConfigStorageTest {
         assertEquals("loaded-1", storage.findByTenantId(TENANT).get().getAppAuthToken());
     }
 
+    /**
+     * 验证单租户驱逐和全部清理均使缓存失效。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void evictAndClearShouldInvalidateCache() throws Exception {
         CachedMeituanTenantConfigStorage storage =
@@ -135,6 +194,10 @@ class CachedMeituanTenantConfigStorageTest {
         assertEquals(0, storage.size());
     }
 
+    /**
+     * 验证空白租户标识不会触发配置加载。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldReturnEmptyForBlankTenantId() throws Exception {
         CachedMeituanTenantConfigStorage storage =
@@ -144,6 +207,10 @@ class CachedMeituanTenantConfigStorageTest {
         assertEquals(0, loadCount.get());
     }
 
+    /**
+     * 验证同一租户并发缓存未命中时仅加载一次。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void concurrentMissShouldLoadOncePerTenant() throws Exception {
         // 慢加载器：放大并发窗口，验证租户级互斥锁防击穿
@@ -183,6 +250,10 @@ class CachedMeituanTenantConfigStorageTest {
         assertEquals("token-once", first.getAppAuthToken());
     }
 
+    /**
+     * 验证不存在的租户返回空结果且不写入缓存。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void missingTenantShouldReturnEmptyAndNotCache() throws Exception {
         MeituanTenantConfigLoader loader = tenantId -> Optional.empty();

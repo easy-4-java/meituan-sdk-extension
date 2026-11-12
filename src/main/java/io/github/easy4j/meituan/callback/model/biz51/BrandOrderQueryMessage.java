@@ -20,6 +20,13 @@ import lombok.Setter;
 public class BrandOrderQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u54c1\u724c\u63d0\u4f9b\u8ba2\u5355\u67e5\u8be2\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public BrandOrderQueryMessage() {
+    }
+
+
+    /**
      * 美团平台订单 ID。必填。
      */
     @JsonProperty("orderId")

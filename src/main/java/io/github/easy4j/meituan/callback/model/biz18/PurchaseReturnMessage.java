@@ -22,6 +22,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class PurchaseReturnMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u91c7\u8d2d\u9000\u8d27\u5355\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PurchaseReturnMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -66,6 +73,13 @@ public class PurchaseReturnMessage {
     public static class PurchaseReturnOrderDTO {
 
         /**
+         * 创建\u91c7\u8d2d\u9000\u8d27\u5355\u4fe1\u606f\u3002的空实例。
+         */
+        public PurchaseReturnOrderDTO() {
+        }
+
+
+        /**
          * 退货单主单。
          */
         @JsonProperty("item")
@@ -84,6 +98,13 @@ public class PurchaseReturnMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ReturnOrderItemDTO {
+
+            /**
+             * 创建\u9000\u8d27\u5355\u4e3b\u5355\u3002的空实例。
+             */
+            public ReturnOrderItemDTO() {
+            }
+
 
             /**
              * 总部机构。
@@ -214,6 +235,13 @@ public class PurchaseReturnMessage {
             public static class OrgOpenDTO {
 
                 /**
+                 * 创建\u9000\u8d27\u673a\u6784\u4fe1\u606f\u3002的空实例。
+                 */
+                public OrgOpenDTO() {
+                }
+
+
+                /**
                  * 机构 ID。
                  */
                 @JsonProperty("orgId")
@@ -246,6 +274,13 @@ public class PurchaseReturnMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ReturnOrderItemDetailDTO {
+
+            /**
+             * 创建\u9000\u8d27\u5355\u660e\u7ec6\u3002的空实例。
+             */
+            public ReturnOrderItemDetailDTO() {
+            }
+
 
             /**
              * 明细 ID。
@@ -376,6 +411,13 @@ public class PurchaseReturnMessage {
             public static class GoodsOpenDTO {
 
                 /**
+                 * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+                 */
+                public GoodsOpenDTO() {
+                }
+
+
+                /**
                  * 物品 ID。
                  */
                 @JsonProperty("id")
@@ -444,6 +486,13 @@ public class PurchaseReturnMessage {
                 public static class UnitOpenDTO {
 
                     /**
+                     * 创建\u57fa\u51c6\u5355\u4f4d\u540d\u79f0\u3002的空实例。
+                     */
+                    public UnitOpenDTO() {
+                    }
+
+
+                    /**
                      * 单位 ID。
                      */
                     @JsonProperty("id")
@@ -469,6 +518,13 @@ public class PurchaseReturnMessage {
                 @Setter
                 @JsonIgnoreProperties(ignoreUnknown = true)
                 public static class UnitsItem {
+
+                    /**
+                     * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+                     */
+                    public UnitsItem() {
+                    }
+
 
                     /**
                      * 单位 ID。
@@ -499,6 +555,13 @@ public class PurchaseReturnMessage {
             public static class WarehouseOpenDTO {
 
                 /**
+                 * 创建\u9000\u8d27\u4ed3\u5e93\u4fe1\u606f\u3002的空实例。
+                 */
+                public WarehouseOpenDTO() {
+                }
+
+
+                /**
                  * 仓库 ID。
                  */
                 @JsonProperty("id")
@@ -524,6 +587,13 @@ public class PurchaseReturnMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class UnitOpenDTO {
+
+                /**
+                 * 创建\u4e1a\u52a1\u5355\u4f4d\u3002的空实例。
+                 */
+                public UnitOpenDTO() {
+                }
+
 
                 /**
                  * 单位 ID。
@@ -553,6 +623,13 @@ public class PurchaseReturnMessage {
             public static class BaseUnitDetails {
 
                 /**
+                 * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+                 */
+                public BaseUnitDetails() {
+                }
+
+
+                /**
                  * 单位 ID。
                  */
                 @JsonProperty("id")
@@ -580,6 +657,13 @@ public class PurchaseReturnMessage {
             public static class MultiUnitAmountOpenDTO {
 
                 /**
+                 * 创建\u6536\u8d27\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 */
+                public MultiUnitAmountOpenDTO() {
+                }
+
+
+                /**
                  * 基准数量。
                  */
                 @JsonProperty("baseUnitAmount")
@@ -599,6 +683,13 @@ public class PurchaseReturnMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class ReturnAmountDetails {
+
+                /**
+                 * 创建\u9000\u8d27\u6570\u91cf\u548c\u57fa\u51c6\u5355\u4f4d\u6570\u91cf\u3002的空实例。
+                 */
+                public ReturnAmountDetails() {
+                }
+
 
                 /**
                  * 基准数量。

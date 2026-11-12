@@ -23,6 +23,13 @@ import lombok.Setter;
 public class QuoteListQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u62a5\u4ef7\u5217\u8868\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public QuoteListQueryMessage() {
+    }
+
+
+    /**
      * 供应商门店编码。
      */
     @JsonProperty("thirdStoreCode")
@@ -65,6 +72,13 @@ public class QuoteListQueryMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DropOffAddressDetails {
+
+        /**
+         * 创建\u8fd8\u8f66\u5730\u5740\u3002的空实例。
+         */
+        public DropOffAddressDetails() {
+        }
+
 
         /**
          * 纬度（GCJ-02 坐标系）。必填。

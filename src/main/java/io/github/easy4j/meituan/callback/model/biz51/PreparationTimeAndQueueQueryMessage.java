@@ -24,6 +24,13 @@ import lombok.Setter;
 public class PreparationTimeAndQueueQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u95e8\u5e97\u9884\u8ba1\u5907\u9910\u65f6\u95f4\u548c\u6392\u961f\u4fe1\u606f\uff08\u5fc5\u63a5\uff09\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PreparationTimeAndQueueQueryMessage() {
+    }
+
+
+    /**
      * app_id。必填。
      */
     @JsonProperty("app_id")
@@ -56,6 +63,13 @@ public class PreparationTimeAndQueueQueryMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PredicatedQueryParam {
+
+        /**
+         * 创建\u95e8\u5e97\u5217\u8868\u3002的空实例。
+         */
+        public PredicatedQueryParam() {
+        }
+
 
         /**
          * 厂商门店列表。必填。

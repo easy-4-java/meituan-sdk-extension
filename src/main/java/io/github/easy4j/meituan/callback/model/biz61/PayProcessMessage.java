@@ -20,6 +20,13 @@ import lombok.Setter;
 public class PayProcessMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300cPAY_PROCESS\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public PayProcessMessage() {
+    }
+
+
+    /**
      * 唯一Key。
      */
     @JsonProperty("uniqueId")
@@ -76,6 +83,13 @@ public class PayProcessMessage {
     public static class ReceiptDetailDto {
 
         /**
+         * 创建\u5377\u8be6\u60c5\u3002的空实例。
+         */
+        public ReceiptDetailDto() {
+        }
+
+
+        /**
          * 券码类型 1：1码1验 2：1码多验 3：无需券码。
          */
         @JsonProperty("receiptType")
@@ -94,6 +108,13 @@ public class PayProcessMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class ReceiptDto {
+
+            /**
+             * 创建\u5238\u7801\u4fe1\u606f\u3002的空实例。
+             */
+            public ReceiptDto() {
+            }
+
 
             /**
              * 券 ID。

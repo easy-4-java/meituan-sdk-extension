@@ -49,12 +49,18 @@ public class FreetryQueryPoiCouponRequest implements MeituanRequest<FreetryQuery
     @SerializedName("pageSize")
     private Integer pageSize;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryQueryPoiCouponResponse> deserializeResponse(String response) {
         Type type = new TypeToken<MeituanResponse<FreetryQueryPoiCouponResponse>>() { }.getType();
         return JsonUtil.fromJson(response, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeToJson() {
         return JsonUtil.toJson(this);

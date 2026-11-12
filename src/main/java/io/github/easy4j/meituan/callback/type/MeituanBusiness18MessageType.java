@@ -350,8 +350,17 @@ public enum MeituanBusiness18MessageType implements MeituanMessageType {
      */
     STOCKTAKE_ORDER("【供应链】盘点单消息", "1810341", "https://developer.meituan.com/docs/msg/msg_rms_80884496-1de4-4abe-b2f3-37a6f615fc49", StocktakeOrderMessage.class);
 
+    /**
+     * 当前消息目录所属的官方业务编号。
+     */
     private static final String BUSINESS_ID = "18";
+    /**
+     * 官网消息文档地址的基础路径。
+     */
     private static final String DOCUMENT_BASE_URL = "https://developer.meituan.com/docs/msg/";
+    /**
+     * 按消息编号建立的只读枚举索引。
+     */
     private static final Map<String, MeituanBusiness18MessageType> BY_MSG_TYPE = Collections.unmodifiableMap(
             Arrays.stream(values())
                     .collect(Collectors.toMap(MeituanBusiness18MessageType::getMsgType, Function.identity()))
@@ -377,6 +386,14 @@ public enum MeituanBusiness18MessageType implements MeituanMessageType {
      */
     private final Class<?> messageClass;
 
+    /**
+     * 登记消息的名称、编号、官网文档和模型类型。
+     *
+     * @param displayName 官网消息名称
+     * @param msgType 平台消息类型编号
+     * @param documentKey 官网文档标识或完整文档地址
+     * @param messageClass 业务消息的反序列化目标类型
+     */
     MeituanBusiness18MessageType(String displayName, String msgType, String documentKey, Class<?> messageClass) {
         this.displayName = displayName;
         this.msgType = msgType;

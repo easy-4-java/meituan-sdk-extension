@@ -13,16 +13,31 @@ import java.util.Set;
  */
 public final class TestCollections {
 
+    /**
+     * 创建当前类的实例。
+     */
     private TestCollections() {
     }
 
-    /** 创建保持参数顺序的可变列表。 */
+    /**
+     * \u521b\u5efa\u4fdd\u6301\u53c2\u6570\u987a\u5e8f\u7684\u53ef\u53d8\u5217\u8868\u3002
+     *
+     * @param <T> 本次调用使用的业务数据类型
+     * @param values values
+     * @return 与请求参数对应的处理结果
+     */
     @SafeVarargs
     public static <T> List<T> listOf(T... values) {
         return new ArrayList<T>(Arrays.asList(values));
     }
 
-    /** 创建保持参数顺序的可变集合。 */
+    /**
+     * \u521b\u5efa\u4fdd\u6301\u53c2\u6570\u987a\u5e8f\u7684\u53ef\u53d8\u96c6\u5408\u3002
+     *
+     * @param <T> 本次调用使用的业务数据类型
+     * @param values values
+     * @return 与请求参数对应的处理结果
+     */
     @SafeVarargs
     public static <T> Set<T> setOf(T... values) {
         return new LinkedHashSet<T>(Arrays.asList(values));
@@ -30,6 +45,10 @@ public final class TestCollections {
 
     /**
      * 按 key、value 交替参数创建保持顺序的可变映射。
+     * @param <K> 本次调用使用的业务数据类型
+     * @param <V> 本次调用使用的业务数据类型
+     * @param keyValues keyValues
+     * @return 与请求参数对应的处理结果
      */
     @SuppressWarnings("unchecked")
     public static <K, V> Map<K, V> mapOf(Object... keyValues) {

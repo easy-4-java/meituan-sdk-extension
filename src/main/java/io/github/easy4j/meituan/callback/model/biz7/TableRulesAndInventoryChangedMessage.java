@@ -20,6 +20,13 @@ import lombok.Setter;
 public class TableRulesAndInventoryChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a8\u9001\u684c\u578b\u684c\u4f4d&amp;\u89c4\u5219&amp;\u5e93\u5b58\u53d8\u66f4\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public TableRulesAndInventoryChangedMessage() {
+    }
+
+
+    /**
      * true-需要拉数据。必填。
      */
     @JsonProperty("needPull")

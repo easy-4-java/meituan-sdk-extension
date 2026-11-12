@@ -19,6 +19,13 @@ import lombok.Setter;
 public class GroupDealProjectMappingQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u56e2\u8d2d\u4e09\u65b9\u9879\u76eeId\u5173\u8054\u5173\u7cfb\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public GroupDealProjectMappingQueryResult() {
+    }
+
+
+    /**
      * 项目列表，不存在映射关系时返回空列表。
      */
     @JsonProperty("projectInfos")
@@ -32,6 +39,13 @@ public class GroupDealProjectMappingQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ProjectInfo {
+
+        /**
+         * 创建\u9879\u76ee\u5217\u8868\uff0c\u4e0d\u5b58\u5728\u6620\u5c04\u5173\u7cfb\u65f6\u8fd4\u56de\u7a7a\u5217\u8868\u3002的空实例。
+         */
+        public ProjectInfo() {
+        }
+
 
         /**
          * 美团团购项目Id，与请求参数中的团购Id对应。必填。

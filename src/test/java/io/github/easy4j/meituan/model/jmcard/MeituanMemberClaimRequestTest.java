@@ -16,6 +16,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanMemberClaimRequestTest {
 
+    /**
+     * 创建\u9886\u53d6\u7f8e\u56e2\u4f1a\u5458\u6743\u76ca\u8bf7\u6c42\u4e0e\u54cd\u5e94\u534f\u8bae\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanMemberClaimRequestTest() {
+    }
+
+
+    /**
+     * 验证会员权益对象的必填字段参与级联校验。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldValidateRequiredFieldsInsideUserRightInfo() throws Exception {
         MeituanMemberClaimRequest request = new MeituanMemberClaimRequest();
@@ -28,6 +39,10 @@ class MeituanMemberClaimRequestTest {
         }
     }
 
+    /**
+     * 验证两个会员等级对象均执行级联校验。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldCascadeValidationIntoBothMemberLevels() throws Exception {
         MeituanMemberClaimUserRight userRight = new MeituanMemberClaimUserRight();
@@ -44,6 +59,11 @@ class MeituanMemberClaimRequestTest {
         }
     }
 
+    /**
+     * 创建测试字段必填和级联约束所需的校验器工厂。
+     *
+     * @return 创建测试字段必填和级联约束所需的校验器工厂的结果
+     */
     private ValidatorFactory validatorFactory() {
         return Validation.byDefaultProvider()
                 .configure()
@@ -51,6 +71,10 @@ class MeituanMemberClaimRequestTest {
                 .buildValidatorFactory();
     }
 
+    /**
+     * 验证会员领取请求的字段名称和业务响应的反序列化。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldSerializeOfficialClaimFieldsAndDeserializeResponse() throws Exception {
         MeituanMemberLevel originLevel = new MeituanMemberLevel();

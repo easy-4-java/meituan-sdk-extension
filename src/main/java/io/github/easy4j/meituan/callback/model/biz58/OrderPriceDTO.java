@@ -14,6 +14,13 @@ import lombok.Setter;
 public class OrderPriceDTO {
 
     /**
+     * 创建OrderPriceDTO\uff0c\u7528\u4e8e\u8ba2\u5355\u4fe1\u606f\u63a8\u9001\u7b49\u56de\u8c03\u7684\u4e1a\u52a1\u5b57\u6bb5\u3002的空实例。
+     */
+    public OrderPriceDTO() {
+    }
+
+
+    /**
      * 订单金额。必填。
      */
     @JsonProperty("orderTotalPrice")

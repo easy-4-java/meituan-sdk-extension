@@ -21,6 +21,13 @@ import lombok.Setter;
 public class MemberSearchResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u4f1a\u5458\u641c\u7d22\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public MemberSearchResult() {
+    }
+
+
+    /**
      * 会员搜索结果。
      */
     @JsonProperty("cards")
@@ -34,6 +41,13 @@ public class MemberSearchResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Card {
+
+        /**
+         * 创建\u4f1a\u5458\u641c\u7d22\u7ed3\u679c\u3002的空实例。
+         */
+        public Card() {
+        }
+
 
         /**
          * 会员头像。

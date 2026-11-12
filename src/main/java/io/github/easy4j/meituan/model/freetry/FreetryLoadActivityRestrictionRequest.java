@@ -34,12 +34,18 @@ public class FreetryLoadActivityRestrictionRequest
     @SerializedName("activityId")
     private Long activityId;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryLoadActivityRestrictionResponse> deserializeResponse(String response) {
         Type type = new TypeToken<MeituanResponse<FreetryLoadActivityRestrictionResponse>>() { }.getType();
         return JsonUtil.fromJson(response, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeToJson() {
         return JsonUtil.toJson(this);

@@ -54,6 +54,7 @@ public class MeituanClientFactory {
      * 根据租户必填参数创建官方 client builder。
      *
      * @return 已设置基础平台参数的 builder
+     * @param tenantConfig 本次调用使用的租户开发者凭据和授权配置
      */
     private DefaultMeituanClient.Builder getBuilder(MeituanTenantConfig tenantConfig) {
         DefaultMeituanClient.Builder builder = DefaultMeituanClient.builder(
@@ -74,6 +75,7 @@ public class MeituanClientFactory {
 
     /**
      * 校验创建官方 client 所需的租户级密钥。
+     * @param tenantConfig 本次调用使用的租户开发者凭据和授权配置
      */
     private void validate(MeituanTenantConfig tenantConfig) {
         if (Objects.isNull(tenantConfig)) {

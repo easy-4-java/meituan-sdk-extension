@@ -35,12 +35,18 @@ public class FreetryPrepareVerifyRequest implements MeituanRequest<FreetryPrepar
     @SerializedName("couponCode")
     private String couponCode;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryPrepareVerifyResponse> deserializeResponse(String response) {
         Type type = new TypeToken<MeituanResponse<FreetryPrepareVerifyResponse>>() { }.getType();
         return JsonUtil.fromJson(response, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeToJson() {
         return JsonUtil.toJson(this);

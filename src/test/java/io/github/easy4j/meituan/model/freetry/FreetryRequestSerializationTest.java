@@ -10,6 +10,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class FreetryRequestSerializationTest {
 
+    /**
+     * 创建\u5927\u4f17\u70b9\u8bc4\u514d\u8d39\u8bd5\u8bf7\u6c42\u5e8f\u5217\u5316\u4e0e\u54cd\u5e94\u53cd\u5e8f\u5217\u5316\u6d4b\u8bd5\u3002的空实例。
+     */
+    FreetryRequestSerializationTest() {
+    }
+
+
+    /**
+     * 验证免费试请求按官网字段名称序列化。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldSerializeDocumentedRequestFields() throws Exception {
         FreetryLoadActivityRestrictionRequest restrictionRequest = new FreetryLoadActivityRestrictionRequest();
@@ -35,6 +46,10 @@ class FreetryRequestSerializationTest {
         );
     }
 
+    /**
+     * 验证直接业务响应和外层封装响应均能反序列化。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldDeserializeDirectAndWrappedBusinessResponses() throws Exception {
         FreetryPrepareVerifyRequest prepareRequest = new FreetryPrepareVerifyRequest();
@@ -58,6 +73,10 @@ class FreetryRequestSerializationTest {
         assertThat(restrictionResponse.getData().getData().getUnusableDays()).isEqualTo("周一");
     }
 
+    /**
+     * 验证嵌套业务响应保留完整字段和长整型精度。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldDeserializeEveryDocumentedNestedResponseWithoutLosingLongPrecision() throws Exception {
         MeituanResponse<FreetryLoadCouponResponse> loadResponse = new FreetryLoadCouponRequest()

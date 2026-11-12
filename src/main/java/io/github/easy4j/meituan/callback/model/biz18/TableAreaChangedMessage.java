@@ -21,6 +21,13 @@ import lombok.Setter;
 public class TableAreaChangedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u684c\u53f0\u533a\u57df\u53d8\u66f4\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public TableAreaChangedMessage() {
+    }
+
+
+    /**
      * 门店组织 ID。必填。
      */
     @JsonProperty("orgId")
@@ -45,6 +52,13 @@ public class TableAreaChangedMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class TableAreaInfo {
+
+        /**
+         * 创建\u53d8\u66f4\u533a\u57df\u8be6\u60c5\u3002的空实例。
+         */
+        public TableAreaInfo() {
+        }
+
 
         /**
          * 区域 ID。必填。

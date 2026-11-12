@@ -4,7 +4,7 @@
 #   - push / pull_request on the feature/2.0.x branch
 #   - manual workflow_dispatch
 #
-# Runs `mvn -B clean verify` which includes the JaCoCo coverage gate
+# Runs `mvn -B clean verify javadoc:javadoc javadoc:test-javadoc` which includes the JaCoCo coverage gate
 # (90% line coverage, haltOnFailure=false) configured in the POM.
 name: CI
 
@@ -37,11 +37,11 @@ jobs:
           server-username: ALIYUN_PACKAGES_USERNAME
           server-password: ALIYUN_PACKAGES_PASSWORD
 
-      - name: Build and verify with JaCoCo coverage gate
+      - name: Build, verify, and check Javadoc
         env:
           ALIYUN_PACKAGES_USERNAME: ${{ secrets.ALIYUN_PACKAGES_USERNAME }}
           ALIYUN_PACKAGES_PASSWORD: ${{ secrets.ALIYUN_PACKAGES_PASSWORD }}
-        run: ./mvnw -B --no-transfer-progress clean verify
+        run: ./mvnw -B --no-transfer-progress clean verify javadoc:javadoc javadoc:test-javadoc
 
       - name: Upload JaCoCo coverage report
         if: always()
@@ -58,4 +58,16 @@ jobs:
         with:
           name: surefire-reports
           path: target/surefire-reports
+          retention-days: 14
+
+
+      - name: Upload Javadoc reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: javadoc-reports
+          path: |
+            target/reports/apidocs
+            target/reports/testapidocs
+          if-no-files-found: error
           retention-days: 14

@@ -26,12 +26,18 @@ public class FreetryQueryActivitiesByPoiRequest implements MeituanRequest<Freetr
     public FreetryQueryActivitiesByPoiRequest() {
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<FreetryQueryActivitiesByPoiResponse> deserializeResponse(String response) {
         Type type = new TypeToken<MeituanResponse<FreetryQueryActivitiesByPoiResponse>>() { }.getType();
         return JsonUtil.fromJson(response, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeToJson() {
         return JsonUtil.toJson(this);

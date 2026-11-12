@@ -25,6 +25,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class MealPreparationExceptionMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u51fa\u9910\u5f02\u5e38\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MealPreparationExceptionMessage() {
+    }
+
+
+    /**
      * 订单展示号（配置短订单号的为订单号）。
      */
     @JsonProperty("order_id")
@@ -52,6 +59,13 @@ public class MealPreparationExceptionMessage {
             isGetterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class BizData {
+
+        /**
+         * 创建\u4e0d\u540c\u7684biz_type\u683c\u5f0f\u4e0d\u4e00\u6837\u3002的空实例。
+         */
+        public BizData() {
+        }
+
 
         /**
          * 提示文案。

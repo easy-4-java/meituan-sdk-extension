@@ -20,6 +20,13 @@ import lombok.Setter;
 public class ReservedDeviceStartedMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u9884\u8ba2\u8bbe\u5907\u542f\u52a8\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ReservedDeviceStartedMessage() {
+    }
+
+
+    /**
      * 订单号。必填。
      */
     @JsonProperty("unifiedOrderId")

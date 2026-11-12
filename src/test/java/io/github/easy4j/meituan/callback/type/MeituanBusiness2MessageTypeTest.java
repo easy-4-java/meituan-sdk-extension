@@ -13,6 +13,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanBusiness2MessageTypeTest {
 
+    /**
+     * 创建\u9910\u996e\u5ba2\u6237\u89e3\u51b3\u65b9\u6848\u6d89\u53ca\u7684\u5916\u5356\u54c1\u724c\uff08businessId=2\uff09\u6d88\u606f\u7c7b\u578b\u76ee\u5f55\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanBusiness2MessageTypeTest() {
+    }
+
+
+    /**
+     * 验证业务 2 包含已公开的品牌 IM 消息定义。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldExposeDocumentedBrandImMessage() throws Exception {
         assertThat(MeituanBusiness2MessageType.values())
@@ -26,6 +37,10 @@ class MeituanBusiness2MessageTypeTest {
         );
     }
 
+    /**
+     * 验证当前业务的已登记消息可解析，其他业务及未知编号保持隔离。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldResolveDocumentedBrandImMessageForBusiness2() throws Exception {
         MeituanCallbackMessage<String> message = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(
@@ -39,6 +54,10 @@ class MeituanBusiness2MessageTypeTest {
         assertThat(message.getMessage()).contains("hello");
     }
 
+    /**
+     * 验证跨业务消息被拒绝，并按通用回调契约处理未知编号。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldRejectOtherBusinessesAndKeepUnknownMessagesAvailable() throws Exception {
         MeituanCallbackMessage<String> otherBusiness = CallbackUtil.parse(null, io.github.easy4j.meituan.TestCollections.mapOf(

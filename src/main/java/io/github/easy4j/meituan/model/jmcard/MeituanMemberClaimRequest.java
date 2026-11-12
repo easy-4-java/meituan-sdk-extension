@@ -39,12 +39,18 @@ public class MeituanMemberClaimRequest implements MeituanRequest<MeituanMemberCl
     @SerializedName("userRightInfo")
     private MeituanMemberClaimUserRight userRightInfo;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<MeituanMemberClaimResponse> deserializeResponse(String response) {
         Type type = new TypeToken<MeituanResponse<MeituanMemberClaimResponse>>() { }.getType();
         return JsonUtil.fromJson(response, type);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serializeToJson() {
         return JsonUtil.toJson(this);

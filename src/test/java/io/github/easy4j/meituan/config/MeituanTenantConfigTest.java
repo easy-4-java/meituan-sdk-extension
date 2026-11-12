@@ -12,6 +12,17 @@ import static org.junit.jupiter.api.Assertions.assertNull;
  */
 class MeituanTenantConfigTest {
 
+    /**
+     * 创建 \u5355\u5143\u6d4b\u8bd5\uff1a\u8986\u76d6\u6240\u6709\u5b57\u6bb5\u7684\u9ed8\u8ba4/\u8bbe\u7f6e\u53d6\u503c\u3002的空实例。
+     */
+    MeituanTenantConfigTest() {
+    }
+
+
+    /**
+     * 验证新建租户配置的各字段初始值为空。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_default_all_fields_null() throws Exception {
         MeituanTenantConfig cfg = new MeituanTenantConfig();
@@ -23,6 +34,10 @@ class MeituanTenantConfigTest {
         assertNull(cfg.getBusinessId());
     }
 
+    /**
+     * 验证租户配置能够保存并返回各属性的设置值。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_store_all_setter_values() throws Exception {
         MeituanTenantConfig cfg = new MeituanTenantConfig();

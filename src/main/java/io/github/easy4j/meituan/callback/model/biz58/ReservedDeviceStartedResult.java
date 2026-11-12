@@ -18,6 +18,13 @@ import lombok.Setter;
 public class ReservedDeviceStartedResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u9884\u8ba2\u8bbe\u5907\u542f\u52a8\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public ReservedDeviceStartedResult() {
+    }
+
+
+    /**
      * 业务错误码。业务错误码；返回特定code时，C端优先展示 businessMsg。
      */
     @JsonProperty("businessCode")

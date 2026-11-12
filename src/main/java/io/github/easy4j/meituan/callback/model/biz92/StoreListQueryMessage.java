@@ -21,6 +21,13 @@ import lombok.Setter;
 public class StoreListQueryMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u95e8\u5e97\u5217\u8868\u67e5\u8be2\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public StoreListQueryMessage() {
+    }
+
+
+    /**
      * 城市行政区划代码（6位）。传入时只返回该城市下的门店；不传时返回供应商所有门店。建议按城市逐个拉取，避免单次返回数据量过大。
      */
     @JsonProperty("cityCode")

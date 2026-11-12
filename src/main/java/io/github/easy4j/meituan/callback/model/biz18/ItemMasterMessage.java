@@ -21,6 +21,13 @@ import lombok.Setter;
 public class ItemMasterMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u3010\u4f9b\u5e94\u94fe\u3011\u7269\u54c1\u6863\u6848\u6d88\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public ItemMasterMessage() {
+    }
+
+
+    /**
      * 总部机构。必填。
      */
     @JsonProperty("rootOrgId")
@@ -57,6 +64,13 @@ public class ItemMasterMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class CompleteGoodsOpenDTO {
+
+        /**
+         * 创建\u7269\u54c1\u4fe1\u606f\u3002的空实例。
+         */
+        public CompleteGoodsOpenDTO() {
+        }
+
 
         /**
          * 总部机构 ID。
@@ -397,6 +411,13 @@ public class ItemMasterMessage {
         public static class OrgOpenDTO {
 
             /**
+             * 创建\u6240\u5c5e\u673a\u6784\u3002的空实例。
+             */
+            public OrgOpenDTO() {
+            }
+
+
+            /**
              * 机构 ID。
              */
             @JsonProperty("orgId")
@@ -430,6 +451,13 @@ public class ItemMasterMessage {
         public static class CompleteUnitOpenDTO {
 
             /**
+             * 创建\u57fa\u51c6\u5355\u4f4d\u3002的空实例。
+             */
+            public CompleteUnitOpenDTO() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -484,6 +512,13 @@ public class ItemMasterMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class WeightUnitTypeDetails {
+
+                /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
 
                 /**
                  * id。
@@ -508,6 +543,13 @@ public class ItemMasterMessage {
         public static class UnitsItem {
 
             /**
+             * 创建\u652f\u6301\u7684\u5355\u4f4d\u540d\u79f0\u5217\u8868\u3002的空实例。
+             */
+            public UnitsItem() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -564,6 +606,13 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
+
+                /**
                  * id。
                  */
                 @JsonProperty("id")
@@ -584,6 +633,13 @@ public class ItemMasterMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class GoodsStatisticsTypeDTO {
+
+            /**
+             * 创建\u7edf\u8ba1\u7c7b\u578b\u3002的空实例。
+             */
+            public GoodsStatisticsTypeDTO() {
+            }
+
 
             /**
              * 统计类型 ID。
@@ -613,6 +669,13 @@ public class ItemMasterMessage {
         public static class DefaultPurchaseUnitDetails {
 
             /**
+             * 创建\u91c7\u8d2d\u5355\u4f4d\u3002的空实例。
+             */
+            public DefaultPurchaseUnitDetails() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -667,6 +730,13 @@ public class ItemMasterMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class WeightUnitTypeDetails {
+
+                /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
 
                 /**
                  * id。
@@ -691,6 +761,13 @@ public class ItemMasterMessage {
         public static class DefaultOrderUnitDetails {
 
             /**
+             * 创建\u8ba2\u8d27\u5355\u4f4d\u3002的空实例。
+             */
+            public DefaultOrderUnitDetails() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -745,6 +822,13 @@ public class ItemMasterMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class WeightUnitTypeDetails {
+
+                /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
 
                 /**
                  * id。
@@ -769,6 +853,13 @@ public class ItemMasterMessage {
         public static class DefaultStockUnitDetails {
 
             /**
+             * 创建\u5e93\u5b58\u5355\u4f4d\u3002的空实例。
+             */
+            public DefaultStockUnitDetails() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -823,6 +914,13 @@ public class ItemMasterMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class WeightUnitTypeDetails {
+
+                /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
 
                 /**
                  * id。
@@ -847,6 +945,13 @@ public class ItemMasterMessage {
         public static class DefaultCostUnitDetails {
 
             /**
+             * 创建\u6210\u672c\u5355\u4f4d\u3002的空实例。
+             */
+            public DefaultCostUnitDetails() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -901,6 +1006,13 @@ public class ItemMasterMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class WeightUnitTypeDetails {
+
+                /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
 
                 /**
                  * id。
@@ -925,6 +1037,13 @@ public class ItemMasterMessage {
         public static class CheckUnitListItem {
 
             /**
+             * 创建\u76d8\u70b9\u5355\u4f4d\u3002的空实例。
+             */
+            public CheckUnitListItem() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -979,6 +1098,13 @@ public class ItemMasterMessage {
             @Setter
             @JsonIgnoreProperties(ignoreUnknown = true)
             public static class WeightUnitTypeDetails {
+
+                /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
 
                 /**
                  * id。
@@ -1003,6 +1129,13 @@ public class ItemMasterMessage {
         public static class SupplementaryUnitDetails {
 
             /**
+             * 创建\u8f85\u52a9\u5355\u4f4d\u3002的空实例。
+             */
+            public SupplementaryUnitDetails() {
+            }
+
+
+            /**
              * 单位 ID。
              */
             @JsonProperty("id")
@@ -1059,6 +1192,13 @@ public class ItemMasterMessage {
             public static class WeightUnitTypeDetails {
 
                 /**
+                 * 创建\u91cd\u91cf\u5355\u4f4d\u7c7b\u578b\u3002的空实例。
+                 */
+                public WeightUnitTypeDetails() {
+                }
+
+
+                /**
                  * id。
                  */
                 @JsonProperty("id")
@@ -1081,6 +1221,13 @@ public class ItemMasterMessage {
         public static class CanOrderDetails {
 
             /**
+             * 创建\u662f\u5426\u53ef\u8ba2\u8d27\u3002的空实例。
+             */
+            public CanOrderDetails() {
+            }
+
+
+            /**
              * id。
              */
             @JsonProperty("id")
@@ -1100,6 +1247,13 @@ public class ItemMasterMessage {
         @Setter
         @JsonIgnoreProperties(ignoreUnknown = true)
         public static class GoodsMultiSpecImageOpenDTO {
+
+            /**
+             * 创建\u56fe\u7247Urls\u3002的空实例。
+             */
+            public GoodsMultiSpecImageOpenDTO() {
+            }
+
 
             /**
              * 图片序号。

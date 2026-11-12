@@ -18,6 +18,13 @@ import lombok.Setter;
 public class RentalExtensionOrderResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u8ba2\u5355\u7eed\u79df\u4e0b\u5355\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public RentalExtensionOrderResult() {
+    }
+
+
+    /**
      * 业务状态码。必填。
      */
     @JsonProperty("bizCode")

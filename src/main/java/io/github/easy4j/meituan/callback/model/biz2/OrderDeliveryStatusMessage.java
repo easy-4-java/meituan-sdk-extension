@@ -25,6 +25,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class OrderDeliveryStatusMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a5\u6536\u8ba2\u5355\u914d\u9001\u72b6\u6001\u63a5\u53e3\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public OrderDeliveryStatusMessage() {
+    }
+
+
+    /**
      * 服务商入驻技术合作中心得到的唯一身份表示。必填。
      */
     @JsonProperty("developerId")
@@ -74,6 +81,13 @@ public class OrderDeliveryStatusMessage {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ShippingStatus {
+
+        /**
+         * 创建\u8ba2\u5355\u914d\u9001\u4fe1\u606f\u3002的空实例。
+         */
+        public ShippingStatus() {
+        }
+
 
         /**
          * 订单 ID。

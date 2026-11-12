@@ -947,45 +947,69 @@ public class MeituanCateringServiceImpl extends AbstractMeituanService implement
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> staffTechinfoQuery(StaffTechinfoQueryRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> orderMaxRefundAmountQuery(
             OrderMaxRefundAmountQueryRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> cybercafeBookResultSync(
             CybercafeBookResultSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> cybercafeBookRuleSync(
             CybercafeBookRuleSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> cybercafeBookConsume(CybercafeBookConsumeRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> cybercafeBookCancelResultSync(
             CybercafeBookCancelResultSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> zoneInfoSync(ZoneInfoSyncRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<Void> orderTakeUpInfoSync(OrderTakeUpInfoSyncRequest request, String tenantId) {
         return execute(request, tenantId);

@@ -110,26 +110,41 @@ public class MeituanStoreServiceImpl extends AbstractMeituanService implements M
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<PageSearchResponse> pageSearch(PageSearchRequest request, String tenantId) {
         return executeWithoutAuth(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<DcQueryMopTuangouDetailResponse> dcQueryMopTuangouDetail(DcQueryMopTuangouDetailRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<Void> invoiceResultCallback(InvoiceResultCallbackRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ManageInvoiceCloseResponse> manageInvoiceClose(ManageInvoiceCloseRequest request, String tenantId) {
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<ManageInvoiceOpenResponse> manageInvoiceOpen(ManageInvoiceOpenRequest request, String tenantId) {
         return execute(request, tenantId);

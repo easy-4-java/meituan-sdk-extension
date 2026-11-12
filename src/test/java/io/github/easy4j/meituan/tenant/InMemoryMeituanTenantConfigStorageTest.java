@@ -18,6 +18,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class InMemoryMeituanTenantConfigStorageTest {
 
+    /**
+     * 创建 \u5355\u5143\u6d4b\u8bd5\u3002的空实例。
+     */
+    InMemoryMeituanTenantConfigStorageTest() {
+    }
+
+
+    /**
+     * 验证未配置租户时返回空结果。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_return_empty_when_unset() throws Exception {
         InMemoryMeituanTenantConfigStorage storage = new InMemoryMeituanTenantConfigStorage(new HashMap<>());
@@ -25,6 +36,10 @@ class InMemoryMeituanTenantConfigStorageTest {
         assertFalse(result.isPresent());
     }
 
+    /**
+     * 验证已配置租户时返回对应配置。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_return_config_when_present() throws Exception {
         MeituanTenantConfig cfg = new MeituanTenantConfig();
@@ -42,6 +57,10 @@ class InMemoryMeituanTenantConfigStorageTest {
         assertEquals("sk-1", result.get().getSignKey());
     }
 
+    /**
+     * 验证空白租户标识返回空结果。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void should_return_empty_for_blank_tenant_id() throws Exception {
         InMemoryMeituanTenantConfigStorage storage = new InMemoryMeituanTenantConfigStorage(new HashMap<>());

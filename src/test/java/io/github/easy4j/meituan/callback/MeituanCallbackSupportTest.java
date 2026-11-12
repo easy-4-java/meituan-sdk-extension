@@ -20,6 +20,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class MeituanCallbackSupportTest {
 
+    /**
+     * 创建\u670d\u52a1\u96f6\u552e\uff08\u5ba2\u6237\uff0cbusinessId=59\uff09\u6d88\u606f\u56de\u8c03\u57fa\u7840\u80fd\u529b\u6d4b\u8bd5\u3002的空实例。
+     */
+    MeituanCallbackSupportTest() {
+    }
+
+
+    /**
+     * 验证官网表单示例的公共字段和业务消息类型可以解析。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldParseOfficialFormEncodedCallbackAndResolveMessageType() throws Exception {
         String message = "{\"productId\":1000,\"flowStatus\":30}";
@@ -42,6 +53,10 @@ class MeituanCallbackSupportTest {
         assertThat(callback.getParameters()).containsEntry("opBizCode", "1711591987");
     }
 
+    /**
+     * 验证正确签名通过，参数被篡改后验签失败。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldVerifySignatureAndRejectTamperedParameters() throws Exception {
         Map<String, String> parameters = new LinkedHashMap<>();
@@ -66,6 +81,10 @@ class MeituanCallbackSupportTest {
         assertThat(MeituanCallbackSigner.sign("test-sign-key", parameters)).isEqualTo(signature);
     }
 
+    /**
+     * 验证该业务的公开消息编号、名称、文档及编号唯一性。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldExposeAllDocumentedBusiness59MessagesWithoutDuplicateMsgTypes() throws Exception {
         assertThat(MeituanBusiness59MessageType.values()).hasSize(34);
@@ -89,6 +108,10 @@ class MeituanCallbackSupportTest {
         assertThat(unknownMessage.getMsgType()).isEqualTo("5999999");
     }
 
+    /**
+     * 验证标准成功与失败回执的状态、说明及数据格式。
+     * @throws Exception 当请求读取、数据转换或接口检查失败时
+     */
     @Test
     void shouldBuildStandardCallbackResponses() throws Exception {
         assertThat(MeituanCallbackResponse.success())

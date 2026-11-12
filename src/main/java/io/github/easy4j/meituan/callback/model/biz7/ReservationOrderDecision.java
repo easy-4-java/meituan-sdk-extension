@@ -18,6 +18,13 @@ import lombok.Setter;
 public class ReservationOrderDecision {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u63a8\u9001\u65b0\u8ba2\u5355\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public ReservationOrderDecision() {
+    }
+
+
+    /**
      * 新订单。1 - 接单；2 - 拒单；3 - 稍后处理。必填。
      */
     @JsonProperty("result")

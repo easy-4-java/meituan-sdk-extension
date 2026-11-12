@@ -21,6 +21,13 @@ import lombok.Setter;
 public class StoreDevicesQueryResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u67e5\u8be2\u6307\u5b9a\u95e8\u5e97\u4e0b\u5168\u91cf\u8bbe\u5907\u4fe1\u606f\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public StoreDevicesQueryResult() {
+    }
+
+
+    /**
      * 类目编码。必填。
      */
     @JsonProperty("categoryCode")
@@ -108,6 +115,13 @@ public class StoreDevicesQueryResult {
     public static class DeviceStatusInfo {
 
         /**
+         * 创建\u72b6\u6001\u4fe1\u606f\u3002\u5fc5\u586b\u3002的空实例。
+         */
+        public DeviceStatusInfo() {
+        }
+
+
+        /**
          * 三方设备ID，设备在商家侧的唯一标识。必填。
          */
         @JsonProperty("thirdPartyDeviceItemId")
@@ -142,6 +156,13 @@ public class StoreDevicesQueryResult {
     public static class DeviceMaintenanceLog {
 
         /**
+         * 创建\u6700\u8fd1\u4e00\u6b21\u7ef4\u62a4\u65e5\u5fd7\u3002的空实例。
+         */
+        public DeviceMaintenanceLog() {
+        }
+
+
+        /**
          * 维护时间，毫秒级时间戳。必填。
          */
         @JsonProperty("maintenanceTimestamp")
@@ -168,6 +189,13 @@ public class StoreDevicesQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DevicePricingInfo {
+
+        /**
+         * 创建\u8ba1\u8d39\u89c4\u5219\u3002的空实例。
+         */
+        public DevicePricingInfo() {
+        }
+
 
         /**
          * 是否收费：1-收费、2-免费。必填。
@@ -220,6 +248,13 @@ public class StoreDevicesQueryResult {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Attribute {
+
+        /**
+         * 创建\u6269\u5c55\u4fe1\u606f\u5217\u8868\u3002的空实例。
+         */
+        public Attribute() {
+        }
+
 
         /**
          * 信息名。必填。

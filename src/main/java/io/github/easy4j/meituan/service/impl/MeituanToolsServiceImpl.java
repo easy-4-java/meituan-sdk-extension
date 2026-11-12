@@ -552,6 +552,9 @@ public class MeituanToolsServiceImpl extends AbstractMeituanService implements M
         return execute(request, tenantId);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MeituanResponse<?> enterpriseOrderInvoiceInfoQuery(
             EnterpriseOrderInvoiceInfoQueryRequest request, String tenantId) {

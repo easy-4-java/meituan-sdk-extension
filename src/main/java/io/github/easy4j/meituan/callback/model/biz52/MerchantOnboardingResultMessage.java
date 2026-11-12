@@ -20,6 +20,13 @@ import lombok.Setter;
 public class MerchantOnboardingResultMessage {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u6536\u5355\u5f00\u653e\u5e73\u53f0\u5546\u6237\u5165\u9a7b\u7ed3\u679c\u901a\u77e5\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u5185\u5bb9\u3002的空实例。
+     */
+    public MerchantOnboardingResultMessage() {
+    }
+
+
+    /**
      * 商户 ID。必填。
      */
     @JsonProperty("merchantId")

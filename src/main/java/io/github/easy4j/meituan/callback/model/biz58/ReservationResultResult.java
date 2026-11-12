@@ -18,6 +18,13 @@ import lombok.Setter;
 public class ReservationResultResult {
 
     /**
+     * 创建\u7f8e\u56e2\u300c\u9884\u8ba2\u7ed3\u679c\u540c\u6b65\u300d\u56de\u8c03\u7684\u4e1a\u52a1\u54cd\u5e94\u3002的空实例。
+     */
+    public ReservationResultResult() {
+    }
+
+
+    /**
      * orderId。必填。
      */
     @JsonProperty("orderId")
