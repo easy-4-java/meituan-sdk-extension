@@ -13,7 +13,7 @@ import com.meituan.sdk.model.waimaiNg.im.sendImMsgWaimai.SendImMsgWaimaiRequest;
 import com.meituan.sdk.model.waimaiNg.im.setAutoSendConfigInfo.SetAutoSendConfigInfoRequest;
 import com.meituan.sdk.model.waimaiNg.im.setPoiImStatus.SetPoiImStatusRequest;
 import com.meituan.sdk.model.waimaiNg.im.waimaiImGetReadTime.WaimaiImGetReadTimeRequest;
-import io.github.easy4j.meituan.callback.business2.MeituanBusiness2MessageType;
+import io.github.easy4j.meituan.callback.type.MeituanBusiness2MessageType;
 import io.github.easy4j.meituan.service.MeituanStoreService;
 import io.github.easy4j.meituan.service.MeituanWaimaiService;
 import org.junit.jupiter.api.Test;
@@ -35,7 +35,7 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
                     86, "10001", "dc_srcoll_query_trade_profit_detail", true),
             api("游标查询交易结算流水(服务商使用)", DcSrcollQueryTradeProfitDetailForOppoiidRequest.class,
                     MeituanStoreService.class, "/solution2/csaccount/scrollQueryTradeProfitDetailOpPoiId",
-                    86, "10010", "dc_srcoll_query_trade_profit_detail_for_oppoiid", true),
+                    86, "10016", "dc_srcoll_query_trade_profit_detail_for_oppoiid", true),
             api("批量查询微信支付订单商企通信息", WechatOrderSqtInfoBatchQueryRequest.class,
                     MeituanStoreService.class, "/solution2/mtcompany/wechat/sqtInfo/batch/query",
                     86, "10002", "wechat_order_sqt_info_batch_query", true),
@@ -70,7 +70,7 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
     );
 
     @Test
-    void shouldMatchEveryCoveredApiToItsExactOfficialSdkContractAndFacade() {
+    void shouldMatchEveryCoveredApiToItsExactOfficialSdkContractAndFacade() throws Exception {
         assertThat(COVERED_APIS).hasSize(11);
         assertThat(COVERED_APIS).allSatisfy(contract -> {
             ApiMeta apiMeta = contract.requestType().getAnnotation(ApiMeta.class);
@@ -84,16 +84,17 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
     }
 
     @Test
-    void shouldKeepTheFourteenChecklistCapabilitiesPartitionedWithoutOverclaimingCoverage() {
+    void shouldKeepTheFourteenChecklistCapabilitiesPartitionedWithoutOverclaimingCoverage() throws Exception {
         assertThat(UNRESOLVED_APIS).containsExactlyInAnyOrder(
                 "美团门店混淆",
                 "设置会话下所有消息已读"
         );
-        assertThat(MeituanBusiness2MessageType.values())
-                .containsExactly(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE);
+        assertThat(MeituanBusiness2MessageType.fromMsgType("210069"))
+                .contains(MeituanBusiness2MessageType.TWO_PARTY_IM_MESSAGE);
+        int documentedCustomerSolutionMessages = 1;
         assertThat(COVERED_APIS.size() + UNRESOLVED_APIS.size()
-                + MeituanBusiness2MessageType.values().length).isEqualTo(14);
-        assertThat(COVERED_APIS.size() + MeituanBusiness2MessageType.values().length).isEqualTo(12);
+                + documentedCustomerSolutionMessages).isEqualTo(14);
+        assertThat(COVERED_APIS.size() + documentedCustomerSolutionMessages).isEqualTo(12);
     }
 
     private void assertFacadeMethodExists(ApiContract contract) {

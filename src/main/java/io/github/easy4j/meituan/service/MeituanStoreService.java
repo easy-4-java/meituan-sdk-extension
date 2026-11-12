@@ -3,11 +3,20 @@ package io.github.easy4j.meituan.service;
 import com.meituan.sdk.MeituanResponse;
 import com.meituan.sdk.model.mendianzhilian.test.bind.BindRequest;
 import com.meituan.sdk.model.mendianzhilian.test.createPoi.CreatePoiRequest;
+import com.meituan.sdk.model.mendianzhilian.test.pageSearch.PageSearchRequest;
+import com.meituan.sdk.model.mendianzhilian.test.pageSearch.PageSearchResponse;
 import com.meituan.sdk.model.mendianzhilian.test.search.SearchRequest;
 import com.meituan.sdk.model.mendianzhilian.test.updatePoi.UpdatePoiRequest;
+import com.meituan.sdk.model.solution2.csaccount.dcQueryMopTuangouDetail.DcQueryMopTuangouDetailRequest;
+import com.meituan.sdk.model.solution2.csaccount.dcQueryMopTuangouDetail.DcQueryMopTuangouDetailResponse;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetail.DcSrcollQueryTradeProfitDetailRequest;
 import com.meituan.sdk.model.solution2.csaccount.dcSrcollQueryTradeProfitDetailForOppoiid.DcSrcollQueryTradeProfitDetailForOppoiidRequest;
 import com.meituan.sdk.model.solution2.dcpoidinfo.dcPageQueryTokenPoiList.DcPageQueryTokenPoiListRequest;
+import com.meituan.sdk.model.solution2.mtcompany.invoiceResultCallback.InvoiceResultCallbackRequest;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceClose.ManageInvoiceCloseRequest;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceClose.ManageInvoiceCloseResponse;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceOpen.ManageInvoiceOpenRequest;
+import com.meituan.sdk.model.solution2.mtcompany.manageInvoiceOpen.ManageInvoiceOpenResponse;
 import com.meituan.sdk.model.solution2.mtcompany.wechatOrderSqtInfoBatchQuery.WechatOrderSqtInfoBatchQueryRequest;
 import com.meituan.sdk.model.solution2.csaccount.scrollQueryNonTradeProfitDetail.ScrollQueryNonTradeProfitDetailRequest;
 
@@ -69,7 +78,7 @@ public interface MeituanStoreService extends MeituanService {
 
     /**
      * 游标查询交易结算流水(服务商使用)。
-     * <p>官方接口：{@code /solution2/csaccount/scrollQueryTradeProfitDetailOpPoiId}，API：{@code dc_srcoll_query_trade_profit_detail_for_oppoiid}，版本：{@code 10007}，businessId：{@code 86}，需要授权：{@code 是}。</p>
+     * <p>官方接口：{@code /solution2/csaccount/scrollQueryTradeProfitDetailOpPoiId}，API：{@code dc_srcoll_query_trade_profit_detail_for_oppoiid}，版本：{@code 10016}，businessId：{@code 86}，需要授权：{@code 是}。</p>
      *
      * @param request  官方 MtOpJavaSDK 请求对象
      * @param tenantId 租户标识，用于选择对应的 appAuthToken
@@ -106,4 +115,48 @@ public interface MeituanStoreService extends MeituanService {
      */
     MeituanResponse<?> scrollQueryNonTradeProfitDetail(ScrollQueryNonTradeProfitDetailRequest request, String tenantId);
 
+    /**
+     * 分页查询门店信息。接口路径为 {@code /mendianzhilian/test/map/poi/page/search}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<PageSearchResponse> pageSearch(PageSearchRequest request, String tenantId);
+
+    /**
+     * 秒提团购对账接口。接口路径为 {@code /solution2/csaccount/queryMopCouponBill}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<DcQueryMopTuangouDetailResponse> dcQueryMopTuangouDetail(DcQueryMopTuangouDetailRequest request, String tenantId);
+
+    /**
+     * 发票结果通知回调。接口路径为 {@code /solution2/mtcompany/invoice/result/callback}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<Void> invoiceResultCallback(InvoiceResultCallbackRequest request, String tenantId);
+
+    /**
+     * 关闭直连开票服务。接口路径为 {@code /solution2/mtcompany/manage/invoice/close}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ManageInvoiceCloseResponse> manageInvoiceClose(ManageInvoiceCloseRequest request, String tenantId);
+
+    /**
+     * 开通直连开票服务。接口路径为 {@code /solution2/mtcompany/manage/invoice/open}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ManageInvoiceOpenResponse> manageInvoiceOpen(ManageInvoiceOpenRequest request, String tenantId);
 }

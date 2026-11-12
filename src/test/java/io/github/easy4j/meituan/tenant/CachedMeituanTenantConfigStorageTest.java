@@ -49,7 +49,7 @@ class CachedMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void shouldCacheAfterFirstLoadAndNotReloadWhileFresh() {
+    void shouldCacheAfterFirstLoadAndNotReloadWhileFresh() throws Exception {
         CachedMeituanTenantConfigStorage storage =
                 new CachedMeituanTenantConfigStorage(countingLoader(), Duration.ofMinutes(5));
         Optional<MeituanTenantConfig> first = storage.findByTenantId(TENANT);
@@ -61,7 +61,7 @@ class CachedMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void shouldReloadAfterTtlExpires() {
+    void shouldReloadAfterTtlExpires() throws Exception {
         // 用可控时钟模拟过期
         final long[] now = {1000L};
         Clock clock = Clock.fixed(java.time.Instant.EPOCH, java.time.ZoneId.systemDefault());
@@ -97,7 +97,7 @@ class CachedMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void zeroTtlMeansNeverExpire() {
+    void zeroTtlMeansNeverExpire() throws Exception {
         CachedMeituanTenantConfigStorage storage =
                 new CachedMeituanTenantConfigStorage(countingLoader(), Duration.ZERO);
         storage.findByTenantId(TENANT);
@@ -106,7 +106,7 @@ class CachedMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void putShouldOverwriteCacheAndRefreshShouldReload() {
+    void putShouldOverwriteCacheAndRefreshShouldReload() throws Exception {
         AtomicInteger count = new AtomicInteger();
         MeituanTenantConfigLoader loader = tenantId -> {
             count.incrementAndGet();
@@ -123,7 +123,7 @@ class CachedMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void evictAndClearShouldInvalidateCache() {
+    void evictAndClearShouldInvalidateCache() throws Exception {
         CachedMeituanTenantConfigStorage storage =
                 new CachedMeituanTenantConfigStorage(countingLoader(), Duration.ZERO);
         storage.findByTenantId(TENANT);
@@ -136,7 +136,7 @@ class CachedMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void shouldReturnEmptyForBlankTenantId() {
+    void shouldReturnEmptyForBlankTenantId() throws Exception {
         CachedMeituanTenantConfigStorage storage =
                 new CachedMeituanTenantConfigStorage(countingLoader());
         assertFalse(storage.findByTenantId("").isPresent());
@@ -184,7 +184,7 @@ class CachedMeituanTenantConfigStorageTest {
     }
 
     @Test
-    void missingTenantShouldReturnEmptyAndNotCache() {
+    void missingTenantShouldReturnEmptyAndNotCache() throws Exception {
         MeituanTenantConfigLoader loader = tenantId -> Optional.empty();
         CachedMeituanTenantConfigStorage storage = new CachedMeituanTenantConfigStorage(loader);
         assertFalse(storage.findByTenantId("no-such").isPresent());

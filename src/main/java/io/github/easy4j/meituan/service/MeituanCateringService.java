@@ -35,6 +35,7 @@ import com.meituan.sdk.model.foodmop.order.orderChangeNotice.OrderChangeNoticeRe
 import com.meituan.sdk.model.foodmop.order.orderFinish.OrderFinishRequest;
 import com.meituan.sdk.model.foodmop.order.orderFullFillNotice.OrderFullFillNoticeRequest;
 import com.meituan.sdk.model.foodmop.order.orderRefund.OrderRefundRequest;
+import com.meituan.sdk.model.foodmop.order.orderTakeUpInfoSync.OrderTakeUpInfoSyncRequest;
 import com.meituan.sdk.model.foodmop.order.refundNotice.RefundNoticeRequest;
 import com.meituan.sdk.model.foodmop.pay.tuangouTradeQueryByPage.TuangouTradeQueryByPageRequest;
 import com.meituan.sdk.model.foodmop.shop.baseInfoQuery.BaseInfoQueryRequest;
@@ -1157,4 +1158,12 @@ public interface MeituanCateringService extends MeituanService {
     /** 同步第三方资源区域信息。 */
     MeituanResponse<?> zoneInfoSync(ZoneInfoSyncRequest request, String tenantId);
 
+    /**
+     * 订单取餐信息同步（选接）。接口路径为 {@code /foodmop/order/diancannew/order/takeUpInfoSync}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<Void> orderTakeUpInfoSync(OrderTakeUpInfoSyncRequest request, String tenantId);
 }

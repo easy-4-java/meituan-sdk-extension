@@ -24,7 +24,7 @@ class MeituanFreetryServiceTest {
     private static final String TENANT_ID = "tenant-55";
 
     @Test
-    void shouldExecuteAllBusiness55ApisWithTenantAuthorization() {
+    void shouldExecuteAllBusiness55ApisWithTenantAuthorization() throws Exception {
         MeituanRequestExecutor requestExecutor = mock(MeituanRequestExecutor.class);
         MeituanFreetryService service = new MeituanFreetryServiceImpl(requestExecutor);
         FreetryLoadActivityRestrictionRequest restrictionRequest = new FreetryLoadActivityRestrictionRequest();
@@ -50,7 +50,7 @@ class MeituanFreetryServiceTest {
     }
 
     @Test
-    void shouldKeepExistingCustomFacadeImplementationsSourceCompatible() {
+    void shouldKeepExistingCustomFacadeImplementationsSourceCompatible() throws Exception {
         MeituanRequestExecutor requestExecutor = mock(MeituanRequestExecutor.class);
         MeituanFreetryService customService = new MeituanFreetryService() {
             @Override

@@ -34,7 +34,7 @@ class MeituanStoreServiceDirectConnectionTest {
     private static final String TENANT_ID = "tenant-71";
 
     @Test
-    void shouldExecuteAllBusiness71ApisWithoutAppAuthTokenForSelectedTenant() {
+    void shouldExecuteAllBusiness71ApisWithoutAppAuthTokenForSelectedTenant() throws Exception {
         MeituanRequestExecutor requestExecutor = mock(MeituanRequestExecutor.class);
         MeituanStoreService service = new MeituanStoreServiceImpl(requestExecutor);
         UpdatePoiRequest updateRequest = new UpdatePoiRequest();
@@ -112,7 +112,7 @@ class MeituanStoreServiceDirectConnectionTest {
     }
 
     @Test
-    void shouldFailClosedWhenCustomExecutorDoesNotSupportTenantAwareNoAuthCalls() {
+    void shouldFailClosedWhenCustomExecutorDoesNotSupportTenantAwareNoAuthCalls() throws Exception {
         MeituanRequestExecutor legacyExecutor = new MeituanRequestExecutor() {
             @Override
             public <T> MeituanResponse<T> execute(MeituanRequest<T> request, String tenantId) {

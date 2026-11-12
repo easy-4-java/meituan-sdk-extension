@@ -187,3 +187,6 @@ demos/**/*.mp4
 
 # 本地 dreamina CLI 采集输出
 .cli-audit/
+
+# 美团官方 SDK 完整发行包（含 sources，供分析；专有软件勿外传）
+MtOpJavaSDK/

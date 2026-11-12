@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class MeituanTenantConfigTest {
 
     @Test
-    void should_default_all_fields_null() {
+    void should_default_all_fields_null() throws Exception {
         MeituanTenantConfig cfg = new MeituanTenantConfig();
         assertNull(cfg.getTenantId());
         assertNull(cfg.getAppId());
@@ -24,7 +24,7 @@ class MeituanTenantConfigTest {
     }
 
     @Test
-    void should_store_all_setter_values() {
+    void should_store_all_setter_values() throws Exception {
         MeituanTenantConfig cfg = new MeituanTenantConfig();
         cfg.setTenantId("tenant-a");
         cfg.setAppId("app-001");

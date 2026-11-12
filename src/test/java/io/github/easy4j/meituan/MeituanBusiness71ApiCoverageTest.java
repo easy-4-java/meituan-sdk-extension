@@ -27,7 +27,8 @@ class MeituanBusiness71ApiCoverageTest {
             "/mendianzhilian/test/map/poi/update",
             "/mendianzhilian/test/map/poi/bind",
             "/mendianzhilian/test/map/poi/create",
-            "/mendianzhilian/test/map/poi/search"
+            "/mendianzhilian/test/map/poi/search",
+            "/mendianzhilian/test/map/poi/page/search"
     );
 
     @Test

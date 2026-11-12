@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class MeituanJakartaValidationTest {
     /** 原始 SDK 的必填约束转换后仍应被 Jakarta 校验并保留官方参数异常。 */
     @Test
-    void official_request_retains_required_constraints() {
+    void official_request_retains_required_constraints() throws Exception {
         try (var factory = Validation.buildDefaultValidatorFactory()) {
             assertFalse(factory.getValidator().validate(new OrderQueryorderRequest()).isEmpty());
         }
@@ -25,7 +25,7 @@ class MeituanJakartaValidationTest {
 
     /** 扩展 DTO 的嵌套约束不可因命名空间不一致被静默忽略。 */
     @Test
-    void extension_request_retains_cascaded_constraints() {
+    void extension_request_retains_cascaded_constraints() throws Exception {
         var request = new MeituanMemberClaimRequest();
         request.setUserRightInfo(new MeituanMemberClaimUserRight());
         try (var factory = Validation.buildDefaultValidatorFactory()) {

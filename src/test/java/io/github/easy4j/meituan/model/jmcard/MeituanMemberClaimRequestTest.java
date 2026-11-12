@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MeituanMemberClaimRequestTest {
 
     @Test
-    void shouldValidateRequiredFieldsInsideUserRightInfo() {
+    void shouldValidateRequiredFieldsInsideUserRightInfo() throws Exception {
         MeituanMemberClaimRequest request = new MeituanMemberClaimRequest();
         request.setUserRightInfo(new MeituanMemberClaimUserRight());
 
@@ -29,7 +29,7 @@ class MeituanMemberClaimRequestTest {
     }
 
     @Test
-    void shouldCascadeValidationIntoBothMemberLevels() {
+    void shouldCascadeValidationIntoBothMemberLevels() throws Exception {
         MeituanMemberClaimUserRight userRight = new MeituanMemberClaimUserRight();
         userRight.setBrandOriginLevel(new MeituanMemberLevel());
         userRight.setBrandLevel(new MeituanMemberLevel());
@@ -52,7 +52,7 @@ class MeituanMemberClaimRequestTest {
     }
 
     @Test
-    void shouldSerializeOfficialClaimFieldsAndDeserializeResponse() {
+    void shouldSerializeOfficialClaimFieldsAndDeserializeResponse() throws Exception {
         MeituanMemberLevel originLevel = new MeituanMemberLevel();
         originLevel.setBrandLevel("L5");
         originLevel.setLevelBeginTime(1_772_452_017L);

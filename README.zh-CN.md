@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 > 美团开放平台的 Java 扩展 SDK：基于官方 `MtOpJavaSDK` 的多租户封装，提供类型化
 > 业务门面、租户感知的请求执行与 Spring Boot 自动装配。
@@ -32,8 +32,8 @@
   避免 `signKey` 原文泄露到日志）。
 - **租户级执行** — 业务调用只需传 `tenantId`，执行器从可插拔的
   `MeituanTenantConfigStorage` 解析租户凭据后委托官方 client 发起请求。
-- **类型化业务门面** — 14 个 service 接口（`MeituanWaimaiService`、
-  `MeituanRetailService` 等），覆盖从官方 SDK 抽取的 1106 个强类型业务方法。（官方测试包 `corgiTest` 按设计排除；覆盖度由 `MeituanApiCoverageTest` 自动断言）
+- **类型化业务门面** — 15 个 service 接口（`MeituanWaimaiService`、
+  `MeituanRetailService` 等），覆盖该版本官方 SDK 的 1,148 个正式业务请求（官方测试包 `corgiTest` 按设计排除；覆盖度由 `MeituanApiCoverageTest` 自动断言）。
 - **可选 Spring Boot starter** — 配套的
   [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
   完成配置绑定、租户存储、client 工厂、执行器与全部业务 service 的装配；
@@ -61,20 +61,14 @@
 
 | 依赖 | 版本 |
 | :--- | :--- |
-| Java | 17+ |
-| Spring Boot | 3.x（自动装配 API 兼容 Boot 2.7+） |
-| 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923`（专有发行物，见下） |
-| 构建 | Maven 3.9.16（已含 `./mvnw` wrapper） |
+| Java | 21+ |
+| Spring Boot | 3.x |
+| 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`（专有发行物，见下） |
+| 构建 | Maven 3.9（已含 `./mvnw` wrapper） |
 
-> **官方 SDK 获取** — `MtOpJavaSDK` 由美团技术服务合作中心发行
-> （[SDK 下载](https://developer.meituan.com/sdk-download)），**未发布到
-> Maven Central**。官方 jar 与不可变坐标 POM 已随仓库附带在 `libs/` 下，CI 构建
-> 前会自动安装到本地仓库；本地开发也需要执行一次相同的安装：
->
-> ```bash
-> mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
->     -DpomFile=libs/MtOpJavaSDK-1.0-20260923.pom
-> ```
+官方二进制、源码及 POM 发布在项目配置的阿里云 Maven release 仓库。在 Maven settings 中为 `2624322-release-6F6h6R` 配置读取凭据后即可构建。离线安装时，从美团 20261112 发行包解压 JAR，并使用本仓库的 `libs/MtOpJavaSDK-1.0-20261112.pom`。
+
+通过 `new MeituanPlatformService(clientFactory, tenantStorage)` 使用 OAuth 换取或刷新 token、统一授权、本次调用的超时设置以及 `commonInvokeApi`。通用请求中的授权字段由调用方按接口要求填写。
 
 ## 4. 架构与模块
 
@@ -84,7 +78,7 @@
 | `io.github.easy4j.meituan.client` | 官方 client 工厂、租户感知的 `MeituanRequestExecutor` |
 | `io.github.easy4j.meituan.config` | `MeituanConfig`（平台级）/ `MeituanTenantConfig`（租户级） |
 | `io.github.easy4j.meituan.tenant` | 租户存储 SPI、内存实现、缓存装饰器、`MeituanTenantContextHolder`、加载器 |
-| `io.github.easy4j.meituan.service` | 14 个业务 service 接口 |
+| `io.github.easy4j.meituan.service` | 15 个业务 service 接口 |
 | `io.github.easy4j.meituan.service.impl` | 业务 service 实现 |
 | `io.github.easy4j.meituan.exception` | `MeituanJavaException` 异常转换 |
 
@@ -102,7 +96,7 @@
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>meituan-sdk-extension</artifactId>
-    <version>2.0.x.20260831-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -203,13 +197,56 @@ cachedStorage.evict("tenant-a");              // 清除单个条目
 > 取一个短于 token 有效期的 TTL，或在 token 轮换任务里调用
 > `put`/`refresh`。SDK 自身不做 token 刷新。
 
-### 服务零售与门店建店直连消息回调
+### 消息回调与业务模型
+
+业务模型位于 `io.github.easy4j.meituan.callback.model.biz<业务ID>`，消息类型枚举位于 `io.github.easy4j.meituan.callback.type`。从旧版升级时，请更新引用这些类型的 import 和反射使用的全限定类名，并重新编译调用方。
 
 businessId=58/59/71 的消息使用 URL-encoded 公共参数，并在 `message` 字段中携带业务 JSON。
-SDK 提供解析、验签、消息目录识别和标准响应模型，不绑定 Servlet 或具体 JSON 框架：
+SDK 使用 Jackson 2 将业务 JSON 转为 `MeituanCallbackMessage<T>`，可显式指定模型，也可按业务 ID 和消息类型自动选择模型。
+Servlet 入口使用 `jakarta.servlet.http.HttpServletRequest`，由宿主 Web 容器提供 Servlet API。
 
 ```java
-MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(requestBody);
+import io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage;
+
+MeituanCallbackMessage<MemberCreatedMessage> callback =
+        CallbackUtil.parse(request, MemberCreatedMessage.class);
+// 或将查询串与正文分别传入。正文支持表单字符串、JSON 信封、Map 和信封对象。
+MeituanCallbackMessage<MemberCreatedMessage> parsed =
+        CallbackUtil.parse(query, body, MemberCreatedMessage.class);
+MemberCreatedMessage member = parsed.getMessage();
+```
+
+各业务的接口清单在消息行提供「消息模型」和已定义的「响应模型」源码链接。
+`CallbackUtil.parse(request)` 和 `CallbackUtil.parse(query, body)` 返回 `MeituanCallbackMessage<?>`，
+按 `businessId` 与 `msgType`（旧会员卡为 `invokeType`）共同匹配。
+未登记的组合保留 `message` 或 `param` 原文及全部验签参数；没有这两个字段时业务内容为空。
+餐饮系统智能版的会员订单可用券列表（1810057）、会员优惠券核销（1810061）和逆向单消息（1810257）均支持自动解析。
+标准消息从 `message` 读取，历史会员卡从 `param` 读取。闪惠订单使用 `params`，部分外卖旧协议直接使用表单字段。
+正文同名字段优先于查询串，未知业务字段会被忽略。
+原始表单参数保留在 `getParameters()` 中，原始业务 JSON 可通过 `getRawMessage()` 获取，验签使用原始参数。
+JSON 对象型 `message` 会被序列化为参数值，无法保留其输入 JSON 的空白与格式，应按平台实际发送的表单验签。
+解析已知模型时，缺少消息、无效 JSON、类型转换失败或请求读取失败会抛出 `IllegalArgumentException`。
+预订新订单模型将字符串形式的 `data` 和 `requirements` 映射为嵌套对象，可调用 `getData().getRequirements().getRemark()` 读取备注。使用自定义模型并声明为 `String` 时仍保留原文。
+
+标准同步响应使用 `MeituanCallbackResponse.successData(result)`，Jackson 会将对象或列表写入外层的字符串字段 `data`。
+已有 JSON 文本可传给 `successJson(json)`。例如预订拒单可按下面的方式返回。
+
+```java
+ReservationOrderDecision decision = new ReservationOrderDecision();
+decision.setResult(2);
+decision.setRejectReason(2); // 该桌型已订满
+return MeituanCallbackResponse.successData(decision);
+```
+
+智能版会员券核销的官网示例直接嵌套业务对象，使用 `MeituanCallbackResponse.of(0, "ok", result)`。
+闪惠接收订单推送使用 `MeituanCallbackResponse.flashOrderSuccess()`，返回 `{"data":"ok"}`。
+服务零售「单个查询库存」和「批量获取库存」使用 `InventoryQueryResponse`，其返回码为字符串，说明字段名为 `msg`。
+
+通过 `CallbackUtil.parse(request, String.class)` 或 `CallbackUtil.parse(null, body, String.class)` 读取解码后的业务文本，保留首尾空白。显式指定类型时，业务文本缺失或全为空白会抛出异常。
+字符串回执声明为 `MeituanCallbackResponse<String>`，嵌套对象回执声明为 `MeituanCallbackResponse<业务类型>`。升级后需要重新编译调用方。
+
+```java
+MeituanCallbackMessage<String> callback = CallbackUtil.parse(null, requestBody, String.class);
 if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
     return MeituanCallbackResponse.failure(-2, "invalid signature");
 }
@@ -224,17 +261,20 @@ return MeituanBusiness58MessageType.resolve(callback)
                 handleRefundNotification(callback.getMessage());
                 yield MeituanCallbackResponse.success();
             }
+            default -> MeituanCallbackResponse.failure(-1, "unsupported msgType");
         })
         .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
 ```
 
-`MeituanBusiness58MessageType` 收录官方文档已给出 `msgType` 的 3 项 businessId=58
-消息；“次月扣款查询”和“取消连续包月通知”因官方尚未公开协议编号，保持未解析状态。
-`MeituanBusiness59MessageType` 收录官方文档已给出 `msgType` 的 33 项 businessId=59
-消息，并在解析前校验 `businessId`。平台新增类型仍可通过原始回调读取；功能清单中的
-“消费流水变更”因官方尚未公开协议编号，保持未解析状态。
+消息类型枚举覆盖 `MeituanCallbackModels` 中的 27 个业务、282 组已登记编号，每个业务使用 `MeituanBusiness<业务ID>MessageType`。
+`resolve(callback)` 同时检查业务 ID 和消息编号；`fromMsgType(msgType)` 查询该业务的枚举。
+回调定义集中在业务枚举中，每项填写名称、消息编号、官网文档和 `messageClass`。
+`MeituanCallbackModels` 从枚举构建只读索引；业务内新增回调只需添加一个枚举项。
+新增业务时，将该业务枚举接入注册表的业务目录。`MeituanCallbackModels.all()` 可读取完整消息定义。
+
+“消费流水变更”（5910023）的编号来自官网能力目录。消息详情未返回字段定义，SDK 保留 `message` 原文。
 `MeituanBusiness71MessageType` 收录门店建店直连的“审核结果通知”：能力名称
-`poi_openapi_msg_push`、`msgType=7110001`。四个 businessId=71 API 的官方元数据均为
+`poi_openapi_msg_push`、`msgType=7110001`。五个 businessId=71 API 的官方元数据均为
 `needAuth=false`；`MeituanStoreService` 会按租户选择开发者凭据，但调用时不携带
 `appAuthToken`。
 自定义 `MeituanRequestExecutor` 必须覆盖 `executeWithoutAuth(request, tenantId)`
@@ -257,7 +297,7 @@ return MeituanBusiness58MessageType.resolve(callback)
 
 ## 10. 版本与分支
 
-- 当前版本线：`2.0.x` — `2.0.x.20260831-SNAPSHOT`。
+- 当前版本线：`2.0.x` — `2.0.x.20260630-SNAPSHOT`。
 - CI 在 `feature/2.0.x` 分支执行 `./mvnw -B clean verify`（JDK 17）。
 
 ## 11. 贡献与许可
@@ -278,8 +318,8 @@ The existing extension artifact packages the official SDK after converting only
 No additional business-service compatibility module is required. The 1.0.x extension
 and 2.7.x starter retain javax; the separate 3.0.x / Jackson 3 line is unchanged.
 
-The immutable build input is `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923`
-(SHA-256 `a23b63c537ca3526cf3625a994eec0d40a55273babf4cb3815bf64698a55a7b9`).
+The immutable build input is `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`
+(SHA-256 `144ed5569a112b1c27de3b9b3d5a237781c593823a73268623832fb28863250c`).
 Builds reject a mismatched input. Provenance is recorded in
 `META-INF/easy4j/meituan-sdk-origin.properties`. Do not also depend on the raw SDK
 or add javax Validation/Hibernate Validator 6 to a Jakarta application's runtime.

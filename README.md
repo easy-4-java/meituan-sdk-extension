@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-[![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/meituan-sdk-extension) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 > Extension SDK for the Meituan Open Platform: a multi-tenant wrapper on top of the
 > official `MtOpJavaSDK` with typed business facades, tenant-aware request execution
@@ -35,9 +35,9 @@ application serve many Meituan developer accounts / stores at the same time:
 - **Tenant-scoped execution** — business calls take a `tenantId`, the executor
   resolves the tenant credentials from a pluggable `MeituanTenantConfigStorage`
   and delegates to the official client.
-- **Typed business facades** — 14 service interfaces (`MeituanWaimaiService`,
-  `MeituanRetailService`, …) covering the strong-typed Request/Response models
-  extracted from the official SDK (1106 typed methods). (official test package `corgiTest` excluded by design; coverage is enforced by `MeituanApiCoverageTest`)
+- **Typed business facades** — 15 service interfaces (`MeituanWaimaiService`,
+  `MeituanRetailService`, …) cover all 1,148 production requests in the pinned SDK.
+  `MeituanApiCoverageTest` checks these against the official JAR and excludes the `corgiTest` package.
 - **Optional Spring Boot starter** — the pairing starter
   [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
   wires config binding, tenant storage, client factory, executor and all
@@ -66,21 +66,14 @@ What it is **not**:
 
 | Dependency | Version |
 | :--- | :--- |
-| Java | 17+ |
-| Spring Boot | 3.x (auto-configuration API is Boot 2.7+ compatible) |
-| Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923` (proprietary, see below) |
-| Build | Maven 3.9.16 (`./mvnw` wrapper included) |
+| Java | 21+ |
+| Spring Boot | 4.x (auto-configuration API is Boot 2.7+ compatible) |
+| Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112` (proprietary, see below) |
+| Build | Maven 3.9 (`./mvnw` wrapper included) |
 
-> **Official SDK availability** — `MtOpJavaSDK` is distributed by the Meituan
-> Technical Service Cooperation Center ([sdk-download](https://developer.meituan.com/sdk-download))
-> and is **not published to Maven Central**. A copy of the official jar and an
-> immutable-coordinate POM are vendored under `libs/`; CI installs them before
-> building. Local development requires the same one-time installation:
->
-> ```bash
-> mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
->     -DpomFile=libs/MtOpJavaSDK-1.0-20260923.pom
-> ```
+The binary, sources and POM are published in the configured Aliyun Maven release repository. Configure read credentials for `2624322-release-6F6h6R` in Maven settings. For offline installation, use the JARs extracted from Meituan’s 20261112 distribution and `libs/MtOpJavaSDK-1.0-20261112.pom`.
+
+Use `new MeituanPlatformService(clientFactory, tenantStorage)` for OAuth token exchange and refresh, unified authorization, per-call timeouts and `commonInvokeApi`. Supply the authorization fields required by the endpoint on the official common request.
 
 ## 4. Architecture & Modules
 
@@ -90,7 +83,7 @@ What it is **not**:
 | `io.github.easy4j.meituan.client` | Official client factory, tenant-aware `MeituanRequestExecutor` |
 | `io.github.easy4j.meituan.config` | `MeituanConfig` (platform) / `MeituanTenantConfig` (tenant) |
 | `io.github.easy4j.meituan.tenant` | Tenant storage SPI, in-memory impl, cacheable decorator, `MeituanTenantContextHolder`, loader |
-| `io.github.easy4j.meituan.service` | 14 business service interfaces |
+| `io.github.easy4j.meituan.service` | 15 business service interfaces |
 | `io.github.easy4j.meituan.service.impl` | Business service implementations |
 | `io.github.easy4j.meituan.exception` | `MeituanJavaException` translation |
 
@@ -108,7 +101,7 @@ business service ──> MeituanRequestExecutor ──> MeituanTenantConfigStora
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>meituan-sdk-extension</artifactId>
-    <version>2.0.x.20260831-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -211,14 +204,43 @@ cachedStorage.evict("tenant-a");              // drop one entry
 > store, pick a TTL shorter than the token lifetime, or call `put`/`refresh`
 > from your token-rotation job. The SDK never refreshes tokens itself.
 
-### Business 58, 59, and 71 callback messages
+### Callback messages and payload models
+
+Business models live in `io.github.easy4j.meituan.callback.model.biz<businessId>` and message type enums live in `io.github.easy4j.meituan.callback.type`. When upgrading, update imports and any fully qualified class names used for reflection, then recompile the caller.
 
 Meituan callbacks use URL-encoded common parameters and carry
 the business JSON in the `message` field. The SDK provides framework-neutral
 parsing, signature verification, message-type resolution, and response models:
 
+The message rows in [the interface lists](docs/) link to their Java payload classes.
+For member creation, pass `io.github.easy4j.meituan.callback.model.biz59.MemberCreatedMessage.class`.
+`CallbackUtil.parse(request)` and `CallbackUtil.parse(query, body)` return a `MeituanCallbackMessage<?>`
+using both `businessId` and `msgType` (or the legacy `invokeType`). Unknown combinations retain the
+decoded `message` or `param` text and signing parameters. If neither field exists, the payload is null.
+Business 18 also dispatches member order coupon lookup (1810057), coupon redemption (1810061), and reverse orders (1810257).
+Reservation payloads expose nested JSON strings as typed objects. Some legacy formats use
+`param`, `params`, or named form fields instead of `message`.
+
+`CallbackUtil.parse(request, Payload.class)` accepts a Jakarta Servlet request.
+`CallbackUtil.parse(query, body, Payload.class)` accepts a query string and a form string,
+JSON envelope, decoded map, or envelope object. Both return `MeituanCallbackMessage<Payload>`
+and map the business message with Jackson 2. Body parameters take precedence over query parameters.
+Unknown payload properties are ignored. Invalid or missing payloads for a known model throw `IllegalArgumentException`.
+Use `getParameters()` for signature verification and `getRawMessage()` to access the original message.
+Object-valued JSON messages are serialized into parameter values, so their original JSON formatting
+is unavailable. Verify signatures against the actual form parameters sent by the platform.
+The interface tables also link to typed response data. For standard synchronous callbacks,
+`MeituanCallbackResponse.successData(result)` serializes an object or list into the string-valued
+`data` field. Use `successJson(json)` when the result is already JSON text. For POS coupon redemption,
+the official example uses a nested object: `MeituanCallbackResponse.of(0, "ok", result)`.
+Use `MeituanCallbackResponse.flashOrderSuccess()` for the Flash Order acknowledgement `{"data":"ok"}`.
+The single and batch inventory callbacks with a string status code and a `msg` field use `InventoryQueryResponse`.
+
+Use `CallbackUtil.parse(request, String.class)` or `CallbackUtil.parse(null, body, String.class)` to read the decoded message text, including its original whitespace. An absent or blank payload is rejected by these typed overloads.
+Use `MeituanCallbackResponse<String>` for a string-valued response and `MeituanCallbackResponse<Payload>` for a nested object. Recompile callers after migrating.
+
 ```java
-MeituanCallbackMessage callback = MeituanCallbackParser.parseForm(requestBody);
+MeituanCallbackMessage<String> callback = CallbackUtil.parse(null, requestBody, String.class);
 if (!MeituanCallbackSigner.verify(signKey, callback.getParameters(), callback.getSign())) {
     return MeituanCallbackResponse.failure(-2, "invalid signature");
 }
@@ -233,20 +255,23 @@ return MeituanBusiness58MessageType.resolve(callback)
                 handleRefundNotification(callback.getMessage());
                 yield MeituanCallbackResponse.success();
             }
+            default -> MeituanCallbackResponse.failure(-1, "unsupported msgType");
         })
         .orElseGet(() -> MeituanCallbackResponse.failure(-1, "unsupported msgType"));
 ```
 
-`MeituanBusiness58MessageType` contains the 3 documented business 58 messages;
-the enabled-list items “次月扣款查询” and “取消连续包月通知” remain unresolved
-because no protocol ID is published. `MeituanBusiness59MessageType` contains
-the 33 business 59 messages whose
-`msgType` is available in the official documentation. It verifies `businessId`
-before resolving. Unknown future types remain available through the raw callback;
-the enabled-list item “消费流水变更” remains unresolved because no protocol ID is published.
+The message type enums cover all 282 registered identifiers across 27 businesses in `MeituanCallbackModels`.
+Each business has a `MeituanBusiness<businessId>MessageType` enum. `resolve(callback)` checks both identifiers,
+and `fromMsgType(msgType)` looks up a type within that business.
+Each enum entry defines its name, message ID, document URL and `messageClass`.
+`MeituanCallbackModels` derives its immutable index from these entries, so adding a callback to an existing business requires one enum entry.
+For a new business, connect its enum to the registry’s business catalogue. `MeituanCallbackModels.all()` exposes the registered definitions.
+
+For consumption record changes (5910023), the capability directory confirms the ID.
+The SDK returns the original `message` string because the linked page provides no field definitions.
 `MeituanBusiness71MessageType` contains the documented Store Direct Connection
 audit-result callback: capability `poi_openapi_msg_push`, `msgType=7110001`.
-The four business 71 APIs are declared `needAuth=false`; `MeituanStoreService`
+The five business 71 APIs are declared `needAuth=false`; `MeituanStoreService`
 selects the tenant's developer credentials while invoking them without an
 `appAuthToken`.
 Custom `MeituanRequestExecutor` implementations must override
@@ -272,7 +297,7 @@ remain the application's responsibility.
 
 ## 10. Versioning & Branches
 
-- Current line: `2.0.x` — `2.0.x.20260831-SNAPSHOT`.
+- Current line: `2.0.x` — `2.0.x.20260630-SNAPSHOT`.
 - CI runs `./mvnw -B clean verify` on `feature/2.0.x` (JDK 17).
 
 ## 11. Contributing & License
@@ -293,8 +318,8 @@ The existing extension artifact packages the official SDK after converting only
 No additional business-service compatibility module is required. The 1.0.x extension
 and 2.7.x starter retain javax; the separate 3.0.x / Jackson 3 line is unchanged.
 
-The immutable build input is `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923`
-(SHA-256 `a23b63c537ca3526cf3625a994eec0d40a55273babf4cb3815bf64698a55a7b9`).
+The immutable build input is `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`
+(SHA-256 `144ed5569a112b1c27de3b9b3d5a237781c593823a73268623832fb28863250c`).
 Builds reject a mismatched input. Provenance is recorded in
 `META-INF/easy4j/meituan-sdk-origin.properties`. Do not also depend on the raw SDK
 or add javax Validation/Hibernate Validator 6 to a Jakarta application's runtime.

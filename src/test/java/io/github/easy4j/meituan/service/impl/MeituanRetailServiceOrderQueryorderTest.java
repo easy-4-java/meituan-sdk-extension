@@ -76,7 +76,7 @@ class MeituanRetailServiceOrderQueryorderTest {
     }
 
     @Test
-    void orderQueryorderShouldDeserializeSuccessResponseExample() {
+    void orderQueryorderShouldDeserializeSuccessResponseExample() throws Exception {
         String json = "{"
                 + "\"code\":\"OP_SUCCESS\","
                 + "\"msg\":\"成功\","
@@ -125,7 +125,7 @@ class MeituanRetailServiceOrderQueryorderTest {
     }
 
     @Test
-    void orderQueryorderShouldDeserializeErrorResponseExample() {
+    void orderQueryorderShouldDeserializeErrorResponseExample() throws Exception {
         String json = "{"
                 + "\"code\":\"OP_SYSTEM_PARAM_ERROR\","
                 + "\"msg\":\"缺少系统参数\","

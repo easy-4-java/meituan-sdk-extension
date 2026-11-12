@@ -11,7 +11,6 @@ import io.github.easy4j.meituan.service.MeituanFreetryService;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -33,7 +32,7 @@ class MeituanBusiness55ApiCoverageTest {
     );
 
     @Test
-    void shouldDeclareEveryDocumentedBusiness55ApiWithRuntimeRoutingMetadata() {
+    void shouldDeclareEveryDocumentedBusiness55ApiWithRuntimeRoutingMetadata() throws Exception {
         DOCUMENTED_REQUESTS.forEach((requestType, path) -> {
             ApiMeta apiMeta = requestType.getAnnotation(ApiMeta.class);
 
@@ -47,15 +46,15 @@ class MeituanBusiness55ApiCoverageTest {
     }
 
     @Test
-    void shouldExposeEveryDocumentedBusiness55ApiFromFreetryFacade() {
+    void shouldExposeEveryDocumentedBusiness55ApiFromFreetryFacade() throws Exception {
         Set<Class<?>> facadeRequestTypes = io.github.easy4j.meituan.TestCollections.setOf(MeituanFreetryService.class.getDeclaredMethods()).stream()
                 .filter(method -> method.getParameterCount() == 2)
                 .map(method -> method.getParameterTypes()[0])
                 .collect(Collectors.toSet());
 
         assertThat(facadeRequestTypes).containsExactlyInAnyOrderElementsOf(DOCUMENTED_REQUESTS.keySet());
-        assertThat(Arrays.stream(MeituanFreetryService.class.getDeclaredMethods())
-                .filter(method -> !method.isSynthetic()).toList())
+        assertThat(MeituanFreetryService.class.getDeclaredMethods())
+                .filteredOn(method -> !method.isSynthetic())
                 .extracting(Method::getName)
                 .containsExactlyInAnyOrder(
                         "loadActivityRestriction",

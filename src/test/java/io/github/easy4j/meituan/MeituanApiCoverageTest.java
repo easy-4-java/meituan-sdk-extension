@@ -96,10 +96,7 @@ class MeituanApiCoverageTest {
         return paramTypes;
     }
 
-    private File findOfficialSdkJar() throws Exception {
-        File file = OfficialSdkTestInput.jar();
-        assertTrue(file.getName().endsWith(".jar"),
-                "官方 SDK 应以 jar 形式存在: " + file);
-        return file;
+    private File findOfficialSdkJar() {
+        return OfficialSdkTestInput.jar();
     }
 }
