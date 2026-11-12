@@ -29,6 +29,7 @@ class MeituanBusiness51OnlineOrderingApiCoverageTest {
             "/foodmop/market/tuangou/deal/sku/mapping",
             "/foodmop/order/diancannew/order/pushNotice",
             "/foodmop/order/diancannew/order/fullFillNotice",
+            "/foodmop/order/diancannew/order/takeUpInfoSync",
             "/foodmop/order/refund",
             "/foodmop/order/refundNotice",
             "/foodmop/order/diancannew/order/finish",

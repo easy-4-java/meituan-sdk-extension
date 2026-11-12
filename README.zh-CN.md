@@ -32,8 +32,8 @@
   避免 `signKey` 原文泄露到日志）。
 - **租户级执行** — 业务调用只需传 `tenantId`，执行器从可插拔的
   `MeituanTenantConfigStorage` 解析租户凭据后委托官方 client 发起请求。
-- **类型化业务门面** — 14 个 service 接口（`MeituanWaimaiService`、
-  `MeituanRetailService` 等），覆盖从官方 SDK 抽取的 1106 个强类型业务方法（官方测试包 `corgiTest` 按设计排除；覆盖度由 `MeituanApiCoverageTest` 自动断言）。
+- **类型化业务门面** — 15 个 service 接口（`MeituanWaimaiService`、
+  `MeituanRetailService` 等），覆盖该版本官方 SDK 的 1,148 个正式业务请求（官方测试包 `corgiTest` 按设计排除；覆盖度由 `MeituanApiCoverageTest` 自动断言）。
 - **可选 Spring Boot starter** — 配套的
   [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
   完成配置绑定、租户存储、client 工厂、执行器与全部业务 service 的装配；
@@ -63,18 +63,12 @@
 | :--- | :--- |
 | Java | 21+ |
 | Spring Boot | 4.x（自动装配 API 兼容 Boot 2.7+） |
-| 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923`（专有发行物，见下） |
+| 官方 SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112`（专有发行物，见下） |
 | 构建 | Maven 4（已含 `./mvnw` wrapper） |
 
-> **官方 SDK 获取** — `MtOpJavaSDK` 由美团技术服务合作中心发行
-> （[SDK 下载](https://developer.meituan.com/sdk-download)），**未发布到
-> Maven Central**。官方 jar 与不可变坐标 POM 已随仓库附带在 `libs/` 下，CI 构建
-> 前会自动安装到本地仓库；本地开发也需要执行一次相同的安装：
->
-> ```bash
-> mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
->     -DpomFile=libs/MtOpJavaSDK-1.0-20260923.pom
-> ```
+官方二进制、源码及 POM 发布在项目配置的阿里云 Maven release 仓库。在 Maven settings 中为 `2624322-release-6F6h6R` 配置读取凭据后即可构建。离线安装时，从美团 20261112 发行包解压 JAR，并使用本仓库的 `libs/MtOpJavaSDK-1.0-20261112.pom`。
+
+通过 `new MeituanPlatformService(clientFactory, tenantStorage)` 使用 OAuth 换取或刷新 token、统一授权、本次调用的超时设置以及 `commonInvokeApi`。通用请求中的授权字段由调用方按接口要求填写。
 
 ## 4. 架构与模块
 
@@ -84,7 +78,7 @@
 | `io.github.easy4j.meituan.client` | 官方 client 工厂、租户感知的 `MeituanRequestExecutor` |
 | `io.github.easy4j.meituan.config` | `MeituanConfig`（平台级）/ `MeituanTenantConfig`（租户级） |
 | `io.github.easy4j.meituan.tenant` | 租户存储 SPI、内存实现、缓存装饰器、`MeituanTenantContextHolder`、加载器 |
-| `io.github.easy4j.meituan.service` | 14 个业务 service 接口 |
+| `io.github.easy4j.meituan.service` | 15 个业务 service 接口 |
 | `io.github.easy4j.meituan.service.impl` | 业务 service 实现 |
 | `io.github.easy4j.meituan.exception` | `MeituanJavaException` 异常转换 |
 
@@ -275,7 +269,7 @@ return MeituanBusiness58MessageType.resolve(callback)
 `MeituanBusiness59MessageType` 收录 34 项已核实编号的消息，解析时校验 `businessId=59`。
 “消费流水变更”（5910023）的编号来自官网能力目录。消息详情未返回字段定义，SDK 保留 `message` 原文。
 `MeituanBusiness71MessageType` 收录门店建店直连的“审核结果通知”：能力名称
-`poi_openapi_msg_push`、`msgType=7110001`。四个 businessId=71 API 的官方元数据均为
+`poi_openapi_msg_push`、`msgType=7110001`。五个 businessId=71 API 的官方元数据均为
 `needAuth=false`；`MeituanStoreService` 会按租户选择开发者凭据，但调用时不携带
 `appAuthToken`。
 自定义 `MeituanRequestExecutor` 必须覆盖 `executeWithoutAuth(request, tenantId)`

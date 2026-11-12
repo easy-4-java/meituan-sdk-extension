@@ -35,18 +35,13 @@
             <timezone>+8</timezone>
         </developer>
     </developers>
-    <!-- 官方 MtOpJavaSDK 为美团技术服务合作中心发行物，托管在个人私有快照仓库 -->
+    <!-- 美团官方 SDK 的日期版本发布到阿里云私有 release 仓库。 -->
     <repositories>
         <repository>
-            <id>2624322-snapshot-3EoOv3</id>
-            <name>2624322-snapshot-3eoov3</name>
-            <url>https://packages.aliyun.com/6927b116e6c3e0425dbdf60d/maven/2624322-snapshot-3eoov3</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <id>2624322-release-6F6h6R</id>
+            <url>https://packages.aliyun.com/6927b116e6c3e0425dbdf60d/maven/2624322-release-6f6h6r</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
         </repository>
     </repositories>
     <!-- 版本属性定义：Java 版本、依赖版本与 Maven 插件版本统一管理 -->
@@ -66,7 +61,7 @@
         <junit-jupiter.version>6.1.0</junit-jupiter.version>
         <junit.version>5.11.4</junit.version>
         <lombok.version>1.18.46</lombok.version>
-        <meituan-op-sdk.version>1.0-20260923</meituan-op-sdk.version>
+        <meituan-op-sdk.version>1.0-20261112</meituan-op-sdk.version>
         <slf4j.version>2.0.18</slf4j.version>
         <!-- Maven Plugin versions -->
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>

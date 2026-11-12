@@ -35,9 +35,9 @@ application serve many Meituan developer accounts / stores at the same time:
 - **Tenant-scoped execution** — business calls take a `tenantId`, the executor
   resolves the tenant credentials from a pluggable `MeituanTenantConfigStorage`
   and delegates to the official client.
-- **Typed business facades** — 14 service interfaces (`MeituanWaimaiService`,
-  `MeituanRetailService`, …) covering the strong-typed Request/Response models
-  extracted from the official SDK (1106 typed methods (official test package `corgiTest` excluded by design; coverage is enforced by `MeituanApiCoverageTest`)).
+- **Typed business facades** — 15 service interfaces (`MeituanWaimaiService`,
+  `MeituanRetailService`, …) cover all 1,148 production requests in the pinned SDK.
+  `MeituanApiCoverageTest` checks these against the official JAR and excludes the `corgiTest` package.
 - **Optional Spring Boot starter** — the pairing starter
   [meituan-spring-boot-starter](https://github.com/easy-4-java/meituan-spring-boot-starter)
   wires config binding, tenant storage, client factory, executor and all
@@ -68,19 +68,12 @@ What it is **not**:
 | :--- | :--- |
 | Java | 21+ |
 | Spring Boot | 4.x (auto-configuration API is Boot 2.7+ compatible) |
-| Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20260923` (proprietary, see below) |
+| Official SDK | `com.sankuai.sjst:MtOpJavaSDK:1.0-20261112` (proprietary, see below) |
 | Build | Maven 4 (`./mvnw` wrapper included) |
 
-> **Official SDK availability** — `MtOpJavaSDK` is distributed by the Meituan
-> Technical Service Cooperation Center ([sdk-download](https://developer.meituan.com/sdk-download))
-> and is **not published to Maven Central**. A copy of the official jar and an
-> immutable-coordinate POM are vendored under `libs/`; CI installs them before
-> building. Local development requires the same one-time installation:
->
-> ```bash
-> mvn install:install-file -Dfile=libs/MtOpJavaSDK-1.0-SNAPSHOT.jar \
->     -DpomFile=libs/MtOpJavaSDK-1.0-20260923.pom
-> ```
+The binary, sources and POM are published in the configured Aliyun Maven release repository. Configure read credentials for `2624322-release-6F6h6R` in Maven settings. For offline installation, use the JARs extracted from Meituan’s 20261112 distribution and `libs/MtOpJavaSDK-1.0-20261112.pom`.
+
+Use `new MeituanPlatformService(clientFactory, tenantStorage)` for OAuth token exchange and refresh, unified authorization, per-call timeouts and `commonInvokeApi`. Supply the authorization fields required by the endpoint on the official common request.
 
 ## 4. Architecture & Modules
 
@@ -90,7 +83,7 @@ What it is **not**:
 | `io.github.easy4j.meituan.client` | Official client factory, tenant-aware `MeituanRequestExecutor` |
 | `io.github.easy4j.meituan.config` | `MeituanConfig` (platform) / `MeituanTenantConfig` (tenant) |
 | `io.github.easy4j.meituan.tenant` | Tenant storage SPI, in-memory impl, cacheable decorator, `MeituanTenantContextHolder`, loader |
-| `io.github.easy4j.meituan.service` | 14 business service interfaces |
+| `io.github.easy4j.meituan.service` | 15 business service interfaces |
 | `io.github.easy4j.meituan.service.impl` | Business service implementations |
 | `io.github.easy4j.meituan.exception` | `MeituanJavaException` translation |
 
@@ -272,7 +265,7 @@ For consumption record changes (5910023), the capability directory confirms the 
 The SDK returns the original `message` string because the linked page provides no field definitions.
 `MeituanBusiness71MessageType` contains the documented Store Direct Connection
 audit-result callback: capability `poi_openapi_msg_push`, `msgType=7110001`.
-The four business 71 APIs are declared `needAuth=false`; `MeituanStoreService`
+The five business 71 APIs are declared `needAuth=false`; `MeituanStoreService`
 selects the tenant's developer credentials while invoking them without an
 `appAuthToken`.
 Custom `MeituanRequestExecutor` implementations must override

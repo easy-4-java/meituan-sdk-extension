@@ -1,6 +1,16 @@
 package io.github.easy4j.meituan.service.impl;
 
 import com.meituan.sdk.MeituanResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiInvalidActCode.ErpApiInvalidActCodeRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiInvalidActCode.ErpApiInvalidActCodeResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddCreateActCode.ErpApiQddCreateActCodeRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddCreateActCode.ErpApiQddCreateActCodeResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQuery.ErpApiQddMerchantProductQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQuery.ErpApiQddMerchantProductQueryResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQueryBatch.ErpApiQddMerchantProductQueryBatchRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQueryBatch.ErpApiQddMerchantProductQueryBatchResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiWaiterAppPoiGrantUpdate.ErpApiWaiterAppPoiGrantUpdateRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiWaiterAppPoiGrantUpdate.ErpApiWaiterAppPoiGrantUpdateResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiBusinessPoiCommonProductApply.ZcmopenApiBusinessPoiCommonProductApplyRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiBusinessPoiCommonProductQuery.ZcmopenApiBusinessPoiCommonProductQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonBankAll.ZcmopenApiCommonBankAllRequest;
@@ -13,6 +23,10 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinancePaychannelQuery.Zcm
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinancePaymentQuery.ZcmopenApiFinancePaymentQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinanceSettleQuery.ZcmopenApiFinanceSettleQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinanceSettleQueryByid.ZcmopenApiFinanceSettleQueryByidRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationApply.ZcmopenApiMerchantBizuserAuthenticationApplyRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationApply.ZcmopenApiMerchantBizuserAuthenticationApplyResponse;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationQuery.ZcmopenApiMerchantBizuserAuthenticationQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationQuery.ZcmopenApiMerchantBizuserAuthenticationQueryResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantContractSign.ZcmopenApiMerchantContractSignRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreate.ZcmopenApiMerchantCreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreateQuery.ZcmopenApiMerchantCreateQueryRequest;
@@ -28,6 +42,8 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantVerifyCustomer.Zcm
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalBoundasync.ZcmopenApiTerminalBoundasyncRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalUnbind.ZcmopenApiTerminalUnbindRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiClose.ZcmopenpayApiCloseRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayMicropay.ZcmopenpayApiPayMicropayRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiPayQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
@@ -356,4 +372,43 @@ public class MeituanPayServiceImpl extends AbstractMeituanService implements Mei
         return executeWithoutAuth(request, tenantId);
     }
 
+    @Override
+    public MeituanResponse<ErpApiInvalidActCodeResponse> erpApiInvalidActCode(ErpApiInvalidActCodeRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ErpApiQddCreateActCodeResponse> erpApiQddCreateActCode(ErpApiQddCreateActCodeRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ErpApiQddMerchantProductQueryResponse> erpApiQddMerchantProductQuery(ErpApiQddMerchantProductQueryRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ErpApiQddMerchantProductQueryBatchResponse> erpApiQddMerchantProductQueryBatch(ErpApiQddMerchantProductQueryBatchRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ErpApiWaiterAppPoiGrantUpdateResponse> erpApiWaiterAppPoiGrantUpdate(ErpApiWaiterAppPoiGrantUpdateRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ZcmopenApiMerchantBizuserAuthenticationApplyResponse> zcmopenApiMerchantBizuserAuthenticationApply(ZcmopenApiMerchantBizuserAuthenticationApplyRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ZcmopenApiMerchantBizuserAuthenticationQueryResponse> zcmopenApiMerchantBizuserAuthenticationQuery(ZcmopenApiMerchantBizuserAuthenticationQueryRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
+
+    @Override
+    public MeituanResponse<ZcmopenpayApiFinanceWalletSettleQueryResponse> zcmopenpayApiFinanceWalletSettleQuery(ZcmopenpayApiFinanceWalletSettleQueryRequest request, String tenantId) {
+        return executeWithoutAuth(request, tenantId);
+    }
 }

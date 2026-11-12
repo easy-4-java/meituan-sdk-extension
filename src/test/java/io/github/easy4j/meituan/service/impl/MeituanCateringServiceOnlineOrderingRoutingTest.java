@@ -30,7 +30,7 @@ class MeituanCateringServiceOnlineOrderingRoutingTest {
                         .startsWith("com.meituan.sdk.model.foodmop."))
                 .collect(java.util.stream.Collectors.toList());
 
-        assertThat(foodmopMethods).hasSize(52);
+        assertThat(foodmopMethods).hasSize(53);
         for (Method method : foodmopMethods) {
             MeituanRequest<?> request = (MeituanRequest<?>) method.getParameterTypes()[0]
                     .getDeclaredConstructor()

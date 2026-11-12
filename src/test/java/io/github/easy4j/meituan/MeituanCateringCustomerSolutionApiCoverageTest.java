@@ -35,7 +35,7 @@ class MeituanCateringCustomerSolutionApiCoverageTest {
                     86, "10001", "dc_srcoll_query_trade_profit_detail", true),
             api("游标查询交易结算流水(服务商使用)", DcSrcollQueryTradeProfitDetailForOppoiidRequest.class,
                     MeituanStoreService.class, "/solution2/csaccount/scrollQueryTradeProfitDetailOpPoiId",
-                    86, "10010", "dc_srcoll_query_trade_profit_detail_for_oppoiid", true),
+                    86, "10016", "dc_srcoll_query_trade_profit_detail_for_oppoiid", true),
             api("批量查询微信支付订单商企通信息", WechatOrderSqtInfoBatchQueryRequest.class,
                     MeituanStoreService.class, "/solution2/mtcompany/wechat/sqtInfo/batch/query",
                     86, "10002", "wechat_order_sqt_info_batch_query", true),

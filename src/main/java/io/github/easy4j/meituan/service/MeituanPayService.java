@@ -1,6 +1,16 @@
 package io.github.easy4j.meituan.service;
 
 import com.meituan.sdk.MeituanResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiInvalidActCode.ErpApiInvalidActCodeRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiInvalidActCode.ErpApiInvalidActCodeResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddCreateActCode.ErpApiQddCreateActCodeRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddCreateActCode.ErpApiQddCreateActCodeResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQuery.ErpApiQddMerchantProductQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQuery.ErpApiQddMerchantProductQueryResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQueryBatch.ErpApiQddMerchantProductQueryBatchRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiQddMerchantProductQueryBatch.ErpApiQddMerchantProductQueryBatchResponse;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiWaiterAppPoiGrantUpdate.ErpApiWaiterAppPoiGrantUpdateRequest;
+import com.meituan.sdk.model.sdpt.acquiring.erpApiWaiterAppPoiGrantUpdate.ErpApiWaiterAppPoiGrantUpdateResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiBusinessPoiCommonProductApply.ZcmopenApiBusinessPoiCommonProductApplyRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiBusinessPoiCommonProductQuery.ZcmopenApiBusinessPoiCommonProductQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiCommonBankAll.ZcmopenApiCommonBankAllRequest;
@@ -13,6 +23,10 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinancePaychannelQuery.Zcm
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinancePaymentQuery.ZcmopenApiFinancePaymentQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinanceSettleQuery.ZcmopenApiFinanceSettleQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiFinanceSettleQueryByid.ZcmopenApiFinanceSettleQueryByidRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationApply.ZcmopenApiMerchantBizuserAuthenticationApplyRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationApply.ZcmopenApiMerchantBizuserAuthenticationApplyResponse;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationQuery.ZcmopenApiMerchantBizuserAuthenticationQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantBizuserAuthenticationQuery.ZcmopenApiMerchantBizuserAuthenticationQueryResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantContractSign.ZcmopenApiMerchantContractSignRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreate.ZcmopenApiMerchantCreateRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantCreateQuery.ZcmopenApiMerchantCreateQueryRequest;
@@ -28,6 +42,8 @@ import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiMerchantVerifyCustomer.Zcm
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalBoundasync.ZcmopenApiTerminalBoundasyncRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenApiTerminalUnbind.ZcmopenApiTerminalUnbindRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiClose.ZcmopenpayApiCloseRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryRequest;
+import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiFinanceWalletSettleQuery.ZcmopenpayApiFinanceWalletSettleQueryResponse;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayMicropay.ZcmopenpayApiPayMicropayRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPayQuery.ZcmopenpayApiPayQueryRequest;
 import com.meituan.sdk.model.sdpt.acquiring.zcmopenpayApiPrecreate.ZcmopenpayApiPrecreateRequest;
@@ -401,4 +417,75 @@ public interface MeituanPayService extends MeituanService {
     MeituanResponse<?> zcmopenpayApiDynamicQrcodeRefundQuery(
             ZcmopenpayApiDynamicQrcodeRefundQueryRequest request, String tenantId);
 
+    /**
+     * 【青春版】注销激活码。接口路径为 {@code /sdpt/acquiring/erp/api/act/code/invalid}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ErpApiInvalidActCodeResponse> erpApiInvalidActCode(ErpApiInvalidActCodeRequest request, String tenantId);
+
+    /**
+     * 【青春版】创建钱多多激活码。接口路径为 {@code /sdpt/acquiring/erp/api/qdd/actCode/create}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ErpApiQddCreateActCodeResponse> erpApiQddCreateActCode(ErpApiQddCreateActCodeRequest request, String tenantId);
+
+    /**
+     * 【青春版】查询门店钱多多售卖产品。接口路径为 {@code /sdpt/acquiring/erp/api/qdd/merchant/product/query}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ErpApiQddMerchantProductQueryResponse> erpApiQddMerchantProductQuery(ErpApiQddMerchantProductQueryRequest request, String tenantId);
+
+    /**
+     * 【青春版】批量查询门店钱多多售卖产品。接口路径为 {@code /sdpt/acquiring/erp/api/qdd/merchant/product/query/batch}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ErpApiQddMerchantProductQueryBatchResponse> erpApiQddMerchantProductQueryBatch(ErpApiQddMerchantProductQueryBatchRequest request, String tenantId);
+
+    /**
+     * 【青春版】更新服务员app开关。接口路径为 {@code /sdpt/acquiring/erp/api/waiter/app/grant/update}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ErpApiWaiterAppPoiGrantUpdateResponse> erpApiWaiterAppPoiGrantUpdate(ErpApiWaiterAppPoiGrantUpdateRequest request, String tenantId);
+
+    /**
+     * [入件]微信/支付宝子商户号认证。接口路径为 {@code /sdpt/acquiring/api/merchant/bizuser/authentication/apply}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ZcmopenApiMerchantBizuserAuthenticationApplyResponse> zcmopenApiMerchantBizuserAuthenticationApply(ZcmopenApiMerchantBizuserAuthenticationApplyRequest request, String tenantId);
+
+    /**
+     * [入件]微信/支付宝子商户号认证结果查询。接口路径为 {@code /sdpt/acquiring/api/merchant/bizuser/authentication/query}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ZcmopenApiMerchantBizuserAuthenticationQueryResponse> zcmopenApiMerchantBizuserAuthenticationQuery(ZcmopenApiMerchantBizuserAuthenticationQueryRequest request, String tenantId);
+
+    /**
+     * [结算]结算账单明细查询v2。接口路径为 {@code /sdpt/acquiring/api/finance/walletSettle/query}。
+     *
+     * @param request 官方 SDK 请求对象
+     * @param tenantId 选择开发者凭据的租户标识
+     * @return 官方 SDK 响应
+     */
+    MeituanResponse<ZcmopenpayApiFinanceWalletSettleQueryResponse> zcmopenpayApiFinanceWalletSettleQuery(ZcmopenpayApiFinanceWalletSettleQueryRequest request, String tenantId);
 }
