@@ -377,6 +377,7 @@
                         <failOnWarnings>true</failOnWarnings>
                         <doclint>all</doclint>
                         <show>private</show>
+                        <legacyMode>true</legacyMode>
                         <detectJavaApiLink>false</detectJavaApiLink>
                         <additionalOptions>
                             <additionalOption>-Xmaxwarns</additionalOption>
